@@ -1,0 +1,21 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "redux/redux.d.ts": {
+      "commit": "7136728255d96038795d93c3e4b43c3c7de8ac1e"
+    },
+    "redux-logger/redux-logger.d.ts": {
+      "commit": "7136728255d96038795d93c3e4b43c3c7de8ac1e"
+    },
+    "chai/chai.d.ts": {
+      "commit": "bdaf2f0eb19edee26248c80bab4947e9b70e4217"
+    },
+    "assertion-error/assertion-error.d.ts": {
+      "commit": "bdaf2f0eb19edee26248c80bab4947e9b70e4217"
+    }
+  }
+}

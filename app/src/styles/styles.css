@@ -1,0 +1,26 @@
+.login { height: 100vh; }
+
+.field:invalid,
+.field.is-error { border-color: rgba(0,0,0,.125); }
+
+/* Validation */
+.login input.ng-invalid.ng-touched { border-color: #FF4136; }
+.login input.ng-valid.ng-touched { border-color: #2ECC40; }
+
+.header {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column
+}
+@media (min-width: 40em) {
+  .header {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row
+  }
+}
+
+.tasks-list { background-color: #F5F5F5; }
