@@ -92,10 +92,58 @@ upgrading can be done in strategic pieces.
 
 #### Bootstrap ng-upgrade
 
-####  Upgrade components strategically 
+- Use manual Angular 1.x bootstrapping, and remove `ng-app`/`ng-strict-di` 
+references if they exist
+- Add Angular 2 dependencies 
+- Add the upgrade adapter `import {UpgradeAdapter} from 'angular2/upgrade'`
+- Call the upgrade adapter's bootstrap
+
+Once this is working the foundation is set for transitioning from Angular 1.x to
+Angular 2.  It is important to note that the upgrade adapter's bootstrap 
+mechanism is asynchronous. Additionally it's important to treat the upgrade
+adapter as a singleton.
 
 #### Upgrading/Downgrading Components
 
+Once bootstrapping is complete, Angular 1.x components can be _upgraded_ to
+work with Angular2.  Conversely, Angular 2 components can be _downgraded_ to
+work with Angular 1.x
+
+##### Downgrading
+
+All downgraded components operate like Angular 1.x `'E'` element directives.
+
+@todo downgrade example
+
+##### Upgrading
+
+The only Angular 1.x components that can be upgraded, and used in Angular 2 code
+are those that _strictly_ follow the component pattern outlined at the top of
+this document. Wherever possible use Angular 1.5+'s `.component`
+
+@todo upgrade example
+
 #### Transclustion/Projection
 
+@todo transclustion example
+
 #### Injecting Across Frameworks
+
+Angular 1.x providers/services can be upgraded, and injected into Angular 2
+
+@todo Angular 1 upgrade service example
+
+Angular 2.x services can be downgraded, and injected into Angular 1.  In normal
+operation, Angular 2.x services would be bootstrapped with the application, but
+because of ng-upgrade being a hybrid mode, this is not the case.  The upgrade
+adapter comes with an `addProvider` method that needs to be used in the interim.
+
+@todo Angular 2 downgrade example
+
+####  Upgrade components strategically 
+
+Services that have no dependencies are excellent candidates for conversion. Once
+converted to Angular 2, services can be downgraded to work in Angular 1.x.
+Possibly the most challenging component/service to upgrade is Angular 1.x's UI
+Router library.
+
