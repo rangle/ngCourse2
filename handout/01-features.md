@@ -1,6 +1,6 @@
 # Part 1: EcmaScript 6 and TypeScript Features #
 
-The new version of JavaScript, "EcmaScript 6" or "ES6", offers a number of new features that extend the power of the language. (The language we usually call "JavaScript" is actually formally known as "EcmaScript".) ES6 is not widely supported in today's browsers, so it needs to be transpiled to ES5. You can choose between several transpilers, but we'll be using TypeScript, which is what Angular team uses to write Angular 2. Angular 2 makes use of a number of features of ES6 and TypeScript.
+The new version of JavaScript, "EcmaScript 6" or "ES6", offers a number of new features that extend the power of the language. (The language we usually call "JavaScript" is actually formally known as "EcmaScript".) ES6 is not widely supported in today's browsers, so it needs to be transpiled to ES5. You can choose between several transpilers, but we'll be using TypeScript, which is what the Angular team users to write Angular 2. Angular 2 makes use of a number of features of ES6 and TypeScript.
 
 
 ## Classes
@@ -36,7 +36,7 @@ class LoginFormController {
 }
 ```
 
-Here `this` refers to the instance of the class, assuming that submit method is called using the dot notation, such as `myComponent.submit()`. In this case, `this.fireSubmit(form)` invokes `fireSubmit()` method defined on the instance of the class. This will also ensure that inside `fireSubmit` we'll also have `this` referring to the same instance.
+Here `this` refers to the instance of the class, assuming that a submit method is called using the dot notation, such as `myComponent.submit()`. In this case, `this.fireSubmit(form)` invokes the `fireSubmit()` method defined on the instance of the class. This will also ensure that inside `fireSubmit` we'll also have `this` referring to the same instance.
 
 However, `this` can also refer to other things. This can get very confusing.
 
@@ -57,7 +57,7 @@ The second case is "function invocation":
   someFunction();
 ```
 
-Here `this` used inside `someFunction` can refer to different things depending on whether we are in "strict" mode or not. Without using the "strict" mode, `this` refers to the context in which `someFunction()` was called. This rarely what you want, and it can be extremely confusing. In strict mode, `this` would be undefined, which is slightly less confusing.
+Here `this` used inside `someFunction` can refer to different things depending on whether we are in "strict" mode or not. Without using the "strict" mode, `this` refers to the context in which `someFunction()` was called. This is rarely what you want, and it can be extremely confusing. In strict mode, `this` would be undefined, which is slightly less confusing.
 
 One of the implications of this is that you cannot easily detach a method from its object. E.g., consider this example:
 
@@ -153,14 +153,14 @@ Here `this` inside the arrow function refers to the instance variable.
 
 ## Inheritance
 
-JavaScript's inheritance works differently from inheritance in other languages, which can be very confusing. ES6 classes provide a syntactic sugar attempting to aleviate the issues with using prototypical inheritance present in ES5. Our recommendation is still to avoid using inhritance or at least deep inheritance hierarchies. Try solving the same problems through delegation instead.
+JavaScript's inheritance works differently from inheritance in other languages, which can be very confusing. ES6 classes provide a syntactic sugar attempting to alleviate the issues with using prototypical inheritance present in ES5. Our recommendation is still to avoid using inheritance or at least deep inheritance hierarchies. Try solving the same problems through delegation instead.
 
 
 ## TypeScript
 
 As of right now, no browser comes even close to supporting all of ES6. Support for classes is especially poor. Instead, we will need to rely on a transpiler to convert our ES6 code to ES5.
 
-Several ES6 transpilers are available. One popular option is Babel. However, we will be using TypeScript transpiler, which is what Angular team users to write Angular 2.
+Several ES6 transpilers are available. One popular option is Babel. However, we will be using TypeScript transpiler, which is what the Angular team uses to write Angular 2.
 
 TypeScript transpiler is different from other ES6 transpilers in that it expects as input not standard EcmaScript 6, but rather TypeScript, an extension of ES6 that adds support for optional typing.
 
@@ -240,7 +240,7 @@ In addition to classes and arrow functions, ES6 offers numerous other features n
 ## Typescript Features ##
 
 ### Basic Types ###
-Typescript allows use of simplest units of data: numbers, strings, boolean etc. Types are same as you ould expect them in JavaScript. List of types allowed in typescript are:-
+Typescript allows for the use of simple units of data: numbers, strings, boolean etc. Types are the same as you would expect them to be in JavaScript. The list of types allowed in typescript are:
 * Boolean
 * Number: 
 * String: 

@@ -1,10 +1,10 @@
 # Part 7: Pipes #
 
-In Angular 2 along with new component architecture we have a new way of filtering data pipes which replace filters from Angular 1.x. Most of the filters from Angular 1.x are carried over to pipes and there are some additions to that as well.  
+In Angular 2 along with a new component architecture we have a new way of filtering data pipes which replace filters from Angular 1.x. Most of the filters from Angular 1.x are carried over to pipes and there are some additions to that as well.  
 
 ## Using Pipes ##
 
-Like filters pipes also take data as input and transforms it to desired output. Basic example of using pipes is shown below.
+Like filters pipes also take data as input and transforms it to desired output. A basic example of using pipes is shown below.
 
 ```javascript
 import {Component} from 'angular2/core'
@@ -20,7 +20,7 @@ export class ProductPrice {
 
 ## Passing Parameters ##
 
-A pipe can accept optional parameters to modify the output. To add the parameters to pipe add colon(:) after the pipe name followed by the parameter value `pipeName:parameterValue`. If there are multiple parameters seprate them with colons `pipeName:parameter1:parameter2`.
+A pipe can accept optional parameters to modify the output. To add the parameters to pipe add colon(:) after the pipe name followed by the parameter value `pipeName:parameterValue`. If there are multiple parameters separate them with colons `pipeName:parameter1:parameter2`.
 
 ```javascript
 import {Component} from 'angular2/core';
@@ -37,9 +37,9 @@ export class ProductPrice {
 ```
 [View Example](http://plnkr.co/edit/1UoEPtXBhdKkfC8XSTsk?p=preview)
 
-## Chaining pipes ##
+## Chaining Pipes ##
 
-We can chain Pipes together to make use of multiple pipes in one expression
+We can chain pipes together to make use of multiple pipes in one expression
 
 ```javascript
 import {Component} from 'angular2/core';
@@ -109,7 +109,7 @@ There are two categories of pipes, stateless and stateful.
 
 Stateless pipes are pure functions that flow input data through without remembering anything or causing detectable side-effects. Most pipes are stateless. The CurrencyPipe we used and the length pipe we created both are examples of a stateless pipe.
 
-Stateful pipes are the one which can manage the state of the data they transform. A pipe that creates an HTTP request, stores the response and displays the output, is a stateful pipe. Stateful Pipes should be used cautiously.
+Stateful pipes are those which can manage the state of the data they transform. A pipe that creates an HTTP request, stores the response and displays the output, is a stateful pipe. Stateful Pipes should be used cautiously.
 
 Angular provides two stateful pipes AsyncPipe and JsonPipe.
 

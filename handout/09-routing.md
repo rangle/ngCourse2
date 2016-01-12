@@ -2,14 +2,14 @@
 
 Routing is a way to break the application into different modules based on the URL in the browser.
 
-### Why Routing ? ###
+### Why Routing? ###
 * Useful to maintain the state of the application
 * Modular Applications
-* Implmenting the application based on the roles (certain roles have access to certain url's)
+* Implementing the application based on the roles (certain roles have access to certain url's)
 * Many More
 
 ### Angular 1 ###
-In Angular 1 we used to define routes like below using the ** UI-Router ** we defined the states and substates using state provider. In defining every route we define four properties.
+In Angular 1 we used to define routes like below using the `UI-Router` we defined the states and substates using state provider. In defining every route we define four properties.
 * State: Unique name for each route being defined
 * Url: Url to be shown in the browser when user in on the particular route
 * Template / TemplateUrl: Template or Url for the view to be rendered when application is on the specific route
@@ -31,7 +31,7 @@ $stateProvider
     $urlRouterProvider.otherwise('/');
 ```
 
-Apart from defining the route above we also have **ng-view** directive which needs to be defined in the html to render the page
+Apart from defining the route above we also have `ng-view` directive which needs to be defined in the html to render the page
 
 ``` html
 <body>
@@ -42,11 +42,14 @@ Apart from defining the route above we also have **ng-view** directive which nee
 ```
 ### Angular 2 ###
 
-Angular2 team reworked on the routing from ground up in Angular2. The new component router allows you to configure routes using annotation on the main app component and map each of the routes to the corresponding components. There are 3 main components used to configure routing 
+The Angular 2 team reworked routing from the ground up in Angular 2. The new component router allows you to configure routes using annotation on the main app component and map each of the routes to the corresponding components. There are 3 main components used to configure routing 
 
-* RouteConfig: Annotation similar to View and Component used to define the routes in the main app
-* RouterOutlet: Its a placeholder component similar to ng-view that renders the content of each route
-* RouterLink: Used to define links to the different routes within the application
+* [RouteConfig](https://angular.io/docs/ts/latest/api/router/RouteConfig-decorator.html): Annotation similar to View and Component used to define the routes in the main app
+* [RouterOutlet](https://angular.io/docs/ts/latest/api/router/RouterOutlet-directive.html): Its a placeholder ~~component~~ directive similar to ng-view that renders the content of each route
+* [RouterLink](https://angular.io/docs/ts/latest/api/router/RouterLink-directive.html): Used to define links to the different routes within the application
+
+For more information on Angular.io routing, refer to their [Routing & Navigation Guide](https://angular.io/docs/ts/latest/guide/router.html)
+
 
 ***RouteConfig***
 
@@ -59,7 +62,7 @@ Below is the sample RouteConfig defined in the main application component.
 ]) 
 ```
 
-RouteConfig is a decorator defined in Angular2 which takes the array of RouteDefinition to define routes within the application. Every RouteDefinition can have different attributes. Some of the common attributes for the RouteDefinition are:-
+RouteConfig is a decorator defined in Angular2 which takes the array of [RouteDefinition](https://angular.io/docs/ts/latest/api/router/RouteDefinition-interface.html) to define routes within the application. Every RouteDefinition can have different attributes. Some of the common attributes for the RouteDefinition are:
 
 * path: Url to be shown in the browser when application in on the specific route
 * component: Component to be rendered when the application is on the specific route
@@ -71,7 +74,9 @@ RouteConfig is a decorator defined in Angular2 which takes the array of RouteDef
 
 ***RouterOutlet***
 
-A router outlet is a placeholder that Angular dynamically fills based on the application's route. Below is the example how we use the RouterOutlet in  Angular2 inside the template. In order to make use of the RouterOutlet we need to give component access to the Router Components we do it by passing **ROUTER_DIRECTIVES** in the component directives array. 
+A router outlet is a placeholder that Angular dynamically fills based on the application's route. Below is the example how we use the RouterOutlet in  Angular2 inside the template. In order to make use of the RouterOutlet we need to give component access to the Router Components we do it by passing `ROUTER_DIRECTIVES` in the component directives array. 
+
+Below is the example of how we use the RouterOutlet in Angular 2
 
 ```javascript
 ...
@@ -90,7 +95,7 @@ A router outlet is a placeholder that Angular dynamically fills based on the app
 
 ***RouterLink***
 
-After declaring routes and adding the outlet we need to tell angular how to navigate between the routes. We can do it in differnet ways we like. One is using plain old href links in the templates as shown below
+After declaring routes and adding the outlet we need to tell angular how to navigate between the routes. We can do it in differnet ways we like. One is using plain old href links in the templates as shown below.
 
 ```html
 <nav>
@@ -99,7 +104,7 @@ After declaring routes and adding the outlet we need to tell angular how to navi
 </nav>
 ```
 
-Other way is define them using the RouterLink. The RouterLink directive lets you link to specific parts of your app. Example of defining route using RouterLink is shown below.
+The other way is to define them using the RouterLink. The RouterLink directive lets you link to specific parts of your app. Example of defining route using RouterLink is shown below.
 
 ```html
 <nav>
@@ -130,11 +135,11 @@ To declare the child routes in the application we declare the main route in the 
   .....  
 ])
 ``` 
-In the above example we define the main /start route which maps to the Start ... dots at the end of the route tells Angular that it has associated child routes with it. Next in the child Start Component we need to do two things:-
+In the above example we define the main `/start` route which maps to the Start ... dots at the end of the route tells Angular that it has associated child routes with it. Next in the child Start Component we need to do two things:-
 * Define the RouterOutlet view where child routes gets rendered
 * Set up child routes in the component itself
 
-Below is the sample of Child component with routes and View defined.
+Below is the sample of the Child component
 
 ```javascript
 @Component({
@@ -162,10 +167,10 @@ export class Start {}
 
 Angular 2 supports LocationStrategy which is responsible for representing and reading route state from the browser's URL. Angular provides two strategies: HashLocationStrategy (default) and PathLocationStrategy. They both use location service under the hood. Applications should use the Router or Location services to interact with application route state.
 
-* HashLocationStrategy is a LocationStrategy used to configure the Location service to represent its state in the hash fragmentof the browser's URL.
+* HashLocationStrategy is a LocationStrategy used to configure the Location service to represent its state in the hash fragment of the browser's URL.
 For instance, if you call location.go('/foo'), the browser's URL will become example.com/#/foo.
 
-Below Code shows how to configure HashLocationStrategy
+The following code shows how to configure HashLocationStrategy
 ```javascript
 import {RouterApp} from './router-app/router-app';
 export function main() {
@@ -180,7 +185,7 @@ export function main() {
 PathLocationStrategy is the default binding for LocationStrategy provided in ROUTER_PROVIDERS. If you're using PathLocationStrategy, you must provide a provider for APP_BASE_HREF to a string representing the URL prefix that should be preserved when generating and recognizing URLs.
 For instance, if you provide an APP_BASE_HREF of '/my/app' and call location.go('/foo'), the browser's URL will become example.com/my/app/foo.
 
-Below Code shows how to configure PathLocationStrategy
+The following code shows how to configure PathLocationStrategy
 ```javascript
 import {RouterApp} from './router-app/router-app';
 export function main() {
@@ -195,7 +200,7 @@ export function main() {
 
 ***Using Auxiliary routes***
 
-Angular 2 supports concept of auxiliary routes. Before we go further we must understand what are auxiliary routes. Auxiliary routes allow you to set up and navigate multiple independent routes in a single app. Each component has one primary route and zero or more auxiliary outlets. Auxiliary outlets must have unique name within a Component. 
+Angular 2 supports the concept of auxiliary routes. Before we go further, we must understand what an auxiliary route is. Auxiliary routes allow you to set up and navigate multiple independent routes in a single app. Each component has one primary route and zero or more auxiliary outlets. Auxiliary outlets must have unique name within a Component. 
 
 To define the auxiliary route we must first add the router outlet where contents for the auxiliary route gets rendered. Sample for the auxiliary route outlet is shown below.
 ```html
@@ -223,7 +228,7 @@ Each Auxiliary route is an independent route which:-
 
 ***Routing with lazy-loading of components***
 
-To lazy load the component and deffer the initalization till the component is loaded. For that angular 2 provides AsyncRoute route. We define the route in route config as shown below.
+To lazy load the component and defer the initalization till the component is loaded. For that angular 2 provides AsyncRoute route. We define the route in route config as shown below.
 
 ```javascript
 new AsyncRoute({
@@ -256,7 +261,7 @@ class UserCmp {
 
 ***RouteData***
 
-While most of the times parent components will be passing data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the @RouteConfig annotation. For example, our ProductDetail route can be configured as follows:
+While most of the time parent components will be passing data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the @RouteConfig annotation. For example, our ProductDetail route can be configured as follows:
 
 ```javascript
 @RouteConfig([
