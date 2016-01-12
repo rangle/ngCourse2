@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "angular2": "^2.0.0-beta.0",
+    "basscss": "^7.1.0",
     "chalk": "^1.1.1",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.10",
@@ -48,9 +49,9 @@
     "zone.js": "^0.5.10"
   },
   "devDependencies": {
+    "autoprefixer": "^6.2.3",
     "chai": "^3.4.0",
     "css-loader": "^0.21.0",
-    "extract-text-webpack-plugin": "^0.9.0",
     "file-loader": "^0.8.4",
     "gulp": "^3.9.0",
     "gulp-webdriver": "^1.0.1",
@@ -69,6 +70,7 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.3",
     "nodemon": "^1.8.1",
+    "postcss-loader": "^0.8.0",
     "ramda": "^0.18.0",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.4.3",
