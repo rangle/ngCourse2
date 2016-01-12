@@ -45,6 +45,7 @@
  * Setup simple counter example
  
  ## Redux and Component Architecture
+ 
  * TODO: How much in depth do we want to go here, how much of this is covered by other areas in the course?
  
  * Smart vs Dumb 
@@ -58,7 +59,6 @@
  ## Redux Tools
  
  * TODO: Decide how far if at all we want to go here?
- 
  * Setting up Redux Logger
 
  
