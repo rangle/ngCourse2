@@ -44,22 +44,22 @@
     * explain mapDispatchToTarget
  * Setup simple counter example
  
- ## Redux and Component Architecture
+## Redux and Component Architecture
  
- * TODO: How much in depth do we want to go here, how much of this is covered by other areas in the course?
+* TODO: How much in depth do we want to go here, how much of this is covered by other areas in the course?
+
+* Smart vs Dumb 
+* Smart containers 
+* Dumb components 
  
- * Smart vs Dumb 
- * Smart containers 
- * Dumb components 
+## Redux - extra stuff
  
- ## Redux - extra stuff
- 
- * TODO: Talk about re-select/selectors?
+* TODO: Talk about re-select/selectors?
   
- ## Redux Tools
+## Redux Tools
  
- * TODO: Decide how far if at all we want to go here?
- * Setting up Redux Logger
+* TODO: Decide how far if at all we want to go here?
+* Setting up Redux Logger
 
  
 
