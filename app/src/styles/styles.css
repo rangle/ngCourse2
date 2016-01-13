@@ -6,3 +6,13 @@
 }
 
 .cols { columns: 20rem; }
+
+.field.ng-invalid.ng-touched { border-color: #ff4136; }
+.field.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 0 2px rgba(255, 65, 54, 0.5);
+}
+
+.field.ng-valid.ng-touched { border-color: #2ECC40; }
+.field.ng-valid.ng-touched:focus {
+  box-shadow: 0 0 0 2px rgba(46, 204, 64, 0.5);
+}

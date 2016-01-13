@@ -36,6 +36,7 @@
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.10",
     "express": "^4.13.3",
+    "immutable": "^3.7.6",
     "ng2-redux": "^2.0.2",
     "react": "^0.14.5",
     "redux": "^3.0.5",

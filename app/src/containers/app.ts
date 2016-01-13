@@ -1,57 +1,47 @@
-import {Component, View, Inject} from 'angular2/core';
-import {bindActionCreators} from 'redux';
-import Grid from '../components/grid/grid';
-import * as CounterActions from '../actions/counter';
-
-interface Item {
-  title: string;
-  content: string;
-}
+import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import Main from './main';
 
 @Component({
   selector: 'root',
-  directives: [Grid],
+  directives: [ROUTER_DIRECTIVES],
   template: `
-  <div class="container px1">
-    <header class="navy mt4 mb3 border-bottom py1">
-      <a href="http://rangle.io"
-        class="h5 bold caps compact">
-        rangle.io
-      </a>
-      <h1 class="m0">ngCourse2</h1>
+  <div class="container px2">
+    <header class="mb3 py3">
+      <h1 class="h1 caps m0 navy">
+        ngCourse2
+      </h1>
+      <div class="sm-flex flex-baseline flex-wrap mxn1 h6">
+        <div class="bold gray px1">
+          Sun Jan 14, 2016
+        </div>
+        <div class="flex-auto"></div>
+        <a [routerLink]="['Main']"
+          class="caps ml1 mr1 button button-link">
+          Tasks
+        </a>
+        <a [routerLink]="['Main', 'TaskAdd']"
+          class="caps ml1 mr1 button button-link">
+          Add
+        </a>
+        <a href="https://github.com/rangle/ngcourse2"
+          class="caps ml1 mr1 button button-link">
+          github
+        </a>
+      </div>
+    <hr class="mt1 mb1 b2 border--red">
     </header>
-    <grid [items]="items"></grid>
+    <router-outlet></router-outlet>
   </div>
   `
 })
-export default class App {
-
-  protected unsubscribe: Function;
-  public items: Array<Item> = Array(30).map(x => {
-    return {
-      title: 'alice beeblebrox',
-      content: 'Learn Angular 2 so that I can build an app'
-    };
-  });
-
-  constructor( @Inject('ngRedux') ngRedux) {
-    this.unsubscribe = ngRedux.connect(
-      this.mapStateToThis,
-      this.mapDispatchToThis
-    )(this);
-  }
-
-  onDestroy() {
-    this.unsubscribe();
-  }
-
-  mapStateToThis(state) {
-    return {
-      counter: state.counter
-    };
-  }
-
-  mapDispatchToThis(dispatch) {
-    return bindActionCreators(CounterActions, dispatch);
-  }
-}
+@RouteConfig([{
+  path: '/',
+  redirectTo: ['Main']
+}, {
+  path: '/tasks/...',
+  name: 'Main',
+  component: Main,
+  useAsDefault: true
+}])
+export default class App {}

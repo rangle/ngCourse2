@@ -17,9 +17,9 @@ const CHECK = require('!raw!../../assets/check.svg');
       <div>
         <h5 class="gray caps m0">
           ${USER}
-          Alice Beeblebrox
+          {{ title }}
         </h5>
-        <p class="m0 h3">Learn Angular 2 so that I can build an app</p>
+        <p class="m0 h3">{{ content }}</p>
       </div>
     </div>
     <div class="border-top blue py1 px2 flex flex-auto">
