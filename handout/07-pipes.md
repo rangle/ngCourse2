@@ -4,7 +4,7 @@ In Angular 2 along with a new component architecture we have a new way of filter
 
 ## Using Pipes ##
 
-Like filters pipes also take data as input and transforms it to desired output. A basic example of using pipes is shown below.
+Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below.
 
 ```javascript
 import {Component} from 'angular2/core'
@@ -31,11 +31,9 @@ import {Component} from 'angular2/core';
 })
 export class ProductPrice {
   price: number = 100.123456;
-  //price: number = 100.123;
-  //price: number = 100.1;
 }
 ```
-[View Example](http://plnkr.co/edit/1UoEPtXBhdKkfC8XSTsk?p=preview)
+[View Example](http://plnkr.co/edit/z2mCGyJzR5zNPof3q5C4?p=preview)
 
 ## Chaining Pipes ##
 
@@ -50,11 +48,9 @@ import {Component} from 'angular2/core';
 })
 export class ProductPrice {
   price: number = 100.123456;
-  //price: number = 100.123;
-  //price: number = 100.1;
 }
 ```
-[View Example](http://plnkr.co/edit/IxB0zrNRLPdkTXmtBMLZ?p=info)
+[View Example](http://plnkr.co/edit/s1cvu5yhfOnoDRngHXe4?p=preview)
 
 ## Custom Pipes ##
 
@@ -67,26 +63,19 @@ import {Pipe, PipeTransform} from 'angular2/core';
 export class LengthPipe implements PipeTransform {
   transform(value:string, args:string[]) : any {
     let displayMessage: boolean = Boolean(args[0]);
-    if displayMessage
-      return value + ' ' + value.length;
-    else
-      return value.length;
+    return displayMessage ? `${value} ${value.length}` : `${value.length}`
   }
 }
 ```
-[View Example](http://plnkr.co/edit/flxSlCraXtzQZ30phJjm?p=preview)
+[View Example](http://plnkr.co/edit/QrOAQL?p=preview)
 
 Each custom pipe implementation must:-
 
 * Have Pipe annotation with pipe metadata
-
 * Implement the PipeTransform interface's with transform method that takes an input value and an optional array of parameter strings and returns the transformed value
-
 * There will be one item in the parameter array for each parameter passed to the pipe
-
 * We tell Angular that this is a pipe by applying the @Pipe decorator which we import from the core Angular library
-
-* The @Pipe decorator takes an object with a name property whose value is the pipe name that we'll use within a template expression. It must be a valid JavaScript identifier. Our pipe's name is LengthPipe
+* The `@Pipe` decorator takes an object with a name property whose value is the pipe name that we'll use within a template expression. It must be a valid JavaScript identifier. Our pipe's name is LengthPipe
 
 ```javascript
 import {Component} from 'angular2/core';
@@ -101,7 +90,7 @@ export class Hello {
   message: string = 'Hello There';
 }
 ```
-[View Example](http://plnkr.co/edit/flxSlCraXtzQZ30phJjm?p=preview)
+[View Example](http://plnkr.co/edit/QrOAQL?p=preview)
 
 ## Stateful Pipes ##
 
@@ -112,6 +101,8 @@ Stateless pipes are pure functions that flow input data through without remember
 Stateful pipes are those which can manage the state of the data they transform. A pipe that creates an HTTP request, stores the response and displays the output, is a stateful pipe. Stateful Pipes should be used cautiously.
 
 Angular provides two stateful pipes AsyncPipe and JsonPipe.
+
+## Async Pipe ##
 
 AsyncPipe can receive a Promise or Observable as input and subscribe to the input automatically, eventually returning the emitted value(s). It is stateful because the pipe maintains a subscription to the input and its returned values depend on that subscription.
 
@@ -131,16 +122,16 @@ export class ProductPrice {
 
 ## Implementing Stateful Pipes ##
 
-Pipes are stateless by default. We must declare a pipe to be stateful by setting the pure property of the @Pipe decorator to false. This setting tells Angular’s change detection system to check the output of this pipe each cycle, whether its input has changed or not.
+Pipes are stateless by default. We must declare a pipe to be stateful by setting the pure property of the `@Pipe` decorator to false. This setting tells Angular’s change detection system to check the output of this pipe each cycle, whether its input has changed or not.
 
 ```javascript
 import {Pipe, PipeTransform} from 'angular2/core';
 
 @Pipe({
-  name: 'length',
+  name: 'delay',
   pure: false
 })
-export class LengthPipe  implements PipeTransform{
+export class DelayPipe  implements PipeTransform{
   
   private fetchedValue:any;
   private fetchPromise:Promise<any>;
@@ -156,4 +147,4 @@ export class LengthPipe  implements PipeTransform{
 }
 
 ```
-[View Example](http://plnkr.co/edit/oRQcYfDfskSwbztTBMt2?p=preview)
+[View Example](http://plnkr.co/edit/ujNLTmuQRw8UH0ujHz8Z?p=preview)
