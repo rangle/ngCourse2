@@ -1,0 +1,11 @@
+logs
+*.log
+handout.html
+
+pids
+*.pid
+*.seed
+
+node_modules
+dist
+.vscode/
