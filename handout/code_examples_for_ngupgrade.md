@@ -2,7 +2,7 @@
 
 ###Downgrading Angular2 component to work in Angular1 application
 
-**app.ts**
+**bootstrap.ts**
         
     import {UpgradeAdapter} from 'angular2/upgrade';
     import {bootstrap} from 'angular2/platform/browser';
@@ -21,7 +21,7 @@
 	...
 	<body>
 		<script>
-			System.import('app');
+			System.import('bootstrap');
 
 	        angular.module('angular1-base',[]);
 
@@ -63,7 +63,7 @@ We have an old Angular1 component
 	...
 	<body>
 		<script>
-			System.import('app');
+			System.import('bootstrap');
 
 	        angular.module('angular1-base',[]);
 
@@ -95,7 +95,7 @@ We use this old component in an Angular2 component. To make this work call `upgr
 
 Then we can downgrade this new Angular2 component to start using it
 
-**app.ts**
+**bootstrap.ts**
 
     import {UpgradeAdapter} from 'angular2/upgrade';
     import {bootstrap} from 'angular2/platform/browser';
@@ -111,7 +111,9 @@ Then we can downgrade this new Angular2 component to start using it
 
 ### Using Angular2 Providers
 
-**app.ts**
+(might not actually need to use this one)
+
+**bootstrap.ts**
 
 	import {UpgradeAdapter} from 'angular2/upgrade';
 	import {HTTP_PROVIDERS} from 'angular2/http';
@@ -122,7 +124,7 @@ Then we can downgrade this new Angular2 component to start using it
 	
 	adapter.bootstrap(document.body, ['angular1-base']);
 
-**derp**
+**server.ts**
 	
 	import {Injectable} from 'angular2/core';
 	import {Http} from 'angular2/http';
@@ -131,3 +133,70 @@ Then we can downgrade this new Angular2 component to start using it
 	export default class MyService() {
 		constructor(private _http: Http) {}
 	}
+
+
+### Upgrading Angular1 Providers
+
+We have an Angular2 service that uses an Angular1 service
+
+**Angular2Service.ts**
+
+	import {Injectable} from 'angular2/core';
+	
+	@Injectable()
+	class Angular2Service {
+		constructor(@Inject('Angular1Service') angular1Service) {
+			// 
+		}
+	}
+
+**Angular1Service.ts**
+
+	angular.module('angular1-base').service('Angular1Service', function () {
+		//
+	});
+
+To make the Angular1 service injectable all you need to do is upgrade it
+
+**bootstrap.ts**
+	
+	import {UpgradeAdapter} from 'angular2/upgrade';
+	
+	let adapter: UpgradeAdapter = new UpgradeAdapter();
+	
+	adapter.upgradeNg1Provider('Angular1Service');
+
+
+### Downgrading Angular2 Providers
+
+We have an Angular2 service
+
+**services/Angular2Service.ts**
+
+	import {Injectable} from 'angular2/core';
+	
+	@Injectable()
+	class Angular2Service {
+		constructor() {
+			//
+		}
+	}
+
+And downgrade it to use it in an Angular1 component
+
+**services/Angular1Service.ts**
+	
+	import {Angular2Service} from './services/Angular2Service';
+	import {UpgradeProvider} from 'angular2/upgrade';
+	
+	var Angular2Service = adapter.downgradeNg2Provider(Angular2Service);
+	angular.module('angular1-base').factory('Angular2Service', Angular2Service);
+
+
+**controllers/Angular1Controller.ts**
+
+	angular.module('angular1-base').controller('TestController', function (Angular2Service) {
+		// 
+	});
+
+
