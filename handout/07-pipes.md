@@ -4,7 +4,7 @@ In Angular 2 along with a new component architecture we have a new way of filter
 
 ## Using Pipes ##
 
-Like filters, pipes also take data as input and transforms it to desired output. A basic example of using pipes is shown below.
+Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below.
 
 ```javascript
 import {Component} from 'angular2/core'
