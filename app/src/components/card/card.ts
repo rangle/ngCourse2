@@ -6,12 +6,10 @@ const CHECK = require('!raw!../../assets/check.svg');
 
 @Component({
   selector: 'card',
-  properties: [
+  inputs: [
     'title',
     'content'
-  ]
-})
-@View({
+  ],
   styles: [STYLES],
   template: `
   <div class="bg-white rounded shadow">

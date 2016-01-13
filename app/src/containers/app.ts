@@ -9,9 +9,7 @@ interface Item {
 }
 
 @Component({
-  selector: 'root'
-})
-@View({
+  selector: 'root',
   directives: [Grid],
   template: `
   <div class="container px1">

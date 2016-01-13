@@ -3,11 +3,9 @@ import Card from '../card/card';
 
 @Component({
   selector: 'grid',
-  properties: [
+  inputs: [
     'items'
-  ]
-})
-@View({
+  ],
   directives: [Card],
   template: `
     <ul class="cols list-reset m0">
