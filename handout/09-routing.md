@@ -3,6 +3,7 @@
 Routing is a way to break the application into different modules based on the URL in the browser.
 
 ### Why Routing? ###
+
 * Useful to maintain the state of the application
 * Modular Applications
 * Implementing the application based on the roles (certain roles have access to certain url's)
@@ -10,6 +11,7 @@ Routing is a way to break the application into different modules based on the UR
 
 ### Angular 1 ###
 In Angular 1 we used to define routes like below using the `UI-Router` we defined the states and substates using state provider. In defining every route we define four properties.
+
 * State: Unique name for each route being defined
 * Url: Url to be shown in the browser when user in on the particular route
 * Template / TemplateUrl: Template or Url for the view to be rendered when application is on the specific route
@@ -104,7 +106,7 @@ After declaring routes and adding the outlet we need to tell angular how to navi
 </nav>
 ```
 
-The other way is to define them using the RouterLink. The RouterLink directive lets you link to specific parts of your app. Example of defining route using RouterLink is shown below.
+The other way is to define them using the RouterLink. The RouterLink directive lets you link to specific parts of your app. The values in the array will map to the `name` or `as` that was given to the component in the `@RouteConfig`. Example of defining route using RouterLink is shown below.
 
 ```html
 <nav>
@@ -122,7 +124,7 @@ If we want to define routes with parameters we need to pass the specific paramet
 </nav>
 ```
 
-The first route name should be prepended with /, ./, or ../. If the route begins with /, the router will look up the route from the root of the app. If the route begins with ./, the router will instead look in the current component's children for the route. And if the route begins with ../, the router will look at the current component's parent.
+The first route name should be prepended with `/`, `./`, or `../`. If the route begins with `/`, the router will look up the route from the root of the app. If the route begins with `./`, the router will instead look in the current component's children for the route. And if the route begins with `../`, the router will look at the current component's parent.
 
 ***Creating Child Routes***
 
@@ -135,7 +137,8 @@ To declare the child routes in the application we declare the main route in the 
   .....  
 ])
 ``` 
-In the above example we define the main `/start` route which maps to the Start ... dots at the end of the route tells Angular that it has associated child routes with it. Next in the child Start Component we need to do two things:-
+In the above example we define the main `/start` route which maps to the Start component, the `...` dots at the end of the route tells Angular that it has associated child routes with it. Next in the child Start Component we need to do two things:-
+
 * Define the RouterOutlet view where child routes gets rendered
 * Set up child routes in the component itself
 
@@ -150,7 +153,7 @@ Below is the sample of the Child component
   {path: '/child', component: StartChild, as: 'StartChild'  }
 ])
 @View({
-  directives: [RouterLink, ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES],
   template: `
   <div>
     Start Component
@@ -185,7 +188,8 @@ export function main() {
 PathLocationStrategy is the default binding for LocationStrategy provided in ROUTER_PROVIDERS. If you're using PathLocationStrategy, you must provide a provider for APP_BASE_HREF to a string representing the URL prefix that should be preserved when generating and recognizing URLs.
 For instance, if you provide an APP_BASE_HREF of '/my/app' and call location.go('/foo'), the browser's URL will become example.com/my/app/foo.
 
-The following code shows how to configure PathLocationStrategy
+The following code shows how to configure PathLocationStrategy:
+
 ```javascript
 import {RouterApp} from './router-app/router-app';
 export function main() {
@@ -221,6 +225,7 @@ Next, we need to define the link to the auxiliary route for the application to n
 ```
 
 Each Auxiliary route is an independent route which:-
+
 * Can have their own child routes
 * Can have their own auxiliary routes
 * Have their own route-params
