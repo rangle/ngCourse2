@@ -1,5 +1,58 @@
 # Part 13: Project Setup #
 
+## TypeScript
+
+The TypeScript npm package comes bundled with the official compiler to compile to JavaScript. To allow for some flexibility, the compiler allows for some configuration which is passed through a json formatted `tsconfig.json` file. If you want a base json file to start off with, you can execute the command `tsc --init`.
+
+
+## Webpack
+
+### Why use another tool?
+
+A modern JavaScript web application includes a lot of different packages and dependencies, and it's important to have something that makes sense of it all in a simple way.
+
+Angular 2 takes the approach of breaking your application apart into many different components, each of which can have several files. Separating application logic this way is good for the developer, but can detract from user experience since doing this can increase page loading time. HTTP2 aims to solve this problem in one way, but until we've gotten a better feel for it, we will need a way to bundle different parts of your application together and compress it.
+
+The most common platform, the browser, must continue to provide backwards compatibility for all existing code and this necessitates slow movement of additions to the base functionality of html/css/js. To avoid binding themselves to the constraints of the web platform, the community has created different compilation tools that transform their preferred syntax and feature set to what the browser supports.  This is especially evident in this course where we leverage [TypeScript](http://www.typescriptlang.org/) heavily. Projects may also involve different css preprocessors (sass, stylus) or templating engines (jade, Mustache, EJS) that need to be integrated.
+
+
+### Webpack to the rescue
+
+- Why webpack?
+  - works with different types of files in different contexts, brings js, css, template compilers together
+  - provides minification and source maps
+  - provides common interface/workflow that solves above issues meaning limited config, dont need to spend time gathering different packages
+  - hot code reloading (just mention)
+
+
+streamlines that integration into your workflows.
+
+
+- How to get?
+  - npm install --saveDev
+      webpack ts-loader html-webpack-plugin
+      tslint-loader (optional? do we want to make reference to linting?)
+  - (self note) need more info RE serve-webpack-client, relevant?
+  - open source so github available: https://github.com/webpack/webpack
+
+- How to setup?
+  - default to execute webpack.config.js
+  - what are entry points
+  - setup separate entry points for external resources and internal resources, important RE angular2
+  - integrate with npm tasks
+  - (self note) non-entry chunks as specified by chunkFilename?
+  - plugin basics
+  - loader basics
+
+- Examples/Use cases of it in action
+  - necessary? may be covered through the rest of the course?
+  - go through ng2-redux repo config
+
+- Link reference for more information
+  - mention features not covered and link docs for more info
+  - http://webpack.github.io/docs/
+
+
 ## Angular CLI##
 
 **Introduction**
@@ -29,7 +82,7 @@ Could not find watchman, falling back to NodeWatcher for file system events.
 Visit http://www.ember-cli.com/user-guide/#watchman for more info.
 node: 4.1.0
 npm: 2.14.10
-os: darwin x64 
+os: darwin x64
 ```
 
 **Usage**
@@ -57,7 +110,7 @@ installing ng2
   create src/tsconfig.json
 Successfully initialized git.
 Installing packages for tooling via npm...
-``` 
+```
 
 To launch the application navigate to the application directory just created by the angular-cli and run the serve command. You should see the successful launch message in console. Navigate to URL `http://localhost:4200/` you should see the message `ng-test Works!` in the browser.
 
@@ -83,7 +136,7 @@ DiffingTSCompiler (1)                         | 3726ms
 BroccoliMergeTrees (1)                        | 224ms
 ```
 
-Once you open the project in your text editor you should see the file structure as shown below. 
+Once you open the project in your text editor you should see the file structure as shown below.
 
 ![File Structure](angular-cli-file-structure.png)
 
