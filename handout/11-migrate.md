@@ -29,8 +29,8 @@ Component directives should _not_ use the following atrtributes:
 Using a module loader like Webpack is essential for migrating to Angular 2, and
 should already be part of every modern developer's tool set.  Webpack will make
 it easy to manage all the different files that a modern, modular Angular 1.3+
-project prescribes.  This includes, bundling the application for distribution,
-or deployment.
+project prescribes.  This includes bundling the application for distribution or 
+deployment.
 
 Using Webpack will also simplify a developer's Angular 2 workflow, since the
 easiest way to work with Angular 2 is with TypeScript, or ES6.  Neither of which
@@ -43,14 +43,13 @@ TypeScript is a superset of ES6, and as its name suggests, uses a type system.
 This can have an enormous impact on developer tools, providing richer
 auto-complete, and static analysis.
 
-Angular 2 was built using TypeScript, and supports decorators/annotations which
-provide meta information to Angular.  While it is possible to use Angular 2
-without these features, the syntax feels more "natural" with TypeScript's
-decorators.
+Angular 2 was built using TypeScript, and supports decorators which provide meta 
+information to Angular.  While it is possible to use Angular 2 without these 
+features, the syntax feels more "natural" with TypeScript's decorators.
 
 ## Choose an Upgrade Path
 
-There are three primary ways of upgrading form Angular 1, to 2:
+There are three primary ways of upgrading from Angular 1, to 2:
 
 - Total Conversion
 - ng-upgrade
@@ -60,7 +59,7 @@ There are three primary ways of upgrading form Angular 1, to 2:
 
 Completely converting an application from Angular 1 to Angular 2 is technically
 possible, but really only suitable for the smallest applications.  Even small
-applications can be tricky to totally convert if they're not well formatted
+applications can be tricky to totally convert if they're not well structured
 
 ### ng-forward (Angular 1.x Using 2 Style)
 
@@ -123,17 +122,17 @@ this document. Wherever possible use Angular 1.5+'s `.component`
 
 @todo upgrade example
 
-#### Transclustion/Projection
+#### Transclusion/Projection
 
-@todo transclustion example
+@todo transclusion example
 
 #### Injecting Across Frameworks
 
-Angular 1.x providers/services can be upgraded, and injected into Angular 2
+Angular 1.x providers/services can be upgraded and injected into Angular 2
 
 @todo Angular 1 upgrade service example
 
-Angular 2.x services can be downgraded, and injected into Angular 1.  In normal
+Angular 2.x services can be downgraded and injected into Angular 1.  In normal
 operation, Angular 2.x services would be bootstrapped with the application, but
 because of ng-upgrade being a hybrid mode, this is not the case.  The upgrade
 adapter comes with an `addProvider` method that needs to be used in the interim.
