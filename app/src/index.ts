@@ -4,11 +4,10 @@ import configureStore from './store/configureStore';
 import App from './containers/app';
 const provider = require('ng2-redux').provider;
 const store = configureStore();
+const css = require('!style!css!postcss!./styles/styles.css');
 
 bootstrap(
-  App,
-  [
+  App, [
     provider(store)
-
   ]
 );

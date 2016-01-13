@@ -1,11 +1,42 @@
-logs
+# Logs
 *.log
-handout.html
 
+# Runtime data
 pids
 *.pid
 *.seed
 
-node_modules
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Sass cache folder
+.sass-cache
+
+# Users Environment Variables
+.lock-wscript
+.idea/
+*~
+\#*#
+.#*
+*.keystore
+*.sw*
+.DS_Store
+._*
+Thumbs.db
+.cache
+*.sublime-project
+*.sublime-workspace
+*swp
+*swo
+*swn
+build
 dist
-.vscode/
+temp
+node_modules
+bower_components
+
+keys.md
+.env
+
+.vscode
+handout.html
