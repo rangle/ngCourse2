@@ -150,3 +150,4 @@ before 'root' components.
 Possibly the most challenging component/service to upgrade is Angular 1.x's UI
 Router library.  This process _might_ be simplified in the future, but for
 the moment it's best to upgrade _UI_ Router last.  
+=======

@@ -1,26 +1,19 @@
-
-node_modules/
 .DS_Store
-npm-debug.log
 
 # exclude ~ temp files
 *~
 
-# exclude test coverage
-coverage
-
-# exclude config.local no keys in repos!
-# also @adam suggested moving away from ENV vars
-credentials.local.json
-config.local.json
-*.local.json
-
-# exclude lib
-lib
-
-# exclude generated "binaries"
-bin/*.js
-
 # exclude JetBrains IDE
 .idea
 
+logs
+*.log
+handout.html
+
+pids
+*.pid
+*.seed
+
+node_modules
+dist
+.vscode/
