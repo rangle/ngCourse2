@@ -1,4 +1,4 @@
-# Forms
+# Part 8: Forms
 
 Let's create a very simple component that just renders a form. In our main `index.html` file we are going to define a new html element called `<my-form>`.
 
