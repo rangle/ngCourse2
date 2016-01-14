@@ -17,3 +17,7 @@ pids
 node_modules
 dist
 .vscode/
+
+# Example deps
+dist
+typings
