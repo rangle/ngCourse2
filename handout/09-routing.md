@@ -122,7 +122,17 @@ If we want to define routes with parameters we need to pass the specific paramet
 
 We will cover accessing the `RouteParams` in your component later in the [RouteParams](#routeparams) section.
 
-The first route name should be prepended with `/`, `./`, or `../`. If the route begins with `/`, the router will look up the route from the root of the app. If the route begins with `./`, the router will instead look in the current component's children for the route. And if the route begins with `../`, the router will look at the current component's parent.
+Routes should be prepended with `/`, `./`, or `../`.  How you prefix the routes will impact how and where Angular 2 looks to find the component and routing information.
+
+| Prefix | Looks in 
+|--------|---
+| `/`    | Root of the application
+| `./`   | Current component children routes 
+| `../`  | Current component parent routes
+
+* [ ] TODO: Expand this a bit more
+
+[View Example](http://plnkr.co/edit/lAJvRhGHwu0D6H5OGkhc?p=preview)
 
 ## Creating Child Routes ##
 
@@ -131,11 +141,11 @@ To declare the child routes in the application we declare the main route in the 
 ```javascript
 @RouteConfig([
   .....
-  { path: '/start/...', component: Start, as: 'Start'},
+  { path: '/componentOne/...', component: ComponentOneContainer, as: 'ComponentOneContainer'},
   .....  
 ])
 ``` 
-In the above example we define the main `/start` route which maps to the Start component, the `...` dots at the end of the route tells Angular that it has associated child routes with it. Next in the child Start Component we need to do two things:-
+In the above example we define the main `/componentOne` route which maps to the Start component, the `...` dots at the end of the route tells Angular that it has associated child routes with it. Next in the child Start Component we need to do two things:-
 
 * Define the RouterOutlet view where child routes gets rendered
 * Set up child routes in the component itself
