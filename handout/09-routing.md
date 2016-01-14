@@ -85,7 +85,7 @@ export class SimpleRouting {
 }
 // ...
 ```
-[View Example]
+[View Example](http://plnkr.co/edit/xZLEIX601g0TqsEOyB8y?p=preview)
 
 ## RouterLink ##
 
