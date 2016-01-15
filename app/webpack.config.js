@@ -1,6 +1,6 @@
 'use strict';
 
-const path = require("path");
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -54,7 +54,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
-    publicPath: "/",
+    publicPath: '/',
     sourceMapFilename: '[name].[hash].js.map',
     chunkFilename: '[id].chunk.js'
   },
@@ -75,7 +75,7 @@ module.exports = {
     loaders: [
       { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' },
-      { test: /\.css$/, loader: 'style-loader!css-loader?sourceMap' },
+      { test: /\.css$/, loader: 'raw' },
       { test: /\.svg/, loader: 'url' },
       { test: /\.eot/, loader: 'url' },
       { test: /\.woff/, loader: 'url' },
@@ -83,5 +83,9 @@ module.exports = {
       { test: /\.ttf/, loader: 'url' },
     ],
     noParse: [ /zone\.js\/dist\/.+/, /angular2\/bundles\/.+/ ]
+  },
+
+  postcss: function() {
+    return [require('autoprefixer')];
   }
 }
