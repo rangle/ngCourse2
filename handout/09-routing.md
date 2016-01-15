@@ -130,7 +130,6 @@ Routes should be prepended with `/`, `./`, or `../`.  How you prefix the routes 
 | `./`   | Current component children routes 
 | `../`  | Current component parent routes
 
-* [ ] TODO: Expand this a bit more
 
 [View Example](http://plnkr.co/edit/lAJvRhGHwu0D6H5OGkhc?p=preview)
 
@@ -145,43 +144,64 @@ To declare the child routes in the application we declare the main route in the 
   .....  
 ])
 ``` 
-In the above example we define the main `/componentOne` route which maps to the Start component, the `...` dots at the end of the route tells Angular that it has associated child routes with it. Next in the child Start Component we need to do two things:-
+In the above example we define the main `/componentOne` route which maps to the `ComponentOneContainer` the `...` dots at the end of the route tells Angular that it has associated child routes with it. Next in the child `ComponentOneContainer` we need to do two things:-
 
 * Define the RouterOutlet view where child routes gets rendered
-* Set up child routes in the component itself
+* Set up child routes
 
 Below is the sample of the Child component
 
 ```javascript
 @Component({
-  selector: 'start'
-})
-@RouteConfig([
-  {path: '/', component: StartMain, as: 'StartMain'  },
-  {path: '/child', component: StartChild, as: 'StartChild'  }
-])
-@View({
-  directives: [ROUTER_DIRECTIVES],
-  template: `
-  <div>
-    Start Component
-    <li><a [routerLink]="['./StartMain']">StartMain</a></li>
-    <li><a [routerLink]="['./StartChild']">StartChild</a></li>
+  directives: [ROUTER_DIRECTIVES]
+  selector: 'component-one-container',
+  template: `Component One Container
+  <br/>
+  <div style="border: 1px solid red">
     <router-outlet></router-outlet>
   </div>
   `
 })
-export class Start {}
+@RouteConfig([{
+    path: '/',
+    component: ComponentOne,
+    as: 'ComponentOne',
+    useAsDefault: true
+  }, {
+    path: '/component-three-nested/:message',
+    component: ComponentThree,
+    as: 'ComponentThree'
+  }
+, {
+  path: '/component-one-child-one',
+  component: ComponentOneChildOne,
+  as 'ComponentOneChildOne'
+}, {
+  path: '/component-one-child-two',
+  component: ComponentOneChildTwo,
+  as 'ComponentOneChildTwo'
+}, {
+  path: '/component-one-child-three/:message',
+  component: ComponentThree,
+  as 'ComponentThree'
+}])
+export default class ComponentOneContainer { 
+  
+}
+
 ``` 
+[View Example](http://plnkr.co/edit/JwPTPbvskkWBSs6SzzkJ?p=preview)
 
 ## Using routing with LocationStrategy ##
 
-Angular 2 supports LocationStrategy which is responsible for representing and reading route state from the browser's URL. Angular provides two strategies: HashLocationStrategy (default) and PathLocationStrategy. They both use location service under the hood. Applications should use the Router or Location services to interact with application route state.
+Angular 2 supports `LocationStrategy` which is responsible for representing and reading route state from the browser's URL. Angular provides two strategies: `HashLocationStrategy` (default) and `PathLocationStrategy`.  Applications should use the Router or Location services to interact with application route state.
 
-* HashLocationStrategy is a LocationStrategy used to configure the Location service to represent its state in the hash fragment of the browser's URL.
-For instance, if you call location.go('/foo'), the browser's URL will become example.com/#/foo.
+* `HashLocationStrategy` is a LocationStrategy used to configure the Location service to represent its state in the hash fragment of the browser's URL.
+
+For instance, if you call `location.go('/foo')`, the browser's URL will become `example.com/#/foo`.
 
 The following code shows how to configure HashLocationStrategy
+
 ```javascript
 import {RouterApp} from './router-app/router-app';
 export function main() {
@@ -192,8 +212,10 @@ export function main() {
 }
 ```
 
-* **PathLocationStrategy** is a LocationStrategy used to configure the Location service to represent its state in the path of the browser's URL.
+* `PathLocationStrategy` is a LocationStrategy used to configure the Location service to represent its state in the path of the browser's URL.
+
 PathLocationStrategy is the default binding for LocationStrategy provided in ROUTER_PROVIDERS. If you're using PathLocationStrategy, you must provide a provider for APP_BASE_HREF to a string representing the URL prefix that should be preserved when generating and recognizing URLs.
+
 For instance, if you provide an APP_BASE_HREF of '/my/app' and call location.go('/foo'), the browser's URL will become example.com/my/app/foo.
 
 The following code shows how to configure PathLocationStrategy:
@@ -209,14 +231,14 @@ export function main() {
 }
 ```
 
-
 ## Using Auxiliary routes ##
 
 Angular 2 supports the concept of auxiliary routes. Before we go further, we must understand what an auxiliary route is. Auxiliary routes allow you to set up and navigate multiple independent routes in a single app. Each component has one primary route and zero or more auxiliary outlets. Auxiliary outlets must have unique name within a Component. 
 
 To define the auxiliary route we must first add the router outlet where contents for the auxiliary route gets rendered. Sample for the auxiliary route outlet is shown below.
+
 ```html
-@View({
+@Component({
   directives: [RouterLink, ROUTER_DIRECTIVES],
   template: `
   <div>
@@ -229,8 +251,9 @@ To define the auxiliary route we must first add the router outlet where contents
 
 Next, we need to define the link to the auxiliary route for the application to navigate and render the contents.
 ```javascript
-<a [routerLink]="['./',['testAux']]">Test Aux</a>
+<a [routerLink]="['./Component1',['testAux']]">Test Aux</a>
 ```
+[View Example](http://plnkr.co/edit/USxVl4rBpIPs5Zi3s0pb?p=preview)
 
 Each Auxiliary route is an independent route which:-
 
@@ -239,7 +262,7 @@ Each Auxiliary route is an independent route which:-
 * Have their own route-params
 * Can have their own history stack 
 
-***Routing with lazy-loading of components***
+## Lazy Loading of Components ##
 
 To lazy load the component and defer the initalization till the component is loaded. For that angular 2 provides AsyncRoute route. We define the route in route config as shown below.
 
@@ -253,9 +276,9 @@ new AsyncRoute({
 
 ## RouteParams ##
 
-RouteParams is an immutable map of parameters for the given route based on the url matcher and optional parameters for that route.
+`RouteParams` is an immutable map of parameters for the given route based on the url matcher and optional parameters for that route.
 
-You can inject RouteParams into the constructor of a component to use it.
+You can inject `RouteParams` into the constructor of a component to use it.
 
 ```javascript
 @Component({directives: [ROUTER_DIRECTIVES]})
