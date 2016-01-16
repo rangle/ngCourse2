@@ -16,7 +16,7 @@ export default class TasksList {
   constructor(
     private _tasks: Tasks
   ) {
-     _tasks.obsv
+    _tasks.obsv
       .subscribe(tasks => this.tasks = tasks);
   }
 

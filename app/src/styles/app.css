@@ -1,4 +1,5 @@
-@import '~basscss/css/basscss.css';
+@import 'basscss';
+@import './variables.css';
 
 .avoid-break {
   page-break-inside: avoid;

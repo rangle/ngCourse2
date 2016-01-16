@@ -4,7 +4,7 @@ import {bootstrap} from 'angular2/bootstrap';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import App from './containers/app';
 import Tasks from './services/tasks';
-const css = require('!style!css!postcss!./styles/styles.css');
+const BASE_STYLES = require('!style!css!postcss!./styles/app.css');
 
 bootstrap(
   App, [

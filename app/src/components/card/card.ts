@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-const STYLES = require('!css!postcss!./card.css').toString();
+const STYLES = require('./card.css').toString();
 const USER = require('!raw!../../assets/user.svg');
 const CLOSE = require('!raw!../../assets/close.svg');
 const CHECK = require('!raw!../../assets/check.svg');
