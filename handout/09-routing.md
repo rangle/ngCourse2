@@ -98,7 +98,7 @@ After declaring routes and adding the outlet we need to tell angular how to navi
 </nav>
 ```
 
-While this does work, it is not always recomended - as if you change your `@RouteConfig` definition, you will need to manually update all of your templates to reflect the new URL. 
+While this does work, it is not always recomended - as if you change your `@RouteConfig` definition, you will need to manually update all of your templates to reflect the new URL. There is also an issue where this can result in a full-page reload, which is usually something we do not wan't in our single page applications.
 
 The preferred way is to define them using the RouterLink. The `RouterLink` directive lets you link to specific parts of your app. The values in the array will map to the `name` or `as` that was given to the component in the `@RouteConfig`. Example of defining route using RouterLink is shown below.
 
