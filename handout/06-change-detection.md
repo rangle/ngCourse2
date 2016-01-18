@@ -247,6 +247,18 @@ As we can see, in the previous example we cheated a little. We told Angular that
 
 Because in javascript primitive types like `string` and `number` are immutable by definition, we should only take care of the objects we are using. In this case, the `actor` object.
 
+> Here's an example comparing a mutable type like an `array` to an immutable type like a `string`:
+
+```javascript
+var b = ['C', 'a', 'r'];
+b[0] = 'B';
+console.log(b) // ['B', 'a', 'r'] => The first letter changed, arrays are mutable
+
+var a = 'Car';
+a[0] = 'B';
+console.log(a); // 'Car' => The first letter didn't change, strings are immutable
+``` 
+
 First, we need to install the `immutable.js` library using the command:
 
 ```
