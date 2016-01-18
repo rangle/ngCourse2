@@ -18,13 +18,13 @@ The Angular 2 team reworked routing from the ground up in Angular 2. The new com
 * [RouterOutlet](https://angular.io/docs/ts/latest/api/router/RouterOutlet-directive.html): Its a placeholder ~~component~~ directive similar to ng-view that renders the content of each route
 * [RouterLink](https://angular.io/docs/ts/latest/api/router/RouterLink-directive.html): Used to define links to the different routes within the application
 
-For more information on Angular.io routing, refer to their [Routing & Navigation Guide](https://angular.io/docs/ts/latest/guide/router.html)
+Refer to the [official documentation](https://angular.io/docs/ts/latest/guide/router.html) for more information.
 
 Angular 2's component router, also allows for child routes, lazy loading of routing data, and a new concept called Auxiliary Routes, which we will be covering in this section. First, lets take a look at the `@RouteConfig` decorator, and how it is used.
 
 ## RouteConfig ##
 
-The `@RouteConfig` decorator is used to define the routing for the component. This is where we can setup the expected paths, the components we want to use, and what we want our application to understand them as. To use `@RouteConfig`, you decorate a class with it, and provide an array containing a [Route Route Definition Object](#route-definition-object).
+The `@RouteConfig` decorator is used to define the routing for the component. This is where we can setup the expected paths, the components we want to use, and what we want our application to understand them as. To use `@RouteConfig`, you decorate a class with it, and provide an array containing a [Route Definition Object](#route-definition-object).
 
 Below is the sample RouteConfig defined in the main application component.
 
@@ -55,7 +55,7 @@ RouteConfig is a decorator defined in Angular2 which takes the array of [RouteDe
 
 A `RouterOutlet` is a placeholder that Angular dynamically fills based on the application's route. Below is the example how we use the `RouterOutlet` in  Angular 2 inside the template. In order to make use of the `RouterOutlet` we need to give component access to the Router Components we do it by passing `ROUTER_DIRECTIVES` in the component directives array.
 
-A component can only have one unnamed `router-outlet` per-template. If you need to use multipul `router-outlets`, they must be provided a name, which will be covered in the [Auxiliary routes](#using- -auxiliary-routes) section.
+A component can only have one unnamed `router-outlet` per-template. If you need to use multipule `router-outlets`, they must be provided a name, which will be covered in the [Auxiliary routes](#using- -auxiliary-routes) section.
 
 Below is the example of how we use the RouterOutlet in Angular 2
 
