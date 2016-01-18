@@ -30,9 +30,9 @@ Below is the sample RouteConfig defined in the main application component.
 
 ```javascript
 @RouteConfig([
-  { path: "/", redirectTo: "/todo" },
-  { path: "/todo",    as: "Todo",    component: TodoComponent },
-  { path: "/help",   as: "Help",   component: HelpComponent }
+  { path: "/", redirectTo: "/ComponentOne" },
+  { path: "/component-one",    as: "ComponentOne",    component: ComponentOne },
+  { path: "/component-two",   as: "ComponentOne",   component: ComponentTwo }
 ])
 export default class Main {
 
@@ -55,7 +55,7 @@ RouteConfig is a decorator defined in Angular2 which takes the array of [RouteDe
 
 A `RouterOutlet` is a placeholder that Angular dynamically fills based on the application's route. Below is the example how we use the `RouterOutlet` in  Angular 2 inside the template. In order to make use of the `RouterOutlet` we need to give component access to the Router Components we do it by passing `ROUTER_DIRECTIVES` in the component directives array.
 
-A component can only have one unnamed `router-outlet` per-template. If you need to use multipule `router-outlets`, they must be provided a name, which will be covered in the [Auxiliary routes](#using- -auxiliary-routes) section.
+A component can only have one unnamed `router-outlet` per-template. If you need to use multipule `router-outlets`, they must be provided a name, which will be covered in the [Auxiliary Routes](#using-auxiliary-routes) section.
 
 Below is the example of how we use the RouterOutlet in Angular 2
 
@@ -93,8 +93,8 @@ After declaring routes and adding the outlet we need to tell angular how to navi
 
 ```html
 <nav>
-    <a href="/todo">Todo</a>
-    <a href="/help">Help</a>
+    <a href="/componentOne">Component One</a>
+    <a href="/componentTwo">Component Two</a>
 </nav>
 ```
 
@@ -237,21 +237,50 @@ Angular 2 supports the concept of auxiliary routes. Before we go further, we mus
 
 To define the auxiliary route we must first add the router outlet where contents for the auxiliary route gets rendered. Sample for the auxiliary route outlet is shown below.
 
-```html
+```ts
 @Component({
-  directives: [RouterLink, ROUTER_DIRECTIVES],
-  template: `
-  <div>
+	selector: 'simple-routing',
+	directives: [ROUTER_DIRECTIVES]
+	template: `<div>
+  <!-- ... -->
+  <div style="border: 1px solid red;">
+  <h3>Default Route Outlet</h3>
     <router-outlet></router-outlet>
-    <router-outlet name="testAux"></router-outlet>
   </div>
-  `
+  <div style="border: 1px solid blue;">
+  <h3>Test Aux 1</h3>
+    <router-outlet name="testAux1"></router-outlet>
+  </div>
+  <!-- ... -->
+	`
 })
+@RouteConfig([
+  { path: '/',
+    component: ComponentOne,
+    as: 'ComponentOne',
+    useAsDefault: true
+  },
+   {
+    aux: 'testAux1',
+    component: ComponentOne,
+    name: 'TestAux1',
+    path: '/aux1'
+  },
+    {
+    aux: 'testAux2',
+    component: ComponentTwo,
+    name: 'TestAux2',
+    path: '/aux2'
+  }
+])
+export class SimpleRouting {
+  
+}
 ```
 
 Next, we need to define the link to the auxiliary route for the application to navigate and render the contents.
 ```javascript
-<a [routerLink]="['./Component1',['testAux']]">Test Aux</a>
+<a [routerLink]="['./ComponentOne',['TestAux1']]">Test Aux</a>
 ```
 [View Example](http://plnkr.co/edit/USxVl4rBpIPs5Zi3s0pb?p=preview)
 
