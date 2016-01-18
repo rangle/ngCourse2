@@ -27,10 +27,10 @@ The TypeScript npm package comes bundled with the official compiler that compile
 We'll go over some of the more relevant properties in short detail:
 
 #### target
-The compilation target. Typescript supports targeting different platforms depending on your needs. In our case, we're targeting modern browsers which provides `es5`.
+The compilation target. Typescript supports targeting different platforms depending on your needs. In our case, we're targeting modern browsers which support `es5`.
 
 #### module
-The target module resolution interface. We're integrating TypeScript through Webpack which provides support for different interfaces. We've decided to use node's module resolution interface, `commonjs`, since that makes it easier for us to understand what's happening.
+The target module resolution interface. We're integrating TypeScript through webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
 
 #### emitDecoratorMetadata, experimentalDecorators
 Decorator support in TypeScript [hasn't been finalized yet](http://rbuckton.github.io/ReflectDecorators/typescript.html) but since Angular 2 uses decorators extensively, these need to be set to true.
@@ -59,11 +59,9 @@ The easiest way to include webpack is through npm. This is how we've included it
 
 The main way to use webpack is through the cli. By default, running the command executes _webpack.config.js_, so we'll put our configuration in there.
 
-The core concept of webpack is the **bundle**. Each bundle represents a specific set of logical boundaries that we define. For the purposes of this project, we have two main bundles: one for client side logic specific to our application, and another for 3rd party libraries.
+The core concept of webpack is the **bundle**. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles: One for our application specific client-side logic and another for 3rd party libraries. Bundles are configured through webpack using **entry points**. Webpack starts with each entry point that's been configured and from there maps out a dependency graph by going through each module's references. All of the dependencies that webpack encounters this way is packaged in that bundle.
 
-Bundles are configured through webpack using **entry points**. Webpack starts by treating each entry point as the root node of a graph and resolves all referenced modules as nodes of that graph, identifying which modules will be included in that bundle. We then configure how each bundle is prepared and outputted.
-
-This section of our configuration file will look like this:
+Let's look at the entry points we've defined in this project:
 
 ```javascript
 {
@@ -88,6 +86,8 @@ This section of our configuration file will look like this:
   ...
 }
 ```
+
+The entry point for `app`, `./src/index.ts`, is the base file of our Angular 2 application. If we've defined the dependencies of each module correctly, those references should connect all the parts of our application from here. The entry point for `vendor` is a list of modules that we need for our application code to work correctly. Even if these files are referenced by some module in our app bundle, we want to separate these resources in a bundle just for 3rd party code.
 
 ### Output configuration
 
