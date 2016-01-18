@@ -1,6 +1,8 @@
 # Part 6: Change Detection
 
-Change detecion has changed in a big way between the old version of Angular and the new one. In Angular 1, the framework kept a long list of watchers (one for every property bound to our templates) that needed to be checked everytime a digest cycle was started. This was called *dirty checking* and it was the only change detection strategy available.
+Change detection is the process that allows Angular to keep our views in sync with our models. 
+
+Change detecion has changed in a big way between the old version of Angular and the new one. In Angular 1, the framework kept a long list of watchers (one for every property bound to our templates) that needed to be checked everytime a digest cycle was started. This was called *dirty checking* and it was the only change detection mechanism available.
 
 Because by default Angular 1 implemented two way data binding, the flow of changes was pretty much chaotic, models were able to change directives, directives were able to change models, directives were able to change other directives and models were able to change other models.
 
@@ -13,7 +15,7 @@ _Change detection responsabilities_
 
 Another difference between both versions of the framework is the way the nodes of an application (directives or components) are checked to see if the DOM needs to be updated.
 
-Because of the nature of two way data binding, in Angular 1 there was no guarantee that a parent node would always be checked before a child node. It was possible that a child node could also change a parent node or a sibling or any other node in the tree, and that in turn will trigger new updates down the chain. This made difficult for the change detector to traverse all the nodes without falling in a circular loop with the infamous message:
+Because of the nature of two way data binding, in Angular 1 there was no guarantee that a parent node would always be checked before a child node. It was possible that a child node could also change a parent node or a sibling or any other node in the tree, and that in turn will trigger new updates down the chain. This made difficult for the change detection mechanism to traverse all the nodes without falling in a circular loop with the infamous message:
 
 ```
 10 $digest() iterations reached. Aborting!
@@ -25,11 +27,11 @@ _Tree traversing in Angular 1 vs Angular 2_
 
 ![File Structure](images/angular1-vs-angular2.jpg)
 
-## How the Change Detection Works
+## How Change Detection Works
 
-Let's see how the change detection works with a simple example.
+Let's see how change detection works with a simple example.
 
-We are going to create a simple `MovieApp` to show information about one movie. This app is going to consist of two components, the `MovieComponent` that shows information about a movie, and the `MainComponent` which holds a reference to the movie with buttons to perform some actions.
+We are going to create a simple `MovieApp` to show information about one movie. This app is going to consist of only two components, the `MovieComponent` that shows information about a movie, and the `MainComponent` which holds a reference to the movie with buttons to perform some actions.
 
 As always, the first step is to create our `index.html` file using the html element defined in the root component of our app `MainComponent`.
 
@@ -129,6 +131,49 @@ The final result of the app is shown in the screenshot below.
 
 ![File Structure](images/app-screenshot.png)
 
+## Change Detector Classes
+
+At runtime, Angular 2 is going to create special classes that are called **change detectors**, one for every component that we have defined. In this case, Angular is going to create two classes: `MainComponent_ChangeDetector` and `MovieComponent_ChangeDetector`.
+
+The goal of the change detectors is to know which model property, used in the template of a component, have changed since the last time the change detection process ran.
+
+In order to know that, Angular is going to create an instance of the appropiate change detector class, and it will create a link to the component that its suppose to check. 
+
+In our example, because we only have one instance of the `MainComponent` and the `MovieComponent` we are going to have only one instance of the `MainComponent_ChangeDetector` and the `MovieComponent_ChangeDetector`.
+
+The code snippet below, is a conceptual model of how the `MainComponent_ChangeDetector` class could look like.
+
+```javascript
+class MainComponent_ChangeDetector {
+  
+  constructor(
+    public previousSlogan: string,
+    public previousTitle: string,
+    public previousActor: Actor,
+    public movieComponent: MovieComponent 
+  ) {} 
+  
+  detectChanges(slogan: string, title: string, actor: Actor) {
+    if (slogan !== this.previousSlogan) {
+      this.previousSlogan = slogan;
+      this.movieComponent.slogan = slogan; 
+    }
+    if (title !== this.previousTitle) {
+      this.previousTitle = title;
+      this.movieComponent.title = title;
+    }
+    if (actor !== this.previousActor) {
+      this.previousActor = actor;
+      this.movieComponent.actor = actor; 
+    }
+  }
+}
+```
+
+Because in the template of our `MainComponent` we are referencing three variables (`slogan`, `title` and `actor`), our change detector is going to have three properties to store the "old" values of these three properties, plus a reference to the `MainComponent` instance that it's supposed to "watch". When the change detection process wants to know if our `MainComponent` instance has changed, it will run the method `detectChanges` passing the current model values to compare with the old ones. If a change was detected, the component gets updated.
+
+> Disclaimer: This is just a conceptual overview of how change detector classes work, the actual implementation may be different.  
+
 ## Change Detection Strategy: Default
 
 By default, Angular defines a certain change detection strategy for every component in our application. To make this definition explicit, we can use the property `changeDetection` of the `@Component` decorator.
@@ -163,19 +208,19 @@ In the first phase, the application (our code) is responsible for updating the m
 
 Now that our models are updated, angular needs to update the templates using change detection.
 
-Change detection always starts at the root component, in this case the `MainComponent` and it checks if any of the model properties bound to its template have changed, comparing the old value of each property (before the event was triggered) to the new one (after the models were updated). The `MainComponent` template has a reference to three properties, `slogan`, `title`, and `actor`, so the comparison made by the change detection will look like:
+Change detection always starts at the root component, in this case the `MainComponent` and it checks if any of the model properties bound to its template have changed, comparing the old value of each property (before the event was triggered) to the new one (after the models were updated). The `MainComponent` template has a reference to three properties, `slogan`, `title`, and `actor`, so the comparison made by its corresponding change detector will look like:
 
-- Is `(old)slogan === (new)slogan` Yes.
-- Is `(old)title === (new)title`? Yes.
-- Is `(old)actor === (new)actor`? Yes.
+- Is `slogan !== previousSlogan`? No, it's the same.
+- Is `title !== previousTitle`? No, it's the same.
+- Is `actor !== previousActor`? No, it's the same.
 
-Notice that even if we change the properties of the `actor` object, we are always working with the same instance. Shallow comparisons will always return `true`. Even though nothing changed in the template, the **default strategy** for the change detection is to traverse **all** the components of the tree even if they do not seem to have been modified.
+Notice that even if we change the properties of the `actor` object, we are always working with the same instance. Because we are doing a shallow comparison, the result of asking if `actor !== previousActor` will always be `false` even when its internal property values have indeed changed. Even though the change detector were unable to find any change, the **default strategy** for the change detection is to traverse **all** the components of the tree even if they do not seem to have been modified.
 
 Next, change detection moves down in the component hierarchy and check the properties bound to the `MovieComponent`'s template doing a similar comparison:
 
-- Is `(old)title === (new)title`? Yes.
-- Is `(old)actor.firstName === (new)actor.firstName`? **No**.
-- Is `(old)actor.lastName === (new)actor.lastName`? **No**.
+- Is `title !== previousTitle`? No, it's the same.
+- Is `actorFirstName !== previousActorFirstName`? **Yes**, it has changed.
+- Is `actorLastName !== previousActorLastName`? **Yes**, it has changed.
 
 Finally, Angular has detected that some of the properties bound to the template have changed so it will update the DOM to get the view in sync with the model.
 
@@ -189,16 +234,16 @@ Traversing all the tree component to check for changes could be costly. Imagine 
 
 If our movie list grows too big, the performance of our system will start degrading. We can narrow the problem to one particular comparison.
 
-- Is `(old)actor === (new)actor`?
+- Is `actor !== previousActor`?
 
-As we have learned, this result is of not much use because we could have changed the properties of the object without changing the instance, and the result of the comparison will always be `true`. Because of this, change detection is going to have to check every child component to see if any of the properties of that object (`firstName` or `lastName`) has changed.
+As we have learned, this result is of not much use because we could have changed the properties of the object without changing the instance, and the result of the comparison will always be `false`. Because of this, change detection is going to have to check every child component to see if any of the properties of that object (`firstName` or `lastName`) has changed.
 
-What if we can find a way to indicate to the change detection that our `MovieComponent` depends only on its inputs and that these inputs are immutable? In short, we are trying to guarantee that when we change any of the properties of the `actor` object, we are going to end up with a different `Actor` instance so the comparison `(old)actor === (new)actor` will always return `false`. In the other hand, if we did not change any property, we are not going to create a new instance so the comparison `(old)actor === (new)actor` is going to return `true`.
+What if we can find a way to indicate to the change detection that our `MovieComponent` depends only on its inputs and that these inputs are immutable? In short, we are trying to guarantee that when we change any of the properties of the `actor` object, we are going to end up with a different `Actor` instance so the comparison `actor !== previousActor` will always return `true`. In the other hand, if we did not change any property, we are not going to create a new instance so the same comparison is going to return `false`.
 
 If the above condition can be guaranteed (creating a new object every time any of its properties changes, otherwise we keep the same object), then when checking the inputs of the `MovieComponent` and having this result:
 
-- Is `(old)title === (new)title`? Yes.
-- Is `(old)actor === (new)actor`? Yes.
+- Is `title !== previousTitle`? No, it's the same.
+- Is `actor !== previousActor`? No, it's the same.
 
 Then we can skip the internal check of the component's template because we are now certain that nothing has changed internally and there's no need to update the DOM. This will improve the performance of the change detection system because fewers comparisons have to be made to propagate changes through the app.
 
@@ -227,17 +272,17 @@ Lets follow again the logic behind it. When the user clicks the button, the meth
 
 When the change detection analyzes the properties bound to the `MainComponent`'s template, it will see the same picture as before:
 
-- Is `(old)slogan === (new)slogan` Yes.
-- Is `(old)title === (new)title`? Yes.
-- Is `(old)actor === (new)actor`? Yes.
+- Is `slogan !== previousSlogan` No, it's the same.
+- Is `title !== previousTitle`? No, it's the same.
+- Is `actor !== previousActor`? No, it's the same.
 
 But this time, we explictly told Angular that our component only depends on its inputs and all of them are immutable. Angular then assumes that the `MovieComponent` hasn't change and skip the check for that component. Because we didn't force the `actor` object to be immutable, we end up with our model out of sync with the view.
 
 Let's rerun the app but this time we will click the button `ChangeActorObject`. This time, we are creating a new instance of the `Actor` class and assigning it to the `this.actor` object. When change detection analyzes the properties bound to the `MainComponent`'s template it will find:
 
-- Is `(old)slogan === (new)slogan` Yes.
-- Is `(old)title === (new)title`? Yes.
-- Is `(old)actor === (new)actor`? **No**.
+- Is `slogan !== previousSlogan` No, it's the same.
+- Is `title !== previousTitle`? No, it's the same.
+- Is `actor !== previousActor`? **Yes**, it has changed.
 
 Because now change detection knows that the `actor` object changed (it's a new instance) it will go ahead and continue checking the template for `MovieComponent` to update its view. At the end, our templates and models end up being in sync.
 
@@ -329,3 +374,14 @@ export class MovieComponent {
 [View Example](http://plnkr.co/edit/8b76FU9lMc6C43L2TIWB?p=preview)
 
 Using this pattern we are taking full advantage of the "OnPush" change detection strategy and thus reducing the amount of work done by Angular to propagate changes and to get models and views in sync. This improves the performance of the application.
+
+## Additional Resources
+
+To learn more about change detection, visit the following links (in order of relevance):
+
+- [NgConf 2014: Change Detection (Video)](https://www.youtube.com/watch?v=jvKGQSFQf10)
+- [Angular API Docs: ChangeDetectionStrategy](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html)
+- [Victor Savkin Blog: Change Detection in Angular 2](http://victorsavkin.com/post/110170125256/change-detection-in-angular-2)
+- [Victor Savkin Blog: Two Phases of Angular 2 Applications](http://victorsavkin.com/post/114168430846/two-phases-of-angular-2-applications)
+- [Victor Savkin Blog: Angular, Immutability and Encapsulation](http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation)
+
