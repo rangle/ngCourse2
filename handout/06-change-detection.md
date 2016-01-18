@@ -21,7 +21,7 @@ Because of the nature of two way data binding, in Angular 1 there was no guarant
 
 In Angular 2, there is guarantee that changes are propagated in an unidirectional way so the change detector can **traverse only once all the nodes** of the application, starting always from the root. That means that a parent component is always checked first than its children components.
 
-*Tree traversing in Angular 1 vs Angular 2*
+_Tree traversing in Angular 1 vs Angular 2_
 
 ![File Structure](images/angular1-vs-angular2.jpg)
 
@@ -33,7 +33,7 @@ We are going to create a simple `MovieApp` to show information about one movie. 
 
 As always, the first step is to create our `index.html` file using the html element defined in our root component of our app `MainComponent`.
 
-*index.html*
+_index.html_
 ```html
 <html>
   <!-- ... -->
@@ -55,10 +55,9 @@ bootstrap(MainComponent);
 
 Then, our `MainComponent` will have three properties, the `slogan` of the app, the `title` of the movie and the lead `actor`. The last two properties are going to be passed to the `MovieComponent` element, referenced in the template.
 
-*app/main.component.ts*
+_app/main.component.ts_
 ```javascript
 import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
 import {MovieComponent} from './movie.component';
 import {Actor} from './actor.model';
 
@@ -86,15 +85,13 @@ export class MainComponent {
     this.actor = new Actor('Bruce', 'Willis');
   }
 }
-
-bootstrap(MainComponent);
 ```
 
 In the above code snippet, we can see that our component defines two buttons that trigger different methods. The `changeActorProperties` is going to update the lead actor of the movie by means of changing directly the properties of the `actor` object. In contrast, the method `changeActorObject` will change the information of the actor by creating a completely new instance of the `Actor` class.
 
 The `Actor` model is pretty straightforward, is just a class that defines the `firstName` and the `lastName` of an actor. 
 
-*app/actor.model.ts*
+_app/actor.model.ts_
 ```javascript
 export class Actor {
   constructor(
@@ -105,7 +102,7 @@ export class Actor {
 
 Finally, the `MovieComponent` shows the information provided by the MainComponent in its template.
 
-*app/movie.component.ts*
+_app/movie.component.ts_
 ```javascript
 import {Component, Input} from 'angular2/core';
 import {Actor} from './actor.model';
@@ -268,7 +265,6 @@ _app/main.component.ts_
 ```javascript
 ///<reference path='../node_modules/immutable/dist/immutable.d.ts'/>
 import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
 import {MovieComponent} from './movie.component';
 import * as Immutable from '../node_modules/immutable/dist/immutable.js';
 
@@ -290,8 +286,6 @@ export class MainComponent {
     this.actor = this.actor.merge({firstName: 'Nicholas', lastName: 'Cage'});
   }
 }
-
-bootstrap(MainComponent);
 ```
 
 Now, instead of creating an instance of an `Actor` class, we are now defining an immutable object using `Immutable.Map`. Because `this.actor` is now an immutable object, we cannot change its internal properties `firstName` and `lastName` directly. What we can do however is to create another object based on `actor` that have different values for both fields and that is exactly what the `merge` method does.
@@ -326,6 +320,6 @@ export class MovieComponent {
 }
 ```
 
-[View Example]()
+[View Example](http://plnkr.co/edit/8b76FU9lMc6C43L2TIWB?p=preview)
 
 Using this pattern we are taking fully advantage of the "OnPush" change detection strategy and thus reducing the amount of work done by Angular to propagate changes and get models and views in sync, improving in turn the performance of our application.
