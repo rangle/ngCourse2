@@ -75,7 +75,7 @@ module.exports = {
     loaders: [
       { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' },
-      { test: /\.css$/, loader: 'raw' },
+      { test: /\.css$/, loader: 'css!postcss' },
       { test: /\.svg/, loader: 'url' },
       { test: /\.eot/, loader: 'url' },
       { test: /\.woff/, loader: 'url' },
@@ -86,6 +86,10 @@ module.exports = {
   },
 
   postcss: function() {
-    return [require('autoprefixer')];
+    return [
+      require('postcss-import'),
+      require('postcss-cssnext'),
+      require('autoprefixer')
+    ];
   }
 }

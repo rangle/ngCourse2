@@ -1,8 +1,0 @@
-@import '~basscss/css/basscss.css';
-
-.avoid-break {
-  page-break-inside: avoid;
-  break-inside: avoid
-}
-
-.cols { columns: 20rem; }

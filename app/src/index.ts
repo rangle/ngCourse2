@@ -1,13 +1,16 @@
-import {Component, View, Inject} from 'angular2/core';
+import {Component, View, Inject, provide} from 'angular2/core';
+import {ROUTER_PROVIDERS, APP_BASE_HREF} from 'angular2/router';
 import {bootstrap} from 'angular2/bootstrap';
-import configureStore from './store/configureStore';
+import { HTTP_PROVIDERS } from 'angular2/http';
 import App from './containers/app';
-const provider = require('ng2-redux').provider;
-const store = configureStore();
-const css = require('!style!css!postcss!./styles/styles.css');
+import TasksService from './services/tasks-service';
+const BASE_STYLES = require('!style!css!postcss!./styles/app.css');
 
 bootstrap(
   App, [
-    provider(store)
+    HTTP_PROVIDERS,
+    ROUTER_PROVIDERS,
+    TasksService,
+    provide(APP_BASE_HREF, { useValue: '/' })
   ]
 );

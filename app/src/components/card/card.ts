@@ -1,40 +1,19 @@
-import {Component, View} from 'angular2/core';
-const STYLES = require('!css!postcss!./card.css').toString();
-const USER = require('!raw!../../assets/user.svg');
-const CLOSE = require('!raw!../../assets/close.svg');
-const CHECK = require('!raw!../../assets/check.svg');
+import {Component} from 'angular2/core';
+const STYLES = require('./card.css').toString();
+const TEMPLATE = require('./card.html');
+import CheckIcon from '../icons/check';
+import CloseIcon from '../icons/close';
+import UserIcon from '../icons/user';
 
 @Component({
-  selector: 'card',
+  selector: 'ngc-card',
   inputs: [
     'title',
     'content'
   ],
+  directives: [CheckIcon, CloseIcon, UserIcon],
   styles: [STYLES],
-  template: `
-  <div class="bg-white rounded shadow">
-    <div class="flex flex-center p2">
-      <div>
-        <h5 class="gray caps m0">
-          ${USER}
-          Alice Beeblebrox
-        </h5>
-        <p class="m0 h3">Learn Angular 2 so that I can build an app</p>
-      </div>
-    </div>
-    <div class="border-top blue py1 px2 flex flex-auto">
-      <div class="flex-auto"></div>
-      <button class="btn red mr1">
-        ${CLOSE}
-        Delete
-      </button>
-      <button class="btn">
-        ${CHECK}
-        Done
-      </button>
-    </div>
-  </div>
-  `
+  template: TEMPLATE
 })
 export default class Card {
 }
