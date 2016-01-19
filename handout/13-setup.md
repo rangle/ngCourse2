@@ -1,42 +1,6 @@
 # Part 13: Project Setup #
 
-We're integrating a large part of our application with Webpack and TypeScript, so it's important to go over how those are setup and configured to get a good understanding of what gets generated client-side.
-
-## TypeScript Configuration
-
-The TypeScript npm package comes bundled with the official compiler that compiles to JavaScript. To allow for some flexibility, the compiler allows for some configuration which is passed through a json formatted _tsconfig.json_ file. If you want a base json file to start off with, you can execute the command `tsc --init`, however the defaults don't really fit our project so we're using the following:
-
-```javascript
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noImplicitAny": false,
-    "removeComments": false,
-    "sourceMap": true
-  },
-  "exclude": [
-    "node_modules",
-    "app/__build"
-  ]
-}
-```
-
-We'll go over some of the more relevant properties in short detail:
-
-#### target
-The compilation target. Typescript supports targeting different platforms depending on your needs. In our case, we're targeting modern browsers which support `es5`.
-
-#### module
-The target module resolution interface. We're integrating TypeScript through webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
-
-#### emitDecoratorMetadata, experimentalDecorators
-Decorator support in TypeScript [hasn't been finalized yet](http://rbuckton.github.io/ReflectDecorators/typescript.html) but since Angular 2 uses decorators extensively, these need to be set to true.
-
-#### exclude
-The TypeScript compiler recursively searches the file tree for files with the **.ts** extension, using its path as the root. We want to avoid parsing _node_modules_ and any other path that could cause problems.
+Proper tooling and setup is good for any project, but it's especially important for Angular 2 due to all of the pieces that are involved. We've decided to use [webpack](https://github.com/webpack/webpack), a powerful tool that attempts to handle our complex integrations. Due to the number of parts of our project that webpack touches, it's important to go over the configuration to get a good understanding of what gets generated client-side.
 
 ## Webpack
 
@@ -60,6 +24,20 @@ The easiest way to include webpack is through npm. This is how we've included it
 The main way to use webpack is through the cli. By default, running the command executes _webpack.config.js_, so we'll put our configuration in there.
 
 The core concept of webpack is the **bundle**. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles: One for our application specific client-side logic and another for 3rd party libraries. Bundles are configured through webpack using **entry points**. Webpack starts with each entry point that's been configured and from there maps out a dependency graph by going through each module's references. All of the dependencies that webpack encounters this way is packaged in that bundle.
+
+Packages installed through npm are referenced using **commonjs** module resolution. In a JavaScript file, this would look like:
+
+```javascript
+  const app = require('./src/index.ts');
+```
+
+or TypeScript file:
+
+```typescript
+  import { Component } from 'angular2/core';
+```
+
+We will use those string values as the module names we pass to webpack.
 
 Let's look at the entry points we've defined in this project:
 
@@ -121,13 +99,25 @@ To save bundled files in a different folder, we use the `path` property. Here, `
 
 TypeScript isn't core JavaScript so webpack needs a bit of extra help to parse the **.ts** files. It does this through the use of **loaders**. Loaders are a way of configuring how webpack transforms the outputs of specific files in our bundles. Our `ts-loader` package is handling this transformation for TypeScript files.
 
-Loaders are configured in webpack as loader tasks, each of which can have the following properties
+Loaders can be configured directly in the module file during require calls:
+
+```javascript
+const app = require('ts!./src/index.ts');
+```
+
+The loader is specified by using the `!` character to separate the module reference and the loader that it will be run through. More than one loader can be used and those are separated with `!` in the same way. Loaders are executed right to left.
+
+```javascript
+const app = require('ts!tslint!./src/index.ts');
+```
+
+Note that although the packages are named `ts-loader`, `tslint-loader`, `style-loader`, we don't need to include the `-loader` part in our config. Be careful with configuring loaders this way - it couples implementation details of different stages of your application together so it might not be the right choice in a lot of cases. We can configure loaders in other ways such as a chain of loader tasks. Loaders tasks can have the following properties:
 
 #### test
 The file path must match this condition to be handled. This is commonly used to test file extensions eg. `/\.ts$/`
 
 #### loader
-The loaders that will be used to transform the input. More than one loader can be added here. Loaders are specified by a '!' separated string and executed in a chain from right to left. *eg.* `style!css`. Loaders can also be passed arguments. This is done using query parameters. *eg.* `style!css?sourceMap`. Note that although the packages are named `ts-loader`, `css-loader`, `style-loader`, we don't need to include the `-loader` part in our config.
+The loaders that will be used to transform the input. This follows the syntax specified above.
 
 #### exclude
 The file path must not match this condition to be handled. This is commonly used to exclude file folders. eg. `/node_modules/`
@@ -226,6 +216,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const basePlugins = [
+  new webpack.optimize.CommonsChunkPlugin('vendor', '[name].[hash].bundle.js'),
+
   new HtmlWebpackPlugin({
     template: './src/index.html',
     inject: 'body',
@@ -299,5 +291,27 @@ module.exports = {
   }
 }
 ```
+
+### Npm scripts integration
+
+Npm has the ability to create and execute tasks using its scripts feature. We rely on npm scripts to manage most of our project tasks and webpack fits in as well. Webpack execution fits into a project's build stage, where files transition from a development phase to a distribution phase, so we'll want to add it in our `build` script.
+
+Npm scripts are described in the `scripts` property of your _package.json_ file. Our setup looks like this:
+
+```json
+...
+  scripts: {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "NODE_ENV=production webpack",
+  }
+...
+```
+
+Npm allows pre and post task binding by prepending the word `pre` and `post` to the task name respectively. Here, our `prebuild` task is executed before our `build` task. Note that we can run npm scripts inside another npm script. We don't want to create task chains that are too complex to follow however, but ones that represent our task flows.
+
+To invoke the `build` script we run the command `npm run build`, which first runs the `prebuild` task. The `prebuild` task runs the `clean` task, which executes the `rimraf dist` command. `rimraf` is an npm package that recursively deletes everything inside the folder passed in the argument. After completing that task, it runs the `build` task which sets the environment variable `NODE_ENV` to `production` before invoking webpack. According to our config, webpack will go through our `app` and `vendor` entry points and generate js and html files that will be saved in a newly created _dist_ folder.
+
+### Going further
 
 Webpack also does things like hot code reloading and code optimization which we haven't covered. For more information you can check out the [official documentation](http://webpack.github.io/docs/). The source is also available on [Github](https://github.com/webpack/webpack).
