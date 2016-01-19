@@ -2,10 +2,28 @@
 
 The new version of JavaScript, "EcmaScript 6" or "ES6", offers a number of new features that extend the power of the language. (The language we usually call "JavaScript" is actually formally known as "EcmaScript".) ES6 is not widely supported in today's browsers, so it needs to be transpiled to ES5. You can choose between several transpilers, but we'll be using TypeScript, which is what the Angular team users to write Angular 2. Angular 2 makes use of a number of features of ES6 and TypeScript.
 
+## ES6
 
-## Classes
+During a ten day stretch in the nineteen ninties, JavaScript was written by
+Brendan Eich. Twenty plus years later, and the language is thriving.  There are
+subsets, supersets, current versions, and an upcoming version.  ES6 is that
+upcoming version, and it brings a lot of new features.
 
-ES5 has objects, but it has no concept of class. ES6 introduces classes.
+Some of the highlights:
+
+- Classes
+- Arrow Functions
+- Constants, and Block Scoped Variables
+- ...spread, and ...rest
+- Destructuring
+- Modules
+- Spread Operator
+
+### Classes
+
+Classes are a way of describing the blueprint of an object, they are a new
+feature in ES6, and make EcmaScript's prototypical inheritance model function 
+more like a traditional class based language.  
 
 ```ts
 class LoginFormController {
@@ -18,9 +36,12 @@ class LoginFormController {
 }
 ```
 
-This is pretty straightforward, until we run into the oddities of how `this` keyword works in JavaScript.
+Traditional class based languages often reserve the word `this` to reference the
+current (runtime) instance of the class.  This is also true in JavaScript, _but_
+JavaScript code can _optionally_ supply `this` to a method at call time.
 
-## A Refresher on `this`
+
+### A Refresher on `this`
 
 Inside a JavaScript class we'll be using `this` keyword to refer to the instance of the class. E.g., consider this case:
 
@@ -57,7 +78,7 @@ The second case is "function invocation":
   someFunction();
 ```
 
-Here `this` used inside `someFunction` can refer to different things depending on whether we are in "strict" mode or not. Without using the "strict" mode, `this` refers to the context in which `someFunction()` was called. This is rarely what you want, and it can be extremely confusing. In strict mode, `this` would be undefined, which is slightly less confusing.
+Here `this` used inside `someFunction` can refer to different things depending on whether we are in "strict" mode or not. Without using the "strict" mode, `this` refers to the context in which `someFunction()` was called. This is rarely what you want, and it can be extremely confusing. In strict mode, `this` would be `undefined`, which is slightly less confusing.
 
 One of the implications of this is that you cannot easily detach a method from its object. E.g., consider this example:
 
@@ -77,9 +98,29 @@ This can be fixed by specifying this explicitly. One way to do this is by using 
 
 You can also achieve the same using `Function.call` and `Function.apply`, but we won't discuss this here.
 
-## Arrow Functions
+Another instance where `this` can be confusing is with respect to anonymous
+functions, or functions declared within other functions.  Consider the 
+following:
 
-ES6 offers some new syntax for dealing with this madness: "arrow functions".
+```js
+class ServerRequest {
+   notify() {
+     ...
+   }
+   fetch() {
+     getFromServer(function callback(err, data) {
+        this.notify(); // this is not going to be work
+     });
+   }
+}
+```
+
+In the above case `this` will _not_ point to the expected object, in "strict"
+mode it will be `undefined`.  THis leads to another ES6 feature...
+
+### Arrow Functions
+
+ES6 offers some new syntax for dealing with `this` madness: "arrow functions".
 
 The new "fat arrow" notation can be used to define anonymous functions in a simpler way.
 
@@ -151,9 +192,201 @@ class LoginFormController {
 
 Here `this` inside the arrow function refers to the instance variable.
 
-## Inheritance
+*Warning* arrow functions do _not_ have their own `arguments` variable, this
+can be confusing to veteran JavaScript programmers. `super`, and `new.target`
+are also scoped from the outer enclosure.
+
+### Inheritance
 
 JavaScript's inheritance works differently from inheritance in other languages, which can be very confusing. ES6 classes provide a syntactic sugar attempting to alleviate the issues with using prototypical inheritance present in ES5. Our recommendation is still to avoid using inheritance or at least deep inheritance hierarchies. Try solving the same problems through delegation instead.
+
+### Constants, and Block Scoped Variables
+
+ES6 introduces the concept of block scoping.  Block scoping will be familiar to
+programmers from other languages like C, Java, or even PHP.  In ES5 JavaScript,
+and earlier `var`s are scoped to `function`s, and they can "see" outside their
+functions to the outer context.
+
+```js
+var five = 5;
+var threeAlso = three; // error
+
+function scope1() {
+  var three = 3;
+  var fiveAlso = five; // == 5
+  var sevenALso = seven; // error
+}
+
+function scopt2() {
+  var seven = 7;
+  var fiveAlso = five; // == 5
+  var threeAlso = three; // error
+}
+```
+
+In ES5 functions were essentially containers that could be "seen" out of, but
+not into.
+
+In ES6 `var` still works that way, using functions as containers, but there are
+two new ways to declare variables: `const`, and `let`.  `const`, and `let` use
+`{`, and `}` blocks as containers, hence "block scope". 
+
+Block scoping is most useful during loops.  Consider the following:
+
+```js
+var i;
+for (i = 0; i < 10; i += 1) {
+  var j = i;
+  let k = i;
+}
+console.log(j); // 9
+console.log(k); // undefined
+```
+
+Despite the introduction of block scoping, functions are still _the_ preferred
+mechanism for dealing with most loops.
+
+`let` works like `var` in the sense that its data is read/write. Alternatively,
+`const` is read only.  Once `const` has been assigned, the identifier can not be
+re-assigned, the value is [not immutable][mdnConst].
+
+For example:
+
+```js
+const myName = 'pat';
+let yourName = 'jo';
+
+yourName = 'sam'; // assigns
+myName = 'jan';   // error
+```
+
+The read only nature can be demonstrated with any object:
+
+```js
+const literal = {};
+
+literal.attribute = 'test'; // fine
+literal = []; // error;
+```
+
+### ...spread, and ...rest
+
+Spread takes a collection of something, like `[]`s or `{}`s, and applies them to
+something else that accepts `,` separated arguments, like `function`s, `[]`s,
+and `{}`s.
+
+For example:
+
+```js
+
+const add = (a, b) => a + b;
+let args = [3, 5];
+add(...args); // same as `add(args[0], args[1])`, or `add.apply(null, args)`
+```
+
+Functions aren't the only place in JavaScript that makes use of comman separated
+lists. `[]`s can now be concatenated with ease:
+
+```js
+let cde = ['c', 'd', 'e'];
+let scale = ['a', 'b', ...cde, 'f', 'g']; // ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+```
+
+Similarly, object literals can do the same thing:
+
+```js
+let mapABC  = { a: 5, b: 6, c: 3};
+let mapABCD = { ...mapABC, d: 7}; // { a: 5, b: 6, c: 3, d: 7 }
+```
+
+...rest arguments share the ellipsis like syntax of rest operators but are used
+for a different purpose.  ...rest arguments are used to access a variable number
+of arguments passed to a function.
+
+For example:
+
+```js
+function addSimple(a, b) {
+  return a + b;
+}
+
+function add(...numbers) {
+  return numbers[0] + numbers[1];`
+}
+
+addSimple(3, 2);  // 5
+add(3, 2);        // 5
+
+// or in es6 style:
+const addEs6 = (...numbers) => numbers.reduce((p, c) => p + c, 0);
+
+addEs6(1, 2, 3);  // 6
+```
+
+Technically JavaScript already had an `arguments` variable set on each function
+(except for arrow functions), however `arguments` has a lot of issues, one of
+which is the fact that it is not technically an array.
+
+...rest arguments are in fact arrays.  The other important difference is that
+rest arguments only include arguments not specifically named in a function
+like so:
+
+```js
+
+function print(a, b, c, ...more) {
+  console.log(...more[0]);
+  console.log(arguments[0]);
+}
+
+print(1, 2, 3, 4, 5); 
+// 4
+// 1
+
+```
+
+### Destructuring
+
+Destructuring is a way to quickly extract data out of an `{}` or `[]` without
+having to write much code.
+
+To [borrow from the MDN][mdnDest], destructuring can be used to turn the
+following:
+ 
+```js
+let foo = ['one', 'two', 'three'];
+
+let one   = foo[0];
+let two   = foo[1];
+let three = foo[2];
+```
+
+into
+
+```js
+let foo = ['one', 'two', 'three'];
+let [one, two, three] = foo;
+console.log(one); // 'one'
+```
+
+This is pretty interesting, but at first it might be hard to see the use case.
+ES6 also supports Object destructuring, which might make uses more obvious:
+
+```js
+let myModule = {
+  drawSquare: function drawSquare(length) { /* implementation */ },
+  drawCircle: function drawSquare(radius) { /* implementation */ },
+  drawText: function drawSquare(text) { /* implementation */ },
+};
+
+let {drawSquare, drawText} = myModule;
+
+drawSquare(5);
+drawText('hello');
+```
+
+There are _many_ more sophisticated things that can be done with destructuring,
+and the [mdn][mdnDest] has some great examples, including nested Object
+destructuring, and dynamic destructing during for-ins iterators.
 
 
 ## TypeScript
@@ -370,3 +603,6 @@ var stringTest = new TestGenerics<string>("Hello, world");
 var booleanTest = new TestGenerics<boolean>(true);
 
 ```
+
+[mdnDest]:https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment "MDN Destructuring Assignment"
+[mdnConst]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const "MDN const - const is not immutable"
