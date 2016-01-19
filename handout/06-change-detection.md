@@ -78,12 +78,12 @@ export class MainComponent {
   title: string = 'Terminator 1';
   actor: Actor = new Actor('Arnold', 'Schwarzenegger');
   
-  changeActorProperties(): void {
+  changeActorProperties() {
     this.actor.firstName = 'Nicholas';
     this.actor.lastName = 'Cage';
   }
   
-  changeActorObject(): void {
+  changeActorObject() {
     this.actor = new Actor('Bruce', 'Willis');
   }
 }
@@ -314,10 +314,9 @@ Then, in our `MainComponent` we import the library and use it to create an actor
 
 _app/main.component.ts_
 ```javascript
-///<reference path='../node_modules/immutable/dist/immutable.d.ts'/>
 import {Component} from 'angular2/core';
 import {MovieComponent} from './movie.component';
-import * as Immutable from '../node_modules/immutable/dist/immutable.js';
+import {Immutable} from 'immutable';
 
 @Component({
   selector: 'main',
@@ -333,7 +332,7 @@ export class MainComponent {
   title: string = 'Terminator 1';
   actor: Immutable.Map<string, string> = Immutable.Map({firstName: 'Arnold', lastName: 'Schwarzenegger'});
   
-  changeActor(): void {
+  changeActor() {
     this.actor = this.actor.merge({firstName: 'Nicholas', lastName: 'Cage'});
   }
 }
@@ -347,10 +346,9 @@ Additional changes have to be made to the `MovieComponent` as well. First, we ne
 
 _app/movie.component.ts_
 ```javascript
-///<reference path='../node_modules/immutable/dist/immutable.d.ts'/>
 import {Component, Input} from 'angular2/core';
 import {ChangeDetectionStrategy} from 'angular2/core';
-import * as Immutable from '../node_modules/immutable/dist/immutable.js';
+import {Immutable} from 'immutable';
 
 @Component({
   selector: 'movie',
