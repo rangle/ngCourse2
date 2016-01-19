@@ -17,7 +17,7 @@ Some of the highlights:
 - ...spread, and ...rest
 - Destructuring
 - Modules
-- Spread Operator
+
 
 ### Classes
 
@@ -389,13 +389,41 @@ and the [mdn][mdnDest] has some great examples, including nested Object
 destructuring, and dynamic destructing during for-ins iterators.
 
 
+## ES6 Modules
+
+ES6 also introduces the concept of a module, which works in a similar way to other languages. Defining an ES6 module is quite easy: each file is assumed to define a module and we'll specify it's exported values using the `export` keyword. Loading ES6 modules is a little trickier.
+
+In a ES6 compliant browser you would be using the `System` keyword to load modules asynchronously. To make our code work with the browsers of today, however, we will use SystemJS library as a polyfill:
+
+```html
+  <script src="/node_module/systemjs/dist/system.js"></script>
+  <script>
+    var promise = System.import('app')
+      .then(function() {
+        console.log('Loaded!');
+      })
+      .then(null, function(error) {
+        console.error('Failed to load:', error);
+      });
+  </script>
+```
+
+
+## Additional ES6 Features
+
+In addition to classes and arrow functions, ES6 offers numerous other features not available in ES5. Most of those are currently supported by TypeScript. We won't discuss those features here, though we will come across some of them in the course. We encourage you to learn more about them on your own, however. This repository provides a good overview: [https://github.com/lukehoban/es6features](https://github.com/lukehoban/es6features).
+
+
 ## TypeScript
 
-As of right now, no browser comes even close to supporting all of ES6. Support for classes is especially poor. Instead, we will need to rely on a transpiler to convert our ES6 code to ES5.
+ES6 is the upcoming version of JavaScript.  TypeScript is a superset of ES6,
+which means all ES6 features are part of TypeScript, but not all TypeScript
+features are part of ES6.  Consequently, TypeScript must be transpiled into ES5
+to run in most browsers.
 
-Several ES6 transpilers are available. One popular option is Babel. However, we will be using TypeScript transpiler, which is what the Angular team uses to write Angular 2.
-
-TypeScript transpiler is different from other ES6 transpilers in that it expects as input not standard EcmaScript 6, but rather TypeScript, an extension of ES6 that adds support for optional typing.
+One of TypeScript's primary features is the addition of type information, hence
+the name.  This type information can help make JavaScript programs more
+predictable, and easier to reason about. 
 
 We can install the TypeScript transpiler using npm:
 
@@ -447,28 +475,6 @@ We won't be running `tsc` manually, however. Instead, Webpack's 'ts' loader will
     ...
 ```
 
-## Loading ES6 Modules
-
-ES6 also introduces the concept of a module, which works in a similar way to other languages. Defining an ES6 module is quite easy: each file is assumed to define a module and we'll specify it's exported values using the `export` keyword. Loading ES6 modules is a little trickier.
-
-In a ES6 compliant browser you would be using the `System` keyword to load modules asynchronously. To make our code work with the browsers of today, however, we will use SystemJS library as a polyfill:
-
-```html
-  <script src="/node_module/systemjs/dist/system.js"></script>
-  <script>
-    var promise = System.import('app')
-      .then(function() {
-        console.log('Loaded!');
-      })
-      .then(null, function(error) {
-        console.error('Failed to load:', error);
-      });
-  </script>
-```
-
-## Additional ES6 Features
-
-In addition to classes and arrow functions, ES6 offers numerous other features not available in ES5. Most of those are currently supported by TypeScript. We won't discuss those features here, though we will come across some of them in the course. We encourage you to learn more about them on your own, however. This repository provides a good overview: [https://github.com/lukehoban/es6features](https://github.com/lukehoban/es6features).
 
 ## Typescript Features ##
 
@@ -483,14 +489,14 @@ Typescript allows for the use of simple units of data: numbers, strings, boolean
 * Void
 
 ```javascript
-var isDone: boolean = false;
-var height: number = 6;
-var name: string = "bob";
-var list:number[] = [1, 2, 3]; 
-var list:Array<number> = [1, 2, 3];
+let isDone: boolean = false;
+let height: number = 6;
+let name: string = "bob";
+let list:number[] = [1, 2, 3]; 
+let list:Array<number> = [1, 2, 3];
 enum Color {Red, Green, Blue};
-var c: Color = Color.Green;
-var notSure: any = 4;
+let c: Color = Color.Green;
+let notSure: any = 4;
 notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean
 
