@@ -196,7 +196,7 @@ export class MovieComponent {
 
 The enum `ChangeDetectionStrategy` defines seven strategies: `CheckOnce`, `Checked`, `CheckAlways`, `Detached`, `OnPush`, `Default` and `DefaultObserver` as can be seen in the [docs](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html). We are going to concetrate on the two main ones: `Default` and `OnPush`.
 
-Lets see what happens when a user clicks the button "Change Actor Properties" whe using the `Default` strategy. 
+Lets see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy. 
 
 As we discuss before, changes are triggered by events and the propagation of changes is done in two phases: the application phase and the change detection phase.
 
@@ -214,7 +214,7 @@ Change detection always starts at the root component, in this case the `MainComp
 - Is `title !== previousTitle`? No, it's the same.
 - Is `actor !== previousActor`? No, it's the same.
 
-Notice that even if we change the properties of the `actor` object, we are always working with the same instance. Because we are doing a shallow comparison, the result of asking if `actor !== previousActor` will always be `false` even when its internal property values have indeed changed. Even though the change detector were unable to find any change, the **default strategy** for the change detection is to traverse **all** the components of the tree even if they do not seem to have been modified.
+Notice that even if we change the properties of the `actor` object, we are always working with the same instance. Because we are doing a shallow comparison, the result of asking if `actor !== previousActor` will always be `false` even when its internal property values have indeed changed. Even though the change detector was unable to find any change, the **default strategy** for the change detection is **to traverse all the components of the tree** even if they do not seem to have been modified.
 
 Next, change detection moves down in the component hierarchy and check the properties bound to the `MovieComponent`'s template doing a similar comparison:
 
@@ -238,7 +238,7 @@ If our movie list grows too big, the performance of our system will start degrad
 
 As we have learned, this result is of not much use because we could have changed the properties of the object without changing the instance, and the result of the comparison will always be `false`. Because of this, change detection is going to have to check every child component to see if any of the properties of that object (`firstName` or `lastName`) has changed.
 
-What if we can find a way to indicate to the change detection that our `MovieComponent` depends only on its inputs and that these inputs are immutable? In short, we are trying to guarantee that when we change any of the properties of the `actor` object, we are going to end up with a different `Actor` instance so the comparison `actor !== previousActor` will always return `true`. In the other hand, if we did not change any property, we are not going to create a new instance so the same comparison is going to return `false`.
+What if we can find a way to indicate to the change detection that our `MovieComponent` depends only on its inputs and that these inputs are immutable? In short, we are trying to guarantee that when we change any of the properties of the `actor` object, we are going to end up with a different `Actor` instance so the comparison `actor !== previousActor` will always return `true`. In the other hand, if we did not change any property, we are not going to create a new instance, so the same comparison is going to return `false`.
 
 If the above condition can be guaranteed (creating a new object every time any of its properties changes, otherwise we keep the same object), then when checking the inputs of the `MovieComponent` and having this result:
 
@@ -286,7 +286,7 @@ Let's rerun the app but this time we will click the button `ChangeActorObject`. 
 
 Because now change detection knows that the `actor` object changed (it's a new instance) it will go ahead and continue checking the template for `MovieComponent` to update its view. At the end, our templates and models end up being in sync.
 
-## Enforcing immutability
+## Enforcing Immutability
 
 As we can see, in the previous example we cheated a little. We told Angular that all of our inputs, including the `actor` object, were immutable objects, but we went ahead and updated its properties violating the immutability principle. As a result we ended with a sync problem between our models and our views. One way to enforce immutability is using the library [Immutable.js](https://facebook.github.io/immutable-js/).
 
