@@ -11,6 +11,7 @@ upcoming version, and it brings a lot of new features.
 
 Some of the highlights:
 
+- Template Strings
 - Classes
 - Arrow Functions
 - Constants, and Block Scoped Variables
@@ -18,6 +19,35 @@ Some of the highlights:
 - Destructuring
 - Modules
 
+### Template Strings
+
+In traditional JavaScript, text that is enclosed within matching `"` marks, or
+`'` marks is considered a string.  Text within quotes could also only be on one
+line.  There was also no way to insert data into these strings.  This resulted
+in a lot of ugly concatenation code that looked like:
+
+```js
+
+var name = 'Sam';
+var age = 42;
+
+console.log('hello my name is ' + Sam + ' I am ' + age + ' years old');
+```
+
+ES6 introduces a new type of string literal that is marked with back ticks (`).
+These string literals _can_ include newlines, and there is a new mechanism for
+inserting variables into strings:
+
+```js
+
+var name = 'Sam';
+var age = 42;
+
+console.log(`hello my name is ${name}, and I am ${age} years old`);
+```
+
+There are all sorts of places where these kind of strings can come in handy,
+and front end web development is one of them.
 
 ### Classes
 
@@ -837,6 +867,68 @@ Despite the fact that `Action`, and `NotAnAction` have different identifiers,
 `Action`.  This is because TypeScript only really cares that Objects have the
 same "shape".  In other words if two objects have the same attributes, with the
 same typings, those two objects are considered to be of the same type.
+
+#### Type Inference
+
+One common misconception about TypeScript's types are that code needs to 
+explicitly describe types at every possible opportunity.  Fortunately this is
+_not_ the case.  TypeScript has a rich type inference system that will "fill in
+the blanks" for the developer;
+
+Consider the following:
+
+bad-inference.ts
+```ts
+let set = [2, 3, 5, 7, 11];
+set = ['this will fail compilation']
+```
+
+```bash
+tsc ./bad-inference.ts 
+bad-inference.ts(2,1): error TS2322: Type 'string[]' is not assignable to type 'number[]'.
+  Type 'string' is not assignable to type 'number'.
+```
+
+The code contains exactly _zero_ extra type information.  In fact, it's valid
+ES6.  If `var` had been used, it would be valid ES5.  Yet TypeScript is still
+able to determine type information.
+
+Type inference can also work through context, which is handy with callbacks,
+imagine the following:
+
+bad-inference-2.ts
+```ts
+
+interface FakeEvent {
+  type: string;
+}
+
+interface FakeEventHandler {
+  (e: FakeEvent):void; 
+}
+
+class FakeWindow {
+  onMouseDown: FakeEventHandler
+}
+const fakeWindow = new FakeWindow();
+
+fakeWindow.onMouseDown = (a: number) => {
+  // this will fail
+};
+```
+
+```bash
+tsc ./bad-inference-2.ts 
+bad-inference-2.ts(14,1): error TS2322: Type '(a: number) => void' is not assignable to type 'FakeEventHandler'.
+  Types of parameters 'a' and 'e' are incompatible.
+    Type 'number' is not assignable to type 'FakeEvent'.
+      Property 'type' is missing in type 'Number'.
+```
+
+In this example the context is not obvious since the interfaces have been
+defined explicitly.  In a browser environment with a real `window` object, this
+would be quite a handy feature.  Especially type completion of the `Event`
+object.
 
 #### Decorators
 
