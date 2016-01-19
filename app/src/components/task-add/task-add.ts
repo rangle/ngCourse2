@@ -7,42 +7,14 @@ import {
   FormBuilder,
   Validators
 } from 'angular2/common';
-import Tasks from '../../services/tasks';
+import TasksService from '../../services/tasks-service';
+const TEMPLATE = require('./task-add.html');
 
 @Component({
-  selector: 'task-add',
+  selector: 'ngc-task-add',
   directives: [RouterLink, FORM_DIRECTIVES],
   viewBindings: [FORM_BINDINGS],
-  template: `
-  <div class="sm-col-10 mx-auto border rounded">
-    <div class="p2 gray bg-darken-1">
-      <h4 class="m0 caps">Add Task</h4>
-    </div>
-    <form class="p2 bg-white"
-      [ngFormModel]="taskAddForm"
-      (ngSubmit)="onSubmit(taskAddForm)">
-      <label for="owner">Owner</label>
-      <input class="block col-12 mb1 field"
-        id="owner"
-        type="text"
-        ngControl="owner">
-      <label for="description">Description</label>
-      <input class="block col-12 mb2 field"
-        id="description"
-        type="text"
-        ngControl="description">
-      <button class="btn btn-primary"
-        ng-click="ctrl.save(newTask)"
-        [disabled]="!taskAddForm.valid">
-        Save
-      </button>
-      <button class="btn btn-primary bg-gray"
-        [routerLink]="['/Main']">
-        Cancel
-      </button>
-    </form>
-  </div>
-  `
+  template: TEMPLATE
 })
 export default class TaskAdd {
 
@@ -50,7 +22,7 @@ export default class TaskAdd {
 
   constructor(
     private _builder: FormBuilder,
-    private _tasks: Tasks
+    private _tasksService: TasksService
   ) {
     this.taskAddForm = _builder.group({
       owner: ['', Validators.required],
@@ -59,7 +31,7 @@ export default class TaskAdd {
   }
 
   onSubmit(): void {
-    this._tasks.add(this.taskAddForm.value);
+    this._tasksService.add(this.taskAddForm.value);
   }
 
 }

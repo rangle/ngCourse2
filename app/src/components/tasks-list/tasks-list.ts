@@ -1,12 +1,13 @@
 import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import Grid from '../grid/grid';
-import Tasks from '../../services/tasks';
+import TasksService from '../../services/tasks-service';
 
 @Component({
-  selector: 'tasks-list',
+  selector: 'ngc-tasks-list',
   directives: [Grid],
   template: `
-  <grid [tasks]="tasks"></grid>
+    <ngc-grid [tasks]="tasks"></ngc-grid>
   `
 })
 export default class TasksList {
@@ -14,9 +15,9 @@ export default class TasksList {
   public tasks;
 
   constructor(
-    private _tasks: Tasks
+    private _tasksService: TasksService
   ) {
-    _tasks.obsv
+    _tasksService.obsv
       .subscribe(tasks => this.tasks = tasks);
   }
 

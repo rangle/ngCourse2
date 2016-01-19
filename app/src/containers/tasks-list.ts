@@ -5,17 +5,15 @@ import TasksList from '../components/tasks-list/tasks-list';
 
 @Component({
   selector: 'ngc-tasks',
-  directives: [RouterOutlet],
-  template: `<router-outlet></router-outlet>`
+  directives: [RouterOutlet, TasksList],
+  template: `
+    <router-outlet></router-outlet>
+    <ngc-tasks-list></ngc-tasks-list>
+  `
 })
 @RouteConfig([{
-  path: '/',
-  name: 'TasksList',
-  component: TasksList,
-  useAsDefault: true
-}, {
   path: '/add',
   name: 'TaskAdd',
   component: TaskAdd
 }])
-export default class Main {}
+export default class TasksListContainer {}

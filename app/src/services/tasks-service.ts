@@ -11,7 +11,7 @@ interface Task {
 }
 
 @Injectable()
-export default class Tasks {
+export default class TasksService {
 
   private _tasks = List<Task>();
   // The observable which the components can
