@@ -845,11 +845,157 @@ the Angular 2 team _really_ wanted to use them, so they have been included in
 TypeScript.
 
 Decorators are functions that are invoked with a prefixed `@` symbol, and
-_immediately_ followed by a `class`, a parameter, or a method.  The decorator
-function is supplied information about the `class`, parameter, or method, and
-the decorator function returns something in its place.  Typically the
-"something" a decorator returns is the same thing that was passed in, it's just
-been augmented in some way.
+_immediately_ followed by a `class`, parameter, method, or property.  The 
+decorator function is supplied information about the `class`, parameter, or
+method, and the decorator function returns something in its place.  Typically 
+the "something" a decorator returns is the same thing that was passed in, it's 
+just been augmented in some way.
+
+Decorators are quite new in TypeScript, and most use cases demonstrate the
+use of existing decorators.  However decorators are just functions, and are
+easier to reason about after walking through a few examples.
+
+So decorators are functions, and there are four things (`class`, parameter,
+method, and property) that can be decorated; consequently there are four
+different function signatures for decorators:
+
+- class: `declare type ClassDecorator = <TFunction extends Function>(target: TFunction) => TFunction | void;`
+- property: `declare type PropertyDecorator = (target: Object, propertyKey: string | symbol) => void;`
+- method: `declare type MethodDecorator = <T>(target: Object, propertyKey: string | symbol, descriptor: TypedPropertyDescriptor<T>) => TypedPropertyDescriptor<T> | void;`
+- parameter: `declare type ParameterDecorator = (target: Object, propertyKey: string | symbol, parameterIndex: number) => void;`
+
+These are the signatures for decorator functions.
+
+Readers who have played with Angular 2 will notice that these signatures do
+not look like the signatures used by Angular 2 specific decorators like
+`@Component()`.
+ 
+Notice the `()` on `@Component`.  This actually means that the `@Component` is
+called once JavaScript encounters `@Component()`.  In turn, this means that
+there must be a `Component` function somewhere that returns a function matching
+one of the decorator signatures outlined above.
+
+If decorators still look confusing, perhaps some examples will clear things up.
+
+
+##### Property Decorators
+
+Property decorators work with properties of classes.
+
+```ts
+function Override(label: string) {
+  return function (target: any, key: string) {
+    Object.defineProperty(target, key, { 
+      configurable: false,
+      get: () => label
+    });
+  }
+}
+
+class Test {
+  @Override('test')      // invokes Override, which returns the decorator
+  name: string = 'pat';
+}
+
+let t = new Test();
+console.log(t.name);  // 'test'
+```
+
+The above example needs to be compiled with both the `--experimentalDecorators`
+and `--emitDecoratorMetadata` flags.  
+
+In this case the decorated property is replaced by the `label` passed to the
+decorator.  In this case it's important to note that property values cannot be
+directly manipulated by the decorator, instead an accessor is used.
+
+Here's a classic property example that uses a _plain decorator_
+
+```js
+function ReadOnly(target: any, key: string) {
+  Object.defineProperty(target, key, { writable: false });
+}
+
+class Test {
+  @ReadOnly             // notice there are no `()`
+  name: string;
+}
+
+const t = new Test();
+t.name = 'jan';         
+console.log(t.name); // 'undefined'
+```
+
+In this case the name property is not `writable`, and remains undefined.
+
+##### Class Decorators
+
+```
+function log(prefix?: string) {
+  return (target) => {
+    // save a reference to the original constructor
+    var original = target;
+ 
+    // a utility function to generate instances of a class
+    function construct(constructor, args) {
+      var c : any = function () {
+        return constructor.apply(this, args);
+      }
+      c.prototype = constructor.prototype;
+      return new c();
+    }
+   
+    // the new constructor behaviour
+    var f : any = function (...args) {
+      console.log(prefix + original.name);
+      return construct(original, args);
+    }
+   
+    // copy prototype so instanceof operator still works
+    f.prototype = original.prototype;
+   
+    // return new constructor (will override original)
+    return f;
+  };
+}
+
+@log('hello')
+class World {
+}
+
+const w = new World(); // outputs "helloWorld"
+
+```
+
+In the example `log` is invoked using `@`, and passed a string as a parameter,
+`@log()` returns an anonymous function that is the actual decorator.
+
+The decorator function takes a `class`, or constructor function (ES5) as an
+argument.  The decorator function then returns a new class construction
+function that is used whenever `World` is instantiated.
+
+This decorator does nothing other than log out its given parameter, and its
+`target`'s class name to the console.
+
+
+##### Parameter Decorators
+
+```ts
+function logPosition(target: any, propertyKey: string, parameterIndex: number) {
+  console.log(parameterIndex);
+}
+
+class Cow {
+  say(b: string, @logPosition c: boolean) {
+    console.log(b); 
+  }
+}
+
+new Cow().say('hello', false); // outputs 1 (newline) hello
+```
+
+The above demonstrates decorating method parameters.  Readers familiar with
+Angular 2 can now start imagining how the Angular 2 implemented their
+`@Inject()` system.
 
 [mdnDest]:https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment "MDN Destructuring Assignment"
 [mdnConst]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const "MDN const - const is not immutable"
