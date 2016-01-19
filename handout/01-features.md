@@ -25,12 +25,12 @@ Classes are a way of describing the blueprint of an object, they are a new
 feature in ES6, and make EcmaScript's prototypical inheritance model function 
 more like a traditional class based language.  
 
-```ts
-class LoginFormController {
+```js
+class Hamburger {
   constructor() {
     // This is the constructor.
   }
-  submit() {
+  listToppings() {
     // This is a method.
   }
 }
@@ -46,18 +46,16 @@ JavaScript code can _optionally_ supply `this` to a method at call time.
 Inside a JavaScript class we'll be using `this` keyword to refer to the instance of the class. E.g., consider this case:
 
 ```ts
-class LoginFormController {
+class Toppings {
   ...
-  submit() {
-    var form = {
-      data: this
-    };
-    this.fireSubmit(form);
+  formatToppings() { /* implementation details */ }
+  list() {
+    return this.formatToppings(this.toppings);
   }
 }
 ```
 
-Here `this` refers to the instance of the class, assuming that a submit method is called using the dot notation, such as `myComponent.submit()`. In this case, `this.fireSubmit(form)` invokes the `fireSubmit()` method defined on the instance of the class. This will also ensure that inside `fireSubmit` we'll also have `this` referring to the same instance.
+Here `this` refers to the instance of the class, assuming that a `list` method is called using the dot notation, such as `myToppings.list()`. In this case, `this.formatToppings(this.toppings)` invokes the `formatToppings()` method defined on the instance of the class. This will also ensure that inside `formatList` we'll also have `this` referring to the same instance.
 
 However, `this` can also refer to other things. This can get very confusing.
 
@@ -159,20 +157,20 @@ The latter is _almost_ equivalent to the following:
 There is one important difference, however: arrow functions share the value of `this` with the function in the context of which they are defined. Consider the following example:
 
 ```ts
-class LoginFormController {
-  constructor() {
-    this.errorMessage = 'All good.';
+class Toppings {
+  constructor(toppings) {
+    this.toppings = Array.isArray(toppings) ? toppings : [];
   }
-  submit() {
-    [1, 2].forEach(function() {
-      console.log(this.errorMessage); // this is undefined here
+  outputList() {
+    this.toppings.forEach(function(topping, i) {
+      console.log(topping, i + '/' + this.toppings.length);  // no this
     })
   }
 }
 
-var ctrl = new LoginFormController();
+var ctrl = new Toppings(['cheese', 'lettuce']);
 
-ctrl.submit();
+ctrl.outputList();
 ```
 
 Let's try this code on ES6 Fiddle ([http://www.es6fiddle.net/](http://www.es6fiddle.net/)). As we see, this gives us an error, since `this` is undefined inside the anonymous function.
@@ -180,14 +178,19 @@ Let's try this code on ES6 Fiddle ([http://www.es6fiddle.net/](http://www.es6fid
 Now, let's change the method to use the arrow function:
 
 ```ts
-class LoginFormController {
-  constructor() {
-    this.errorMessage = 'All good.';
+class Toppings {
+  constructor(toppings) {
+    this.toppings = Array.isArray(toppings) ? toppings : [];
   }
-  submit() {
-    [1, 2].forEach(() => console.log(this.errorMessage));
+  outputList() {
+    this.toppings
+      .forEach((topping, i) => console
+        .log(topping, i + '/' + this.toppings.length);  // `this` works! 
+    )
   }
 }
+
+var ctrl = new Toppings(['cheese', 'lettuce']);
 ```
 
 Here `this` inside the arrow function refers to the instance variable.
@@ -425,6 +428,39 @@ One of TypeScript's primary features is the addition of type information, hence
 the name.  This type information can help make JavaScript programs more
 predictable, and easier to reason about. 
 
+Types let programmers write more explicit "contracts", in other words, things 
+like function signatures are more explicit.  This is true for both humans, and 
+the TypeScript compiler.
+
+Without TS:
+
+```js
+
+function add(a, b) {
+  return a + b;
+}
+
+add(1, 3);   // 4
+add(1, '3'); // '13'
+```
+
+With TS:
+
+```js
+
+function add(a: number, b: number) {
+  return a + b;
+}
+
+add(1, 3);   // 4
+// compiler error before JS is even produced
+add(1, '3'); // '13'
+
+```
+
+### Getting Started With TypeScript
+
+
 We can install the TypeScript transpiler using npm:
 
 ```bash
@@ -438,32 +474,125 @@ We can then use `tsc` to manually compile a TypeScript source file into ES5:
   node test.js
 ```
 
+#### Note About ES6 Examples
+
 Our earlier ES6 class won't compile now, however. TypeScript is more demanding than ES6 and it expects instance properties to be declared:
 
 ```ts
-  class LoginFormController {
-    errorMessage: string;
-    constructor() {
-      this.errorMessage = 'All good.';
-    }
-    submit() {
-      [1, 2].forEach(() => console.log(this.errorMessage));
+  class Toppings {
+    toppings: string[];
+    constructor(toppings: string[]) {
+      this.toppings = toppings';
     }
   }
 ```
 
-Note that now that we've declared `errorMessage` to be a string, TypeScript will enforce this. If we try to assign a number to it, we will get an error at compilation time.
+Note that now that we've declared `toppings` to be an array of strings, TypeScript will enforce this. If we try to assign a number to it, we will get an error at compilation time.
 
-If you want to have a property that can be set to a value of any type, however, you can still do this: just declare it's type to be "any":
+If you want to have a property that can be set to a value of any type, however, you can still do this: just declare its type to be "any":
 
 ```ts
-  class LoginFormController {
-    errorMessage: any;
+  class Toppings {
+    toppings: any;
     ...
   }
 ```
 
-## TypeScript with Webpack
+#### Working With tsc
+
+So far `tsc` has been used to compile a single file.  Typically developers have
+a _lot_ more than one file to compile.  `tsc` can handle multiple files as
+arguments.
+
+Imagine two ultra simple files/modules:
+
+a.ts
+```js
+export const A = (a) => console.log(a);
+```
+
+b.ts
+```js
+export const B = (b) => console.log(b);
+```
+
+```bash
+tsc ./a.ts ./b.ts 
+a.ts(1,1): error TS1148: Cannot compile modules unless the '--module' flag is provided.
+```
+
+Hmmm.  What's the deal with this module flag? TypeScript has a help menu, lets
+take a look:
+
+```bash
+tsc --help | grep module
+ -m KIND, --module KIND             Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es6'
+ --moduleResolution                 Specifies module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6).
+ 
+```
+
+TypeScript has more help than just what's shown, TypeScript's output has been
+filtered by `grep` for brevity.  There are two help entries that reference
+"module", and `--module` is the one TypeScript was complaining about.
+
+The description explains that TypeScript supports a number of different module
+schemes.  For the moment `commonjs` is desirable.  This will produce modules
+that are compatible with node.js's module system.
+
+```bash
+tsc -m commonjs ./a.ts ./b.ts
+```
+
+Should now produce no output.  In many command line traditions no output is
+actually a mark of success.  Listing the directory contents will confirm this:
+
+```bash
+ls
+a.js	a.ts	b.js	b.ts
+```
+
+Excellent there are now two JavaScript modules ready for consumption
+
+Telling the `tsc` command what to compile becomes tedious, and labour intensive
+even on small projects.  Fortunately TypeScript has a means of simplifying this.
+`tsconfig.json` files let developers write down all the compiler settings they
+want.  When `tsc` is run, it looks for `tsconfig.json` files, and uses their
+rules to compile JavaScript.
+
+For Angular 2 projects there are a number of specific settings that need to be
+configured in a project's `tsconfig.json`
+
+```javascript
+ {
+   "compilerOptions": {
+     "module": "commonjs",
+     "target": "es5",
+     "emitDecoratorMetadata": true,
+     "experimentalDecorators": true,
+     "noImplicitAny": false,
+     "removeComments": false,
+     "sourceMap": true
+   },
+   "exclude": [
+     "node_modules",
+     "dist/"
+   ]
+ }
+```
+
+#### Target
+
+The compilation target. Typescript supports targeting different platforms depending on your needs. In our case, we're targeting modern browsers which support `es5`.
+
+#### Module
+
+The target module resolution interface. We're integrating TypeScript through webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
+
+#### Decorators
+
+Decorator support in TypeScript [hasn't been finalized yet](http://rbuckton.github.io/ReflectDecorators/typescript.html) but since Angular 2 uses decorators extensively, these need to be set to true.  Decorators have not been introduced yet, and will be covered later in this section.
+
+#### TypeScript with Webpack
 
 We won't be running `tsc` manually, however. Instead, Webpack's 'ts' loader will do the transpilation during the build:
 
@@ -475,18 +604,79 @@ We won't be running `tsc` manually, however. Instead, Webpack's 'ts' loader will
     ...
 ```
 
+This loader calls TypeScript for us, and it will use our `tsconfig.json`
 
-## Typescript Features ##
 
-### Basic Types ###
-Typescript allows for the use of simple units of data: numbers, strings, boolean etc. Types are the same as you would expect them to be in JavaScript. The list of types allowed in typescript are:
-* Boolean
-* Number: 
-* String: 
-* Array
-* Enum
-* Any
-* Void
+#### Typings
+
+Astute readers might be wondering what happens when TypeScript programmers need
+to interface with JavaScript modules that have no type information.  TypeScript
+recognizes files labelled `*.d.ts` as _definition_ files.  These files are
+meant to use TypeScript to describe interfaces presented by JavaScript 
+libraries.
+
+There are communities of people dedicated to creating typings for JavaScript
+projects.  There is also a utility called `tsd` (`npm install --save-dev tsd`)
+that can be used to manage third party typings.
+
+
+#### Linting
+
+Many editors support the concept of "linting".  Linting is basically grammar
+check for computer programs.  Linting can be done in a programmer's editor,
+and/or through automation.
+
+For TypeScript there is a package called `tslint`, (`npm install --save-dev 
+ts-lint`) which can be plugged into many editors.  `tslint` can also be 
+configured with a `tslint.json` file.
+
+Webpack can also run `tslint` _before_ it even attempts to run `tsc`.  This is
+done by installing `tslint-loader` (`npm install --save-dev tslint-loader`)
+which plugs into webpack like so:
+
+```js
+ ...
+ module: {
+    preLoaders: [{
+      test: /\.ts$/,
+      loader: 'tslint'
+    }],
+    loaders: [
+      { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
+      ...
+    ]
+    ...
+ }
+```
+
+### Typescript Features 
+
+Now that producing JavaScript from TypeScript code has been de-mystified, two of
+its features can be described, and experimented with.
+
+- Types, Interfaces, and "Shapes"
+- Decorators
+
+#### Types, Interfaces, and "Shapes"
+
+Many people do not realize it, but JavaScript _does_ in fact have types, they're
+just "Duck Typed", which roughly means that the developer does not have to think
+about them.  JavaScript's types also exist in TypeScript:
+
+- `boolean` (true/false)
+- `number` integers, floats, `Infinity`, and `NaN`
+- `string` characters, and strings of characters
+- `[]` Arrays of other types, like `number[]` or `boolean[]`
+- `{}` Objects
+- `undefined` not set
+
+TypeScript also adds
+
+- `enum` enumerations like `{ Red, Blue, Green }`
+- `any` use any type
+- `void` nothing
+
+Basic type example:
 
 ```javascript
 let isDone: boolean = false;
@@ -500,115 +690,166 @@ let notSure: any = 4;
 notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean
 
-function showMessage(): void {
-    alert("hello there");
+function showMessage(data: string): void {
+    alert(data);
 }
+showMessage('hello');
 ```
 
-### Interfaces ##
+This illustrates all of the basic types in TypeScript, and ends by illustrating
+a `showMessage` function. In this function the parameters have specific types
+that are checked when `tsc` is run.
 
-```javascript
-interface Shape {
-	area(): void;
-};
+In _many_ JavaScript functions it's quite common for functions to take optional
+parameters. TypeScript provides support for this like so:
 
-class Circle implements Shape {
-	constructor(public radius:number){
-	};
-	
-	area():void {
-		let area:number = 3.14 * this.radius * this.radius;
-		console.log('area of circle with radius ' + this.radius + ' = ' + area);
-	}	
+```js
+function logMessage(message: string, isDebug?: boolean) {
+  if (isDebug) {
+    console.log('Debug: ' + message);
+  } else {
+    console.log(message);
+  }
 }
-
-class Square implements Shape {
-	constructor(public side:number){
-	};
-	
-	area():void {
-		let area:number = this.side * this.side;
-		console.log('area of square with side ' + this.side + ' = ' + area);
-	}	
-}
-
-new Circle(10).area();
-new Square(10).area();
-```
-### Classess ###
-
-```javascript
-class Greeter {
-    greeting: string;
-    constructor(message: string) {
-        this.greeting = message;
-    }
-    greet() {
-        return "Hello, " + this.greeting;
-    }
-}
-
-var greeter = new Greeter("world");
+logMessage('hi');         // 'hi'
+logMessage('test', true); // 'Debug: test'
 ```
 
-### Inheritance ###
+Using a `:?` lets `tsc` know that `isDebug` is an optional parameter.  `tsc`
+will _not_ complain if `isDebug` is omitted 
 
-```javascript
-enum Gender {Male, Female};
-enum Role {Admin, Manager};
 
-class User {
-    constructor(public name: string) { }
-    role(role: Role) {
-        alert(this.name + " has role " + Role[role]);
-    }
+##### TypeScript classes
+
+TypeScript also treats `class`es as their own type:
+
+```js
+class Foo { foo: number; }
+class Bar { bar: string; }
+
+class Baz { 
+  constructor(foo: Foo, bar: Bar) { }
 }
 
-class Admin extends User {
-    constructor(name: string) { 
-		super(name); 
-		this.role();
-	}
-    role() {
-        alert("initializing Admin");
-        super.role(Role.Admin);
-    }
+let baz = new Baz(new Foo(), new Bar()); // valid
+baz = new Baz(new Bar(), new Foo());     // tsc errors
+```
+
+##### Interfaces
+
+Sometimes classes are "more" than a developer wants.  Classes end up creating
+code, in the form of transpiled ES6 classes, or transpiled ES5 constructor
+functions.
+
+Also, JavaScript is a _subset_ of TypeScript, and in JavaScript functions are
+"first class" (they can be assigned to variables, and passed around) so how can
+functions be described in TypeScript?
+
+TypeScript's interfaces solve both of these problems.  Interfaces are abstract
+descriptions of things.  Interfaces can be used to represent any non-primitive
+JavaScript object.  Interfaces are literally "abstract" in the sense that they
+produce no code, ES6, or ES5.  Interfaces exist only to describe types to `tsc`.
+
+Here is an example of an interface describing a function:
+
+```ts
+interface Callback {
+  (error: Error, data: any): void;
 }
 
-class Manager extends User {
-    constructor(name: string) { 
-		super(name); 
-		this.role();
-	}
-    role() {
-        alert("initializing Manager");
-        super.role(Role.Manager);
-    }
+function callServer(callback: Callback) {
+  callback(null, 'hi');
+}
+callServer((data) => console.log(data)); // 'hi'
+callServer('hi');                        // tsc error
+```
+
+Sometimes JavaScript functions are "overloaded", that is, they _can_ have
+different call signatures.  Interfaces can be used to specify this.  Methods
+in classes can also be overloaded:
+
+```ts
+interface PrintOutput {
+  (message: string): void;    // common case
+  (message: string[]): void;  // less common case
 }
 
-var sam:Admin = new Admin("Sam");
-var tom:Manager = new Manager("Tom");
+let printOut: PrintOutput = (message) => {
+  if (Array.isArray(message)) {
+    console.log(message.join(', '));
+  } else {
+    console.log(message);
+  }
+}
+
+printOut('hello');       // 'hello'
+printOut(['hi', 'bye']); // 'hi, bye'
 
 ```
 
-### Generics ###
+Here is an example of an interface describing an Object literal:
 
-```javascript
-class TestGenerics<T> {
-    message: T;
-    constructor(message: T) {
-        this.message = message;
-		this.display();
-    }
-    display():void {
-        alert(typeof(this.message));
-    }
+```ts
+
+interface Action {
+  type: string;
 }
 
-var stringTest = new TestGenerics<string>("Hello, world");
-var booleanTest = new TestGenerics<boolean>(true);
+let a: Action = {
+    type: 'literal' 
+}
 
 ```
+
+##### Shapes
+
+Underneath TypeScript is JavaScript, and underneath JavaScript is typically a
+C++ JIT (just in time compiler). Given JavaScript's underlying semantics, types
+are typically reasoned about by "shapes".  These underlying "shapes" work like
+TypeScript's interfaces, and are in fact _how_ TypeScript compares custom types
+like `class`es, and `interface`s.
+
+Consider an expansion of the previous example:
+
+```ts
+
+interface Action {
+  type: string;
+}
+
+let a: Action = {
+    type: 'literal' 
+}
+
+class NotAnAction {
+  type: string;
+  constructor() {
+    this.type = 'Constructor function (class)';
+  }
+}
+
+a = new NotAnAction(); // valid TypeScript!
+
+```
+
+Despite the fact that `Action`, and `NotAnAction` have different identifiers,
+`tsc` lets us assign and instance of `NotAnAction` to `a` which has a type of
+`Action`.  This is because TypeScript only really cares that Objects have the
+same "shape".  In other words if two objects have the same attributes, with the
+same typings, those two objects are considered to be of the same type.
+
+#### Decorators
+
+Decorators are an existing proposal for a future version of JavaScript, but
+the Angular 2 team _really_ wanted to use them, so they have been included in
+TypeScript.
+
+Decorators are functions that are invoked with a prefixed `@` symbol, and
+_immediately_ followed by a `class`, a parameter, or a method.  The decorator
+function is supplied information about the `class`, parameter, or method, and
+the decorator function returns something in its place.  Typically the
+"something" a decorator returns is the same thing that was passed in, it's just
+been augmented in some way.
 
 [mdnDest]:https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment "MDN Destructuring Assignment"
 [mdnConst]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const "MDN const - const is not immutable"
