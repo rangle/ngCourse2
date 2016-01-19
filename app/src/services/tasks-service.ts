@@ -2,7 +2,6 @@ import {Injectable} from 'angular2/core';
 import {Http, Request, Response, Headers} from 'angular2/http';
 import {Router} from 'angular2/router';
 import 'rxjs/add/operator/map';
-import {ReplaySubject} from 'rxjs';
 import {List} from 'immutable';
 
 interface Task {
@@ -14,15 +13,11 @@ interface Task {
 export default class TasksService {
 
   private _tasks = List<Task>();
-  // The observable which the components can
-  // utilize for change detection
-  private _obsv: ReplaySubject<any>;
 
   constructor(
     private _http: Http,
     private _router: Router
   ) {
-    this._obsv = new ReplaySubject(1);
     this.fetch();
   }
 
@@ -34,13 +29,11 @@ export default class TasksService {
       .map((res: Response) => res.json())
       .subscribe((tasks: Array<Task>) => {
         this._tasks = this._tasks.push(...tasks);
-        this._obsv.next(this._tasks);
       });
   }
 
   /**
-   * Add a new task and
-   * push updates to the observable
+   * Add a new task
    * @param {Task} task New task to add to the list
    */
   add(task: Task) {
@@ -56,7 +49,6 @@ export default class TasksService {
       .map((res: Response) => res.json())
       .subscribe((res) => {
         this._tasks = this._tasks.push(...res);
-        this._obsv.next(this._tasks);
         this.goToTasksList();
       });
   }
@@ -69,10 +61,10 @@ export default class TasksService {
   }
 
   /**
-   * Getter for the Observable
+   * Getter for the tasks list
    */
-  get obsv() {
-    return this._obsv;
+  get tasks() {
+    return this._tasks;
   }
 
 }

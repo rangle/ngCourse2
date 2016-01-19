@@ -7,18 +7,14 @@ import TasksService from '../../services/tasks-service';
   selector: 'ngc-tasks-list',
   directives: [Grid],
   template: `
-    <ngc-grid [tasks]="tasks"></ngc-grid>
+    <ngc-grid [tasks]="tasksService.tasks"></ngc-grid>
   `
 })
 export default class TasksList {
 
-  public tasks;
-
   constructor(
-    private _tasksService: TasksService
+    public tasksService: TasksService
   ) {
-    _tasksService.obsv
-      .subscribe(tasks => this.tasks = tasks);
   }
 
 }
