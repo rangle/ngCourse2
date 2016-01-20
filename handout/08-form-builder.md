@@ -1,52 +1,72 @@
 # Part 8: Forms
 
-Let's create a very simple component that just renders a form. In our main `index.html` file we are going to define a new html element called `<my-form>`.
+Capturing data from the user is the cornerstone of any application and it's usually done trough forms. Angular 2 is much more flexible than Angular 1 for handling forms, we are no longer restricted to just the `ngModel`. In Angular 2, there is two ways to define forms: using directives in our templates or using the `FormBuilder`.
 
-*index.html*
+Using directives gives us the power of rapid prototyping without too much boilerplate, but we are somehow restricted of what we can do. The `FormBuilder` in the other hand, let us define our form through code and gives us much more flexibility and control over data validation.
+
+Which approach to use will depend on the developer needs, but we are going to start with the simplest one: directies.
+
+## Creating a Form with Directives
+
+Let's create a very simple component that just renders a form. In our main _index.html_ file we are going to define a new html element called `<my-form>`.
+
+_index.html_
 ```html
 <my-form>Loading...</my-form>
 ```
 
-In order to create this element, we need to define a new component.
+Then we are going to create a boot file to load the main component of our application.
 
-*app/my-form.component.ts*
+_app/boot.ts_
+```javascript
+import {bootstrap} from 'angular2/platform/browser';
+import {MyForm} from './my-form.component';
+
+bootstrap(MyForm);
+```
+
+In order to render the `<my-form>` element, we need to define a new component.
+
+_app/my-form.component.ts_
 ```javascript
 import {Component} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 
 @Component({
   selector: 'my-form',
-  templateUrl: 'app/my-form.html'
+  templateUrl: 'app/my-form.component.html'
 })
-class MyForm {}
-
-bootstrap(MyForm);
+export class MyForm {}
 ```
 
 And finally, define the component's template as a separate file for easier visualization.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
-<form>
+<form novalidate>
 
   <div>
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName">
+    <label for="email">Email:</label>
+    <input type="email" id="email">
   </div>
 
   <div>
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName">
+    <label for="password">Password:</label>
+    <input type="password" id="password">
   </div>
 
-  <button type="submit">Submit</button>
+  <button type="submit">Register</button>
 
 </form>
 ```
 
-At this point, if we click the submit button nothing happens because we defined a standard HTML form, not an angular2 form. To fix that, we need to tell our component to upgrade our form using the `NgForm` directive wich will give us access to new properties and event bindings on our form to interact with it.
+> We are using the attribute `novalidate` in our form to prevent the browser from performing its built-in validation for the email field. We are going to create our own validation using Angular in a following section.
 
-*app/my-form.component.ts*
+[View Example](https://plnkr.co/edit/DzBxhlzGLb3fg3rtPGnx?p=preview)
+
+At this point, if we click the submit button nothing happens because we defined a standard HTML form, not an Angular 2 form. To fix that, we need to tell our component to upgrade our form using the `NgForm` directive wich will give us access to new properties and event bindings on our form to interact with it.
+
+_app/my-form.component.ts_
 ```javascript
 // ...
 import {FORM_DIRECTIVES} from 'angular2/common';
@@ -55,48 +75,50 @@ import {FORM_DIRECTIVES} from 'angular2/common';
   // ...
   directives: [FORM_DIRECTIVES]
 })
-class MyForm {}
+export class MyForm {}
 ```
 
-Notice that we didn't include the NgForm directly, instead we included [FORM_DIRECTIVES](https://angular.io/docs/ts/latest/api/common/FORM_DIRECTIVES-let.html) which is an array of all the directives used in forms, including NgForm. To see all the directives included in this array, check the [source code](https://github.com/angular/angular/blob/2.0.0-beta.0/modules/angular2/src/common/forms/directives.ts#L52-L71).
+Notice that we didn't include the `NgForm` directly, instead we included [FORM_DIRECTIVES](https://angular.io/docs/ts/latest/api/common/FORM_DIRECTIVES-let.html) which is an array of all the directives used in forms, including `NgForm`. To see all the directives included in this array, check the [source code](https://github.com/angular/angular/blob/2.0.0-beta.0/modules/angular2/src/common/forms/directives.ts#L52-L71).
 
-Because we now have an angular2 form, we can listen to the `ngSubmit` event which is triggered whenever the form is submitted.
+Because we now have an Angular 2 form, we can listen to the `ngSubmit` event which is triggered whenever the form is submitted.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form (ngSubmit)="onSubmit()">
 ```
 
 We are telling our component that when the form is submitted, the `onSubmit` method of our component will be invoked, so let's define this method.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 @Component({
   // ...
 })
-class MyForm {
-  onSubmit(): void {
+export class MyForm {
+  onSubmit() {
     console.log('Form submitted!');
   }
 }
 ```
 
+[View Example](https://plnkr.co/edit/ezQ0bfUkswxQReb9gmVa?p=preview)
+
 Now when we click the submit button, we can see in the console the message "Form submitted!".
 
-## Getting the form's values
+## Getting the Form's Values
 
-Right now, our component doesn't know how to get the values introduced in the form's fields. To do that, we need a way to pass an instance of the form when calling the "onSubmit" method on the template.
+Right now, our component doesn't know how to get the values introduced in the form's fields. To do that, we need a way to pass an instance of the form when calling the `onSubmit` method on the template.
 
-The NgForm directive, besides of defining a new `ngSubmit` event on the form, is also creating and **exporting** an instance of the NgForm directive, called unsurprisingly `ngForm`, to be used as a local template variable.
+The `NgForm` directive, besides of defining a new `ngSubmit` event on the form, is also creating and **exporting** an instance of the `NgForm` directive, called unsurprisingly `ngForm`, to be used as a local template variable.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
-<form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
+<form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)" novalidate>
 ```
 
-Here we are naming `regForm` (short for "registration form") our local reference to the NgForm directive instance and passing it to our component in the `onSubmit` method. It's now time to update the component method to read the values of our form.
+Here we are naming `regForm` (short for "registration form") our local reference to the `NgForm` directive instance and passing it to our component in the `onSubmit` method. It's now time to update the component method to read the values of our form.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
 import {NgForm} from 'angular2/common';
@@ -104,30 +126,32 @@ import {NgForm} from 'angular2/common';
 @Component({
   // ...
 })
-class MyForm {
-  onSubmit(regForm: NgForm): void {
+export class MyForm {
+  onSubmit(regForm: NgForm) {
     console.log(regForm.value);
   }
 }
 ```
 
-Even if we fill both inputs and click the submit button, we get an empty object in the console. To understand what's happening we need to stop for a moment to review some core concepts about forms in angular2 before moving on with our code example.
+[View Example]()
+
+Even if we fill both inputs and click the submit button, we get an empty object in the console. To understand what's happening we need to stop for a moment to review some core concepts about forms in Angular 2 before moving on with our code example.
 
 ## Control Grouping
 
 In angular2, there are three basic built-in classes that help us manage forms:
 
-- Control
-- ControlGroup
-- ControlArray
+- `Control`
+- `ControlGroup`
+- `ControlArray`
 
-A [Control](https://angular.io/docs/ts/latest/api/common/Control-class.html) is the most basic unit of a form and it's associated with individual fields of a form. Through a Control we can know the field's value, its state (whether or not is valid or has been changed), and its errors.
+A [Control](https://angular.io/docs/ts/latest/api/common/Control-class.html) is the most basic unit of a form and it's associated with individual fields of a form. Through a `Control` we can know the field's value, its state (whether or not is valid or has been changed), and its errors.
 
-A [ControlGroup](https://angular.io/docs/ts/latest/api/common/ControlGroup-class.html) is a collection of Controls of fixed length. A ControlGroup is useful to define the validity of the group of controls as a whole, without the need to iterate through all of them manually to check if all are valid or not.
+A [ControlGroup](https://angular.io/docs/ts/latest/api/common/ControlGroup-class.html) is a collection of `Control`s of fixed length. A `ControlGroup` is useful to define the validity of the group of controls as a whole, without the need to iterate through all of them manually to check if all are valid or not.
 
-**When we define a form using the NgForm directive, automatically every form element creates an internal ControlGroup to hold all of the Controls inside of it.**
+**When we define a form using the `NgForm` directive, automatically every form element creates an internal `ControlGroup` to hold all the `Control`s inside of it.**
 
-A [ControlArray](https://angular.io/docs/ts/latest/api/common/ControlArray-class.html) is exactly the same as a ControlGroup but with a variable length.
+A [ControlArray](https://angular.io/docs/ts/latest/api/common/ControlArray-class.html) is exactly the same as a `ControlGroup` but with a variable length.
 
 In the previous example, the exported template variable that we are getting from:
 
@@ -135,53 +159,55 @@ In the previous example, the exported template variable that we are getting from
 <form #regForm="ngForm" ...>
 ```
 
-Is in fact an instance of the NgForm directive, not directly an instance of the ControlGroup class. To get to the ControlGroup instance created internally by the NgForm directive, we need to access the property `regForm.form`.
+Is in fact an instance of the `NgForm` directive, not directly an instance of the `ControlGroup` class. To get to the `ControlGroup` instance created internally by the `NgForm` directive, we need to access the property `regForm.form`.
 
-Let's go back to our code. We now know that our form element has been *upgraded* with the NgForm directive, and because of that, it has created an internal ControlGroup for us to hold a reference to its child Controls. The problem is that at this point angular doesn't recognize the nested fields as Controls belonging to the form. To make this association explicit, we need to use the directive `ngControl` on our form fields.
+Let's go back to our code. We now know that our form element has been *upgraded* with the `NgForm` directive, and because of that, it has created an internal `ControlGroup` for us to hold a reference to its child controls. The problem is that at this point Angular doesn't recognize the nested fields as controls belonging to the form. To make this association explicit, we need to use the directive `ngControl` on our form fields.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
   
   <div>
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" ngControl="firstName">
+    <label for="email">Email:</label>
+    <input type="email" id="email" ngControl="email">
   </div>
   
   <div>
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" ngControl="lastName">
+    <label for="password">Password:</label>
+    <input type="password" id="password" ngControl="password">
   </div>
   
   <!-- ... -->
 </form>
 ```
 
-When we add the directive ngControl to the fields, angular automatically registers these Controls as part of the ControlGroup of the parent form.
+[View Example](https://plnkr.co/edit/krj8g1HBU7zqOvnesf4Q?p=preview)
 
-Now, if we put the values "John" as first name and "Doe" as last name and click the submit button, we get the correct values on the console.
+When we add the directive `ngControl` to the fields, Angular automatically registers these controls as part of the `ControlGroup` of the parent form.
+
+Now, if we put the values "joe.satriani@gmail.com" as email and "secretpass" as password and click the register button, we get the correct values on the console.
 
 ```javascript
-Object {firstName: "John", lastName: "Doe"}
+Object {email: "joe.satriani@gmail.com", password: "secretpass"}
 ```
 
 ## Validation
 
 In order to show validation messages for every field, we need to do a similar trick that the one we did for the form. We need to define a local template variable that is a reference to the directive itself.
 
-The ngControl directive is a little tricky, first the directive definition is not called NgControl but [NgControlName](https://angular.io/docs/ts/latest/api/common/NgControlName-directive.html). Second, the directive itself it's exported to the template with the same name as before: `ngForm`.
+The `ngControl` directive is a little tricky, first the directive definition is not called `NgControl` but [NgControlName](https://angular.io/docs/ts/latest/api/common/NgControlName-directive.html). Second, the directive itself it's exported to the template with the same name as before: `ngForm`.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
   <div>
     <!-- ... -->
-    <input type="text" id="firstName" ngControl="firstName" #firstName="ngForm" required minlength="3">
+    <input type="email" id="email" ngControl="email" #email="ngForm" required >
   </div>
   
   <div>
     <!-- ... -->
-    <input type="text" id="lastName" ngControl="lastName" #lastName="ngForm" required>
+    <input type="password" id="password" ngControl="password" #password="ngForm" required minlength="4">
   </div>
   <!-- ... -->
 </form>
@@ -189,70 +215,79 @@ The ngControl directive is a little tricky, first the directive definition is no
 
 Here we have defined two local template variables and also we defined a couple of built-in validators like `required` and `minlength`. The only other built-in validator available for an input field is `maxlength` wich we are not going to use in this example.
 
-> Note: When exporting a directive using for example `#firstName="ngForm"`, we are getting an instance of the directive `NgControlName`. To access the Control instance of the field, we need to get the property `control` like for example `firstName.control`.
+> **Note:** When exporting a directive using for example `#email="ngForm"`, we are getting an instance of the directive `NgControlName`. To access the `Control` instance of the field, we need to get the property `control` like for example `email.control`.
 
 With these two validators we can then show or hide error messages for each field.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
 
   <div>
     <!-- ... -->
-    <ul *ngIf="firstName.dirty && !firstName.valid">
-      <li *ngIf="firstName.errors.required">This field is required</li>
-      <li *ngIf="firstName.errors.minlength">This field needs to have at least 3 characters</li>
+    <ul *ngIf="email.dirty && !email.valid">
+      <li *ngIf="email.errors.required">An email is required</li>
     </ul>
   </div>
 
   <div>
     <!-- ... -->
-    <ul *ngIf="lastName.dirty && !lastName.valid">
-      <li *ngIf="lastName.errors.required">This field is required</li>
+    <ul *ngIf="password.dirty && !password.valid">
+      <li *ngIf="password.errors.required">A password is required</li>
+      <li *ngIf="password.errors.minlength">A password needs to have at least 4 characterss</li>
     </ul>
   </div>
 
-  <button type="submit">Submit</button>
+  <button type="submit">Register</button>
 </form>
 ```
 
-We have at our disposal access to the validity of each field using the property `valid`, the state with `dirty`, `touched` and `pristine` and particular errors based on the validators applied inside the object `errors`.
+We have at our disposal access to the validity of each field using the property `valid`, the state with `dirty`, `touched` and `pristine` and particular errors based on the validators applied inside the object `errors`. The description of the different states for a particular field are described in the table below.
 
-It's worth noting that Control, ControlGroup and ControlArray all inherit from [AbstractControl](https://angular.io/docs/ts/latest/api/common/AbstractControl-class.html) and because of this they share the same API to get values, errors and check the internal state (valid, dirty). For that reason, we can also check the validity of the form as a whole to disabled or enabled the submit button.
+State    | Meaning
+-------- | -----------------------------------------------------------------
+pristine | The field has just been rendered and hasn't been modified
+dirty    | The field has been modified
+touched  | The field has been modified and has lost focus
+valid    | The field is passing all the validators
 
-*app/my-form.html*
+It's worth noting that `Control`, `ControlGroup` and `ControlArray` all inherit from [AbstractControl](https://angular.io/docs/ts/latest/api/common/AbstractControl-class.html) and because of this they share the same API to get values, errors and check the internal state (valid, dirty). For that reason, we can also check the validity of the form as a whole to disabled or enabled the submit button.
+
+_app/my-form.component.html_
 ```html
 <form ...>
   <!-- ... -->
-  <button type="submit" [disabled]="!form.valid">Submit</button>
+  <button type="submit" [disabled]="!regForm.valid">Register</button>
 </form>
 ```
 
+[View Example](https://plnkr.co/edit/w9KzDcfPpzDMHrcjjNEP?p=preview)
+
 ## Visual cues with CSS
 
-Angular also offers a way to define special CSS styles adding or removing classes to the form fields dependent on its state and validation.
+Angular also offers a way to define special CSS styles adding or removing classes to the form fields dependent on its state and validation following the rules shown in the table below.
 
-Class        | Meaning
------------- | ------------------------------------------------------------------
-ng-pristine  | The field has just been rendered and hasn't been modified
-ng-dirty     | The field has been modified
-ng-untouched | The field has not been modified since the last time it lost focus
-ng-touched   | The field has been modified and has lost focus
-ng-valid     | The field is passing all the validators
-ng-invalid   | The field is not passing at least one validator
+Class        | States
+------------ | ---------------------------------------
+ng-pristine  | `pristine == true` and `dirty == false`
+ng-dirty     | `dirty == true` and `pristine == false`
+ng-touched   | `touched == true`
+ng-untouched | `touched == false`
+ng-valid     | `valid == true`
+ng-invalid   | `valid == false`
 
 If we want to define a style for an invalid input field, we could define a CSS rule for that.
 
-*styles.css*
+_styles.css_
 ```css
 .ng-invalid.ng-dirty {
   border-left: 5px solid red;
 }
 ```
 
-We need now to update our `index.html` file to reference our new stylesheet.
+We need now to update our _index.html_ file to reference our new stylesheet.
 
-*index.html*
+_index.html_
 ```html
 <html>
   <head>
@@ -263,132 +298,138 @@ We need now to update our `index.html` file to reference our new stylesheet.
 </html>
 ```
 
+[View Example](https://plnkr.co/edit/g99Nrw1tQtX6MFFViPHs?p=preview)
+
 So far all of our validation logic lives in the template and we are doing very basic validation. What if we want to use some custom validation? We need to have more control of our form and for that, we need to use the `FormBuilder`.
 
-## FormBuilder
+## Creating a Form with the "FormBuilder"
 
 The [FormBuilder](https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html) is a class that allows us to create a form programatically. To use it in our component, we need to inject it in the constructor.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
 import {FormBuilder} from 'angular2/common';
 
 // ...
-class MyForm
+export class MyForm
   constructor(builder: FormBuilder) {}
 }
-// ...
 ```
 
-The FormBuilder class has a factory method called `group` that creates a ControlGroup instance that requires, as arguments, the `Controls` to defined the fields of the form.
+The `FormBuilder` class has a factory method called `group` that creates a `ControlGroup` instance that requires, as arguments, the `Control`s to define the fields of the form.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
 import {ControlGroup} from 'angular2/common';
 import {Control} from 'angular2/common';
 
 // ...
-class MyForm {
-  firstName: Control;
-  lastName: Control;
-  regForm: ControlGroup;
+export class MyForm {
+  email: Control;
+  password: Control;
+  group: ControlGroup;
 
   constructor(builder: FormBuilder) {
-    this.firstName = new Control();
-    this.lastName = new Control();
+    this.email = new Control();
+    this.password = new Control();
 
-    this.regForm = builder.group({
-      firstName: this.firstName,
-      lastName: this.lastName
+    this.group = builder.group({
+      email: this.email,
+      password: this.password
     });
   }
+  
+  onSubmit() {
+    console.log(this.group.value);
+  }
 }
-// ...
 ```
 
-We have created programatically a new form using the FormBuilder with two fields: firstName and lastName.
-
-> Note: There is a subtle difference than before. Notice that now `this.regForm` is an instance of `ControlGroup`, not a reference to the `NgForm` directive as before.
+We have created programatically a new form using the `FormBuilder` with two fields: `email` and `password`.
 
 Now we need to go back to our form template to change a few things. We are going to remove the validation temporarily because we have not defined the validators yet using this new approach.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
-<form [ngFormModel]="regForm" (ngSubmit)="onSubmit()">
+<form [ngFormModel]="group" (ngSubmit)="onSubmit()" novalidate>
 
   <div>
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" [ngFormControl]="firstName">
+    <label for="email">Email:</label>
+    <input type="email" id="email" [ngFormControl]="email">
   </div>
 
   <div>
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" [ngFormControl]="lastName">
-  </div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" [ngFormControl]="password">
+  <div>
 
-  <button type="submit">Submit</button>
+  <button type="submit">Register</button>
 </form>
 ```
 
-There's four things to notice here:
+[View Example](https://plnkr.co/edit/haqjDvpObbNz757iTgT0?p=preview)
 
-1. We are binding our ControlGroup instance `this.regForm` created by the FormBuilder, to the actual HTML form using the special property `[ngFormModel]`. We are using the `[ngFormModel]` property instead of the `ngForm` directive because the latter will try to create a new ControlGroup (the form) and not use the one we have already created in our component.
+There's five things to notice here:
 
-2. We are binding our Controls instances using the property `[ngFormControl]` to each of the form fields. Similar to the form, we are using the `[ngFormControl]` property instead of the `ngControl` directive because the latter will try to create a new Control and not use the ones we have already created in our component.
+1. We have changed the name we use to refer to our form from `regForm` to `group` because `regForm` used to be an instance of the `ngForm` directive while `group` is an instance of `ControlGroup`.
 
-3. We don't need to export the form or the controls using the syntax `#regForm="ngForm"` or `#firstName="ngForm"` because we have already created those variables in our component and thus they are available in the template.
+2. We are binding our `ControlGroup` instance `group` created by the `FormBuilder`, to the actual HTML form using the special property `[ngFormModel]`.
 
-4. We don't need to pass the form object to the `onSubmit` method because we have access to it inside our component in the variable `this.regForm`.
+3. We are binding our `Control` instances using the property `[ngFormControl]` to each of the form fields. We are using the `[ngFormControl]` property instead of the `ngControl` directive because the latter will try to create a new `Control` and not use the ones we have already created in our component.
+
+4. We don't need to export the form or the controls using the syntax `#group="ngForm"` or `#email="ngForm"` because we have already created those variables in our component and thus they are available in the template.
+
+5. We don't need to pass the form object to the `onSubmit` method because we have access to it inside our component in the variable `this.group`.
 
 ## Built-in validators
 
 In contrast with our first approach, we are not going to be using the HTML properties `required` and `minlength`, instead we are going to pass these validators to the Control constructor of both fields.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
 import {Validators} from 'angular2/common';
 
 // ...
-class MyForm {
+export class MyForm {
   // ...
   constructor(builder: FormBuilder) {
-    this.firstName = new Control('', Validators.compose([Validators.required, Validators.minLength(3)]));
-    this.lastName = new Control('', Validators.required);
+    
+    this.email = new Control('', Validators.required);
+    
+    this.password = new Control('',
+      Validators.compose([Validators.required, Validators.minLength(4)])
+    );
     // ...
   }
-
-  onSubmit(): void {
-    console.log(this.regForm.value);
-  }
+  // ...
 }
-// ...
 ```
 
-The first (optional) value of the Control constructor is the default value for the field, in this case we are leaving it empty. The second argument is the validators that should apply to the field.
+The first (optional) value of the `Control` constructor is the default value for the field, in this case we are leaving it empty. The second argument is the validators that should apply to the field.
 
 The `Validator` class gives us access to the three built-in validators `require`, `minLength` and `maxLength`. If more than one validator is needed for a field, we need to combine them using the method `compose` as shown in the example before.
 
 Now that our validators are in place, we can add again the template to show the error messages.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
 
   <div>
     <!-- ... -->
-    <ul *ngIf="firstName.dirty && !firstName.valid">
-      <li *ngIf="firstName.hasError('required')">This field is required</li>
-      <li *ngIf="firstName.hasError('minlength')">This field needs to have at least 3 characters</li>
+    <ul *ngIf="email.dirty && !email.valid">
+      <li *ngIf="email.hasError('required')">An email is required</li>
     </ul>
   </div>
 
   <div>
     <!-- ... -->
-    <ul *ngIf="lastName.dirty && !lastName.valid">
-      <li *ngIf="lastName.hasError('required')">This field is required</li>
+    <ul *ngIf="password.dirty && !password.valid">
+      <li *ngIf="password.hasError('required')">A password is required</li>
+      <li *ngIf="password.hasError('minlength')">A password needs to have at least 4 characterss</li>
     </ul>
   </div>
 
@@ -396,70 +437,74 @@ Now that our validators are in place, we can add again the template to show the 
 </form>
 ```
 
-Notice that this time the method `hasError` is being used insted of accessing the `errors` object directly as before. When the field is valid, the `errors` object is `null` so trying to access `firstName.errors.required` will generate an internal error. We avoid that problem by wrapping our error logic inside an `*ngIf="!firstName.valid"` so we assure that the errors object exists before trying to render each specific error. This might not always be the case, so it's better to use the `hasError` method to check for a validation error.
+[View Example](https://plnkr.co/edit/TRjR4wGc3lopwoUdo5Hf?p=preview)
+
+Notice that this time the method `hasError` is being used insted of accessing the `errors` object directly as before. When the field is valid, the `errors` object is `null` so trying to access `email.errors.required` will generate an internal error. We avoid that problem by wrapping our error logic inside an `*ngIf="!email.valid"` so we assure that the errors object exists before trying to render each specific error. This might not always be the case, so it's better to use the `hasError` method to check for a validation error.
 
 ## Custom Validators
 
-Having three validators is just not enough, let's create a custom validator to check that a particular field does not include numbers.
+Having three validators is just not enough, let's create a custom validator to check that our email field has the proper format.
 
-*app/validators.ts*
+_app/custom-validators.ts_
 ```javascript
 import {Control} from 'angular2/common';
 
-export class CustomValidator {
-  static noNumbers(control: Control): {[key: string]: boolean} {
-    let pattern:RegExp = /[0-9]/;
-    return pattern.test(control.value) ? {"noNumbers": true} : null;
+export class CustomValidators {
+  static emailFormat(control: Control): [[key: string]: boolean] {
+    let pattern:RegExp = /\S+@\S+\.\S+/;
+    return pattern.test(control.value) ? null : {"emailFormat": true}; 
   }
 }
 ```
 
-A validator is just a class with a number of static methods. Each method receives a Control instance and returns an object in case the validation fails or `null` in case tha validation pass.
+A validator is just a class with a number of static methods. Each method receives a `Control` instance and returns an object in case the validation fails or `null` in case tha validation pass.
 
 We can now add the validator in our component logic and add a new item in our HTML to show this error.
 
-*app/validators.ts*
+_app/validators.ts_
 ```javascript
 // ...
-import {CustomValidator} from './validators';
+import {CustomValidators} from './custom-validators';
 
 // ...
-class MyForm {
+export class MyForm {
   // ...
   constructor(builder: FormBuilder) {
     // ...
-    this.lastName = new Control('', Validators.compose([Validators.required, CustomValidator.noNumbers]));
+    this.email = new Control('', 
+      Validators.compose([Validators.required, CustomValidators.emailFormat])
+    );
     // ...
   }
   // ...
 }
-// ...
 ```
 
-In the template, we need to look for the same key that is returned by the validator in case of an error, in this case, the key `noNumbers`.
+In the template, we need to look for the same key that is returned by the validator in case of an error, in this case, the key `emailFormat`.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
-  <!-- ... -->
   <div>
     <!-- ... -->
-    <ul *ngIf="lastName.dirty && !lastName.valid">
-      <li *ngIf="lastName.hasError('required')">This field is required</li>
-      <li *ngIf="lastName.hasError('noNumbers')">This field doesn't allow numbers</li>
+    <ul *ngIf="email.dirty && !email.valid">
+      <li *ngIf="email.hasError('required')">An email is required</li>
+      <li *ngIf="email.hasError('emailFormat')">The value introduced is not an email</li>
     </ul>
   </div>
   <!-- ... -->
 </form>
 ```
 
+[View Example](https://plnkr.co/edit/Q0aUwWF25VUoUnxIQrRL?p=preview)
+
 ## Async validators
 
-Until this point, our validation logic is living in the frontend, but what happens if we want to check for some logic that only exists in the server? For example, let's say that for some obscure reason, we want to validate that the value of the field `firstName` does not exist yet in our database and we want to alert the user as he/she types. That's when the async validator comes in handy.
+Until this point, our validation logic is living in the frontend, but what happens if we want to check for some logic that only exists in the server? For example, let's say we want to prevent two users trying to register using the same email. To do that, we need to verify that the email entered does not exist in our database and we want to alert the user as he/she types. That's when the async validator comes in handy.
 
-Our new async validator is going to live inside the `CustomValidator` class and the return value of the static method is going to be exactly the same as the method `noNumbers` so before writing our now validation rule, let's do a simple refactoring to clean the code a little bit. 
+Our new async validator is going to live inside the `CustomValidators` class and the return value of the static method is going to be exactly the same as the method `emailFormat` so before writing our now validation rule, let's do a simple refactoring to clean the code a little bit. 
 
-*app/validators.ts*
+_app/validators.ts_
 ```javascript
 // ...
 
@@ -467,28 +512,28 @@ interface IValidation {
   [key: string]: boolean;
 }
 
-export class CustomValidator {
-  static noNumbers(control: Control): IValidation {
-    let pattern:RegExp = /[0-9]/;
-    return pattern.test(control.value) ? {"noNumbers": true} : null;
+export class CustomValidators {
+  static emailFormat(control: Control): IValidation {
+    let pattern:RegExp = /\S+@\S+\.\S+/;
+    return pattern.test(control.value) ? null : {"emailFormat": true}; 
   }
 }
 ```
 
 We have created an interface to define the return value of our methods so we can use the same interface with our new validator.
 
-An async validator must return a promise that should resolve to an object with the error when our server responds with a failed validation, or should resolve to null when the server responds with a successful validation.
+An async validator must return a promise that should resolve to an object with the error when our server responds with a failed validation, or should resolve to `null` when the server responds with a successful validation.
 
-*app/validators.ts*
+_app/validators.ts_
 ```javascript
 // ...
 
-export class CustomValidator {
+export class CustomValidators {
   // ...
-  static duplicated(control: Control): Promise<IValidation> {
-    let q:Promise<IValidation> = new Promise((resolve, reject) => {
+  static duplicated(control: Control) {
+    const q = new Promise<IValidation>((resolve, reject) => {
       setTimeout(() => {
-        if(control.value === 'David') {
+        if(control.value === 'john.doe@gmail.com') {
           resolve({'duplicated': true});
         } else {
           resolve(null);
@@ -504,37 +549,40 @@ We named our new validator `duplicated` and we used the `setTimeout` function to
 
 The next step is to add the new validation method as the third argument of the `Control` constructor.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
-class MyForm {
+export class MyForm {
   // ...
   constructor(builder: FormBuilder) {
-    this.firstName = new Control('', Validators.compose([Validators.required, Validators.minLength(3)]), CustomValidator.duplicated);
+    this.email = new Control('',
+      Validators.compose([Validators.required, CustomValidators.emailFormat]), CustomValidators.duplicated
+    );
     // ...
   }
   // ...
 }
-// ...
 ```
 
 We can modify again our template to acommodate the new error message.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
   <div>
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" [ngFormControl]="firstName">
-    <span *ngIf="firstName.pending">Checking duplication...</span>
+    <label for="email">Email:</label>
+    <input type="text" id="email" [ngFormControl]="email">
+    <span *ngIf="email.pending">Checking duplication...</span>
     <ul ...>
       <!-- ... -->
-      <li *ngIf="firstName.hasError('duplicated')">This value cannot be used</li>
+      <li *ngIf="email.hasError('duplicated')">This email has been registered already</li>
     </ul>
   </div>
   <!-- ... -->
 </form>
 ```
+
+[View Example](https://plnkr.co/edit/0OUp4WcCPJ56nneAPYoK?p=preview)
 
 Notice that not only we have a new error key but our field has a new state called `pending` that is `true` when angular waits for the promise to be resolved and `false` otherwise. That way we can give feedback to the user that some validation is being performed in the background that could take a while to finish.
 
@@ -542,27 +590,28 @@ Notice that not only we have a new error key but our field has a new state calle
 
 The `ControlGroup` and `Control` components both behave as observables, meaning that we can subscribe to their streams in order to "watch" changes in the form values.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
-class MyForm {
+export class MyForm {
   // ...
   constructor(builder: FormBuilder) {
     // ...
-    this.firstName.valueChanges.subscribe((value: string) => {
-      console.log('firstName', value);
+    this.email.valueChanges.subscribe((value: string) => {
+      console.log('email', value);
     });
-    this.lastName.valueChanges.subscribe((value: string) => {
-      console.log('lastName', value);
+    this.password.valueChanges.subscribe((value: string) => {
+      console.log('password', value);
     });
-    this.regForm.valueChanges.subscribe((value: any) => {
+    this.group.valueChanges.subscribe((value: any) => {
       console.log('form', value);
     });
   }
   // ...
 }
-// ...
 ```
+
+[View Example](https://plnkr.co/edit/h5c6NQwpLdF2KOjlNtVc?p=preview)
 
 While the subscriber for the fields receives the values as strings, the form subscriber receives its value as an object representing the entire information introduced in the form. Every time the user changes the value of any of the fields, the corresponding field subscriber is invoked as well as the form subscriber.
 
@@ -572,160 +621,170 @@ So far the form only gets information from the user. What if there's a need to e
 
 First, a model needs to be defined as a new class.
 
-*app/person.model.ts*
+_app/user.model.ts_
 ```javascript
-export class Person {
-  public firstName: string;
-  public lastName: string;
-  
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-  getCompleteName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
+export class User {
+  constructor(
+    public email: string, 
+    public password: string) {}
 }
 ```
 
-In order to use it in the `MyForm` component, an instance of the `Person` class needs to be defined.
+In order to use it in the `MyForm` component, an instance of the `User` class needs to be defined.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
-import {Person} from './person.model';
+import {User} from './user.model';
 
 // ...
-class MyForm {
-  person: Person;
+export class MyForm {
+  user: User;
   // ...
   constructor() {
-    this.person = new Person('John', 'Doe');
+    this.user = new User('joe.satriani@gmail.com', 'secretpass');
     // ...
   }
   // ...
 }
-// ...
 ```
 
 With this instance, the property `[ngModel]` can be used in the template to bind the value of the field to the model.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
   <div>
       <!-- ... -->
-      <input type="text" id="firstName" [ngFormControl]="firstName" [ngModel]="person.firstName">
+      <input type="email" id="email" [ngFormControl]="email" [ngModel]="user.email">
       <!-- ... -->
   </div>
   <div>
       <!-- ... -->
-      <input type="text" id="lastName" [ngFormControl]="lastName" [ngModel]="person.lastName">
+      <input type="password" id="password" [ngFormControl]="password" [ngModel]="user.password">
       <!-- ... -->
   </div>
-  <p><label>Complete Name:</label> {{ person.getCompleteName() }}</p>
+  <p>{{ user | json }}</p>
   <!-- ... -->
 </form>
 ```
 
-Notice that when changing the values of the forms, the "Complete Name" displayed is not being updated accordingly, that's because the property binding `[ngModel]` implements one way data binding. To close the circle, the component can be modified as well to update the model on submit.
+Notice that when changing the values of the forms, the debug information shown at the bottom of the form is not being updated accordingly. That's because the property binding `[ngModel]` implements one way data binding. To close the circle, the component can be modified as well to update the model on submit.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
-class MyForm {
+export class MyForm {
   // ...
-  onSubmit(): void {
-    this.person.firstName = this.regForm.value.firstName;
-    this.person.lastName = this.regForm.value.lastName; 
+  onSubmit() {
+    this.user.email = this.group.value.email;
+    this.user.password = this.group.value.password;
+    console.log('data sent to server', this.user);
   }
 }
-// ...
 ```
+
+[View Example](https://plnkr.co/edit/TPaJeEB4UvGCWzpCngxx?p=preview)
 
 Using this approach the usual angular1 2-way data binding approach is avoided.
 
 If 2-way data binding is still neeeded, the property syntax can be combined with the event syntax.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
   <div>
     <!-- ... -->
-    <input type="text" id="firstName" [ngFormControl]="firstName" [(ngModel)]="person.firstName">
+    <input type="email" id="email" [ngFormControl]="email" [(ngModel)]="user.email">
     <!-- ... -->
   </div>
   <div>
     <!-- ... -->
-    <input type="text" id="lastName" [ngFormControl]="lastName" [(ngModel)]="person.lastName">
+    <input type="password" id="password" [ngFormControl]="password" [(ngModel)]="user.password">
     <!-- ... -->
   </div>
   <!-- ... -->
 </form>
 ```
+
+[View Example](https://plnkr.co/edit/k8G2syqZfpkEi8ese9mn?p=info)
 
 Now, the model is being updated any time the form is being changed.
 
 ## Alternative Syntax
 
-When dealing with a very long form, creating a variable for every field in the form can be tedious. Angular2 provides an alternative syntax to creating a form using the FormBuilder.
+When dealing with a very long form, creating a variable for every field in the form can be tedious. Angular 2 provides an alternative syntax to creating a form using the `FormBuilder`.
 
-*app/my-form.component.ts*
+_app/my-form.component.ts_
 ```javascript
 // ...
-class MyForm {
-  regForm: ControlGroup;
+export class MyForm {
+  group: ControlGroup;
+  user: User
 
   constructor(builder: FormBuilder) {
-    this.regForm = builder.group({
-      firstName: ['', Validators.compose([Validators.required, Validators.minLength(3)]), CustomValidator.duplicated],
-      lastName: ['', Validators.compose([Validators.required, CustomValidator.noNumbers])]
+    this.user = new User('joe.satriani@gmail.com', 'secretpass');
+    
+    this.group = builder.group({
+      email: ['', 
+        Validators.compose([Validators.required, CustomValidators.emailFormat]),
+        CustomValidators.duplicated
+      ],
+      password: ['', 
+        Validators.compose([Validators.required, Validators.minLength(4)])
+      ]
     });
     
-    this.regForm.find('firstName').valueChanges.subscribe((value: string) => {
-      console.log('firstName', firstName);
+    this.group.find('email').valueChanges.subscribe((value: string) => {
+      console.log('email', value);
     });
-    // ...
+    this.group.find('password').valueChanges.subscribe((value: string) => {
+      console.log('password', value);
+    });
+    this.group.valueChanges.subscribe((value: any) => {
+      console.log('form', value);
+    });
   }
   //...
 }
-// ...
 ```
 
-Instead of assigning our Controls to every key in the group method, we now pass an array where every element is a map of the arguments present in the Control constructor.
+Instead of assigning our controls to every key in the group method, we now pass an array where every element is a map of the arguments present in the `Control` constructor.
 
 Because now we don't have access to every control in our template, we need to resort in the form itself to do the validation for each field.
 
-*app/my-form.html*
+_app/my-form.component.html_
 ```html
 <form ...>
   <div>
     <!-- ... -->
-    <input type="text" id="firstName" [ngFormControl]="regForm.find('firstName')">
-    <span *ngIf="regForm.find('firstName').pending">Checking duplication...</span>
-
-    <ul *ngIf="regForm.find('firstName').dirty && !regForm.find('firstName').valid">
-      <li *ngIf="regForm.hasError('required', 'firstName')">This field is required</li>
-      <li *ngIf="regForm.hasError('minlength', 'firstName')">This field needs to have at least 3 characters</li>
-      <li *ngIf="regForm.hasError('duplicated', 'firstName')">This value cannot be used</li>
+    <input type="email" id="email" [ngFormControl]="group.find('email')" [(ngModel)]="user.email">
+    <span *ngIf="group.find('email').pending">Checking duplication...</span>
+    
+    <ul *ngIf="group.find('email').dirty && !group.find('email').valid">
+      <li *ngIf="group.hasError('required', 'email')">This field is required</li>
+      <li *ngIf="group.hasError('emailFormat', 'email')">This field needs to have at least 3 characterss</li>
+      <li *ngIf="group.hasError('duplicated', 'email')">This value cannot be used</li>
     </ul>
   </div>
 
   <div>
     <!-- ... -->
-    <input type="text" id="lastName" [ngFormControl]="regForm.find('lastName')">
-
-    <ul *ngIf="regForm.find('lastName').dirty && !regForm.find('lastName').valid">
-      <li *ngIf="regForm.hasError('required', 'lastName')">This field is required</li>
-      <li *ngIf="regForm.hasError('noNumbers', 'lastName')">This field doesn't allow numbers</li>
+    <input type="password" id="password" [ngFormControl]="group.find('password')" [(ngModel)]="user.password">
+    
+    <ul *ngIf="group.find('password').dirty && !group.find('password').valid">
+      <li *ngIf="group.hasError('required', 'password')">This field is required</li>
+      <li *ngIf="group.hasError('minlength', 'password')">This field doesn't allow numbers</li>
     </ul>
   </div>
   <!-- ... -->
 </form>
 ```
 
+[View Example](https://plnkr.co/edit/k8G2syqZfpkEi8ese9mn?p=preview)
+
 We are using two methods of our form component, `find` and `hasError`.
 
-Find let's get the instance of the Control we are using from the form and in this way, we can do the same validations of state and errors as before.
+Find let's get the instance of the `Control` we are using from the form and in this way, we can do the same validations of state and errors as before.
 
-> Note: You may find in some docs the use of a `control` object instead of the method `find` like this: `form.controls['firstName']`. We are avoiding this approach because it will only work when we are dealing with a `ControlGroup` where every control is stored in an object. If we were working with a `ControlArray` this approach will not work because there's not a key to refer to each control. The method `find` is an abstraction that will take care of both situations and will get us the proper control back.
+> **Note:** You may find in some docs the use of a `control` object instead of the method `find` like this: `group.controls['firstName']`. We are avoiding this approach because it will only work when we are dealing with a `ControlGroup` where every control is stored in an object. If we were working with a `ControlArray` this approach will not work because there's not a key to refer to each control. The method `find` is an abstraction that will take care of both situations and will get us the proper control back.
