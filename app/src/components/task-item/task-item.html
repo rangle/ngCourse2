@@ -1,0 +1,22 @@
+<ngc-card>
+
+  <ngc-card-title>
+    <ngc-icon-user></ngc-icon-user>
+    {{ task.owner }}
+  </ngc-card-title>
+
+  <p class="h3">{{ task.description }}</p>
+
+  <ngc-card-actions>
+    <button class="btn red mr1"
+      (click)="deleteItem()">
+      <ngc-icon-close></ngc-icon-close>
+      Delete
+    </button>
+    <button class="btn">
+      <ngc-icon-check></ngc-icon-check>
+      Done
+    </button>
+  </ngc-card-actions>
+
+</ngc-card>

@@ -1,19 +1,18 @@
 import {Component, View} from 'angular2/core';
-import Card from '../card/card';
+import Task from '../task-item/task-item';
 
 @Component({
   selector: 'ngc-grid',
   inputs: [
     'tasks'
   ],
-  directives: [Card],
+  directives: [Task],
   template: `
     <ul class="cols list-reset m0">
       <li class="py1 avoid-break"
         *ngFor="#task of tasks">
-        <ngc-card [title]="task.owner"
-          [content]="task.description">
-        </ngc-card>
+        <ngc-task [task]="task">
+        </ngc-task>
       </li>
     </ul>
   `
