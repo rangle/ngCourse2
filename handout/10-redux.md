@@ -119,7 +119,7 @@ When using Redux, libraries lke ng2-redux will take care of wrapping your action
     * explain mapStateToTarget
     * explain mapDispatchToTarget
  
- ## Counter Example
+## Counter Example
  
  To see how `ng2-redux` works with Angular 2, lets start by building out a counter component. The component will be responsible for keeping track of how many times it was clicked, and displaying the amount.
  
