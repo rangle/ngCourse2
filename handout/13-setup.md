@@ -85,7 +85,7 @@ BroccoliMergeTrees (1)                        | 224ms
 
 Once you open the project in your text editor you should see the file structure as shown below. 
 
-![File Structure](angular-cli-file-structure.png)
+![File Structure](images/angular-cli-file-structure.png)
 
 Now try to change the text in the file `ng-test.html` and you should see application compiles and auto reloads the browser. Also you would see below output in the console.
 
