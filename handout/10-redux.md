@@ -7,7 +7,7 @@ Redux is an application state manager for JavaScript applications, and keeps wit
 How it differs from traditional Flux though, is that instead of multipul stores, you have one global application state. The state is calculated and returned in the reducer. The state management is held elsewwhere.
 
 
-* Links/Resources to documentation
+* [ ] TODO: Links/Resources to documentation
 
 ## Quick review of Reducers and Pure Functions
 
@@ -261,7 +261,7 @@ export class SimpleRedux {
 
 As you can see in the example, when clicking on the buttons - the numbers in both components will update in sync. This is because counter component is coupled to a specific piece of state, and action.
 
-Looking at the example, you can see that there is already an __app/reducers/curse-reducer.ts__, and __app/actions-curse-actions.ts__, this is pretty much the same as the counter actions and counter reducer, we just wanted to greate a new element of state for it.
+Looking at the example, you can see that there is already an __app/reducers/curse-reducer.ts__, and __app/actions-curse-actions.ts__, this is pretty much the same as the counter actions and counter reducer, we just wanted to create a new reducer to hold the state of it.
 
 To turn the counter component from a smart component into a dumb component, we need to change it to have data and callbacks passed down into it. For this, we will pass the properties into the component, as well as remove the body of the counter class, as it no longer needs to be aware about redux.
 
