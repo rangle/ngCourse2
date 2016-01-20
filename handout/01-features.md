@@ -1,11 +1,11 @@
 # Part 1: EcmaScript 6 and TypeScript Features #
 
-The new version of JavaScript, "EcmaScript 6" or "ES6", offers a number of new features that extend the power of the language. (The language we usually call "JavaScript" is actually formally known as "EcmaScript".) ES6 is not widely supported in today's browsers, so it needs to be transpiled to ES5. You can choose between several transpilers, but we'll be using TypeScript, which is what the Angular team users to write Angular 2. Angular 2 makes use of a number of features of ES6 and TypeScript.
+The new version of JavaScript, "EcmaScript 6" or "ES6", offers a number of new features that extend the power of the language. (The language we usually call "JavaScript" is actually formally known as "EcmaScript") ES6 is not widely supported in today's browsers, so it needs to be transpiled to ES5. You can choose between several transpilers, but we'll be using TypeScript, which is what the Angular team users to write Angular 2. Angular 2 makes use of a number of features of ES6 and TypeScript.
 
 ## ES6
 
 During a ten day stretch in the nineteen ninties, JavaScript was written by
-Brendan Eich. Twenty plus years later, and the language is thriving.  There are
+Brendan Eich. Twenty plus years later, the language is thriving.  There are
 subsets, supersets, current versions, and an upcoming version.  ES6 is that
 upcoming version, and it brings a lot of new features.
 
@@ -22,9 +22,9 @@ Some of the highlights:
 ### Template Strings
 
 In traditional JavaScript, text that is enclosed within matching `"` marks, or
-`'` marks is considered a string.  Text within quotes could also only be on one
-line.  There was also no way to insert data into these strings.  This resulted
-in a lot of ugly concatenation code that looked like:
+`'` marks is considered a string.  Text within double or single quotes can only
+be on one line.  There was also no way to insert data into these strings.  This
+resulted in a lot of ugly concatenation code that looked like:
 
 ```js
 
@@ -144,11 +144,13 @@ class ServerRequest {
 ```
 
 In the above case `this` will _not_ point to the expected object, in "strict"
-mode it will be `undefined`.  THis leads to another ES6 feature...
+mode it will be `undefined`.  This leads to another ES6 feature...
 
 ### Arrow Functions
 
-ES6 offers some new syntax for dealing with `this` madness: "arrow functions".
+ES6 offers some new syntax for dealing with `this`: "arrow functions".  Arrow
+function also make working with "higher order" functions (functions that take
+functions as parameters) much easier to work with.
 
 The new "fat arrow" notation can be used to define anonymous functions in a simpler way.
 
@@ -184,7 +186,7 @@ The latter is _almost_ equivalent to the following:
   });
 ```
 
-There is one important difference, however: arrow functions share the value of `this` with the function in the context of which they are defined. Consider the following example:
+There is one important difference, however: arrow functions do not set a local copy of `this`, `arguments`, `super`, or `new.target`.  When `this` is used inside an arrow function JavaScript uses the `this` from the outer scope. Consider the following example:
 
 ```ts
 class Toppings {
@@ -237,7 +239,7 @@ JavaScript's inheritance works differently from inheritance in other languages, 
 
 ES6 introduces the concept of block scoping.  Block scoping will be familiar to
 programmers from other languages like C, Java, or even PHP.  In ES5 JavaScript,
-and earlier `var`s are scoped to `function`s, and they can "see" outside their
+and earlier, `var`s are scoped to `function`s, and they can "see" outside their
 functions to the outer context.
 
 ```js
@@ -506,7 +508,7 @@ We can then use `tsc` to manually compile a TypeScript source file into ES5:
 
 #### Note About ES6 Examples
 
-Our earlier ES6 class won't compile now, however. TypeScript is more demanding than ES6 and it expects instance properties to be declared:
+Our earlier ES6 class won't compile now. TypeScript is more demanding than ES6 and it expects instance properties to be declared:
 
 ```ts
   class Toppings {
@@ -528,7 +530,7 @@ If you want to have a property that can be set to a value of any type, however, 
   }
 ```
 
-#### Working With tsc
+#### Working With `tsc`
 
 So far `tsc` has been used to compile a single file.  Typically developers have
 a _lot_ more than one file to compile.  `tsc` can handle multiple files as
@@ -573,8 +575,9 @@ that are compatible with node.js's module system.
 tsc -m commonjs ./a.ts ./b.ts
 ```
 
-Should now produce no output.  In many command line traditions no output is
-actually a mark of success.  Listing the directory contents will confirm this:
+`tsc` should produce no output.  In many command line traditions, no output is
+actually a mark of success.  Listing the directory contents will confirm that
+our TypeScript files did in fact compile.
 
 ```bash
 ls
@@ -706,7 +709,7 @@ TypeScript also adds
 - `any` use any type
 - `void` nothing
 
-Basic type example:
+Primitive type example:
 
 ```javascript
 let isDone: boolean = false;
@@ -726,7 +729,7 @@ function showMessage(data: string): void {
 showMessage('hello');
 ```
 
-This illustrates all of the basic types in TypeScript, and ends by illustrating
+This illustrates the primitive types in TypeScript, and ends by illustrating
 a `showMessage` function. In this function the parameters have specific types
 that are checked when `tsc` is run.
 
@@ -765,6 +768,19 @@ let baz = new Baz(new Foo(), new Bar()); // valid
 baz = new Baz(new Bar(), new Foo());     // tsc errors
 ```
 
+Like function parameters, `class`es sometimes have optional members.  The same
+`?:` syntax can be used on a `class` definition:
+
+```ts
+class Person {
+  name: string;
+  nickName?: string;
+}
+```
+
+In the above example, an instance of `Person` is guaranteed to have a `name`,
+and might _optionally_ have a `nickName`
+
 ##### Interfaces
 
 Sometimes classes are "more" than a developer wants.  Classes end up creating
@@ -795,8 +811,8 @@ callServer('hi');                        // tsc error
 ```
 
 Sometimes JavaScript functions are "overloaded", that is, they _can_ have
-different call signatures.  Interfaces can be used to specify this.  Methods
-in classes can also be overloaded:
+different call signatures.  Interfaces can be used to specify this.  (Methods
+in classes can also be overloaded):
 
 ```ts
 interface PrintOutput {
@@ -834,7 +850,7 @@ let a: Action = {
 ##### Shapes
 
 Underneath TypeScript is JavaScript, and underneath JavaScript is typically a
-C++ JIT (just in time compiler). Given JavaScript's underlying semantics, types
+JIT (just in time compiler). Given JavaScript's underlying semantics, types
 are typically reasoned about by "shapes".  These underlying "shapes" work like
 TypeScript's interfaces, and are in fact _how_ TypeScript compares custom types
 like `class`es, and `interface`s.
@@ -877,15 +893,15 @@ the blanks" for the developer;
 
 Consider the following:
 
-bad-inference.ts
+type-inference-finds-error.ts
 ```ts
 let set = [2, 3, 5, 7, 11];
 set = ['this will fail compilation']
 ```
 
 ```bash
-tsc ./bad-inference.ts 
-bad-inference.ts(2,1): error TS2322: Type 'string[]' is not assignable to type 'number[]'.
+tsc ./type-inference-finds-error.ts 
+type-inference-finds-error.ts(2,1): error TS2322: Type 'string[]' is not assignable to type 'number[]'.
   Type 'string' is not assignable to type 'number'.
 ```
 
@@ -896,7 +912,7 @@ able to determine type information.
 Type inference can also work through context, which is handy with callbacks,
 imagine the following:
 
-bad-inference-2.ts
+type-inference-finds-error-2.ts
 ```ts
 
 interface FakeEvent {
@@ -918,8 +934,8 @@ fakeWindow.onMouseDown = (a: number) => {
 ```
 
 ```bash
-tsc ./bad-inference-2.ts 
-bad-inference-2.ts(14,1): error TS2322: Type '(a: number) => void' is not assignable to type 'FakeEventHandler'.
+tsc ./type-inference-finds-error-2.ts 
+type-inference-finds-error-2.ts(14,1): error TS2322: Type '(a: number) => void' is not assignable to type 'FakeEventHandler'.
   Types of parameters 'a' and 'e' are incompatible.
     Type 'number' is not assignable to type 'FakeEvent'.
       Property 'type' is missing in type 'Number'.
@@ -933,21 +949,22 @@ object.
 #### Decorators
 
 Decorators are an existing proposal for a future version of JavaScript, but
-the Angular 2 team _really_ wanted to use them, so they have been included in
+the Angular 2 team _really_ wanted to use them, and they have been included in
 TypeScript.
 
 Decorators are functions that are invoked with a prefixed `@` symbol, and
 _immediately_ followed by a `class`, parameter, method, or property.  The 
 decorator function is supplied information about the `class`, parameter, or
-method, and the decorator function returns something in its place.  Typically 
-the "something" a decorator returns is the same thing that was passed in, it's 
-just been augmented in some way.
+method, and the decorator function returns something in its place, _or_
+manipulates its target in some way.  Typically the "something" a decorator
+returns is the same thing that was passed in, it's just been augmented in some 
+way.
 
 Decorators are quite new in TypeScript, and most use cases demonstrate the
-use of existing decorators.  However decorators are just functions, and are
+use of _existing_ decorators.  However decorators are just functions, and are
 easier to reason about after walking through a few examples.
 
-So decorators are functions, and there are four things (`class`, parameter,
+Decorators are functions, and there are four things (`class`, parameter,
 method, and property) that can be decorated; consequently there are four
 different function signatures for decorators:
 
@@ -955,8 +972,6 @@ different function signatures for decorators:
 - property: `declare type PropertyDecorator = (target: Object, propertyKey: string | symbol) => void;`
 - method: `declare type MethodDecorator = <T>(target: Object, propertyKey: string | symbol, descriptor: TypedPropertyDescriptor<T>) => TypedPropertyDescriptor<T> | void;`
 - parameter: `declare type ParameterDecorator = (target: Object, propertyKey: string | symbol, parameterIndex: number) => void;`
-
-These are the signatures for decorator functions.
 
 Readers who have played with Angular 2 will notice that these signatures do
 not look like the signatures used by Angular 2 specific decorators like
