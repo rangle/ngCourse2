@@ -1,0 +1,31 @@
+@import 'basscss';
+@import 'basscss-border-colors';
+@import './variables.css';
+
+.avoid-break {
+  page-break-inside: avoid;
+  break-inside: avoid
+}
+
+.cols { columns: 20rem; }
+
+.field.ng-invalid.ng-touched { border-color: #ff4136; }
+.field.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 0 2px rgba(255, 65, 54, 0.5);
+}
+
+.field.ng-valid.ng-touched { border-color: #2ECC40; }
+.field.ng-valid.ng-touched:focus {
+  box-shadow: 0 0 0 2px rgba(46, 204, 64, 0.5);
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+}
+
+.icon,
+svg {
+  position: relative;
+  top: 0.125em;
+}

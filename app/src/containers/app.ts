@@ -1,57 +1,25 @@
-import {Component, View, Inject} from 'angular2/core';
-import {bindActionCreators} from 'redux';
-import Grid from '../components/grid/grid';
-import * as CounterActions from '../actions/counter';
-
-interface Item {
-  title: string;
-  content: string;
-}
+import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import Header from '../components/header/header';
+import Main from '../components/main/main';
 
 @Component({
-  selector: 'root',
-  directives: [Grid],
+  selector: 'ngc-root',
+  directives: [ROUTER_DIRECTIVES, Header],
   template: `
-  <div class="container px1">
-    <header class="navy mt4 mb3 border-bottom py1">
-      <a href="http://rangle.io"
-        class="h5 bold caps compact">
-        rangle.io
-      </a>
-      <h1 class="m0">ngCourse2</h1>
-    </header>
-    <grid [items]="items"></grid>
+  <ngc-header></ngc-header>
+  <div class="container px2 mt4">
+    <router-outlet></router-outlet>
   </div>
   `
 })
-export default class App {
-
-  protected unsubscribe: Function;
-  public items: Array<Item> = Array(30).map(x => {
-    return {
-      title: 'alice beeblebrox',
-      content: 'Learn Angular 2 so that I can build an app'
-    };
-  });
-
-  constructor( @Inject('ngRedux') ngRedux) {
-    this.unsubscribe = ngRedux.connect(
-      this.mapStateToThis,
-      this.mapDispatchToThis
-    )(this);
-  }
-
-  onDestroy() {
-    this.unsubscribe();
-  }
-
-  mapStateToThis(state) {
-    return {
-      counter: state.counter
-    };
-  }
-
-  mapDispatchToThis(dispatch) {
-    return bindActionCreators(CounterActions, dispatch);
-  }
-}
+@RouteConfig([{
+  path: '/tasks/...',
+  name: 'Main',
+  component: Main,
+  useAsDefault: true
+}, {
+  path: '/',
+  redirectTo: ['Main']
+}])
+export default class App {}
