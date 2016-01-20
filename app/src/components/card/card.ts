@@ -1,9 +1,6 @@
 import {Component} from 'angular2/core';
-const STYLES = require('./card.css').toString();
-const TEMPLATE = require('./card.html');
-import CheckIcon from '../icons/check';
-import CloseIcon from '../icons/close';
 import UserIcon from '../icons/user';
+const STYLES = require('./card.css').toString();
 
 @Component({
   selector: 'ngc-card',
@@ -11,9 +8,13 @@ import UserIcon from '../icons/user';
     'title',
     'content'
   ],
-  directives: [CheckIcon, CloseIcon, UserIcon],
+  directives: [UserIcon],
   styles: [STYLES],
-  template: TEMPLATE
+  template: `
+    <div class="bg-white rounded shadow px2">
+      <ng-content></ng-content>
+    </div>
+  `
 })
 export default class Card {
 }

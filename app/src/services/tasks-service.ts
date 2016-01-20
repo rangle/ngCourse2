@@ -4,9 +4,10 @@ import {Router} from 'angular2/router';
 import 'rxjs/add/operator/map';
 import {List} from 'immutable';
 
-interface Task {
+export interface Task {
   owner: string;
   description: string;
+  _id: string;
 }
 
 @Injectable()
@@ -50,6 +51,24 @@ export default class TasksService {
       .subscribe((res) => {
         this._tasks = this._tasks.push(...res);
         this.goToTasksList();
+      });
+  }
+
+  /**
+   * Delete a task
+   * @param {Task} task The task to delete
+   */
+  delete(task: Task) {
+    const index = this._tasks.findIndex((t) => t._id === task._id);
+
+    this._http.delete(
+      `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`
+    )
+      .map((res: Response) => res.json())
+      .subscribe((res) => {
+        if (res === 1) {
+          this._tasks = this._tasks.delete(index);
+        }
       });
   }
 
