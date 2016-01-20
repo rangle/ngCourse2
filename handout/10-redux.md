@@ -150,7 +150,6 @@ Once you have the reducers and actions created, it is time to configure your Ang
 ### Create our application reducer
 
 __app/reducers/index.ts__
-
 ```ts
 import { combineReducers } from 'redux';
 import counter from './counter-reducer';
@@ -165,6 +164,7 @@ What `combineReducers` does, is allows us to break out our application into smal
 ### Create and configure a store
 
 When creating a store in redux, this is where you provide the middleware you want to use, and the reducer that you want to have for your application.
+
 __app/store/configure-store.ts__
 ```ts
 import {createStore, applyMiddleware, compose} from 'redux';
