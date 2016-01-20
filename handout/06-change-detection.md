@@ -2,20 +2,20 @@
 
 Change detection is the process that allows Angular to keep our views in sync with our models. 
 
-Change detecion has changed in a big way between the old version of Angular and the new one. In Angular 1, the framework kept a long list of watchers (one for every property bound to our templates) that needed to be checked everytime a digest cycle was started. This was called *dirty checking* and it was the only change detection mechanism available.
+Change detection has changed in a big way between the old version of Angular and the new one. In Angular 1, the framework kept a long list of watchers (one for every property bound to our templates) that needed to be checked everytime a digest cycle was started. This was called *dirty checking* and it was the only change detection mechanism available.
 
 Because by default Angular 1 implemented two way data binding, the flow of changes was pretty much chaotic, models were able to change directives, directives were able to change models, directives were able to change other directives and models were able to change other models.
 
 In Angular 2, **the flow of information is unidirectional**, even when using `ngModel` to implement two way data binding, which is only syntactic sugar on top of the unidrectional flow. In this new version of the framework, our code is responsible for updating the models. Angular is only responsible for reflecting those changes in the components and the DOM by means of the change detection.
 
-_Change detection responsabilities_
+_Change detection responsibilities_
 ![File Structure](images/change-detection.jpg)
 
 ## Change Detection Strategies in Angular 1 vs Angular 2
 
 Another difference between both versions of the framework is the way the nodes of an application (directives or components) are checked to see if the DOM needs to be updated.
 
-Because of the nature of two way data binding, in Angular 1 there was no guarantee that a parent node would always be checked before a child node. It was possible that a child node could also change a parent node or a sibling or any other node in the tree, and that in turn will trigger new updates down the chain. This made difficult for the change detection mechanism to traverse all the nodes without falling in a circular loop with the infamous message:
+Because of the nature of two way data binding, in Angular 1 there was no guarantee that a parent node would always be checked before a child node. It was possible that a child node could also change a parent node or a sibling or any other node in the tree, and that in turn will trigger new updates down the chain. This made it difficult for the change detection mechanism to traverse all the nodes without falling in a circular loop with the infamous message:
 
 ```
 10 $digest() iterations reached. Aborting!
@@ -91,7 +91,7 @@ export class MainComponent {
 
 In the above code snippet, we can see that our component defines two buttons that trigger different methods. The `changeActorProperties` is going to update the lead actor of the movie by directly changing the properties of the `actor` object. In contrast, the method `changeActorObject` will change the information of the actor by creating a completely new instance of the `Actor` class.
 
-The `Actor` model is pretty straightforward, is just a class that defines the `firstName` and the `lastName` of an actor. 
+The `Actor` model is pretty straightforward, it is just a class that defines the `firstName` and the `lastName` of an actor. 
 
 _app/actor.model.ts_
 ```javascript
@@ -141,7 +141,7 @@ In order to know that, Angular is going to create an instance of the appropiate 
 
 In our example, because we only have one instance of the `MainComponent` and the `MovieComponent` we are going to have only one instance of the `MainComponent_ChangeDetector` and the `MovieComponent_ChangeDetector`.
 
-The code snippet below, is a conceptual model of how the `MainComponent_ChangeDetector` class could look like.
+The code snippet below, is a conceptual model of how the `MainComponent_ChangeDetector` class could look.
 
 ```javascript
 class MainComponent_ChangeDetector {
@@ -194,11 +194,11 @@ export class MovieComponent {
 
 [View Example](http://plnkr.co/edit/n6m7rOtxG5MU0tsRl5xX?p=preview)
 
-The enum `ChangeDetectionStrategy` defines seven strategies: `CheckOnce`, `Checked`, `CheckAlways`, `Detached`, `OnPush`, `Default` and `DefaultObserver` as can be seen in the [docs](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html). We are going to concetrate on the two main ones: `Default` and `OnPush`.
+The enum `ChangeDetectionStrategy` defines seven strategies: `CheckOnce`, `Checked`, `CheckAlways`, `Detached`, `OnPush`, `Default` and `DefaultObserver` as can be seen in the [docs](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html). We are going to concentrate on the two main ones: `Default` and `OnPush`.
 
 Lets see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy. 
 
-As we discuss before, changes are triggered by events and the propagation of changes is done in two phases: the application phase and the change detection phase.
+As noted previously, changes are triggered by events and the propagation of changes is done in two phases: the application phase and the change detection phase.
 
 **Phase 1 (Application):**
 
@@ -206,7 +206,7 @@ In the first phase, the application (our code) is responsible for updating the m
 
 **Phase 2 (Change Detection):**
 
-Now that our models are updated, angular needs to update the templates using change detection.
+Now that our models are updated, Angular needs to update the templates using change detection.
 
 Change detection always starts at the root component, in this case the `MainComponent` and it checks if any of the model properties bound to its template have changed, comparing the old value of each property (before the event was triggered) to the new one (after the models were updated). The `MainComponent` template has a reference to three properties, `slogan`, `title`, and `actor`, so the comparison made by its corresponding change detector will look like:
 
@@ -236,7 +236,7 @@ If our movie list grows too big, the performance of our system will start degrad
 
 - Is `actor !== previousActor`?
 
-As we have learned, this result is of not much use because we could have changed the properties of the object without changing the instance, and the result of the comparison will always be `false`. Because of this, change detection is going to have to check every child component to see if any of the properties of that object (`firstName` or `lastName`) has changed.
+As we have learned, this result is of not much use because we could have changed the properties of the object without changing the instance, and the result of the comparison will always be `false`. Because of this, change detection is going to have to check every child component to see if any of the properties of that object (`firstName` or `lastName`) have changed.
 
 What if we can find a way to indicate to the change detection that our `MovieComponent` depends only on its inputs and that these inputs are immutable? In short, we are trying to guarantee that when we change any of the properties of the `actor` object, we are going to end up with a different `Actor` instance so the comparison `actor !== previousActor` will always return `true`. In the other hand, if we did not change any property, we are not going to create a new instance, so the same comparison is going to return `false`.
 
@@ -276,7 +276,7 @@ When the change detection analyzes the properties bound to the `MainComponent`'s
 - Is `title !== previousTitle`? No, it's the same.
 - Is `actor !== previousActor`? No, it's the same.
 
-But this time, we explictly told Angular that our component only depends on its inputs and all of them are immutable. Angular then assumes that the `MovieComponent` hasn't change and skip the check for that component. Because we didn't force the `actor` object to be immutable, we end up with our model out of sync with the view.
+But this time, we explictly told Angular that our component only depends on its inputs and all of them are immutable. Angular then assumes that the `MovieComponent` hasn't changed and will skip the check for that component. Because we didn't force the `actor` object to be immutable, we end up with our model out of sync with the view.
 
 Let's rerun the app but this time we will click the button `ChangeActorObject`. This time, we are creating a new instance of the `Actor` class and assigning it to the `this.actor` object. When change detection analyzes the properties bound to the `MainComponent`'s template it will find:
 
@@ -338,7 +338,7 @@ export class MainComponent {
 }
 ```
 
-Now, instead of creating an instance of an `Actor` class, we are now defining an immutable object using `Immutable.Map`. Because `this.actor` is now an immutable object, we cannot change its internal properties `firstName` and `lastName` directly. What we can do however is to create another object based on `actor` that has different values for both fields and that is exactly what the `merge` method does.
+Now, instead of creating an instance of an `Actor` class, we are now defining an immutable object using `Immutable.Map`. Because `this.actor` is now an immutable object, we cannot change its internal properties `firstName` and `lastName` directly. What we can do however is create another object based on `actor` that has different values for both fields and that is exactly what the `merge` method does.
 
 Because we are always getting a new object when we try to change the `actor`, there's no point in having two different methods in our component. We removed the methods `changeActorProperties` and `changeActorObject` and created a new one called `changeActor`.
 
