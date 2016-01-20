@@ -6,9 +6,6 @@ Redux is an application state manager for JavaScript applications, and keeps wit
 
 How it differs from traditional Flux though, is that instead of multipul stores, you have one global application state. The state is calculated and returned in the reducer. The state management is held elsewwhere.
 
-* [ ] TODO: Expand on what is / why a state manager
-
-
 ### Resources
 
 * [Redux Documentation](http://redux.js.org/)
@@ -52,7 +49,7 @@ export default function counter(state = 0, action) {
 }
 ```
 
-We can see here that we are passing in an initial state, and an action. To handle each action - we have setup a switch statement. Instead of each reducer needing to explcitly subscribe to the dispatcher - every action gets passed into every reducer.
+We can see here that we are passing in an initial state, and an action. To handle each action - we have setup a switch statement. Instead of each reducer needing to explcitly subscribe to the dispatcher - every action gets passed into every reducer, handles the action it is interested in, and otherwise returns the state along to the next reducer.
  
 
 Reducers in Redux should be side-effect free, that means that they should not modify things outside of the application state. Instead, they should reflect the state of the application. This is why side-effect causing operations, such as updating a record in a database, generating an id, etc should be handled elsewhere in the application - such as in the action creators, or middleware.
@@ -88,11 +85,12 @@ However, if dealing with complex or deeply nested objects - it can be difficult 
 
 Redux actions, generally should return a simple JSON object. This is because they should be seralizable and replayable into the application state. Even if your actions need to return promises, the final dispatched action should remain a plain JSON object.
 
-* [ ] TODO: explain side effects,
+Redux actions are generally where side-effects should happen, such as making API calls, or generating ID's. This is because when the final action gets dispatched to the reducers, we want to update the applicaton state to reflect what has already happened. 
 
 Lets take a look at the actions that are used in this example. For now, lets just focus on the synchronous actions.
 
 ### Synchronous Actions
+
 __app/actions/counter-actions.ts__
 ```ts
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
@@ -125,6 +123,40 @@ When using Redux, libraries lke ng2-redux will take care of wrapping your action
 
 ### Asynchronous Actions
 
+To do async operations, or have actions that return something other than a plain JSON object, you need to register a middleware with redux. For our examples, we can use the `thunk` middleware, and setting this up is covered later in the training. For now, all you need to know is that once you register a middleware with redux, you can make `dispatch` and `getState` available to your actions. To show how these are used, lets take a look at the `incrementIfOdd` and `increaseAsync` actions.
+
+__app/actions/counter-actions.ts__
+```ts
+// ... 
+export function incrementIfOdd() {
+  return (dispatch, getState) => {
+    const { counter } = getState();
+
+    if (counter % 2 === 0) {
+      return;
+    }
+
+    dispatch(increment());
+  };
+}
+
+const delay = (timeInMs) => {
+  return new Promise((resolve,reject) => {
+    setTimeout(() => resolve() , timeInMs);
+  });
+}
+
+export function incrementAsync(timeInMs = 1000) {
+  return dispatch => {
+    delay(timeInMs).then(() => dispatch(increment()));
+  };
+}
+```
+[View Example](http://plnkr.co/edit/ra37zSP4sac6hyoZXyWe?p=preview)
+
+In the `incrementIfOdd` action, we are making use of the getState function to get the current state of the application. 
+
+In the `incrementAsync` action, we are making use of dispatch. For example, we have created a Promise that will resolve after the delay. Once the Promise resolves, we can then do a dispatch with the increase action. However, this promise could also be an API call, with the dispatched action containing the result of the API call.
 
 * [ ] TOOD: Expand on thunk/middleware 
 
