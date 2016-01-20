@@ -239,9 +239,9 @@ For example, consider that the list is being generated based on a HTTP response.
 We will delve deeper into this concept and how to optimize change propagation in later sections.
 
 
-## Transclusion
+## Projection
 
-Components by default support transclusion. You can use the `ngContent` directive to place the transcluded content.
+Components by default support projection. You can use the `ngContent` directive to place the projected content.
 
 ```js
 import {Component, Input} from 'angular2/core';
