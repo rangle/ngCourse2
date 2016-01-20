@@ -40,12 +40,13 @@ export class AppComponent {
 	}
 }
 ```
+[View Example](http://plnkr.co/edit/xbcD8nQJwZ7E3btn2015)
 
 First we import `Observable` into our component from `rxjs/Observable`. Next, in our constructor we create a new `Observable`. Note that this creates an `Observable` data type that is cast as an array that contains data of `any` type. This illustrates the array driven stream of data that Observables offer. 
 
 Next we call `subscribe` on this Observable which allows us to listen in on any data that is coming through. In subscribing we utilize three distinctive callbacks, the first one is invoked when receiving new values, the second for any errors that arise, and the last represents the function to be invoked when the sequence of incoming data is complete. 
 
-We can also use `forEach` to listen for incoming data. The key difference between `forEach` and `subscribe` is that `forEach` will block the current thread until the sequence completes, in there words - `forEach` is synchronous and `subscribe` is asynchronous. Lets look at an example of using `forEach`: 
+We can also use `forEach` to listen for incoming data. The key difference between `forEach` and `subscribe` is that `forEach` will block the current thread until the iteration sequence completes, in other words - `forEach` is synchronous and `subscribe` is asynchronous. Lets look at an example of using `forEach`: 
 
 ```
 export class AppComponent {
@@ -64,7 +65,7 @@ export class AppComponent {
 			console.log('Started Observable sequence!');
 		});
 
-		let subscription = this.data.forEach(
+		this.data.forEach(
 			value => console.log('Value: ' + value)
 		);
 		
@@ -72,7 +73,9 @@ export class AppComponent {
 	}
 }
 ```
-You'll notice that `forEach` doesn't have the same callback routines we used in `subscribe`. In fact, there is only one callback here and it is invoked whenever a new item comes through the stream. Since `forEach` is synchronous there is no need for a callback invoked on completion, and error handling can be used by wrapping the `forEach` in a try/catch statement. In most cases we would want to use `subscribe` for its asynchronous properties, but there may be some special cases where using `forEach` makes sense. 
+[View Example](http://plnkr.co/edit/PTAo3GIFBQQ3CzQuwyFG)
+
+An important thing to note here is that `forEach` doesn't suspend execution while waiting for incoming data, it only begins to block the thread when it actually performs the iteration over each new item of data. So in the example above, you should see the message 'Completed Observable sequence!' before you see any values. You'll notice that `forEach` doesn't have the same callback routines we used in `subscribe`. In fact, there is only one callback here and it is invoked whenever a new item comes through the stream. Since `forEach` is synchronous there is no need for a callback invoked on completion, and error handling can be used by wrapping the `forEach` in a try/catch statement. In most cases we would want to use `subscribe` for its asynchronous properties, but there may be some special cases where using `forEach` makes sense. 
 
 ## Error Handling
 
@@ -101,6 +104,7 @@ export class AppComponent {
 	}
 }
 ```
+[View Example](http://plnkr.co/edit/aRkwCFAJRBy9Fi6v0Vtx)
 
 Here an error is raised, and caught. One thing to take note of is if we included a `.complete()` after we raised the error this event will not actually fire. Therefore you should remember to include some call in your error handler that will turn off any visual loading states in your application. 
 
@@ -135,6 +139,8 @@ export class AppComponent {
 	}
 }
 ```
+[View Example](http://plnkr.co/edit/iBDkFH6lAhKKDwMomG2x)
+
 Calling `.unsubscribe` will unhook a members callbacks listening in on the Observable stream. When creating an Observable you can also return a custom callback, `onUnsubscribe`,  that will be invoked when a member listening to the stream has unsubscribed. This is useful for any kind of clean up that needs to be implemented. If we did not clear the setTimeout then values would still be emitting, there would just be no one listening. To save resources we should do whatever it takes to stop values from being emitted. 
 
 In most cases we will not need to explicitly call the `unsubscribe` method unless we want to cancel early or our Observable has a longer life span than our subscription. The default behaviour of a Observable operators is to dispose of the subscription as soon as `.complete()` or `.error()` messages are published. Keep in mind that RxJS was designed to be used in a "fire and forget" fashion most of the time. 
@@ -179,6 +185,7 @@ export class AppComponent {
 	}
 }
 ```
+[View Example](http://plnkr.co/edit/VNYhtBgjeg5evfe9L8O7)
 
 Here we have created a new form by initializing a new `Control` field and grouped it into a `ControlGroup` tied to the `coolForm` HTML form. The `Control` field has a property `.valueChanges` that return an Observable that we can subscribe to. Now whenever a user types something into the field we'll get it immediately. 
 
@@ -334,6 +341,7 @@ export class AppComponent {
 	}
 }
 ```
+[View Example](http://plnkr.co/edit/q6wN5f1jd2MVQWcoN0QT)
 
 In the above case subscriber B subscribes 2000ms after subscriber A. Yet subscriber B is starting to get values like subscriber A only time shifted. This behaviour is referred to as a Cold Observable. A useful analogy is watching a pre-recorded video, let's say on Netflix. You press play and the movie starts playing from the beginning. Someone else, can start playing the same movie in their own home 25 minutes later.
 
