@@ -1,3 +1,12 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 13: Project Setup](#part-13-project-setup)
+  - [Angular CLI](#angular-cli)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 13: Project Setup #
 
 ## Angular CLI##

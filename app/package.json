@@ -20,7 +20,8 @@
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production webpack",
     "test": "karma start",
-    "e2e": "npm run build && gulp e2e"
+    "e2e": "npm run build && gulp e2e",
+    "toc": "doctoc --notitle ../handout && node toc.js"
   },
   "repository": {
     "type": "git",
@@ -54,6 +55,7 @@
     "autoprefixer": "^6.2.3",
     "chai": "^3.4.0",
     "css-loader": "^0.21.0",
+    "doctoc": "^0.15.0",
     "file-loader": "^0.8.4",
     "gulp": "^3.9.0",
     "gulp-webdriver": "^1.0.1",

@@ -1,3 +1,42 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 1: EcmaScript 6 and TypeScript Features](#part-1-ecmascript-6-and-typescript-features)
+  - [ES6](#es6)
+    - [Template Strings](#template-strings)
+    - [Classes](#classes)
+    - [A Refresher on `this`](#a-refresher-on-this)
+    - [Arrow Functions](#arrow-functions)
+    - [Inheritance](#inheritance)
+    - [Constants, and Block Scoped Variables](#constants-and-block-scoped-variables)
+    - [...spread, and ...rest](#spread-and-rest)
+    - [Destructuring](#destructuring)
+  - [ES6 Modules](#es6-modules)
+  - [Additional ES6 Features](#additional-es6-features)
+  - [TypeScript](#typescript)
+    - [Getting Started With TypeScript](#getting-started-with-typescript)
+      - [Note About ES6 Examples](#note-about-es6-examples)
+      - [Working With `tsc`](#working-with-tsc)
+      - [Target](#target)
+      - [Module](#module)
+      - [Decorators](#decorators)
+      - [TypeScript with Webpack](#typescript-with-webpack)
+      - [Typings](#typings)
+      - [Linting](#linting)
+    - [Typescript Features](#typescript-features)
+      - [Types, Interfaces, and "Shapes"](#types-interfaces-and-shapes)
+        - [TypeScript classes](#typescript-classes)
+        - [Interfaces](#interfaces)
+        - [Shapes](#shapes)
+      - [Type Inference](#type-inference)
+      - [Decorators](#decorators-1)
+        - [Property Decorators](#property-decorators)
+        - [Class Decorators](#class-decorators)
+        - [Parameter Decorators](#parameter-decorators)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 1: EcmaScript 6 and TypeScript Features #
 
 The new version of JavaScript, "EcmaScript 6" or "ES6", offers a number of new features that extend the power of the language. (The language we usually call "JavaScript" is actually formally known as "EcmaScript") ES6 is not widely supported in today's browsers, so it needs to be transpiled to ES5. You can choose between several transpilers, but we'll be using TypeScript, which is what the Angular team users to write Angular 2. Angular 2 makes use of a number of features of ES6 and TypeScript.

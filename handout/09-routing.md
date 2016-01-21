@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 9: Routing](#part-9-routing)
+  - [Why Routing?](#why-routing)
+  - [Routing in Angular 2](#routing-in-angular-2)
+  - [RouteConfig](#routeconfig)
+    - [Route Definition Object](#route-definition-object)
+  - [RouterOutlet](#routeroutlet)
+  - [RouterLink](#routerlink)
+  - [Using the Router Programmatically](#using-the-router-programmatically)
+  - [Creating Child Routes](#creating-child-routes)
+  - [Using routing with LocationStrategy](#using-routing-with-locationstrategy)
+  - [Using Auxiliary routes](#using-auxiliary-routes)
+    - [Default Route Outlet](#default-route-outlet)
+    - [Test Aux 1](#test-aux-1)
+  - [Lazy Loading of Components](#lazy-loading-of-components)
+  - [RouteParams](#routeparams)
+  - [RouteData](#routedata)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 9: Routing #
 
 In this section we will discuss the role of routing in Single Page Applications, and how Angular 2 has an improved router, using the new component router.

@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 2: The JavaScript Toolchain](#part-2-the-javascript-toolchain)
+  - [Source Control: [Git](http://git-scm.com/)](#source-control-githttpgit-scmcom)
+  - [The Command Line](#the-command-line)
+  - [Command-line JavaScript: [Node.JS](http://nodejs.org)](#command-line-javascript-nodejshttpnodejsorg)
+  - [Back-End Code Sharing and Distribution: [npm](https://www.npmjs.com/)](#back-end-code-sharing-and-distribution-npmhttpswwwnpmjscom)
+  - [Module Loading, Bundling and Build Tasks: [Webpack](http://webpack.github.io/docs/what-is-webpack.html)](#module-loading-bundling-and-build-tasks-webpackhttpwebpackgithubiodocswhat-is-webpackhtml)
+  - [Chrome](#chrome)
+  - [Getting the Code](#getting-the-code)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 2: The JavaScript Toolchain
 
 In this section, we'll describe the tools that we'll be using for the rest of the course.
