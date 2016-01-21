@@ -27,7 +27,7 @@ One of the new improved features introduced in Angular 2 are Observables. Observ
 
 Lets take a look at a basic example of how to create and use an Observable in an Angular 2 component
 
-```
+```ts
 import {Component} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 
@@ -69,7 +69,7 @@ Next we call `subscribe` on this Observable which allows us to listen in on any 
 
 We can also use `forEach` to listen for incoming data. The key difference between `forEach` and `subscribe` is that `forEach` will block the current thread until the iteration sequence completes, in other words - `forEach` is synchronous and `subscribe` is asynchronous. Lets look at an example of using `forEach`: 
 
-```
+```ts
 export class AppComponent {
 	
 	private data:Observable<Array<any>>;
@@ -102,7 +102,7 @@ An important thing to note here is that `forEach` doesn't suspend execution whil
 
 If something unexpected arises we can raise an error on the Observable stream and use the function reserved for handling errors in our `subscribe` routine to see what happened.
 
-```
+```ts
 export class AppComponent {
 	
 	private data:Observable<Array<any>>;
@@ -132,7 +132,7 @@ Here an error is raised, and caught. One thing to take note of is if we included
 ## Disposing Subscriptions and Releasing Resources 
 In some scenarios we may want to unsubscribe from an Observable stream. Doing this is pretty straightforward as the `.subscribe()` call returns a data type that we can call `.unsubscribe` on. 
 
-```
+```ts
 export class AppComponent {
 	
 	private data:Observable<Array<any>>;
@@ -180,7 +180,7 @@ However, a lot of the times we will create observables from callbacks, promises,
 ### Observable Form Events
 Lets take a look at how Observables are used in Angular 2 forms. Each field in a form is treated as an Observable that we can subscribe to and listen for any changes made to the value of the input field. 
 
-```
+```ts
 import {Component} from 'angular2/core';
 import {Control, ControlGroup, FormBuilder} from 'angular2/common';
 
@@ -213,7 +213,7 @@ Here we have created a new form by initializing a new `Control` field and groupe
 ### Observable HTTP Events
 A common operation in any web application is getting or posting data to a server. Angular application do this with the `Http` library, which previously utilized `Promises` to operate in an asynchronous manner. The updated `Http` library now incorporates Observables for triggering events and getting new data. Lets take a quick look at this:
 
-```
+```ts
 import {Component} from 'angular2/core';
 import {Http} from 'angular2/http';
 
@@ -240,7 +240,7 @@ In addition to simply iterating over an asynchronous collection, we can perform 
 
 Let's expand our example and do something a little more with our stream:
 
-```
+```ts
 export class AppComponent {
 
 	constructor(private http:Http) {
@@ -272,7 +272,7 @@ By using `flatMap` we can transform our event stream (the keypress events on the
 
 *app/services/Search.ts* 
 
-```
+```ts
 import {Http} from 'angular2/http';
 
 @Injectable()
@@ -293,7 +293,7 @@ OK, lets take a look at the Component that will be using this service.
 
 *app/app.ts*
 
-```
+```ts
 import {Component} from 'angular2/core';
 import {Control, ControlGroup, FormBuilder} from 'angular2/common';
 import {SearchService} from './services/Search';
@@ -331,7 +331,7 @@ Note that flatMap flattens a stream of observables (i.e observable of observable
 ## Cold vs. Hot Observables
 Observables can be classified into 2 main groups, Hot and Cold Observables. Let's start with a cold Observable. 
 
-```
+```ts
 export class AppComponent {
 	
 	private data:Observable<Array<any>>;
