@@ -192,7 +192,7 @@ Two-way data binding combines the input and output binding into a single notatio
 
 ## Structural Directives
 
-Angular's structural directive change the DOM layout by adding and removing DOM elements. For example:
+Angular's structural directives change the DOM layout by adding and removing DOM elements. For example:
 
 ```html
 <div *ngIf="hero">{{ hero }}</div>
@@ -261,8 +261,8 @@ class Child {}
 
 ## Structuring Applications with Components
 
-As the complexity and size of our application grow we want to divide responsibilities among our components further.
+As the complexity and size of our application grows we want to divide responsibilities among our components further.
 
-**Macro Components:** which are application specific, higher-level, container components, with access to the application's domain model.
+**Smart Components:** which are application specific, higher-level, container components, with access to the application's domain model.
 
-**Micro Components:** which are components responsible for UI rendering and/or behaviour of specific entities passed in via components API (i.e component properties and events). Those components are more in-line with the upcoming Web Component standards.
+**Dumb Components:** which are components responsible for UI rendering and/or behaviour of specific entities passed in via components API (i.e component properties and events). Those components are more in-line with the upcoming Web Component standards.

@@ -42,7 +42,7 @@ The same idea applies to `pipes`.
 
 ## View Encapsulation
 
-Defines whether the template and styles defined within the component can affect the whole application or vice verse. Angular provides three encapsulation strategies:
+Defines whether the template and styles defined within the component can affect the whole application or vice versa. Angular provides three encapsulation strategies:
 
 - `Emulated`: (default) Styles from main HTML propagate to the component
 - `Native`: Styles from main HTML do not propagate to the child
