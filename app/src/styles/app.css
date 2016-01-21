@@ -29,3 +29,8 @@ svg {
   position: relative;
   top: 0.125em;
 }
+
+.btn:disabled {
+  color: var(--gray);
+  opacity: 0.5;
+}

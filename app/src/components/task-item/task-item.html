@@ -5,7 +5,10 @@
     {{ task.owner }}
   </ngc-card-title>
 
-  <p class="h3">{{ task.description }}</p>
+  <p class="h3"
+    [ngStyle]="{'text-decoration': task.done ? 'line-through' : 'none' }">
+    {{ task.description }}
+  </p>
 
   <ngc-card-actions>
     <button class="btn red mr1"
@@ -13,7 +16,9 @@
       <ngc-icon-close></ngc-icon-close>
       Delete
     </button>
-    <button class="btn">
+    <button class="btn"
+      (click)="markAsDone()"
+      [disabled]="task.done">
       <ngc-icon-check></ngc-icon-check>
       Done
     </button>
