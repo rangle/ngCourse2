@@ -1,6 +1,10 @@
-# Part 3: Components in Angular 2 #
+# Part 3: Components in Angular 2
 
-The core concept of any Angular 2 application is the 'component'. In effect, the whole application can be modelled as a tree of these components.
+This course will be organized around building a collaborative task manager. We will start by building a client app, which we will later connect to a REST API. Our first task is to setup a simple Angular app consisting of a few components, and to understand how they fit together.
+
+![components](../img/components.jpg)
+
+The core concept of any Angular 2 application is the *component*. In effect, the whole application can be modelled as a tree of these components.
 
 This is how the Angular 2 team defines a component:
 
@@ -8,125 +12,257 @@ This is how the Angular 2 team defines a component:
 
 Basically, a component is anything that is visible to the end user and which can be reused many times within an application.
 
-For our application, we will create different components and organize them as shown below:
+In Angular 1.x we had router views and directives which worked sort of like components. The idea of directive components became quite popular. They were created by using directive with a controller while relying on the `controllerAs` and `bindToController`. For example:
 
-TodoApp
-  - TodoList
-    - TodoItem
-  - TodoForm
+```js
+angular.module('ngcourse')
+  .directive('ngcHelloComponent', () => ({
+      restrict: 'E',
+      replace: true,
+      scope: { name: '=' },
+      template: '<span>Hello, {{ ctrl.name }}.</span>',
+      controller: MyComponentCtrl,
+      controllerAs: 'ctrl',
+      bindToController: true
+    })
+  );
+```
 
-At the top we have todo app which consists of TODO List and TODO Form and then we have TODO Item inside TODO List. Each of these are visible to the user and they can interact with these components and perform actions.
+In fact, this concept became so popular that in Angular 1.5 the `.component` method was introduced as syntactic sugar.
 
-## Creating Components ##
+```js
+angular.module('ngcourse')
+  .component('ngcHelloComponent', {
+    bindings: { name: '=' },
+    template: '<span>Hello, {{ ctrl.name }}.</span>',
+    controller: MyComponentCtrl
+  });
+```
 
-Creating components in Angular 2 is easy to create a basic component we just need to define a selector and template for the component. Selector is the element property that we can define in our html to render the component and template is just the raw html we want to replace when rendering the component. Example of the raw component is 
 
-``` javascript
+## Creating Components
+
+Components in Angular 2 build upon this idea. We define a Component's application logic inside a Class. To this we then attach a selector and a template.
+
+- **Selector** is the element property that we can use to tell Angular to create and insert an instance of this component.
+- **Template** is a form of HTML that tells Angular how to render this component.
+
+``` js
 import {Component} from 'angular2/core';
 
 @Component({
-	selector: 'hello',
-	template: '<p>Hello {{name}}</p>'
+	selector: 'ngc-hello-component',
+	template: '<p>Hello, {{name}}</p>'
 })
-export class Hello {
+export class HelloComponent {
   name: string;
   constructor() {
     this.name = 'World';
   }
 }
 ```
-To make use of the component in the html we just use the component as `<hello></hello>` and it will get rendered as `Hello World`
+
+To use this component we simply add `<ngc-hello-component></ngc-hello-component>` to our HTML. And Angular will insert an instance of the `MyComponent` view between those tags.
 
 [View Example](http://plnkr.co/edit/EGgaHWpGHFl1CDHBQtZl?p=preview)
 
 
+## Application Structure With Components
 
-## Component Lifecycle ##
+A useful way of conceptualizing Angular application design is to look at it as a tree of nested components each having an isolated scope.
 
-A Component has Lifecycle managed by Angular. Angular manages creation, rendering, data-bound properties etc. Angular also offers Lifecycle hooks that gives the visibility into key events and ability to interact with them when they occur. Below is the list of all lifecycle hooks that are there in angular, only those which makes sense for components are implemented in them. 
+For example consider the following:
 
-* ngOnChanges - called when an input or output binding value changes
-* ngOnInit - after the first ngOnChanges
-* ngDoCheck - developer's custom change detection
-* ngAfterContentInit - after component content initialized
-* ngAfterContentChecked - after every check of component content
-* ngAfterViewInit - after component's view(s) are initialized
-* ngAfterViewChecked - after every check of a component's view(s)
-* ngOnDestroy - just before the directive is destroyed.
+```html
+<TodoApp>
+  <TodoList>
+    <TodoItem />
+    <TodoItem />
+    <TodoItem />
+  </TodoList>
+  <TodoForm />
+</TodoApp>
+```
+
+At the root we have `TodoApp` which consists of a `TodoList` and a `TodoForm`. Within the list we have several `TodoItem`s. Each of these components are visible to the user and they can interact with these components and perform actions.
 
 
-## Component Details ##
+### Passing Data Into a Component
 
-Events in Angular 2 works in similar way as they used to work in Angular one only thing that is changed is the syntax. Below is the example of the new event syntax:-
+The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `HelloComponent` such that `name` can be configured by the parent.
 
-```javascript
+``` js
 import {Component} from 'angular2/core';
 
 @Component({
-	selector: 'counter',
-	template: '<div><p>Count: {{num}}</p><button (click)="increement()">Increement</button></div>'
+  selector: 'ngc-hello-component',
+  inputs: ['name'],
+  template: '<p>Hello, {{name}}</p>'
+})
+export class HelloComponent {
+  name: string;
+}
+```
+
+The point of making components is not only encapsulation, but also re-usability. Inputs allow us to configure a particular instance of a component.
+
+We can now use our component like so:
+
+```html
+<!-- To bind to a raw string -->
+<ngc-hello-component name="World"></ngc-hello-component>
+<!-- To bind to a variable in the parent scope -->
+<ngc-hello-component [name]="name"></ngc-hello-component>
+```
+
+[View Example](http://plnkr.co/edit/fwl33enZyoDQ2DDrujYV?p=preview)
+
+*Note* unlike Angular 1.x this is one-way binding.
+
+
+### Responding to Component Events
+
+Events in Angular 2 work similar to how they worked in Angular 1.x. The big change is template syntax.
+
+```js
+import {Component} from 'angular2/core';
+
+@Component({
+  selector: 'counter',
+  template: `
+    <div>
+      <p>Count: {{ num }}</p>
+      <button (click)="increment()">Increment</button>
+    </div>
+  `
 })
 export class Counter {
   num: number = 0;
-  
-  increement() {
+
+  increment() {
     this.num++;
   }
 }
 ```
-[View Example](http://plnkr.co/edit/J6KfELwnKrc29HFTaO7T?p=preview)
 
-Components depend on each other and small components like `TodoItem` are nested inside the large components such as `TodoList`. To let outer components know about the dependent components we use the directive property of the component. In `TodoApp` we have our app dependent on `TodoItem` and `TodoList` so we define directives inside the App component as shown below:-
+[View Example](http://plnkr.co/edit/nUlNRowfoOI4XYhaPVOj?p=preview)
 
-```javascript
-directives: [TodoInput, TodoList]
+
+You send data out of components via outputs. We start by defining the outputs attribute. It accepts a list of output parameters that a component exposes to its parent.
+
+```js
+import {Component, EventEmitter} from 'angular2/core';
+
+@Component({
+  selector: 'counter',
+  inputs: ['count'],
+  outputs: ['result'],
+  template: `
+    <div>
+      <p>Count: {{ count }}</p>
+      <button (click)="increment()">Increment</button>
+    </div>
+  `
+})
+export default class Counter {
+  count: number = 0;
+  result: EventEmitter = new EventEmitter();
+
+  increment() {
+    this.count++;
+    this.result.emit(this.count);
+  }
+}
 ```
 
-It can be defined inside both Component or View annotation. If we are using View annotation it should be defined inside the View else inside Component annotation. 
+[View Example](http://plnkr.co/edit/bfAyfzYrncmMBGgulZsl?p=preview)
 
-Some of the properties inside the Component class and usage are defined below.
 
-* selector: Item selector to be used when declaring component inside HTML. It's a required property for any component to be defined
-* templateUrl: URL of the template if implemented in external HTML file
-* template: Template for the component containing HTML, if not using external file
-* styleUrls: Array containing list of file URL if you are using external CSS 
-* styles: Array of style declarations if declaring Styles within the component
-* directives: List of dependent components or directives for the component
-* pipes: List of dependent pipes for the component
-* encapsulation(ViewEncapsulation): It defines whether the styles defined within the component can affect the whole application and vice verse. It can have 3 different values:- 
- * Emulated (default): Styles from main html propagate to child components
- * Native: Styles from main html do not propagate to child components
- * None: Styles from child component propagate back to main html
- 
- ```javascript
+Together a set of input + output bindings define the public API of your component. In our templates we use the [squareBrackets] to pass inputs and the (parenthesis) handle outputs.
+
+
+### Two-Way Data Binding
+
+Two-way data binding combines the input and output binding into a single notation using the `ngModel` directive.
+
+```js
+<input [(ngModel)]="name" >
+```
+
+
+## Structural Directives
+
+Angular's structural directives change the DOM layout by adding and removing DOM elements. For example:
+
+```html
+<div *ngIf="hero">{{ hero }}</div>
+
+<div *ngFor="#hero of heroes">{{ hero }}</div>
+
+<div [ngSwitch]="status">
+  <template [ngSwitchWhen]="'in-mission'">In Mission</template>
+  <template [ngSwitchWhen]="'ready'">Ready</template>
+  <template ngSwitchDefault>Unknown</template>
+</div>
+```
+
+#### The Asterisk (*) Syntax
+
+The asterisk is syntactic sugar to make writing templates easier. Here is an example of the more verbose `<template>` syntax:
+
+```html
+<template [ngIf]="condition">
+  <div>{{ hero }}</div>
+</template>
+```
+
+
+#### Iteration with `ngFor`
+
+When we have a list of items, we can use the `ngFor` directive within our component's template to create identical DOM element for each item. It can be used in a few different ways, for example:
+
+- `<li *ngFor="#item of items; #i = index">...</li>`
+- `<li template="ngFor #item of items; #i = index">...</li>`
+- `<template ngFor #item [ngForOf]="items" #i="index"><li>...</li></template>`
+
+[View Example](http://plnkr.co/edit/afIb8ldLVD7F0PbDueri?p=preview)
+
+
+**Change Propagation**
+
+> Angular uses object identity to track insertions and deletions within the iterator and reproduce those changes in the DOM.
+
+> It is possible for the identities of elements in the iterator to change while the data does not.
+
+For example, consider that the list is being generated based on a HTTP response. And then after some action you execute the HTTP request again and regenerate the list. Now even though the data has not changed the second iteration will produce objects with different identities. This causes Angular to tear down the entire DOM and rebuild it (as if all old elements were deleted and all new elements inserted).
+
+We will delve deeper into this concept and how to optimize change propagation in later sections.
+
+
+## Projection
+
+Components by default support projection. You can use the `ngContent` directive to place the projected content.
+
+```js
+import {Component, Input} from 'angular2/core';
+
 @Component({
-	selector: 'hello',
-	template: '<p class="hello">Hello {{name}}</p>',
-	encapsulation: ViewEncapsulation.None,
-	styles: [`
-    .hello {
-      color:yellow;
-      background-color:red;
-      border: 1px solid black;
-      padding: 5px;
-    }	  
-	`]
+  selector: 'child',
+  template: `
+    <h4>Child Component</h4>
+    <ng-content></ng-content>
+  `
 })
-export class Hello {
-    name: string;
-    constructor() {
-      this.name = 'World';
-    }
-}
- ```
- [View Example](http://plnkr.co/edit/wyNdyoeOTxS4XX1iSNDR?p=preview)
+class Child {}
+```
 
-* inputs: Annotation telling the component about the input parameters expected for the parent
-[View Example](http://plnkr.co/edit/VtfExfr2b6YQOcBocC2I?p=preview)
-  
-* outputs: Array containing the list of output parameters a component exposes to the parent
-[View Example](http://plnkr.co/edit/dxUoiNdfVLdJLnyJIxuU?p=preview)
+[View Example](http://plnkr.co/edit/sW496q7hxco1BA6RAMD0?p=preview)
 
 
+## Structuring Applications with Components
 
+As the complexity and size of our application grows we want to divide responsibilities among our components further.
 
+**Smart Components:** which are application specific, higher-level, container components, with access to the application's domain model.
+
+**Dumb Components:** which are components responsible for UI rendering and/or behaviour of specific entities passed in via components API (i.e component properties and events). Those components are more in-line with the upcoming Web Component standards.
