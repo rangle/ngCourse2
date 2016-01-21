@@ -64,7 +64,7 @@ export default class Main {
 
 ### Route Definition Object ###
 
-RouteConfig is a decorator defined in Angular2 which takes the array of [RouteDefinition](https://angular.io/docs/ts/latest/api/router/RouteDefinition-interface.html) to define routes within the application. Every RouteDefinition can have different attributes. Some of the common attributes for the RouteDefinition are:
+RouteConfig is a decorator defined in Angular 2 which takes the array of [RouteDefinition](https://angular.io/docs/ts/latest/api/router/RouteDefinition-interface.html) to define routes within the application. Every RouteDefinition can have different attributes. Some of the common attributes for the RouteDefinition are:
 
 * **path**: Url to be shown in the browser when application in on the specific route
 * **component**: Component to be rendered when the application is on the specific route
@@ -112,7 +112,7 @@ export class SimpleRouting {
 
 ## RouterLink ##
 
-After declaring routes and adding the outlet we need to tell angular how to navigate between the routes. We can do it in differnet ways we like. One is using plain old href links in the templates as shown below.
+After declaring routes and adding the outlet we need to tell Angular how to navigate between the routes. We can do it in two different ways if we like. One is using plain old href links in the templates as shown below.
 
 ```html
 <nav>
@@ -261,7 +261,7 @@ export function main() {
 
 * `PathLocationStrategy` is a LocationStrategy used to configure the Location service to represent its state in the path of the browser's URL.
 
-PathLocationStrategy is the default binding for LocationStrategy provided in ROUTER_PROVIDERS. If you're using PathLocationStrategy, you must provide a provider for APP_BASE_HREF to a string representing the URL prefix that should be preserved when generating and recognizing URLs.
+PathLocationStrategy is the default binding for LocationStrategy provided in ROUTER_PROVIDERS. If you're using PathLocationStrategy, you must supply a provider for APP_BASE_HREF to a string representing the URL prefix that should be preserved when generating and recognizing URLs.
 
 For instance, if you provide an APP_BASE_HREF of '/my/app' and call location.go('/foo'), the browser's URL will become example.com/my/app/foo.
 
@@ -340,7 +340,7 @@ Each Auxiliary route is an independent route which:-
 
 ## Lazy Loading of Components ##
 
-To lazy load the component and defer the initalization till the component is loaded. For that angular 2 provides AsyncRoute route. We define the route in route config as shown below.
+To lazy load the component and defer the initalization till the component is loaded. For that Angular 2 provides AsyncRoute route. We define the route in route config as shown below.
 
 ```javascript
 new AsyncRoute({
