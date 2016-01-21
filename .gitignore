@@ -40,3 +40,7 @@ keys.md
 
 .vscode
 handout.html
+
+## exclude typings
+typings
+
