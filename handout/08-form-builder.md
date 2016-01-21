@@ -20,11 +20,11 @@
 
 # Part 8: Forms
 
-Capturing data from the user is the cornerstone of any application and it's usually done trough forms. Angular 2 is much more flexible than Angular 1 for handling forms, we are no longer restricted to just the `ngModel`. In Angular 2, there are two ways to define forms: using directives in our templates or using the `FormBuilder`.
+Capturing data from the user is the cornerstone of any application and it's usually done through forms. Angular 2 is much more flexible than Angular 1 for handling forms, we are no longer restricted to just the `ngModel`. In Angular 2, there are two ways to define forms: using directives in our templates or using the `FormBuilder`.
 
-Using directives gives us the power of rapid prototyping without too much boilerplate, but we are somehow restricted of what we can do. The `FormBuilder` in the other hand, let us define our form through code and gives us much more flexibility and control over data validation.
+Using directives gives us the power of rapid prototyping without too much boilerplate, but we are somehow restricted of what we can do. The `FormBuilder` on the other hand, lets us define our form through code and gives us much more flexibility and control over data validation.
 
-Which approach to use will depend on the developer needs, but we are going to start with the simplest one: directies.
+Which approach to use will depend on the developer's needs, but we are going to start with the simplest one: directives.
 
 ## Creating a Form with Directives
 
@@ -129,7 +129,7 @@ Now when we click the submit button, we can see in the console the message "Form
 
 Right now, our component doesn't know how to get the values introduced in the form's fields. To do that, we need a way to pass an instance of the form when calling the `onSubmit` method on the template.
 
-The `NgForm` directive, besides of defining a new `ngSubmit` event on the form, is also creating and **exporting** an instance of the `NgForm` directive, called unsurprisingly `ngForm`, to be used as a local template variable.
+The `NgForm` directive, besides defining a new `ngSubmit` event on the form, is also creating and **exporting** an instance of the `NgForm` directive, called unsurprisingly `ngForm`, to be used as a local template variable.
 
 _app/my-form.component.html_
 ```html
@@ -213,9 +213,9 @@ Object {email: "joe.satriani@gmail.com", password: "secretpass"}
 
 ## Validation
 
-In order to show validation messages for every field, we need to do a similar trick that the one we did for the form. We need to define a local template variable that is a reference to the directive itself.
+In order to show validation messages for every field, we need to do a similar trick to the one we did for the form. We need to define a local template variable that is a reference to the directive itself.
 
-The `ngControl` directive is a little tricky, first the directive definition is not called `NgControl` but [NgControlName](https://angular.io/docs/ts/latest/api/common/NgControlName-directive.html). Second, the directive itself it's exported to the template with the same name as before: `ngForm`.
+The `ngControl` directive is a little tricky, first the directive definition is not called `NgControl` but [NgControlName](https://angular.io/docs/ts/latest/api/common/NgControlName-directive.html). Second, the directive itself is exported to the template with the same name as before: `ngForm`.
 
 _app/my-form.component.html_
 ```html
@@ -271,7 +271,7 @@ dirty    | The field has been modified
 touched  | The field has been modified and has lost focus
 valid    | The field is passing all the validators
 
-It's worth noting that `Control`, `ControlGroup` and `ControlArray` all inherit from [AbstractControl](https://angular.io/docs/ts/latest/api/common/AbstractControl-class.html) and because of this they share the same API to get values, errors and check the internal state (valid, dirty). For that reason, we can also check the validity of the form as a whole to disabled or enabled the submit button.
+It's worth noting that `Control`, `ControlGroup` and `ControlArray` all inherit from [AbstractControl](https://angular.io/docs/ts/latest/api/common/AbstractControl-class.html) and because of this they share the same API to get values, errors and check the internal state (valid, dirty). For that reason, we can also check the validity of the form as a whole to disabled or enabled with the submit button.
 
 _app/my-form.component.html_
 ```html
@@ -604,7 +604,7 @@ _app/my-form.component.html_
 
 [View Example](https://plnkr.co/edit/0OUp4WcCPJ56nneAPYoK?p=preview)
 
-Notice that not only we have a new error key but our field has a new state called `pending` that is `true` when angular waits for the promise to be resolved and `false` otherwise. That way we can give feedback to the user that some validation is being performed in the background that could take a while to finish.
+Notice that not only do we have a new error key but our field has a new state called `pending` that is `true` when angular waits for the promise to be resolved and `false` otherwise. That way we can give feedback to the user that some validation is being performed in the background that could take a while to finish.
 
 ## Observing changes
 
@@ -706,7 +706,7 @@ export class MyForm {
 
 [View Example](https://plnkr.co/edit/TPaJeEB4UvGCWzpCngxx?p=preview)
 
-Using this approach the usual angular1 2-way data binding approach is avoided.
+Using this approach the usual Angular 1, 2-way data binding approach is avoided.
 
 If 2-way data binding is still neeeded, the property syntax can be combined with the event syntax.
 
@@ -783,7 +783,7 @@ _app/my-form.component.html_
     
     <ul *ngIf="group.find('email').dirty && !group.find('email').valid">
       <li *ngIf="group.hasError('required', 'email')">This field is required</li>
-      <li *ngIf="group.hasError('emailFormat', 'email')">This field needs to have at least 3 characterss</li>
+      <li *ngIf="group.hasError('emailFormat', 'email')">This field needs to have at least 3 characters</li>
       <li *ngIf="group.hasError('duplicated', 'email')">This value cannot be used</li>
     </ul>
   </div>
