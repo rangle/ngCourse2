@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 7: Pipes](#part-7-pipes)
+  - [Using Pipes](#using-pipes)
+  - [Passing Parameters](#passing-parameters)
+  - [Chaining Pipes](#chaining-pipes)
+  - [Custom Pipes](#custom-pipes)
+  - [Stateful Pipes](#stateful-pipes)
+  - [Async Pipe](#async-pipe)
+  - [Implementing Stateful Pipes](#implementing-stateful-pipes)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 7: Pipes #
 
 In Angular 2 along with a new component architecture we have a new way of filtering data pipes which replace filters from Angular 1.x. Most of the filters from Angular 1.x are carried over to pipes and there are some additions to that as well.  

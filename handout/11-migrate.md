@@ -1,3 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 11: Angular Migrate](#part-11-angular-migrate)
+  - [Upgrade to Angular 1.3+ Style](#upgrade-to-angular-13-style)
+  - [Use Webpack](#use-webpack)
+  - [Migrate to TypeScript](#migrate-to-typescript)
+  - [Choose an Upgrade Path](#choose-an-upgrade-path)
+    - [Total Conversion](#total-conversion)
+    - [ng-forward (Angular 1.x Using 2 Style)](#ng-forward-angular-1x-using-2-style)
+    - [ng-upgrade (Angular 1.x Co-Existing With Angular 2)](#ng-upgrade-angular-1x-co-existing-with-angular-2)
+      - [Bootstrap ng-upgrade](#bootstrap-ng-upgrade)
+      - [Upgrading/Downgrading Components](#upgradingdowngrading-components)
+        - [Downgrading](#downgrading)
+        - [Upgrading](#upgrading)
+      - [Transclusion/Projection](#transclusionprojection)
+        - [Projection](#projection)
+        - [Transclusion](#transclusion)
+      - [Injecting Across Frameworks](#injecting-across-frameworks)
+      - [Upgrade components strategically](#upgrade-components-strategically)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 11: Angular Migrate #
 
 ## Upgrade to Angular 1.3+ Style

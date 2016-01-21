@@ -1,3 +1,23 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 6: Change Detection](#part-6-change-detection)
+  - [Change Detection Strategies in Angular 1 vs Angular 2](#change-detection-strategies-in-angular-1-vs-angular-2)
+  - [How Change Detection Works](#how-change-detection-works)
+- [MovieApp](#movieapp)
+    - [{{ title }}](#-title-)
+  - [Change Detector Classes](#change-detector-classes)
+  - [Change Detection Strategy: Default](#change-detection-strategy-default)
+  - [Performance Impact](#performance-impact)
+  - [Change Detection Strategy: OnPush](#change-detection-strategy-onpush)
+  - [Enforcing Immutability](#enforcing-immutability)
+- [MovieApp](#movieapp-1)
+    - [{{ title }}](#-title--1)
+  - [Additional Resources](#additional-resources)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 6: Change Detection
 
 Change detection is the process that allows Angular to keep our views in sync with our models. 

@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 14: Advanced Components](#part-14-advanced-components)
+  - [Component Lifecycle](#component-lifecycle)
+  - [Accessing Other Component](#accessing-other-component)
+  - [View Encapsulation](#view-encapsulation)
+  - [ElementRef](#elementref)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 14: Advanced Components
 
 ## Component Lifecycle

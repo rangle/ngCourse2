@@ -1,3 +1,17 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 0: Introduction to Angular2 and ngCourse2](#part-0-introduction-to-angular2-and-ngcourse2)
+  - [Angular 2's Advantages](#angular-2s-advantages)
+    - [Angular 2 is Easier](#angular-2-is-easier)
+    - [Performance, and Mobile](#performance-and-mobile)
+    - [Project Architecture, and Maintenance](#project-architecture-and-maintenance)
+    - [Features](#features)
+  - [Differences between Angular Versions](#differences-between-angular-versions)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 0: Introduction to Angular2 and ngCourse2 #
 
 AngularJS is the leading open source JavaScript application framework backed by Google. The "1.x" version of AngularJS has been used quite widely. The new "Angular 2" version of the framework is currently available in beta. This course ("ngCourse2") provides an introduction to AngularJS using "Angular 2" based on our experience at rangle.io.
