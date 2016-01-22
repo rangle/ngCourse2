@@ -8,7 +8,11 @@ export interface Task {
   owner: string;
   description: string;
   _id: string;
+  done?: boolean;
 }
+
+// Create a request header to set content type to JSON
+const HEADERS = new Headers({ 'Content-Type': 'application/json' });
 
 @Injectable()
 export default class TasksService {
@@ -38,13 +42,10 @@ export default class TasksService {
    * @param {Task} task New task to add to the list
    */
   add(task: Task) {
-    // Create a request header to set content type to JSON
-    const postHeaders = new Headers({ 'Content-Type': 'application/json' });
-
     this._http.post(
       'http://ngcourse.herokuapp.com/api/v1/tasks',
       JSON.stringify(task), {
-        headers: postHeaders
+        headers: HEADERS
       }
     )
       .map((res: Response) => res.json())
@@ -69,6 +70,32 @@ export default class TasksService {
         if (res === 1) {
           this._tasks = this._tasks.delete(index);
         }
+      });
+  }
+
+  /**
+   * Set the done status of a task
+   * @param {Task} task The task to be updated
+   * @param  {Boolean} done Done status
+   */
+  done(task: Task, done: boolean) {
+    const index = this._tasks.findIndex((t) => t._id === task._id);
+    const updatedTask = {
+      done: true,
+      owner: task.owner,
+      description: task.description,
+      _id: task._id
+    };
+
+    this._http.put(
+      `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`,
+      JSON.stringify(updatedTask), {
+        headers: HEADERS
+      }
+    )
+      .map((res: Response) => res.json())
+      .subscribe((res) => {
+        this._tasks = this._tasks.set(index, updatedTask);
       });
   }
 

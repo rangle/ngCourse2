@@ -20,8 +20,12 @@ export default class TaskItem {
     private _tasksService: TasksService
   ) {}
 
-  deleteItem() {
+  deleteItem(): void {
     this._tasksService.delete(this.task);
+  }
+
+  markAsDone(): void {
+    this._tasksService.done(this.task, true);
   }
 
 }
