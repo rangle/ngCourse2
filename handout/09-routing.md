@@ -356,42 +356,96 @@ new AsyncRoute({
 
 You can inject `RouteParams` into the constructor of a component to use it.
 
+_app/app.component.ts_
 ```javascript
-@Component({directives: [ROUTER_DIRECTIVES]})
+// ....
+@Component({
+	selector: 'simple-routing',
+	directives: [ROUTER_DIRECTIVES]
+	template: `<div>
+	Basic Routing
+	<ul>
+	  <li><a [routerLink]="['/ComponentOne']">Component One</a></li>
+	  <li><a [routerLink]="['/ComponentTwo',{message:'Route Params In Message'}]">Component Two</a></li>
+	</ul>
+	<div style="border: 1px solid black">
+	  <router-outlet></router-outlet>
+	</div>
+	
+	`
+})
 @RouteConfig([
- {path: '/user/:id', component: UserCmp, as: 'UserCmp'},
-])
-class AppCmp {}
-@Component({ template: 'user: {{id}}' })
-class UserCmp {
-  id: string;
-  constructor(params: RouteParams) {
-    this.id = params.get('id');
+  {path: '/componentOne', as: 'ComponentOne', useAsDefault: true, component: ComponentOne},
+  {path: '/componentTwo/:message', as: 'ComponentTwo', useAsDefault: false, component: ComponentTwo}
+  ])
+export class SimpleRouting {
+  
+}
+```
+
+And to access the `RouteParams` in `ComponentTwo`,
+
+_app/component-two.ts_
+```ts
+import {Component} from 'angular2/core';
+import {RouteParams} from 'angular2/router';
+@Component({
+  selector: 'component-two',
+  template: 'Component two: {{ message }}'
+})
+export default class ComponentTwo { 
+  public message:string;
+  constructor(private routeParams: RouteParams) {
+    this.message = this.routeParams.get('message');
   }
 }
 ```
+[View Example](http://plnkr.co/edit/Sf54bMaDtfVGOwUAcmzv?p=preview)
 
 ## RouteData ##
 
-While most of the time parent components will be passing data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the @RouteConfig annotation. For example, our ProductDetail route can be configured as follows:
+While most of the time parent components will be passing data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the @RouteConfig annotation. For example, lets modify the routing for the previous example to add `data` to `ComponentTwo`
+
+_app/component-two.ts_
 
 ```javascript
 @RouteConfig([
-    {path: '/product/:id', component: ProductDetailComponentParam,
-     as: 'ProductDetail', data: {isProd: true}}])
-```
-
-Accordingly, the constructor of the ProductDetailComponent will need an extra argument of type RouteData:
-
-```javascript
-export class ProductDetailComponentParam {
-    productID: string;
-    constructor(params: RouteParams, data: RouteData) {
-        this.productID = params.get('id');
- 
-        console.log(`Is this prod environment: ${data.get('isProd')}`);
-    }
+  { path: '/componentOne', 
+    as: 'ComponentOne', 
+    useAsDefault: true, 
+    component: ComponentOne},
+  { path: '/componentTwo/:message',
+    as: 'ComponentTwo', 
+    component: ComponentTwo, 
+    data: { passedData: 'Passed in via Data'}}
+  ])
+export class SimpleRouting {
+  
 }
 ```
 
-Passing data to a route with RouteData is not an alternative to RouteParams. While RouteParams is used to pass the data from one route to another using based on the user’s selections (e.g. show details of the selected product), RouteData can come handy when you need to pass some data to a route during the configuration phase, e.g. is it a production or QA environment, should the user have administrator’s privileges, or what URL of use for the product service.
+Accordingly, the constructor of the `ComponentTwo` will need an extra argument of type RouteData:
+
+```javascript
+import {Component} from 'angular2/core';
+import {RouteParams, RouteData} from 'angular2/router';
+@Component({
+  selector: 'component-two',
+  template: `Component two:
+  <p>Message: {{message}}</p>
+  <p>Data: {{data}}</p>`
+  
+})
+export default class ComponentTwo { 
+  public message:string;
+  public data:string;
+  
+  constructor(private routeParams: RouteParams, private routeData: RouteData) {
+    this.message = this.routeParams.get('message');
+    this.data = this.routeData.get('passedData')
+  }
+}
+```
+[View Example](http://plnkr.co/edit/wIG7xD17OHSaxe7wNkAY?p=preview)
+
+Passing data to a route with `RouteData` is not an alternative to `RouteParams`. While `RouteParams` is used to pass the data from one route to another using based on the user’s selections (e.g. show details of the selected product), `RouteData` can come handy when you need to pass some data to a route during the configuration phase, e.g. is it a production or QA environment, should the user have administrator’s privileges, or what URL of use for the product service.
