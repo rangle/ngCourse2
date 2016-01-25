@@ -10,7 +10,7 @@ To get started lets create a barebones Angular 2 application with a single Compo
 - *app/boot.ts*
 - *index.html*
 
-app.component.ts is where we define our root Component, index.html is the page in which this Component will be rendered in, and boot.ts is the glue that combines the Component and page together.  
+*app.component.ts* is where we define our root Component, *index.html* is the page in which this Component will be rendered in, and *boot.ts* is the glue that combines the Component and page together.  
 
 *index.html*
 
@@ -81,5 +81,5 @@ bootstrap(MyApp, [ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLoc
 ```
 [View Example](http://plnkr.co/edit/xZLEIX601g0TqsEOyB8y)
 
-Here we have imported `ROUTER_PROVIDERS` as an application wide Provider that can be configured in our root Component. Since we have injected `ROUTER_PROVIDERS` as an application wide Provider, we can also use useful router directives in any Component we want, thus allowing us to interact with the router at any point in our application. 
+Here we have imported `ROUTER_PROVIDERS` as an application wide Provider that can be configured in our root Component. Since we have injected `ROUTER_PROVIDERS` as an application wide Provider, we can also employ useful router directives in any Component we want, thus allowing us to interact with the router at any point in our application. 
 
