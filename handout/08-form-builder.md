@@ -1,23 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Part 8: Forms](#part-8-forms)
-  - [Creating a Form with Directives](#creating-a-form-with-directives)
-  - [Getting the Form's Values](#getting-the-forms-values)
-  - [Control Grouping](#control-grouping)
-  - [Validation](#validation)
-  - [Visual cues with CSS](#visual-cues-with-css)
-  - [Creating a Form with the "FormBuilder"](#creating-a-form-with-the-formbuilder)
-  - [Built-in validators](#built-in-validators)
-  - [Custom Validators](#custom-validators)
-  - [Async validators](#async-validators)
-  - [Observing changes](#observing-changes)
-  - [Models](#models)
-  - [Alternative Syntax](#alternative-syntax)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Part 8: Forms
 
 Capturing data from the user is the cornerstone of any application and it's usually done through forms. Angular 2 is much more flexible than Angular 1 for handling forms, we are no longer restricted to just the `ngModel`. In Angular 2, there are two ways to define forms: using directives in our templates or using the `FormBuilder`.
