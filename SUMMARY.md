@@ -12,7 +12,7 @@
        * [...spread, and ...rest](handout/features/spread_and_rest.md)
        * [Destructuring](handout/features/destructuring.md)
        * [ES6 Modules](handout/features/es6_modules.md)
-   * TypeScript
+   * [TypeScript](handout/features/typescript.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
