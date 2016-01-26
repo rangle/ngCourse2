@@ -19,7 +19,7 @@ The Angular CLI consists of a set of commands with blueprints attached to them.
 
 **Prerequisites**
 
-To make the angular cli work you must have node version 4 or greater installed on your system. To check the version of node you have on your system run `node -v` command and check the console output you should see the version there.
+To make the Angular CLI work you must have node version 4 or greater installed on your system. To check the version of node you have on your system run `node -v` command and check the console output. You should see the version number there.
 ```shell
 % node -v
 v4.1.0
@@ -126,8 +126,8 @@ Funnel: index.html (1)                        | 1ms
 
 **Generating Scaffolds**
 
-The Angular CLI comes with scaffolding options to generate few angular 2 things using command line.
-To generate the angular2 components with angular-cli:
+The Angular CLI comes with scaffolding options to generate a few Angular 2 things using command line.
+To generate the Angular 2 components with angular-cli:
 
 ```shell
 % ng generate component my-comp
@@ -142,7 +142,7 @@ installing component-test
   create src/app/components/my-comp/my-comp.spec.ts
 ```
 
-In a similar way you can generate pipe and service also for angular2. To see what are all the blueprints available to generate use help command. (You might see some content from ember cli here)
+In a similar way you can generate pipe and service also for Angular 2. To see what are all the blueprints available to generate use help command. (You might see some content from ember cli here)
 
 ```shell
 % ng generate --help
