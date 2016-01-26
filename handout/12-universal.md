@@ -1,14 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Part 12: Angular Universal](#part-12-angular-universal)
-    - [Setting up the server](#setting-up-the-server)
-    - [Universal Components](#universal-components)
-    - [Capturing events using preboot](#capturing-events-using-preboot)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Part 12: Angular Universal #
 
 An interesting new feature introduced in Angular 2 is the ability to render Angular 2 views on the server and pass down the HTML to the client. Having the server render the first page of the application speeds up the initial load time considerably as the user is presented with the application almost instantly without needing to wait for angular to load and bootstrap. 

@@ -1,11 +1,11 @@
 {
-    "plugins": [
-        "versions"
-    ],
-    "pluginsConfig": {
-        "versions": {
-            "type": "branches",
-            "includeFilepath": false
-        }
+  "plugins": [
+    "versions"
+  ],
+  "pluginsConfig": {
+    "versions": {
+      "type": "branches",
+      "includeFilepath": false
     }
+  }
 }
