@@ -59,7 +59,7 @@ import {bootstrap} from 'angular2/platform/browser';
 export class MyForm {}
 ```
 
-And finally, define the component's template as a separate file for easier visualization.
+And finally, we'll define the component's template as a separate file for easier visualization.
 
 _app/my-form.component.html_
 ```html
@@ -159,7 +159,7 @@ Even if we fill both inputs and click the submit button, we get an empty object 
 
 ## Control Grouping
 
-In angular2, there are three basic built-in classes that help us manage forms:
+In Angular 2, there are three basic built-in classes that help us manage forms:
 
 - `Control`
 - `ControlGroup`
@@ -179,7 +179,7 @@ In the previous example, the exported template variable that we are getting from
 <form #regForm="ngForm" ...>
 ```
 
-Is in fact an instance of the `NgForm` directive, not directly an instance of the `ControlGroup` class. To get to the `ControlGroup` instance created internally by the `NgForm` directive, we need to access the property `regForm.form`.
+is in fact an instance of the `NgForm` directive, not directly an instance of the `ControlGroup` class. To get to the `ControlGroup` instance created internally by the `NgForm` directive, we need to access the property `regForm.form`.
 
 Let's go back to our code. We now know that our form element has been *upgraded* with the `NgForm` directive, and because of that, it has created an internal `ControlGroup` for us to hold a reference to its child controls. The problem is that at this point Angular doesn't recognize the nested fields as controls belonging to the form. To make this association explicit, we need to use the directive `ngControl` on our form fields.
 
@@ -254,7 +254,7 @@ _app/my-form.component.html_
     <!-- ... -->
     <ul *ngIf="password.dirty && !password.valid">
       <li *ngIf="password.errors.required">A password is required</li>
-      <li *ngIf="password.errors.minlength">A password needs to have at least 4 characterss</li>
+      <li *ngIf="password.errors.minlength">A password needs to have at least 4 characters</li>
     </ul>
   </div>
 
@@ -283,9 +283,9 @@ _app/my-form.component.html_
 
 [View Example](https://plnkr.co/edit/w9KzDcfPpzDMHrcjjNEP?p=preview)
 
-## Visual cues with CSS
+## Visual Cues with CSS
 
-Angular also offers a way to define special CSS styles adding or removing classes to the form fields dependent on its state and validation following the rules shown in the table below.
+Angular 2 also offers a way to define special CSS styles adding or removing classes to the form fields dependent on its state and validation following the rules shown in the table below.
 
 Class        | States
 ------------ | ---------------------------------------
@@ -403,7 +403,7 @@ There's five things to notice here:
 
 5. We don't need to pass the form object to the `onSubmit` method because we have access to it inside our component in the variable `this.group`.
 
-## Built-in validators
+## Built-in Validators
 
 In contrast with our first approach, we are not going to be using the HTML properties `required` and `minlength`, instead we are going to pass these validators to the Control constructor of both fields.
 
@@ -432,7 +432,7 @@ The first (optional) value of the `Control` constructor is the default value for
 
 The `Validator` class gives us access to the three built-in validators `require`, `minLength` and `maxLength`. If more than one validator is needed for a field, we need to combine them using the method `compose` as shown in the example before.
 
-Now that our validators are in place, we can add again the template to show the error messages.
+Now that our validators are in place, we can again add the template to show the error messages.
 
 _app/my-form.component.html_
 ```html
@@ -449,7 +449,7 @@ _app/my-form.component.html_
     <!-- ... -->
     <ul *ngIf="password.dirty && !password.valid">
       <li *ngIf="password.hasError('required')">A password is required</li>
-      <li *ngIf="password.hasError('minlength')">A password needs to have at least 4 characterss</li>
+      <li *ngIf="password.hasError('minlength')">A password needs to have at least 4 characters</li>
     </ul>
   </div>
 
@@ -518,7 +518,7 @@ _app/my-form.component.html_
 
 [View Example](https://plnkr.co/edit/Q0aUwWF25VUoUnxIQrRL?p=preview)
 
-## Async validators
+## Async Validators
 
 Until this point, our validation logic is living in the frontend, but what happens if we want to check for some logic that only exists in the server? For example, let's say we want to prevent two users trying to register using the same email. To do that, we need to verify that the email entered does not exist in our database and we want to alert the user as he/she types. That's when the async validator comes in handy.
 
@@ -606,7 +606,7 @@ _app/my-form.component.html_
 
 Notice that not only do we have a new error key but our field has a new state called `pending` that is `true` when angular waits for the promise to be resolved and `false` otherwise. That way we can give feedback to the user that some validation is being performed in the background that could take a while to finish.
 
-## Observing changes
+## Observing Changes
 
 The `ControlGroup` and `Control` components both behave as observables, meaning that we can subscribe to their streams in order to "watch" changes in the form values.
 
@@ -805,6 +805,6 @@ _app/my-form.component.html_
 
 We are using two methods of our form component, `find` and `hasError`.
 
-Find let's get the instance of the `Control` we are using from the form and in this way, we can do the same validations of state and errors as before.
+Let's get the instance of the `Control` we are using from the form and in this way, we can do the same validations of state and errors as before.
 
 > **Note:** You may find in some docs the use of a `control` object instead of the method `find` like this: `group.controls['firstName']`. We are avoiding this approach because it will only work when we are dealing with a `ControlGroup` where every control is stored in an object. If we were working with a `ControlArray` this approach will not work because there's not a key to refer to each control. The method `find` is an abstraction that will take care of both situations and will get us the proper control back.
