@@ -41,7 +41,7 @@ How it differs from traditional Flux though, is that instead of multipul stores,
 
 * [Redux Documentation](http://redux.js.org/)
 * [NG2-Redux - Angular 2 Bindings for Redux](https://github.com/wbuchwalter/ng2-redux)
-* [Angular 2 Redux Starter Kit][https://github.com/rangle/angular2-redux-starter]
+* [Angular 2 Redux Starter Kit](https://github.com/rangle/angular2-redux-starter)
 * [Getting Started with Redux - Egghead.io](https://egghead.io/series/getting-started-with-redux)
 
 ## Quick Review of Reducers and Pure Functions
