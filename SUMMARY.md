@@ -11,6 +11,7 @@
    * [Constants, and Block Scoped Variables](handout/features/constants,_and_block_scoped_variables.md)
    * [...spread, and ...rest](handout/features/spread_and_rest.md)
    * [Destructuring](handout/features/destructuring.md)
+   * ES6 Modules
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
