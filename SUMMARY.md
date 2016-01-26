@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Features](handout/01-features.md)
-   * ES6
+   * [ES6](handout/features/es6.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
