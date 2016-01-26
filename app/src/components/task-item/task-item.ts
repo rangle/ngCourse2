@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import {CheckIcon, CloseIcon, UserIcon} from '../icons';
+import {Router} from 'angular2/router';
+import {CheckIcon, CloseIcon, EditIcon, UserIcon} from '../icons';
 import {Card, CardTitle, CardActions} from '../card';
 import TasksService, {Task} from '../../services/tasks-service';
 const TEMPLATE = require('./task-item.html');
@@ -9,7 +10,7 @@ const TEMPLATE = require('./task-item.html');
   inputs: [
     'task'
   ],
-  directives: [Card, CardTitle, CardActions, CheckIcon, CloseIcon, UserIcon],
+  directives: [Card, CardTitle, CardActions, CheckIcon, CloseIcon, EditIcon, UserIcon],
   template: TEMPLATE
 })
 export default class TaskItem {
@@ -17,10 +18,15 @@ export default class TaskItem {
   public task: Task;
 
   constructor(
-    private _tasksService: TasksService
+    private _tasksService: TasksService,
+    private _router: Router
   ) {}
 
-  deleteItem(): void {
+  editItem() {
+    this._router.navigate(['Main', 'TaskEdit', {id: this.task._id}]);
+  }
+
+  deleteItem() {
     this._tasksService.delete(this.task);
   }
 

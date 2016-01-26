@@ -1,0 +1,32 @@
+<div class="sm-col-10 mx-auto border rounded mb4">
+
+  <div class="p2 gray bg-darken-1">
+    <h4 class="m0 caps">Edit Task</h4>
+  </div>
+
+  <form class="p2 bg-white"
+    [ngFormModel]="taskEditForm"
+    (ngSubmit)="onSubmit(taskEditForm)">
+    <input id="_id" type="hidden" ngControl="_id">
+    <label for="owner">Owner</label>
+    <input class="block col-12 mb1 field"
+      id="owner"
+      type="text"
+      ngControl="owner">
+    <label for="description">Description</label>
+    <input class="block col-12 mb2 field"
+      id="description"
+      type="text"
+      ngControl="description">
+
+    <button class="btn btn-primary"
+      [disabled]="!taskEditForm.valid">
+      Save
+    </button>
+    <button class="btn btn-primary bg-gray"
+      [routerLink]="['../TasksList']">
+      Cancel
+    </button>
+  </form>
+
+</div>

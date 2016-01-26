@@ -38,6 +38,15 @@ export default class TasksService {
   }
 
   /**
+   * Get a task by id
+   * @param {string} id
+   */
+  getById(id: string) {
+    const index = this._tasks.findIndex((t) => t._id === id);
+    return this._tasks.get(index);
+  }
+
+  /**
    * Add a new task
    * @param {Task} task New task to add to the list
    */
@@ -88,14 +97,36 @@ export default class TasksService {
     };
 
     this._http.put(
+       `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`,
+       JSON.stringify(updatedTask), {
+         headers: HEADERS
+       }
+     )
+       .map((res: Response) => res.json())
+       .subscribe((res) => {
+         this._tasks = this._tasks.set(index, updatedTask);
+       });
+   }
+
+  /**
+   * Update a task
+   * @param {Task} task The task to update
+   */
+  update(task: Task) {
+    const index = this._tasks.findIndex((t) => t._id === task._id);
+    
+    this._http.put(
       `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`,
-      JSON.stringify(updatedTask), {
+      JSON.stringify(task), {
         headers: HEADERS
       }
     )
       .map((res: Response) => res.json())
       .subscribe((res) => {
-        this._tasks = this._tasks.set(index, updatedTask);
+        if (res.length === 1) {
+          this._tasks = this._tasks.set(index, task);
+          this.goToTasksList();
+        }
       });
   }
 
