@@ -5,7 +5,7 @@
    * [ES6](handout/features/es6.md)
    * [Refresher on 'this'](features/handout/refresher_on_this.md)
    * [Template Strings](handout/features/template_strings.md)
-   * Classes
+   * [Classes](handout/features/classes.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
