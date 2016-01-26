@@ -188,19 +188,6 @@ In the `incrementIfOdd` action, we are making use of the getState function to ge
 
 In the `incrementAsync` action, we are making use of dispatch. For example, we have created a Promise that will resolve after the delay. Once the Promise resolves, we can then do a dispatch with the increase action. However, this promise could also be an API call, with the dispatched action containing the result of the API call.
 
-* [ ] TOOD: Expand on thunk/middleware 
-
-* Actions/Action creaters
-    * How the resulting dispatch should be a JSON object
-    * Actions are where side-effects happen 
-* Sync actions
-    * create a simple sync action
-    * unit testing sync actions
-* Async actions
-    * mention middleware, but don't go in depth
-    * create simple async action?
-    * unit testing async actions
-
 ## Configuring your Application to use Redux
 
 Once you have the reducers and actions created, it is time to configure your Angular 2 application to make use of ng2-redux. For this, we will need to: -
@@ -273,9 +260,7 @@ bootstrap(SimpleRedux,
 
 ## Using Redux with Components
 
-* Review of the ng2-redux connect api
-    * explain mapStateToTarget
-    * explain mapDispatchToTarget
+When using ng2-redux, to connect it up with your angular components you need to use the `ngRedux.connect`. To demonstrate how this works, lets take a look at a small counter example.
  
 ## Counter Example
  
@@ -580,7 +565,7 @@ export class CurseContainer {
  
  __app/containers/app-container.ts__
  ```ts
- import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {ClickContainer} from './click-container.ts';
 import {CurseContainer} from './curse-container.ts';
 
@@ -607,15 +592,6 @@ import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
  
  Creating a smart container for every component may not always be necessary as a larger part of your application could be acting as the smart container as it did in the initial example.
  
-## Redux - extra stuff
- 
-* TODO: Talk about re-select/selectors?
-  
-## Redux Tools
- 
-* TODO: Decide how far if at all we want to go here?
-* Setting up Redux Logger
-
  
 
 
