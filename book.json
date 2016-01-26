@@ -1,1 +1,11 @@
-{}
+{
+    "plugins": [
+        "versions"
+    ],
+    "pluginsConfig": {
+        "versions": {
+            "type": "branches",
+            "includeFilepath": false
+        }
+    }
+}
