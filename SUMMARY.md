@@ -15,7 +15,8 @@
    * [TypeScript](handout/features/typescript.md)
        * [Getting Started With TypeScript](handout/features/getting_started_with_typescript.md)
        * [Working With `tsc`](handout/features/working_with_tsc.md)
-       * [Typings](handout/features/typings.md)       
+       * [Typings](handout/features/typings.md)
+       * Linting
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
