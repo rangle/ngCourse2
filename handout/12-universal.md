@@ -13,7 +13,7 @@
 
 An interesting new feature introduced in Angular 2 is the ability to render Angular 2 views on the server and pass down the HTML to the client. Having the server render the first page of the application speeds up the initial load time considerably as the user is presented with the application almost instantly without needing to wait for angular to load and bootstrap. 
 
-###Setting up the server
+###Setting up the Server
 For this example we'll be using Express as our server. Though you can use any server that allows you to use a custom template rendering engine, Express is one of the easiest to use. 
 
 To set up Express to use the Angular2 rendering engine all we need to do is import the module, and pass in the `ng2engine`.
@@ -59,7 +59,7 @@ export class Example {}
 
 By using the `renderer` module we can safely write to the DOM, without knowing if the application is running in a browser window, or a node server. Now our javascript is truly universal!
 
-###Capturing events using preboot
+###Capturing Events Using Preboot
 One of the problems that arises from using server side rendering is the state of the application after its been initial served, and before Angular 2 has gotten a chance to load and bootstrap itself. Though the application is visible, any events registered in that 1-6 second window will be lost. This can make for a poor user experience as the application appears to undergo an initial lag after loading. Fortunately a library has been created to address this issue - prebootjs. It works by including itself when the application is initial loaded, recording any captured events, and then playing those events back into angular once its ready to start processing them. 
 
 There are many more features and examples of preboot, you can check them all out on the [github page](https://github.com/angular/universal/tree/master/modules/preboot).
