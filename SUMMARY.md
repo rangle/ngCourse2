@@ -22,7 +22,7 @@
            * [Interfaces](handout/features/interfaces.md)
            * [Shapes](handout/features/shapes.md)
            * [Type Inference](handout/features/type_inference.md)
-           * Decorators
+           * [Decorators](handout/features/decorators.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
