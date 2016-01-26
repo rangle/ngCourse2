@@ -9,7 +9,7 @@
    * [Arrow Functions](handout/features/arrow_functions.md)
    * [Inheritance](handout/features/inheritance.md)
    * [Constants, and Block Scoped Variables](handout/features/constants,_and_block_scoped_variables.md)
-   * ...spread, and ...rest
+   * [...spread, and ...rest](handout/features/spread_and_rest.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
