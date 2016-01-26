@@ -86,7 +86,7 @@ export class LengthPipe implements PipeTransform {
 
 Each custom pipe implementation must:
 
-* Have Pipe annotation (team, should annotation be replaced with decorator?) with pipe metadata
+* Have `@Pipe` decorator with pipe metadata
 * Implement the PipeTransform interface's with transform method that takes an input value and an optional array of parameter strings and returns the transformed value
 * There will be one item in the parameter array for each parameter passed to the pipe
 * We tell Angular that this is a pipe by applying the @Pipe decorator which we import from the core Angular library
