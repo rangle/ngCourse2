@@ -44,7 +44,7 @@ How it differs from traditional Flux though, is that instead of multipul stores,
 * [Angular 2 Redux Starter Kit][https://github.com/rangle/angular2-redux-starter]
 * [Getting Started with Redux - Egghead.io](https://egghead.io/series/getting-started-with-redux)
 
-## Quick review of Reducers and Pure Functions
+## Quick Review of Reducers and Pure Functions
 
 One of the core concepts of Redux is the reducer. A reducer is simply a function that iterates over a collection of values, and returns a new single value at the end of it.
 
@@ -81,7 +81,6 @@ export default function counter(state = 0, action) {
 ```
 
 We can see here that we are passing in an initial state, and an action. To handle each action - we have setup a switch statement. Instead of each reducer needing to explcitly subscribe to the dispatcher - every action gets passed into every reducer, handles the action it is interested in, and otherwise returns the state along to the next reducer.
- 
 
 Reducers in Redux should be side-effect free, that means that they should not modify things outside of the application state. Instead, they should reflect the state of the application. This is why side-effect causing operations, such as updating a record in a database, generating an id, etc should be handled elsewhere in the application - such as in the action creators, or middleware.
 
@@ -109,12 +108,12 @@ let immutableArrayReducer = (state = [1,2,3], action) => {
 }
 ``` 
 
-However, if dealing with complex or deeply nested objects - it can be difficult that you are maintaining immutability in your application using this syntax. This is where a library like ImmutableJS can help.
+However, if dealing with complex or deeply nested objects - it can be difficult to maintain immutability in your application using this syntax. This is where a library like ImmutableJS can help.
 
 
 ## Redux Actions
 
-Redux actions, generally should return a simple JSON object. This is because they should be seralizable and replayable into the application state. Even if your actions need to return promises, the final dispatched action should remain a plain JSON object.
+Redux actions, generally should return a simple JSON object. This is because they should be serialized and replayable into the application state. Even if your actions need to return promises, the final dispatched action should remain a plain JSON object.
 
 Redux actions are generally where side-effects should happen, such as making API calls, or generating ID's. This is because when the final action gets dispatched to the reducers, we want to update the applicaton state to reflect what has already happened. 
 
@@ -520,7 +519,7 @@ export class SimpleRedux {
 ```
 [View Example](http://plnkr.co/edit/8eq54QwOcYDuxzcBdMV3?p=preview)
 
-Since we are getting actions from both `CounterActions` and `CurseActions`, we are merging them into one object to be bound onto the SimpleRedux class. Depending on how the components are being used, and how generic they need to be. You could potentially create a container component for each one of your dumb components, although this might not always be required. But, for sake of example - lets do one last refactor of this counter component, and create a `ClickContainer`, and a `CurseContainer`.
+Since we are getting actions from both `CounterActions` and `CurseActions`, we are merging them into one object to be bound onto the SimpleRedux class. Depending on how the components are being used, and how generic they need to be. You could potentially create a container component for each one of your dumb components, although this might not always be required. But, for sake of this example - lets do one last refactor of this counter component, and create a `ClickContainer`, and a `CurseContainer`.
 
 __app/containers/curse-container.ts__
 ```ts
@@ -606,7 +605,7 @@ import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
  ```
  [View Example](http://plnkr.co/edit/wWqv7C1HD21mbBZvcdcl?p=preview)
  
- Creating a smart container for every component may not always be nessicary, as a larger part of your application could be acting as the smart container as it did in the initial example.
+ Creating a smart container for every component may not always be necessary as a larger part of your application could be acting as the smart container as it did in the initial example.
  
 ## Redux - extra stuff
  
