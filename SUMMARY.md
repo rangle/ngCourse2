@@ -4,7 +4,7 @@
 * [Features](handout/01-features.md)
    * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
-       * [Refresher on 'this'](features/handout/refresher_on_this.md)
+       * [Refresher on 'this'](handout/handout/refresher_on_this.md)
        * [Template Strings](handout/features/template_strings.md)
        * [Arrow Functions](handout/features/arrow_functions.md)
        * [Inheritance](handout/features/inheritance.md)
