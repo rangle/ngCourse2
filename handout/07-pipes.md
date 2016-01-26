@@ -52,7 +52,7 @@ export class ProductPrice {
 
 ## Chaining Pipes ##
 
-We can chain pipes together to make use of multiple pipes in one expression
+We can chain pipes together to make use of multiple pipes in one expression.
 
 ```javascript
 import {Component} from 'angular2/core';
@@ -84,9 +84,9 @@ export class LengthPipe implements PipeTransform {
 ```
 [View Example](http://plnkr.co/edit/QrOAQL?p=preview)
 
-Each custom pipe implementation must:-
+Each custom pipe implementation must:
 
-* Have Pipe annotation with pipe metadata
+* Have Pipe annotation (team, should annotation be replaced with decorator?) with pipe metadata
 * Implement the PipeTransform interface's with transform method that takes an input value and an optional array of parameter strings and returns the transformed value
 * There will be one item in the parameter array for each parameter passed to the pipe
 * We tell Angular that this is a pipe by applying the @Pipe decorator which we import from the core Angular library
