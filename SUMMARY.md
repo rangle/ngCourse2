@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-   * Features
+   * [Features](handout/01-features.md)
 
