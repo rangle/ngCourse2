@@ -26,7 +26,7 @@
 
 ## Upgrade to Angular 1.3+ Style
 
-The first step of any migration is to upgrade the codebase's style to conform
+The first step of any migration is to upgrade the codebases style to conform
 to Angular 1.3+ style, ideally an Angular 1.5+ style.  This means:
 
 - All controllers should be in `controllerAs` form, and should ideally only
@@ -93,7 +93,7 @@ TypeScript (annotations/decorators) _without_ Angular 2.  Unfortunately
 templates are still mostly in Angular 1.x style.
 
 Once an application is converted to ng-forward style it is very close to Angular
-2, but still requires refactoring.  In most cases ng-forward is not as efficient
+2, but still requires refactoring.  In most cases, ng-forward is not as efficient
 an option as ng-upgrade, with respect to refactoring time.  The payload of an
 ng-forwarded application is smaller, and porting to ng-forward can be done in an
 even more ad-hoc fashion than with ng-upgrade.
@@ -173,7 +173,7 @@ application.
 #### Upgrading/Downgrading Components
 
 Once bootstrapping is complete, Angular 1.x components can be _upgraded_ to
-work with Angular2.  Conversely, Angular 2 components can be _downgraded_ to
+work with Angular 2.  Conversely, Angular 2 components can be _downgraded_ to
 work with Angular 1.x
 
 ##### Downgrading
@@ -581,7 +581,7 @@ class A1UsingA2 {
 }
 ```
 
-####  Upgrade components strategically 
+####  Upgrade Components Strategically 
 
 Services that have no dependencies are excellent candidates for conversion. Once
 converted to Angular 2, services can be downgraded to work in Angular 1.x.
