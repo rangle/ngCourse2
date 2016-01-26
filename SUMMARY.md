@@ -13,7 +13,7 @@
        * [Destructuring](handout/features/destructuring.md)
        * [ES6 Modules](handout/features/es6_modules.md)
    * [TypeScript](handout/features/typescript.md)
-       * Getting Started With TypeScript
+       * [Getting Started With TypeScript](handout/features/getting_started_with_typescript.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
