@@ -8,7 +8,7 @@
    * [Template Strings](handout/features/template_strings.md)
    * [Arrow Functions](handout/features/arrow_functions.md)
    * [Inheritance](handout/features/inheritance.md)
-   * Constants, and Block Scoped Variables
+   * [Constants, and Block Scoped Variables](handout/features/constants,_and_block_scoped_variables.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
