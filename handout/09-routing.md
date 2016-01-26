@@ -239,7 +239,7 @@ export default class ComponentOneContainer {
 ``` 
 [View Example](http://plnkr.co/edit/JwPTPbvskkWBSs6SzzkJ?p=preview)
 
-## Using routing with LocationStrategy ##
+## Using Routing with LocationStrategy ##
 
 Angular 2 supports `LocationStrategy` which is responsible for representing and reading route state from the browser's URL. Angular provides two strategies: `HashLocationStrategy` (default) and `PathLocationStrategy`.  Applications should use the Router or Location services to interact with application route state.
 
@@ -278,7 +278,7 @@ export function main() {
 }
 ```
 
-## Using Auxiliary routes ##
+## Using Auxiliary Routes ##
 
 Angular 2 supports the concept of auxiliary routes. Before we go further, we must understand what an auxiliary route is. Auxiliary routes allow you to set up and navigate multiple independent routes in a single app. Each component has one primary route and zero or more auxiliary outlets. Auxiliary outlets must have unique name within a Component. 
 
@@ -331,7 +331,7 @@ Next, we need to define the link to the auxiliary route for the application to n
 ```
 [View Example](http://plnkr.co/edit/USxVl4rBpIPs5Zi3s0pb?p=preview)
 
-Each Auxiliary route is an independent route which:-
+Each auxiliary route is an independent route which:
 
 * Can have their own child routes
 * Can have their own auxiliary routes
@@ -404,7 +404,7 @@ export default class ComponentTwo {
 
 ## RouteData ##
 
-While most of the time parent components will be passing data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the @RouteConfig annotation. For example, lets modify the routing for the previous example to add `data` to `ComponentTwo`
+While most of the time parent components will be passing data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the @RouteConfig annotation. For example, let's modify the routing for the previous example to add `data` to `ComponentTwo`
 
 _app/component-two.ts_
 
@@ -448,4 +448,4 @@ export default class ComponentTwo {
 ```
 [View Example](http://plnkr.co/edit/wIG7xD17OHSaxe7wNkAY?p=preview)
 
-Passing data to a route with `RouteData` is not an alternative to `RouteParams`. While `RouteParams` is used to pass the data from one route to another using based on the user’s selections (e.g. show details of the selected product), `RouteData` can come handy when you need to pass some data to a route during the configuration phase, e.g. is it a production or QA environment, should the user have administrator’s privileges, or what URL of use for the product service.
+Passing data to a route with `RouteData` is not an alternative to `RouteParams`. While `RouteParams` is used to pass the data from one route to another based on the user’s selections (e.g. show details of the selected product), `RouteData` can come handy when you need to pass some data to a route during the configuration phase, e.g. is it a production or QA environment, should the user have administrator’s privileges, or what URL to use for the product service.
