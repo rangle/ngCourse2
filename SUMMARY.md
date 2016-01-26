@@ -14,7 +14,6 @@
        * [ES6 Modules](handout/features/es6_modules.md)
    * [TypeScript](handout/features/typescript.md)
        * [Getting Started With TypeScript](handout/features/getting_started_with_typescript.md)
-
        * [Working With `tsc`](handout/features/working_with_tsc.md)
        * [Typings](handout/features/typings.md)       
 * [Tooling](handout/02-tooling.md)
