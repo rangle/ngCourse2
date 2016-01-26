@@ -10,5 +10,5 @@ export function a1ProjectionContentsDirective() {
 }
 
 class A1ProjectionContents {
-  message: string = 'I am an Angular 1 Directive "projected" into Angular 2';
+  message = 'I am an Angular 1 Directive "projected" into Angular 2';
 }

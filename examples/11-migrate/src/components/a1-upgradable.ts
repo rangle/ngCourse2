@@ -10,5 +10,5 @@ export function a1UpgradableDirective() {
 }
 
 class Upgradable {
-  message: string = 'I am an Angular 1 Directive';
+  message = 'I am an Angular 1 Directive';
 }

@@ -6,7 +6,7 @@ import {A1UpgradeService} from '../services/a1-upgrade-service';
   template: `<p>{{ message }}</p>`
 })
 export class A2UsingA1Service {
-  message: string = '';
+  message = '';
   constructor(@Inject('a1UpgradeService') a1UpgradeService:A1UpgradeService) {
     this.message = a1UpgradeService.data;
   }

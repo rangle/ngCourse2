@@ -2,7 +2,7 @@
 import {UpgradeAdapter} from 'angular2/upgrade';
 
 // Instantiate the adapter singleton
-export const upgradeAdapter: UpgradeAdapter = new UpgradeAdapter();
+export const upgradeAdapter = new UpgradeAdapter();
 
 // upgrade an Angular 1 component
 export const a1Upgradable = upgradeAdapter.upgradeNg1Component('a1Upgradable');

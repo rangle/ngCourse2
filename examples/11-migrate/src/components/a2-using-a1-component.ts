@@ -8,5 +8,5 @@ import {upgradeAdapter, a1Upgradable} from '../upgrade-adapter';
   template: `<p>{{ message }}<a1-upgradable></a1-upgradable></p>`
 })
 export class A2UsingA1Component {
-  message: string = 'Angular 2 Using Angular 1: ';
+  message = 'Angular 2 Using Angular 1: ';
 }
