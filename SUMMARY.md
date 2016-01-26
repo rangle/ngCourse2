@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Features](handout/01-features.md)
    * [ES6](handout/features/es6.md)
+       * Refresher on 'this'
    * Template Strings
    * Classes
 * [Tooling](handout/02-tooling.md)
