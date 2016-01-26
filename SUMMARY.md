@@ -17,6 +17,7 @@
        * [Working With `tsc`](handout/features/working_with_tsc.md)
        * [Typings](handout/features/typings.md)
        * [Linting](handout/features/linting.md)
+       * TypeScript Features
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
