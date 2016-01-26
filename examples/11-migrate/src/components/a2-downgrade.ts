@@ -5,5 +5,5 @@ import {Component} from 'angular2/core';
   template: '<p>{{ message }}</p>'
 })
 export class A2DowngradeComponent {
-  message: string = `I am an Angular 2 component running in Angular 1.x`;
+  message = `I am an Angular 2 component running in Angular 1.x`;
 }

@@ -5,6 +5,6 @@ import {Component} from 'angular2/core';
   template: `<p>{{ message }}</p>`
 })
 export class A2Transclusion {
-  message: string =
+  message =
     'I am an Angular 2 Component "transcluded" into Angular 1.x';
 }

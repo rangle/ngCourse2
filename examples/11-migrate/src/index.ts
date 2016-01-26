@@ -20,7 +20,7 @@ import * as angular from 'angular';
 import {upgradeAdapter} from './upgrade-adapter';
 
 // Name the application
-const APPNAME: string = 'angular-upgrade-example';
+const APPNAME = 'angular-upgrade-example';
 
 // Register classic Angular 1 modules
 angular

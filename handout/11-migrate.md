@@ -137,7 +137,7 @@ Angular 2's adapter _must_ be a singleton.
 import {UpgradeAdapter} from 'angular2/upgrade';
 
 // Instantiate an adapter
-export const upgradeAdapter: UpgradeAdapter = new UpgradeAdapter();
+export const upgradeAdapter = new UpgradeAdapter();
 
 ```
 
@@ -153,7 +153,7 @@ import {upgradeAdapter} from './upgrade-adapter';
 
 
 // Name the application
-const APPNAME: string = 'angular-upgrade-example';
+const APPNAME = 'angular-upgrade-example';
 
 // Register classic Angular 1 modules
 angular
@@ -198,7 +198,7 @@ import {Component} from 'angular2/core';
   template: '<p>{{ message }}</p>'
 })
 export class A2DowngradeComponent {
-  message: string = `What you're seeing here is an Angular2 component ` +
+  message = `What you're seeing here is an Angular2 component ` +
     `running in an Angular1 app!`;
 }
 ```
@@ -245,7 +245,7 @@ export function a1UpgradableDirective() {
 }
 
 class Upgradable {
-  message: string = 'I am an Angular 1 Directive';
+  message = 'I am an Angular 1 Directive';
 }
 ```
 
@@ -264,7 +264,7 @@ import {upgradeAdapter} from '../upgrade-adapter';
   template: `<p>{{ message }}<a1-upgradable></a1-upgradable></p>`
 })
 export class A2UsingA1Component {
-  message: string = 'Angular 2 Using Angular 1: ';
+  message = 'Angular 2 Using Angular 1: ';
 }
 ```
 
@@ -329,7 +329,7 @@ export function a1ProjectionContentsDirective() {
 }
 
 class A1ProjectionContents {
-  message: string = 'I am an Angular 1 Directive "projected" into Angular 2';
+  message = 'I am an Angular 1 Directive "projected" into Angular 2';
 }
 ```
 
@@ -348,7 +348,7 @@ import * as angular from 'angular';
 import {upgradeAdapter} from './upgrade-adapter';
 
 // Name the application
-const APPNAME: string = 'angular-upgrade-example';
+const APPNAME = 'angular-upgrade-example';
 
 // Register classic Angular 1 modules
 angular
@@ -383,7 +383,7 @@ import {Component} from 'angular2/core';
   template: `<p>{{ message }}</p>`
 })
 export class A2Transclusion {
-  message: string =
+  message =
     'I am an Angular 2 Component "transcluded" into Angular 1.x';
 }
 ```
@@ -426,7 +426,7 @@ import * as angular from 'angular';
 import {upgradeAdapter} from './upgrade-adapter';
 
 // Name the application
-const APPNAME: string = 'angular-upgrade-example';
+const APPNAME = 'angular-upgrade-example';
 
 // Register classic Angular 1 modules
 angular
@@ -454,7 +454,7 @@ Simple Angular 1.x service:
 ```js
 
 export class A1UpgradeService {
-  data: string = 'Hello from Angular 1 service';
+  data = 'Hello from Angular 1 service';
 }
 ```
 
@@ -471,7 +471,7 @@ import {A1UpgradeService} from '../services/a1-upgrade-service';
   template: `<p>{{ message }}</p>`
 })
 export class A2UsingA1Service {
-  message: string = '';
+  message = '';
   constructor(@Inject('a1UpgradeService') a1UpgradeService:A1UpgradeService) {
     this.message = a1UpgradeService.data;
   }
@@ -492,7 +492,7 @@ import * as angular from 'angular';
 import {upgradeAdapter} from './upgrade-adapter';
 
 // Name the application
-const APPNAME: string = 'angular-upgrade-example';
+const APPNAME = 'angular-upgrade-example';
 
 // Register classic Angular 1 modules
 angular
@@ -546,7 +546,7 @@ import * as angular from 'angular';
 import {upgradeAdapter} from './upgrade-adapter';
 
 // Name the application
-const APPNAME: string = 'angular-upgrade-example';
+const APPNAME = 'angular-upgrade-example';
 
 // Register classic Angular 1 modules
 angular
