@@ -10,7 +10,15 @@ const TEMPLATE = require('./task-item.html');
   inputs: [
     'task'
   ],
-  directives: [Card, CardTitle, CardActions, CheckIcon, CloseIcon, EditIcon, UserIcon],
+  directives: [
+    Card, 
+    CardTitle, 
+    CardActions, 
+    CheckIcon, 
+    CloseIcon, 
+    EditIcon, 
+    UserIcon
+  ],
   template: TEMPLATE
 })
 export default class TaskItem {

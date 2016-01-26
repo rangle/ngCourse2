@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/core';
+import {Component, View, ChangeDetectionStrategy} from 'angular2/core';
 import Task from '../task-item/task-item';
 
 @Component({
@@ -7,6 +7,7 @@ import Task from '../task-item/task-item';
     'tasks'
   ],
   directives: [Task],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ul class="cols list-reset m0">
       <li class="py1 avoid-break"
