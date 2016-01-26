@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* TypeScript
 * [Features](handout/01-features.md)
    * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
@@ -13,6 +12,7 @@
        * [...spread, and ...rest](handout/features/spread_and_rest.md)
        * [Destructuring](handout/features/destructuring.md)
        * [ES6 Modules](handout/features/es6_modules.md)
+* TypeScript
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
