@@ -18,6 +18,7 @@ const HEADERS = new Headers({ 'Content-Type': 'application/json' });
 export default class TasksService {
 
   private _tasks = List<Task>();
+  private _owner = 'everyone';
 
   constructor(
     private _http: Http,
@@ -78,6 +79,15 @@ export default class TasksService {
       .subscribe((res) => {
         if (res === 1) {
           this._tasks = this._tasks.delete(index);
+
+          // if we deleted the owner's last task, set owner to "everyone"
+          const ownerTaskCount = this._tasks.filter(t =>
+            t.owner === task.owner
+          ).size;
+
+          if (ownerTaskCount === 0) {
+            this.selectOwner('everyone');
+          }
         }
       });
   }
@@ -131,6 +141,14 @@ export default class TasksService {
   }
 
   /**
+   * Sets the owner of tasks we're displaying
+   * @param {string} name of the owner
+   */
+  selectOwner(owner) {
+    this._owner = owner;  
+  }
+
+  /**
    * Navigate to the tasks list view
    */
   goToTasksList() {
@@ -144,4 +162,7 @@ export default class TasksService {
     return this._tasks;
   }
 
+  get owner() {
+    return this._owner;
+  }
 }

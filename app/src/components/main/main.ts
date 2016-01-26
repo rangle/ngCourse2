@@ -4,6 +4,7 @@ import TaskAdd from '../task-add/task-add';
 import TaskEdit from '../task-edit/task-edit';
 import TasksList from '../tasks-list/tasks-list';
 import Summary from '../summary/summary';
+import TasksService from '../../services/tasks-service';
 
 @Component({
   selector: 'ngc-main',
