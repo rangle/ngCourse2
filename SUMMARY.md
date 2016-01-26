@@ -7,7 +7,7 @@
    * [Refresher on 'this'](features/handout/refresher_on_this.md)
    * [Template Strings](handout/features/template_strings.md)
    * [Arrow Functions](handout/features/arrow_functions.md)
-   * Inheritance
+   * [Inheritance](handout/features/inheritance.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
