@@ -21,6 +21,7 @@
            * [TypeScript Classes](handout/features/typescript_classes.md)
            * [Interfaces](handout/features/interfaces.md)
            * [Shapes](handout/features/shapes.md)
+           * Type Inference
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
