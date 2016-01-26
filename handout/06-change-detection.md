@@ -246,7 +246,7 @@ Finally, Angular has detected that some of the properties bound to the template 
 
 ## Performance Impact
 
-Traversing all the tree component to check for changes could be costly. Imagine that instead of just having one reference to `<movie>` inside our `MainComponent`'s template, we have multiple references?
+Traversing all the tree components to check for changes could be costly. Imagine that instead of just having one reference to `<movie>` inside our `MainComponent`'s template, we have multiple references?
 
 ```html
 <movie *ngFor="#movie of movies" [title]="movie.title" [actor]="movie.actor"></movie>`
@@ -258,7 +258,7 @@ If our movie list grows too big, the performance of our system will start degrad
 
 As we have learned, this result is of not much use because we could have changed the properties of the object without changing the instance, and the result of the comparison will always be `false`. Because of this, change detection is going to have to check every child component to see if any of the properties of that object (`firstName` or `lastName`) have changed.
 
-What if we can find a way to indicate to the change detection that our `MovieComponent` depends only on its inputs and that these inputs are immutable? In short, we are trying to guarantee that when we change any of the properties of the `actor` object, we are going to end up with a different `Actor` instance so the comparison `actor !== previousActor` will always return `true`. In the other hand, if we did not change any property, we are not going to create a new instance, so the same comparison is going to return `false`.
+What if we can find a way to indicate to the change detection that our `MovieComponent` depends only on its inputs and that these inputs are immutable? In short, we are trying to guarantee that when we change any of the properties of the `actor` object, we are going to end up with a different `Actor` instance so the comparison `actor !== previousActor` will always return `true`. On the other hand, if we did not change any property, we are not going to create a new instance, so the same comparison is going to return `false`.
 
 If the above condition can be guaranteed (creating a new object every time any of its properties changes, otherwise we keep the same object), then when checking the inputs of the `MovieComponent` and having this result:
 
