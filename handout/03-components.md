@@ -86,7 +86,7 @@ To use this component we simply add `<ngc-hello-component></ngc-hello-component>
 [View Example](http://plnkr.co/edit/EGgaHWpGHFl1CDHBQtZl?p=preview)
 
 
-## Application Structure With Components
+## Application Structure with Components
 
 A useful way of conceptualizing Angular application design is to look at it as a tree of nested components each having an isolated scope.
 
@@ -106,7 +106,7 @@ For example consider the following:
 At the root we have `TodoApp` which consists of a `TodoList` and a `TodoForm`. Within the list we have several `TodoItem`s. Each of these components are visible to the user and they can interact with these components and perform actions.
 
 
-### Passing Data Into a Component
+### Passing Data into a Component
 
 The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `HelloComponent` such that `name` can be configured by the parent.
 
@@ -167,7 +167,7 @@ export class Counter {
 [View Example](http://plnkr.co/edit/nUlNRowfoOI4XYhaPVOj?p=preview)
 
 
-You send data out of components via outputs. We start by defining the outputs attribute. It accepts a list of output parameters that a component exposes to its parent.
+To send data out of components via outputs, start by defining the outputs attribute. It accepts a list of output parameters that a component exposes to its parent.
 
 ```js
 import {Component, EventEmitter} from 'angular2/core';
