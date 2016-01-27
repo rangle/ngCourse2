@@ -77,7 +77,7 @@ Each task has a few configuration options:
 The preLoaders array works just like the loaders array only that it is a separate task chain that is executed before the loaders task chain.
 
 
-### Non-JS Assets
+### Non JavaScript Assets
 
 Webpack also allows us to load non JavaScript assets such as: CSS, SVG, font files, etc. In order to attach these assets to our bundle we must require/import them within our app modules. For example:
 
