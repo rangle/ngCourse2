@@ -37,7 +37,7 @@
    * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
    * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
    * [Control Grouping](handout/forms/control_grouping.md)
-   * Validation
+   * [Validation](handout/forms/validation.md)
    * Visual Cues with CSS
    * Creating a Form with the "FormBuilder"
    * Built-in Validators
