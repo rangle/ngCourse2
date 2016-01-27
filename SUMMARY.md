@@ -39,7 +39,7 @@
    * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
    * [RouteConfig](handout/routing/routeconfig.md)
    * [RouterOutlet](handout/routing/routeroutlet.md)
-   * RouterLink
+   * [RouterLink](handout/routing/routerlink.md)
    * Using the Router Programmatically
    * Child Routes
    * Using Routing with LocationStrategy
