@@ -1,0 +1,2 @@
+# Change Detection Strategy: OnPush
+
