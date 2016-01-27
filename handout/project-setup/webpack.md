@@ -32,7 +32,7 @@ The core concept of webpack is the **bundle**. A bundle is simply a collection o
   
 In webpack, bundles are configured through **entry points**. Webpack goes through each entry point that has one by one. It maps out a dependency graph by going through each module's references. All the dependencies that it encounters are then packaged into that bundle.
 
-Packages installed through npm are referenced using **commonjs** module resolution. In a JavaScript file, this would look like:
+Packages installed through NPM are referenced using *CommonJS* module resolution. In a JavaScript file, this would look like:
 
 ```javascript
   const app = require('./src/index.ts');
