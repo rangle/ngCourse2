@@ -45,7 +45,7 @@
    * [Using Routing with LocationStrategy](handout/routing/using_routing_with_locationstrategy.md)
    * [Using Auxiliary Routes](handout/routing/using_auxiliary_routes.md)
    * [Lazy Loading of Components](handout/routing/lazy_loading_of_components.md)
-   * RouteParams
+   * [RouteParams](handout/routing/routeparams.md)
    * RouteData
 * [Redux](handout/10-redux.md)
 * [Migrate](handout/11-migrate.md)
