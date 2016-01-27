@@ -9,7 +9,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "gitbook-plugin-jsbin": "^0.0.12",
+    "gitbook-plugin-jsbin": "",
     "gitbook-plugin-versions": "^2.1.1",
     "gitbook-cli": "^1.0.1"
   },
