@@ -9,7 +9,7 @@ Once you have the reducers and actions created, it is time to configure your Ang
 ### Create our application reducer
 
 __app/reducers/index.ts__
-```ts
+```javascript
 import { combineReducers } from 'redux';
 import counter from './counter-reducer';
 
@@ -25,7 +25,7 @@ What `combineReducers` does, is allows us to break out our application into smal
 When creating a store in redux, this is where you provide the middleware you want to use, and the reducer that you want to have for your application.
 
 __app/store/configure-store.ts__
-```ts
+```javascript
 import {createStore, applyMiddleware, compose} from 'redux';
 import logger from './configure-logger';
 import thunk from 'redux-thunk';
@@ -50,7 +50,7 @@ In this example, we are creating a store that is using the `thunk` middleware, w
 Now that we have created our state reducer, and created a store. We now need to tell Angular 2 to use the provider, so that we will be able to inject `ngRedux` into our components.
 
 __app/boot.ts__
-```ts
+```javascript
 import {bootstrap}    from 'angular2/platform/browser'
 import {SimpleRedux} from './containers/app-container'
 import {ROUTER_PROVIDERS} from 'angular2/router';
