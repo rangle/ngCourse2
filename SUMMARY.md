@@ -36,7 +36,7 @@
    * [Using Observables From Other Sources](handout/observables/using_observables_from_other_sources.md)
    * [Observables Array Operations](handout/observables/observables_array_operations.md)
    * [Cold vs. Hot Observables](handout/observables/cold_vs_hot_observables.md)
-   * Summary
+   * [Summary](handout/observables/summary.md)
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/06-change-detection.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
