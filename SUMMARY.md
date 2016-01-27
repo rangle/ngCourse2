@@ -52,6 +52,7 @@
    * Redux Reducers
    * Redux Actions
    * Configuring your Application to use Redux
+   * Using Redux with Components
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
 
