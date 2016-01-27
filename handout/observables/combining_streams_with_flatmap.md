@@ -6,10 +6,6 @@ Lets say we wanted to implement an AJAX search feature in which every keypress i
 
 
 
-[flatMap-example](http://jsbin.com/nutegi/33/embed?js,console)  
-
-
-
 
 By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the http request).
 
