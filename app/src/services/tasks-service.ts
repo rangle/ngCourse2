@@ -19,6 +19,7 @@ export default class TasksService {
 
   private _tasks = List<Task>();
   private _owner = 'everyone';
+  private _taskStatus = 'all';
 
   constructor(
     private _http: Http,
@@ -148,6 +149,14 @@ export default class TasksService {
     this._owner = owner;  
   }
 
+  /** 
+   * Select status of posts we're displaying
+   * @param {string} the status
+   */
+  selectStatus(taskStatus) {
+    this._taskStatus = taskStatus;
+  }
+
   /**
    * Navigate to the tasks list view
    */
@@ -156,7 +165,7 @@ export default class TasksService {
   }
 
   /**
-   * Getter for the tasks list
+   * Getters   
    */
   get tasks() {
     return this._tasks;
@@ -164,5 +173,8 @@ export default class TasksService {
 
   get owner() {
     return this._owner;
+  }
+  get taskStatus() {
+    return this._taskStatus;
   }
 }
