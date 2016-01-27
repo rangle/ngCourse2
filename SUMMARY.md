@@ -40,7 +40,7 @@
    * [RouteConfig](handout/routing/routeconfig.md)
    * [RouterOutlet](handout/routing/routeroutlet.md)
    * [RouterLink](handout/routing/routerlink.md)
-   * Using the Router Programmatically
+   * [Using the Router Programmatically](handout/routing/using_the_router_programmatically.md)
    * Child Routes
    * Using Routing with LocationStrategy
    * Using Auxiliary Routes
