@@ -41,6 +41,7 @@
    * Visual Cues with CSS
    * Creating a Form with the "FormBuilder"
    * Built-in Validators
+   * Custom Validators
 * [Routing](handout/09-routing.md)
    * [Why Routing](handout/routing/why_routing.md)
    * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
