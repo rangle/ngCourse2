@@ -31,6 +31,7 @@
 * [Observables](handout/04-observables.md)
    * Using Observables
    * Error Handling
+   * Disposing Subscriptions and Releasing Resources
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/06-change-detection.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
