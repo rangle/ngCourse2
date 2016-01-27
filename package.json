@@ -15,7 +15,7 @@
   },
   "plugins": [ "jsbin"],
   "pluginsConfig": {
-    "url": "customurl.com\/.+"// option if you host jsbin in your own domain.
+    "url": "customurl.com\/.+"
   },
   "scripts": {
     "build": "gitbook build",
