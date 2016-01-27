@@ -45,7 +45,7 @@
    * [Immutable JS](handout/05.1-immutablejs.md)
    * [Change Detection Strategy: OnPush](handout/change-detection/change_detection_strategy_onpush.md)
    * [Enforcing Immutability](handout/change-detection/enforcing_immutability.md)
-   * Additional Resources
+   * [Additional Resources](handout/change-detection/additional_resources.md)
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
