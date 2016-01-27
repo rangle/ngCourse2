@@ -109,6 +109,6 @@
 * [Setup](handout/13-setup.md)
 * [Advanced Components](handout/advanced-components/README.md)
    * [Advanced Components](handout/14-advanced-components.md)
-   * Component Lifecycle 
+   * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
