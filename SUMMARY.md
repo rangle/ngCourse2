@@ -37,6 +37,7 @@
 * [Routing](handout/09-routing.md)
    * Why Routing
    * Routing in Angular 2
+   * RouteConfig
 * [Redux](handout/10-redux.md)
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
