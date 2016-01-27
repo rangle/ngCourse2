@@ -1,3 +1,5 @@
+<!-- toc -->
+
 # Configuring your Application to use Redux #
 
 Once you have the reducers and actions created, it is time to configure your Angular 2 application to make use of ng2-redux. For this, we will need to: -
