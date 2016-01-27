@@ -35,7 +35,7 @@
    * [Observables vs. Promises](handout/observables/observables_vs_promises.md)
    * [Using Observables From Other Sources](handout/observables/using_observables_from_other_sources.md)
    * [Observables Array Operations](handout/observables/observables_array_operations.md)
-   * Cold vs. Hot Observables
+   * [Cold vs. Hot Observables](handout/observables/cold_vs_hot_observables.md)
    * Summary
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/06-change-detection.md)
