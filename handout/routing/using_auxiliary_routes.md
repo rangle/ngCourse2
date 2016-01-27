@@ -4,7 +4,7 @@ Angular 2 supports the concept of auxiliary routes. Before we go further, we mus
 
 To define the auxiliary route we must first add the router outlet where contents for the auxiliary route gets rendered. Sample for the auxiliary route outlet is shown below.
 
-```ts
+```javascript
 @Component({
 	selector: 'simple-routing',
 	directives: [ROUTER_DIRECTIVES]
