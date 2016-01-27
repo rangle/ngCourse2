@@ -2,7 +2,7 @@
 
 NPM allows us to define custom scripts in the `package.json` file. These can then be execute tasks using the NPM CLI. 
 
-We rely on these scripts to manage most of our project tasks and webpack fits in as well. Webpack execution fits into a project's build stage, where files transition from a development phase to a distribution phase, so we'll want to add it in our `build` script.
+We rely on these scripts to manage most of our project tasks and webpack fits in as well.
 
 NPM scripts are described in the `scripts` property of your _package.json_ file. Our setup looks like this:
 
