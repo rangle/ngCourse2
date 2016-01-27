@@ -6,7 +6,7 @@ However, a lot of the times we will create observables from callbacks, promises,
 ## Observable Form Events
 Lets take a look at how Observables are used in Angular 2 forms. Each field in a form is treated as an Observable that we can subscribe to and listen for any changes made to the value of the input field. 
 
-```ts
+```js
 import {Component} from 'angular2/core';
 import {Control, ControlGroup, FormBuilder} from 'angular2/common';
 
