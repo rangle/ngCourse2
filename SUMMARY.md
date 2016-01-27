@@ -43,7 +43,7 @@
    * [Using the Router Programmatically](handout/routing/using_the_router_programmatically.md)
    * [Child Routes](handout/routing/child_routes.md)
    * [Using Routing with LocationStrategy](handout/routing/using_routing_with_locationstrategy.md)
-   * Using Auxiliary Routes
+   * [Using Auxiliary Routes](handout/routing/using_auxiliary_routes.md)
    * Lazy Loading of Components
    * RouteParams
    * RouteData
