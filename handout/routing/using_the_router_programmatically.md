@@ -2,7 +2,7 @@
 
 In addition to being able to use the `routerLink` directive to control the navigation of your application, you are also able to access the router from your components using the `Router` service. To do this, you need to inject the router into your component.
 
-```ts
+```javascript
 // ...
 @Component({
   selector: 'component-one',
