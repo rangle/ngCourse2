@@ -44,3 +44,5 @@ handout.html
 ## exclude typings
 typings
 
+## exclude built gitbook
+_book
