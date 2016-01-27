@@ -7,10 +7,15 @@
     "example": "examples"
   },
   "dependencies": {
+    "gitbook-plugin-jsbin": "^0.0.12"
   },
   "devDependencies": {
     "gitbook-plugin-versions": "^2.1.1",
     "gitbook-cli": "^1.0.1"
+  },
+  "plugins": [ "jsbin"],
+  "pluginsConfig": {
+    "url": "customurl.com\/.+"// option if you host jsbin in your own domain.
   },
   "scripts": {
     "build": "gitbook build",
