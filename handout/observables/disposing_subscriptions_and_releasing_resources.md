@@ -1,7 +1,7 @@
 # Disposing Subscriptions and Releasing Resources 
 In some scenarios we may want to unsubscribe from an Observable stream. Doing this is pretty straightforward as the `.subscribe()` call returns a data type that we can call `.unsubscribe` on. 
 
-```ts
+```js
 export class AppComponent {
   
   private data:Observable<Array<string>>;
