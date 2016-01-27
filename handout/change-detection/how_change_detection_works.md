@@ -4,7 +4,7 @@ Let's see how change detection works with a simple example.
 
 We are going to create a simple `MovieApp` to show information about one movie. This app is going to consist of only two components, the `MovieComponent` that shows information about a movie, and the `MainComponent` which holds a reference to the movie with buttons to perform some actions.
 
-As always, the first step is to create our `index.html` file using the html element defined in the root component of our app `MainComponent`.
+As always, the first step is to create our `index.html` file using the HTML element defined in the root component of our app `MainComponent`.
 
 _index.html_
 ```html
