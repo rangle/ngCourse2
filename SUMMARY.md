@@ -41,7 +41,7 @@
 * [Change Detection](handout/06-change-detection.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
 * [Pipes](handout/pipes/README.md)
-   * Using Pipes
+   * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
    * Stateful and Async Pipes
 * [Form Builder](handout/08-form-builder.md)
