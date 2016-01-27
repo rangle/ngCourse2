@@ -48,7 +48,7 @@
    * [RouteParams](handout/routing/routeparams.md)
    * [RouteData](handout/routing/routedata.md)
 * [Redux](handout/10-redux.md)
-   * Review of Reducers and Pure Functions
+   * [Review of Reducers and Pure Functions](handout/redux/review_of_reducers_and_pure_functions.md)
    * Redux Reducers
    * Redux Actions
    * Configuring your Application to use Redux
