@@ -26,6 +26,7 @@ export class SearchService {
   }
 }
 ```
+
 Here we have a basic service that will undergo a search query to Spotify by performing a get request with a supplied search term. This `search` function returns an Observable that has had some basic post-processing done (turning the response into a JSON object). 
 
 OK, lets take a look at the Component that will be using this service. 
