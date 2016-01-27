@@ -26,7 +26,7 @@
        * [Property Decorators](handout/features/property_decorators.md)
        * [Class Decorators](handout/features/class_decorators.md)
        * [Parameter Decorators](handout/features/parameter_decorators.md)
-* [Tooling](handout/02-tooling.md)
+* [Tooling](handout/tooling/README.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/observables/README.md)
    * [Using Observables](handout/observables/using_observables.md)
