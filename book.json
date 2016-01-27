@@ -1,7 +1,6 @@
 {
     "plugins": [
-        "versions",
-        "structured-toc"
+        "versions"
     ],
     "pluginsConfig": {
         "versions": {
