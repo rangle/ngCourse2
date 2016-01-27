@@ -20,7 +20,7 @@ NPM allows pre and post task binding by prepending the word `pre` and `post` to 
 
 **Note:** we can run a NPM scripts from inside another NPM script.
 
-To invoke the `build` script we run the command `npm run build`, which first runs the `prebuild` task. The `prebuild` task runs the `clean` task, which executes the `rimraf dist` command. `rimraf` is an npm package that recursively deletes everything inside the folder passed in the argument. After completing that task, it runs the `build` task which sets the environment variable `NODE_ENV` to `production` before invoking webpack. According to our config, webpack will go through our `app` and `vendor` entry points and generate js and html files that will be saved in a newly created _dist_ folder.
+To invoke the `build` script we run the command `npm run build`, which first runs the `prebuild` task. The `prebuild` task runs the `clean` task, which executes the `rimraf dist` command. `rimraf` is an NPM package that recursively deletes everything inside the folder passed in the argument. After completing that task, it runs the `build` task which sets the environment variable `NODE_ENV` to `production` before invoking webpack. According to our config, webpack will go through our `app` and `vendor` entry points and generate js and html files that will be saved in a newly created _dist_ folder.
 
 ### Going further
 
