@@ -1,8 +1,8 @@
-## JavaScript solutions
+# JavaScript solutions
 
 Some new features have been added in ES6 that allow for easier implementation of immutable data patterns.
 
-### Object.assign
+## Object.assign
 
 `Object.assign` lets us merge one object's properties into another one, replacing values of properties with matching names. We can use this to copy an object's values without altering the existing one.
 
@@ -38,7 +38,7 @@ console.log(movie2.episode); // writes 8
 
 But we still haven't solved the problem of potential mutation.
 
-### Object.freeze
+## Object.freeze
 
 `Object.freeze` allows us to disable object mutation.
 
