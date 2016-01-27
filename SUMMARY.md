@@ -38,7 +38,7 @@
    * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
    * [Control Grouping](handout/forms/control_grouping.md)
    * [Validation](handout/forms/validation.md)
-   * Visual Cues with CSS
+   * [Visual Cues with CSS](handout/forms/visual_cues_with_css.md)
    * Creating a Form with the "FormBuilder"
    * Built-in Validators
    * Custom Validators
