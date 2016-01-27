@@ -7,7 +7,7 @@ Reducers in a Redux application should not mutate the state, but return a copy o
 ## Simple Reducer
 
 __app/reducer/counter-reducer.ts__
-```ts
+```javascript
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter-actions';
 
 export default function counter(state = 0, action) {
