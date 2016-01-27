@@ -25,7 +25,7 @@ Here is the complete lifecycle hook interface inventory:
 - `ngAfterContentChecked` - after every check of component content
 - `ngAfterViewInit` - after component's view(s) are initialized
 - `ngAfterViewChecked` - after every check of a component's view(s)
-- `ngOnDestroy` - just before the directive is destroyed.
+- `ngOnDestroy` - just before the component is destroyed.
 
 🔗 from [Component Lifecycle](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html)
 
