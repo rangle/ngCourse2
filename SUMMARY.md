@@ -43,7 +43,7 @@
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
-   * Stateful and Async Pipes
+   * [Stateful and Async Pipes](handout/pipes/stateful_and_async_pipes.md)
 * [Form Builder](handout/08-form-builder.md)
    * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
    * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
