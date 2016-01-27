@@ -13,11 +13,6 @@
     "gitbook-plugin-versions": "^2.1.1",
     "gitbook-cli": "^1.0.1"
   },
-  "plugins": [
-    "versions",
-    "structured-toc",
-    "jsbin"
-  ],
   "scripts": {
     "build": "gitbook build",
     "dev": "gitbook serve",
