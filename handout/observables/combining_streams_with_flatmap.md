@@ -6,6 +6,9 @@ Lets say we wanted to implement an AJAX search feature in which every keypress i
 
 <a class="jsbin-embed" href="http://jsbin.com/nutegi/33/embed?js,console">Basic Flat Map Example</a>
 
+<iframe height='268' scrolling='no' src='//codepen.io/winkerVSbecks/embed/ZQoOWE/?height=268&theme-id=7569&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/winkerVSbecks/pen/ZQoOWE/'>ZQoOWE</a> by Varun Vachhar (<a href='http://codepen.io/winkerVSbecks'>@winkerVSbecks</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+
 
 
 By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the http request).
