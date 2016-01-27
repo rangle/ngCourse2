@@ -32,7 +32,7 @@
    * [Using Observables](handout/observables/using_observables.md)
    * [Error Handling](handout/observables/error_handling.md)
    * [Disposing Subscriptions and Releasing Resources](handout/observables/disposing_subscriptions_and_releasing_resources.md)
-   * Observables vs. Promises
+   * [Observables vs. Promises](handout/observables/observables_vs_promises.md)
    * Using Observables From Other Sources
    * Observables Array Operations
    * Cold vs. Hot Observables
