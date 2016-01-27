@@ -44,7 +44,7 @@
    * [Child Routes](handout/routing/child_routes.md)
    * [Using Routing with LocationStrategy](handout/routing/using_routing_with_locationstrategy.md)
    * [Using Auxiliary Routes](handout/routing/using_auxiliary_routes.md)
-   * Lazy Loading of Components
+   * [Lazy Loading of Components](handout/routing/lazy_loading_of_components.md)
    * RouteParams
    * RouteData
 * [Redux](handout/10-redux.md)
