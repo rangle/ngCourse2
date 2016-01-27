@@ -1,7 +1,7 @@
 # Cold vs. Hot Observables
 Observables can be classified into 2 main groups, Hot and Cold Observables. Let's start with a cold Observable. 
 
-```ts
+```js
 import {Component} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/publish';
@@ -54,7 +54,8 @@ We have already encountered both kind of observables, the example above is a col
 
 ### Converting from Cold Observables to Hot Observables
 A useful method within RxJS API, is the `publish` method. This method takes in a cold observable as it's source and returns an instance of a `ConnectableObservable`. In this case we will have to explicitly call `connect` on our hot observable to start broadcasting values to its subscribers.
-```ts
+
+```js
 export class AppComponent {
   
   private data:Observable<Array<number>>;
