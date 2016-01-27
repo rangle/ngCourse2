@@ -111,6 +111,6 @@
    * [Advanced Components](handout/14-advanced-components.md)
    * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
    * [Accessing Other Component](handout/advanced-components/accessing_other_component.md)
-   * View Encapsulation
+   * [View Encapsulation](handout/advanced-components/view_encapsulation.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
