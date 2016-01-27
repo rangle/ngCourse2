@@ -29,7 +29,7 @@
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/observables/README.md)
-   * Using Observables
+   * [Using Observables](handout/observables/using_observables.md)
    * Error Handling
    * Disposing Subscriptions and Releasing Resources
    * Observables vs. Promises
