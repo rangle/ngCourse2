@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Features](handout/01-features.md)
+* [Features](handout/features/README.md)
    * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
        * [Refresher on 'this'](handout/features/refresher_on_this.md)
