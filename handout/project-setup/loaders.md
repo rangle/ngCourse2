@@ -61,28 +61,34 @@ Tasks specified in this array are chained. If a file matches multiple conditions
 }
 ```
 
-There are a few things that should jump out here, one being the preLoaders array. The preLoaders array works just like the loaders array only that it is a separate task chain that is executed before the loaders task chain.
+Each task has a few configuration options:
+
+- **test:** the file path must match this condition to be handled. This is commonly used to test file extensions eg. `/\.ts$/`
+
+- **loader:** The loaders that will be used to transform the input. This follows the syntax specified above.
+
+- **exclude:** The file path must not match this condition to be handled. This is commonly used to exclude file folders. eg. `/node_modules/`
+
+- **include:** The file path must match this condition to be handled. This is commonly used to include file folders.  eg. `path.resolve(__dirname, 'app/src')`.
 
 
-### test
-The file path must match this condition to be handled. This is commonly used to test file extensions eg. `/\.ts$/`
+### Pre-Loaders
 
-### loader
-The loaders that will be used to transform the input. This follows the syntax specified above.
-
-### exclude
-The file path must not match this condition to be handled. This is commonly used to exclude file folders. eg. `/node_modules/`
-
-### include
-The file path must match this condition to be handled. This is commonly used to include file folders.  eg. `path.resolve(__dirname, 'app/src')`.
+The preLoaders array works just like the loaders array only that it is a separate task chain that is executed before the loaders task chain.
 
 
+### Non-JS Assets
 
-Another thing is the references to css, svg, eot, ... files. We're asking webpack to process non-JavaScript files, but only JavaScript files have been specified as entry points. We connect these two by importing these other file types in your JavaScript. At the top of your file you'll have something like this:
+Webpack also allows us to load non JavaScript assets such as: CSS, SVG, font files, etc. In order to attach these assets to our bundle we must require/import them within our app modules. For example:
 
 ```javascript
 import './styles/style.css';
+
+// or 
+
+const STYLES = require('./styles/style.css');
 ```
+
 
 You also see a few other loaders:
 
