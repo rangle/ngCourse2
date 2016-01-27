@@ -34,6 +34,7 @@
    * [Immutable JS](handout/05.1-immutablejs.md)
 * [Pipes](handout/07-pipes.md)
 * [Form Builder](handout/08-form-builder.md)
+   * Creating a Form with Directives
 * [Routing](handout/09-routing.md)
    * [Why Routing](handout/routing/why_routing.md)
    * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
