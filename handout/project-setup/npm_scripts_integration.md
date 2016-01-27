@@ -4,7 +4,7 @@ NPM allows us to define custom scripts in the `package.json` file. These can the
 
 We rely on these scripts to manage most of our project tasks and webpack fits in as well.
 
-NPM scripts are described in the `scripts` property of your _package.json_ file. Our setup looks like this:
+The scripts are defined in the `scripts` property of your `package.json` file. Our setup looks like this:
 
 ```json
 ...
