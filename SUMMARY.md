@@ -38,7 +38,7 @@
    * [Cold vs. Hot Observables](handout/observables/cold_vs_hot_observables.md)
    * [Summary](handout/observables/summary.md)
 * [Dependency Injection](handout/05-di.md)
-* [Change Detection](handout/06-change-detection.md)
+* [Change Detection](handout/change-detection/README.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
