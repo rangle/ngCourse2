@@ -40,7 +40,7 @@
    * [Validation](handout/forms/validation.md)
    * [Visual Cues with CSS](handout/forms/visual_cues_with_css.md)
    * [Creating a Form with the "FormBuilder"](handout/forms/creating_a_form_with_the_formbuilder.md)
-   * Built-in Validators
+   * [Built-in Validators](handout/forms/built-in_validators.md)
    * Custom Validators
    * Async Validators
    * Observing Changes
