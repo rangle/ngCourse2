@@ -107,6 +107,7 @@
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
 * [Setup](handout/13-setup.md)
-* [Advanced Components](handout/14-advanced-components.md)
+* [Advanced Components](handout/advanced-components/README.md)
+    * [Advanced Components](handout/14-advanced-components.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
