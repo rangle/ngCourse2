@@ -124,6 +124,6 @@
        * [Loaders](handout/project-setup/loaders.md)
        * [Plugins](handout/project-setup/plugins.md)
        * [Summary](handout/project-setup/summary.md)
-   * NPM Scripts Integration
+   * [NPM Scripts Integration](handout/project-setup/npm_scripts_integration.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
