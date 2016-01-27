@@ -28,7 +28,7 @@
        * [Parameter Decorators](handout/features/parameter_decorators.md)
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
-* [Observables](handout/04-observables.md)
+* [Observables](handout/observables/README.md)
    * Using Observables
    * Error Handling
    * Disposing Subscriptions and Releasing Resources
