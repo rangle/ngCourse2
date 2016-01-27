@@ -13,10 +13,6 @@
     "gitbook-plugin-versions": "^2.1.1",
     "gitbook-cli": "^1.0.1"
   },
-  "plugins": [ "jsbin"],
-  "pluginsConfig": {
-    "url": "customurl.com\/.+"
-  },
   "scripts": {
     "build": "gitbook build",
     "dev": "gitbook serve",
