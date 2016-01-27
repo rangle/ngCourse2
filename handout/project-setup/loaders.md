@@ -2,6 +2,8 @@
 
 TypeScript isn't core JavaScript so webpack needs a bit of extra help to parse the `.ts` files. It does this through the use of **loaders**. Loaders are a way of configuring how webpack transforms the outputs of specific files in our bundles. Our `ts-loader` package is handling this transformation for TypeScript files.
 
+## Inline
+
 Loaders can be configured – inline – when requiring/importing a module:
 
 ```javascript
@@ -14,24 +16,14 @@ The loader is specified by using the `!` character to separate the module refere
 const app = require('ts!tslint!./src/index.ts');
 ```
 
-Note that although the packages are named `ts-loader`, `tslint-loader`, `style-loader`, we don't need to include the `-loader` part in our config. Be careful with configuring loaders this way - it couples implementation details of different stages of your application together so it might not be the right choice in a lot of cases. We can configure loaders in other ways such as a chain of loader tasks. Loaders tasks can have the following properties:
+**Note:** although the packages are named `ts-loader`, `tslint-loader`, `style-loader`, we don't need to include the `-loader` part in our config.
 
-#### test
-The file path must match this condition to be handled. This is commonly used to test file extensions eg. `/\.ts$/`
-
-#### loader
-The loaders that will be used to transform the input. This follows the syntax specified above.
-
-#### exclude
-The file path must not match this condition to be handled. This is commonly used to exclude file folders. eg. `/node_modules/`
-
-#### include
-The file path must match this condition to be handled. This is commonly used to include file folders.  eg. `path.resolve(__dirname, 'app/src')`.
+Be careful when configuring loaders this way – it couples implementation details of different stages of your application together so it might not be the right choice in a lot of cases.
 
 
-Each setting can be specified as a string, regular expression (in the form of `RegExp`), function with signature `(absolutePath: string): bool` or an array of any of these, which are tested and combined with `&&`.
+## Webpack Config
 
-Our TypeScript loader task will look like this:
+The preferred method is to configure loaders through the `webpack.config.js` file. For example, the TypeScript loader task will look something like this:
 
 ```javascript
 {
@@ -41,9 +33,9 @@ Our TypeScript loader task will look like this:
 }
 ```
 
-This runs the typescript compiler which respects our configuration settings as specified above. We want to be able to handle other files and not just TypeScript files, so we need to specify a list of loaders. This is done by creating an array of tasks. Tasks specified in this array are chained, so if a file matches multiple conditions, it will be processed using each task in order.
+This runs the typescript compiler which respects our configuration settings as specified above. We want to be able to handle other files and not just TypeScript files, so we need to specify a list of loaders. This is done by creating an array of tasks.
 
-Our task array for this project looks like this:
+Tasks specified in this array are chained. If a file matches multiple conditions, it will be processed using each task in order.
 
 ```javascript
 {
@@ -68,6 +60,20 @@ Our task array for this project looks like this:
   ...
 }
 ```
+
+
+
+### test
+The file path must match this condition to be handled. This is commonly used to test file extensions eg. `/\.ts$/`
+
+### loader
+The loaders that will be used to transform the input. This follows the syntax specified above.
+
+### exclude
+The file path must not match this condition to be handled. This is commonly used to exclude file folders. eg. `/node_modules/`
+
+### include
+The file path must match this condition to be handled. This is commonly used to include file folders.  eg. `path.resolve(__dirname, 'app/src')`.
 
 There are a few things that should jump out, one being the preLoaders array. The preLoaders array works just like the loaders array only that it is a separate task chain that is executed before the loaders task chain.
 
