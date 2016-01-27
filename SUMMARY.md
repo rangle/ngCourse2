@@ -38,7 +38,7 @@
    * [Why Routing](handout/routing/why_routing.md)
    * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
    * [RouteConfig](handout/routing/routeconfig.md)
-   * RouterOutlet
+   * [RouterOutlet](handout/routing/routeroutlet.md)
    * RouterLink
    * Using the Router Programmatically
    * Child Routes
