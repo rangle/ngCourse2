@@ -22,12 +22,10 @@ const obsv = new Observable(observer => {
 
 });
 
-
 // Subscription A
 setTimeout(() => {
   obsv.subscribe(value => console.log(value));
 }, 0);
-
 
 // Subscription B
 setTimeout(() => {
