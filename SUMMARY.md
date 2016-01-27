@@ -42,7 +42,7 @@
    * [Creating a Form with the "FormBuilder"](handout/forms/creating_a_form_with_the_formbuilder.md)
    * [Built-in Validators](handout/forms/built-in_validators.md)
    * [Custom Validators](handout/forms/custom_validators.md)
-   * Async Validators
+   * [Async Validators](handout/forms/async_validators.md)
    * Observing Changes
    * Models
 * [Routing](handout/09-routing.md)
