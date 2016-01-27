@@ -40,7 +40,7 @@
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/change-detection/README.md)
    * [Angular 1 vs Angular 2](handout/change-detection/angular_1_vs_angular_2.md)
-   * How Change Detection Works
+   * [How Change Detection Works](handout/change-detection/how_change_detection_works.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
