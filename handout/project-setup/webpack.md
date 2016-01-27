@@ -38,7 +38,7 @@ Packages installed through NPM are referenced using *CommonJS* module resolution
   const app = require('./src/index.ts');
 ```
 
-or TypeScript file:
+or TypeScript/ES6 file:
 
 ```typescript
   import { Component } from 'angular2/core';
