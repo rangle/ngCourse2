@@ -7,8 +7,9 @@ When using ng2-redux, to connect it up with your angular components you need to 
  To see how `ng2-redux` works with Angular 2, lets start by building out a counter component. The component will be responsible for keeping track of how many times it was clicked, and displaying the amount.
  
  __app/components/counter-component.ts__
- ```ts
- import {Component, View, Inject} from 'angular2/core';
+
+```javascript
+import {Component, View, Inject} from 'angular2/core';
 import {bindActionCreators} from 'redux';
 import * as CounterActions from '../actions/counter-actions';
 @Component({
