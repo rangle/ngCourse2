@@ -108,7 +108,7 @@
    * [Lazy Loading of Components](handout/routing/lazy_loading_of_components.md)
    * [RouteParams](handout/routing/routeparams.md)
    * [RouteData](handout/routing/routedata.md)
-   * Route Lifecycle Hooks
+   * [Route Lifecycle Hooks](handout/routing/route_lifecycle_hooks.md)
 * [Redux](handout/redux/README.md)
    * [Review of Reducers and Pure Functions](handout/redux/review_of_reducers_and_pure_functions.md)
    * [Redux Reducers](handout/redux/redux_reducers.md)
