@@ -41,6 +41,7 @@
 * [Change Detection](handout/change-detection/README.md)
    * [Angular 1 vs Angular 2](handout/change-detection/angular_1_vs_angular_2.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
+   * How Change Detection Works
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
