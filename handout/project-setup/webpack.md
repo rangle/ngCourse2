@@ -46,7 +46,7 @@ or TypeScript/ES6 file:
 
 We will use those string values as the module names we pass to webpack.
 
-Let's look at the entry points we've defined in this project:
+Let's look at the entry points we have defined in our sample app:
 
 ```javascript
 {
