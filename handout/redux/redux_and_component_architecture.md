@@ -42,7 +42,7 @@
  
  Keeping this in mind, lets refactor our `counter` to be a **dumb/presentational** component.  First, lets modify our `app-container` to have two counter components on it as we currently have it.
  
- ```ts
+```javascript
  import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {Counter} from '../components/counter-component';
 
@@ -77,7 +77,7 @@ Looking at the example, you can see that there is already an __app/reducers/curs
 To turn the counter component from a smart component into a dumb component, we need to change it to have data and callbacks passed down into it. For this, we will pass the properties into the component, as well as remove the body of the counter class, as it no longer needs to be aware about redux.
 
 __app/components/counter-component.ts__
-```ts
+```javascript
 import {Componentt} from 'angular2/core';
 
 @Component({
@@ -102,7 +102,7 @@ Next, lets modify the main app container to pass down the appropiate data to eac
 
 `@Component`
 __app/src/containers/app-containter.ts__
-```ts
+```javascript
 @Component({
 	selector: 'simple-redux',
 	directives: [Counter]
@@ -134,7 +134,7 @@ __app/src/containers/app-containter.ts__
 Here, we are now explicitly passing in the data and callbacks that each of these components needs to use. Next, we update the container class so that we can use ngRedux to get the correct sections of state, and actions to pass into the counter component.
 
 __app/src/containers/app-container.ts__
-```ts
+```javascript
 import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {Counter} from '../components/counter-component';
 import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
@@ -175,7 +175,7 @@ export class SimpleRedux {
 Since we are getting actions from both `CounterActions` and `CurseActions`, we are merging them into one object to be bound onto the SimpleRedux class. Depending on how the components are being used, and how generic they need to be. You could potentially create a container component for each one of your dumb components, although this might not always be required. But, for sake of this example - lets do one last refactor of this counter component, and create a `ClickContainer`, and a `CurseContainer`.
 
 __app/containers/curse-container.ts__
-```ts
+```javascript
 import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {Counter} from '../components/counter-component';
 import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
@@ -232,7 +232,7 @@ export class CurseContainer {
  The __app/containers/click-container.ts__ is almost the same, except importing click actions and state. Then, we can update the application container.
  
  __app/containers/app-container.ts__
- ```ts
+```javascript
 import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {ClickContainer} from './click-container.ts';
 import {CurseContainer} from './curse-container.ts';
