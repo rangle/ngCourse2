@@ -11,8 +11,7 @@ export class StatusPipe implements PipeTransform {
       return tasks;
     }
    
-    /* incomplete notes don't have a "done" property */
-    const done = taskStatus === 'completed' || undefined;
+    const done = taskStatus === 'completed';
     const filtered = tasks.filter(task => 
       task.done === done  
     );

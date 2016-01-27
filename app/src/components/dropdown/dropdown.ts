@@ -26,6 +26,6 @@ import {List} from 'immutable';
 })
 export default class Dropdown {
 
-  public items: List<string>; 
+  items: List<string>; 
 
 }

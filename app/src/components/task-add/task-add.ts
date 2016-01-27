@@ -18,7 +18,7 @@ const TEMPLATE = require('./task-add.html');
 })
 export default class TaskAdd {
 
-  public taskAddForm: ControlGroup;
+  taskAddForm: ControlGroup;
 
   constructor(
     private _builder: FormBuilder,

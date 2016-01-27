@@ -8,7 +8,7 @@ export interface Task {
   owner: string;
   description: string;
   _id: string;
-  done?: boolean;
+  done: boolean;
 }
 
 // Create a request header to set content type to JSON
@@ -34,7 +34,11 @@ export default class TasksService {
   fetch() {
     this._http.get('http://ngcourse.herokuapp.com/api/v1/tasks')
       .map((res: Response) => res.json())
-      .subscribe((tasks: Array<Task>) => {
+      .subscribe((res: Array<Task>) => {
+        const tasks = res.map(task => {
+          task.done = false;
+          return task;
+        });
         this._tasks = this._tasks.push(...tasks);
       });
   }
@@ -94,30 +98,22 @@ export default class TasksService {
   }
 
   /**
-   * Set the done status of a task
+   * Set the status of a task (client only for now)
    * @param {Task} task The task to be updated
-   * @param  {Boolean} done Done status
+   * @param  {Boolean} done new status
    */
-  done(task: Task, done: boolean) {
+  updateStatus(task: Task, done: boolean) {
     const index = this._tasks.findIndex((t) => t._id === task._id);
+
     const updatedTask = {
-      done: true,
+      done: done,
       owner: task.owner,
       description: task.description,
       _id: task._id
     };
 
-    this._http.put(
-       `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`,
-       JSON.stringify(updatedTask), {
-         headers: HEADERS
-       }
-     )
-       .map((res: Response) => res.json())
-       .subscribe((res) => {
-         this._tasks = this._tasks.set(index, updatedTask);
-       });
-   }
+    this._tasks = this._tasks.set(index, updatedTask);
+  }
 
   /**
    * Update a task
@@ -136,6 +132,12 @@ export default class TasksService {
       .subscribe((res) => {
         if (res.length === 1) {
           this._tasks = this._tasks.set(index, task);
+
+          /* select the owner in case the owner name has been updated */
+          if (this._owner !== 'everyone') {
+            this.selectOwner(task.owner);
+          }
+
           this.goToTasksList();
         }
       });

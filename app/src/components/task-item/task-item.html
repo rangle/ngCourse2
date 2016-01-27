@@ -22,8 +22,8 @@
       Delete
     </button>
     <button class="btn"
-      (click)="markAsDone()"
-      [disabled]="task.done">
+      (click)="mark(!task.done)"
+      [ngStyle]="{'color': task.done ? '#ddd' : '' }">
       <ngc-icon-check class="h5"></ngc-icon-check>
       Done
     </button>
