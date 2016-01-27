@@ -122,5 +122,6 @@
    * [Webpack](handout/project-setup/webpack.md)
        * Installation and Usage
        * [Loaders](handout/project-setup/loaders.md)
+       * Plugins
 * [Bootstrapping](handout/15-bootstrapping.md)
 
