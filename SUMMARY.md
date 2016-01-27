@@ -41,6 +41,7 @@
 * [Change Detection](handout/06-change-detection.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
 * [Pipes](handout/07-pipes.md)
+   * Using Pipes
 * [Form Builder](handout/08-form-builder.md)
    * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
    * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
