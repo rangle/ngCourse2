@@ -110,6 +110,6 @@
 * [Advanced Components](handout/advanced-components/README.md)
    * [Advanced Components](handout/14-advanced-components.md)
    * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
-   * Accessing Other Component
+   * [Accessing Other Component](handout/advanced-components/accessing_other_component.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
