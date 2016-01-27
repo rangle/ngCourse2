@@ -6,7 +6,7 @@
     "pluginsConfig": {
         "versions": {
             "type": "branches",
-            "includeFilepath": true
+            "includeFilepath": false
         }
     }
 }
