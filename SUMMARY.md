@@ -30,6 +30,7 @@
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
    * Using Observables
+   * Error Handling
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/06-change-detection.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
