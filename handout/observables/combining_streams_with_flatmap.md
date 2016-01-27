@@ -6,7 +6,7 @@ Lets say we wanted to implement an AJAX search feature in which every keypress i
 
 
 
-[flatMap-example](http://jsbin.com/nutegi/33/embed?js,console)
+[flatMap-example](http://jsbin.com/nutegi/33/embed?js,console)  
 
 
 
