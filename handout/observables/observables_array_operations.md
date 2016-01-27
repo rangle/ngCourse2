@@ -3,7 +3,7 @@ In addition to simply iterating over an asynchronous collection, we can perform 
 
 Let's expand our example and do something a little more with our stream:
 
-```ts
+```js
 import {Component} from 'angular2/core';
 import {Http, Headers} from 'angular2/http';
 import 'rxjs/Rx';
@@ -74,7 +74,7 @@ OK, lets take a look at the Component that will be using this service.
 
 *app/app.ts*
 
-```ts
+```js
 import {Component} from 'angular2/core';
 import {Control, ControlGroup, FormBuilder} from 'angular2/common';
 import {SearchService} from './services/Search';
