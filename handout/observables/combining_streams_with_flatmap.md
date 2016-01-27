@@ -7,7 +7,6 @@ Lets say we wanted to implement an AJAX search feature in which every keypress i
 <a class="jsbin-embed" href="http://jsbin.com/nutegi/33/embed?js,console">Basic Flat Map Example</a>
 
 
-
 By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the http request).
 
 *app/services/Search.ts* 
