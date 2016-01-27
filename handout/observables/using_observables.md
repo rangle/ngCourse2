@@ -2,7 +2,7 @@
 
 Lets take a look at a basic example of how to create and use an Observable in an Angular 2 component
 
-```ts
+```js
 import {Component} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 
@@ -51,7 +51,7 @@ Next we call `subscribe` on this Observable which allows us to listen in on any 
 
 We can also use `forEach` to listen for incoming data. The key difference between `forEach` and `subscribe` is that `forEach` will block the current thread until the iteration sequence completes, in other words - `forEach` is synchronous and `subscribe` is asynchronous. Lets look at an example of using `forEach`: 
 
-```ts
+```js
 export class AppComponent {
   
   private data:Observable<Array<number>>;
