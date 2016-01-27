@@ -4,7 +4,7 @@
 
 Lets say we wanted to implement an AJAX search feature in which every keypress in a text field by the user will automatically perform a search and update the page with the results. How would this look? Well we would have an Observable subscribed to events coming from an input field, and on every change of input we want to perform a some http request, which is also an Observable we subscribe to. What we end up with is an Observable of an Observable. 
 
-[Basic Flat Map Example](http://jsbin.com/nutegi/33/embed?js,console) 
+[Basic Flat Map Example](jsbin.com/nutegi/33/embed?js,console) 
 
 
 By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the http request).
