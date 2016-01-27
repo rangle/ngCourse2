@@ -39,7 +39,7 @@
    * [Application Structure With Components](handout/components/app_structure_with_components.md)
        * [Passing Data into a Component](handout/components/app_structure/passing_data_into_components.md)
        * [Responding to Component Events](handout/components/app_structure/responding_to_component_events.md)
-       * [Two-Way Data Binding](handout/components/app_structure/two_way_data_binding.md) 
+       * [Two-Way Data Binding](handout/components/app_structure/two_way_data_binding.md)
    * [Structural Directive](handout/components/structural_directives.md)
        * [The Asterisk (*) Syntax](handout/components/structural/the_asterisk_syntax.md)
        * [Iteration with `ngFor`](handout/components/structural/iteration_with_ng_for.md)
@@ -108,6 +108,7 @@
 * [Universal](handout/12-universal.md)
 * [Setup](handout/13-setup.md)
 * [Advanced Components](handout/advanced-components/README.md)
-    * [Advanced Components](handout/14-advanced-components.md)
+   * [Advanced Components](handout/14-advanced-components.md)
+   * Component Lifecycle 
 * [Bootstrapping](handout/15-bootstrapping.md)
 
