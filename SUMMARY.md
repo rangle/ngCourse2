@@ -88,4 +88,7 @@
    * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
+* [Setup](handout/13-setup.md)
+* [Advanced Components](handout/14-advanced-components.md)
+* [Bootstrapping](handout/15-bootstrapping.md)
 
