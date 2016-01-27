@@ -93,29 +93,21 @@ export default class TasksService {
   }
 
   /**
-   * Set the done status of a task
+   * Set the status of a task (client only for now)
    * @param {Task} task The task to be updated
-   * @param  {Boolean} done Done status
+   * @param  {Boolean} done new status
    */
-  done(task: Task, done: boolean) {
+  updateStatus(task: Task, done: boolean) {
     const index = this._tasks.findIndex((t) => t._id === task._id);
+
     const updatedTask = {
-      done: true,
+      done: done,
       owner: task.owner,
       description: task.description,
       _id: task._id
     };
 
-    this._http.put(
-       `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`,
-       JSON.stringify(updatedTask), {
-         headers: HEADERS
-       }
-     )
-       .map((res: Response) => res.json())
-       .subscribe((res) => {
-         this._tasks = this._tasks.set(index, updatedTask);
-       });
+    this._tasks = this._tasks.set(index, updatedTask);
    }
 
   /**

@@ -38,8 +38,8 @@ export default class TaskItem {
     this._tasksService.delete(this.task);
   }
 
-  markAsDone(): void {
-    this._tasksService.done(this.task, true);
+  mark(done): void {
+    this._tasksService.updateStatus(this.task, done);
   }
 
 }
