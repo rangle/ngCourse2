@@ -120,7 +120,7 @@
 * [Universal](handout/12-universal.md)
 * [Project Setup](handout/project-setup/README.md)
    * [Webpack](handout/project-setup/webpack.md)
-       * Installation and Usage
+       * [Installation and Usage](handout/project-setup/installation_and_usage.md)
        * [Loaders](handout/project-setup/loaders.md)
        * [Plugins](handout/project-setup/plugins.md)
        * [Summary](handout/project-setup/summary.md)
