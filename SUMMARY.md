@@ -120,5 +120,6 @@
 * [Universal](handout/12-universal.md)
 * [Project Setup](handout/project-setup/README.md)
    * [Webpack](handout/project-setup/webpack.md)
+       * Installation and Usage
 * [Bootstrapping](handout/15-bootstrapping.md)
 
