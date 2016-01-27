@@ -42,7 +42,7 @@
    * [RouterLink](handout/routing/routerlink.md)
    * [Using the Router Programmatically](handout/routing/using_the_router_programmatically.md)
    * [Child Routes](handout/routing/child_routes.md)
-   * Using Routing with LocationStrategy
+   * [Using Routing with LocationStrategy](handout/routing/using_routing_with_locationstrategy.md)
    * Using Auxiliary Routes
    * Lazy Loading of Components
    * RouteParams
