@@ -8,9 +8,10 @@ Our platform, the browser, must continue to provide backwards compatibility for 
 
 Webpack solves these problems by providing a common interface to integrate all of these tools and that allows us to streamline our workflow and avoid complexity.
 
+
 ## Installation
 
-The easiest way to include webpack is through npm. This is how we've included it - along with a couple of other packages that it involves. The following packages should be a part of your devDependencies: 
+The easiest way to include webpack and its plugins is through NPM and save it to your `devDependencies`:
 
 ```bash
 npm install -D webpack ts-loader html-webpack-plugin tslint-loader
@@ -19,9 +20,17 @@ npm install -D webpack ts-loader html-webpack-plugin tslint-loader
 
 ## Setup and Usage
 
-The main way to use webpack is through the cli. By default, running the command executes _webpack.config.js_, so we'll put our configuration in there.
+The most common way to use webpack is through the CLI. By default, running the command executes `webpack.config.js`. Which is the configuration file for your webpack setup.
 
-The core concept of webpack is the **bundle**. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles: One for our application specific client-side logic and another for 3rd party libraries. Bundles are configured through webpack using **entry points**. Webpack starts with each entry point that's been configured and from there maps out a dependency graph by going through each module's references. All of the dependencies that webpack encounters this way is packaged in that bundle.
+
+### Bundle
+
+The core concept of webpack is the **bundle**. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles: 
+
+1. `app`: for our application specific client-side logic 
+2. `vendor`: for third party libraries 
+  
+In webpack, bundles are configured through **entry points**. Webpack goes through each entry point that has one by one. It maps out a dependency graph by going through each module's references. All the dependencies that it encounters are then packaged into that bundle.
 
 Packages installed through npm are referenced using **commonjs** module resolution. In a JavaScript file, this would look like:
 
