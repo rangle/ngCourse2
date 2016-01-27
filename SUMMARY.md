@@ -39,8 +39,8 @@
    * [Summary](handout/observables/summary.md)
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/change-detection/README.md)
-   * [Immutable JS](handout/05.1-immutablejs.md)
    * Angular 1 vs Angular 2
+   * [Immutable JS](handout/05.1-immutablejs.md)
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
