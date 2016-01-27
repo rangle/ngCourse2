@@ -119,6 +119,6 @@
 * [Universal](handout/12-universal.md)
 * [Project Setup](handout/project-setup/README.md)
    * Project Setup
-   * Webpack
+   * [Webpack](handout/project-setup/webpack.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
