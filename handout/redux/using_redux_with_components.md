@@ -1,4 +1,4 @@
-## Using Redux with Components
+# Using Redux with Components
 
 When using ng2-redux, to connect it up with your angular components you need to use the `ngRedux.connect`. To demonstrate how this works, lets take a look at a small counter example.
  
