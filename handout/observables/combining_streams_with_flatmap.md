@@ -6,7 +6,7 @@ Lets say we wanted to implement an AJAX search feature in which every keypress i
 
 
 
-<iframe src="http://jsbin.com/fajac/3/embed?html,output" width="640" height="480" frameborder="0"></iframe>
+<iframe src="//jsbin.com/fajac/3/embed?html,output" width="640" height="480" frameborder="0"></iframe>
 
 
 By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the http request).
