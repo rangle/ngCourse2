@@ -117,7 +117,7 @@
    * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
-* [Project Setup](handout/13-setup.md)
+* [Project Setup](handout/project-setup/README.md)
    * Project Setup
 * [Bootstrapping](handout/15-bootstrapping.md)
 
