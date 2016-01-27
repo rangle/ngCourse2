@@ -12,7 +12,7 @@ npm install -D webpack ts-loader html-webpack-plugin tslint-loader
 The most common way to use webpack is through the CLI. By default, running the command executes `webpack.config.js`. Which is the configuration file for your webpack setup.
 
 
-### Bundle
+## Bundle
 
 The core concept of webpack is the **bundle**. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles: 
 
