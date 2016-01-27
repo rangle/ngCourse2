@@ -118,5 +118,6 @@
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
 * [Setup](handout/13-setup.md)
+   * Project Setup
 * [Bootstrapping](handout/15-bootstrapping.md)
 
