@@ -35,7 +35,7 @@
 * [Pipes](handout/07-pipes.md)
 * [Form Builder](handout/08-form-builder.md)
 * [Routing](handout/09-routing.md)
-   * Why Routing
+   * [Why Routing](handout/routing/why_routing.md)
    * Routing in Angular 2
    * RouteConfig
    * RouterOutlet
