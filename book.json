@@ -1,7 +1,8 @@
 {
     "plugins": [
         "versions",
-        "structured-toc"
+        "structured-toc",
+        "jsbin"
     ],
     "pluginsConfig": {
         "versions": {
