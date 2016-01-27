@@ -7,9 +7,9 @@
     "example": "examples"
   },
   "dependencies": {
-    "gitbook-plugin-jsbin": "^0.0.12"
   },
   "devDependencies": {
+    "gitbook-plugin-jsbin": "^0.0.12",
     "gitbook-plugin-versions": "^2.1.1",
     "gitbook-cli": "^1.0.1"
   },
