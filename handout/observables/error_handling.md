@@ -2,7 +2,7 @@
 
 If something unexpected arises we can raise an error on the Observable stream and use the function reserved for handling errors in our `subscribe` routine to see what happened.
 
-```ts
+```js
 export class AppComponent {
 	
 	private data:Observable<Array<number>>;
