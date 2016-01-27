@@ -2,47 +2,38 @@
 Observables can be classified into 2 main groups, Hot and Cold Observables. Let's start with a cold Observable. 
 
 ```js
-import {Component} from 'angular2/core';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/publish';
+const obsv = new Rx.Observable(observer => {
 
-@Component({
-	selector: 'app-root',
-	template: `
-	  <b>Angular 2 Component Using Observables!</b>
-	  <div>Subscription A: {{valuesA.toString()}}</div>
-	  <div>Subscription B: {{valuesB.toString()}}</div>
-  `
-})
-export class AppComponent {
+  setTimeout(() => {
+    observer.next(1);
+  }, 1000);
   
-  private data:Observable<Array<number>>;
-  private valuesA:Array<number> = [];
-  private valuesB:Array<number> = [];
+  setTimeout(() => {
+    observer.next(2);
+  }, 2000);
+  
+  setTimeout(() => {
+    observer.next(3);
+  }, 3000);
 
-	constructor() {
+  setTimeout(() => {
+    observer.next(4);
+  }, 4000);
 
-		this.data = new Observable(observer => {
-		  setTimeout(() => {
-		    observer.next(42);
-		  }, 1000);
-		  
-		  setTimeout(() => {
-		    observer.next(43);
-		  }, 3000);
+});
 
-	  });
-    
-    setTimeout(() => {
-      this.data.subscribe(value => this.valuesA.push(value));
-    }, 0);
-    
-    setTimeout(() => {
-      this.data.subscribe(value => this.valuesB.push(value));
-    }, 2000)
-    
-    
-}
+
+
+// Subscription A
+setTimeout(() => {
+  obsv.subscribe(value => console.log(value));
+}, 0);
+
+
+// Subscription B
+setTimeout(() => {
+  obsv.subscribe(value => console.log(`>>>> ${value}`));
+}, 2500);
 ```
 [View Example](http://plnkr.co/edit/cKDMkYUx55nnVvVhMblz)
 
