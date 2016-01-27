@@ -41,7 +41,7 @@
    * [RouterOutlet](handout/routing/routeroutlet.md)
    * [RouterLink](handout/routing/routerlink.md)
    * [Using the Router Programmatically](handout/routing/using_the_router_programmatically.md)
-   * Child Routes
+   * [Child Routes](handout/routing/child_routes.md)
    * Using Routing with LocationStrategy
    * Using Auxiliary Routes
    * Lazy Loading of Components
