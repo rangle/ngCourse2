@@ -34,7 +34,7 @@
    * [Disposing Subscriptions and Releasing Resources](handout/observables/disposing_subscriptions_and_releasing_resources.md)
    * [Observables vs. Promises](handout/observables/observables_vs_promises.md)
    * [Using Observables From Other Sources](handout/observables/using_observables_from_other_sources.md)
-   * Observables Array Operations
+   * [Observables Array Operations](handout/observables/observables_array_operations.md)
    * Cold vs. Hot Observables
    * Summary
 * [Dependency Injection](handout/05-di.md)
