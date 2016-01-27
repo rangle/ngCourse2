@@ -2,7 +2,7 @@
 Observables can be classified into 2 main groups, Hot and Cold Observables. Let's start with a cold Observable. 
 
 ```js
-const obsv = new Rx.Observable(observer => {
+const obsv = new Observable(observer => {
 
   setTimeout(() => {
     observer.next(1);
