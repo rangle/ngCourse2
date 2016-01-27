@@ -50,7 +50,7 @@
 * [Redux](handout/10-redux.md)
    * [Review of Reducers and Pure Functions](handout/redux/review_of_reducers_and_pure_functions.md)
    * [Redux Reducers](handout/redux/redux_reducers.md)
-   * Redux Actions
+   * [Redux Actions](handout/redux/redux_actions.md)
    * Configuring your Application to use Redux
    * Using Redux with Components
    * Redux and Component Architecture
