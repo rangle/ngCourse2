@@ -42,7 +42,7 @@
    * [Immutable JS](handout/05.1-immutablejs.md)
 * [Pipes](handout/pipes/README.md)
    * Using Pipes
-   * Custom Pipes
+   * [Custom Pipes](handout/pipes/custom_pipes.md)
    * Stateful and Async Pipes
 * [Form Builder](handout/08-form-builder.md)
    * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
