@@ -1,0 +1,29 @@
+<div class="h4 ml2 mb4">
+
+  <span>
+    <ngc-dropdown 
+       class="mr1" 
+       (change)="selectOwner($event)"
+       [defaultValue]="'everyone'"
+       [selected]="tasksService.owner"
+       [items]="tasksService.tasks | owners">
+    </ngc-dropdown>
+    owns
+    <span class="blue">
+      {{ tasksService.tasks | ownerTasks:tasksService.owner | size }}
+    </span>
+    .
+  </span>
+
+  <span class="ml2">
+    Showing
+    <ngc-dropdown
+      class="ml1 mr1"
+      (change)="selectStatus($event)"
+      [items]="statuses"
+      [selected]="tasksService.taskStatus">
+    </ngc-dropdown>
+    tasks.
+  </span>
+
+</div>

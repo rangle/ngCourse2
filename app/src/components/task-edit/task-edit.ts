@@ -18,7 +18,7 @@ const TEMPLATE = require('./task-edit.html');
 })
 export default class TaskEdit {
 
-  public taskEditForm: ControlGroup;
+  taskEditForm: ControlGroup;
 
   constructor(
     private _builder: FormBuilder,
@@ -30,7 +30,8 @@ export default class TaskEdit {
     this.taskEditForm = _builder.group({
       _id: [task._id, Validators.required],
       owner: [task.owner, Validators.required],
-      description: [task.description, Validators.required]
+      description: [task.description, Validators.required],
+      done: [task.done]
     });
   }
 
