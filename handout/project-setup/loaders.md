@@ -90,16 +90,12 @@ const STYLES = require('./styles/style.css');
 ```
 
 
-You also see a few other loaders:
+### Other Commonly Used Loaders
 
-#### raw-loader
-Returns the file content as a string.
+- **raw-loader:** returns the file content as a string.
 
-#### url-loader
-Returns a base64 encoded data url if the file size is under a certain threshold, otherwise it just returns the file.
+- **url-loader:** returns a base64 encoded data url if the file size is under a certain threshold, otherwise it just returns the file.
 
-#### css-loader
-Resolves `@import` and `url` references in css files as modules.
+- **css-loader:** resolves `@import` and `url` references in css files as modules.
 
-#### style-loader
-Injects a style tag with bundled css in the head tag. This is appended as a child element of the head tag using on page javascript.
+- **style-loader:** injects a style tag with the bundled CSS in the `<head>` tag.
