@@ -112,6 +112,6 @@
    * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
    * [Accessing Other Component](handout/advanced-components/accessing_other_component.md)
    * [View Encapsulation](handout/advanced-components/view_encapsulation.md)
-   * ElementRef
+   * [ElementRef](handout/advanced-components/elementref.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
