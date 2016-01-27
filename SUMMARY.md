@@ -48,6 +48,7 @@
    * [RouteParams](handout/routing/routeparams.md)
    * [RouteData](handout/routing/routedata.md)
 * [Redux](handout/10-redux.md)
+   * Review of Reducers and Pure Functions
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
 
