@@ -31,7 +31,7 @@
 * [Observables](handout/observables/README.md)
    * [Using Observables](handout/observables/using_observables.md)
    * Error Handling
-   * Disposing Subscriptions and Releasing Resources
+   * [Disposing Subscriptions and Releasing Resources](handout/observables/disposing_subscriptions_and_releasing_resources.md)
    * Observables vs. Promises
    * Using Observables From Other Sources
    * Observables Array Operations
