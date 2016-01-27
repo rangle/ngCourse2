@@ -3,9 +3,9 @@
 
 
 - [Part 12: Angular Universal](#part-12-angular-universal)
-    - [Setting up the server](#setting-up-the-server)
+    - [Setting up the Server](#setting-up-the-server)
     - [Universal Components](#universal-components)
-    - [Capturing events using preboot](#capturing-events-using-preboot)
+    - [Capturing Events Using Preboot](#capturing-events-using-preboot)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

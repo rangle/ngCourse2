@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Bootstrapping an Angular 2 Application](#bootstrapping-an-angular-2-application)
+  - [File structure](#file-structure)
+  - [Bootstrapping Providers](#bootstrapping-providers)
+    - [Using Router Providers](#using-router-providers)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Bootstrapping an Angular 2 Application
 
 Bootstrapping is an essential process in Angular - it is where the application is built, and where Angular comes to life. Bootstrapping Angular 2 applications is certainly different from Angular 1.x, but it still a straightforward procedure. Lets take a look at how this is done.  

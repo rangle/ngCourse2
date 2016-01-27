@@ -5,7 +5,7 @@
   - [Part 10: Angular 2 and Redux](#part-10-angular-2-and-redux)
   - [What is Redux](#what-is-redux)
     - [Resources](#resources)
-  - [Quick review of Reducers and Pure Functions](#quick-review-of-reducers-and-pure-functions)
+  - [Quick Review of Reducers and Pure Functions](#quick-review-of-reducers-and-pure-functions)
   - [Redux Reducers](#redux-reducers)
   - [Simple Reducer](#simple-reducer)
   - [Redux Actions](#redux-actions)
@@ -19,13 +19,8 @@
   - [Counter Example](#counter-example)
   - [Redux and Component Architecture](#redux-and-component-architecture)
 - [Simple Redux](#simple-redux)
-  - [Click Counter](#click-counter)
-  - [Curse Counter](#curse-counter)
 - [Redux: Dumb Counter](#redux-dumb-counter)
-  - [Click Counter](#click-counter-1)
-  - [Curse Counter](#curse-counter-1)
-  - [Curse Counter](#curse-counter-2)
-- [Redux: Dumb Counter](#redux-dumb-counter-1)
+
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

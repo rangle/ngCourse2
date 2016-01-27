@@ -18,7 +18,7 @@
         - [Projection](#projection)
         - [Transclusion](#transclusion)
       - [Injecting Across Frameworks](#injecting-across-frameworks)
-      - [Upgrade components strategically](#upgrade-components-strategically)
+      - [Upgrade Components Strategically](#upgrade-components-strategically)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
