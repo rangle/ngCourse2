@@ -1,4 +1,4 @@
-## Models
+# Models
 
 So far the form only gets information from the user. What if there's a need to edit an existing model? The property `[ngModel]` exists just for that.
 
