@@ -43,7 +43,7 @@
    * [Built-in Validators](handout/forms/built-in_validators.md)
    * [Custom Validators](handout/forms/custom_validators.md)
    * [Async Validators](handout/forms/async_validators.md)
-   * Observing Changes
+   * [Observing Changes](handout/forms/observing_changes.md)
    * [Models](handout/forms/models.md)
 * [Routing](handout/09-routing.md)
    * [Why Routing](handout/routing/why_routing.md)
