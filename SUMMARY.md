@@ -121,6 +121,6 @@
 * [Project Setup](handout/project-setup/README.md)
    * [Webpack](handout/project-setup/webpack.md)
        * Installation and Usage
-       * Loaders
+       * [Loaders](handout/project-setup/loaders.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
