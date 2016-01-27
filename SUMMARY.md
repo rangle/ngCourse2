@@ -54,7 +54,7 @@
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
    * [Stateful and Async Pipes](handout/pipes/stateful_and_async_pipes.md)
-* [Form Builder](handout/08-form-builder.md)
+* [Form Builder](handout/forms/README.md)
    * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
    * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
    * [Control Grouping](handout/forms/control_grouping.md)
