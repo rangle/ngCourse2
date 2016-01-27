@@ -4,17 +4,16 @@
 
 - [Part 4: Observables](#part-4-observables)
   - [Using Observables](#using-observables)
-- [Angular 2 Component Using Observables!](#angular-2-component-using-observables)
   - [Error Handling](#error-handling)
   - [Disposing Subscriptions and Releasing Resources](#disposing-subscriptions-and-releasing-resources)
   - [Observables vs. Promises](#observables-vs-promises)
   - [Using Observables From Other Sources](#using-observables-from-other-sources)
     - [Observable Form Events](#observable-form-events)
     - [Observable HTTP Events](#observable-http-events)
-- [Angular 2 Component using Observables!](#angular-2-component-using-observables)
   - [Observables Array Operations](#observables-array-operations)
   - [Combining Streams with `flatMap`](#combining-streams-with-flatmap)
   - [Cold vs. Hot Observables](#cold-vs-hot-observables)
+    - [Converting from Cold Observables to Hot Observables](#converting-from-cold-observables-to-hot-observables)
   - [Summary](#summary)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

@@ -78,8 +78,8 @@ The main purpose of the handout is to help the students follow the course and to
 
 - [Part 3: Components in Angular 2](03-components.md#part-3-components-in-angular-2)
   - [Creating Components](03-components.md#creating-components)
-  - [Application Structure With Components](03-components.md#application-structure-with-components)
-    - [Passing Data Into a Component](03-components.md#passing-data-into-a-component)
+  - [Application Structure with Components](03-components.md#application-structure-with-components)
+    - [Passing Data into a Component](03-components.md#passing-data-into-a-component)
     - [Responding to Component Events](03-components.md#responding-to-component-events)
     - [Two-Way Data Binding](03-components.md#two-way-data-binding)
   - [Structural Directives](03-components.md#structural-directives)
@@ -92,22 +92,21 @@ The main purpose of the handout is to help the students follow the course and to
 
 - [Part 4: Observables](04-observables.md#part-4-observables)
   - [Using Observables](04-observables.md#using-observables)
-- [Angular 2 Component Using Observables!](04-observables.md#angular-2-component-using-observables)
   - [Error Handling](04-observables.md#error-handling)
   - [Disposing Subscriptions and Releasing Resources](04-observables.md#disposing-subscriptions-and-releasing-resources)
   - [Observables vs. Promises](04-observables.md#observables-vs-promises)
   - [Using Observables From Other Sources](04-observables.md#using-observables-from-other-sources)
     - [Observable Form Events](04-observables.md#observable-form-events)
     - [Observable HTTP Events](04-observables.md#observable-http-events)
-- [Angular 2 Component using Observables!](04-observables.md#angular-2-component-using-observables)
   - [Observables Array Operations](04-observables.md#observables-array-operations)
   - [Combining Streams with `flatMap`](04-observables.md#combining-streams-with-flatmap)
   - [Cold vs. Hot Observables](04-observables.md#cold-vs-hot-observables)
+    - [Converting from Cold Observables to Hot Observables](04-observables.md#converting-from-cold-observables-to-hot-observables)
   - [Summary](04-observables.md#summary)
 
 
 - [Part 5: Angular 2 Dependency Injection](05-di.md#part-5-angular-2-dependency-injection)
-  - [What Is DI?](05-di.md#what-is-di)
+  - [What is DI?](05-di.md#what-is-di)
   - [DI Framework](05-di.md#di-framework)
   - [Angular 2's DI](05-di.md#angular-2s-di)
     - [`@Inject` and `@Injectable`](05-di.md#@inject-and-@injectable)
@@ -159,12 +158,12 @@ The main purpose of the handout is to help the students follow the course and to
   - [Getting the Form's Values](08-form-builder.md#getting-the-forms-values)
   - [Control Grouping](08-form-builder.md#control-grouping)
   - [Validation](08-form-builder.md#validation)
-  - [Visual cues with CSS](08-form-builder.md#visual-cues-with-css)
+  - [Visual Cues with CSS](08-form-builder.md#visual-cues-with-css)
   - [Creating a Form with the "FormBuilder"](08-form-builder.md#creating-a-form-with-the-formbuilder)
-  - [Built-in validators](08-form-builder.md#built-in-validators)
+  - [Built-in Validators](08-form-builder.md#built-in-validators)
   - [Custom Validators](08-form-builder.md#custom-validators)
-  - [Async validators](08-form-builder.md#async-validators)
-  - [Observing changes](08-form-builder.md#observing-changes)
+  - [Async Validators](08-form-builder.md#async-validators)
+  - [Observing Changes](08-form-builder.md#observing-changes)
   - [Models](08-form-builder.md#models)
   - [Alternative Syntax](08-form-builder.md#alternative-syntax)
 
@@ -178,8 +177,8 @@ The main purpose of the handout is to help the students follow the course and to
   - [RouterLink](09-routing.md#routerlink)
   - [Using the Router Programmatically](09-routing.md#using-the-router-programmatically)
   - [Creating Child Routes](09-routing.md#creating-child-routes)
-  - [Using routing with LocationStrategy](09-routing.md#using-routing-with-locationstrategy)
-  - [Using Auxiliary routes](09-routing.md#using-auxiliary-routes)
+  - [Using Routing with LocationStrategy](09-routing.md#using-routing-with-locationstrategy)
+  - [Using Auxiliary Routes](09-routing.md#using-auxiliary-routes)
     - [Default Route Outlet](09-routing.md#default-route-outlet)
     - [Test Aux 1](09-routing.md#test-aux-1)
   - [Lazy Loading of Components](09-routing.md#lazy-loading-of-components)
@@ -190,7 +189,7 @@ The main purpose of the handout is to help the students follow the course and to
   - [Part 10: Angular 2 and Redux](10-redux.md#part-10-angular-2-and-redux)
   - [What is Redux](10-redux.md#what-is-redux)
     - [Resources](10-redux.md#resources)
-  - [Quick review of Reducers and Pure Functions](10-redux.md#quick-review-of-reducers-and-pure-functions)
+  - [Quick Review of Reducers and Pure Functions](10-redux.md#quick-review-of-reducers-and-pure-functions)
   - [Redux Reducers](10-redux.md#redux-reducers)
   - [Simple Reducer](10-redux.md#simple-reducer)
   - [Redux Actions](10-redux.md#redux-actions)
@@ -229,13 +228,13 @@ The main purpose of the handout is to help the students follow the course and to
         - [Projection](11-migrate.md#projection)
         - [Transclusion](11-migrate.md#transclusion)
       - [Injecting Across Frameworks](11-migrate.md#injecting-across-frameworks)
-      - [Upgrade components strategically](11-migrate.md#upgrade-components-strategically)
+      - [Upgrade Components Strategically](11-migrate.md#upgrade-components-strategically)
 
 
 - [Part 12: Angular Universal](12-universal.md#part-12-angular-universal)
-    - [Setting up the server](12-universal.md#setting-up-the-server)
+    - [Setting up the Server](12-universal.md#setting-up-the-server)
     - [Universal Components](12-universal.md#universal-components)
-    - [Capturing events using preboot](12-universal.md#capturing-events-using-preboot)
+    - [Capturing Events Using Preboot](12-universal.md#capturing-events-using-preboot)
 
 
 - [Part 13: Project Setup](13-setup.md#part-13-project-setup)
@@ -249,6 +248,15 @@ The main purpose of the handout is to help the students follow the course and to
   - [ElementRef](14-advanced-components.md#elementref)
 
 
+- [Bootstrapping an Angular 2 Application](15-bootstrapping.md#bootstrapping-an-angular-2-application)
+  - [File structure](15-bootstrapping.md#file-structure)
+  - [Bootstrapping Providers](15-bootstrapping.md#bootstrapping-providers)
+    - [Using Router Providers](15-bootstrapping.md#using-router-providers)
+
+
 - [The Handout](README.md#the-handout)
+
+
+- [t](t.md#t)
 
 <!-- END GENERATED TOC -->

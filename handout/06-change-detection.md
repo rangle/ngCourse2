@@ -13,7 +13,6 @@
   - [Change Detection Strategy: OnPush](#change-detection-strategy-onpush)
   - [Enforcing Immutability](#enforcing-immutability)
 - [MovieApp](#movieapp-1)
-    - [{{ title }}](#-title--1)
   - [Additional Resources](#additional-resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

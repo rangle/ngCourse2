@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Part 3: Components in Angular 2](#part-3-components-in-angular-2)
+  - [Creating Components](#creating-components)
+  - [Application Structure with Components](#application-structure-with-components)
+    - [Passing Data into a Component](#passing-data-into-a-component)
+    - [Responding to Component Events](#responding-to-component-events)
+    - [Two-Way Data Binding](#two-way-data-binding)
+  - [Structural Directives](#structural-directives)
+      - [The Asterisk (*) Syntax](#the-asterisk--syntax)
+      - [Iteration with `ngFor`](#iteration-with-ngfor)
+  - [Projection](#projection)
+      - [Child Component](#child-component)
+  - [Structuring Applications with Components](#structuring-applications-with-components)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Part 3: Components in Angular 2
 
 This course will be organized around building a collaborative task manager. We will start by building a client app, which we will later connect to a REST API. Our first task is to setup a simple Angular app consisting of a few components, and to understand how they fit together.
