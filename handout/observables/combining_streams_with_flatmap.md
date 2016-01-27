@@ -8,6 +8,8 @@ Lets say we wanted to implement an AJAX search feature in which every keypress i
 <a class="jsbin-embed" href="http://jsbin.com/nutegi/embed?js,console">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.9"></script>
 </iframe>
 
+<iframe src=\"http://jsbin.com/fajac/3/embed?html,output\" width=\"640\" height=\"480\" frameborder=\"0\"></iframe>
+
 
 By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the http request).
 
