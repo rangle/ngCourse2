@@ -4,7 +4,7 @@ At runtime, Angular 2 is going to create special classes that are called **chang
 
 The goal of the change detectors is to know which model property, used in the template of a component, have changed since the last time the change detection process ran.
 
-In order to know that, Angular is going to create an instance of the appropiate change detector class, and it will create a link to the component that its suppose to check. 
+In order to know that, Angular is going to create an instance of the appropriate change detector class, and it will create a link to the component that its suppose to check. 
 
 In our example, because we only have one instance of the `MainComponent` and the `MovieComponent` we are going to have only one instance of the `MainComponent_ChangeDetector` and the `MovieComponent_ChangeDetector`.
 
@@ -61,7 +61,17 @@ export class MovieComponent {
 
 [View Example](http://plnkr.co/edit/n6m7rOtxG5MU0tsRl5xX?p=preview)
 
-The enum `ChangeDetectionStrategy` defines seven strategies: `CheckOnce`, `Checked`, `CheckAlways`, `Detached`, `OnPush`, `Default` and `DefaultObserver` as can be seen in the [docs](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html). We are going to concentrate on the two main ones: `Default` and `OnPush`.
+The enum `ChangeDetectionStrategy` defines seven strategies: 
+
+* `CheckOnce` 
+* `Checked` 
+* `CheckAlways` 
+* `Detached`
+* `OnPush` 
+* `Default`
+* `DefaultObserver` 
+ 
+As can be seen in the [docs](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html). We are going to concentrate on the two main ones: `Default` and `OnPush`.
 
 Lets see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy. 
 
