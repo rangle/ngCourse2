@@ -34,6 +34,7 @@
    * Disposing Subscriptions and Releasing Resources
    * Observables vs. Promises
    * Using Observables From Other Sources
+   * Observables Array Operations
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/06-change-detection.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
