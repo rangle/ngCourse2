@@ -73,7 +73,6 @@
    * [Custom Pipes](handout/pipes/custom_pipes.md)
    * [Stateful and Async Pipes](handout/pipes/stateful_and_async_pipes.md)
 * [Advanced Components](handout/advanced-components/README.md)
-   * [Advanced Components](handout/14-advanced-components.md)
    * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
    * [Accessing Other Component](handout/advanced-components/accessing_other_component.md)
    * [View Encapsulation](handout/advanced-components/view_encapsulation.md)
