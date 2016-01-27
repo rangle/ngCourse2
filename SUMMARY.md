@@ -44,7 +44,7 @@
    * [Custom Validators](handout/forms/custom_validators.md)
    * [Async Validators](handout/forms/async_validators.md)
    * Observing Changes
-   * Models
+   * [Models](handout/forms/models.md)
 * [Routing](handout/09-routing.md)
    * [Why Routing](handout/routing/why_routing.md)
    * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
