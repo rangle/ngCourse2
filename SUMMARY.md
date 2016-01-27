@@ -47,7 +47,7 @@
    * [Immutable JS](handout/change-detection/05.1-immutablejs.md)
        * [The Case for Immutability](handout/change-detection/the_case_for_immutability.md)
        * [JavaScript Solutions](handout/change-detection/javascript_solutions.md)
-       * Immutable.js Basics
+       * [Immutable.js Basics](handout/change-detection/immutablejs_basics.md)
    * [Additional Resources](handout/change-detection/additional_resources.md)
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
