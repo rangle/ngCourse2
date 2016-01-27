@@ -29,6 +29,7 @@
 * [Tooling](handout/02-tooling.md)
 * [Components](handout/03-components.md)
 * [Observables](handout/04-observables.md)
+   * Using Observables
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/06-change-detection.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
