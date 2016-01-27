@@ -123,6 +123,6 @@
        * Installation and Usage
        * [Loaders](handout/project-setup/loaders.md)
        * [Plugins](handout/project-setup/plugins.md)
-       * Summary
+       * [Summary](handout/project-setup/summary.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
 
