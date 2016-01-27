@@ -25,5 +25,5 @@ To invoke the `build` script we run the command `npm run build`:
 - Which first executes the `prebuild` task. 
 - The `prebuild` task runs the `clean` task, which executes the `rimraf dist` command. 
 - `rimraf` is an NPM package that recursively deletes everything inside a specified folder.
-- Then the `build` task is executed. This sets the `NODE_ENV` environment variable to `production` start the webpack bundling process.
+- Then the `build` task is executed. This sets the `NODE_ENV` environment variable to `production` and starts the webpack bundling process.
 - Webpack generates bundles based on the `webpack.config.js` available in the project root folder.
