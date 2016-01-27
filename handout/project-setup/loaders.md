@@ -2,7 +2,7 @@
 
 TypeScript isn't core JavaScript so webpack needs a bit of extra help to parse the `.ts` files. It does this through the use of **loaders**. Loaders are a way of configuring how webpack transforms the outputs of specific files in our bundles. Our `ts-loader` package is handling this transformation for TypeScript files.
 
-Loaders can be configured inline when requiring/importing a module:
+Loaders can be configured – inline – when requiring/importing a module:
 
 ```javascript
 const app = require('ts!./src/index.ts');
