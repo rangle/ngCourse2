@@ -43,6 +43,7 @@
    * [How Change Detection Works](handout/change-detection/how_change_detection_works.md)
    * [Change Detector Classes](handout/change-detection/change_detector_classes.md)
    * [Immutable JS](handout/05.1-immutablejs.md)
+   * Change Detection Strategy: OnPush
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
