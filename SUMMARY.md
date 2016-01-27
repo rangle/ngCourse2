@@ -37,7 +37,7 @@
    * [Observables Array Operations](handout/observables/observables_array_operations.md)
    * [Cold vs. Hot Observables](handout/observables/cold_vs_hot_observables.md)
    * [Summary](handout/observables/summary.md)
-   * Combining Streams with flatMap
+   * [Combining Streams with flatMap](handout/observables/combining_streams_with_flatmap.md)
 * [Dependency Injection](handout/05-di.md)
 * [Change Detection](handout/change-detection/README.md)
    * [Angular 1 vs Angular 2](handout/change-detection/angular_1_vs_angular_2.md)
