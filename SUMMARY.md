@@ -44,7 +44,7 @@
    * [Change Detector Classes](handout/change-detection/change_detector_classes.md)
    * [Change Detection Strategy: OnPush](handout/change-detection/change_detection_strategy_onpush.md)
    * [Enforcing Immutability](handout/change-detection/enforcing_immutability.md)
-   * [Immutable JS](handout/05.1-immutablejs.md)
+   * [Immutable JS](handout/change-detection/05.1-immutablejs.md)
        * [The Case for Immutability](handout/change-detection/the_case_for_immutability.md)
    * [Additional Resources](handout/change-detection/additional_resources.md)
 * [Pipes](handout/pipes/README.md)
