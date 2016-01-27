@@ -35,7 +35,7 @@
 * [Pipes](handout/07-pipes.md)
 * [Form Builder](handout/08-form-builder.md)
    * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
-   * Getting the Form's Values
+   * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
    * Contro Grouping
    * Validation
    * Visual Cues with CSS
