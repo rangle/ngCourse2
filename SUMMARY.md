@@ -34,7 +34,7 @@
    * [Immutable JS](handout/05.1-immutablejs.md)
 * [Pipes](handout/07-pipes.md)
 * [Form Builder](handout/08-form-builder.md)
-   * Creating a Form with Directives
+   * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
    * Getting the Form's Values
    * Contro Grouping
    * Validation
