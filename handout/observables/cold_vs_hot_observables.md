@@ -47,39 +47,39 @@ We have already encountered both kind of observables, the example above is a col
 A useful method within RxJS API, is the `publish` method. This method takes in a cold observable as it's source and returns an instance of a `ConnectableObservable`. In this case we will have to explicitly call `connect` on our hot observable to start broadcasting values to its subscribers.
 
 ```js
-export class AppComponent {
+const obsv = new Observable(observer => {
+
+  setTimeout(() => {
+    observer.next(1);
+  }, 1000);
   
-  private data:Observable<Array<number>>;
-  private valuesA:Array<number> = [];
-  private valuesB:Array<number> = [];
+  setTimeout(() => {
+    observer.next(2);
+  }, 2000);
+  
+  setTimeout(() => {
+    observer.next(3);
+  }, 3000);
 
-	constructor() {
+  setTimeout(() => {
+    observer.next(4);
+  }, 4000);
 
-		this.data = new Observable(observer => {
-		  setTimeout(() => {
-		    observer.next(42);
-		  }, 1000);
-		  
-		  setTimeout(() => {
-		    observer.next(43);
-		  }, 3000);
+});
 
-	  }).publish();
-	  
-	  setTimeout(() => {
-	    this.data.connect()
-	  }, 1500);
-    
-    setTimeout(() => {
-      this.data.subscribe(value => this.valuesA.push(value));
-    }, 0);
-    
-    setTimeout(() => {
-      this.data.subscribe(value => this.valuesB.push(value));
-    }, 2000)
-}
+
+// Subscription A
+setTimeout(() => {
+  obsv.subscribe(value => console.log(value));
+}, 0);
+
+
+// Subscription B
+setTimeout(() => {
+  obsv.subscribe(value => console.log(`      ${value}`));
+}, 2500);
 ```
-[View Example](http://plnkr.co/edit/J1QPds2mHgWO17Ms06Hq)
+[View Example](http://jsbin.com/fewotud/3/edit?js,console)
 
 In the case above, the live performance starts at 1500ms, subscriber A arrived to the concert hall 1500ms early to get a good seat, and our subscriber B arrived to the performance 500ms late and missed a bunch of songs.
 
