@@ -1,11 +1,12 @@
 {
-  "plugins": [
-    "versions"
-  ],
-  "pluginsConfig": {
-    "versions": {
-      "type": "branches",
-      "includeFilepath": false
+    "plugins": [
+        "versions",
+        "structured-toc"
+    ],
+    "pluginsConfig": {
+        "versions": {
+            "type": "branches",
+            "includeFilepath": false
+        }
     }
-  }
 }
