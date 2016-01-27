@@ -1,55 +1,32 @@
 import {Component} from 'angular2/core';
-import SummaryIcon from '../icons/summary';
 import TasksService from '../../services/tasks-service';
-import Dropdown from '../dropdown/dropdown'; 
-import TaskCount from '../task-count/task-count';
-import {OwnersPipe} from '../../pipes/owners';
+import SummaryIcon from '../icons/summary';
+import TaskFilters from '../task-filters/task-filters';
+import {OwnersPipe, OwnerTasksPipe} from '../../pipes/owners';
+import {SizePipe} from '../../pipes/size';
 
 @Component({
   selector: 'ngc-summary',
-  inputs: [
-    'tasksNumber',
-  ],
-  pipes: [OwnersPipe],
-  directives: [SummaryIcon, Dropdown, TaskCount],
+  pipes: [OwnersPipe, OwnerTasksPipe, SizePipe],
+  directives: [SummaryIcon, TaskFilters],
   template: `
-  <p class="h3 mb4 p2 inline-block">
+  <p class="h3 mb2 p2">
     <ngc-icon-summary></ngc-icon-summary>
     Hello, Alice Beeblebrox. You own 
-    <ngc-task-count
-      [tasks]="tasksService.tasks"
-      [owner]="'alice'"> 
-    </ngc-task-count>
+    <span class="blue">
+      {{ tasksService.tasks | ownerTasks:'alice' | size }}
+    </span>
     out of 
     <span class="orange">{{ tasksService.tasks.size }}</span>
     tasks.
   </p>
-  <p class="h3 ml4 inline-block">
-    <ngc-dropdown 
-       class="mr1" 
-       (change)="selectOwner($event)"
-       [defaultValue]="'everyone'"
-       [selected]="tasksService.owner"
-       [items]="tasksService.tasks | owners">
-    </ngc-dropdown>
-    owns
-    <ngc-task-count
-      [tasks]="tasksService.tasks"
-      [owner]="tasksService.owner"> 
-    </ngc-task-count>
-    .
-  </p>
+  <ngc-task-filters></ngc-task-filters>
   `
 })
 export default class Summary {
 
   constructor(
     public tasksService: TasksService
-  ) {
-  }
+  ) {}
 
-  selectOwner(event: any) {
-    const owner = event.target.value;
-    this.tasksService.selectOwner(owner);
-  }
 }
