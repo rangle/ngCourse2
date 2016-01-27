@@ -8,6 +8,7 @@
         "versions": {
             "type": "branches",
             "includeFilepath": false
-        }
+        },
+        "url": "http://jsbin.com/\/.+"
     }
 }
