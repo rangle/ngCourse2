@@ -57,3 +57,4 @@ routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) {
   }
 }
 ```
+[View Example](http://plnkr.co/edit/BaW7I2x7dEIHyoeR9SNW?p=preview)
