@@ -46,6 +46,7 @@
    * Using Auxiliary Routes
    * Lazy Loading of Components
    * RouteParams
+   * RouteData
 * [Redux](handout/10-redux.md)
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
