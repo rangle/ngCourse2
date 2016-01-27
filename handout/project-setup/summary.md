@@ -1,6 +1,6 @@
 # Summary
 
-When we put everything together, our complete `webpack.config.js` file will look something like this:
+When we put everything together, our complete `webpack.config.js` file looks something like this:
 
 ```javascript
 'use strict';
