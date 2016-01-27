@@ -41,6 +41,7 @@
    * RouterOutlet
    * RouterLink
    * Using the Router Programmatically
+   * Child Routes
 * [Redux](handout/10-redux.md)
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
