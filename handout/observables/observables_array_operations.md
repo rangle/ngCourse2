@@ -46,6 +46,9 @@ Note the chaining function style, and the optional static typing that comes with
 There are many other array operations you can employ in your Observables, look for them in the [RxJS API](https://github.com/Reactive-Extensions/RxJS). 
 
 ## Combining Streams with `flatMap`
+
+![](../images/flat-map.png)
+
 Lets say we wanted to implement an AJAX search feature in which every keypress in a text field by the user will automatically perform a search and update the page with the results. How would this look? Well we would have an Observable subscribed to events coming from an input field, and on every change of input we want to perform a some http request, which is also an Observable we subscribe to. What we end up with is an Observable of an Observable. 
 
 By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the http request). 
