@@ -51,6 +51,7 @@
    * Review of Reducers and Pure Functions
    * Redux Reducers
    * Redux Actions
+   * Configuring your Application to use Redux
 * [Migrate](handout/11-migrate.md)
 * [Universal](handout/12-universal.md)
 
