@@ -245,7 +245,7 @@ are a proposed extension to JavaScript.  In short decorators let developers
 modify, and/or tag methods, classes, properties, and parameters.  There is a lot
 to decorators. In this section the focus will be on decorators relevant to DI,
 which are, `@Inject`, and `@Injectable`.  For more information on Decorators
-please see [the features section](./features/README.md).
+please see [the features section](../features/README.md).
 
 `@Inject()` is a _manual_ mechanism for letting Angular 2 know that a 
 _parameter_ needs to be injected.  It can be used like so:
