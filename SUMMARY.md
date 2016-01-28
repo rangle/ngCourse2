@@ -126,4 +126,5 @@
        * [Summary](handout/project-setup/summary.md)
    * [NPM Scripts Integration](handout/project-setup/npm_scripts_integration.md)
 * [Bootstrapping](handout/15-bootstrapping.md)
+   * File structure
 
