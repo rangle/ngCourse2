@@ -1,4 +1,4 @@
-# Part 6: Change Detection
+# Part 8: Change Detection
 
 Change detection is the process that allows Angular to keep our views in sync with our models. 
 
