@@ -12,5 +12,5 @@ app.engine('.ng2.html', universal.ng2engine);
 app.set('view engine', 'ng2.html');
 ```
 
-Now any files with the .ng2.html extension will be served using the `ng2engine` engine. 
+Now any files with the `.ng2.html` extension will be served using the `ng2engine` engine. 
 
