@@ -2,9 +2,11 @@
 
 AngularJS is the leading open source JavaScript application framework backed by Google. The "1.x" version of AngularJS has been used quite widely. The new "Angular 2" version of the framework is currently available in beta. This course ("ngCourse2") provides an introduction to AngularJS using "Angular 2" based on our experience at rangle.io.
 
+
 ## Angular 2's Advantages
  
 When Angular was first released, it provided developers with the tools  to develop, and architect large scale JavaScript applications; its age has revealed a number of flaws, and sharp edges. Angular 2 has been designed to build on the last five years of community feedback.
+
 
 ### Angular 2 is Easier
 
