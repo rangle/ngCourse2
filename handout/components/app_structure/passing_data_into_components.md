@@ -2,7 +2,7 @@
 
 The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `HelloComponent` such that `name` can be configured by the parent.
 
-``` js
+```js
 import {Component} from 'angular2/core';
 
 @Component({
