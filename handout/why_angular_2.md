@@ -25,19 +25,19 @@ Despite being a complete rewrite, Angular 2 still shares many of the same core c
 
 ### Performance and Mobile
 
-Mobile use of the web is huge, and growing. Mobile devices keep getting more powerful, but they're still quite underpowered when compared to a modern desktop; mobiles typically have less data bandwidth to work with.
+Mobile use of the web is huge, and growing. Mobile devices keep getting more powerful, but they're still quite under-powered when compared to a modern desktop; mobiles typically have less data bandwidth to work with.
 
 Angular 2 was designed for mobile from the ground up. Aside from limited processing power, mobile devices have other features, and limitations that separate them from traditional computers. Touch interfaces, limited screen real estate, and mobile hardware have all been considered in Angular 2.
 
-The nature of computing performance means that desktops will also see "dramatic" improvements in performance, and responsiveness. Early benchmarks [performed on Angular 2 alpha][a2performance] confirm that "dramatic" is an accurate choice of word. The author makes the wise disclaimer that benchmarks are tricky to get right, and even when done correctly can be misleading. Nevertheless Angular 2 *alpha*'s rendering performance vs Angular 1.4's is astounding at scale.
+The nature of computing performance means that desktops will also see "dramatic" improvements in performance, and responsiveness. Early benchmarks performed on Angular 2 alpha confirm that "dramatic" is an accurate choice of word. The author makes the wise disclaimer that benchmarks are tricky to get right, and even when done correctly can be misleading. Nevertheless Angular 2 *alpha*'s rendering performance vs Angular 1.4's is astounding at scale.
 
-Angular 2, like React, and other modern frameworks can leverage performance gains by [rendering HTML on the server][a2server], or even in a  web worker. Depending on application/site design this isomorphic rendering can make a user's experience *feel* even more instantaneous.
+Angular 2, like React, and other modern frameworks can leverage performance gains by rendering HTML on the server, or even in a  web worker. Depending on application/site design this isomorphic rendering can make a user's experience *feel* even more instantaneous.
 
-The quest for performance does not end with pre-rendering. Angular 2 makes itself portable to native mobile by [integrating with NativeScript][a2native1], an open source library that bridges  JavaScript, and mobile. Additionally, the Ionic team is [working on][a2native2]  an Angular 2 version of their system, which will provide *another* way to leverage native device features with Angular 2.
+The quest for performance does not end with pre-rendering. Angular 2 makes itself portable to native mobile by integrating with NativeScript, an open source library that bridges  JavaScript, and mobile. Additionally, the Ionic team is working on  an Angular 2 version of their system, which will provide *another* way to leverage native device features with Angular 2.
 
 ### Project Architecture, and Maintenance
 
-The first iteration of Angular provided web developers with a highly flexible framework for developing applications. This was a dramatic shift for many web developers, and while framework was helpful, it became evident that it was often too flexible. Over time, best practices evolved, and a community [community driven structure was endorsed][a1style].
+The first iteration of Angular provided web developers with a highly flexible framework for developing applications. This was a dramatic shift for many web developers, and while framework was helpful, it became evident that it was often too flexible. Over time, best practices evolved, and a community community driven structure was endorsed.
 
 Angular 1.x tried to work around various browser limitations related to JavaScript. This was done by introducing a module system that made use of dependency injection. This system was novel, but unfortunately had issues with tooling, notably minification, and static analysis. Angular 2.x makes use of the upcoming EcmaScript 6 module system, and modern packaging tools like Webpack, or SystemJS.
 
@@ -46,7 +46,7 @@ With Angular 2, modules are far less coupled to the "Angular way", and it's easi
 
 ### Features
 
-Some of the other interesting features in Angular 2 are :-
+Some of the other interesting features in Angular 2 are :
 * Form Builder
 * Change Detection
 * Dependency Injection
