@@ -135,6 +135,7 @@
 * [Universal](handout/universal/README.md)
    * [Setting Up the Server](handout/universal/setting_up_the_server.md)
    * [Universal Components](handout/universal/universal_components.md)
+   * Capturing Events Using Preboot
 * [Project Setup](handout/project-setup/README.md)
    * [Webpack](handout/project-setup/webpack.md)
        * [Installation and Usage](handout/project-setup/installation_and_usage.md)
