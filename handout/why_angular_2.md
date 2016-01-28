@@ -48,14 +48,14 @@ With Angular 2, modules are far less coupled to the "Angular way", and it's easi
 
 Some of the other interesting features in Angular 2 are :
 
-* Form Builder
-* Change Detection
-* Dependency Injection
-* Templating
-* Routing
-* Annotations
-* Observables 
-* Shadow DOM
+- Form Builder
+- Change Detection
+- Dependency Injection
+- Templating
+- Routing
+- Annotations
+- Observables 
+- Shadow DOM
 
 
 ## Differences Between Angular 1 & 2
