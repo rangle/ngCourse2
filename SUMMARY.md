@@ -147,4 +147,5 @@
    * [File structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
    * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
+* Why Angular 2?
 
