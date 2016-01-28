@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+   * Angular 2
 * [Features](handout/features/README.md)
    * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
