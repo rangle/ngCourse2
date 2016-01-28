@@ -166,6 +166,8 @@ _app/my-form.component.html_
 
 [View Example](https://plnkr.co/edit/k8G2syqZfpkEi8ese9mn?p=preview)
 
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/k8G2syqZfpkEi8ese9mn" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
 We are using two methods of our form component, `find` and `hasError`.
 
 Let's get the instance of the `Control` we are using from the form and in this way, we can do the same validations of state and errors as before.
