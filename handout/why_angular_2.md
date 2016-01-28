@@ -52,7 +52,7 @@ Some of the other interesting features in Angular 2 are :-
 * Observables 
 * Shadow DOM
 
-## Differences between Angular Versions
+## Differences Between Angular 1 & 2
 
 | Old School Angular 1.x | Angular 1.x Best Practices | **Angular Next**             | Angular 2
 --------------------------------------|------------------------| ---------------------------|------------------------------|----------------------
