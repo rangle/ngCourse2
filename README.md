@@ -8,7 +8,7 @@ This is meant to be used as a part of the course, which is normally offered as a
 
 See the [handout](https://github.com/rangle/ngcourse2/tree/master/handout) for the handout. You can either view it in your browser or build it into a PDF using the instructions in the README file in the handout directory.
 
-[ngCourse2 - Git Book](rangle-io.gitbooks.io)
+[ngCourse2 - Git Book](http://rangle-io.gitbooks.io)
 
 ## The Code
 
