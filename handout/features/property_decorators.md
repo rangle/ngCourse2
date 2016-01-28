@@ -2,7 +2,7 @@
 
 Property decorators work with properties of classes.
 
-```ts
+```js
 function Override(label: string) {
   return function (target: any, key: string) {
     Object.defineProperty(target, key, { 

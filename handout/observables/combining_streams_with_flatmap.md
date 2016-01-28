@@ -10,7 +10,7 @@ By using `flatMap` we can transform our event stream (the keypress events on the
 
 *app/services/Search.ts* 
 
-```ts
+```js
 import {Http} from 'angular2/http';
 import {Injectable} from 'angular2/core';
 

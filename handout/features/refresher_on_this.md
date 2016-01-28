@@ -2,7 +2,7 @@
 
 Inside a JavaScript class we'll be using `this` keyword to refer to the instance of the class. E.g., consider this case:
 
-```ts
+```js
 class Toppings {
   ...
   formatToppings() { /* implementation details */ }
@@ -20,7 +20,7 @@ There are two basic cases that you would want to remember.
 
 The first is "method invocation":
 
-```ts
+```js
   someObject.someMethod();
 ```
 
@@ -29,7 +29,7 @@ Here `this` used inside `someMethod` will refer to `someObject`. This is usually
 The second case is "function invocation":
 
 
-```ts
+```js
   someFunction();
 ```
 
@@ -37,7 +37,7 @@ Here `this` used inside `someFunction` can refer to different things depending o
 
 One of the implications of this is that you cannot easily detach a method from its object. E.g., consider this example:
 
-```ts
+```js
   var log = console.log;
   log('Hello');
 ```
@@ -46,7 +46,7 @@ In many browsers this will give you an error. That's because `log` expects `this
 
 This can be fixed by specifying this explicitly. One way to do this is by using `bind()` method, which fixes the function's this to a particular value.
 
-```ts
+```js
   var log = console.log.bind(console);
   log('Hello');
 ```

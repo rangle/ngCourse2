@@ -34,7 +34,7 @@ export class SimpleRouting {
 And to access the `RouteParams` in `ComponentTwo`,
 
 _app/component-two.ts_
-```ts
+```js
 import {Component} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 @Component({

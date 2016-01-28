@@ -1,7 +1,7 @@
 # Parameter Decorators
 
 
-```ts
+```js
 function logPosition(target: any, propertyKey: string, parameterIndex: number) {
   console.log(parameterIndex);
 }

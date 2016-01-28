@@ -9,7 +9,7 @@ Lets take a look at the actions that are used in this example. For now, lets jus
 ## Synchronous Actions
 
 __app/actions/counter-actions.ts__
-```ts
+```js
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 
@@ -43,7 +43,7 @@ When using Redux, libraries lke ng2-redux will take care of wrapping your action
 To do async operations, or have actions that return something other than a plain JSON object, you need to register a middleware with redux. For our examples, we can use the `thunk` middleware, and setting this up is covered later in the training. For now, all you need to know is that once you register a middleware with redux, you can make `dispatch` and `getState` available to your actions. To show how these are used, lets take a look at the `incrementIfOdd` and `increaseAsync` actions.
 
 __app/actions/counter-actions.ts__
-```ts
+```js
 // ... 
 export function incrementIfOdd() {
   return (dispatch, getState) => {
