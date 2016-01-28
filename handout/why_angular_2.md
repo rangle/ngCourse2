@@ -47,6 +47,7 @@ With Angular 2, modules are far less coupled to the "Angular way", and it's easi
 ### Features
 
 Some of the other interesting features in Angular 2 are :
+
 * Form Builder
 * Change Detection
 * Dependency Injection
