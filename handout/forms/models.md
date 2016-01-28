@@ -92,6 +92,8 @@ _app/my-form.component.html_
 
 [View Example](https://plnkr.co/edit/k8G2syqZfpkEi8ese9mn?p=info)
 
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/k8G2syqZfpkEi8ese9mn" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
 Now, the model is being updated any time the form is being changed.
 
 ## Alternative Syntax
