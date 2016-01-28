@@ -2,7 +2,7 @@
 
 For this example we'll be using Express as our server. Though you can use any server that allows you to use a custom template rendering engine, Express is one of the easiest to use. 
 
-To set up Express to use the Angular2 rendering engine all we need to do is import the module, and pass in the `ng2engine`.
+To set up Express to use the Angular 2 rendering engine all we need to do is import the module, and pass in the `ng2engine`.
 
 ```js
 var universal = require('modules/universal');
