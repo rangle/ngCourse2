@@ -42,8 +42,6 @@ _app/my-form.component.html_
 </form>
 ```
 
-[View Example](https://plnkr.co/edit/krj8g1HBU7zqOvnesf4Q?p=preview)
-
 When we add the directive `ngControl` to the fields, Angular automatically registers these controls as part of the `ControlGroup` of the parent form.
 
 Now, if we put the values "joe.satriani@gmail.com" as email and "secretpass" as password and click the register button, we get the correct values on the console.
@@ -52,3 +50,6 @@ Now, if we put the values "joe.satriani@gmail.com" as email and "secretpass" as 
 Object {email: "joe.satriani@gmail.com", password: "secretpass"}
 ```
 
+[View Example](https://plnkr.co/edit/fo4ZXG9IAcEqtYgT6dJs?p=preview)
+
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/fo4ZXG9IAcEqtYgT6dJs" frameborder="0" allowfullscren="allowfullscren"></iframe>
