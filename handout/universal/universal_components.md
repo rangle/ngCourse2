@@ -27,4 +27,4 @@ class Darkify {
 export class Example {}
 ```
 
-By using the `renderer` module we can safely write to the DOM, without knowing if the application is running in a browser window, or a node server. Now our javascript is truly universal!
+By using the `renderer` module we can safely write to the DOM, without knowing if the application is running in a browser window, or a node server. Now our JavaScript is truly universal!
