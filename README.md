@@ -1,4 +1,4 @@
-# Angular Course from rangle.io
+# Angular Course From Rangle.io
 
 This repository contains handout materials and code for rangle.io's AngularJS training course, focusing on Angular 2.
 
