@@ -38,7 +38,11 @@ import {MyApp} from './app.component'
 
 bootstrap(MyApp);
 ```
+
 [View Example](http://plnkr.co/edit/VmS9belVWf8pVDh0jIlb)
+
+<iframe style="width: 100%; height: 600px" src="http://embed.plnkr.co/VmS9belVWf8pVDh0jIlb" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
 
 This is the main entry point of the application, the `MyApp` operates as the root Component of our entire application and will be rendered on any `my-app` HTML element encountered. There is a `my-app` HTML element in the *index.html* file, and we use *app/boot.ts* to import the `MyApp` Component and the `bootstrap` function and kickstart the bootstrapping process, which will read the `MyApp` metadata and then load the application wherever the `my-app` selector/tag-name is found. 
 
