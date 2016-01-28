@@ -32,3 +32,9 @@ Once you've done that, you can access the front-end of the project, by running `
 ```
 
 Then point your browser to <http://localhost:8080>
+
+# Feedback
+
+We welcome your feedback - please take a moment to fill out [this survery](https://docs.google.com/a/rangle.io/forms/d/1XKURJrviGF_eY2s1U_hyAWvq3oZqQ2a3OeUJHjQx-TA/viewform?edit_requested=true) to let us know what you think.
+
+Thanks!
