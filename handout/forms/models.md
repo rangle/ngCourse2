@@ -69,6 +69,8 @@ export class MyForm {
 
 [View Example](https://plnkr.co/edit/TPaJeEB4UvGCWzpCngxx?p=preview)
 
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/TPaJeEB4UvGCWzpCngxx" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
 Using this approach the usual Angular 1, 2-way data binding approach is avoided.
 
 If 2-way data binding is still neeeded, the property syntax can be combined with the event syntax.
@@ -91,6 +93,8 @@ _app/my-form.component.html_
 ```
 
 [View Example](https://plnkr.co/edit/k8G2syqZfpkEi8ese9mn?p=info)
+
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/k8G2syqZfpkEi8ese9mn" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Now, the model is being updated any time the form is being changed.
 
@@ -165,6 +169,8 @@ _app/my-form.component.html_
 ```
 
 [View Example](https://plnkr.co/edit/k8G2syqZfpkEi8ese9mn?p=preview)
+
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/k8G2syqZfpkEi8ese9mn" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 We are using two methods of our form component, `find` and `hasError`.
 

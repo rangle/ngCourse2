@@ -54,5 +54,7 @@ _app/my-form.component.html_
 
 [View Example](https://plnkr.co/edit/TRjR4wGc3lopwoUdo5Hf?p=preview)
 
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/TRjR4wGc3lopwoUdo5Hf" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
 Notice that this time the method `hasError` is being used insted of accessing the `errors` object directly as before. When the field is valid, the `errors` object is `null` so trying to access `email.errors.required` will generate an internal error. We avoid that problem by wrapping our error logic inside an `*ngIf="!email.valid"` so we assure that the errors object exists before trying to render each specific error. This might not always be the case, so it's better to use the `hasError` method to check for a validation error.
 
