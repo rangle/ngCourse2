@@ -18,7 +18,7 @@ We can then use `tsc` to manually compile a TypeScript source file into ES5:
 
 Our earlier ES6 class won't compile now. TypeScript is more demanding than ES6 and it expects instance properties to be declared:
 
-```ts
+```javascript
   class Toppings {
     toppings: string[];
     constructor(toppings: string[]) {
@@ -31,7 +31,7 @@ Note that now that we've declared `toppings` to be an array of strings, TypeScri
 
 If you want to have a property that can be set to a value of any type, however, you can still do this: just declare its type to be "any":
 
-```ts
+```javascript
   class Toppings {
     toppings: any;
     ...
