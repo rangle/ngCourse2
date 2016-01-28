@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* Why Angular 2?
 * [Features](handout/features/README.md)
    * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
@@ -147,5 +148,4 @@
    * [File structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
    * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
-* Why Angular 2?
 
