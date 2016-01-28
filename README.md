@@ -6,7 +6,7 @@ This is meant to be used as a part of the course, which is normally offered as a
 
 ## The Handouts
 
-See the [handout](https://github.com/rangle/ngcourse2/tree/master/handout) for the handout. You can either view it in your browser or build it into a PDF using the instructions in the README file in the handout directory.
+See the [handout](https://www.gitbook.com/book/rangle-io/ngcourse2/details) for the handout. You can either view it in your browser or build it into a PDF using the instructions in the README file in the handout directory.
 
 ## The Code
 
