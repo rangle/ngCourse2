@@ -12,13 +12,13 @@
     "node": "4.x"
   },
   "scripts": {
-    "postinstall": "npm run typings; npm run build;",
+    "postinstall": "npm run typings && npm run build",
     "typings": "rimraf typings && node_modules/.bin/tsd install && node_modules/.bin/tsd link",
-    "dev": "NODE_ENV=development nodemon server.js",
-    "start": "NODE_ENV=production node server.js",
+    "dev": "env NODE_ENV=development nodemon server.js",
+    "start": "env NODE_ENV=production node server.js",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "NODE_ENV=production webpack",
+    "build": "env NODE_ENV=production webpack",
     "test": "karma start",
     "e2e": "npm run build && gulp e2e",
     "toc": "doctoc --notitle ../handout && node toc.js"

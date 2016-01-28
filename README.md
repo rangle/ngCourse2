@@ -10,6 +10,8 @@ This is meant to be used as a part of the course, which is normally offered as a
 See the [handout](https://www.gitbook.com/book/rangle-io/ngcourse2/details) for the handout. You can either view it in your browser or download a PDF, ePub or Mobi version.
 
 
+[ngCourse2 - Git Book](http://rangle-io.gitbooks.io)
+
 ## The Code
 
 The repository also contains a sample app. The project has a server and the client component. This repository contains only the *client* code. The server code is available at [github.com/rangle/ngcourse-api](https://github.com/rangle/ngcourse-api). However, You do **not** need the server code to run the front end. Instead, you can access the API server deployed to [ngcourse.herokuapp.com/](http://ngcourse.herokuapp.com) and develop the client-side code on your own machine.
@@ -30,3 +32,10 @@ To run the sample app:
     ```
 
 3. Then point your browser to <http://localhost:3000>
+
+# Feedback
+
+We welcome your feedback - please take a moment to fill out [this survery](https://docs.google.com/a/rangle.io/forms/d/1XKURJrviGF_eY2s1U_hyAWvq3oZqQ2a3OeUJHjQx-TA/viewform?edit_requested=true) to let us know what you think.
+
+Thanks!
+
