@@ -40,7 +40,7 @@ Angular 1.x tried to work around various browser limitations related to JavaScri
 
 With Angular 2, modules are far less coupled to the "Angular way", and it's easier to write more generic JavaScript, and plug it into Angular. The removal of minification workarounds, and rigid prescriptions make maintaining existing applications simpler. The new module system also makes it easier to develop effective tooling that can better reason about larger projects.
 
-### Features ###
+### Features
 
 Some of the other interesting features in Angular 2 are :-
 * Form Builder
@@ -52,7 +52,7 @@ Some of the other interesting features in Angular 2 are :-
 * Observables 
 * Shadow DOM
 
-## Differences between Angular Versions ##
+## Differences between Angular Versions
 
 | Old School Angular 1.x | Angular 1.x Best Practices | **Angular Next**             | Angular 2
 --------------------------------------|------------------------| ---------------------------|------------------------------|----------------------
