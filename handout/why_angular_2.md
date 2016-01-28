@@ -8,7 +8,7 @@ AngularJS is the leading open source JavaScript application framework backed by 
 When Angular was first released, it provided developers with the tools  to develop, and architect large scale JavaScript applications; its age has revealed a number of flaws, and sharp edges. Angular 2 has been designed to build on the last five years of community feedback.
 
 
-### Angular 2 is Easier
+### Angular 2 Is Easier
 
 Years of feedback have made Angular 2 more modern, more capable, and  easier for new developers to learn than Angular 1.x. In turn Angular 2 is also easier for project veterans to work with. Ultimately this makes for a codebase that's all around easier for everyone to deal with.
 
@@ -22,7 +22,8 @@ By focusing on making their framework easier for computers to process, Angular 2
 
 Despite being a complete rewrite, Angular 2 still shares many of the same core concepts, and conventions as Angular 1.x; like a streamlined, and "native JS" implementation of dependency injection. This means that developers who are already proficient with Angular will have an easier time migrating to Angular 2, than another Framework, like React, or Ember.
 
-### Performance, and Mobile
+
+### Performance and Mobile
 
 Mobile use of the web is huge, and growing. Mobile devices keep getting more powerful, but they're still quite underpowered when compared to a modern desktop; mobiles typically have less data bandwidth to work with.
 
