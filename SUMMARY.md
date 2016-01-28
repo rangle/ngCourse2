@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* Why Angular 2?
+* [Why Angular 2?](handout/why_angular_2.md)
 * [Features](handout/features/README.md)
    * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
