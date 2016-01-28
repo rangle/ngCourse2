@@ -4,29 +4,29 @@ This repository contains handout materials and code for rangle.io's AngularJS tr
 
 This is meant to be used as a part of the course, which is normally offered as a 2-3 day event. See [rangle.io/javascript-training.html](http://rangle.io/javascript-training.html) for more information.
 
+
 ## The Handouts
 
-See the [handout](https://www.gitbook.com/book/rangle-io/ngcourse2/details) for the handout. You can either view it in your browser or build it into a PDF using the instructions in the README file in the handout directory.
+See the [handout](https://www.gitbook.com/book/rangle-io/ngcourse2/details) for the handout. You can either view it in your browser or download a PDF, ePub or Mobi version.
+
 
 ## The Code
 
-The repository also contains the codebase that we'll work on in throughout the course. The project has a server and the client component. This repository contains only the *client* code. The server code is available at https://github.com/rangle/ngcourse-api/. You do **not** need the server code torun the front end, however. Instead, you can access the API server deployed to http://ngcourse.herokuapp.com/ and will develop the client-side code on your own machine.
+The repository also contains a sample app. The project has a server and the client component. This repository contains only the *client* code. The server code is available at [github.com/rangle/ngcourse-api](https://github.com/rangle/ngcourse-api). However, You do **not** need the server code to run the front end. Instead, you can access the API server deployed to [ngcourse.herokuapp.com/](http://ngcourse.herokuapp.com) and develop the client-side code on your own machine.
 
-The students should start by checking out the "base" branch for their session, which has all the necessary configurations but no actual client side code. The "master" branch contains the final state of the project.
+In order to run the sample app:
 
-You will then need to build the front end using:
+1. Install dependencies and typings:
 
-```bash
-  cd app
-  npm install
-```
+    ```bash
+    cd app
+    npm install
+    ```
 
-The above installs npm modules and typings for the course
+2. Start the build process and the development server:
 
-Once you've done that, you can access the front-end of the project, by running `npm start` within the root directory of the project.
+    ```bash
+    npm run dev
+    ```
 
-```bash
-  npm start
-```
-
-Then point your browser to <http://localhost:8080>
+3. Then point your browser to <http://localhost:3000>
