@@ -128,4 +128,5 @@
 * [Bootstrapping](handout/bootstrapping/README.md)
    * [File structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
+   * Using Router Providers
 
