@@ -1,6 +1,6 @@
 # Class Decorators
 
-```
+```javascript
 function log(prefix?: string) {
   return (target) => {
     // save a reference to the original constructor
