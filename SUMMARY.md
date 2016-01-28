@@ -127,5 +127,5 @@
    * [NPM Scripts Integration](handout/project-setup/npm_scripts_integration.md)
 * [Bootstrapping](handout/bootstrapping/README.md)
    * [File structure](handout/bootstrapping/file_structure.md)
-   * Bootstrapping Providers
+   * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
 
