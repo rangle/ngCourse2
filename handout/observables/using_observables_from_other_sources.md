@@ -42,7 +42,7 @@ Here we have created a new form by initializing a new `Control` field and groupe
 ## Observable HTTP Events
 A common operation in any web application is getting or posting data to a server. Angular applications do this with the `Http` library, which previously utilized `Promises` to operate in an asynchronous manner. The updated `Http` library now incorporates Observables for triggering events and getting new data. Lets take a quick look at this:
 
-```ts
+```js
 import {Component} from 'angular2/core';
 import {Http} from 'angular2/http';
 
