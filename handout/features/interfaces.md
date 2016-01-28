@@ -15,7 +15,7 @@ produce no code, ES6, or ES5.  Interfaces exist only to describe types to `tsc`.
 
 Here is an example of an interface describing a function:
 
-```ts
+```js
 interface Callback {
   (error: Error, data: any): void;
 }
@@ -31,7 +31,7 @@ Sometimes JavaScript functions are "overloaded", that is, they _can_ have
 different call signatures.  Interfaces can be used to specify this.  (Methods
 in classes can also be overloaded):
 
-```ts
+```js
 interface PrintOutput {
   (message: string): void;    // common case
   (message: string[]): void;  // less common case
@@ -52,7 +52,7 @@ printOut(['hi', 'bye']); // 'hi, bye'
 
 Here is an example of an interface describing an Object literal:
 
-```ts
+```js
 
 interface Action {
   type: string;

@@ -8,7 +8,7 @@ the blanks" for the developer;
 Consider the following:
 
 type-inference-finds-error.ts
-```ts
+```js
 let set = [2, 3, 5, 7, 11];
 set = ['this will fail compilation']
 ```
@@ -27,7 +27,7 @@ Type inference can also work through context, which is handy with callbacks,
 imagine the following:
 
 type-inference-finds-error-2.ts
-```ts
+```js
 
 interface FakeEvent {
   type: string;

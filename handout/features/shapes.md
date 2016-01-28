@@ -8,7 +8,7 @@ like `class`es, and `interface`s.
 
 Consider an expansion of the previous example:
 
-```ts
+```js
 
 interface Action {
   type: string;

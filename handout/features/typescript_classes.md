@@ -17,7 +17,7 @@ baz = new Baz(new Bar(), new Foo());     // tsc errors
 Like function parameters, `class`es sometimes have optional members.  The same
 `?:` syntax can be used on a `class` definition:
 
-```ts
+```js
 class Person {
   name: string;
   nickName?: string;
