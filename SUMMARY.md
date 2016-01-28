@@ -125,6 +125,6 @@
        * [Plugins](handout/project-setup/plugins.md)
        * [Summary](handout/project-setup/summary.md)
    * [NPM Scripts Integration](handout/project-setup/npm_scripts_integration.md)
-* [Bootstrapping](handout/15-bootstrapping.md)
+* [Bootstrapping](handout/bootstrapping/README.md)
    * [File structure](handout/bootstrapping/file_structure.md)
 
