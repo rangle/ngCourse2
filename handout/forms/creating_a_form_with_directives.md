@@ -96,9 +96,10 @@ export class MyForm {
 }
 ```
 
+Now when we click the submit button, we can see the message "Form submitted!" outputted onto the DOM.
+
 [View Example](https://plnkr.co/edit/KC7GgqPVDaC4JcBGD7Va?p=preview)
 
 <iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/KC7GgqPVDaC4JcBGD7Va" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
-Now when we click the submit button, we can see in the console the message "Form submitted!".
 
