@@ -96,9 +96,9 @@ export class MyForm {
 }
 ```
 
-[View Example](https://plnkr.co/edit/ezQ0bfUkswxQReb9gmVa?p=preview)
+[View Example](https://plnkr.co/edit/KC7GgqPVDaC4JcBGD7Va?p=preview)
 
-<iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/ezQ0bfUkswxQReb9gmVa" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/KC7GgqPVDaC4JcBGD7Va" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Now when we click the submit button, we can see in the console the message "Form submitted!".
 
