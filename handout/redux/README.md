@@ -1,4 +1,4 @@
-# Part 13: Angular 2 and Redux ##
+# Part 14: Angular 2 and Redux ##
 
 # What is Redux
 
