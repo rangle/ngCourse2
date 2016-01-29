@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {RouterLink} from 'angular2/router';
+import {Router, RouterLink} from 'angular2/router';
 import LogoIcon from '../icons/logo';
 import {AuthService} from '../../services/auth-service';
 const TEMPLATE = require('./header.html');
@@ -20,5 +20,4 @@ export default class Header {
   logout() {
     this.authService.logout();
   }
-
 }

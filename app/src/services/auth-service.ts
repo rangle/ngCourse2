@@ -1,10 +1,8 @@
 import {Injectable, provide} from 'angular2/core';
-// import {Router} from 'angular2/router';
 
-@Injectable()
 export class AuthService {
 
-  // constructor(private _router: Router) {}
+  constructor() {}
 
   login(user: string, password: string): boolean {
     if (user === 'user' && password === 'pass') {
@@ -16,14 +14,13 @@ export class AuthService {
 
   logout(): any {
     localStorage.removeItem('username');
-    // this._router.navigate(['/Main']);
   }
 
   getUser(): any {
     return localStorage.getItem('username');
   }
 
-  isLogged(): boolean {
+  isLoggedIn(): boolean {
     return this.getUser() !== null;
   }
 }
