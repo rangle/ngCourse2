@@ -14,7 +14,7 @@ properties:
     - `template` or `templateUrl`
     - `transclude` (optional)
     - `require` (optional)
-Component directives should _not_ use the following atrtributes:
+Component directives should _not_ use the following attributes:
     - `compile`
     - `replace: true`
     - `priority`/`terminal`
