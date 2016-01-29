@@ -1,4 +1,4 @@
-# Part 9: Immutable.js
+# Part 8: Immutable.js
 
 [Immutable.js](https://facebook.github.io/immutable-js/) is a library that provides immutable generic collections.
 
