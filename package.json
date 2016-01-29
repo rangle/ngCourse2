@@ -1,0 +1,40 @@
+{
+  "name": "ng-course-2",
+  "version": "1.0.0",
+  "description": "Git Book, and markdown resources for learning/teaching Angular 2",
+  "main": "",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gitbook-plugin-jsbin": "",
+    "gitbook-plugin-versions": "^2.1.1",
+    "gitbook-cli": "^1.0.1"
+  },
+  "scripts": {
+    "build": "gitbook build",
+    "dev": "gitbook serve",
+    "postinstall": "gitbook install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rangle/ngCourse2.git"
+  },
+  "keywords": [
+    "Angular",
+    "2",
+    "tutorials",
+    "training",
+    "examples",
+    "es6",
+    "typescript"
+  ],
+  "author": "rangle.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rangle/ngCourse2/issues"
+  },
+  "homepage": "https://github.com/rangle/ngCourse2#readme"
+}

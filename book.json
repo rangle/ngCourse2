@@ -1,6 +1,8 @@
 {
     "plugins": [
-        "versions"
+        "versions",
+        "prism",
+        "-highlight"
     ],
     "pluginsConfig": {
         "versions": {
