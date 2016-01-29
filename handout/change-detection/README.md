@@ -1,4 +1,4 @@
-# Part 8: Change Detection
+# Part 7: Change Detection
 
 ![Change Detection](../images/change-detection.jpg "Detecting Change")
 
