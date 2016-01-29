@@ -42,9 +42,10 @@ export default class LoginComponent {
     const values = this.loginForm.value;
     if (!this.authService.login(values.username, values.password)) {
       this.message = 'Incorrect credentials.';
-    } else {
+    }
+    else {
       this.message = '';
-      this._router.navigate(['/Main']);
-    };
+      this._router.navigate(['/Main'])
+    }
   }
 }
