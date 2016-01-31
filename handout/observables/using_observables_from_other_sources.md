@@ -31,7 +31,8 @@ export class AppComponent {
 			email: this.email
 		});
 
-		this.email.valueChanges.subscribe(value => this.data = value);
+		this.email.valueChanges
+		    .subscribe(value => this.data = value);
 	}
 }
 ```
