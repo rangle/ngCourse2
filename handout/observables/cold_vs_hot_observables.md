@@ -62,7 +62,9 @@ const obsv = new Observable(observer => {
     observer.next(4);
   }, 4000);
 
-});
+}).publish();
+
+hotObsv.connect();
 
 // Subscription A
 setTimeout(() => {
