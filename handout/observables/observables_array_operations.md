@@ -1,6 +1,8 @@
 # Observables Array Operations
 In addition to simply iterating over an asynchronous collection, we can perform other operations such as filter or map and many more as defined in the RxJS API. This is what bridges observable with the Iterable pattern, and lets us conceptualize them as collections.
 
+[rxmarbles.com](http://rxmarbles.com) is a great resource for beginners.
+
 Let's expand our example and do something a little more with our stream:
 
 ```js
