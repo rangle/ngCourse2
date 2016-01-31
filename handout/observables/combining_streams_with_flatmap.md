@@ -2,7 +2,13 @@
 
 ![](../images/flat-map.png)
 
-[View Example](http://jsbin.com/nutegi/33/edit?js,console)
+A case for FlatMap:
+
+- [A simple observable stream](http://jsbin.com/nutegi/33/edit?js,console)
+- [A stream of arrays](http://jsbin.com/nutegi/33/edit?js,console)
+- [View Example](http://jsbin.com/nutegi/33/edit?js,console)
+- [View Example](http://jsbin.com/nutegi/33/edit?js,console)
+
 
 Lets say we wanted to implement an AJAX search feature in which every keypress in a text field by the user will automatically perform a search and update the page with the results. How would this look? Well we would have an Observable subscribed to events coming from an input field, and on every change of input we want to perform a some http request, which is also an Observable we subscribe to. What we end up with is an Observable of an Observable. 
 
