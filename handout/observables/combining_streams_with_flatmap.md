@@ -5,7 +5,7 @@
 A case for FlatMap:
 
 - [A simple observable stream](http://jsbin.com/nutegi/33/edit?js,console)
-- [A stream of arrays](http://jsbin.com/nutegi/33/edit?js,console)
+- [A stream of arrays](http://jsbin.com/lerake/3/edit?js,console)
 - [View Example](http://jsbin.com/nutegi/33/edit?js,console)
 - [View Example](http://jsbin.com/nutegi/33/edit?js,console)
 
