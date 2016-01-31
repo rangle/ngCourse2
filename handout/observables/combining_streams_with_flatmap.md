@@ -8,7 +8,7 @@ A case for FlatMap:
 - [A stream of arrays](http://jsbin.com/lerake/3/edit?js,console)
 - [Filter the items from each event](http://jsbin.com/widadiz/2/edit?js,console)
 - [Filter the items from each event](http://jsbin.com/reyoja/2/edit?js,console)
-- [Filter the items from each event](http://jsbin.com/reyoja/2/edit?js,console)
+- [Filter the items from each event](http://jsbin.com/sahiye/2/edit?js,console)
 
 
 Lets say we wanted to implement an AJAX search feature in which every keypress in a text field by the user will automatically perform a search and update the page with the results. How would this look? Well we would have an Observable subscribed to events coming from an input field, and on every change of input we want to perform a some http request, which is also an Observable we subscribe to. What we end up with is an Observable of an Observable. 
