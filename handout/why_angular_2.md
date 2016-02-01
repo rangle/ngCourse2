@@ -15,7 +15,7 @@ When Angular was first released, it provided developers with the tools to develo
 
 ### Angular 2 Is Easier
 
-Years of feedback have made Angular 2 more modern, more capable, and  easierfor new developers to learn than Angular 1.x. In turn Angular 2 is also easier for project veterans to work with. Ultimately this makes for a codebase that's all around easier for everyone to deal with.
+Years of feedback have made Angular 2 more modern, more capable, and  easier for new developers to learn than Angular 1.x. In turn Angular 2 is also easier for project veterans to work with. Ultimately this makes for a codebase that's all around easier for everyone to deal with.
 
 With Angular 1, developers had to keep in mind and understand the differences between Controllers, Services, Factories, Providers and other concepts that could be confusing, especially for new developers. Angular 2 features a more streamlined framework that allows developers to focus on simply building JavaScript classes.
 
