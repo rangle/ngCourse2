@@ -60,4 +60,4 @@ export default class Counter {
 
 Together a set of input + output bindings define the public API of your component. In our templates we use the [squareBrackets] to pass inputs and the (parenthesis) handle outputs.
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/bfAyfzYrncmMBGgulZsl" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/bfAyfzYrncmMBGgulZsl" frameborder="0" allowfullscren="allowfullscren"></iframe>
