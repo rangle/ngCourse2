@@ -24,4 +24,5 @@ To use this component we simply add `<ngc-hello-component></ngc-hello-component>
 
 [View Example](http://plnkr.co/edit/EGgaHWpGHFl1CDHBQtZl?p=preview)
 
+<iframe style="width: 100%; height: 400px" src="https://embed.plnkr.co/EGgaHWpGHFl1CDHBQtZl" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
