@@ -14,7 +14,7 @@ Years of feedback have made Angular 2 more modern, more capable, and  easier for
 
 With Angular 1, developers had to keep in mind and understand the differences between Controllers, Services, Factories, Providers and other concepts that could be confusing, especially for new developers. Angular 2 features a more streamlined framework that allows developers to focus on simply building JavaScript classes.
 
-In Angular 2, directives, and controllers are gone, and replaced with components; which are like a refined version of directives. Even experienced Angular developers are not always aware of all the capabilities of Angular 1.x directives.. Angular 2 components are considerably easier to read, and their API features less jargon than Angular 1.x's directives. Additionally to help ease the transition to Angular 2, the Angular team has added a `.component` method to Angular 1.5.
+In Angular 2, views, and controllers are gone, and replaced with components; which are like a refined version of directives. Even experienced Angular developers are not always aware of all the capabilities of Angular 1.x directives. Angular 2 components are considerably easier to read, and their API features less jargon than Angular 1.x's directives. Additionally to help ease the transition to Angular 2, the Angular team has added a `.component` method to Angular 1.5.
 
 One of Angular 2's points of interests is that it was written in TypeScript, a superset of JavaScript, that implements many up, and coming ES2015 features.
 

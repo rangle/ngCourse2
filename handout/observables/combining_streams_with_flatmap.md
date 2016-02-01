@@ -2,7 +2,14 @@
 
 ![](../images/flat-map.png)
 
-[View Example](http://jsbin.com/nutegi/33/edit?js,console)
+A case for FlatMap:
+
+- [A simple observable stream](http://jsbin.com/nutegi/36/edit?js,console)
+- [A stream of arrays](http://jsbin.com/lerake/3/edit?js,console)
+- [Filter the items from each event](http://jsbin.com/widadiz/2/edit?js,console)
+- [Stream of filtered items](http://jsbin.com/reyoja/2/edit?js,console)
+- [Filter + map simplified with flatMap](http://jsbin.com/sahiye/2/edit?js,console)
+
 
 Lets say we wanted to implement an AJAX search feature in which every keypress in a text field by the user will automatically perform a search and update the page with the results. How would this look? Well we would have an Observable subscribed to events coming from an input field, and on every change of input we want to perform a some http request, which is also an Observable we subscribe to. What we end up with is an Observable of an Observable. 
 
@@ -68,6 +75,8 @@ export class AppComponent {
 }
 ```
 [View Example](http://plnkr.co/edit/OdggjhnwjQLSwhYAjg8H?p=preview)
+
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/OdggjhnwjQLSwhYAjg8H" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Here we have setup a basic form with a single field - `searchField`, which we subscribe to for event changes. We've also setup a simple binding for any results coming from the SearchService. The real magic here is `flatMap` which allows us to flatten our two separate subscribed Observables into a single cohesive stream we can use to control events coming from user input and from server responses. 
 
