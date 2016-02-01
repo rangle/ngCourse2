@@ -30,4 +30,5 @@ We can now use our component like so:
 
 *Note* unlike Angular 1.x this is one-way binding.
 
+<iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/fwl33enZyoDQ2DDrujYV" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
