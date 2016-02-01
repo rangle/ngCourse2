@@ -2,13 +2,16 @@ import {Component} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {CheckIcon, CloseIcon, EditIcon, UserIcon} from '../icons';
 import {Card, CardTitle, CardActions} from '../card';
-import TasksService, {Task} from '../../services/tasks-service';
+import {TaskMap} from '../../services/tasks-service';
 const TEMPLATE = require('./task-item.html');
 
 @Component({
   selector: 'ngc-task',
   inputs: [
-    'task'
+    'task',
+    'deleteTask',
+    'editTask', 
+    'markTask'
   ],
   directives: [
     Card, 
@@ -23,23 +26,13 @@ const TEMPLATE = require('./task-item.html');
 })
 export default class TaskItem {
 
-  task: Task;
+  task: TaskMap;
 
   constructor(
-    private _tasksService: TasksService,
     private _router: Router
   ) {}
 
   editItem() {
-    this._router.navigate(['Main', 'TaskEdit', {id: this.task._id}]);
+    this._router.navigate(['Main', 'TaskEdit', {id: this.task.get('_id')}]);
   }
-
-  deleteItem() {
-    this._tasksService.delete(this.task);
-  }
-
-  mark(done: boolean): void {
-    this._tasksService.updateStatus(this.task, done);
-  }
-
 }

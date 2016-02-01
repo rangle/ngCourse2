@@ -7,7 +7,7 @@ import {
   FormBuilder,
   Validators
 } from 'angular2/common';
-import {AuthService} from '../../services/auth-service';
+import AuthService from '../../services/auth-service';
 const TEMPLATE = require('./login.html');
 
 @Component({
@@ -42,10 +42,9 @@ export default class LoginComponent {
     const values = this.loginForm.value;
     if (!this.authService.login(values.username, values.password)) {
       this.message = 'Incorrect credentials.';
-    }
-    else {
+    } else {
       this.message = '';
-      this._router.navigate(['/Main'])
-    }
+      this._router.navigate(['/Main']);
+    };
   }
 }

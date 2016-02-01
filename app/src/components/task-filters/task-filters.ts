@@ -1,5 +1,4 @@
 import {Component} from 'angular2/core';
-import TasksService from '../../services/tasks-service';
 import Dropdown from '../dropdown/dropdown'; 
 import {SizePipe} from '../../pipes/size';
 import {OwnersPipe, OwnerTasksPipe} from '../../pipes/owners';
@@ -8,27 +7,34 @@ const TEMPLATE = require('./task-filters.html');
 
 @Component({
   selector: 'ngc-task-filters',
-  directives: [Dropdown],
   pipes: [OwnersPipe, OwnerTasksPipe, SizePipe],
+  directives: [Dropdown],
+  inputs: [
+    'tasks',
+    'owner',
+    'taskStatus',
+    'selectOwner',
+    'selectStatus'
+  ],
   template: TEMPLATE
 })
 export default class TaskFilters {
 
   statuses: List<string>; 
+  selectOwner: Function;
+  selectStatus: Function;
 
-  constructor(
-    public tasksService: TasksService
-  ) {
+  constructor() {
     this.statuses = List(['all', 'completed', 'incomplete']);
   }
 
-  selectOwner($event) {
+  onSelectOwner($event) {
     const owner = $event.target.value;
-    this.tasksService.selectOwner(owner);
+    this.selectOwner(owner);
   }
 
-  selectStatus($event) {
+  onSelectStatus($event) {
     const newStatus = $event.target.value;
-    this.tasksService.selectStatus(newStatus);
+    this.selectStatus(newStatus);
   }
 }
