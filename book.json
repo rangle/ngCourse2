@@ -9,5 +9,8 @@
             "type": "branches",
             "includeFilepath": false
         }
+    },
+    "structure": {
+        "readme": "handout/intro.md"
     }
 }
