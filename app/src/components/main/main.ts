@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, Injector} from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
 import TaskAdd from '../task-add/task-add';
 import TaskEdit from '../task-edit/task-edit';

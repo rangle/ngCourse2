@@ -1,0 +1,29 @@
+<div class="sm-col-6 mx-auto border rounded mb4"
+  *ngIf="!authService.isLogged()">
+
+  <div class="p2 gray bg-darken-1">
+    <h4 class="m0 caps">Login</h4>
+  </div>
+
+  <div class="p2 white bg-red" *ngIf="message">
+    {{ message }}
+  </div>
+
+  <form class="p2 bg-white">
+      <label for="username">User:</label>
+      <input class="block col-12 mb1 field"
+        type="text"
+        name="username"
+        #username>
+      <label for="password">Password:</label>
+      <input class="block col-12 mb1 field"
+        type="password"
+        name="password"
+        #password>
+      <button class="btn btn-primary"
+        (click)="login(username.value, password.value)">
+        Login
+      </button>
+  </form>
+
+</div>
