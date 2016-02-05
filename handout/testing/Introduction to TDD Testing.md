@@ -135,7 +135,7 @@ Our entire testing workflow is done through Karma, running the command `karma st
 ```
 Now running `npm test` will start Karma. Below is the output of our Karma test, as you can see we had one test that passed, running in a Chrome 48 browser. 
 
-![image](images/simple-output.png =700x)
+![image](images/simple-output.png)
 
 ## Simple Test
 
