@@ -4,7 +4,10 @@ import Task from '../task-item/task-item';
 @Component({
   selector: 'ngc-grid',
   inputs: [
-    'tasks'
+    'tasks',
+    'deleteTask',
+    'editTask', 
+    'markTask'
   ],
   directives: [Task],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,7 +15,11 @@ import Task from '../task-item/task-item';
     <ul class="cols list-reset m0">
       <li class="py1 avoid-break"
         *ngFor="#task of tasks">
-        <ngc-task [task]="task">
+        <ngc-task 
+          [task]="task"
+          [deleteTask]="deleteTask"
+          [updateTask]="updateTask"
+          [markTask]="markTask">
         </ngc-task>
       </li>
     </ul>
