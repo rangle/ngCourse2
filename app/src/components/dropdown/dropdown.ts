@@ -11,7 +11,9 @@ import {List} from 'immutable';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <select [(ngModel)]="selected" class="field">
-      <option [value]="defaultValue">
+      <option 
+       *ngIf="defaultValue" 
+       [value]="defaultValue">
        {{ defaultValue }}
       </option>
       <option
@@ -24,6 +26,6 @@ import {List} from 'immutable';
 })
 export default class Dropdown {
 
-  public owners: List<number>; 
+  items: List<string>; 
 
 }

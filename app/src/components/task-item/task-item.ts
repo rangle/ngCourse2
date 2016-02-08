@@ -23,7 +23,7 @@ const TEMPLATE = require('./task-item.html');
 })
 export default class TaskItem {
 
-  public task: Task;
+  task: Task;
 
   constructor(
     private _tasksService: TasksService,
@@ -38,8 +38,8 @@ export default class TaskItem {
     this._tasksService.delete(this.task);
   }
 
-  markAsDone(): void {
-    this._tasksService.done(this.task, true);
+  mark(done: boolean): void {
+    this._tasksService.updateStatus(this.task, done);
   }
 
 }
