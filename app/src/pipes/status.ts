@@ -1,10 +1,10 @@
 import {Pipe, PipeTransform} from 'angular2/core';
-import {Task} from '../services/tasks-service';
+import {TaskMap} from '../services/tasks-service';
 import {List} from 'immutable';
 
 @Pipe({name: 'status'})
 export class StatusPipe implements PipeTransform {
-  transform(tasks: List<Task>, args: string[]): List<Task> {
+  transform(tasks: List<TaskMap>, args: string[]): List<TaskMap> {
     const taskStatus = String(args[0]);
 
     if (taskStatus === 'all') {
@@ -13,9 +13,9 @@ export class StatusPipe implements PipeTransform {
    
     const done = taskStatus === 'completed';
     const filtered = tasks.filter(task => 
-      task.done === done  
+      task.get('done') === done  
     );
     
-    return filtered.toList();
+    return <List<TaskMap>>filtered;
   }
 }

@@ -2,12 +2,12 @@
 
   <ngc-card-title>
     <ngc-icon-user></ngc-icon-user>
-    {{ task.owner }}
+    {{ task.get('owner') }}
   </ngc-card-title>
 
   <p class="h3"
-    [ngStyle]="{'text-decoration': task.done ? 'line-through' : 'none' }">
-    {{ task.description }}
+    [ngStyle]="{'text-decoration': task.get('done') ? 'line-through' : 'none' }">
+    {{ task.get('description') }}
   </p>
 
   <ngc-card-actions>
@@ -17,13 +17,13 @@
       Edit
     </button>
     <button class="btn red mr1"
-      (click)="deleteItem()">
+      (click)="deleteTask(task)">
       <ngc-icon-close class="h5"></ngc-icon-close>
       Delete
     </button>
     <button class="btn"
-      (click)="mark(!task.done)"
-      [ngStyle]="{'color': task.done ? '#ddd' : '' }">
+      (click)="markTask(task, !task.get('done'))"
+      [ngStyle]="{'color': task.get('done') ? '#ddd' : '' }">
       <ngc-icon-check class="h5"></ngc-icon-check>
       Done
     </button>

@@ -1,6 +1,6 @@
-import {Injectable, provide} from 'angular2/core';
+import {provide} from 'angular2/core';
 
-export class AuthService {
+export default class AuthService {
 
   constructor() {}
 
@@ -25,6 +25,6 @@ export class AuthService {
   }
 }
 
-export var AUTH_PROVIDERS: Array<any> = [
+export const AUTH_PROVIDERS: Array<any> = [
   provide(AuthService, {useClass: AuthService})
 ];

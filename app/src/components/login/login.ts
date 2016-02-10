@@ -7,7 +7,7 @@ import {
   FormBuilder,
   Validators
 } from 'angular2/common';
-import {AuthService} from '../../services/auth-service';
+import AuthService from '../../services/auth-service';
 const TEMPLATE = require('./login.html');
 
 @Component({
