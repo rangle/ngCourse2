@@ -12,17 +12,17 @@ const injector = Injector.resolveAndCreate([
 
 const Tasks = injector.get('TasksService');
 
-export const LOAD_TASKS = 'LOAD_TASKS';
-export const ADD_TASK = 'ADD_TASK';
-export const DELETE_TASK = 'DELETE_TASK';
-export const UPDATE_TASK = 'UPDATE_TASK';
-export const MARK_TASK = 'MARK_TASK';
+export const TASKS_LOADED = 'TASKS_LOADED';
+export const TASK_ADDED = 'TASK_ADDED';
+export const TASK_DELETED = 'TASK_DELETED';
+export const TASK_UPDATED = 'TASK_UPDATED';
+export const TASK_MARKED = 'TASK_MARKED';
 
 export function loadTasks() {
   return (dispatch) => Tasks.fetch()   
     .subscribe((res: Array<Task>) => { 
       dispatch({
-        type: LOAD_TASKS,
+        type: TASKS_LOADED,
         payload: res
       });
     });
@@ -33,7 +33,7 @@ export function addTask(task: Task, onComplete: Function) {
     .subscribe((res) => {
       if (res.length === 1) {
         dispatch({
-          type: ADD_TASK,
+          type: TASK_ADDED,
           payload: res[0]
         });
       }
@@ -44,7 +44,7 @@ export function deleteTask(task: TaskMap) {
   return (dispatch) => Tasks.delete(task)
     .subscribe((res: number) => {
       dispatch({
-        type: DELETE_TASK,
+        type: TASK_DELETED,
         payload: task.get('_id')
       });
     });
@@ -57,7 +57,7 @@ export function updateTask(task: Task, onComplete: Function) {
         const owner = getState().tasks.get('owner');
 
         dispatch({
-          type: UPDATE_TASK, 
+          type: TASK_UPDATED, 
           payload: task
         });
 
@@ -71,7 +71,7 @@ export function updateTask(task: Task, onComplete: Function) {
 
 export function markTask(task: TaskMap, newStatus: boolean) {
   return {
-    type: MARK_TASK,
+    type: TASK_MARKED,
     payload: {
       _id: task.get('_id'),
       newStatus: newStatus
