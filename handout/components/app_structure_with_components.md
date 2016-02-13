@@ -11,6 +11,7 @@ For example consider the following:
     <TodoItem />
     <TodoItem />
   </TodoList>
+  <TodoForm>
   <TodoForm />
 </TodoApp>
 ```
