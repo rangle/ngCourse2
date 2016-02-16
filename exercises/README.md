@@ -7,9 +7,9 @@ Each exercise will contain a skeleton for an application, with instructions on t
 These exercises do not require a build step to run, and you can use a light-weight HTTP server such as the node 'http-server' to run an exercise. For example:
 
 ```
-npm install -g http-server
+npm install -g live-server
 cd ... (path to exercise)
-http-server .
+live-server .
 ```
 
 and open your browser at http://127.0.0.1:8080/
