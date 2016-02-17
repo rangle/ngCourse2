@@ -4,7 +4,7 @@ module.exports = function (config) {
   config.set({
 
     frameworks: [
-      'mocha',
+      'jasmine',
       'chai',
       'sinon'
     ],
@@ -14,7 +14,7 @@ module.exports = function (config) {
     ],
 
     plugins: [
-      require('karma-mocha'),
+      require('karma-jasmine'),
       require('karma-chai'),
       require('karma-sinon'),
       require('karma-chrome-launcher'),
@@ -61,11 +61,11 @@ module.exports = function (config) {
       stats: { colors: true, reasons: true },
       debug: false
     },
-    
+
     webpackServer: {
       noInfo: true // prevent console spamming when running in Karma!
     },
-    
+
     reporters: ['mocha'], //'coverage'],
 
     // coverageReporter: {
