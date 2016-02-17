@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import Users from '../services/users-service';
-import {JsonPipe} from 'angular2/common';
+import {JsonPipe} from 'angular2/common'
 @Component({
   selector: 'user-detail',
   template: `<label>First Name: </label> {{user.name.first}} <br/>

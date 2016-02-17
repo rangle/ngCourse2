@@ -9,8 +9,9 @@ import Home from '../components/home';
   selector: 'ngc-app',
   directives: [ROUTER_DIRECTIVES],
   providers: [Users],
+  styleUrls: [`app/containers/app.css`]
   template: `<div>
-  Basic Routing
+  Routing - Using Route Params
   <ul>
    <li>
       <a [routerLink]="['Home']">Home</a>
@@ -22,7 +23,7 @@ import Home from '../components/home';
       <a [routerLink]="['CompanyList']">Company List</a>
     </li>
   </ul>
-  <div style="border: 1px solid black">
+  <div style="border: 1px solid black; padding: 10px;">
     <router-outlet></router-outlet>
   </div>
 	`})
