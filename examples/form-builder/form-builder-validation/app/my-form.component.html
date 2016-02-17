@@ -1,0 +1,24 @@
+<form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)" novalidate>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" ngControl="email" #email="ngForm" required>
+    
+    <ul *ngIf="email.dirty && !email.valid">
+      <li *ngIf="email.errors.required">An email is required</li>
+    </ul>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" ngControl="password" #password="ngForm" required minlength="4">
+    
+    <ul *ngIf="password.dirty && !password.valid">
+      <li *ngIf="password.errors.required">A password is required</li>
+      <li *ngIf="password.errors.minlength">A password needs to have at least 4 characterss</li>
+    </ul>
+  </div>
+
+  <button type="submit" [disabled]="!regForm.valid">Register</button>
+
+</form>
