@@ -7,3 +7,6 @@ AngularJS is the leading open source JavaScript application framework backed by 
 This book walks the reader through everything they need to know from getting
 started with the Angular 2 toolchain to writing applications with scalable
 front end architectures.
+
+Rangle.io also has an [Angular 1.x book](http://ngcourse-1.rangle.io "Rangle.io's Angular 1.x Training Material")
+which is geared towards writing Angular 1.x applications in an Angular 2 style.
