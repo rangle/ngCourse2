@@ -46,3 +46,6 @@ typings
 
 ## exclude built gitbook
 _book
+
+## debug output
+npm-debug.log
