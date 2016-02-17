@@ -1,6 +1,6 @@
 # Unit Testing Redux
 
-The units that make up redux are actions and reducers. Lets try testing them.
+Unit testing Redux is a very straightforward process. There are two primary units, reducers, and actions. Reducers are pure functions that lend themselves well to testing. Actions trigger changes in a Redux system, there are two broad categories of actions, synchronous, and asynchronous. Synchronous actions are quite straightforward to test, but asynchronous actions are slightly more involved. The examples below should provide the reader with a strong foundation for testing Redux applications.
 
 ## Testing Synchronous Actions
 
@@ -164,7 +164,7 @@ it('incrementIfOdd should dispatch INCREMENT_COUNTER if counter is odd', (done) 
 });
 ```
 
-There's more than one flavor of asynchronous action creating in redux, so you might have to cook something that fits your unit's needs.  
+These asynchronous examples are based on the `thunk` pattern.  Redux is very flexible and there are many other ways to implement asynchronous actions, `thunk`s are merely the most common.  Other asynchronous implementations may require a different approach to unit testing.
 
 ## Testing Reducers
 
@@ -218,6 +218,7 @@ describe('counter reducers', () => {
   });                                                                    
 });
 ```
+
 Note that we're only testing the section of redux state that the `counter` reducer is responsible for, and not the whole. 
 We can see from these tests that redux is largely built on pure functions. 
 
@@ -225,5 +226,5 @@ We can see from these tests that redux is largely built on pure functions.
 
 The examples outlined above are just one approach to unit testing in redux. During actual development it might prove to be too costly to maintain tests for every action and reducer, and in some cases even trivial (i.e. should I be paranoid about this JSON object with one property being returned?). 
 
-Another approach we've tried is to treat the overall state change in the store triggered by an action (or by a series of actions) as a single unit --- in the redux world reducers don't function without actions and vice versa, so why separate them? This leaves more wiggle room when making changes to actions and reducers without losing scope of what redux is doing for our app.  
+Another approach we've tried is to treat the overall state change in the store triggered by an action (or by a series of actions) as a single unit --- in the redux world reducers don't function without actions and vice versa, so why separate them? This leaves more flexibility when making changes to actions and reducers without losing scope of what redux is doing for our app.  
 
