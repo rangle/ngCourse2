@@ -1,4 +1,4 @@
-# 1.3 - This Refresher
+# 1.3 - Arrow Functions
 
 Use an arrow function to fix the broken code
 
