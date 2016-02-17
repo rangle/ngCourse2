@@ -10,6 +10,7 @@ module.exports = function (config) {
     ],
 
     files: [
+      'node_modules/reflect-metadata/Reflect.js',
       './src/tests.entry.ts'
     ],
 
@@ -66,16 +67,18 @@ module.exports = function (config) {
       noInfo: true // prevent console spamming when running in Karma!
     },
 
-    reporters: ['mocha'], //'coverage'],
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        {type: 'html'},
+        {type: 'text'}
+      ]
+    },
 
-    // coverageReporter: {
-    //   reporters: [
-    //     { type: 'json' },
-    //     { type: 'html' },
-    //     { type: 'text-summary' }
-    //   ],
-    //   dir: './app/__build/coverage'
-    // },
+    reporters: [
+      'mocha',
+      'coverage'
+    ],
 
     port: 9999,
 

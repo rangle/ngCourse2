@@ -1,13 +1,22 @@
-describe('Simple Test', () => {
-  it('2*2 should equal 4', () => {
-    let x = 2 * 2;
-    let y = 4;
-    // Assert that x is defined.
-    chai.expect(x).to.not.be.undefined;
-    // Assert that x equals to specific value.
-    chai.expect(x).to.equal(4);
-    // Assert that x equals to y.
-    chai.expect(x).to.equal(y);
-    // See http://chaijs.com/api/bdd/ for more assertion options.
-  });
+import {
+    describe,
+    expect,
+    it
+} from 'angular2/testing';
+
+describe('Testing math', () => {
+
+    it('multiplying should work', () => {
+
+        let testMe = 16;
+
+        // Using the expect interface
+        chai.expect(testMe).to.be.a('number');
+        chai.expect(testMe).to.equal(16);
+
+        // Using the should interface
+        chai.should();
+        testMe.should.be.a('number');
+        testMe.should.equal(16);
+    });
 });

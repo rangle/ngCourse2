@@ -12,6 +12,6 @@
   },
   "exclude": [
     "node_modules",
-    "app/__build"
+    "dist"
   ]
 }
