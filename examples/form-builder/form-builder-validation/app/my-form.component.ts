@@ -9,6 +9,6 @@ import {NgForm} from 'angular2/common';
 })
 export class MyForm {
   onSubmit(regForm: NgForm) {
-    this.formValue = regForm.value;
+    console.log(regForm.value);
   }
 }
