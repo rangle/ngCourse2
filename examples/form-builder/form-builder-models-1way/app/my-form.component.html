@@ -1,0 +1,29 @@
+<form [ngFormModel]="group" (ngSubmit)="onSubmit()" novalidate>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" [ngFormControl]="email" [ngModel]="user.email">
+    <span *ngIf="email.pending">Checking duplication...</span>
+    
+    <ul *ngIf="email.dirty && !email.valid">
+      <li *ngIf="email.hasError('required')">An email is required</li>
+      <li *ngIf="email.hasError('emailFormat')">The value introduced is not an email</li>
+      <li *ngIf="email.hasError('duplicated')">This email has been registered already</li>
+    </ul>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" [ngFormControl]="password" [ngModel]="user.password">
+    
+    <ul *ngIf="password.dirty && !password.valid">
+      <li *ngIf="password.hasError('required')">A password is required</li>
+      <li *ngIf="password.hasError('minlength')">A password needs to have at least 4 characterss</li>
+    </ul>
+  </div>
+  
+  <p>{{ user | json }}</p>
+
+  <button type="submit">Register</button>
+
+</form>
