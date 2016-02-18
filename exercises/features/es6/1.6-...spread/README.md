@@ -1,4 +1,4 @@
-# 1.5 - ...spread Operator
+# 1.6 - ...spread Operator
 
 Rewrite the array concatenation to use the `...spread` operator instead of
 manual concatenation
