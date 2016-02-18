@@ -1,0 +1,8 @@
+<div style="width: 40%">
+  {{skillName}}
+</div>
+<div style="flex: 1"> 
+  <rating [stars]="skillLevel"
+          (ratingUpdated)="onRatingUpdated($event, skillName)">
+  </rating>
+</div>
