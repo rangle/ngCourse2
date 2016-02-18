@@ -14,4 +14,6 @@ class MyDiv {
 }
 
 var example = new MyDiv('example');
-example.write('Welcome To ngCourse!');
+var write = example.write;
+
+write('This is Fixed');

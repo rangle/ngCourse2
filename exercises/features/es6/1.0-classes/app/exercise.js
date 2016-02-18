@@ -1,5 +1,8 @@
 'use strict';
 
+// the following line forces SystemJS to transpile the exercise
+export let thisWorkWithSystemJs = true;
+
 function MyDiv(selector) {
   this.element = document.getElementById(selector);
 }
