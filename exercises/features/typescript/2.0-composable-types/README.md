@@ -1,4 +1,4 @@
-# 1.0 - Composable Types
+# 2.0 - Composable Types
 
 Add type information for the example
 
