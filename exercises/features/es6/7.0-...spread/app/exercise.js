@@ -1,7 +1,5 @@
 'use strict';
-
-// the following line forces SystemJS to transpile the exercise
-export let thisWorkWithSystemJs = true;
+'format es6'; // force SystemJS to transpile exercise
 
 const element = document.getElementById('example');
 const aToJ = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];

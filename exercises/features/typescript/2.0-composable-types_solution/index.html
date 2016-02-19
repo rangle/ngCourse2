@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Exercise 3.0 - Template Strings (Solution)</title>
+    <title>Exercise 2.0 - Composable Types (Solution)</title>
     <!-- 1. Load libraries -->
     <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
     <script src="https://code.angularjs.org/tools/system.js"></script>
@@ -10,15 +10,22 @@
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
-        transpiler: 'typescript',
-        typescriptOptions: { allowJs: true },
-        packages: {'app': {defaultExtension: 'js'}}
+        transpiler: 'typescript', 
+        typescriptOptions: {
+          emitDecoratorMetadata: true
+        },
+        packages: {'app': { defaultExtension: 'ts' }}
       });
       System.import('app/exercise')
-              .then(null, console.error.bind(console));
+            .then(null, console.error.bind(console));
     </script>
   </head>
-
+  <style>
+    html, body, #example {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
   <!-- 3. Display the application -->
   <body>
     <div id="example"></div>
