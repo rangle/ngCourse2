@@ -1,5 +1,7 @@
 declare const require: any;
 
+require('zone.js');
+require('reflect-metadata');
 import { setBaseTestProviders } from 'angular2/testing';
 import {
   TEST_BROWSER_PLATFORM_PROVIDERS,

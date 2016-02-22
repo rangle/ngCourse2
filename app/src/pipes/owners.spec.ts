@@ -84,7 +84,7 @@ describe('OwnerTasksPipe', () => {
       _id: '2'
     }, {
       done: false,
-      owner: "a",
+      owner: "b",
       description: 'task 3',
       _id: '3'
     }]);
@@ -92,9 +92,9 @@ describe('OwnerTasksPipe', () => {
     chai.expect(filteredTasksEveryone.size).to.equal(3);
 
     let filteredTasksA = ownerTasksPipe.transform(tasks, ['a']);
-    chai.expect(filteredTasksA.size).to.equal(3);
+    chai.expect(filteredTasksA.size).to.equal(2);
 
     let filteredTasksB = ownerTasksPipe.transform(tasks, ['b']);
-    chai.expect(filteredTasksB.size).to.equal(0);
+    chai.expect(filteredTasksB.size).to.equal(1);
   });
 });

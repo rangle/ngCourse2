@@ -7,8 +7,6 @@ import {
   beforeEachProviders,
   ComponentFixture
 } from 'angular2/testing';
-import {provide} from 'angular2/core';
-import TasksService from '../../services/tasks-service';
 import {MockTasksService} from '../../mocks/mock-tasks-service';
 
 describe("Testing Task Filter Component", () => {
@@ -18,26 +16,31 @@ describe("Testing Task Filter Component", () => {
     return MockTasksService.getProvider();
   });
 
-  it("select owner and status", injectAsync([TestComponentBuilder],
-    (tcb: TestComponentBuilder) => {
-    return tcb.createAsync(TaskFilters).then(
-      (componentFixture: ComponentFixture) => {
-        const element = componentFixture.nativeElement;
-        const instance = componentFixture.debugElement.componentInstance;
+  it(
+    "select owner and status should update service",
+    injectAsync(
+      [TestComponentBuilder],
+      (tcb: TestComponentBuilder) => {
+        return tcb.createAsync(TaskFilters).then(
+          (componentFixture: ComponentFixture) => {
+            const element = componentFixture.nativeElement;
+            const instance = componentFixture.debugElement.componentInstance;
 
-        const tasksService = instance.tasksService;
+            const tasksService = instance.tasksService;
 
-        instance.selectOwner({target: {value: 'a'}});
-        chai.expect(tasksService.owner).to.equal('a');
+            instance.selectOwner({target: {value: 'a'}});
+            chai.expect(tasksService.owner).to.equal('a');
 
-        instance.selectOwner({target: {value: 'everyone'}});
-        chai.expect(tasksService.owner).to.equal('everyone');
+            instance.selectOwner({target: {value: 'everyone'}});
+            chai.expect(tasksService.owner).to.equal('everyone');
 
-        instance.selectStatus({target: {value: 'completed'}});
-        chai.expect(tasksService.taskStatus).to.equal('completed');
+            instance.selectStatus({target: {value: 'completed'}});
+            chai.expect(tasksService.taskStatus).to.equal('completed');
 
-        instance.selectStatus({target: {value: 'all'}});
-        chai.expect(tasksService.taskStatus).to.equal('all');
-    });
-  }));
+            instance.selectStatus({target: {value: 'all'}});
+            chai.expect(tasksService.taskStatus).to.equal('all');
+        });
+      }
+    )
+  );
 });

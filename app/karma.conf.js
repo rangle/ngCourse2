@@ -10,7 +10,6 @@ module.exports = function (config) {
     ],
 
     files: [
-      'node_modules/reflect-metadata/Reflect.js',
       './src/tests.entry.ts'
     ],
 
