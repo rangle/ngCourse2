@@ -79,8 +79,7 @@ describe("Testing Tasks Service", () => {
               conn.mockRespond(new Response(response));
               return;
           }
-
-          console.log(mockResponseBody);
+          
           let response = new ResponseOptions({body: mockResponseBody});
           conn.mockRespond(new Response(response));
         });

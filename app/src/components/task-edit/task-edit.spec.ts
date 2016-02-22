@@ -1,5 +1,4 @@
 import TaskEdit from './task-edit';
-import {provide} from 'angular2/core';
 import {
   it,
   describe,
@@ -10,10 +9,8 @@ import {
   fakeAsync,
   tick
 } from 'angular2/testing';
-import {RouteParams, RouterLink, Router} from 'angular2/router';
 import {MockTasksService} from '../../mocks/mock-tasks-service';
 import {FormBuilder} from 'angular2/common';
-import TasksService from '../../services/tasks-service';
 import {MockRouterProvider} from '../../mocks/mock-router-provider';
 
 describe("Testing Task Edit Component", () => {
@@ -24,7 +21,7 @@ describe("Testing Task Edit Component", () => {
 
   beforeEachProviders(() => {
     return [
-      provide(TasksService, {useValue: mockTasksService}),
+      mockTasksService.getProvider(),
       FormBuilder,
       mockRouterProvider.getProviders()
     ];
@@ -69,5 +66,4 @@ describe("Testing Task Edit Component", () => {
       );
     }
   ));
-
 });

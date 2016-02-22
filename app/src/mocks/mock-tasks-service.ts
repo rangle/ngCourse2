@@ -3,25 +3,28 @@ import {SpyObject} from 'angular2/testing_internal';
 import TasksService, {Task} from '../services/tasks-service';
 import {List} from 'immutable';
 
+const MockTasksList = List([
+  {
+    done: false,
+    owner: 'a',
+    description: 'task 1',
+    _id: '1'
+  }, {
+    done: false,
+    owner: 'a',
+    description: 'task 2',
+    _id: '2'
+  }, {
+    done: false,
+    owner: "a",
+    description: 'task 3',
+    _id: '3'
+  }
+]);
+const RESPONSE_TIME = 1000;
+
 export class MockTasksService extends SpyObject {
-  private _tasks: List<Task> = List([
-    {
-      done: false,
-      owner: 'a',
-      description: 'task 1',
-      _id: '1'
-    }, {
-      done: false,
-      owner: 'a',
-      description: 'task 2',
-      _id: '2'
-    }, {
-      done: false,
-      owner: "a",
-      description: 'task 3',
-      _id: '3'
-    }
-  ]);
+  private _tasks: List<Task> = MockTasksList;
   private _owner = 'everyone';
   private _taskStatus = 'all';
 
@@ -37,6 +40,7 @@ export class MockTasksService extends SpyObject {
   }
 
   add(task: Task) {
+    task._id = '4';
     this._tasks = this._tasks.push(task);
   }
 
@@ -90,8 +94,11 @@ export class MockTasksService extends SpyObject {
     return this._taskStatus;
   }
 
+  getProvider(): any {
+    return provide(TasksService, {useValue: this});
+  }
+
   static getProvider(): any {
     return provide(TasksService, {useClass: MockTasksService});
   }
-
 }
