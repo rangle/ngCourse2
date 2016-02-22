@@ -1,4 +1,4 @@
-import {mockStore} from './mock-store';
+import {mockStore} from '../mocks/mock-store';
 import {INCREMENT_COUNTER, DECREMENT_COUNTER} from './counter';
 import * as CounterActions from './counter';
 import {
