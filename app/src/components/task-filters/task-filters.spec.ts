@@ -17,13 +17,12 @@ describe("Testing Task Filter Component", () => {
   });
 
   it(
-    "select owner and status should update service",
+    "chnage owner and status should update service",
     injectAsync(
       [TestComponentBuilder],
       (tcb: TestComponentBuilder) => {
         return tcb.createAsync(TaskFilters).then(
           (componentFixture: ComponentFixture) => {
-            const element = componentFixture.nativeElement;
             const instance = componentFixture.debugElement.componentInstance;
 
             const tasksService = instance.tasksService;

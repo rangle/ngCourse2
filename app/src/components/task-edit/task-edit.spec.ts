@@ -59,7 +59,6 @@ describe("Testing Task Edit Component", () => {
           instance.onSubmit();
 
           const task = mockTasksService.getById(_id);
-          chai.expect(task._id).to.equal(task._id);
           chai.expect(task.owner).to.equal('b');
           chai.expect(task.description).to.equal('change task description');
         }
