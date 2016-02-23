@@ -15,7 +15,7 @@ import {FormBuilder} from 'angular2/common';
 import TasksService from '../../services/tasks-service';
 import {MockRouterProvider} from '../../mocks/mock-router-provider';
 
-describe("Testing Add Task Component", () => {
+describe('Testing Add Task Component', () => {
   const mockRouterProvider = new MockRouterProvider();
   const mockTasksService = new MockTasksService;
 
@@ -27,7 +27,7 @@ describe("Testing Add Task Component", () => {
     ];
   });
 
-  it("Task should be added into service", injectAsync(
+  it('Task should be added into service', injectAsync(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskAdd).then(
         (componentFixture: ComponentFixture) => {

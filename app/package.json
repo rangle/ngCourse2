@@ -31,7 +31,7 @@
     "url": "https://github.com/rangle/ngCourse2.git/issues"
   },
   "dependencies": {
-    "angular2": "^2.0.0-beta.6",
+    "angular2": "^2.0.0-beta.7",
     "basscss": "^7.1.0",
     "basscss-border-colors": "^1.1.1",
     "chalk": "^1.1.1",
@@ -46,10 +46,10 @@
     "redux-logger": "^2.1.4",
     "redux-thunk": "^1.0.0",
     "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.0",
+    "rxjs": "5.0.0-beta.2",
     "serve-webpack-client": "0.0.4",
     "winston": "^2.1.1",
-    "zone.js": "0.5.14"
+    "zone.js": "0.5.15"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.3",

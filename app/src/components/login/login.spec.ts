@@ -18,7 +18,7 @@ class MockSucessAuthService extends AuthService {
   }
 }
 
-describe("Testing Login Component Success Flow", () => {
+describe('Testing Login Component Success Flow', () => {
   let mockRouterProvider = new MockRouterProvider();
 
   beforeEachProviders(() => {
@@ -29,7 +29,7 @@ describe("Testing Login Component Success Flow", () => {
     ];
   });
 
-  it("Login should succeed", injectAsync([TestComponentBuilder],
+  it('Login should succeed', injectAsync([TestComponentBuilder],
       (tcb: TestComponentBuilder) => {
     return tcb.createAsync(LoginComponent).then(fixture => {
       const instance = fixture.debugElement.componentInstance;
@@ -45,7 +45,7 @@ class MockFailedAuthService extends AuthService {
   }
 }
 
-describe("Testing Login Component Failed Flow", () => {
+describe('Testing Login Component Failed Flow', () => {
   let mockRouterProvider = new MockRouterProvider();
 
   beforeEachProviders(() => {
@@ -56,12 +56,12 @@ describe("Testing Login Component Failed Flow", () => {
     ];
   });
 
-  it("Login should fail", injectAsync([TestComponentBuilder],
+  it('Login should fail', injectAsync([TestComponentBuilder],
       (tcb: TestComponentBuilder) => {
     return tcb.createAsync(LoginComponent).then(fixture => {
       const instance = fixture.debugElement.componentInstance;
       instance.login();
-      chai.expect(instance.message).to.equal("Incorrect credentials.");
+      chai.expect(instance.message).to.equal('Incorrect credentials.');
     });
   }));
 });

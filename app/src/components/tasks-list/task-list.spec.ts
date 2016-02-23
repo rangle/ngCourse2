@@ -10,7 +10,7 @@ import {
 import {MockTasksService} from '../../mocks/mock-tasks-service';
 import {MockRouterProvider} from '../../mocks/mock-router-provider';
 
-describe("Testing Test List Component", () => {
+describe('Testing Test List Component', () => {
   let mockRouterProvider = new MockRouterProvider();
 
   beforeEachProviders(() => {
@@ -20,7 +20,7 @@ describe("Testing Test List Component", () => {
     ];
   });
 
-  it("tasks list with mock list", injectAsync(
+  it('test tasks list component with a mock list', injectAsync(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TasksList).then(
         (componentFixture: ComponentFixture) => {

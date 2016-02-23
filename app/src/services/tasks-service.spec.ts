@@ -19,7 +19,7 @@ import {provide} from 'angular2/core';
 import TasksService from './tasks-service';
 import {MockRouterProvider} from '../mocks/mock-router-provider';
 
-describe("Testing Tasks Service", () => {
+describe('Testing Tasks Service', () => {
   let mockRouterProvider = new MockRouterProvider();
   const mockTasksResponse = [
     {
@@ -79,7 +79,7 @@ describe("Testing Tasks Service", () => {
               conn.mockRespond(new Response(response));
               return;
           }
-          
+
           let response = new ResponseOptions({body: mockResponseBody});
           conn.mockRespond(new Response(response));
         });
@@ -113,7 +113,7 @@ describe("Testing Tasks Service", () => {
     chai.expect(tasksService.tasks.last()).to.deep.equal(taskToBeAdded);
   }));
 
-  it("Delete Task", fetchTasks('1', (tasksService) => {
+  it('Delete Task', fetchTasks('1', (tasksService) => {
     tasksService.delete(mockTasksResponse[0]);
     tick();
 

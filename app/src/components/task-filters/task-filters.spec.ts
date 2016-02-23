@@ -9,7 +9,7 @@ import {
 } from 'angular2/testing';
 import {MockTasksService} from '../../mocks/mock-tasks-service';
 
-describe("Testing Task Filter Component", () => {
+describe('Testing Task Filter Component', () => {
   let mockTasksService = new MockTasksService();
 
   beforeEachProviders(() => {
@@ -17,7 +17,7 @@ describe("Testing Task Filter Component", () => {
   });
 
   it(
-    "chnage owner and status should update service",
+    'chnage owner and status should update service',
     injectAsync(
       [TestComponentBuilder],
       (tcb: TestComponentBuilder) => {

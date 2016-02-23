@@ -18,7 +18,7 @@ import {MockBackend} from 'angular2/http/testing';
 import {provide} from 'angular2/core';
 import {AuthService} from './auth-service';
 
-describe("Testing authentication service", () => {
+describe('Testing authentication service', () => {
   beforeEachProviders(() => {
     return [
       MockBackend,
@@ -37,7 +37,7 @@ describe("Testing authentication service", () => {
     ];
   });
 
-  it("login follow", inject([ AuthService ], (authService) => {
+  it('login follow', inject([ AuthService ], (authService) => {
     let invalidUser = authService.login('test', 'test');
     chai.expect(invalidUser).to.equal(false);
 

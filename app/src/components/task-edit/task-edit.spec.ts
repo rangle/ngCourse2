@@ -13,7 +13,7 @@ import {MockTasksService} from '../../mocks/mock-tasks-service';
 import {FormBuilder} from 'angular2/common';
 import {MockRouterProvider} from '../../mocks/mock-router-provider';
 
-describe("Testing Task Edit Component", () => {
+describe('Testing Task Edit Component', () => {
   const _id = '1';
   const mockRouterProvider = new MockRouterProvider();
   mockRouterProvider.mockRouteParams.set('id', _id);
@@ -27,7 +27,7 @@ describe("Testing Task Edit Component", () => {
     ];
   });
 
-  it("Input should be populated with task", injectAsync(
+  it('Input should be populated with task', injectAsync(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskEdit).then(
         (componentFixture: ComponentFixture) => {
@@ -45,7 +45,7 @@ describe("Testing Task Edit Component", () => {
     }
   ));
 
-  it("Edit and save item should change the task", injectAsync(
+  it('Edit and save item should change the task', injectAsync(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskEdit).then(
         (componentFixture: ComponentFixture) => {

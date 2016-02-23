@@ -28,7 +28,7 @@ describe('StatusPipe', () => {
       _id: '2'
     }, {
       done: false,
-      owner: "a",
+      owner: 'a',
       description: 'task 3',
       _id: '3'
     }]);
