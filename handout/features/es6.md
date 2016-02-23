@@ -5,10 +5,10 @@ upcoming version, and it brings a lot of new features.
 
 Some of the highlights:
 
-- Template Strings
 - Classes
+- Template Strings
 - Arrow Functions
 - Constants and Block Scoped Variables
-- ...spread, and ...rest
+- ...spread and ...rest
 - Destructuring
 - Modules
