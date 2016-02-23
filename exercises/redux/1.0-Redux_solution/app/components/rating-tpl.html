@@ -1,0 +1,6 @@
+<div class="rating">
+  <span *ngFor="#star of skillStars;#i=index"
+      [ngClass]="{'active': star === true}"
+      (click)="ratingClicked($event, i)">*
+  </span>
+</div>

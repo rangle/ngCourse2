@@ -1,0 +1,7 @@
+<div style="border: 1px solid black; padding: 5px; margin: 5px">
+  <label>Name:</label> {{person.get('name')}}<br/>
+  Top Skill: <persons-top-skill [name]="person.get('name')"></persons-top-skill> <br/>
+  Bottom Skill: <persons-bottom-skill [name]="person.get('name')"></persons-bottom-skill> <br/>
+  <hr/>
+  <ng-content></ng-content>
+</div>
