@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit()" novalidate>
+
+  <!-- Cheese -->
+  <label class="bold" for="cheese">Cheese</label>
+  <select class="block col-12 mb1 field"
+    name="cheese">
+    <option>Fior di Latte</option>
+    <option>Mozzarella</option>
+    <option>Provolone</option>
+    <option>Parmesan</option>
+    <option>Pecarino</option>
+  </select>
+
+  <!-- Sauce -->
+  <label class="bold" for="sauce">Sauce</label>
+  <select class="block col-12 mb1 field"
+    name="sauce">
+    <option>Tomato</option>
+    <option>White</option>
+  </select>
+
+  <!-- Topping -->
+  <label class="bold" for="topping">Topping</label>
+  <input class="block col-12 mb1 field"
+    type="text"
+    name="topping" />
+
+  <!-- Name -->
+  <label class="bold" for="name">Name</label>
+  <input class="block col-12 mb1 field"
+    type="text"
+    name="name" />
+
+  <p>
+    <button class="btn btn-primary"
+      type="submit">
+      Save
+    </button>
+  </p>
+</form>

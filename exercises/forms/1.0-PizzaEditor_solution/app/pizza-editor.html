@@ -1,0 +1,49 @@
+<form [ngFormModel]="pizzaForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <!-- Cheese -->
+  <label class="bold" for="cheese">Cheese</label>
+  <select class="block col-12 mb1 field"
+    [ngFormControl]="pizzaForm.find('cheese')"
+    [ngModel]="pizza.cheese"
+    name="cheese">
+    <option>Fior di Latte</option>
+    <option>Mozzarella</option>
+    <option>Provolone</option>
+    <option>Parmesan</option>
+    <option>Pecarino</option>
+  </select>
+
+  <!-- Sauce -->
+  <label class="bold" for="sauce">Sauce</label>
+  <select class="block col-12 mb1 field"
+    [ngFormControl]="pizzaForm.find('sauce')"
+    [ngModel]="pizza.sauce"
+    name="sauce">
+    <option>Tomato</option>
+    <option>White</option>
+  </select>
+
+  <!-- Topping -->
+  <label class="bold" for="topping">Topping</label>
+  <input class="block col-12 mb1 field"
+    type="text"
+    name="topping"
+    [ngFormControl]="pizzaForm.find('topping')"
+    [ngModel]="pizza.topping" />
+
+  <!-- Name -->
+  <label class="bold" for="name">Name</label>
+  <input class="block col-12 mb1 field"
+    type="text"
+    name="name"
+    [ngFormControl]="pizzaForm.find('name')"
+    [ngModel]="pizza.name" />
+
+  <p>
+    <button class="btn btn-primary"
+      type="submit"
+      [disabled]="!pizzaForm.valid">
+      Save
+    </button>
+  </p>
+</form>
