@@ -33,7 +33,7 @@ Mobile use of the web is huge and growing. Mobile devices keep getting more powe
 
 Angular 2 was designed for mobile from the ground up. Aside from limited processing power, mobile devices have other features and limitations that separate them from traditional computers. Touch interfaces, limited screen real estate, and mobile hardware have all been considered in Angular 2.
 
-The nature of computing performance means that desktops will also see "dramatic" improvements in performance, and responsiveness. Early benchmarks performed on Angular 2 alpha confirm that "dramatic" is an accurate choice of word. The author makes the wise disclaimer that benchmarks are tricky to get right, and even when done correctly can be misleading. Nevertheless Angular 2 *alpha*'s rendering performance vs Angular 1.4's is astounding at scale.
+The nature of computing performance means that desktops will also see "dramatic" improvements in performance, and responsiveness. Early benchmarks performed on Angular 2 alpha confirm that "dramatic" is an accurate choice of word. Note that benchmarks are tricky to get right, and even when done correctly can be misleading. Nevertheless Angular 2 *alpha*'s rendering performance vs Angular 1.4's is astounding at scale.
 
 Angular 2, like React and other modern frameworks, can leverage performance gains by rendering HTML on the server, or even in a  web worker. Depending on application/site design this isomorphic rendering can make a user's experience *feel* even more instantaneous.
 
@@ -64,7 +64,9 @@ Some of the other interesting features in Angular 2 are:
 
 ## Differences Between Angular 1 & 2
 
-| Old School Angular 1.x | Angular 1.x Best Practices | **Angular Next**             | Angular 2
+Note that "Transitional Architecture" refers to a style of Angular 1 application written in a way that mimics Angular 2's component style, but with controllers and directives instead of TypeScript classes.
+
+| Old School Angular 1.x | Angular 1.x Best Practices | **Transitional Architecture**             | Angular 2
 --------------------------------------|------------------------| ---------------------------|------------------------------|----------------------
 Nested scopes ("$scope", watches)     | Used heavily           | Avoided                    | **Avoided**                  | Gone
 Directives vs controllers             | Use as alternatives    | Used together              | **Directives as components** | Component directives
