@@ -71,4 +71,4 @@ class ServerRequest {
 ```
 
 In the above case `this` will _not_ point to the expected object, in "strict"
-mode it will be `undefined`.  This leads to another ES6 feature...
+mode it will be `undefined`.  This leads to another ES6 feature - arrow functions, which will be covered next.
