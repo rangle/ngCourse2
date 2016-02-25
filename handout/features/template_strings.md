@@ -10,7 +10,7 @@ resulted in a lot of ugly concatenation code that looked like:
 var name = 'Sam';
 var age = 42;
 
-console.log('hello my name is ' + Sam + ' I am ' + age + ' years old');
+console.log('hello my name is ' + name + ' I am ' + age + ' years old');
 ```
 
 ES6 introduces a new type of string literal that is marked with back ticks (`).
