@@ -7,5 +7,5 @@ meant to use TypeScript to describe interfaces presented by JavaScript
 libraries.
 
 There are communities of people dedicated to creating typings for JavaScript
-projects.  There is also a utility called `tsd` (`npm install --save-dev tsd`)
-that can be used to manage third party typings.
+projects.  There is also a utility called `typings` (`npm install --save-dev typings`)
+that can be used to manage third party typings from a variety of sources.
