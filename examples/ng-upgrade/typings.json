@@ -1,0 +1,8 @@
+{
+  "name": "ng-upgrade-example",
+  "ambientDependencies": {
+    "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#54f064352a3615443f7bff4198078db15e28247b",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#54f064352a3615443f7bff4198078db15e28247b"
+  }
+}
+
