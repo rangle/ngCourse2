@@ -13,12 +13,12 @@
   },
   "scripts": {
     "postinstall": "npm run typings && npm run build",
-    "typings": "rimraf typings && node_modules/.bin/tsd install && node_modules/.bin/tsd link",
-    "dev": "env NODE_ENV=development nodemon server.js",
-    "start": "env NODE_ENV=production node server.js",
+    "typings": "rimraf typings && node_modules/.bin/typings install",
+    "dev": "cross-env NODE_ENV=development nodemon server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack",
     "test": "karma start",
     "e2e": "npm run build && gulp e2e",
     "toc": "doctoc --notitle ../handout && node toc.js"
@@ -31,7 +31,7 @@
     "url": "https://github.com/rangle/ngCourse2.git/issues"
   },
   "dependencies": {
-    "angular2": "^2.0.0-beta.0",
+    "angular2": "^2.0.0-beta.7",
     "basscss": "^7.1.0",
     "basscss-border-colors": "^1.1.1",
     "chalk": "^1.1.1",
@@ -45,15 +45,16 @@
     "redux-devtools": "^3.0.1",
     "redux-logger": "^2.1.4",
     "redux-thunk": "^1.0.0",
-    "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-beta.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "^5.0.0-beta.2",
     "serve-webpack-client": "0.0.4",
     "winston": "^2.1.1",
-    "zone.js": "^0.5.10"
+    "zone.js": "^0.5.15"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.3",
     "chai": "^3.4.0",
+    "cross-env": "^1.0.7",
     "css-loader": "^0.21.0",
     "doctoc": "^0.15.0",
     "file-loader": "^0.8.4",
@@ -84,10 +85,10 @@
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.0",
-    "ts-loader": "^0.6.0",
-    "tsd": "^0.6.5",
+    "ts-loader": "^0.8.1",
     "tslint-loader": "^1.0.2",
-    "typescript": "^1.7.3",
+    "typescript": "^1.8.0",
+    "typings": "^0.6.8",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.9"
   }
