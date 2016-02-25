@@ -131,7 +131,7 @@ import {Unique} from '../services/unique';
      <p>
      ChildOwnInjector should have its own value: <child-own-injector></child-own-injector>
      <p>
-     Sibling of ChildOwnInjector should not have its own value <child-own-injector></child-own-injector>
+     ChildOwnInjector's other instance should also have its own value <child-own-injector></child-own-injector>
      </p>
        `,
   directives: [ChildInheritor, ChildOwnInjector]
@@ -147,4 +147,4 @@ export class App {
 
 [View Example][plunkInjectorTree]
 
-[plunkInjectorTree]: https://plnkr.co/edit/EUOpUi66mwEJCUOjpMQx?p=preview "Injector Tree Example"
+[plunkInjectorTree]: https://plnkr.co/edit/XghXIFpZaA5OpedfxFTp?p=preview "Injector Tree Example"
