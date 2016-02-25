@@ -1,24 +1,19 @@
-  <ngc-task-form *ngIf="task"
-    formTitle="Task Edit"
-    [task]="task"
-    (onSubmit)="submitTask($event)">
-  </ngc-task-form>
-
-<!--<div class="sm-col-10 mx-auto border rounded mb4">
-
+<div class="sm-col-10 mx-auto border rounded mb4">
+{{task}}
   <div class="p2 gray bg-darken-1">
-    <h4 class="m0 caps">Edit Task</h4>
+    <h4 class="m0 caps">{{formTitle}}</h4>
   </div>
 
   <form class="p2 bg-white"
-    [ngFormModel]="taskEditForm"
-    (ngSubmit)="onSubmit(taskEditForm)">
+    [ngFormModel]="taskForm"
+    (ngSubmit)="submitTask(taskForm)">
     <input id="_id" type="hidden" ngControl="_id">
     <label for="owner">Owner</label>
     <input class="block col-12 mb1 field"
       id="owner"
       type="text"
-      ngControl="owner">
+      ngControl="owner"
+      >
     <label for="description">Description</label>
     <input class="block col-12 mb2 field"
       id="description"
@@ -26,7 +21,7 @@
       ngControl="description">
 
     <button class="btn btn-primary"
-      [disabled]="!taskEditForm.valid">
+      [disabled]="!taskForm.valid">
       Save
     </button>
     <button class="btn btn-primary bg-gray"
@@ -36,4 +31,3 @@
   </form>
 
 </div>
--->
