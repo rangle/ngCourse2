@@ -40,7 +40,7 @@ function addSimple(a, b) {
 }
 
 function add(...numbers) {
-  return numbers[0] + numbers[1];`
+  return numbers[0] + numbers[1];
 }
 
 addSimple(3, 2);  // 5
@@ -63,7 +63,7 @@ like so:
 ```js
 
 function print(a, b, c, ...more) {
-  console.log(...more[0]);
+  console.log(more[0]);
   console.log(arguments[0]);
 }
 
