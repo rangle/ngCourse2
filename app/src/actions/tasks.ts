@@ -29,15 +29,17 @@ export function loadTasks() {
 }
 
 export function addTask(task: Task, onComplete: Function) {
-  return (dispatch) => Tasks.add(task)
-    .subscribe((res) => {
-      if (res.length === 1) {
-        dispatch({
-          type: TASK_ADDED,
-          payload: res[0]
-        });
-      }
-    }, null, onComplete);
+  return (dispatch) => {
+    delete task._id;
+    return Tasks.add(task)
+      .subscribe((res) => {
+        if (res.length === 1) {
+          dispatch({
+            type: TASK_ADDED,
+            payload: res[0]
+          });
+        }
+      }, null, onComplete); }
 }
 
 export function deleteTask(task: TaskMap) {
