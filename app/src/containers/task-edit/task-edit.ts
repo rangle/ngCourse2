@@ -1,68 +1,50 @@
 import {Component, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {bindActionCreators} from 'redux';
-import {TaskMap} from '../../services/tasks-service';
-import {
-  Router, 
-  RouterLink, 
-  RouteParams,
-  ROUTER_DIRECTIVES
-} from 'angular2/router';
-import {
-  FORM_BINDINGS,
-  FORM_DIRECTIVES,
-  ControlGroup,
-  FormBuilder,
-  Validators
-} from 'angular2/common';
-const TEMPLATE = require('./task-edit.html');
+import TaskForm from '../../components/task-form/task-form';
+import {Router, RouteParams } from 'angular2/router';
+import { COMMON_DIRECTIVES } from 'angular2/common';
 import * as TaskActions from '../../actions/tasks';
-import {List} from 'immutable';
-  
+import {List, Map} from 'immutable';
+
+const TEMPLATE = require('./task-edit.html');
+
 @Component({
   selector: 'ngc-task-edit',
-  directives: [RouterLink, ROUTER_DIRECTIVES, FORM_DIRECTIVES],
-  viewBindings: [FORM_BINDINGS],
+  directives: [COMMON_DIRECTIVES, TaskForm],
   template: TEMPLATE
 })
 export default class TaskEdit implements OnDestroy, OnInit {
 
   protected unsubscribe: Function;
-  tasks: List<TaskMap>;
+  task: Map<string, any>;
   updateTask: Function;
-  taskEditForm: ControlGroup;
+
+
+  get taskId(): string {
+    return this._params.get('id');
+  }
 
   constructor(
     @Inject('ngRedux') private ngRedux,
-    private _builder: FormBuilder,
     private _router: Router,
-    public params: RouteParams
-  ) {}
+    private _params: RouteParams
+  ) { }
 
   ngOnInit() {
     this.unsubscribe = this.ngRedux.connect(
-      this.mapStateToThis, 
+      this.mapStateToThis,
       this.mapDispatchToThis
     )(this);
-
-    const task = this.tasks.find(t => 
-      t.get('_id') === this.params.get('id')
-    );
-
-    this.taskEditForm = this._builder.group({
-      _id: [task.get('_id'), Validators.required],
-      owner: [task.get('owner'), Validators.required],
-      description: [task.get('description'), Validators.required],
-      done: [task.get('done')]
-    });
   }
 
   ngOnDestroy() {
     this.unsubscribe();
   }
 
-  mapStateToThis(state) {
+  mapStateToThis = (state) => {
     return {
-      tasks: state.tasks
+      task: state.tasks.find(t => t.get('_id') === this.taskId),
+      taskLoaded: true
     };
   }
 
@@ -70,8 +52,8 @@ export default class TaskEdit implements OnDestroy, OnInit {
     return bindActionCreators(TaskActions, dispatch);
   }
 
-  onSubmit(): void {
-    this.updateTask(this.taskEditForm.value, () => {
+  submitTask(taskForm): void {
+    this.updateTask(taskForm, () => {
       this._router.navigate(['/Main']);
     });
   }
