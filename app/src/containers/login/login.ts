@@ -1,35 +1,32 @@
 import {Component} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {
-  FORM_BINDINGS,
-  FORM_DIRECTIVES,
-  ControlGroup,
-  FormBuilder,
-  Validators
+FORM_BINDINGS,
+FORM_DIRECTIVES,
+ControlGroup,
+FormBuilder,
+Validators
 } from 'angular2/common';
 import AuthService from '../../services/auth-service';
+import LoginForm from '../../components/login-form/login-form';
 const TEMPLATE = require('./login.html');
 
 @Component({
   selector: 'login',
-  directives: [FORM_DIRECTIVES],
-  viewBindings: [FORM_BINDINGS],
+  directives: [LoginForm],
   template: TEMPLATE
 })
-export default class LoginComponent {
+export default class Login {
 
   message: string = '';
-  loginForm: ControlGroup;
+
 
   constructor(
     public authService: AuthService,
-    private _builder: FormBuilder,
+
     private _router: Router
   ) {
-    this.loginForm = _builder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+
   }
 
   ngOnInit() {
@@ -38,9 +35,9 @@ export default class LoginComponent {
     }
   }
 
-  login() {
-    const values = this.loginForm.value;
-    if (!this.authService.login(values.username, values.password)) {
+  login(userDetails) {
+    
+    if (!this.authService.login(userDetails.username, userDetails.password)) {
       this.message = 'Incorrect credentials.';
     } else {
       this.message = '';
