@@ -1,12 +1,12 @@
 'use strict';
 'format es6'; // force SystemJS to transpile exercise
 
-function write(...allTheArguments) {
+function write(first, ...allTheArguments) {
   const element = document.getElementById('example');
 
-  element.innerHTML = allTheArguments
+  element.innerHTML = first.toUpperCase()  + ' ' + allTheArguments
     .reduce((prev, curr) => prev + ' ' + curr, '');
 
 }
 
-write('JavaScript For Life');
+write('JavaScript', 'For', 'Life');
