@@ -88,6 +88,13 @@
 <container>
     <h1>Login</h1>
     <section>
+    <login-form 
+        [message]="loginMessage" 
+        (onLogin)="login($event)">
+    </login-form>
+    <hr>
+    <button type="buton" 
+        (click)="loginMessage=''">Clear Message</button>
     </section>
 </container>
 <container>

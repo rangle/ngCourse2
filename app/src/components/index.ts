@@ -5,7 +5,9 @@ import {CardActions, CardTitle, Card} from './card';
 import Dropdown from './dropdown/dropdown';
 import Grid from './grid/grid';
 import Header from './header/header';
-export {Container, Sample, Dropdown, Grid, Header}
+import LoginForm from './login-form/login-form';
+
+export {Container, Sample, Dropdown, Grid, Header, LoginForm}
 export const NGC_ICONS = [CheckIcon, CloseIcon, EditIcon, LogoIcon, SummaryIcon, UserIcon];
 export const CARD_COMPONENTS = [CardActions, CardTitle, Card]
 

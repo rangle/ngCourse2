@@ -5,7 +5,8 @@ import {Container,
   CARD_COMPONENTS,
   Dropdown,
   Grid,
-  Header
+  Header,
+  LoginForm
 } from '../../components';
 import {List, fromJS, Map} from 'immutable';
 
@@ -15,7 +16,14 @@ const TEMPLATE = require('./kitchen-sink.html');
 @Component({
   selector: 'kitchen-sink',
   template: TEMPLATE,
-  directives: [Container, Sample, NGC_ICONS, CARD_COMPONENTS, Dropdown, Grid, Header]
+  directives: [Container, 
+    Sample, 
+    NGC_ICONS, 
+    CARD_COMPONENTS, 
+    Dropdown, 
+    Grid, 
+    Header,
+    LoginForm]
 
 })
 export default class KitchenSink implements OnInit, OnDestroy {
@@ -26,7 +34,7 @@ export default class KitchenSink implements OnInit, OnDestroy {
       {owner: 'Bob', description: 'Done Task', done: true, _id: '123' }
     ]);
 
-  
+  loginMessage: string = '';
   constructor() {
 
   }
@@ -49,5 +57,9 @@ export default class KitchenSink implements OnInit, OnDestroy {
 
   onUpdateTask(task) {
     console.log('Updating task', task);
+  }
+
+  login(login) {
+    this.loginMessage = `Tried to login with ${login.username} - ${login.password}`
   }
 }
