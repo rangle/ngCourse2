@@ -7,14 +7,5 @@ const initialState = Map({
 });
 
 export default function filters(state = initialState, action) {
-  switch (action.type) {
-    case SELECT_OWNER:
-      return state.set('owner', action.payload);
-
-    case SELECT_STATUS:
-      return state.set('taskStatus', action.payload);
-
-    default:
-      return state;
-  }
+  return state;
 }
