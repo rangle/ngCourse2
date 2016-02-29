@@ -116,6 +116,11 @@
 <container>
     <h1>Task Form</h1>
     <section>
+    <ngc-task-form
+        formTitle="'Kitchen Sink Task Form'"
+        [task]="tasks.get(0)"
+        (onSubmit)="onTaskSubmit($event)"
+    ></ngc-task-form>
     </section>
 </container>
 <container>

@@ -7,7 +7,8 @@ import {Container,
   Grid,
   Header,
   LoginForm,
-  TaskFilters
+  TaskFilters,
+  TaskForm
 } from '../../components';
 import {List, fromJS, Map} from 'immutable';
 
@@ -25,7 +26,8 @@ const TEMPLATE = require('./kitchen-sink.html');
     Grid, 
     Header,
     LoginForm,
-    TaskFilters]
+    TaskFilters, 
+    TaskForm]
 
 })
 export default class KitchenSink implements OnInit, OnDestroy {
@@ -72,5 +74,9 @@ export default class KitchenSink implements OnInit, OnDestroy {
   }
   onSelectStatus = (newStatus: string) => {
     this.selectedStatus = newStatus;
+  }
+
+  onTaskSubmit(task:any) {
+    console.log('Task Submitted', task);
   }
 }
