@@ -10,58 +10,13 @@ import {List} from 'immutable';
 
 @Component({
   selector: 'ngc-summary',
-  pipes: [OwnersPipe, OwnerTasksPipe, SizePipe],
-  directives: [SummaryIcon, TaskFilters],
   template: `
-  <p class="h3 mb2 p2">
-    <ngc-icon-summary></ngc-icon-summary>
-    Hello, Alice Beeblebrox. You own 
-    <span class="blue">
-      {{ tasks | ownerTasks:'alice' | size }}
-    </span>
-    out of 
-    <span class="orange">{{ tasks.size }}</span>
-    tasks.
-  </p>
-  <ngc-task-filters
-    [tasks]="tasks"
-    [owner]="owner"
-    [taskStatus]="taskStatus"
-    (ownerChanged)="selectOwner($event)"
-    (taskStatusChanged)="selectStatus($event)">
-  </ngc-task-filters>
+    TODO: Complete Summary Container
   `
 })
-export default class Summary implements OnDestroy, OnInit {
-
-  protected unsubscribe: Function;
-  tasks: List<TaskMap>;
-  owner: string;
-  taskStatus: string;
-  
+export default class Summary  {
 
   constructor( @Inject('ngRedux') private ngRedux ) {}
 
-  ngOnInit() {
-    this.unsubscribe = this.ngRedux.connect(
-      this.mapStateToThis, 
-      this.mapDispatchToThis
-    )(this);
-  }
-
-  ngOnDestroy() {
-    this.unsubscribe();
-  }
-
-  mapStateToThis(state) {
-    return {
-      tasks: state.tasks,
-      owner: state.filters.get('owner'),
-      taskStatus: state.filters.get('taskStatus')
-    };
-  }
-
-  mapDispatchToThis(dispatch) {
-    return bindActionCreators(FilterActions, dispatch);
-  }
+  
 }
