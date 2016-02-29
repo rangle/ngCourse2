@@ -27,8 +27,8 @@ import {List} from 'immutable';
     [tasks]="tasks"
     [owner]="owner"
     [taskStatus]="taskStatus"
-    [selectOwner]="selectOwner"
-    [selectStatus]="selectStatus">
+    (ownerChanged)="selectOwner($event)"
+    (taskStatusChanged)="selectStatus($event)">
   </ngc-task-filters>
   `
 })
@@ -38,8 +38,7 @@ export default class Summary implements OnDestroy, OnInit {
   tasks: List<TaskMap>;
   owner: string;
   taskStatus: string;
-  selectOwner: Function;
-  selectStatus: Function;
+  
 
   constructor( @Inject('ngRedux') private ngRedux ) {}
 
