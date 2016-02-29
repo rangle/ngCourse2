@@ -1,0 +1,10 @@
+<div class="sm-col-6 mx-auto border rounded mb4"
+  *ngIf="!authService.isLoggedIn()">
+
+  <login-form
+    [message]="message"
+    (onLogin)="login($event)"
+  ></login-form>
+  
+
+</div>

@@ -1,7 +1,7 @@
 import {Component, View, Inject} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import Header from '../components/header/header';
-import Login from '../components/login/login';
+import Login from './login/login';
 import Main from './main';
 
 @Component({
