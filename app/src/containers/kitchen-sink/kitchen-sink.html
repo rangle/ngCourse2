@@ -100,6 +100,17 @@
 <container>
     <h1>Task Filters</h1>
     <section>
+        <ngc-task-filters
+        [tasks]="tasks"
+        [owner]="selectedOwner"
+        [taskStatus]="selectedStatus"
+        [selectOwner]="onSelectOwner"
+        [selectStatus]="onSelectStatus"
+
+        >
+        </ngc-task-filters>
+        <hr/>
+        {{selectedOwner}} - {{selectedStatus}}
     </section>
 </container>
 <container>

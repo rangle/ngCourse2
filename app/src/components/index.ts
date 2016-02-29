@@ -6,8 +6,9 @@ import Dropdown from './dropdown/dropdown';
 import Grid from './grid/grid';
 import Header from './header/header';
 import LoginForm from './login-form/login-form';
+import TaskFilters from './task-filters/task-filters';
 
-export {Container, Sample, Dropdown, Grid, Header, LoginForm}
+export {Container, Sample, Dropdown, Grid, Header, LoginForm, TaskFilters}
 export const NGC_ICONS = [CheckIcon, CloseIcon, EditIcon, LogoIcon, SummaryIcon, UserIcon];
 export const CARD_COMPONENTS = [CardActions, CardTitle, Card]
 

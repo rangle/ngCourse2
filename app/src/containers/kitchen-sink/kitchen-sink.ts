@@ -6,7 +6,8 @@ import {Container,
   Dropdown,
   Grid,
   Header,
-  LoginForm
+  LoginForm,
+  TaskFilters
 } from '../../components';
 import {List, fromJS, Map} from 'immutable';
 
@@ -23,7 +24,8 @@ const TEMPLATE = require('./kitchen-sink.html');
     Dropdown, 
     Grid, 
     Header,
-    LoginForm]
+    LoginForm,
+    TaskFilters]
 
 })
 export default class KitchenSink implements OnInit, OnDestroy {
@@ -35,6 +37,8 @@ export default class KitchenSink implements OnInit, OnDestroy {
     ]);
 
   loginMessage: string = '';
+  selectedStatus: string = 'all';
+  selectedOwner: string = 'everyone';
   constructor() {
 
   }
@@ -61,5 +65,12 @@ export default class KitchenSink implements OnInit, OnDestroy {
 
   login(login) {
     this.loginMessage = `Tried to login with ${login.username} - ${login.password}`
+  }
+
+  onSelectOwner = (owner: string) => {
+    this.selectedOwner = owner;
+  }
+  onSelectStatus = (newStatus: string) => {
+    this.selectedStatus = newStatus;
   }
 }
