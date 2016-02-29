@@ -104,8 +104,8 @@
         [tasks]="tasks"
         [owner]="selectedOwner"
         [taskStatus]="selectedStatus"
-        [selectOwner]="onSelectOwner"
-        [selectStatus]="onSelectStatus"
+        (ownerChanged)="onSelectOwner($event)"
+        (taskStatusChanged)="onSelectStatus($event)"
 
         >
         </ngc-task-filters>
