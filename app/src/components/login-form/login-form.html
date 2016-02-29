@@ -1,5 +1,4 @@
-<div class="sm-col-6 mx-auto border rounded mb4"
-  *ngIf="!authService.isLoggedIn()">
+
 
   <div class="p2 gray bg-darken-1">
     <h4 class="m0 caps">Login</h4>
@@ -11,7 +10,7 @@
 
   <form class="p2 bg-white"
     [ngFormModel]="loginForm"
-    (ngSubmit)="login(loginForm)">
+    (ngSubmit)="login(loginForm.value)">
       <label for="username">User:</label>
       <input class="block col-12 mb1 field"
         type="text"
@@ -28,4 +27,4 @@
       </button>
   </form>
 
-</div>
+
