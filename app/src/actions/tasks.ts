@@ -28,18 +28,18 @@ export function loadTasks() {
     });
 }
 
-export function addTask(task: Task, onComplete: Function) {
+export function addTask(/* To Be Completed */) {
+ 
   return (dispatch) => {
-    delete task._id;
-    return Tasks.add(task)
-      .subscribe((res) => {
-        if (res.length === 1) {
-          dispatch({
-            type: TASK_ADDED,
-            payload: res[0]
-          });
-        }
-      }, null, onComplete); }
+    return dispatch({
+      type: TASK_ADDED,
+      payload: {
+        /* To Be Completed */
+      }
+
+      
+    })
+  }
 }
 
 export function deleteTask(task: TaskMap) {
@@ -52,31 +52,24 @@ export function deleteTask(task: TaskMap) {
     });
 }
 
-export function updateTask(task: Task, onComplete: Function) {
-  return (dispatch, getState) => Tasks.update(task)
-    .subscribe((res) => {
-      if (res.length === 1) {
-        const owner = getState().tasks.get('owner');
-
-        dispatch({
-          type: TASK_UPDATED, 
-          payload: task
-        });
-
-        /* select the owner in case the owner name has been updated */
-        if (owner !== 'everyone') {
-          FilterActions.selectOwner(task.owner);
-        }
-      }
-    }, null, onComplete);
+export function updateTask(/* To Be Completed */) {
+  return (dispatch, getState) => {
+   dispatch({
+     type: TASK_UPDATED,
+     paylaod: {
+       /* To Be Completed */
+     }
+   })
+  }
 }
 
-export function markTask(task: TaskMap, newStatus: boolean) {
+export function markTask(/* TO BE COMPLETED*/) {
+// NOTE: 'status' field is not implemented on the 
+// API yet, so we can treat this as a synchernous action
   return {
     type: TASK_MARKED,
     payload: {
-      _id: task.get('_id'),
-      newStatus: newStatus
+      /* To Be Completed */
     }
   };
 }

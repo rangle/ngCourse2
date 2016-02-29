@@ -1,7 +1,7 @@
 import {Component, View, Inject} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import KitchenSink from './kitchen-sink/kitchen-sink';
-
+import Main from './main';
 
 @Component({
   selector: 'ngc-root',
@@ -14,6 +14,11 @@ import KitchenSink from './kitchen-sink/kitchen-sink';
   `
 })
 @RouteConfig([
+  {
+    path: '/tasks/...',
+    as: 'Main',
+    component: Main,
+  },
   {
     path: '/kitchen-sink',
     as: 'KitchenSink',

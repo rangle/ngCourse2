@@ -3,6 +3,9 @@ import {Http, Request, Response, Headers} from 'angular2/http';
 import 'rxjs/add/operator/map';
 import {List, Map} from 'immutable';
 
+export interface ITaskService {
+
+}
 export interface Task {
   owner: string;
   description: string;
@@ -31,30 +34,5 @@ export default class TasksService {
       .map((res: Response) => res.json());
   }
 
-  add(task: Task) {
-    return this._http.post(
-      'http://ngcourse.herokuapp.com/api/v1/tasks',
-      JSON.stringify(task), {
-        headers: HEADERS
-      }
-    )
-    .map((res: Response) => res.json());
-  }
-
-  update(task: Task) {
-    return this._http.put(
-      `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`,
-      JSON.stringify(task), {
-        headers: HEADERS
-      }
-    )
-    .map((res: Response) => res.json());
-  }
-
-  delete(task: TaskMap) {
-    return this._http.delete(
-      `http://ngcourse.herokuapp.com/api/v1/tasks/${task.get('_id')}`
-    )
-    .map((res: Response) => res.json());
-  }
+ 
 }
