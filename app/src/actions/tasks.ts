@@ -1,9 +1,14 @@
-import TasksService, {Task, TaskMap} from '../services/tasks-service'; 
-import * as FilterActions from './filters';
+import TasksService, {Task, TaskMap} from '../services/tasks-service';
+import {selectOwner}  from './filters';
 import {Http} from 'angular2/http';
 import {Injector, provide} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {Map} from 'immutable';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/pluck';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/publish';
+import 'rxjs/add/operator/share';
 
 const injector = Injector.resolveAndCreate([
   HTTP_PROVIDERS,
@@ -19,8 +24,8 @@ export const TASK_UPDATED = 'TASK_UPDATED';
 export const TASK_MARKED = 'TASK_MARKED';
 
 export function loadTasks() {
-  return (dispatch) => Tasks.fetch()   
-    .subscribe((res: Array<Task>) => { 
+  return (dispatch) => Tasks.fetch()
+    .subscribe((res: Array<Task>) => {
       dispatch({
         type: TASKS_LOADED,
         payload: res
@@ -28,47 +33,68 @@ export function loadTasks() {
     });
 }
 
-export function addTask(task: Task, onComplete: Function) {
+export function addTask(task: Task) {
   return (dispatch) => {
-    delete task._id;
-    return Tasks.add(task)
-      .subscribe((res) => {
-        if (res.length === 1) {
-          dispatch({
-            type: TASK_ADDED,
-            payload: res[0]
-          });
-        }
-      }, null, onComplete); }
+    
+
+    const taskAdd$ = Tasks.add(task);
+
+    taskAdd$
+      .filter(res=> res.length === 1)
+      .pluck(0)
+      .subscribe(newTask=> {
+
+        dispatch({
+          type: TASK_ADDED,
+          payload: newTask
+        });
+
+      });
+
+    return taskAdd$;
+
+  }
 }
 
 export function deleteTask(task: TaskMap) {
-  return (dispatch) => Tasks.delete(task)
-    .subscribe((res: number) => {
-      dispatch({
-        type: TASK_DELETED,
-        payload: task.get('_id')
+  return (dispatch) => {
+    const taskDelete$ = Tasks.delete(task);
+    taskDelete$
+      .subscribe((res: number) => {
+        dispatch({
+          type: TASK_DELETED,
+          payload: task.get('_id')
+        });
       });
-    });
+    
+    return taskDelete$;
+  }
 }
 
-export function updateTask(task: Task, onComplete: Function) {
-  return (dispatch, getState) => Tasks.update(task)
-    .subscribe((res) => {
-      if (res.length === 1) {
-        const owner = getState().tasks.get('owner');
+export function updateTask(task: Task) {
+  return (dispatch, getState) => {
+    const taskUpdate$ = Tasks.update(task);
+
+    taskUpdate$
+      .filter(res=> res.length === 1)
+      .pluck(0)
+      .subscribe(updatedTask=> {
+
+        const owner = task.owner;
 
         dispatch({
-          type: TASK_UPDATED, 
-          payload: task
+          type: TASK_UPDATED,
+          payload: updatedTask
         });
 
-        /* select the owner in case the owner name has been updated */
         if (owner !== 'everyone') {
-          FilterActions.selectOwner(task.owner);
-        }
-      }
-    }, null, onComplete);
+          dispatch(selectOwner(owner))
+        };
+      });
+
+    return taskUpdate$
+  }
+
 }
 
 export function markTask(task: TaskMap, newStatus: boolean) {

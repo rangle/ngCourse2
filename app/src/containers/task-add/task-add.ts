@@ -41,8 +41,7 @@ export default class TaskAdd implements OnDestroy, OnInit {
 
   submitTask(newTask): void {
     
-    this.addTask(newTask, () => {
-      this._router.navigate(['/Tasks']);
-    });
+    this.addTask(newTask)
+      .subscribe( _ => this._router.navigate(['/Tasks']));
   }
 }
