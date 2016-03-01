@@ -1,8 +1,8 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
-import Dropdown from '../dropdown/dropdown'; 
+import {Component, Input, Output, EventEmitter, OnInit} from 'angular2/core';
+import Dropdown from '../dropdown/dropdown';
 import {SizePipe} from '../../pipes/size';
 import {OwnersPipe, OwnerTasksPipe} from '../../pipes/owners';
-import {List, Map} from 'immutable';
+import {List} from 'immutable';
 const TEMPLATE = require('./task-filters.html');
 
 @Component({
@@ -15,13 +15,14 @@ export default class TaskFilters {
 
   @Input() tasks: List<Map<string, any>>;
   @Input() owner: string;
+  @Input() owners: List<string>;
   @Input() taskStatus: string;
-
   @Output() ownerChanged: EventEmitter<string> = new EventEmitter<string>();
   @Output() taskStatusChanged: EventEmitter<string> = new EventEmitter<string>();
-
-  statuses: List<string>; 
+  statuses: List<string>;
   
+
+
 
   constructor() {
     this.statuses = List(['all', 'completed', 'incomplete']);

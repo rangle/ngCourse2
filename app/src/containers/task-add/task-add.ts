@@ -14,8 +14,7 @@ export default class TaskAdd implements OnDestroy, OnInit {
 
   protected unsubscribe: Function;
   addTask: Function;
-  
-
+  cancelLink: any[] = ['/Tasks']
   constructor( 
     @Inject('ngRedux') private ngRedux, 
     public _router: Router) { }
@@ -43,7 +42,7 @@ export default class TaskAdd implements OnDestroy, OnInit {
   submitTask(newTask): void {
     
     this.addTask(newTask, () => {
-      this._router.navigate(['/Main']);
+      this._router.navigate(['/Tasks']);
     });
   }
 }

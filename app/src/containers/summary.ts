@@ -5,7 +5,7 @@ import SummaryIcon from '../components/icons/summary';
 import TaskFilters from '../components/task-filters/task-filters';
 import {OwnersPipe, OwnerTasksPipe} from '../pipes/owners';
 import {SizePipe} from '../pipes/size';
-import * as FilterActions from '../actions/filters';
+import {selectOwner, selectStatus} from '../actions/filters';
 import {List} from 'immutable';
 
 @Component({
@@ -26,6 +26,7 @@ import {List} from 'immutable';
   <ngc-task-filters
     [tasks]="tasks"
     [owner]="owner"
+    [owners]="owners"
     [taskStatus]="taskStatus"
     (ownerChanged)="selectOwner($event)"
     (taskStatusChanged)="selectStatus($event)">
@@ -40,11 +41,11 @@ export default class Summary implements OnDestroy, OnInit {
   taskStatus: string;
   
 
-  constructor( @Inject('ngRedux') private ngRedux ) {}
+  constructor( @Inject('ngRedux') private ngRedux) { }
 
   ngOnInit() {
     this.unsubscribe = this.ngRedux.connect(
-      this.mapStateToThis, 
+      this.mapStateToThis,
       this.mapDispatchToThis
     )(this);
   }
@@ -53,15 +54,21 @@ export default class Summary implements OnDestroy, OnInit {
     this.unsubscribe();
   }
 
+
   mapStateToThis(state) {
+    
     return {
       tasks: state.tasks,
       owner: state.filters.get('owner'),
+      owners: new Set<string>(state.tasks.map(n => n.get('owner'))),
       taskStatus: state.filters.get('taskStatus')
     };
   }
 
   mapDispatchToThis(dispatch) {
-    return bindActionCreators(FilterActions, dispatch);
+    return {
+      selectOwner: (owner) => dispatch(selectOwner(owner)),
+      selectStatus: (status) => dispatch(selectStatus(status))
+    };
   }
 }

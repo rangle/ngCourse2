@@ -31,7 +31,7 @@ export default class Login {
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
-      this._router.navigate(['/Main']);
+      this._router.navigate(['/Tasks']);
     }
   }
 
