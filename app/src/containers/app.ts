@@ -2,7 +2,7 @@ import {Component, View, Inject} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import Header from '../components/header/header';
 import Login from './login/login';
-import Main from './main';
+import Tasks from './tasks/tasks';
 
 @Component({
   selector: 'ngc-root',
@@ -20,12 +20,12 @@ import Main from './main';
   component: Login
 }, {
   path: '/tasks/...',
-  name: 'Main',
-  component: Main,
+  name: 'Tasks',
+  component: Tasks,
   useAsDefault: true
 }, {
   path: '/',
-  redirectTo: ['Main']
+  redirectTo: ['Tasks']
 }
 ])
 export default class App {}

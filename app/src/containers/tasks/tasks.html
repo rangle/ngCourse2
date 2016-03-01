@@ -1,0 +1,7 @@
+<router-outlet></router-outlet>
+<ngc-task-grid
+  [tasks]="tasks"
+  (taskDeleted)="deleteTask($event)"
+  (taskEdit)="editTask($event)"
+  (taskMarked)="markTask($event)">
+</ngc-task-grid>

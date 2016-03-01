@@ -1,17 +1,15 @@
 import {Pipe, PipeTransform} from 'angular2/core';
 import {TaskMap} from '../services/tasks-service'; 
-import {List, Iterable} from 'immutable';
+import {List, Iterable, Seq} from 'immutable';
 
 /* filters unique list of task owners */
 @Pipe({ name: 'owners' })
 export class OwnersPipe implements PipeTransform {
-  transform(tasks: List<TaskMap>): List<string> {
-     const owners = tasks.reduce((result, task) =>
-       result.includes(task.get('owner')) ? 
-       result : result.push(task.get('owner')), 
-     List<string>());
-
-    return owners;
+  transform(tasks: any): any {
+    return  new Set<string>(
+      tasks.map(n => n.get('owner'))
+    );
+    
   }
 }
 

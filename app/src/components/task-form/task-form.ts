@@ -35,6 +35,7 @@ const TEMPLATE = require('./task-form.html');
 })
 export default class TaskForm implements OnInit {
 
+  @Input() cancelLink: any[] = ['/']
   @Input() formTitle: string;
   @Input() task: Map<string, any> =  Map<string, any>(
     { _id: undefined, 
