@@ -1,16 +1,17 @@
 import {Component, View, Inject} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import KitchenSink from './kitchen-sink/kitchen-sink';
+import {Header} from '../components';
 import Main from './main';
 
 @Component({
   selector: 'ngc-root',
-  directives: [ROUTER_DIRECTIVES, KitchenSink],
+  directives: [ROUTER_DIRECTIVES, Header],
   template: `
-  
- 
+  <ngc-header></ngc-header>
+  <div class="container px2 mt4">
     <router-outlet></router-outlet>
- 
+   </div>
   `
 })
 @RouteConfig([
@@ -30,3 +31,4 @@ import Main from './main';
 }
 ])
 export default class App {}
+
