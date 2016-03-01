@@ -70,12 +70,12 @@
 <container>
     <h1>Grid</h1>
     <section>
-    <ngc-grid [tasks]="tasks"
-        [deleteTask]="onDeleteTask"
-        [updateTask]="onUpdateTask"
-        [markTask]="onMarkTask"
+    <ngc-task-grid [tasks]="tasks"
+        (taskDeleted)="onDeleteTask($event)"
+        (taskMarked)="onMarkTask($event)"
+        (taskEdit)="onTaskEdit($event)"
     >
-    </ngc-grid>
+    </ngc-task-grid>
 
     </section>
 </container>
@@ -120,6 +120,7 @@
         formTitle="'Kitchen Sink Task Form'"
         [task]="tasks.get(0)"
         (onSubmit)="onTaskSubmit($event)"
+        [cancelLink]="cancelLink"
     ></ngc-task-form>
     </section>
 </container>
@@ -127,9 +128,11 @@
     <h1>Task Item</h1>
     <section>
     <ngc-task
-    [task]="tasks.get(0)"
-    [markTask]="onMarkTask"
-    [deleteTask]="onDeleteTask">
+     [task]="tasks.get(0)"
+        (taskDeleted)="onDeleteTask($event)"
+        (taskMarked)="onMarkTask($event)"
+        (taskEdit)="onTaskEdit($event)"
+    >
     
     </ngc-task>
 

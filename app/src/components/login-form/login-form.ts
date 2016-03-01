@@ -1,11 +1,11 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {
-  FORM_BINDINGS,
-  FORM_DIRECTIVES,
-  ControlGroup,
-  FormBuilder,
-  Validators
+FORM_BINDINGS,
+FORM_DIRECTIVES,
+ControlGroup,
+FormBuilder,
+Validators
 } from 'angular2/common';
 import AuthService from '../../services/auth-service';
 const TEMPLATE = require('./login-form.html');

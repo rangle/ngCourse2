@@ -2,7 +2,14 @@ import {Component, View, Inject} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import KitchenSink from './kitchen-sink/kitchen-sink';
 import {Header} from '../components';
-import Main from './main';
+import Tasks from './tasks/tasks';
+@Component({
+  selector: 'place-holder',
+  template: 'TODO: Complete',
+})
+class PlaceHolder {
+
+}
 
 @Component({
   selector: 'ngc-root',
@@ -16,19 +23,25 @@ import Main from './main';
 })
 @RouteConfig([
   {
+    path: '/login',
+    as: 'Login',
+    component: PlaceHolder
+  },
+  {
     path: '/tasks/...',
-    as: 'Main',
-    component: Main,
+    name: 'Tasks',
+    component: Tasks,
+    useAsDefault: true
   },
   {
     path: '/kitchen-sink',
     as: 'KitchenSink',
     component: KitchenSink
   },
-{
-  path: '/',
-  redirectTo: ['KitchenSink']
-}
+  {
+    path: '/',
+    redirectTo: ['KitchenSink']
+  }
 ])
-export default class App {}
+export default class App { }
 

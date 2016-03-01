@@ -1,28 +1,28 @@
 import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ChangeDetectionStrategy,
-  OnInit
+Component,
+Input,
+Output,
+EventEmitter,
+ChangeDetectionStrategy,
+OnInit
 } from 'angular2/core';
 
 import {
-  RouterLink,
-  Router
+RouterLink,
+Router
 } from 'angular2/router';
 
 import {
-  FORM_BINDINGS,
-  FORM_DIRECTIVES,
-  ControlGroup,
-  FormBuilder,
-  Validators
+FORM_BINDINGS,
+FORM_DIRECTIVES,
+ControlGroup,
+FormBuilder,
+Validators
 } from 'angular2/common';
 
 import {
-  Map,
-  fromJS
+Map,
+fromJS
 } from 'immutable';
 const TEMPLATE = require('./task-form.html');
 
@@ -35,18 +35,21 @@ const TEMPLATE = require('./task-form.html');
 })
 export default class TaskForm implements OnInit {
 
+  @Input() cancelLink: any[] = ['/']
   @Input() formTitle: string;
-  @Input() task: Map<string, any> =  Map<string, any>(
-    { _id: undefined, 
+  @Input() task: Map<string, any> = Map<string, any>(
+    {
+      _id: undefined,
       owner: '',
-      description: '', 
-      done: false });
+      description: '',
+      done: false
+    });
   @Output() onSubmit: EventEmitter<any> = new EventEmitter<any>();
 
 
   taskForm: ControlGroup;
 
-  constructor(private _builder: FormBuilder) {}
+  constructor(private _builder: FormBuilder) { }
 
   ngOnInit() {
     this.taskForm = this._builder.group({

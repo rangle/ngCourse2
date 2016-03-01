@@ -1,13 +1,8 @@
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, ChangeDetectionStrategy, Input} from 'angular2/core';
 import {List} from 'immutable';
 
 @Component({
   selector: 'ngc-dropdown',
-  inputs: [
-    'items',
-    'defaultValue',
-    'selected',
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <select [(ngModel)]="selected" class="field">
@@ -26,6 +21,8 @@ import {List} from 'immutable';
 })
 export default class Dropdown {
 
-  items: List<string>; 
+  @Input() items: List<string>;
+  @Input() defaultValue;
+  @Input() selected: any;
 
 }

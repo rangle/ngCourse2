@@ -6,9 +6,9 @@
   </div>
   <div class="right" *ngIf="authService.isLoggedIn()">
     <a class="btn py2 m0"
-      [routerLink]="['/Main', 'TasksList']">Tasks</a>
+      [routerLink]="['Tasks', 'TaskSummary']">Tasks</a>
     <a class="btn py2 m0"
-      [routerLink]="['/Main', 'TaskAdd']">Add Task</a>
+      [routerLink]="['Tasks', 'TaskAdd']">Add Task</a>
     <a id="qa-logout-link"
       class="btn py2 m0"
       href="#"

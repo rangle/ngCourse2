@@ -4,7 +4,7 @@ import {Container,
   NGC_ICONS, 
   CARD_COMPONENTS,
   Dropdown,
-  Grid,
+  TaskGrid,
   Header,
   LoginForm,
   TaskFilters,
@@ -24,7 +24,7 @@ const TEMPLATE = require('./kitchen-sink.html');
     NGC_ICONS, 
     CARD_COMPONENTS, 
     Dropdown, 
-    Grid, 
+    TaskGrid, 
     Header,
     LoginForm,
     TaskFilters, 
@@ -43,6 +43,7 @@ export default class KitchenSink implements OnInit, OnDestroy {
   loginMessage: string = '';
   selectedStatus: string = 'all';
   selectedOwner: string = 'everyone';
+  cancelLink: any[] = ['/KitchenSink']
   constructor() {
 
   }
@@ -65,6 +66,10 @@ export default class KitchenSink implements OnInit, OnDestroy {
 
   onUpdateTask(task) {
     console.log('Updating task', task);
+  }
+
+  onTaskEdit(task) {
+    console.log('Start editing a task', task)
   }
 
   login(login) {

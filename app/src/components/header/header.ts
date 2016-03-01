@@ -15,8 +15,8 @@ export default class Header {
 
   constructor(
     public authService: AuthService
-  ) {}
-  
+  ) { }
+
   logout() {
     this.authService.logout();
   }
