@@ -10,12 +10,7 @@ export interface Task {
   done: boolean;
 }
 
-export interface TaskMap extends Map<string, any> {
-  owner: string;  
-  description: string; 
-  _id: string; 
-  done: boolean;
-}
+export interface TaskMap extends Map<string, any> { }
 
 // Create a request header to set content type to JSON
 const HEADERS = new Headers({ 'Content-Type': 'application/json' });
