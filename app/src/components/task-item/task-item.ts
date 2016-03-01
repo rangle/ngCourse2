@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, Input, Output} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {CheckIcon, CloseIcon, EditIcon, UserIcon} from '../icons';
 import {Card, CardTitle, CardActions} from '../card';
@@ -26,7 +26,7 @@ const TEMPLATE = require('./task-item.html');
 })
 export default class TaskItem {
 
-  task: TaskMap;
+  @Input() task: TaskMap;
 
   constructor(
     private _router: Router

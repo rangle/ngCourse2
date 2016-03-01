@@ -126,10 +126,13 @@
 <container>
     <h1>Task Item</h1>
     <section>
+    <ngc-task
+    [task]="tasks.get(0)"
+    [markTask]="onMarkTask"
+    [deleteTask]="onDeleteTask">
+    
+    </ngc-task>
+
     </section>
 </container>
-<container>
-    <h1>Tasks List</h1>
-    <section>
-    </section>
-</container>
+

@@ -8,7 +8,8 @@ import {Container,
   Header,
   LoginForm,
   TaskFilters,
-  TaskForm
+  TaskForm,
+  TaskItem
 } from '../../components';
 import {List, fromJS, Map} from 'immutable';
 
@@ -27,7 +28,8 @@ const TEMPLATE = require('./kitchen-sink.html');
     Header,
     LoginForm,
     TaskFilters, 
-    TaskForm]
+    TaskForm,
+    TaskItem]
 
 })
 export default class KitchenSink implements OnInit, OnDestroy {
