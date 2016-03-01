@@ -1,4 +1,4 @@
-import {Component, View, Inject, provide} from 'angular2/core';
+import {provide} from 'angular2/core';
 import {ROUTER_PROVIDERS, APP_BASE_HREF} from 'angular2/router';
 import {bootstrap} from 'angular2/bootstrap';
 import {HTTP_PROVIDERS} from 'angular2/http';
