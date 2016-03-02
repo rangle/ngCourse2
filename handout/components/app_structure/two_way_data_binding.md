@@ -2,8 +2,39 @@
 
 Two-way data binding combines the input and output binding into a single notation using the `ngModel` directive.
 
-```js
+```html
 <input [(ngModel)]="name" >
 ```
 
+What this is doing behind the scenes, is equvilant to.
 
+```html
+<input [ngModel]="name" (ngModelChange)="name=$event.target.value">
+```
+
+To create your own component that supports two-way binding, you need to define an `@Output` property to match an `@Input`, but suffix it with the `Change`, for example:
+
+```js
+@Component({/*....*/})
+export default class Counter {
+  @Input() count: number = 0;
+  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
+  
+  increment() {
+    this.count++;
+    this.countChange.emit(this.count);
+  }
+}
+
+@Component({
+  template:'<counter [(count)]="myNumber"></counter>'
+  directives:[Counter]
+})
+class SomeComponent {
+  // ...
+}
+```
+
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/VQ88fMntRaaGFSMcyyQ4" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
+[View Example](http://plnkr.co/edit/VQ88fMntRaaGFSMcyyQ4?p=preview)
