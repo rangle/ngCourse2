@@ -9,8 +9,8 @@ Consider the following:
 
 type-inference-finds-error.ts
 ```js
-let set = [2, 3, 5, 7, 11];
-set = ['this will fail compilation']
+let numbers = [2, 3, 5, 7, 11];
+numbers = ['this will fail compilation']
 ```
 
 ```bash
