@@ -19,7 +19,7 @@ export default class TaskEdit implements OnDestroy, OnInit {
   task: Map<string, any>;
   updateTask: Function;
   cancelLink: any[] = ['/Tasks']
-
+  
   get taskId(): string {
     return this._params.get('id');
   }
@@ -39,6 +39,7 @@ export default class TaskEdit implements OnDestroy, OnInit {
 
   ngOnDestroy() {
     this.unsubscribe();
+    
   }
 
   mapStateToThis = (state) => {
@@ -53,8 +54,8 @@ export default class TaskEdit implements OnDestroy, OnInit {
   }
 
   submitTask(taskForm): void {
-    this.updateTask(taskForm, () => {
-      this._router.navigate(['/Tasks']);
-    });
+    this.updateTask(taskForm).subscribe(_ => this._router.navigate(['/Tasks']));
   }
+
+
 }

@@ -1,6 +1,7 @@
 import {Inject} from 'angular2/core';
 import {Http, Request, Response, Headers} from 'angular2/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/share';
 import {List, Map} from 'immutable';
 
 export interface Task {
@@ -23,33 +24,40 @@ export default class TasksService {
 
   fetch() {
     return this._http.get('http://ngcourse.herokuapp.com/api/v1/tasks')
-      .map((res: Response) => res.json());
+      .map((res: Response) => res.json())
+      .share();
   }
 
   add(task: Task) {
+    delete task._id;
     return this._http.post(
       'http://ngcourse.herokuapp.com/api/v1/tasks',
       JSON.stringify(task), {
         headers: HEADERS
       }
     )
-    .map((res: Response) => res.json());
+      .map((res: Response) => res.json())
+      .share();
   }
 
   update(task: Task) {
+    
     return this._http.put(
       `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`,
       JSON.stringify(task), {
         headers: HEADERS
       }
     )
-    .map((res: Response) => res.json());
+      .map((res: Response) => res.json())
+      .share();
+    
   }
 
   delete(task: TaskMap) {
     return this._http.delete(
       `http://ngcourse.herokuapp.com/api/v1/tasks/${task.get('_id')}`
     )
-    .map((res: Response) => res.json());
+      .map((res: Response) => res.json())
+      .share();
   }
 }
