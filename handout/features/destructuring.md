@@ -16,7 +16,7 @@ let three = foo[2];
 
 into
 
-```js
+```js`
 let foo = ['one', 'two', 'three'];
 let [one, two, three] = foo;
 console.log(one); // 'one'
@@ -36,6 +36,20 @@ let {drawSquare, drawText} = myModule;
 
 drawSquare(5);
 drawText('hello');
+```
+
+Destructuring can also be used for passing objects into a function, allowing you to pull specific properties out of an object in a concise manner. It is also possible to assign default values to destructured arguments, which can be a useful pattern if passing in a configuration object.
+
+
+```js
+let jane = { firstName: 'Jane', lastName: 'Doe'};
+let john = { firstName: 'John', lastName: 'Doe', middleName: 'Smith' }
+function sayName({firstName, lastName, middleName = 'N/A'}) {
+  console.log(`Hello ${firstName} ${middleName} ${lastName}`)  
+}
+
+sayName(jane) // -> Hello Jane N/A Doe
+sayName(john) // -> Helo John Smith Doe
 ```
 
 There are _many_ more sophisticated things that can be done with destructuring,
