@@ -44,9 +44,25 @@ console.log(k); // undefined
 Despite the introduction of block scoping, functions are still _the_ preferred
 mechanism for dealing with most loops.
 
-`let` works like `var` in the sense that its data is read/write. Alternatively,
-`const` is read only.  Once `const` has been assigned, the identifier can not be
-re-assigned, the value is [not immutable][mdnConst].
+`let` works like `var` in the sense that its data is read/write. `let` is also useful when used in a for loop. For example, without let:
+
+```js
+for(var x=0;x<5;x++) {
+  setTimeout(()=>console.log(x), 0)
+}
+```
+
+Would output `5,5,5,5,5`. However, when using `let` instead of `var`, the value would be scoped in a way that people would expect.
+
+```js
+for(let x=0;x<5;x++) {
+  setTimeout(()=>console.log(x), 0)
+}
+```
+
+
+Alternatively, `const` is read only.  Once `const` has been assigned, the identifier can not be
+re-assigned, the value is [not immutable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
 
 For example:
 
