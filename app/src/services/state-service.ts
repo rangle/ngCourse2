@@ -1,11 +1,16 @@
+import { Observable } from 'rxjs';
 import {Injectable, Inject} from 'angular2/core';
-let {observableFromStore} = require('redux-rx');
 
 @Injectable()
 export default class StateService {
   store: any; 
   constructor(@Inject('ngRedux') ngRedux) {
-    this.store = observableFromStore(ngRedux);
+    this.store = this.observableFromStore(ngRedux);
 
+  }
+  observableFromStore = (store) => {
+    return Observable.create(observer =>
+      store.subscribe(() => observer.next(store.getState()))
+    );
   }
 }
