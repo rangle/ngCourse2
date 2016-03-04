@@ -11,6 +11,7 @@ import {StatusPipe} from '../../pipes/status';
 import {OwnerTasksPipe} from '../../pipes/owners';
 import * as TaskActions from '../../actions/tasks';
 import {List} from 'immutable';
+import StateService from '../../services/state-service';
 const TASKS_TEMPLATE = require('./tasks.html');
 @Component({
   selector: 'ngc-main',
@@ -42,18 +43,30 @@ export default class Tasks implements OnDestroy, OnInit {
   deleteTask: Function;
   updateTask: Function;
   markTask: Function;
+  
 
   constructor(
     @Inject('ngRedux') private ngRedux,
     public authService: AuthService,
-    private _router: Router
+    private _router: Router,
+    private stateService: StateService
   ) { }
 
   ngOnInit() {
     this.unsubscribe = this.ngRedux.connect(
-      this.mapStateToThis,
+      null,
       this.mapDispatchToThis
     )(this);
+
+    this.stateService.store.subscribe((state)=>{
+      const owner = state.filters.get('owner');
+      const taskStatus = state.filters.get('taskStatus')
+      const isDone = taskStatus === 'completed';
+      this.tasks = state.tasks.filter(n=> {
+        return (n.get('done') === isDone || taskStatus === 'all')
+          && (n.get('owner') === owner || owner === 'everyone')
+      })
+    })
 
     this.loadTasks();
 

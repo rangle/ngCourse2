@@ -29,6 +29,9 @@ export default class TaskItem {
     private _router: Router
   ) {}
 
+  ngOnChanges(x) {
+    console.log('task change',x)
+  }
   editItem(task) {
     this.taskEdit.emit(task.get('_id'));
   }
@@ -39,6 +42,10 @@ export default class TaskItem {
 
   markTask(task, newStatus) {
     this.taskMarked.emit({task, newStatus})
+  }
+
+  ngOnDestroy() {
+    console.log('item destroy!',this.task.toJS());
   }
 
 }

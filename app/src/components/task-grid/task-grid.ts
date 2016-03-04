@@ -1,4 +1,4 @@
-import {Component, View, ChangeDetectionStrategy, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, View, ChangeDetectionStrategy, Input, Output, EventEmitter, OnChanges} from 'angular2/core';
 import Task from '../task-item/task-item';
 
 @Component({
@@ -20,10 +20,17 @@ import Task from '../task-item/task-item';
     </ul>
   `
 })
-export default class TaskGrid {
+export default class TaskGrid implements OnChanges {
   @Input() tasks: any;
   @Output() taskDeleted: EventEmitter<any> = new EventEmitter<any>();
   @Output() taskMarked: EventEmitter<any> = new EventEmitter<any>();
   @Output() taskEdit: EventEmitter<any> = new EventEmitter<any>();
-  
+   
+   ngOnChanges(x) {
+     console.log(x)
+   }
+
+   ngOnDestroy() {
+     console.log('Destroy!')
+   }
 }

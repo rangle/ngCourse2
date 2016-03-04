@@ -5,12 +5,14 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {AUTH_PROVIDERS} from './services/auth-service';
 import configureStore from './store/configureStore';  
 import App from './containers/app';
+import StateService from './services/state-service';
 const BASE_STYLES = require('!style!css!postcss!./styles/app.css');
 const provider = require('ng2-redux').provider;
 const store = configureStore();
 
 bootstrap(
   App, [
+    StateService,
     ROUTER_PROVIDERS,
     AUTH_PROVIDERS,
     provider(store),
