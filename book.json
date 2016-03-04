@@ -1,16 +1,15 @@
 {
-    "plugins": [
-        "versions",
-        "prism",
-        "-highlight"
-    ],
-    "pluginsConfig": {
-        "versions": {
-            "type": "branches",
-            "includeFilepath": false
-        }
-    },
-    "structure": {
-        "readme": "intro.md"
+  "plugins": [
+    "versions",
+    "highlight"
+  ],
+  "pluginsConfig": {
+    "versions": {
+      "type": "branches",
+      "includeFilepath": false
     }
+  },
+  "structure": {
+    "readme": "intro.md"
+  }
 }
