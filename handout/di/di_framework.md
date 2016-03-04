@@ -9,7 +9,7 @@ const hamburger = new Hamburger(new Bun(), new Patty('beef'), new Toppings([]));
 ```
 
 That's a lot of work to create a `Hamburger`, and now all the different pieces
-of code that make `Hamburger`s have to understand how `Bun`, `Patty`, and 
+of code that make `Hamburger`s have to understand how `Bun`, `Patty`, and
 `Toppings` get instantiated.
 
 One approach to dealing with this new problem might be to make a factory
@@ -21,12 +21,12 @@ function makeHamburger() {
     const bun = new Bun();
     const patty = new Patty('beef');
     const toppings = new Toppings(['lettuce', 'tomato', 'pickles']);
-    return new Hambuerger(bun, patty, toppings);
+    return new Hamburger(bun, patty, toppings);
 }
 ```
 
 This is an improvement, but when more complex `Hamburger`s need to be created
-this factory will become confusing.  The factory is also responsible for 
+this factory will become confusing.  The factory is also responsible for
 knowing how to create four different components.  This is a lot for one
 function.
 
@@ -42,4 +42,3 @@ as easy as:
 const injector = new Injector([Hamburger, Bun, Patty, Toppings]);
 const burger = injector.get(Hamburger);
 ```
-

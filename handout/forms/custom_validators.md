@@ -9,12 +9,12 @@ import {Control} from 'angular2/common';
 export class CustomValidators {
   static emailFormat(control: Control): [[key: string]: boolean] {
     let pattern:RegExp = /\S+@\S+\.\S+/;
-    return pattern.test(control.value) ? null : {"emailFormat": true}; 
+    return pattern.test(control.value) ? null : {"emailFormat": true};
   }
 }
 ```
 
-A validator is just a class with a number of static methods. Each method receives a `Control` instance and returns an object in case the validation fails or `null` in case tha validation pass.
+A validator is just a class with a number of static methods. Each method receives a `Control` instance and returns an object in case the validation fails or `null` in case the validation pass.
 
 We can now add the validator in our component logic and add a new item in our HTML to show this error.
 
@@ -28,7 +28,7 @@ export class MyForm {
   // ...
   constructor(builder: FormBuilder) {
     // ...
-    this.email = new Control('', 
+    this.email = new Control('',
       Validators.compose([Validators.required, CustomValidators.emailFormat])
     );
     // ...

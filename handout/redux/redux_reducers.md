@@ -11,7 +11,7 @@ __app/reducer/counter-reducer.ts__
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter-actions';
 
 export default function counter(state = 0, action) {
-  
+
   switch (action.type) {
     case INCREMENT_COUNTER:
       return state + 1;
@@ -23,7 +23,7 @@ export default function counter(state = 0, action) {
 }
 ```
 
-We can see here that we are passing in an initial state, and an action. To handle each action - we have setup a switch statement. Instead of each reducer needing to explcitly subscribe to the dispatcher - every action gets passed into every reducer, handles the action it is interested in, and otherwise returns the state along to the next reducer.
+We can see here that we are passing in an initial state, and an action. To handle each action - we have setup a switch statement. Instead of each reducer needing to explicitly subscribe to the dispatcher - every action gets passed into every reducer, handles the action it is interested in, and otherwise returns the state along to the next reducer.
 
 Reducers in Redux should be side-effect free, that means that they should not modify things outside of the application state. Instead, they should reflect the state of the application. This is why side-effect causing operations, such as updating a record in a database, generating an id, etc should be handled elsewhere in the application - such as in the action creators, or middleware.
 
@@ -36,7 +36,7 @@ let immutableObjectReducer = (state = { someValue: 'value'} , action) => {
     return Object.assign({}, state, { someValue: action.payload.value });
     default:
     return state;
-    
+
   }
 }
 
@@ -49,8 +49,6 @@ let immutableArrayReducer = (state = [1,2,3], action) => {
     return state;
   }
 }
-``` 
+```
 
 However, if dealing with complex or deeply nested objects - it can be difficult to maintain immutability in your application using this syntax. This is where a library like ImmutableJS can help.
-
-

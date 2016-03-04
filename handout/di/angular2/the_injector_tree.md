@@ -12,13 +12,13 @@ open chat windows, and a login/logout widget.
 ![Image of a Component Tree, and a DI Tree](../../images/di-tree.png)
 
 In the image above, there is one root injector, which is also the root
-component.  This is also the application bootstrap area.  There's a 
+component.  This is also the application bootstrap area.  There's a
 `LoginService` registered with the root injector.
 
-There are also two child injectors, one for each `ChatWindow` component.  Each 
-one of these components has their _own_ instantion of a `ChatService`.
+There are also two child injectors, one for each `ChatWindow` component.  Each
+one of these components has their _own_ instantiation of a `ChatService`.
 
-There is a third child component, `Logout/Login` component , but it has no 
+There is a third child component, `Logout/Login` component , but it has no
 injector.
 
 There are several grandchild components that have no injectors.  There are
@@ -53,7 +53,7 @@ import {Injectable} from 'angular2/core';
 export class Unique {
   value: string;
   constructor() {
-    this.value = (+Date.now()).toString(16) + '.' + 
+    this.value = (+Date.now()).toString(16) + '.' +
       Math.floor(Math.random() * 500);
   }
 }

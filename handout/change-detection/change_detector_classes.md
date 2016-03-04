@@ -4,7 +4,7 @@ At runtime, Angular 2 is going to create special classes that are called **chang
 
 The goal of the change detectors is to know which model property, used in the template of a component, have changed since the last time the change detection process ran.
 
-In order to know that, Angular is going to create an instance of the appropriate change detector class, and it will create a link to the component that its suppose to check. 
+In order to know that, Angular is going to create an instance of the appropriate change detector class, and it will create a link to the component that its suppose to check.
 
 In our example, because we only have one instance of the `MainComponent` and the `MovieComponent` we are going to have only one instance of the `MainComponent_ChangeDetector` and the `MovieComponent_ChangeDetector`.
 
@@ -12,18 +12,18 @@ The code snippet below, is a conceptual model of how the `MainComponent_ChangeDe
 
 ```javascript
 class MainComponent_ChangeDetector {
-  
+
   constructor(
     public previousSlogan: string,
     public previousTitle: string,
     public previousActor: Actor,
-    public movieComponent: MovieComponent 
-  ) {} 
-  
+    public movieComponent: MovieComponent
+  ) {}
+
   detectChanges(slogan: string, title: string, actor: Actor) {
     if (slogan !== this.previousSlogan) {
       this.previousSlogan = slogan;
-      this.movieComponent.slogan = slogan; 
+      this.movieComponent.slogan = slogan;
     }
     if (title !== this.previousTitle) {
       this.previousTitle = title;
@@ -31,7 +31,7 @@ class MainComponent_ChangeDetector {
     }
     if (actor !== this.previousActor) {
       this.previousActor = actor;
-      this.movieComponent.actor = actor; 
+      this.movieComponent.actor = actor;
     }
   }
 }
@@ -61,19 +61,19 @@ export class MovieComponent {
 
 [View Example](http://plnkr.co/edit/n6m7rOtxG5MU0tsRl5xX?p=preview)
 
-The enum `ChangeDetectionStrategy` defines seven strategies: 
+The enum `ChangeDetectionStrategy` defines seven strategies:
 
-* `CheckOnce` 
-* `Checked` 
-* `CheckAlways` 
+* `CheckOnce`
+* `Checked`
+* `CheckAlways`
 * `Detached`
-* `OnPush` 
+* `OnPush`
 * `Default`
-* `DefaultObserver` 
- 
+* `DefaultObserver`
+
 As can be seen in the [docs](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html). We are going to concentrate on the two main ones: `Default` and `OnPush`.
 
-Lets see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy. 
+Lets see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy.
 
 As noted previously, changes are triggered by events and the propagation of changes is done in two phases: the application phase and the change detection phase.
 
@@ -122,5 +122,4 @@ If the above condition can be guaranteed (creating a new object every time any o
 - Is `title !== previousTitle`? No, it's the same.
 - Is `actor !== previousActor`? No, it's the same.
 
-Then we can skip the internal check of the component's template because we are now certain that nothing has changed internally and there's no need to update the DOM. This will improve the performance of the change detection system because fewers comparisons have to be made to propagate changes through the app.
-
+Then we can skip the internal check of the component's template because we are now certain that nothing has changed internally and there's no need to update the DOM. This will improve the performance of the change detection system because fewer comparisons have to be made to propagate changes through the app.

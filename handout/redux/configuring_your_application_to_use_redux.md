@@ -18,7 +18,7 @@ export default  combineReducers({
 });
 ```
 
-What `combineReducers` does, is allows us to break out our application into smaller reducers with a single area of concern. Each reducer that you pass into it, will become a property on the state. So when we ar subscribing to our state changes with `ngRedux.connect`, we will be passed in a state object with a property counter, and any other reducers you have provided.
+What `combineReducers` does, is allows us to break out our application into smaller reducers with a single area of concern. Each reducer that you pass into it, will become a property on the state. So when we are subscribing to our state changes with `ngRedux.connect`, we will be passed in a state object with a property counter, and any other reducers you have provided.
 
 ### Create and configure a store
 
@@ -67,4 +67,3 @@ bootstrap(SimpleRedux,
 ]);
 
 ```
-

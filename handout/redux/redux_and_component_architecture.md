@@ -1,11 +1,11 @@
 # Redux and Component Architecture
- 
- In the above example, our `counter` component is a smart component. It knows about redux, the structure of the state, and the actions it needs to call. While in theory you can drop this component into any area of your application and have it just work. But, it will be tightly bound to that specific slice of state, and those specific actions. For example, what if we wanted to have multiple counters tracking different things on the page? For example, counting the number of red clicks vs blue clicks. 
- 
- 
- To help make components more generic and reusable, it is worth considering smart component, or container components - and dumb components. 
- 
- 
+
+ In the above example, our `counter` component is a smart component. It knows about redux, the structure of the state, and the actions it needs to call. While in theory you can drop this component into any area of your application and have it just work. But, it will be tightly bound to that specific slice of state, and those specific actions. For example, what if we wanted to have multiple counters tracking different things on the page? For example, counting the number of red clicks vs blue clicks.
+
+
+ To help make components more generic and reusable, it is worth considering smart component, or container components - and dumb components.
+
+
  <table>
     <thead>
         <tr>
@@ -39,9 +39,9 @@
 </table>
 
 [redux docs](http://redux.js.org/docs/basics/UsageWithReact.html)
- 
+
  Keeping this in mind, lets refactor our `counter` to be a **dumb/presentational** component.  First, lets modify our `app-container` to have two counter components on it as we currently have it.
- 
+
 ```javascript
  import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {Counter} from '../components/counter-component';
@@ -65,7 +65,7 @@ import {Counter} from '../components/counter-component';
 })
 
 export class SimpleRedux {
-  
+
 }
 ```
 [View Example](http://plnkr.co/edit/Ks2oOcHhOJum6pO41qNU?p=preview)
@@ -94,11 +94,11 @@ import {Componentt} from 'angular2/core';
   `
 })
 export class Counter {
- 
+
 }
 ```
 
-Next, lets modify the main app container to pass down the appropiate data to each component.
+Next, lets modify the main app container to pass down the appropriate data to each component.
 
 `@Component`
 __app/src/containers/app-containter.ts__
@@ -187,7 +187,7 @@ import * as CurseActions from '../actions/curse-actions';
 	selector: 'curse-counter',
 	directives: [Counter]
 	template: `
-	
+
 <div style="float: left; border: 1px solid blue;">
 <h2>Curse Counter</h2>
  <counter [counter]="curse"
@@ -222,15 +222,15 @@ export class CurseContainer {
   }
 
   mapDispatchToThis(dispatch) {
-    
-    
+
+
     return bindActionCreators(CurseActions, dispatch);
   }
 }
-``` 
- 
+```
+
  The __app/containers/click-container.ts__ is almost the same, except importing click actions and state. Then, we can update the application container.
- 
+
  __app/containers/app-container.ts__
 ```javascript
 import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
@@ -253,9 +253,9 @@ import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 	`
 })
  export class SimpleRedux {
-  
+
 }
  ```
  [View Example](http://plnkr.co/edit/wWqv7C1HD21mbBZvcdcl?p=preview)
- 
+
  Creating a smart container for every component may not always be necessary as a larger part of your application could be acting as the smart container as it did in the initial example.

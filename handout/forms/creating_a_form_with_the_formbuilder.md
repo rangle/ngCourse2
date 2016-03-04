@@ -36,14 +36,14 @@ export class MyForm {
       password: this.password
     });
   }
-  
+
   onSubmit() {
     console.log(this.group.value);
   }
 }
 ```
 
-We have created programatically a new form using the `FormBuilder` with two fields: `email` and `password`.
+We have created programmatically a new form using the `FormBuilder` with two fields: `email` and `password`.
 
 Now we need to go back to our form template to change a few things. We are going to remove the validation temporarily because we have not defined the validators yet using this new approach.
 
@@ -81,4 +81,3 @@ There's five things to notice here:
 4. We don't need to export the form or the controls using the syntax `#group="ngForm"` or `#email="ngForm"` because we have already created those variables in our component and thus they are available in the template.
 
 5. We don't need to pass the form object to the `onSubmit` method because we have access to it inside our component in the variable `this.group`.
-

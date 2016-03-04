@@ -2,9 +2,9 @@
 
 # What is Redux
 
-Redux is an application state manager for JavaScript applications, and keeps with the core prinicpals of flux-architecture by having a unidirectional data flow in your application.
+Redux is an application state manager for JavaScript applications, and keeps with the core principals of flux-architecture by having a unidirectional data flow in your application.
 
-How it differs from traditional Flux though, is that instead of multipul stores, you have one global application state. The state is calculated and returned in the reducer. The state management is held elsewwhere.
+How it differs from traditional Flux though, is that instead of multiple stores, you have one global application state. The state is calculated and returned in the reducer. The state management is held else where.
 
 # Resources
 

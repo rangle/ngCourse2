@@ -27,7 +27,7 @@ When the change detection analyzes the properties bound to the `MainComponent`'s
 - Is `title !== previousTitle`? No, it's the same.
 - Is `actor !== previousActor`? No, it's the same.
 
-But this time, we explictly told Angular that our component only depends on its inputs and all of them are immutable. Angular then assumes that the `MovieComponent` hasn't changed and will skip the check for that component. Because we didn't force the `actor` object to be immutable, we end up with our model out of sync with the view.
+But this time, we explicitly told Angular that our component only depends on its inputs and all of them are immutable. Angular then assumes that the `MovieComponent` hasn't changed and will skip the check for that component. Because we didn't force the `actor` object to be immutable, we end up with our model out of sync with the view.
 
 Let's rerun the app but this time we will click the button `ChangeActorObject`. This time, we are creating a new instance of the `Actor` class and assigning it to the `this.actor` object. When change detection analyzes the properties bound to the `MainComponent`'s template it will find:
 
@@ -36,4 +36,3 @@ Let's rerun the app but this time we will click the button `ChangeActorObject`. 
 - Is `actor !== previousActor`? **Yes**, it has changed.
 
 Because now change detection knows that the `actor` object changed (it's a new instance) it will go ahead and continue checking the template for `MovieComponent` to update its view. At the end, our templates and models end up being in sync.
-

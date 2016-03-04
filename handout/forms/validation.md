@@ -11,7 +11,7 @@ _app/my-form.component.html_
     <!-- ... -->
     <input type="email" id="email" ngControl="email" #email="ngForm" required >
   </div>
-  
+
   <div>
     <!-- ... -->
     <input type="password" id="password" ngControl="password" #password="ngForm" required minlength="4">
@@ -20,7 +20,7 @@ _app/my-form.component.html_
 </form>
 ```
 
-Here we have defined two local template variables and also we defined a couple of built-in validators like `required` and `minlength`. The only other built-in validator available for an input field is `maxlength` wich we are not going to use in this example.
+Here we have defined two local template variables and also we defined a couple of built-in validators like `required` and `minlength`. The only other built-in validator available for an input field is `maxlength` which we are not going to use in this example.
 
 > **Note:** When exporting a directive using for example `#email="ngForm"`, we are getting an instance of the directive `NgControlName`. To access the `Control` instance of the field, we need to get the property `control` like for example `email.control`.
 
