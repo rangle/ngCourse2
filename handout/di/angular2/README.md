@@ -1,6 +1,6 @@
 # Angular 2's DI
 
-The last example introduced a hypothetical `Injector` object.  Angular 2 
+The last example introduced a hypothetical `Injector` object.  Angular 2
 simplifies DI even further.  With Angular 2, developers almost never have to get
 bogged down with injection details.
 
@@ -23,11 +23,11 @@ too primitive though, the injector is not told about anything.
 ```js
 import {bootstrap} from 'angular2/platform/browser';
 import {Injectable} from 'angular2/core';
-import {App} from './path/to/your/root/compoent';
+import {App} from './path/to/your/root/component';
 
 @Injectable()
 class Hamburger {
-  constructor(private bun: Bun, private patty: Patty, 
+  constructor(private bun: Bun, private patty: Patty,
     private toppings: Toppings) {}
 }
 
@@ -40,7 +40,7 @@ _provided_ a `Hamburger`.
 
 That seems pretty straightforward, but astute readers will be wondering how
 Angular 2 knows how to build `Hamburger`.  What if `Hamburger` was a string, or
-a plain function? 
+a plain function?
 
 Angular 2 _assumes_ that it's being given a class.
 
@@ -52,11 +52,11 @@ be changed easily enough:
 ```js
 import {bootstrap} from 'angular2/platform/browser';
 import {Injectable} from 'angular2/core';
-import {App} from './path/to/your/root/compoent';
+import {App} from './path/to/your/root/component';
 
 @Injectable()
 class Hamburger {
-  constructor(private bun: Bun, private patty: Patty, 
+  constructor(private bun: Bun, private patty: Patty,
     private toppings: Toppings) {}
 }
 
@@ -74,9 +74,8 @@ bootstrap(App, [Hamburger, Patty, Bun, Toppings]);
 ```
 
 Okay, this is starting to look a little bit more complete.  The key take away
-here is `bootstrap(App, [Hamburger, Patty, Bun, Toppings])`.  The second 
+here is `bootstrap(App, [Hamburger, Patty, Bun, Toppings])`.  The second
 parameter is an array of `providers`.
 
-Although it's still unclear how `Hamburger` is being told about its 
+Although it's still unclear how `Hamburger` is being told about its
 dependencies.  Perhaps that is related to those odd `@Injectable` statements.
-

@@ -13,7 +13,7 @@ let args = [3, 5];
 add(...args); // same as `add(args[0], args[1])`, or `add.apply(null, args)`
 ```
 
-Functions aren't the only place in JavaScript that makes use of comman separated
+Functions aren't the only place in JavaScript that makes use of comma separated
 lists. `[]`s can now be concatenated with ease:
 
 ```js
@@ -67,7 +67,7 @@ function print(a, b, c, ...more) {
   console.log(arguments[0]);
 }
 
-print(1, 2, 3, 4, 5); 
+print(1, 2, 3, 4, 5);
 // 4
 // 1
 

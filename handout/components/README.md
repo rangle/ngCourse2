@@ -2,7 +2,7 @@
 
 ![components](../../img/components.jpg)
 
-The core concept of any Angular 2 application is the *component*. In effect, the whole application can be modelled as a tree of these components.
+The core concept of any Angular 2 application is the *component*. In effect, the whole application can be modeled as a tree of these components.
 
 This is how the Angular 2 team defines a component:
 
@@ -36,4 +36,3 @@ angular.module('ngcourse')
     controller: MyComponentCtrl
   });
 ```
-

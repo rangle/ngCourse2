@@ -6,7 +6,7 @@ Two-way data binding combines the input and output binding into a single notatio
 <input [(ngModel)]="name" >
 ```
 
-What this is doing behind the scenes, is equvilant to.
+What this is doing behind the scenes, is equivalent to.
 
 ```html
 <input [ngModel]="name" (ngModelChange)="name=$event.target.value">
@@ -19,7 +19,7 @@ To create your own component that supports two-way binding, you need to define a
 export default class Counter {
   @Input() count: number = 0;
   @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
-  
+
   increment() {
     this.count++;
     this.countChange.emit(this.count);

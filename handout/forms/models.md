@@ -8,7 +8,7 @@ _app/user.model.ts_
 ```javascript
 export class User {
   constructor(
-    public email: string, 
+    public email: string,
     public password: string) {}
 }
 ```
@@ -73,7 +73,7 @@ export class MyForm {
 
 Using this approach the usual Angular 1, 2-way data binding approach is avoided.
 
-If 2-way data binding is still neeeded, the property syntax can be combined with the event syntax.
+If 2-way data binding is still needed, the property syntax can be combined with the event syntax.
 
 _app/my-form.component.html_
 ```html
@@ -111,17 +111,17 @@ export class MyForm {
 
   constructor(builder: FormBuilder) {
     this.user = new User('joe.satriani@gmail.com', 'secretpass');
-    
+
     this.group = builder.group({
-      email: ['', 
+      email: ['',
         Validators.compose([Validators.required, CustomValidators.emailFormat]),
         CustomValidators.duplicated
       ],
-      password: ['', 
+      password: ['',
         Validators.compose([Validators.required, Validators.minLength(4)])
       ]
     });
-    
+
     this.group.find('email').valueChanges.subscribe((value: string) => {
       console.log('email', value);
     });
@@ -147,7 +147,7 @@ _app/my-form.component.html_
     <!-- ... -->
     <input type="email" id="email" [ngFormControl]="group.find('email')" [(ngModel)]="user.email">
     <span *ngIf="group.find('email').pending">Checking duplication...</span>
-    
+
     <ul *ngIf="group.find('email').dirty && !group.find('email').valid">
       <li *ngIf="group.hasError('required', 'email')">This field is required</li>
       <li *ngIf="group.hasError('emailFormat', 'email')">This field needs to have at least 3 characters</li>
@@ -158,7 +158,7 @@ _app/my-form.component.html_
   <div>
     <!-- ... -->
     <input type="password" id="password" [ngFormControl]="group.find('password')" [(ngModel)]="user.password">
-    
+
     <ul *ngIf="group.find('password').dirty && !group.find('password').valid">
       <li *ngIf="group.hasError('required', 'password')">This field is required</li>
       <li *ngIf="group.hasError('minlength', 'password')">This field doesn't allow numbers</li>

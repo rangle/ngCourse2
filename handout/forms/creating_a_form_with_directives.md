@@ -59,7 +59,7 @@ _app/my-form.component.html_
 <iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/DzBxhlzGLb3fg3rtPGnx" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 
-At this point, if we click the submit button nothing happens because we defined a standard HTML form, not an Angular 2 form. To fix that, we need to tell our component to upgrade our form using the `NgForm` directive wich will give us access to new properties and event bindings on our form to interact with it.
+At this point, if we click the submit button nothing happens because we defined a standard HTML form, not an Angular 2 form. To fix that, we need to tell our component to upgrade our form using the `NgForm` directive which will give us access to new properties and event bindings on our form to interact with it.
 
 _app/my-form.component.ts_
 ```javascript
@@ -101,5 +101,3 @@ Now when we click the submit button, we can see the message "Form submitted!" ou
 [View Example](https://plnkr.co/edit/KC7GgqPVDaC4JcBGD7Va?p=preview)
 
 <iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/KC7GgqPVDaC4JcBGD7Va" frameborder="0" allowfullscren="allowfullscren"></iframe>
-
-
