@@ -14,6 +14,7 @@ import * as TaskActions from '../../actions/tasks';
 import {List} from 'immutable';
 import StateService from '../../services/state-service';
 const TASKS_TEMPLATE = require('./tasks.html');
+import { Observable } from 'rxjs';
 @Component({
   selector: 'ngc-main',
   pipes: [OwnerTasksPipe, StatusPipe, AsyncPipe],
@@ -55,23 +56,29 @@ export default class Tasks implements OnDestroy, OnInit {
 
   ngOnInit() {
     this.unsubscribe = this.ngRedux.connect(
-      ()=>({}),
+      () => ({}),
       this.mapDispatchToThis
     )(this);
 
-    this.stateService
-      .select(state=> {
-        const owner = state.filters.get('owner');
-        const taskStatus = state.filters.get('taskStatus')
-        const isDone = taskStatus === 'completed';
-        const tasks = state.tasks.filter(n=> {
-          return (n.get('done') === isDone || taskStatus === 'all')
-            && (n.get('owner') === owner || owner === 'everyone')
+    let tasks$ = this.stateService.select(state => state.tasks.filter(n=>n.get('owner') === state.filters.get('owner')))
+    let owner$ = this.stateService.select(state => state.filters.get('owner'));
+    let test = Observable.zip(tasks$, owner$).subscribe(n=>{
+      console.log('zip!', n);
+    })
+      this.stateService
+        .select(state=> {
+          const owner = state.filters.get('owner');
+          const taskStatus = state.filters.get('taskStatus')
+          const isDone = taskStatus === 'completed';
+          const tasks = state.tasks.filter(n=> {
+            return (n.get('done') === isDone || taskStatus === 'all')
+              && (n.get('owner') === owner || owner === 'everyone')
+          })
+          return tasks;
+        }).subscribe(n=>{
+          console.log('subscribe called')
+          this.tasks = n;
         })
-        return tasks;
-      }).subscribe(n=>{
-        this.tasks = n;
-      })
   //    .debounceTime(500)
     //  .subscribe(tasks=>{
       //  console.log('stuff!',tasks)
@@ -111,16 +118,17 @@ export default class Tasks implements OnDestroy, OnInit {
     this._router.navigate(['Tasks', 'TaskEdit', { id: taskId }])
   }
   randomUpdate() {
-    setInterval(()=>{
+  
     let names = ['Alice', 'Bob', 'Eric','Evan','James','John','Jane','Darren','Emily','Seth']
     this.tasks.forEach(n=> {
       n = n.toJS() as any;
     
-      n.owner = names[Math.floor(Math.random() * 10)];
-      n.description = `Update!` + Math.floor(Math.random() * 10) + ' ' + n.owner;
+  //    n.owner = names[Math.floor(Math.random() * 10)];
+      n.description = `Update!` + Math.floor(Math.random() * 10);
+
       this.ngRedux.dispatch(TaskActions.updateTask(n));
     });
-  },1000)
+  
   }
 
   mapDispatchToThis(dispatch) {
