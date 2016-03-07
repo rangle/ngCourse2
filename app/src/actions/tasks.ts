@@ -73,6 +73,11 @@ export function deleteTask(task: TaskMap) {
 
 export function updateTask(task: Task) {
   return (dispatch, getState) => {
+    dispatch({
+      type: TASK_UPDATED,
+      payload: task
+    });
+    return;
     const taskUpdate$ = Tasks.update(task);
 
     taskUpdate$
@@ -88,7 +93,7 @@ export function updateTask(task: Task) {
         });
 
         if (owner !== 'everyone') {
-          dispatch(selectOwner(owner))
+          //dispatch(selectOwner(owner))
         };
       });
 

@@ -8,9 +8,22 @@ export default class StateService {
     this.store = this.observableFromStore(ngRedux);
 
   }
+  select(selector: any) {
+    if (
+      typeof selector === 'string' ||
+      typeof selector === 'number' ||
+      typeof selector === 'symbol'
+    ) {
+      return this.store.map(state => state[selector]).distinctUntilChanged();
+    }
+    else if (typeof selector === 'function') {
+      return this.store.map(selector).distinctUntilChanged();
+    }
+  }
   observableFromStore = (store) => {
     return Observable.create(observer =>
       store.subscribe(() => observer.next(store.getState()))
     );
   }
+
 }

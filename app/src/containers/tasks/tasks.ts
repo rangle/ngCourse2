@@ -1,3 +1,4 @@
+import {AsyncPipe} from 'angular2/common';
 import {Component, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {bindActionCreators} from 'redux';
 import {Router, RouteConfig, RouterOutlet} from 'angular2/router';
@@ -15,7 +16,7 @@ import StateService from '../../services/state-service';
 const TASKS_TEMPLATE = require('./tasks.html');
 @Component({
   selector: 'ngc-main',
-  pipes: [OwnerTasksPipe, StatusPipe],
+  pipes: [OwnerTasksPipe, StatusPipe, AsyncPipe],
   directives: [RouterOutlet, TaskGrid],
   template: TASKS_TEMPLATE
 })
@@ -43,7 +44,7 @@ export default class Tasks implements OnDestroy, OnInit {
   deleteTask: Function;
   updateTask: Function;
   markTask: Function;
-  
+
 
   constructor(
     @Inject('ngRedux') private ngRedux,
@@ -54,19 +55,28 @@ export default class Tasks implements OnDestroy, OnInit {
 
   ngOnInit() {
     this.unsubscribe = this.ngRedux.connect(
-      null,
+      ()=>({}),
       this.mapDispatchToThis
     )(this);
 
-    this.stateService.store.subscribe((state)=>{
-      const owner = state.filters.get('owner');
-      const taskStatus = state.filters.get('taskStatus')
-      const isDone = taskStatus === 'completed';
-      this.tasks = state.tasks.filter(n=> {
-        return (n.get('done') === isDone || taskStatus === 'all')
-          && (n.get('owner') === owner || owner === 'everyone')
+    this.stateService
+      .select(state=> {
+        const owner = state.filters.get('owner');
+        const taskStatus = state.filters.get('taskStatus')
+        const isDone = taskStatus === 'completed';
+        const tasks = state.tasks.filter(n=> {
+          return (n.get('done') === isDone || taskStatus === 'all')
+            && (n.get('owner') === owner || owner === 'everyone')
+        })
+        return tasks;
+      }).subscribe(n=>{
+        this.tasks = n;
       })
-    })
+  //    .debounceTime(500)
+    //  .subscribe(tasks=>{
+      //  console.log('stuff!',tasks)
+//        this.tasks = tasks;
+  //    })
 
     this.loadTasks();
 
@@ -76,6 +86,7 @@ export default class Tasks implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
+    console.log('more stuff')
     this.unsubscribe();
   }
 
@@ -96,8 +107,20 @@ export default class Tasks implements OnDestroy, OnInit {
   }
 
   editTask(taskId) {
-    
+   
     this._router.navigate(['Tasks', 'TaskEdit', { id: taskId }])
+  }
+  randomUpdate() {
+    setInterval(()=>{
+    let names = ['Alice', 'Bob', 'Eric','Evan','James','John','Jane','Darren','Emily','Seth']
+    this.tasks.forEach(n=> {
+      n = n.toJS() as any;
+    
+      n.owner = names[Math.floor(Math.random() * 10)];
+      n.description = `Update!` + Math.floor(Math.random() * 10) + ' ' + n.owner;
+      this.ngRedux.dispatch(TaskActions.updateTask(n));
+    });
+  },1000)
   }
 
   mapDispatchToThis(dispatch) {

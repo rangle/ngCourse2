@@ -8,7 +8,7 @@ import Task from '../task-item/task-item';
   template: `
     <ul class="cols list-reset m0">
       <li class="py1 avoid-break"
-        *ngFor="#task of tasks">
+        *ngFor="#task of tasks;trackBy:taskCheck">
         <ngc-task 
           [task]="task"
           (taskDeleted)="taskDeleted.emit($event)"
@@ -26,8 +26,12 @@ export default class TaskGrid implements OnChanges {
   @Output() taskMarked: EventEmitter<any> = new EventEmitter<any>();
   @Output() taskEdit: EventEmitter<any> = new EventEmitter<any>();
    
+   taskCheck(index,task) {
+     return task.get('_id');
+   }
+
    ngOnChanges(x) {
-     console.log(x)
+     console.log('Inputs Changed',x)
    }
 
    ngOnDestroy() {
