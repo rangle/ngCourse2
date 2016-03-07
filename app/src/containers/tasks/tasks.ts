@@ -41,49 +41,32 @@ export default class Tasks implements OnDestroy, OnInit {
   tasks: List<TaskMap>;
   owner: string;
   taskStatus: string;
-  loadTasks: Function;
-  deleteTask: Function;
-  updateTask: Function;
-  markTask: Function;
+  
 
 
   constructor(
-    @Inject('ngRedux') private ngRedux,
+    
     public authService: AuthService,
     private _router: Router,
     private stateService: StateService
   ) { }
 
   ngOnInit() {
-    this.unsubscribe = this.ngRedux.connect(
-      () => ({}),
-      this.mapDispatchToThis
-    )(this);
+    
 
-    let tasks$ = this.stateService.select(state => state.tasks.filter(n=>n.get('owner') === state.filters.get('owner')))
+
     let owner$ = this.stateService.select(state => state.filters.get('owner'));
-    let test = Observable.zip(tasks$, owner$).subscribe(n=>{
-      console.log('zip!', n);
-    })
-      this.stateService
-        .select(state=> {
-          const owner = state.filters.get('owner');
-          const taskStatus = state.filters.get('taskStatus')
-          const isDone = taskStatus === 'completed';
-          const tasks = state.tasks.filter(n=> {
-            return (n.get('done') === isDone || taskStatus === 'all')
-              && (n.get('owner') === owner || owner === 'everyone')
-          })
-          return tasks;
-        }).subscribe(n=>{
-          console.log('subscribe called')
-          this.tasks = n;
+    let status$ = this.stateService.select(state=> state.filters.get('status'));
+    let tasks$ = this.stateService.select(state=> state.tasks)
+      .combineLatest(owner$, status$, (tasks, owner, status) => {
+        return tasks.filter(n=> {
+          const isDone = status === 'completed';
+          return (n.get('done') === isDone || status === 'all')
+            && (n.get('owner') === owner || owner === 'everyone')
         })
-  //    .debounceTime(500)
-    //  .subscribe(tasks=>{
-      //  console.log('stuff!',tasks)
-//        this.tasks = tasks;
-  //    })
+      }).subscribe(tasks=> this.tasks = tasks)
+    
+     
 
     this.loadTasks();
 
@@ -93,25 +76,12 @@ export default class Tasks implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
-    console.log('more stuff')
+    
     this.unsubscribe();
   }
 
 
-  mapStateToThis(state) {
-    const owner = state.filters.get('owner');
-    const taskStatus = state.filters.get('taskStatus')
-    const isDone = taskStatus === 'completed';
-
-    return {
-      tasks: state.tasks.filter(n=> {
-        return (n.get('done') === isDone || taskStatus === 'all')
-          && (n.get('owner') === owner || owner === 'everyone')
-      }),
-      owner: owner,
-      taskStatus: taskStatus
-    };
-  }
+ 
 
   editTask(taskId) {
    
@@ -121,21 +91,17 @@ export default class Tasks implements OnDestroy, OnInit {
   
     let names = ['Alice', 'Bob', 'Eric','Evan','James','John','Jane','Darren','Emily','Seth']
     this.tasks.forEach(n=> {
-      n = n.toJS() as any;
-    
-  //    n.owner = names[Math.floor(Math.random() * 10)];
-      n.description = `Update!` + Math.floor(Math.random() * 10);
+      let x  = n.toJS() as any;
+      x.owner = names[Math.floor(Math.random() * 10)];
+      x.description = `Update!` + Math.floor(Math.random() * 10);
 
-      this.ngRedux.dispatch(TaskActions.updateTask(n));
+      this.stateService.dispatch(TaskActions.updateTask(x));
     });
   
   }
 
-  mapDispatchToThis(dispatch) {
-    return {
-      deleteTask: (task) => dispatch(TaskActions.deleteTask(task)),
-      loadTasks: () => dispatch(TaskActions.loadTasks()),
-      markTask: ({task, newStatus}) => dispatch(TaskActions.markTask(task, newStatus))
-    }
-  }
+  deleteTask = (task) => this.stateService.dispatch(TaskActions.deleteTask(task))
+  loadTasks = () => this.stateService.dispatch(TaskActions.loadTasks())
+  markTask =({task, newStatus}) => this.stateService.dispatch(TaskActions.markTask(task, newStatus))
+  
 }

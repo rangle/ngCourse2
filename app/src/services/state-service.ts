@@ -3,11 +3,15 @@ import {Injectable, Inject} from 'angular2/core';
 
 @Injectable()
 export default class StateService {
+  
   store: any; 
+  private _ngRedux: any;
+  
   constructor(@Inject('ngRedux') ngRedux) {
     this.store = this.observableFromStore(ngRedux);
-
+    this._ngRedux = ngRedux;
   }
+
   select(selector: any) {
     if (
       typeof selector === 'string' ||
@@ -24,6 +28,10 @@ export default class StateService {
     return Observable.create(observer =>
       store.subscribe(() => observer.next(store.getState()))
     );
+  }
+
+  dispatch = (action) => {
+    return this._ngRedux.dispatch(action)
   }
 
 }
