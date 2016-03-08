@@ -36,13 +36,11 @@ export function updateTask(task) {
   }
 }
 
-export function markTask(/* TO BE COMPLETED*/) {
+export function markTask(taskId, newStatus) {
 // NOTE: 'status' field is not implemented on the 
 // API yet, so we can treat this as a synchernous action
   return {
     type: TASK_MARKED,
-    payload: {
-      /* To Be Completed */
-    }
+    payload: { taskId, newStatus }
   };
 }
