@@ -4,17 +4,10 @@
       <ngc-icon-logo></ngc-icon-logo> ngCourse2
     </p>
   </div>
-  <div class="right" *ngIf="authService.isLoggedIn()">
+  <div class="right">
     <a class="btn py2 m0"
       [routerLink]="['Tasks', 'TaskSummary']">Tasks</a>
     <a class="btn py2 m0"
       [routerLink]="['Tasks', 'TaskAdd']">Add Task</a>
-    <a id="qa-logout-link"
-      class="btn py2 m0"
-      href="#"
-      [routerLink]="['Login']"
-      (click)="logout()">
-      Logout
-    </a>
   </div>
 </div>
