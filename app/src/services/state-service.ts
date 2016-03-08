@@ -1,15 +1,18 @@
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import {Injectable, Inject} from 'angular2/core';
+import {bindActionCreators} from 'redux';
 
 @Injectable()
 export default class StateService {
-  
-  store: any; 
+
+  store: any;
   private _ngRedux: any;
-  
-  constructor(@Inject('ngRedux') ngRedux) {
+
+  constructor( @Inject('ngRedux') ngRedux) {
     this.store = this.observableFromStore(ngRedux);
     this._ngRedux = ngRedux;
+
+    this._ngRedux.subscribe(() => this.store.next(this._ngRedux.getState()));
   }
 
   select(selector: any) {
@@ -24,14 +27,12 @@ export default class StateService {
       return this.store.map(selector).distinctUntilChanged();
     }
   }
-  observableFromStore = (store) => {
-    return Observable.create(observer =>
-      store.subscribe(() => observer.next(store.getState()))
-    );
-  }
+
+  observableFromStore = (store) => new BehaviorSubject(store.getState());
 
   dispatch = (action) => {
     return this._ngRedux.dispatch(action)
-  }
+  };
 
+  
 }
