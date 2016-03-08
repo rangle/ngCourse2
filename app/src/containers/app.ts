@@ -17,9 +17,9 @@ import Tasks from './tasks/tasks';
 })
 @RouteConfig([
   {
-    path: '/tasks',
+    path: '/tasks/...',
     name: 'Tasks',
-    component: PlaceHolder,
+    component: Tasks,
     useAsDefault: true
   },
   {

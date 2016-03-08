@@ -1,6 +1,5 @@
 import {Component, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {bindActionCreators} from 'redux';
-import {TaskMap} from '../services/tasks-service';
 import SummaryIcon from '../components/icons/summary';
 import TaskFilters from '../components/task-filters/task-filters';
 import {OwnersPipe, OwnerTasksPipe} from '../pipes/owners';

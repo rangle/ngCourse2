@@ -1,15 +1,12 @@
 import {Component, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {RouteConfig} from 'angular2/router';
-@Component({
-  selector: 'place-holder',
-  template: 'TODO: Complete',
-})
-class PlaceHolder {
-
-}
+import {PlaceHolder} from '../../components';
+import {TaskGrid} from '../../components';
+const TEMPLATE = require('./tasks.html');
 @Component({
   selector: 'ngc-main',
-  template: 'TBC'
+  template: TEMPLATE,
+  directives: [TaskGrid]
 })
 @RouteConfig([{
   path: '/',
@@ -30,29 +27,42 @@ export default class Tasks implements OnDestroy, OnInit {
   protected unsubscribe: Function;
   
 
-  constructor( ) { }
+  constructor(@Inject('ngRedux') private _ngRedux) { }
 
   ngOnInit() {
-    
+    this.unsubscribe = this._ngRedux.connect(
+      (state) => this.mapStateToThis(state))(this)
+
+      
   }
 
   ngOnDestroy() {
-    
+    this.unsubscribe() 
   }
 
 
   mapStateToThis(state) {
+
+    return {
+      tasks: state.tasks
+    };
     
   }
 
   editTask(taskId) {
-
+    console.log(`Task ${taskId} edit clicked`);
     
   }
 
-  mapDispatchToThis(dispatch) {
-    return {
-      
-    }
+  deleteTask(task) {
+    console.log(`Task ${task} delete clicked`);
+
   }
+
+  markTask({task, newStatus}) {
+    console.log(`Task ${task} mark clicked`);
+
+  }
+
+  
 }
