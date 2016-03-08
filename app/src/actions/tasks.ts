@@ -29,10 +29,10 @@ export function deleteTask(/* To Be Completed */) {
   }
 }
 
-export function updateTask(/* To Be Completed */) {
+export function updateTask(task) {
   return {
-    type: 'TBC',
-    payload: {}
+    type: TASK_UPDATED,
+    payload: task
   }
 }
 

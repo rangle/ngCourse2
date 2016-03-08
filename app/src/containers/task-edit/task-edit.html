@@ -1,0 +1,7 @@
+  <ngc-task-form *ngIf="task"
+    formTitle="Task Edit"
+    [task]="task"
+    [cancelLink]="cancelLink"
+    (onSubmit)="submitTask($event)">
+  </ngc-task-form>
+

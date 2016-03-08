@@ -34,8 +34,13 @@ export default function tasks(state = initialState, action) {
   switch (action.type) {
     case TASKS_LOADED:
       return state;
-      case TASK_ADDED:
+    case TASK_ADDED:
       return state.push(fromJS(action.payload))
+     case TASK_UPDATED:
+      const updateIndex = state.findIndex((task: Map<string,any>) =>
+        task.get('_id') === action.payload._id
+      );
+      return state.set(updateIndex, Map(action.payload)); 
     default:
       return state;
   }

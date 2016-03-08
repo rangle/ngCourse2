@@ -1,8 +1,9 @@
 import {Component, Inject, OnDestroy, OnInit} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {PlaceHolder} from '../../components';
 import {TaskGrid} from '../../components';
 import TaskAdd from '../task-add/task-add';
+import TaskEdit from '../task-edit/task-edit';
 const TEMPLATE = require('./tasks.html');
 @Component({
   selector: 'ngc-main',
@@ -21,14 +22,14 @@ const TEMPLATE = require('./tasks.html');
   }, {
     path: '/:id',
     name: 'TaskEdit',
-    component: PlaceHolder
+    component: TaskEdit
   }])
 export default class Tasks implements OnDestroy, OnInit {
 
   protected unsubscribe: Function;
   
 
-  constructor(@Inject('ngRedux') private _ngRedux) { }
+  constructor(@Inject('ngRedux') private _ngRedux, private _router: Router) { }
 
   ngOnInit() {
     this.unsubscribe = this._ngRedux.connect(
@@ -50,8 +51,8 @@ export default class Tasks implements OnDestroy, OnInit {
     
   }
 
-  editTask(taskId) {
-    console.log(`Task ${taskId} edit clicked`);
+  editTask(id) {
+    this._router.navigate(['Tasks', 'TaskEdit', { id }])
     
   }
 
