@@ -41,6 +41,11 @@ export default function tasks(state = initialState, action) {
         task.get('_id') === action.payload._id
       );
       return state.set(updateIndex, Map(action.payload)); 
+     case TASK_DELETED:
+       const deleteIndex = state.findIndex((task: Map<string, any>) =>
+         task.get('_id') === action.payload
+       );
+       return state.delete(deleteIndex);
     default:
       return state;
   }

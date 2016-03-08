@@ -34,7 +34,7 @@ export default class TaskItem {
   }
 
   deleteTask(task) {
-    this.taskDeleted.emit(task);
+    this.taskDeleted.emit(task.get('_id'));
   }
 
   markTask(task, newStatus) {

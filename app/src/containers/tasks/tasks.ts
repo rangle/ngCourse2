@@ -4,6 +4,7 @@ import {PlaceHolder} from '../../components';
 import {TaskGrid} from '../../components';
 import TaskAdd from '../task-add/task-add';
 import TaskEdit from '../task-edit/task-edit';
+import {deleteTask} from '../../actions/tasks';
 const TEMPLATE = require('./tasks.html');
 @Component({
   selector: 'ngc-main',
@@ -56,8 +57,8 @@ export default class Tasks implements OnDestroy, OnInit {
     
   }
 
-  deleteTask(task) {
-    console.log(`Task ${task} delete clicked`);
+  deleteTask(taskId) {
+    this._ngRedux.dispatch(deleteTask(taskId))
 
   }
 

@@ -22,10 +22,10 @@ export function addTask(task: any) {
   }
 }
 
-export function deleteTask(/* To Be Completed */) {
+export function deleteTask(taskId) {
   return {
-    type: 'TBC',
-    payload: {}
+    type: TASK_DELETED,
+    payload: taskId
   }
 }
 
