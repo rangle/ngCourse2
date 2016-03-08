@@ -5,7 +5,7 @@ TASK_DELETED,
 TASK_UPDATED,
 TASK_MARKED,
 } from '../actions/tasks';
-import {TaskMap} from '../services/tasks-service';
+
 import {fromJS, List, Map} from 'immutable';
 
 const initialState = fromJS([{
@@ -34,7 +34,8 @@ export default function tasks(state = initialState, action) {
   switch (action.type) {
     case TASKS_LOADED:
       return state;
-
+      case TASK_ADDED:
+      return state.push(fromJS(action.payload))
     default:
       return state;
   }

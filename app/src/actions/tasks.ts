@@ -14,11 +14,11 @@ export function loadTasks() {
   
 }
 
-export function addTask(/* To Be Completed */) {
+export function addTask(task: any) {
  
   return {
-    type: 'TBC',
-    payload: {}
+    type: TASK_ADDED,
+    payload: task
   }
 }
 

@@ -1,12 +1,13 @@
 import {Component, Inject, OnDestroy, OnInit} from 'angular2/core';
-import {RouteConfig} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {PlaceHolder} from '../../components';
 import {TaskGrid} from '../../components';
+import TaskAdd from '../task-add/task-add';
 const TEMPLATE = require('./tasks.html');
 @Component({
   selector: 'ngc-main',
   template: TEMPLATE,
-  directives: [TaskGrid]
+  directives: [TaskGrid, ROUTER_DIRECTIVES]
 })
 @RouteConfig([{
   path: '/',
@@ -16,7 +17,7 @@ const TEMPLATE = require('./tasks.html');
 }, {
     path: '/add',
     name: 'TaskAdd',
-    component: PlaceHolder
+    component: TaskAdd
   }, {
     path: '/:id',
     name: 'TaskEdit',

@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import TaskForm from '../../components/task-form/task-form';
 import {Router} from 'angular2/router';
 const TEMPLATE = require('./task-add.html');
-import * as TaskActions from '../../actions/tasks';
+import {addTask} from '../../actions/tasks';
 
 @Component({
   selector: 'ngc-task-add',
@@ -13,37 +13,30 @@ import * as TaskActions from '../../actions/tasks';
 export default class TaskAdd implements OnDestroy, OnInit {
 
   protected unsubscribe: Function;
-  addTask: Function;
+  cancelLink: any[] = ['/Tasks']
   
 
   constructor( 
-    @Inject('ngRedux') private ngRedux, 
+    @Inject('ngRedux') private _ngRedux, 
     public _router: Router) { }
 
   ngOnInit() {
-    this.unsubscribe = this.ngRedux.connect(
-      this.mapStateToThis, 
-      this.mapDispatchToThis
-    )(this);
+   
   }
 
   ngOnDestroy() {
-    this.unsubscribe();
+   
   }
 
-  mapStateToThis(state) {
-    return { };
-      
-  }
-
-  mapDispatchToThis(dispatch) {
-    return bindActionCreators(TaskActions, dispatch);
-  }
+  
 
   submitTask(newTask): void {
+    // Random ID just for now...
+    newTask._id = Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+    this._ngRedux.dispatch(addTask(newTask));
+    this._router.navigate(['/Tasks'])
     
-    this.addTask(newTask, () => {
-      this._router.navigate(['/Main']);
-    });
   }
 }
