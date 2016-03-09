@@ -15,16 +15,16 @@ export default class StateService {
     this._ngRedux.subscribe(() => this.store.next(this._ngRedux.getState()));
   }
 
-  select(selector: any) {
+  select(selector: any, comparer?:(x: any, y: any)=> boolean) {
     if (
       typeof selector === 'string' ||
       typeof selector === 'number' ||
       typeof selector === 'symbol'
     ) {
-      return this.store.map(state => state[selector]).distinctUntilChanged();
+      return this.store.map(state => state[selector]).distinctUntilChanged(comparer);
     }
     else if (typeof selector === 'function') {
-      return this.store.map(selector).distinctUntilChanged();
+      return this.store.map(selector).distinctUntilChanged(comparer)
     }
   }
 

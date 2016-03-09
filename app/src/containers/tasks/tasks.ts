@@ -11,7 +11,7 @@ import TaskGrid from '../../components/task-grid/task-grid';
 import {StatusPipe} from '../../pipes/status';
 import {OwnerTasksPipe} from '../../pipes/owners';
 import * as TaskActions from '../../actions/tasks';
-import {List} from 'immutable';
+import {List, is} from 'immutable';
 import StateService from '../../services/state-service';
 const TASKS_TEMPLATE = require('./tasks.html');
 import { Observable } from 'rxjs';
@@ -56,8 +56,12 @@ export default class Tasks implements OnDestroy, OnInit {
 
 
     let owner$ = this.stateService.select(state => state.filters.get('owner'));
-    let status$ = this.stateService.select(state=> state.filters.get('status'));
-    let tasks$ = this.stateService.select(state=> state.tasks)
+    let status$ = this.stateService.select(state=> state.filters.get('taskStatus'));
+    let tasks$ = this.stateService.select(state=> state.tasks,(a,b)=> {
+      console.log('is tasks?', is(a, b));
+      return false;
+      //return is(a, b);
+    })
       .combineLatest(owner$, status$, (tasks, owner, status) => {
         return tasks.filter(n=> {
           const isDone = status === 'completed';
@@ -65,8 +69,10 @@ export default class Tasks implements OnDestroy, OnInit {
             && (n.get('owner') === owner || owner === 'everyone')
         })
       }).subscribe(tasks=> this.tasks = tasks)
-    
-     
+    let x = 0;
+    let tasksTest$ = this.stateService.select(state=> state.tasks, is).subscribe(n=> {
+       console.log('this is called... yeah',++x)
+     })
 
     this.loadTasks();
 
