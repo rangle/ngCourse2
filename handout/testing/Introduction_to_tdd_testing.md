@@ -43,9 +43,9 @@ Karma is the foundation of our testing workflow, it brings together our other te
 module.exports = function(config) {
 	config.set({
       	frameworks: [
-  		  'jaasmine',
-          'Chai',
-          'simoma'
+  		  'jasmine',
+         'chai',
+         'sinon'
 		],
       
       	files: [
@@ -59,11 +59,11 @@ module.exports = function(config) {
 		
 		plugins: [
 	      require('karma-jasmine'), 
-	      require('karma-Chai'),
+	      require('karma-chai'),
 	      require('karma-sinon'),
 	      require('karma-chrome-launcher'),
 	      require('karma-phantomjs-launcher'),
-      	  require('karma-webpack'),
+      	require('karma-webpack'),
     	  require('karma-sourcemap-loader'),
 	      require('karma-coverage')
 		],
