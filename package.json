@@ -6,12 +6,12 @@
   "directories": {
     "example": "examples"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "gitbook-cli": "^1.0.1",
+    "gitbook-plugin-ga": "^1.0.1",
     "gitbook-plugin-jsbin": "",
-    "gitbook-plugin-versions": "^2.1.1",
-    "gitbook-cli": "^1.0.1"
+    "gitbook-plugin-versions": "^2.1.1"
   },
   "scripts": {
     "build": "gitbook build",
