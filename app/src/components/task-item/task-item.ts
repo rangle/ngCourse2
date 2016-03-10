@@ -18,7 +18,7 @@ const TEMPLATE = require('./task-item.html');
     UserIcon
   ],
   template: TEMPLATE,
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class TaskItem {
   differ: any;
@@ -34,16 +34,16 @@ export default class TaskItem {
   }
 
   ngOnInit() {
-    console.log('task init', this.task.toJS())
+  //  console.log('task init', this.task.toJS())
   }
 
-  ngDoCheck(differ: IterableDiffers) {
+/*  ngDoCheck(differ: IterableDiffers) {
     var changes = this.differ.diff(this.list);
     if (changes) {
      // changes.forEachAddedItem(r => this.logs.push('added ' + r.item));
       changes.forEachRemovedItem(r => this.logs.push('removed ' + r.item))
     }
-  }
+  }*/
  // ngOnChanges(x) {
    // console.log('task change',x)
   //}

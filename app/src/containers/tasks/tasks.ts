@@ -55,14 +55,14 @@ export default class Tasks implements OnDestroy, OnInit {
     
 
 
-    let owner$ = this.stateService.select(state => state.filters.get('owner'));
-    let status$ = this.stateService.select(state=> state.filters.get('taskStatus'));
-    let tasks$ = this.stateService.select(state=> state.tasks,(a,b)=> {
+    this.owner$ = this.stateService.select(state => state.filters.get('owner'));
+    this.status$ = this.stateService.select(state=> state.filters.get('taskStatus'));
+    this.tasks$ = this.stateService.select(state=> state.tasks,(a,b)=> {
       console.log('is tasks?', is(a, b));
       return false;
       //return is(a, b);
     })
-      .combineLatest(owner$, status$, (tasks, owner, status) => {
+      .combineLatest(this.owner$, this.status$, (tasks, owner, status) => {
         return tasks.filter(n=> {
           const isDone = status === 'completed';
           return (n.get('done') === isDone || status === 'all')
@@ -70,9 +70,9 @@ export default class Tasks implements OnDestroy, OnInit {
         })
       }).subscribe(tasks=> this.tasks = tasks)
     let x = 0;
-    let tasksTest$ = this.stateService.select(state=> state.tasks, is).subscribe(n=> {
+     this.tasksTest$ = this.stateService.select(state=> state.tasks, is).subscribe(n=> {
        console.log('this is called... yeah',++x)
-     })
+     },(err)=>console.log(err), ()=>console.log('done'))
 
     this.loadTasks();
 
@@ -82,8 +82,11 @@ export default class Tasks implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
-    
-    this.unsubscribe();
+    this.owner$.unsubscribe();
+    this.status$.unsubscribe();
+    this.tasks$.unsubscribe();
+    this.tasksTest$.unsubscribe();
+    //this.unsubscribe();
   }
 
 

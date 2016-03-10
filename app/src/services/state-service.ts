@@ -16,6 +16,7 @@ export default class StateService {
   }
 
   select(selector: any, comparer?:(x: any, y: any)=> boolean) {
+  console.log(`observers: ${this.store.observers.length}`)
     if (
       typeof selector === 'string' ||
       typeof selector === 'number' ||
