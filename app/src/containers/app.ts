@@ -3,6 +3,14 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import Header from '../components/header/header';
 import Login from './login/login';
 import Tasks from './tasks/tasks';
+import StateService from '../services/state-service';
+
+@Component({
+  template:'test'
+})
+class Test {
+
+}
 
 @Component({
   selector: 'ngc-root',
@@ -26,6 +34,15 @@ import Tasks from './tasks/tasks';
 }, {
   path: '/',
   redirectTo: ['Tasks']
+},{
+  path: '/test',
+  component: Test,
+  as: 'Test'
 }
 ])
-export default class App {}
+export default class App {
+  constructor(stateService: StateService)
+  {
+    
+  }
+}

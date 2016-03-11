@@ -1,4 +1,5 @@
 <router-outlet></router-outlet>
+<button (click)="randomUpdate()">Random!</button>
 <ngc-task-grid
   [tasks]="tasks"
   (taskDeleted)="deleteTask($event)"

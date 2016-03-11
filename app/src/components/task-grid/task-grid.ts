@@ -1,4 +1,4 @@
-import {Component, View, ChangeDetectionStrategy, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, View, ChangeDetectionStrategy, Input, Output, EventEmitter, OnChanges} from 'angular2/core';
 import Task from '../task-item/task-item';
 
 @Component({
@@ -8,7 +8,7 @@ import Task from '../task-item/task-item';
   template: `
     <ul class="cols list-reset m0">
       <li class="py1 avoid-break"
-        *ngFor="#task of tasks">
+        *ngFor="#task of tasks;trackBy:taskCheck">
         <ngc-task 
           [task]="task"
           (taskDeleted)="taskDeleted.emit($event)"
@@ -20,10 +20,21 @@ import Task from '../task-item/task-item';
     </ul>
   `
 })
-export default class TaskGrid {
+export default class TaskGrid implements OnChanges {
   @Input() tasks: any;
   @Output() taskDeleted: EventEmitter<any> = new EventEmitter<any>();
   @Output() taskMarked: EventEmitter<any> = new EventEmitter<any>();
   @Output() taskEdit: EventEmitter<any> = new EventEmitter<any>();
-  
+   
+   taskCheck(index,task) {
+     return task.get('_id');
+   }
+
+   ngOnChanges(x) {
+     console.log('Inputs Changed',x)
+   }
+
+   ngOnDestroy() {
+     console.log('Destroy!')
+   }
 }

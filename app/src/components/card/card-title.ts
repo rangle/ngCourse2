@@ -9,4 +9,7 @@ import {Component} from 'angular2/core';
   `
 })
 export default class CardTitle {
+  ngOnInit() {
+    console.log('what? card ')
+  }
 }
