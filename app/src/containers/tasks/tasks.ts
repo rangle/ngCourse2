@@ -10,7 +10,7 @@ import Summary from '../summary';
 import TaskGrid from '../../components/task-grid/task-grid';
 import {StatusPipe} from '../../pipes/status';
 import {OwnerTasksPipe} from '../../pipes/owners';
-import * as TaskActions from '../../actions/tasks';
+import  TaskActions from '../../actions/tasks';
 import {List, is} from 'immutable';
 import StateService from '../../services/state-service';
 const TASKS_TEMPLATE = require('./tasks.html');
@@ -41,27 +41,27 @@ export default class Tasks implements OnDestroy, OnInit {
   tasks: List<TaskMap>;
   owner: string;
   taskStatus: string;
-  
+  owner$: any;
+  status$: any;
+  tasks$: any;
+  tasksTest$: any;
 
 
   constructor(
-    
+
     public authService: AuthService,
     private _router: Router,
-    private stateService: StateService
+    private stateService: StateService,
+    private taskActions: TaskActions
   ) { }
 
   ngOnInit() {
-    
+
 
 
     this.owner$ = this.stateService.select(state => state.filters.get('owner'));
     this.status$ = this.stateService.select(state=> state.filters.get('taskStatus'));
-    this.tasks$ = this.stateService.select(state=> state.tasks,(a,b)=> {
-      console.log('is tasks?', is(a, b));
-      return false;
-      //return is(a, b);
-    })
+    this.tasks$ = this.stateService.select(state=> state.tasks)
       .combineLatest(this.owner$, this.status$, (tasks, owner, status) => {
         return tasks.filter(n=> {
           const isDone = status === 'completed';
@@ -70,6 +70,7 @@ export default class Tasks implements OnDestroy, OnInit {
         })
       }).subscribe(tasks=> this.tasks = tasks)
     let x = 0;
+
      this.tasksTest$ = this.stateService.select(state=> state.tasks, is).subscribe(n=> {
        console.log('this is called... yeah',++x)
      },(err)=>console.log(err), ()=>console.log('done'))
@@ -90,27 +91,27 @@ export default class Tasks implements OnDestroy, OnInit {
   }
 
 
- 
+
 
   editTask(taskId) {
-   
+
     this._router.navigate(['Tasks', 'TaskEdit', { id: taskId }])
   }
   randomUpdate() {
-  
+
     let names = ['Alice', 'Bob', 'Eric','Evan','James','John','Jane','Darren','Emily','Seth']
     this.tasks.forEach(n=> {
       let x  = n.toJS() as any;
       x.owner = names[Math.floor(Math.random() * 10)];
       x.description = `Update!` + Math.floor(Math.random() * 10);
 
-      this.stateService.dispatch(TaskActions.updateTask(x));
+    //  this.stateService.dispatch(this.taskActions.updateTask(x));
     });
-  
+
   }
 
-  deleteTask = (task) => this.stateService.dispatch(TaskActions.deleteTask(task))
-  loadTasks = () => this.stateService.dispatch(TaskActions.loadTasks())
-  markTask =({task, newStatus}) => this.stateService.dispatch(TaskActions.markTask(task, newStatus))
-  
+  deleteTask = (task) => this.stateService.dispatch(this.taskActions.deleteTask(task))
+  loadTasks = () => this.stateService.dispatch(this.taskActions.loadTasks())
+  markTask =({task, newStatus}) => this.stateService.dispatch(this.taskActions.markTask(task, newStatus))
+
 }

@@ -1,5 +1,6 @@
-import {Inject} from 'angular2/core';
+import {Inject, Injectable} from 'angular2/core';
 import {Http, Request, Response, Headers} from 'angular2/http';
+import StateService from './state-service'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
 import {List, Map} from 'immutable';
@@ -15,12 +16,17 @@ export interface TaskMap extends Map<string, any> { }
 
 // Create a request header to set content type to JSON
 const HEADERS = new Headers({ 'Content-Type': 'application/json' });
-
+@Injectable()
 export default class TasksService {
-  
+
   constructor(
-    @Inject(Http) private _http
-  ) {}
+    private _http: Http,
+    private stateService: StateService
+  ) {
+    stateService.select(n=>n.tasks).subscribe(n=>{
+      console.log('yo - accessing state in my services',n)
+    })
+  }
 
   fetch() {
     return this._http.get('http://ngcourse.herokuapp.com/api/v1/tasks')
@@ -41,7 +47,7 @@ export default class TasksService {
   }
 
   update(task: Task) {
-    
+
     return this._http.put(
       `http://ngcourse.herokuapp.com/api/v1/tasks/${task._id}`,
       JSON.stringify(task), {
@@ -50,7 +56,7 @@ export default class TasksService {
     )
       .map((res: Response) => res.json())
       .share();
-    
+
   }
 
   delete(task: TaskMap) {
