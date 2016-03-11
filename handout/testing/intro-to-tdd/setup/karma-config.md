@@ -5,9 +5,9 @@ Karma is the foundation of our testing workflow, it brings together our other te
 module.exports = function(config) {
 	config.set({
       	frameworks: [
-  		  'jaasmine',
+  		    'jasmine',
           'Chai',
-          'simoma'
+          'simon'
 		],
 
       	files: [
