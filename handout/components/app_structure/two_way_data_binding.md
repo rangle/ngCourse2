@@ -35,6 +35,8 @@ class SomeComponent {
 }
 ```
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/VQ88fMntRaaGFSMcyyQ4" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
+
+<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/VQ88fMntRaaGFSMcyyQ4/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 [View Example](http://plnkr.co/edit/VQ88fMntRaaGFSMcyyQ4?p=preview)
