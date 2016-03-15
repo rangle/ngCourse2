@@ -31,7 +31,7 @@ For some extra testing functionality we can use the [Sinon](http://sinonjs.org/)
 
 ## Setup
 
-The repo [ng2-redux-starter](https://github.com/rangle/angular2-redux-starter) is a basic webpack based Angular 2 application (with Redux) with the same testing toolChain outlined above. Lets take a look at how this project is setup. 
+The repo [angular2-redux-starter](https://github.com/rangle/angular2-redux-starter) is a basic webpack based Angular 2 application (with Redux) with the same testing toolChain outlined above. Lets take a look at how this project is setup. 
 
 ###Filename Conventions
 Each unit test is put into its own separate file. The Angular 2 team recommends putting unit test scripts alongside the files they are testing and using a `.spec` filename extension to mark it as a testing script (this is a Jasmine convention). So if you had a component `/app/components/mycomponent.ts`, then your unit test for this component would be in `/app/components/mycomponent.spec.ts`. This is a matter of taste, you can put your testing scripts wherever you like, though keeping them close to your source files makes them easier to find and gives those who aren't familiar with the source code an idea of how that particular piece of code should work. 
