@@ -4,72 +4,77 @@ Since we want to isolate our service testing from outside network requests, we h
 
 *wikisearch.ts*
 
-``` typescript
-    import {Http} from 'angular2/http';
-    import {Injectable} from 'angular2/core';
+```js
 
-    @Injectable()
-    export class SearchWiki {
-      constructor (private http: Http) {}
+import {Http} from 'angular2/http';
+import {Injectable} from 'angular2/core';
 
-      search(term:string): Observable<any> {
-        return this.http.get(
-          'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=' + term
-        ).map((response) => response.json);
-      }
+@Injectable()
+export class SearchWiki {
+  constructor (private http: Http) {}
 
-      searchXML(term:string): Observable<any> {
-        return this.http.get(
-          'https://en.wikipedia.org/w/api.php?action=query&list=search&format=xmlfm&srsearch=' + term
-        );
-      }
-    }
+  search(term:string): Observable<any> {
+    return this.http.get(
+      'https://en.wikipedia.org/w/api.php?' +
+      'action=query&list=search&srsearch=' + term
+    ).map((response) => response.json);
+  }
+
+  searchXML(term:string): Observable<any> {
+    return this.http.get(
+      'https://en.wikipedia.org/w/api.php?' + 
+      'action=query&list=search&format=xmlfm&srsearch=' + term
+    );
+  }
+}
 ```
 
 Here is a basic service. It will query wikipedia with a search term and return an Observable with the results of the query. The search function will make a GET request with the supplied term, and the searchXML method will do the same thing, except request the response to be in XML instead of JSON. As you can see, it depends on the HTTP module to make a request to wikipedia.org. We want to use `MockBackend` to inject a mocked version of Http, so that any call to http.get will allow us to feed in whatever data we want - not the data from wikipedia.org. Lets take a look at our unit test:
 
 *wikisearch.spec.ts*
 
-``` typescript
-    import {
+```js
+
+import {
+  BaseRequestOptions,
+  Response,
+  ResponseOptions,
+  ConnectionBackend,
+  Http
+} from 'angular2/http';
+
+import {
+  it,
+  expect,
+  describe,
+  beforeEachProvider,
+  inject
+} from 'angular2/testing';
+
+import {MockBackend} from 'angular2/http/testing';
+import {provide} from 'angular2/core';
+import {SearchWiki} from './wikisearch';
+
+describe('Testing the wikipedia search service', () => {
+  beforeEachProviders(() => {
+    return [
+      MockBackend,
       BaseRequestOptions,
-      Response,
-      ResponseOptions,
-      ConnectionBackend,
-      Http
-    } from 'angular2/http';
-
-    import {
-      it,
-      expect,
-      describe,
-      beforeEachProvider,
-      inject
-    } from 'angular2/testing';
-
-    import {MockBackend} from 'angular2/http/testing';
-    import {provide} from 'angular2/core';
-    import {SearchWiki} './wikisearch';
-
-    describe("Testing the wikipedia search service", () => {
-      beforeEachProviders(() => {
-      	return [
-      		MockBackend,
-          	BaseRequestOptions,
-          	SearchWiki,
-          	provide(
-              Http, {
-                useFactory: (
-                  mockbackend: ConnectionBackend, defaultOptions: BaseRequestOptions
-                ) => {
-      				return new Http(mockbackend, defaultOptions)
-    			},
-                deps: [MockBackend, BaseRequestOptions]
-              }
-    	   )
-    	]
-      });
-    });
+      SearchWiki,
+      provide(
+        Http, {
+          useFactory: (
+            mockbackend: ConnectionBackend, 
+            defaultOptions: BaseRequestOptions
+          ) => {
+            return new Http(mockbackend, defaultOptions)
+          },
+          deps: [MockBackend, BaseRequestOptions]
+        }
+      )
+    ]
+  });
+});
 ```
 
 As you can see, we have quite a few imports here to setup our mocked HTTP module. We use `beforeEachProvider` to include `MockBackend` to create our mocked HTTP module. In order to properly setup our mocked module we also include `BaseRequestOptions` and `ConnectionBackend`. We create an instance of `Http` that our service will get by using a factory.

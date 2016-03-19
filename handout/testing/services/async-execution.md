@@ -2,15 +2,18 @@
 
 Since services operate in an asynchronous manner it may be useful to execute a services entire unit test asynchronously. This can speed up the overall time it takes to complete a full testing cycle since a particular long unit test will not block other unit tests from executing. We can setup our unit test to return a promise, which will resolve as either a success or failure, depending on the activity of the test.
 
-``` typescript
-describe("verify search", () => {
-	it("searches for the correct term",
-		injectAsync([SearchWiki, MockBackend], fakeAsync((searchWiki, mockBackend) => {
-			return new Promise((pass, fail) => {
-				...
-			});
-		});
-	));
+
+```js
+
+describe('verify search', () => {
+  it('searches for the correct term',
+    injectAsync([SearchWiki, MockBackend],
+      fakeAsync((searchWiki, mockBackend) => {
+        return new Promise((pass, fail) => {
+          ...
+        });
+      })
+  ));
 });
 ```
 

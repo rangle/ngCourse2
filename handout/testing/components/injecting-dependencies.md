@@ -4,26 +4,28 @@ In the previous example the class we were testing `MessageComponent` did not hav
 
 *quote.component.ts*
 
-``` typescript
+```js
+
 import {QuoteService} from './quote.service';
 import {Component} from 'angular2/core';
 
 @Component({
-	selector: 'my-quote',
-    template: '<h3>Random Quote</h3> <div>{{quote}}</div>'
+  selector: 'my-quote',
+  template: '<h3>Random Quote</h3> <div>{{quote}}</div>'
 });
 
 export class QuoteComponent {
   quote: string;
 
-  constructor (private quoteService: QuoteService){}
+  constructor(private quoteService: QuoteService){};
 
   getQuote() {
-  	this.quoteService.getQuote().then((quote) => {
-  		this.quote = quote;
-	});
-   }
+    this.quoteService.getQuote().then((quote) => {
+      this.quote = quote;
+    });
+  };
 }
+
 ```
 
 This component relies on the `QuoteService` to get a random quote, which it will then display. The class is pretty simple, it only has the `getQuote` function that will modify the DOM, therefore it will be are main area of focus in testing.
@@ -32,14 +34,15 @@ In order to test this component we need initiate the class `QuoteComponent`. The
 
 *quote.spec.ts*
 
-``` typescript
+```js
+
 class MockQuoteService {
-  public quote: "Test quote";
+  public quote: 'Test quote';
 
   getQuote() {
-  	return new Promise((resolve, reject) => {
-		resolve(this.quote);
-	});
+    return new Promise((resolve, reject) => {
+      resolve(this.quote);
+    });
   }
 }
 
@@ -54,20 +57,20 @@ import {
   beforeEachProvider
 } from 'angular2/testing';
 
-describe("Testing Quote Component", () => {
-    beforeEachProviders(() => {
-		provide(QuoteService: {useClass: MockQuoteService})
-	});
+describe('Testing Quote Component', () => {
+  beforeEachProviders(() => {
+    provide(QuoteService: {useClass: MockQuoteService})
+  });
 
-it("Should get quote", injectAsync([TestComponentBuilder], (tcb) => {
-  return tcb.createAsync(QuoteComponent).then(fixture) => {
+  it('Should get quote', injectAsync([TestComponentBuilder], (tcb) => {
+    return tcb.createAsync(QuoteComponent).then(fixture) => {
 
-    	fixture.debugElement.componentInstance.getQuote();
+      fixture.debugElement.componentInstance.getQuote();
 
-    	fixture.detectChanges();
-	    var compiled = fixture.debugElement.nativeElement;
-    	expect(compiled.querySelector('div')).toHaveText('Test Quote');
-	}
+      fixture.detectChanges();
+      var compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector('div')).toHaveText('Test Quote');
+    }
   }));
 });
 ```

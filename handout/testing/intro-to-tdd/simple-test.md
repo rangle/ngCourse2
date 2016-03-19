@@ -2,7 +2,8 @@
 
 To begin, lets start by writing a simple test in Jasmine.
 
-```typescript
+```js
+
 import {
   describe,
   expect,
@@ -10,10 +11,8 @@ import {
 } from 'angular2/testing';
 
 describe('Testing math', () => {
-
   it('multiplying should work', () => {
-
-  		expect(4*4).toEqual(16));
+    expect(4*4).toEqual(16);
   });
 });
 ```

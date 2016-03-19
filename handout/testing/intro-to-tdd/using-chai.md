@@ -2,28 +2,27 @@
 
 Chai is an assertion library with some tasty syntax sugar that can be paired with any other testing framework. It lets us write tests in a TDD (Test Driven Development) style or BDD (Behaviour Driven Development) style. We already know what TDD is (read the intro!), so what exactly is BDD? Well BDD is the combination of using TDD with natural language constructs (English like sentences) to express the behaviour and outcomes of unit tests. Jasmine already uses a TDD style, so we'll be using Chai for its BDD interfaces, mainly through the use of `should`, and `expect`.
 
-```typescript
+```js
+
 import {
-	describe,
-	expect,
-	it
+  describe,
+  expect,
+  it
 } from 'angular2/testing';
 
 describe('Testing math', () => {
+  it('multiplying should work', () => {
+    let testMe = 16;
 
-	it('multiplying should work', () => {
+    // Using the expect interface
+    chai.expect(testMe).to.be.a('number');
+    chai.expect(testMe).to.equal(16);
 
-        let testMe = 16;
-
-		// Using the expect interface
-        chai.expect(testMe).to.be.a('number');
-        chai.expect(testMe).to.equal(16);
-
-		// Using the should interface
-        chai.should();
-        testMe.should.be.a('number');
-        testMe.should.equal(16);			
-	});
+    // Using the should interface
+    chai.should();
+    testMe.should.be.a('number');
+    testMe.should.equal(16);
+  });
 });
 ```
 
