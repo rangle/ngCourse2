@@ -2,7 +2,8 @@
 
 Recall that by synchronous we mean action creators that return a simple JSON object, like the first two counter actions in [ng2-redux-starter](https://github.com/rangle/angular2-redux-starter).   
 
-```ts
+```js
+
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 
@@ -24,7 +25,8 @@ export function decrement() {
 
 These are pretty straightforward to test.
 
-```ts
+```js
+
 import {INCREMENT_COUNTER, DECREMENT_COUNTER} from './counter';
 import * as CounterActions from './counter';
 

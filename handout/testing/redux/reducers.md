@@ -4,7 +4,8 @@ Luckily, testing reducers is a lot like testing our synchronous action creators,
 
 We'll test the counter reducer in [ng2-redux-starter](https://github.com/rangle/angular2-redux-starter), which is the following:
 
-```ts
+```js
+
 export default function counter(state = 0, action)
   switch (action.type) {
     case INCREMENT_COUNTER:
@@ -19,7 +20,7 @@ export default function counter(state = 0, action)
 
 As you can see, there are three cases to test: the default case, the increment, and the decrement. We want to test that our actions trigger the state changes we expect from the reducer.
 
-```ts
+```js
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter';
 import counter from './counter';                                         
 

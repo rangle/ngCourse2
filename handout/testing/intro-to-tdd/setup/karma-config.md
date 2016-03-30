@@ -1,63 +1,64 @@
 # Karma Configuration
 Karma is the foundation of our testing workflow, it brings together our other testing tools to define what framework we want to use, what environment to test under, what specific actions we want to perform, etc. In order to do this Karma relies on a configration file *karma.config.js*. You can seed a new configuration file though the `karma init` command, which will guide you through a few basic questions to get a bare minimum setup running. If we take a look at the *karma.config.js* file in ng2-redux-starter we'll see a few important points of interest.
 
-``` typescript
+```js
 module.exports = function(config) {
-	config.set({
-      	frameworks: [
-  		    'jasmine',
-          'Chai',
-          'simon'
-		],
+  config.set({
+    frameworks: [
+      'jasmine',
+      'Chai',
+      'sinon'
+    ],
 
-      	files: [
-  		  'node_modules/reflect-metadata/Reflect.js',
-          './src/tests.entry.ts'
-		],
+    files: [
+      'node_modules/reflect-metadata/Reflect.js',
+      './src/tests.entry.ts'
+    ],
 
-      	exclude: [
-          'node_modules/angular2/**/*.spec.js'
-		],
+    exclude: [
+      'node_modules/angular2/**/*.spec.js'
+    ],
 
-		plugins: [
-	      require('karma-jasmine'),
-	      require('karma-Chai'),
-	      require('karma-sinon'),
-	      require('karma-chrome-launcher'),
-	      require('karma-phantomjs-launcher'),
-      	  require('karma-webpack'),
-    	  require('karma-sourcemap-loader'),
-	      require('karma-coverage')
-		],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-Chai'),
+      require('karma-sinon'),
+      require('karma-chrome-launcher'),
+      require('karma-phantomjs-launcher'),
+      require('karma-webpack'),
+      require('karma-sourcemap-loader'),
+      require('karma-coverage')
+    ],
 
-      	preprocessors: {
-          '.src/tests.entry.ts': [
-  			'webpack',
-          	'sourcemap',
-          	'coverage'
-		  ]
-		},
+    preprocessors: {
+      '.src/tests.entry.ts': [
+        'webpack',
+        'sourcemap',
+        'coverage'
+      ]
+    },
 
-      	coverageReporter: {
-        	dir: 'coverage/',
-        	reporters: [
-          		{type: 'html'},
-          		{type: 'text'}
-			]
-		},
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        {type: 'html'},
+        {type: 'text'}
+      ]
+    },
 
-      	reporters: [
-  		  'progress',
-          'coverage'
-		],
+    reporters: [
+      'progress',
+      'coverage'
+    ],
 
-      	webpack: {...},
+    webpack: {...},
 
-      	port: 1999,
-	    browsers: ['Chrome', 'PhantomJS'],
-      	singleRun: true
-	});
+    port: 1999,
+    browsers: ['Chrome', 'PhantomJS'],
+    singleRun: true
+  });
 }
+
 ```
 
 The configuration file is put together by exporting a function that accepts the configuration object that Karma is going to work with. Modifying certain properties on this object will tell Karma what it is we want to do. Lets go over some of the key properties used in this configuration file:

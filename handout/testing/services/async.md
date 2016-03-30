@@ -6,40 +6,43 @@ Now that we have an idea of how to test our asynchronous services, lets take a l
 
 *wikisearch.spec.ts*
 
-``` typescript
-    describe("verify search", () => {
-      it("searches for the correct term",
-      	inject([SearchWiki, MockBackend], fakeAsync((searchWiki, mockBackend) => {
-      		mockBackend.connections.subscribe((conn) => {
-      			expect(conn.request.url).toBe(
-                  'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Angular'
-                );
+```js
 
-               let response = new ResponseOptions(body: {
-                  query: {
-                    searchInfo: { totalhits: 1 }
-    			  },
-                  search: [
-    			    {
-                      ns: 0,
-                      title: "Angular",
-                      size: 840,
-                      wordcount: 115
-    				}
-    			  ]
-    			});
-              	conn.mockRespond(new Response(response));
-    		});
+describe('verify search', () => {
+  it('searches for the correct term',
+    inject([SearchWiki, MockBackend], fakeAsync((searchWiki, mockBackend) => {
+      const expectedUrl = 'https://en.wikipedia.org/w/api.php?' +
+        'action=query&list=search&srsearch=Angular';
 
-      		var result;
-      		searchWiki.search('Angular').subscribe((result) => {
-      			result = result;
-    		});
+      mockBackend.connections.subscribe((conn) => {
+        expect(conn.request.url).toBe( expectedUrl );
 
-      		tick();
-      		expect(result.query.searchInfo.totalhits).toBe(1)
+        let response = new ResponseOptions(body: {
+          query: {
+            searchInfo: { totalhits: 1 }
+          },
+          search: [
+            {
+              ns: 0,
+              title: 'Angular',
+              size: 840,
+              wordcount: 115
+            }
+          ]
+        });
+        conn.mockRespond(new Response(response));
+      });
+
+      var result;
+      searchWiki.search('Angular').subscribe((result) => {
+        result = result;
+      });
+
+      tick();
+      expect(result.query.searchInfo.totalhits).toBe(1)
     })))
-    })
+});
+
 ```
 
 Our testing strategy is fairly straightforward - we check to see that our service has requested the right URL, and once we've responded with mock data we want to verify that our service returns that same data.

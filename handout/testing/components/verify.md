@@ -4,7 +4,8 @@ We can test the properties and methods of simple Angular 2 components fairly eas
 
 *message.component.ts*
 
-``` typescript
+```js
+
 import {Component} from 'angular2/core'
 
 @Component({
@@ -13,7 +14,7 @@ import {Component} from 'angular2/core'
 })
 
 export class MessageComponent {
-  private message:string = "";
+  private message:string = '';
 
   constructor() {}
 
@@ -22,7 +23,7 @@ export class MessageComponent {
   }
 
   clearMessage() {
-    this.message = "";
+    this.message = '';
   }
 }
 ```
@@ -31,29 +32,30 @@ Now for our unit test. We'll create two tests, one to test the `setMessage` func
 
 *message.spec.ts*
 
-``` typescript
+```js
+
 import {
-    describe,
-    expect,
-    it
+  describe,
+  expect,
+  it
 } from 'angular2/testing';
 
 import {MessageComponent} from './message.component';
 
 describe('Testing message state in message.component', () => {
-    beforeEach(() => {
-        this.app = new MessageComponent();
-    });
+  beforeEach(() => {
+    this.app = new MessageComponent();
+  });
 
-    it('should set new message', () => {
-        this.app.setMessage("Testing")
-        expect(this.app.message).toBe("Testing");
-    });
+  it('should set new message', () => {
+    this.app.setMessage('Testing')
+    expect(this.app.message).toBe('Testing');
+  });
 
-	it('should clear message', () => {
-       this.app.clearMessage();
-	   expect(this.app.message).toBe("");
-    });
+  it('should clear message', () => {
+    this.app.clearMessage();
+    expect(this.app.message).toBe('');
+  });
 });
 ```
 
