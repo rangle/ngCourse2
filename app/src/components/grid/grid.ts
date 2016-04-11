@@ -1,4 +1,4 @@
-import {Component, View, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from 'angular2/core';
 import Task from '../task-item/task-item';
 
 @Component({

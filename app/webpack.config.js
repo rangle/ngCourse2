@@ -89,7 +89,6 @@ module.exports = {
     return [
       require('postcss-import'),
       require('postcss-cssnext'),
-      require('autoprefixer')
     ];
   }
 }
