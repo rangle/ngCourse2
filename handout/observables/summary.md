@@ -1,2 +1,2 @@
 # Summary
-Observables offer a flexible set of APIs for composing and transforming asynchronous streams. It provides multitude of function to create stream from absolutely anything and more to manipulate and transform them. We've taken a look at how Angular 2 utilizes Observables to read user input, perform asynchronous data fetches, and setup custom emit/subscribe routines. 
+Observables offer a flexible set of APIs for composing and transforming asynchronous streams. They provide a multitude of functions to create stream from many other types, and to manipulate and transform them. We've taken a look at how Angular 2 utilizes Observables to read user input, perform asynchronous data fetches, and set up custom emit/subscribe routines.
