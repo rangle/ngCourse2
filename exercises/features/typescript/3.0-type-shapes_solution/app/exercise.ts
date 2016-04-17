@@ -72,9 +72,12 @@ interface NodeCallback {
   (error: Error, data?: any): void;
 }
 
-function accessor(db: Dictionary, key: string, callback: NodeCallback);
-function accessor(db: Dictionary, key: string, value: any,
-                  callback: NodeCallback) {
+function accessor(
+  db: Dictionary,
+  key: string,
+  value?: any,
+  callback?: NodeCallback
+) {
   let cb: NodeCallback;
   if (typeof callback === 'function') {
     cb = callback;
