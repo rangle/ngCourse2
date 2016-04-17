@@ -2,13 +2,13 @@
 
 At runtime, Angular 2 is going to create special classes that are called **change detectors**, one for every component that we have defined. In this case, Angular is going to create two classes: `MainComponent_ChangeDetector` and `MovieComponent_ChangeDetector`.
 
-The goal of the change detectors is to know which model property, used in the template of a component, have changed since the last time the change detection process ran.
+The goal of the change detectors is to know which model properties used in the template of a component have changed since the last time the change detection process ran.
 
-In order to know that, Angular is going to create an instance of the appropriate change detector class, and it will create a link to the component that its suppose to check.
+In order to know that, Angular is going to create an instance of the appropriate change detector class, and it will create a link to the component that it's supposed to check.
 
 In our example, because we only have one instance of the `MainComponent` and the `MovieComponent` we are going to have only one instance of the `MainComponent_ChangeDetector` and the `MovieComponent_ChangeDetector`.
 
-The code snippet below, is a conceptual model of how the `MainComponent_ChangeDetector` class could look.
+The code snippet below is a conceptual model of how the `MainComponent_ChangeDetector` class might look.
 
 ```javascript
 class MainComponent_ChangeDetector {
