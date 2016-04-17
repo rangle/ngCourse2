@@ -35,7 +35,7 @@ To run the sample app:
 
 # Feedback
 
-We welcome your feedback - please take a moment to fill out [this survery](https://docs.google.com/a/rangle.io/forms/d/1XKURJrviGF_eY2s1U_hyAWvq3oZqQ2a3OeUJHjQx-TA/viewform?edit_requested=true) to let us know what you think.
+We welcome your feedback - please take a moment to fill out [this survey](https://docs.google.com/a/rangle.io/forms/d/1XKURJrviGF_eY2s1U_hyAWvq3oZqQ2a3OeUJHjQx-TA/viewform?edit_requested=true) to let us know what you think.
 
 Thanks!
 

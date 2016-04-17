@@ -9,16 +9,18 @@ import {Component, ElementRef} from 'angular2/core';
   </pre>
 `
 })
-export default class App {
+export default class App implements OnInit {
   node: string;
   
   constructor(
     private elementRef: ElementRef
-  ) {
+  ) {  }
+
+  ngOnInit(){
+    
     const tmp = document.createElement('div');
-    
     const el = this.elementRef.nativeElement.cloneNode(true);
-    
+
     tmp.appendChild(el);
     this.node = tmp.innerHTML;
   }
