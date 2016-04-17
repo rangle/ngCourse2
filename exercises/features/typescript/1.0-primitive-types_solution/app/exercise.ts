@@ -15,7 +15,7 @@ let solution = () => {
 
   function write(...args: numOrString[]) {
     const element = document.getElementById('example');
-    element.innerHTML += args.reduce((prev, curr) => prev + curr + ' ', '');
+    element.innerHTML += args.reduce((prev, curr) => <string> prev + <string> curr + ' ', '');
   }
 
   function add(a: number, b: number) {
@@ -26,7 +26,7 @@ let solution = () => {
     return a + b;
   }
 
-  function writeFromEnum(given: Numbers) {
+  function writeFromEnum(given: Numbers): numOrString {
     switch (given) {
       case Numbers.sixteen:
         return 16;
