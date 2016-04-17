@@ -51,40 +51,49 @@ First we import `Observable` into our component from `rxjs/Observable`. Next, in
 
 Next we call `subscribe` on this Observable which allows us to listen in on any data that is coming through. In subscribing we utilize three distinctive callbacks, the first one is invoked when receiving new values, the second for any errors that arise, and the last represents the function to be invoked when the sequence of incoming data is complete. 
 
-We can also use `forEach` to listen for incoming data. The key difference between `forEach` and `subscribe` is that `forEach` will block the current thread until the iteration sequence completes, in other words - `forEach` is synchronous and `subscribe` is asynchronous. Lets look at an example of using `forEach`: 
+We can also use `forEach` to listen for incoming data. The key difference between `forEach` and `subscribe` is in how the error and completion callbacks are handled. The `forEach` call only accepts the 'next value' callback as an argument; it then returns a promise instead of a subscription.
+
+When the observable completes, the promise resolves. When the observable encounters an error, the promise is rejected.
+
+You can think of `Observable.of(1, 2, 3).forEach(doSomething)` as being semantically equivalent to:
+
+```javascript
+new Promise((resolve, reject) => {
+  Observable.of(1, 2, 3).subscribe(
+    doSomething,
+    reject,
+    resolve);
+});
+```
+
+The `forEach` pattern is useful for a sequence of events you only expect to happen once. 
 
 ```js
 export class AppComponent {
-  
   private data:Observable<Array<number>>;
   private values:Array<number> = [];
   private status:string;
+  private subscribeValues
 
 	constructor() {
-
 		this.data = new Observable(observer => {
 			setTimeout(() => {
 				observer.next(42);
-				observer.next(43);
-				observer.complete();
-			}, 2000);
+			  observer.next(43);
+        observer.complete();
+      }, 2000);
 
 			this.status = "Started";
 		});
 
-		this.data.forEach(
-			value => this.values.push(value)
-		);
-		
-		this.status = "Ended";
+		this.data.forEach(value => this.values.push(value))
+      .then(
+        () => this.status = "Ended",
+        () => this.status = "Failed");
 	}
-
 }
 ```
 
-[View Example](http://plnkr.co/edit/CJNgwR8bhKv2qY1P8rGa)
+[View Example](http://plnkr.co/edit/UXoBdOzNeR7D1t4CIPMS)
 
-<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/CJNgwR8bhKv2qY1P8rGa" frameborder="0" allowfullscren="allowfullscren"></iframe>
-
-An important thing to note here is that `forEach` doesn't suspend execution while waiting for incoming data, it only begins to block the thread when it actually performs the iteration over each new item of data. So in the example above, you should see the status 'Ended' before you see any values. You'll notice that `forEach` doesn't have the same callback routines we used in `subscribe`. In fact, there is only one callback here and it is invoked whenever a new item comes through the stream. Since `forEach` is synchronous there is no need for a callback invoked on completion, and error handling can be used by wrapping the `forEach` in a try/catch statement. In most cases we would want to use `subscribe` for its asynchronous properties, but there may be some special cases where using `forEach` makes sense. 
-
+<iframe style="width: 100%; height: 300px" src="http://plnkr.co/edit/UXoBdOzNeR7D1t4CIPMS" frameborder="0" allowfullscren="allowfullscren"></iframe>
