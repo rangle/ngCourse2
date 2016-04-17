@@ -1,9 +1,8 @@
 'use strict';
 'format es6'; // force SystemJS to transpile exercise
 
-const LIMIT = 5;
-
 function isOverLimit(val) {
+  const LIMIT = 5;
   let result;
   if (val > LIMIT) {
     result = true;
