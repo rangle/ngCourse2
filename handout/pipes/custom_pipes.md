@@ -1,6 +1,6 @@
 # Custom Pipes #
 
-We can create custom pipes also similar to custom filters in Angular 1.x. Below is the example of Custom pipe implementation. 
+Angular 2 also allows you to create your own custom pipes:
 
 ```javascript
 import {Pipe, PipeTransform} from 'angular2/core';
@@ -17,11 +17,12 @@ export class LengthPipe implements PipeTransform {
 
 Each custom pipe implementation must:
 
-* Have `@Pipe` decorator with pipe metadata
-* Implement the PipeTransform interface's with transform method that takes an input value and an optional array of parameter strings and returns the transformed value
-* There will be one item in the parameter array for each parameter passed to the pipe
-* We tell Angular that this is a pipe by applying the @Pipe decorator which we import from the core Angular library
-* The `@Pipe` decorator takes an object with a name property whose value is the pipe name that we'll use within a template expression. It must be a valid JavaScript identifier. Our pipe's name is LengthPipe
+* Have `@Pipe` decorator with pipe metadata with a `name` property whose value is
+what the pipe will be called in template expressions. It must be a valid JavaScript identifier.
+* Implement the `PipeTransform` interface's transform method. This method takes an input value
+and an optional array of parameter strings and returns the transformed value.
+
+There will be one item in the parameter array for each parameter passed to the pipe
 
 ```javascript
 import {Component} from 'angular2/core';
