@@ -16,7 +16,18 @@ export class ProductPrice {
 
 ## Passing Parameters ##
 
-A pipe can accept optional parameters to modify the output. To add the parameters to pipe add colon(:) after the pipe name followed by the parameter value `pipeName:parameterValue`. If there are multiple parameters separate them with colons `pipeName:parameter1:parameter2`.
+A pipe can accept optional parameters to modify the output. To pass parameters to a pipe,
+simply add a colon (`:`) and the parameter value to the end of the pipe expression:
+
+```
+pipeName:parameterValue
+```
+
+You can also pass multiple parameters this way:
+
+```
+pipeName:parameter1:parameter2
+```
 
 ```javascript
 import {Component} from 'angular2/core';
@@ -47,5 +58,3 @@ export class ProductPrice {
 }
 ```
 [View Example](http://plnkr.co/edit/s1cvu5yhfOnoDRngHXe4?p=preview)
-
-

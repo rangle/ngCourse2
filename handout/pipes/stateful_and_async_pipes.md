@@ -6,7 +6,7 @@ Stateless pipes are pure functions that flow input data through without remember
 
 Stateful pipes are those which can manage the state of the data they transform. A pipe that creates an HTTP request, stores the response and displays the output, is a stateful pipe. Stateful Pipes should be used cautiously.
 
-Angular 2 provides two stateful pipes `AsyncPipe` and `JsonPipe`.
+Angular 2 provides `AsyncPipe`, which is stateful.
 
 ## Async Pipe ##
 
@@ -26,7 +26,7 @@ export class ProductPrice {
   fetchPrice:Promise<number> = new Promise((resolve, reject) => {
     setTimeout(() => resolve(10), 500);
   });
-  
+
   seconds:any = new Observable(observer => {
     setInterval(() => { observer.next(this.count++); }, 1000);
       });
@@ -47,7 +47,7 @@ import {Pipe, PipeTransform} from 'angular2/core';
   pure: false
 })
 export class DelayPipe  implements PipeTransform{
-  
+
   private fetchedValue:number;
   private fetchPromise:Promise<number>;
 
@@ -56,7 +56,7 @@ export class DelayPipe  implements PipeTransform{
       this.fetchPromise = new Promise<number>((resolve, reject) => {
         setTimeout(() => resolve(value * 1000), value * 500);
       });
-      
+
       this.fetchPromise.then((val:number)   => this.fetchedValue = val);
     }
     return this.fetchedValue;
