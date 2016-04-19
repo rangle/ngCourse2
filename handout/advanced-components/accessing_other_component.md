@@ -1,4 +1,4 @@
-# Accessing Other Component
+# Accessing Other Components
 
 Components depend on other components. For example, `TodoList` relies on `TodoItem`. To let a component know about the dependent components we use the directive attribute.
 
