@@ -1,6 +1,6 @@
 # Testing Asynchronous Actions
 
-Things get a little tricky when we want to test asynchronous action creators. Our goal is still the same: make sure that our operations are creating the actions we're expecting. But async action creators don't return JSON objects. In [ng2-redux-starter](https://github.com/rangle/angular2-redux-starter) we have a thunk called 'incrementIfOdd':
+Things get a little tricky when we want to test asynchronous action creators. Our goal is still the same: make sure that our operations are creating the actions we're expecting. But async action creators don't return JSON objects. In [angular2-redux-starter](https://github.com/rangle/angular2-redux-starter) we have a thunk called 'incrementIfOdd':
 
 ```js
 

@@ -2,7 +2,7 @@
 
 Luckily, testing reducers is a lot like testing our synchronous action creators, since all reducer operations are synchronous. This plays a big role in making our global state easy to keep track of, which is why we're big fans of redux.
 
-We'll test the counter reducer in [ng2-redux-starter](https://github.com/rangle/angular2-redux-starter), which is the following:
+We'll test the counter reducer in [angular2-redux-starter](https://github.com/rangle/angular2-redux-starter), which is the following:
 
 ```js
 

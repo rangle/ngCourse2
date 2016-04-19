@@ -1,6 +1,6 @@
 # Testing Synchronous Actions
 
-Recall that by synchronous we mean action creators that return a simple JSON object, like the first two counter actions in [ng2-redux-starter](https://github.com/rangle/angular2-redux-starter).   
+Recall that by synchronous we mean action creators that return a simple JSON object, like the first two counter actions in [angular2-redux-starter](https://github.com/rangle/angular2-redux-starter).   
 
 ```js
 
