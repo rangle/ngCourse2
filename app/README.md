@@ -17,11 +17,11 @@ This is the initial version of our starter project using Angular 2.x, Redux, Typ
 
 ## Improvements
 
-This is an initial version of this setup and will be expanded in the future. Refer to the [issues section](https://github.com/rangle/ng2-redux-starter/issues) to see what needs to be done, or create a [new one](https://github.com/rangle/ng2-redux-starter/issues/new).
+This is an initial version of this setup and will be expanded in the future. Refer to the [issues section](https://github.com/rangle/angular2-redux-starter/issues) to see what needs to be done, or create a [new one](https://github.com/rangle/angular2-redux-starter/issues/new).
 
 ## If something doesn't work
 
-Refer to the [issues section](https://github.com/rangle/ng2-redux-starter/issues) to see if this has already been logged. Otherwise create a [new issue](https://github.com/rangle/ng2-redux-starter/issues/new).
+Refer to the [issues section](https://github.com/rangle/angular2-redux-starter/issues) to see if this has already been logged. Otherwise create a [new issue](https://github.com/rangle/angular2-redux-starter/issues/new).
 
 ## Example Application
 
