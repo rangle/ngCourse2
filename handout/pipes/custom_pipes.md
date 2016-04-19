@@ -7,13 +7,12 @@ import {Pipe, PipeTransform} from 'angular2/core';
 
 @Pipe({name: 'length'})
 export class LengthPipe implements PipeTransform {
-  transform(value:string, args:string[]) : any {
-    let displayMessage: boolean = Boolean(args[0]);
+  transform(value:string, [displayMessage]:string[]) : any {
     return displayMessage ? `${value} ${value.length}` : `${value.length}`
   }
 }
 ```
-[View Example](http://plnkr.co/edit/QrOAQL?p=preview)
+[View Example](http://plnkr.co/edit/HJfEDY?p=preview)
 
 Each custom pipe implementation must:
 
