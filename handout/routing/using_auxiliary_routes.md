@@ -1,8 +1,10 @@
 # Using Auxiliary Routes #
 
-Angular 2 supports the concept of auxiliary routes. Before we go further, we must understand what an auxiliary route is. Auxiliary routes allow you to set up and navigate multiple independent routes in a single app. Each component has one primary route and zero or more auxiliary outlets. Auxiliary outlets must have unique name within a Component. 
+Angular 2 supports the concept of auxiliary routes. Before we go further, we must understand what an auxiliary route is. Auxiliary routes allow you to set up and navigate multiple independent routes in a single app. Each component has one primary route and zero or more auxiliary outlets. Auxiliary outlets must have unique name within a Component.
 
-To define the auxiliary route we must first add the router outlet where contents for the auxiliary route gets rendered. Sample for the auxiliary route outlet is shown below.
+To define the auxiliary route we must first add the router outlet where contents for the auxiliary route are to be rendered.
+
+Here's an example:
 
 ```javascript
 @Component({
@@ -22,18 +24,19 @@ To define the auxiliary route we must first add the router outlet where contents
 	`
 })
 @RouteConfig([
-  { path: '/',
+  {
+    path: '/',
     component: ComponentOne,
     as: 'ComponentOne',
     useAsDefault: true
   },
-   {
+  {
     aux: 'testAux1',
     component: ComponentOne,
     name: 'TestAux1',
     path: '/aux1'
   },
-    {
+  {
     aux: 'testAux2',
     component: ComponentTwo,
     name: 'TestAux2',
@@ -41,7 +44,7 @@ To define the auxiliary route we must first add the router outlet where contents
   }
 ])
 export class SimpleRouting {
-  
+
 }
 ```
 
@@ -51,13 +54,9 @@ Next, we need to define the link to the auxiliary route for the application to n
 ```
 [View Example](http://plnkr.co/edit/USxVl4rBpIPs5Zi3s0pb?p=preview)
 
-Each auxiliary route is an independent route which:
+Each auxiliary route is an independent route which can have:
 
-* Can have their own child routes
-* Can have their own auxiliary routes
-* Have their own route-params
-* Can have their own history stack 
-
-
-
-
+* its own child routes
+* its own auxiliary routes
+* its own route-params
+* its own history stack
