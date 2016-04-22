@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      /* Slideshow styles */
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+    </textarea>
+    <script src="//remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow;
+      fetch('./slides.md')
+        .then(function (res) {
+          return res.text();
+        })
+        .then(function (text) {
+          document.getElementById('source').textContent = text;
+          slideshow = remark.create();
+        });
+    </script>
+  </body>
+</html>
