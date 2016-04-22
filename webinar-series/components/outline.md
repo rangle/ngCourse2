@@ -19,7 +19,7 @@ offer.
 
 # Assumed Audience Knowledge
 
-Basic knowledge of JavaScript (ES6) and CSS. Angular 1 knowledge is a plus but
+Basic knowledge of TypeScript and CSS. Angular 1 knowledge is a plus but
 not required.
 
 # What You Will Learn:
