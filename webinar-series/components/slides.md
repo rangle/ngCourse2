@@ -266,7 +266,8 @@ Our `RangleButton` atom also needs to react to clicks to be useful. Here's an
   selector: 'rangle-button',
   template: `
     <button [ngClass]="dynamicStyles()"
-      class="rangle-button">
+      class="rangle-button"
+      (click)="onClick.emit()">
       {{ name }}
     </button>`,
   styles: [ `
@@ -292,9 +293,12 @@ Our `RangleButton` atom also needs to react to clicks to be useful. Here's an
 And here's the corresponding component `class`:
 
 ```typescript
+import { Component, Input, Output, EventEmitter } from 'angular2/core'
+
 export class RangleButton {
   @Input() name: string;
   @Input() isPrimary: boolean;
+  @Output() onClick: new EventEmitter<void>();
 
   dynamicStyles() {
     return this.isPrimary ? 'primary' : '';
