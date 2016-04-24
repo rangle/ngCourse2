@@ -1,0 +1,47 @@
+/* Basic branding lifted from our website */
+
+li {
+  line-height: 150%;
+}
+
+.remark-slide-content {
+  background-color: #F8F8F8 !important;
+  font-family: 'Source Sans Pro' !important;
+  font-size: 16px !important;
+}
+
+blockquote {
+  background-color: #F0F0F0;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.attribution {
+  display: block;
+  font-style: italic;
+  padding-top: 1rem;
+}
+
+blockquote > * {
+  margin: 0px;
+}
+
+.img-max-width > img {
+  display: block;
+  width: 100%;
+}
+
+.bottom-comment {
+  bottom: 12px;
+  display: block;
+  color: #888;
+  position: absolute;
+}
+
+a, a:visited, .rangle-purple {
+  color: #422D3F;
+}
+
+a:hover {
+  color: #E5373A;
+}
