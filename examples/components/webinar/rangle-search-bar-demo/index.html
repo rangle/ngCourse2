@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Angular 2 QuickStart</title>
+    <!-- 1. Load libraries -->
+    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js"></script>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.15/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2.dev.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <app>Loading...</app>
+  </body>
+
+</html>

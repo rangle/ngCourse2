@@ -758,3 +758,40 @@ model is insufficient:
   * Lifecycle hooks
 
 * Try to use these advanced features sparingly
+
+---
+
+### Resources
+
+Documentation:
+
+  * <a target="\_blank" href="https://angular.io">Google's Angular 2
+  Documentation</a>
+  * <a target="\_blank"
+  href="https://www.gitbook.com/book/rangle-io/ngcourse2/details">Rangle.io's
+  Angular 2 GitBook</a>
+
+Rangle Starter Setups:
+
+  * <a target="\_blank"
+    href="https://github.com/rangle/angular2-starter">Angular2 with
+    TypeScript and Webpack</a>
+  * <a target="\_blank"
+    href="https://github.com/rangle/angular2-redux-starter">Angular2 with
+    TypeScript, Webpack, and Redux</a>
+
+Examples:
+* <a target="\_blank"
+  href="https://github.com/rangle/ngCourse2/tree/master/examples/components">
+  Locally runnable Plunkr Examples from this Webinar and from the gitbook</a>
+
+To run these examples locally:
+
+```sh
+git clone https://github.com/rangle/ngCourse2.git
+npm install -g live-server
+
+# Where '...' is a specific example folder:
+cd ngCourse2/examples/components/webinar/...
+live-server .
+```
