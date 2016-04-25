@@ -119,7 +119,6 @@ export class HelloComponent {
 * Other components can be very granular
 * Most components are presentational
 
-  * 'Dumb' components
   * Very little logic
   * Very little state
   * Maybe even just markup and CSS
@@ -176,17 +175,17 @@ export class HelloComponent {
 
 ---
 
-### Smart vs. Dumb Components
+### Container vs. Presentational Components
 
 There are two kinds of components:
 
-* __Smart Components:__ Usually at the top-level of a page
+* __Container Components:__ Usually at the top-level of a page
 
   * Wire together data and business logic
-  * Render a tree of dumb components
+  * Render a tree of presentational components
   * Are difficult to reuse
 
-* __Dumb Components:__ 90% of your render tree
+* __Presentational Components:__ 90% of your render tree
 
   * Contain no state - pure functions of their attributes.
   * Presentational only
@@ -465,7 +464,7 @@ the `:host` selector.
 
 ### Statelessness
 
-Note that all the things we've built are still 'dumb' components.
+Note that all the things we've built are still presentational components.
 * Even the molecule
 * No state
 * Pure functions of their `@Input()`s  that generate `@Output()`s and DOM
