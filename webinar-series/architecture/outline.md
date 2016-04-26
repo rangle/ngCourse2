@@ -27,6 +27,7 @@ another MV\* frameworks would be helpful but is not required.
 
 * The benefits of unidirectional data flow
 * The case for immutability by default
+* Thinking through sending callbacks down vs emitting events up
 * How to leverage observables to represent change
 * Where MV\* patterns fit in
 * How to build a robust services layer
