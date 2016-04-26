@@ -29,3 +29,4 @@ another MV\* frameworks would be helpful but is not required.
 * The case for immutability by default
 * How to leverage observables to represent change
 * Where MV\* patterns fit in
+* How to build a robust services layer
