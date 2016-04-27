@@ -1,0 +1,11 @@
+:host {
+  background: #F8F8F8;
+  border: solid #ccc 1px;
+  display: block;
+  margin: 1rem;
+  padding: 1rem;
+}
+.row {
+  display: flex;
+  margin-top: 0.5rem;
+}

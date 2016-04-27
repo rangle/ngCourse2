@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="//npmcdn.com/basscss/css/basscss.css" rel="stylesheet">
+    <link href="//npmcdn.com/basscss-flexbox/css/flexbox.css" rel="stylesheet">
+    <link href="//npmcdn.com/basscss-border/css/border.css" rel="stylesheet">
+    <link href="./slides.css" rel="stylesheet">
+    <script src="//npmcdn.com/es5-shim@4.5.8"></script>
+    <script src="//npmcdn.com/es6-shim@0.35.0"></script>
+    <script src="//npmcdn.com/es6-promise@3.1.2"></script>
+    <script src="//npmcdn.com/whatwg-fetch@0.11.0"></script>
+    <script src="//remarkjs.com/downloads/remark-latest.min.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+    </textarea>
+    <script>
+      var match = /which=([A-z:0-9:\-:_]*)/.exec(window.location.search);
+      if (match && match[1]) {
+        fetch('./' + match[1] + '/slides.md')
+          .then(function (res) {
+            return res.text();
+          })
+          .then(function (text) {
+            document.getElementById('source').textContent = text;
+            remark.create();
+          });
+      }
+    </script>
+  </body>
+</html>

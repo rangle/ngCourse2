@@ -1,0 +1,11 @@
+<rangle-label name="Search the site">
+</rangle-label>
+<div class="row">
+  <rangle-text-field placeholder="Enter Keyword"
+    [(value)]="inputValue">
+  </rangle-text-field>
+  <rangle-button name="Search"
+    [isPrimary]="true"
+    (click)="handleSearch(inputValue)">
+  </rangle-button>
+</div>

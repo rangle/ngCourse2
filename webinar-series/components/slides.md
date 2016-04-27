@@ -1,6 +1,6 @@
 ### Components in Angular 2
 
-.img-max-width[![components](../../img/components.jpg)]
+.img-max-width[![components](../img/components.jpg)]
 
 .bottom-comment[A <a href="http://rangle.io/" target="\_blank">Rangle.io</a> Webinar]
 
@@ -143,7 +143,7 @@ export class HelloComponent {
 * They are highly re-usable
 * Incorporate design and branding at the lowest widget level:
 
-.center[![atoms](../../img/atoms.png)]
+.center[![atoms](../img/atoms.png)]
 
 ---
 
@@ -152,14 +152,14 @@ export class HelloComponent {
 * These atoms form a 'living style guide'
 * Are combined into more useful 'molecules', 'organisms', and finally 'pages':
 
-.center[![molecule](../../img/molecule.png)]
+.center[![molecule](../img/molecule.png)]
 
 
 .flex.justify-between.bold.rangle-purple.caps[
   .block[More Reusable]
   .block[Less Reusable]]
 
-.img-max-width[![left-bar](../../img/bar-max-left.svg)]
+.img-max-width[![left-bar](../img/bar-max-left.svg)]
 
 .flex.justify-between.bold.rangle-purple.caps[
   .block.border.rounded.p1[Atoms]
@@ -167,7 +167,7 @@ export class HelloComponent {
   .block.border.rounded.p1[Organisms]
   .block.border.rounded.p1[Pages]]
 
-.img-max-width[![right-bar](../../img/bar-max-right.svg)]
+.img-max-width[![right-bar](../img/bar-max-right.svg)]
 
 .flex.justify-between.bold.rangle-purple.caps[
   .block[Less Complex]
@@ -758,3 +758,40 @@ model is insufficient:
   * Lifecycle hooks
 
 * Try to use these advanced features sparingly
+
+---
+
+### Resources
+
+Documentation:
+
+  * <a target="\_blank" href="https://angular.io">Google's Angular 2
+  Documentation</a>
+  * <a target="\_blank"
+  href="https://www.gitbook.com/book/rangle-io/ngcourse2/details">Rangle.io's
+  Angular 2 GitBook</a>
+
+Rangle Starter Setups:
+
+  * <a target="\_blank"
+    href="https://github.com/rangle/angular2-starter">Angular2 with
+    TypeScript and Webpack</a>
+  * <a target="\_blank"
+    href="https://github.com/rangle/angular2-redux-starter">Angular2 with
+    TypeScript, Webpack, and Redux</a>
+
+Examples:
+* <a target="\_blank"
+  href="https://github.com/rangle/ngCourse2/tree/master/examples/components">
+  Locally runnable Plunkr Examples from this Webinar and from the gitbook</a>
+
+To run these examples locally:
+
+```sh
+git clone https://github.com/rangle/ngCourse2.git
+npm install -g live-server
+
+# Where '...' is a specific example folder:
+cd ngCourse2/examples/components/webinar/...
+live-server .
+```
