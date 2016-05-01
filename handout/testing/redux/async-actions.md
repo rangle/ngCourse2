@@ -104,7 +104,7 @@ it('incrementIfOdd should dispatch INCREMENT_COUNTER if counter is odd',
         chai.expect(action)
           .to.deep.equal(expectedAction);
 
-        if (expectedAction.length === 0) {
+        if (expectedActions.length === 0) {
           done();
         };
       }
