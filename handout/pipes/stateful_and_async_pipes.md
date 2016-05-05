@@ -48,10 +48,10 @@ import {Pipe, PipeTransform} from 'angular2/core';
 })
 export class DelayPipe  implements PipeTransform{
 
-  private fetchedValue:number;
-  private fetchPromise:Promise<number>;
+  private fetchedValue: number;
+  private fetchPromise: Promise<number>;
 
-  transform(value:number, args:string[]):number {
+  transform(value: number): number {
     if (!this.fetchPromise) {
       this.fetchPromise = new Promise<number>((resolve, reject) => {
         setTimeout(() => resolve(value * 1000), value * 500);
@@ -64,4 +64,4 @@ export class DelayPipe  implements PipeTransform{
 }
 
 ```
-[View Example](http://plnkr.co/edit/ujNLTmuQRw8UH0ujHz8Z?p=preview)
+[View Example](http://plnkr.co/edit/u4kT85nKzyWee4O0v2fX?p=info)
