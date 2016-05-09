@@ -1,16 +1,16 @@
 # Passing Data into a Component
 
-The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `HelloComponent` such that `name` can be configured by the parent.
+The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `Hello` component such that `name` can be configured by the parent.
 
 ```js
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngc-hello-component',
+  selector: 'hello',
   inputs: ['name'],
   template: '<p>Hello, {{name}}</p>'
 })
-export class HelloComponent {
+export class Hello {
   name: string;
 }
 ```
@@ -21,14 +21,14 @@ We can now use our component like so:
 
 ```html
 <!-- To bind to a raw string -->
-<ngc-hello-component name="World"></ngc-hello-component>
+<hello name="World"></hello>
 <!-- To bind to a variable in the parent scope -->
-<ngc-hello-component [name]="name"></ngc-hello-component>
+<hello [name]="name"></hello>
 ```
 
-[View Example](http://plnkr.co/edit/fwl33enZyoDQ2DDrujYV?p=preview)
+[View Example](http://plnkr.co/edit/MgzGjYfuUV30MrB6UCsc?p=preview)
 
 *Note* unlike Angular 1.x this is one-way binding.
 
-<iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/fwl33enZyoDQ2DDrujYV" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 600px" src="http://embed.plnkr.co/MgzGjYfuUV30MrB6UCsc/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
