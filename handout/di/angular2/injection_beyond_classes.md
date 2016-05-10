@@ -13,8 +13,8 @@ Angular 2's `provide` function, like so:
 
 import {App} from './containers/app'; // hypothetical app component
 import {Hamburger} from './services/hamburger'; 
-import {bootstrap} from 'angular2/platform/browser';
-import {provide} from 'angular2/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {provide} from '@angular/core';
 
 bootstrap(App, [provide(Hamburger, { useClass: Hamburger })]);
 
@@ -32,8 +32,8 @@ do this easily:
 
 import {App} from './containers/app'; // hypothetical app component
 import {DoubleHamburger} from './services/double-hamburger'; 
-import {bootstrap} from 'angular2/platform/browser';
-import {provide} from 'angular2/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {provide} from '@angular/core';
 
 bootstrap(App, [provide(Hamburger, { useClass: DoubleHamburger })]);
 
@@ -49,8 +49,8 @@ two other examples of `provider` "recipes" that Angular 2 can use.  For example:
 ```js
 
 import {App} from './containers/app'; // hypothetical app component
-import {bootstrap} from 'angular2/platform/browser';
-import {provide} from 'angular2/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {provide} from '@angular/core';
 
 const randomFactory = () => { return Math.random(); };
 const randomDefinition = { useFactory: randomFactory };
@@ -63,7 +63,7 @@ In the hypothetical app component, 'Random' could be injected like:
 
 ```js
 
-import {Component, Inject, provide} from 'angular2/core';
+import {Component, Inject, provide} from '@angular/core';
 import {Hamburger} from '../services/hamburger';
 
 @Component({
@@ -91,8 +91,8 @@ exactly the same:
 
 ```js
 
-import {bootstrap} from 'angular2/platform/browser';
-import {provide} from 'angular2/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {provide} from '@angular/core';
 import {App} from './containers/app';
 
 const randomDefinition = { useValue: Math.random() };
@@ -106,5 +106,5 @@ In this case, the product of `Math.random` is assigned to the `useValue`
 property passed to the `provider`.  
 
 
-[plunkRandom1]: https://plnkr.co/edit/FOcTlh2o37RdNVyxlTxk?p=preview "Random DI 1"
-[plunkRandom2]: https://plnkr.co/edit/BV7r4FpkVtLMbbgFaBvj?p=preview "Random DI 2"
+[plunkRandom1]: http://plnkr.co/edit/tpOJpUYUZk7uP1PHC2FT?p=preview "Random DI 1"
+[plunkRandom2]: http://plnkr.co/edit/uRZxsZUHBctPNaJg0Jio?p=preview "Random DI 2"
