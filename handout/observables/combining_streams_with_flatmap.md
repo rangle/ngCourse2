@@ -18,8 +18,8 @@ By using `flatMap` we can transform our event stream (the keypress events on the
 *app/services/Search.ts* 
 
 ```js
-import {Http} from 'angular2/http';
-import {Injectable} from 'angular2/core';
+import {Http} from '@angular/http';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class SearchService {
@@ -41,13 +41,13 @@ OK, lets take a look at the Component that will be using this service.
 *app/app.ts*
 
 ```js
-import {Component} from 'angular2/core';
-import {Control, ControlGroup, FormBuilder} from 'angular2/common';
+import {Component} from '@angular/core';
+import {Control, ControlGroup, FormBuilder} from '@angular/common';
 import {SearchService} from './services/Search';
 import 'rxjs/Rx';
 
 @Component({
-	selector: 'app-root',
+	selector: 'app',
 	template: `
 		<form [ngFormModel]="coolForm"><input ngControl="search" placeholder="Search Spotify artist"></form>
 		
@@ -57,11 +57,11 @@ import 'rxjs/Rx';
 	`
 })
 
-export class AppComponent {
-	searchField:Control;
-	coolForm:ControlGroup;
+export class App {
+	searchField: Control;
+	coolForm: ControlGroup;
 	
-	constructor(private searchService:SearchService, private fb:FormBuilder) {
+	constructor(private searchService: SearchService, private fb: FormBuilder) {
 		this.searchField = new Control();
 		this.coolForm = fb.group({search: this.searchField});
 		
@@ -74,9 +74,9 @@ export class AppComponent {
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/OdggjhnwjQLSwhYAjg8H?p=preview)
+[View Example](http://plnkr.co/edit/l9YXqdfsptd6jG64b5lV?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/OdggjhnwjQLSwhYAjg8H" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/l9YXqdfsptd6jG64b5lV/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Here we have setup a basic form with a single field - `searchField`, which we subscribe to for event changes. We've also setup a simple binding for any results coming from the SearchService. The real magic here is `flatMap` which allows us to flatten our two separate subscribed Observables into a single cohesive stream we can use to control events coming from user input and from server responses. 
 
