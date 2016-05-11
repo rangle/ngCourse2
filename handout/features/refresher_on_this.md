@@ -64,7 +64,7 @@ class ServerRequest {
    }
    fetch() {
      getFromServer(function callback(err, data) {
-        this.notify(); // this is not going to be work
+        this.notify(); // this is not going to work
      });
    }
 }

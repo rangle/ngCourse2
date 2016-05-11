@@ -26,8 +26,8 @@ take a look:
 
 ```shell
 $ tsc --help | grep module
--m KIND, --module KIND             Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es6'
---moduleResolution                 Specifies module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6).
+ -m KIND, --module KIND             Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+ --moduleResolution                 Specifies module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6).
 
 ```
 
