@@ -5,7 +5,7 @@ The [FormBuilder](https://angular.io/docs/ts/latest/api/common/FormBuilder-class
 _app/my-form.component.ts_
 ```javascript
 // ...
-import {FormBuilder} from 'angular2/common';
+import {FormBuilder} from '@angular/common';
 
 // ...
 export class MyForm
@@ -18,9 +18,7 @@ The `FormBuilder` class has a factory method called `group` that creates a `Cont
 _app/my-form.component.ts_
 ```javascript
 // ...
-import {ControlGroup} from 'angular2/common';
-import {Control} from 'angular2/common';
-
+import {ControlGroup, Control} from '@angular/common';
 // ...
 export class MyForm {
   email: Control;
@@ -65,9 +63,9 @@ _app/my-form.component.html_
 </form>
 ```
 
-[View Example](https://plnkr.co/edit/N7J3bYOfClw8wHCghV28?p=preview)
+[View Example](http://plnkr.co/edit/9wCa32tXbYA1cDQEaA97?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/N7J3bYOfClw8wHCghV28" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/9wCa32tXbYA1cDQEaA97/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 
 There's five things to notice here:
