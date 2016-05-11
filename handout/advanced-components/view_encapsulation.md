@@ -7,7 +7,7 @@ styles defined in this component's `@Component` decorator are scoped to this com
 only.
 - `Native`: Styles from main HTML do not propagate to the child. Styles defined in this
 component's `@Component` decorator are still scoped to this component only.
-- `None`: Styles from the component propagate back to the main HTML and therefore can
+- `None`: Styles from the component propagate back to the main HTML and therefore are visible to
 all components on the page.
 
  ```js
@@ -19,7 +19,7 @@ all components on the page.
 export class Hello { ... }
  ```
 
-[View Example](http://plnkr.co/edit/xTAqeN5jnf5KEFUARtAL?p=preview)
+[View Example](http://plnkr.co/edit/N7d89PBQ5fYKbwzB2E37?p=preview)
 
 
-<iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/xTAqeN5jnf5KEFUARtAL" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 600px" src="http://embed.plnkr.co/N7d89PBQ5fYKbwzB2E37/" frameborder="0" allowfullscren="allowfullscren"></iframe>
