@@ -59,7 +59,7 @@ export class MovieComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/n6m7rOtxG5MU0tsRl5xX?p=preview)
+[View Example](http://plnkr.co/edit/FVApR429nPezecltxar3?p=preview)
 
 The enum `ChangeDetectionStrategy` defines seven strategies:
 
