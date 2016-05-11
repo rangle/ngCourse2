@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES, RouteParams} from 'angular2/router';
+import {Component} from '@angular/core';
+import {ROUTER_DIRECTIVES, RouteParams} from '@angular/router-deprecated';
 import Users from '../services/users-service';
 import UsersList from '../components/user-list';
 @Component({
@@ -20,6 +20,6 @@ export default class UsersListContainer {
   }
   ngOnInit() {
     this.users = this._users.getUsersByCompany(this.companyName);
-    
+
   }
 }

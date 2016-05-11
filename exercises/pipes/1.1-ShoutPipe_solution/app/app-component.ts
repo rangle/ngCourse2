@@ -1,12 +1,12 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {ShoutPipe} from './shout-pipe';
 
 @Component({
   selector: 'ngc-app',
   template: `<div>
     <p>{{ message | shout }}</p>
-    <p>{{ message | shout:true }}<p>
-    <p>{{ message | shout:false}}<p>
+    <p>{{ message | shout : true }}<p>
+    <p>{{ message | shout : false}}<p>
   </div>`,
   pipes: [ShoutPipe]
 })

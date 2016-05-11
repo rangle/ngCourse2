@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>Exercise 2.0 - Composable Types (Solution)</title>
-    <!-- 1. Load libraries -->
-    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js"></script>
-    <script src="https://code.angularjs.org/tools/system.js"></script>
-    <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <!-- 2. Configure SystemJS -->
-    <script>
-      System.config({
-        transpiler: 'typescript', 
-        typescriptOptions: {
-          emitDecoratorMetadata: true
-        },
-        packages: {'app': { defaultExtension: 'ts' }}
-      });
-      System.import('app/exercise')
-            .then(null, console.error.bind(console));
-    </script>
-  </head>
-  <style>
-    html, body, #example {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-  <!-- 3. Display the application -->
-  <body>
-    <div id="example"></div>
-  </body>
+<head>
+  <title>Exercise 2.0 - Composable Types (Solution)</title>
+  <script src="https://npmcdn.com/systemjs@0.19.6/dist/system.src.js"></script>
+  <script src="https://code.angularjs.org/tools/typescript.js"></script>
+  <script src="system.config.js"></script>
+</head>
+<style>
+  html,
+  body,
+  #example {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<!-- Display the application -->
+
+<body>
+  <div id="example"></div>
+</body>
 
 </html>

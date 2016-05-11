@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from 'angular2/core';
+import {Component, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'ngc-radio',
@@ -6,7 +6,7 @@ import {Component, EventEmitter} from 'angular2/core';
 <div class="flex center">
   <a href="#!"
     class="flex-auto btn btn-primary"
-    *ngFor="#button of buttons; #last = last; #i = index;"
+    *ngFor="let button of buttons; let last = last; let i = index;"
     [ngClass]="{
       'bg-navy': button.value === selected,
       'rounded-left': i == 0,

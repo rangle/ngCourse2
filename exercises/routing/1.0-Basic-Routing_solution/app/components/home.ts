@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'home',
@@ -6,6 +6,6 @@ import {Component} from 'angular2/core';
   Basic Routing Exercise.
   `
 })
-export default class Home { 
-  
+export default class Home {
+
 }

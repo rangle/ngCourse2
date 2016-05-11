@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import UserDetail from '../components/user-detail';
 import UserList from '../components/user-list';
 import CompanyList from '../components/company-list';
@@ -27,7 +27,7 @@ class UsersHome {}
     </div>
   </div>
 	`})
-/* 
+/*
 Complete the @RouteConfig definition to load the
 user details in DIV that currently says 'Display Child Routes Here'
 */
@@ -37,7 +37,7 @@ user details in DIV that currently says 'Display Child Routes Here'
 export default class UsersContainer {
   public users: any;
   constructor(private _users: Users) {
-    
+
   }
   ngOnInit() {
    this.users = this._users.getUserNames();

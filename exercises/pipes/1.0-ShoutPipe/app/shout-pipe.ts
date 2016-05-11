@@ -1,4 +1,4 @@
-import { /* Imports */ } from 'angular2/core';
+import { /* Imports */ } from '@angular/core';
 
 @Pipe({name: 'shout'})
 export class ShoutPipe implements /* an interface */ {

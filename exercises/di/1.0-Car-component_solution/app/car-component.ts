@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Engine} from './Engine';
 import {Tires} from './Tires';
 import {Body} from './Body';
@@ -9,7 +9,7 @@ import {Body} from './Body';
               <h1>Car</h1>
 
               <b>Engine</b>
-              
+
               <ul>
                 <li>Horsepower = {{engine.horsepower}}</li>
                 <li>Has a V8 = {{engine.isV8}}</li>
