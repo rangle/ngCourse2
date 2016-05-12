@@ -1,6 +1,6 @@
 # Introduction to Angular 2 and ngCourse2
 
-![ngcourse2](./handout/img/cover.png "Rangle.io's Angular GitBook")
+![ngcourse2](./img/cover.png "Rangle.io's Angular GitBook")
 
 AngularJS is the leading open source JavaScript application framework backed by Google. The "1.x" version of AngularJS has been used quite widely. The new "Angular 2" version of the framework is currently available in beta. This course (ngCourse2) provides an introduction to AngularJS – using Angular 2 – based on our experience at Rangle.io.
 
