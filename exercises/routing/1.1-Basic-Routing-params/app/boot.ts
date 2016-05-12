@@ -1,10 +1,10 @@
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {App} from './containers/app';
-import {ROUTER_PROVIDERS} from 'angular2/router';
-import {provide} from 'angular2/core';
-import {LocationStrategy, 
-        Location, 
-        HashLocationStrategy} from 'angular2/router';
+import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import {provide} from '@angular/core';
+import {LocationStrategy,
+        Location,
+        HashLocationStrategy} from '@angular/common';
 
 bootstrap(App, [ROUTER_PROVIDERS,
  provide(LocationStrategy, {useClass: HashLocationStrategy})]);

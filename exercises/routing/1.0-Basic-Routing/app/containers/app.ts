@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import UserDetail from '../components/user-detail';
 import UserList from '../components/user-list';
 import CompanyList from '../components/company-list';
@@ -12,8 +12,8 @@ import Home from '../components/home';
   styleUrls: ['app/containers/app.css'],
   template: `<div>
   Basic Routing
-  <!-- use the routerLink directive to provide links to the Home, 
-    UsersList, and CompanyList component --> 
+  <!-- use the routerLink directive to provide links to the Home,
+    UsersList, and CompanyList component -->
   <ul>
    <li>
       <a>Home</a>
@@ -28,16 +28,16 @@ import Home from '../components/home';
   <div style="border: 1px solid black; padding: 10px;">
     <home>
       <p>
-      Setup the appropiate router-outlet directive, 
-      and use a default route to load the home component. 
+      Setup the appropiate router-outlet directive,
+      and use a default route to load the home component.
       </p>
     </home>
   </div>
 `})
 @RouteConfig([
-  /* 
+  /*
     Complete the Route Config Definition for:
-      * /users - Route to the UsersList component 
+      * /users - Route to the UsersList component
       * /company - Route to the Company List Component
       * /  - Default route, for the Home component
   */
@@ -45,7 +45,7 @@ import Home from '../components/home';
 export class App {
   public userNames: any;
   constructor(private _users: Users) {
-    
+
   }
   ngOnInit() {
    this.userNames = this._users.getUserNames();

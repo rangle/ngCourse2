@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from 'angular2/core';
+import {Component, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'ngc-radio',

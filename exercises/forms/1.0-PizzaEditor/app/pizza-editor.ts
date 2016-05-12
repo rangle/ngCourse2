@@ -1,11 +1,11 @@
-import {Component, EventEmitter} from 'angular2/core';
+import {Component, EventEmitter} from '@angular/core';
 import {
   FORM_DIRECTIVES,
   FormBuilder,
   ControlGroup,
   Control,
   Validators
-} from 'angular2/common';
+} from '@angular/common';
 import Pizza from './pizza';
 
 @Component({

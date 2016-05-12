@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import UserDetail from '../components/user-detail';
 import UserList from '../components/user-list';
 import CompanyList from '../components/company-list';
@@ -36,7 +36,7 @@ import Home from '../components/home';
 export class App {
   public userNames: any;
   constructor(private _users: Users) {
-    
+
   }
   ngOnInit() {
    this.userNames = this._users.getUserNames();

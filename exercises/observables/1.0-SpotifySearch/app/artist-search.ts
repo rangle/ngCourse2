@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {Control, ControlGroup, FormBuilder} from 'angular2/common';
+import {Component} from '@angular/core';
+import {Control, ControlGroup, FormBuilder} from '@angular/common';
 import SearchService from './search-service';
 import Artist from './artist';
 import 'rxjs/Rx';
@@ -14,7 +14,7 @@ import 'rxjs/Rx';
     placeholder="Search Spotify for an artist">
 </form>
 
-<ngc-artist *ngFor="#artist of artists"
+<ngc-artist *ngFor="let artist of artists"
   [artist]="artist">
 </ngc-artist>
 `,

@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import * as R from 'Ramda';
 const mockData = [{
   '_id': '56b35c39533e5e7b8765c36b',
@@ -79,7 +79,7 @@ export default class Users {
         last: n.name.last
       };
   };
-  
+
   getUserNames = () => {
     return R.map(this.mapUserNames)(mockData);
   };
@@ -88,11 +88,11 @@ export default class Users {
     return R.find(R.propEq('_id', id))(mockData);
 
   };
-  
+
   getCompanyNames = () => {
     return R.compose(R.uniq, R.pluck('company'))(mockData)
   };
-  
+
   getUsersByCompany = (companyName) => {
     return R.map(
         this.mapUserNames,
