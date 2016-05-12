@@ -51,7 +51,7 @@ import 'rxjs/Rx';
 	template: `
 		<form [ngFormModel]="coolForm"><input ngControl="search" placeholder="Search Spotify artist"></form>
 		
-		<div *ngFor="#artist of result">
+		<div *ngFor="let artist of result">
 		  {{artist.name}}
 		</div>
 	`
