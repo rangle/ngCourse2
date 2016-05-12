@@ -23,8 +23,8 @@ interface Callback {
 function callServer(callback: Callback) {
   callback(null, 'hi');
 }
-callServer((data) => console.log(data)); // 'hi'
-callServer('hi');                        // tsc error
+callServer((error, data) => console.log(data)); // 'hi'
+callServer('hi');                               // tsc error
 ```
 
 Sometimes JavaScript functions are "overloaded", that is, they _can_ have
