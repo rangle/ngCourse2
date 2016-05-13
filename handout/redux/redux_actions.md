@@ -27,7 +27,7 @@ export function decrement() {
 }
 
 ```
-[View Example](http://plnkr.co/edit/ra37zSP4sac6hyoZXyWe?p=preview)
+[View Example](https://plnkr.co/edit/3LDKcqExYbm9sytjBzUe?p=preview)
 
 As you can see, the actions creators are simple functions that take parameters, and return a JSON object containing more information. The typical Redux action tends to contain the properties:
 
@@ -69,7 +69,7 @@ export function incrementAsync(timeInMs = 1000) {
   };
 }
 ```
-[View Example](http://plnkr.co/edit/ra37zSP4sac6hyoZXyWe?p=preview)
+[View Example](https://plnkr.co/edit/3LDKcqExYbm9sytjBzUe?p=preview)
 
 In the `incrementIfOdd` action, we are making use of the getState function to get the current state of the application.
 

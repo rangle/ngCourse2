@@ -43,7 +43,7 @@
  Keeping this in mind, lets refactor our `counter` to be a **dumb/presentational** component.  First, lets modify our `app-container` to have two counter components on it as we currently have it.
 
 ```javascript
- import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Counter} from '../components/counter-component';
 
 @Component({
@@ -68,7 +68,7 @@ export class SimpleRedux {
 
 }
 ```
-[View Example](http://plnkr.co/edit/Ks2oOcHhOJum6pO41qNU?p=preview)
+[View Example](https://plnkr.co/edit/HT7JhwXA8nHSBolbtOVv?p=preview)
 
 As you can see in the example, when clicking on the buttons - the numbers in both components will update in sync. This is because counter component is coupled to a specific piece of state, and action.
 
@@ -169,13 +169,13 @@ export class SimpleRedux {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/8eq54QwOcYDuxzcBdMV3?p=preview)
+[View Example](https://plnkr.co/edit/d4JVZfCW9YfbWPKyKAc5?p=preview)
 
 Since we are getting actions from both `CounterActions` and `CurseActions`, we are merging them into one object to be bound onto the SimpleRedux class. Depending on how the components are being used, and how generic they need to be. You could potentially create a container component for each one of your dumb components, although this might not always be required. But, for sake of this example - lets do one last refactor of this counter component, and create a `ClickContainer`, and a `CurseContainer`.
 
 __app/containers/curse-container.ts__
 ```javascript
-import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Counter} from '../components/counter-component';
 import {bindActionCreators} from 'redux';
 import * as CurseActions from '../actions/curse-actions';
@@ -230,12 +230,9 @@ export class CurseContainer {
 
  __app/containers/app-container.ts__
 ```javascript
-import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ClickContainer} from './click-container.ts';
 import {CurseContainer} from './curse-container.ts';
-
-import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
-
 
 @Component({
 	selector: 'simple-redux',
@@ -253,6 +250,6 @@ import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
 
 }
  ```
- [View Example](http://plnkr.co/edit/wWqv7C1HD21mbBZvcdcl?p=preview)
+ [View Example](https://plnkr.co/edit/s2HlIydWuzDGk4jlmsuw?p=preview)
 
  Creating a smart container for every component may not always be necessary as a larger part of your application could be acting as the smart container as it did in the initial example.
