@@ -26,8 +26,8 @@ class SampleComponent {
 
 ```js
 
-it('Should work', inject([TestComponentBuilder], fakeAsync(
-  (tcb: TestComponentBuider) => {
+it('Should work', 
+  fakeAsync(inject([TestComponentBuilder], (tcb: TestComponentBuider) => {
     tcb.createAsync(SampleComponent).then(fixture => {
       tick();
 
@@ -40,8 +40,8 @@ it('Should work', inject([TestComponentBuilder], fakeAsync(
       expect(fixture.debugElement.nativeElement.querySelector('span'))
         .toHaveText('My expected data');
     });
-  })
-));
+  }));
+);
 ```
 
 Here we have a `SampleComponent` that has a button, when clicked a `setTimeout` of 2 seconds will be called to set the message property to 'My expected data'. Our unit test builds our component using the `TestComponentBuilder`. We have wrapped our entire test in `fakeAsync` which will allow us to test the asynchronous behaviour of our component using synchronous function calls. We call `tick` which will wait for all events to finish firing in our component before continuing. We then simulate a button click, and then immediately call `tick` again. Now as our test sits and waits for our component to finish handling the button click, retrieving data, and rendering the data, we can check to see what showed up in our DOM by calling  `detectChanges` and querying the DOM for our expected result.

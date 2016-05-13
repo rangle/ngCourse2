@@ -7,13 +7,11 @@ Since services operate in an asynchronous manner it may be useful to execute a s
 
 describe('verify search', () => {
   it('searches for the correct term',
-    injectAsync([SearchWiki, MockBackend],
-      fakeAsync((searchWiki, mockBackend) => {
+    fakeAsync(inject([SearchWiki, MockBackend], (searchWiki, mockBackend) => {
         return new Promise((pass, fail) => {
           ...
         });
-      })
-  ));
+    })));
 });
 ```
 

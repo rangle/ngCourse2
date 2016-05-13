@@ -9,7 +9,7 @@ When using ng2-redux, to connect it up with your angular components you need to 
  __app/components/counter-component.ts__
 
 ```javascript
-import {Component, View, Inject} from 'angular2/core';
+import {Component, View, Inject} from '@angular/core';
 import {bindActionCreators} from 'redux';
 import * as CounterActions from '../actions/counter-actions';
 @Component({

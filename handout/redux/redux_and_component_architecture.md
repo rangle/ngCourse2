@@ -78,7 +78,7 @@ To turn the counter component from a smart component into a dumb component, we n
 
 __app/components/counter-component.ts__
 ```javascript
-import {Componentt} from 'angular2/core';
+import {Componentt} from '@angular/core';
 
 @Component({
   selector: 'counter',
@@ -135,9 +135,8 @@ Here, we are now explicitly passing in the data and callbacks that each of these
 
 __app/src/containers/app-container.ts__
 ```javascript
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Counter} from '../components/counter-component';
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {bindActionCreators} from 'redux';
 import * as CounterActions from '../actions/counter-actions';
 import * as CurseActions from '../actions/curse-actions';
@@ -176,11 +175,9 @@ Since we are getting actions from both `CounterActions` and `CurseActions`, we a
 
 __app/containers/curse-container.ts__
 ```javascript
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Counter} from '../components/counter-component';
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {bindActionCreators} from 'redux';
-
 import * as CurseActions from '../actions/curse-actions';
 
 @Component({
@@ -233,11 +230,11 @@ export class CurseContainer {
 
  __app/containers/app-container.ts__
 ```javascript
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ClickContainer} from './click-container.ts';
 import {CurseContainer} from './curse-container.ts';
 
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
 
 
 @Component({
