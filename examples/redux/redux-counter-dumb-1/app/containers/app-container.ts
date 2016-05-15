@@ -1,4 +1,4 @@
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Counter} from '../components/counter-component';
 
 @Component({

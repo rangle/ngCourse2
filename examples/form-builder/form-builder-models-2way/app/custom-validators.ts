@@ -1,4 +1,4 @@
-import {Control} from 'angular2/common';
+import {Control} from '@angular/common';
 
 interface IValidation {
   [key: string]: boolean;

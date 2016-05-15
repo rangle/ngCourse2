@@ -1,15 +1,15 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
-	selector: 'counter',
-	template: `
-	<div>
-	  <p>Count: {{num}}</p>
+  selector: 'counter',
+  template: `
+  <div>
+    <p>Count: {{num}}</p>
 	  <button (click)="increment()">Increment</button>
-	</div>
-	`
+  </div>
+  `
 })
-export class Counter {
+export class App {
   num: number = 0;
   
   increment() {

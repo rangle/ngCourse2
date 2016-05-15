@@ -1,8 +1,8 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
-	selector: 'app-root',
+	selector: 'app',
 	template: `
 	  <b>Angular 2 Component using Observables!</b>
 	  
@@ -16,18 +16,24 @@ import {Observable} from 'rxjs/Observable';
   `
 })
 
-export class AppComponent {
+export class App {
 	
-	private data:Observable<Array<number>>;
-	private values:Array<number> = [];
-	private anyErrors:error;
+	private data: Observable<Array<number>>;
+	private values: Array<number> = [];
+	private anyErrors: error;
 
 	init() {
 
 		this.data = new Observable(observer => {
+		  	setTimeout(() => {
+				observer.next(10)
+			}, 1500);
 			setTimeout(() => {
 				observer.error('Hey something bad happened I guess');
 			}, 2000);
+			setTimeout(() => {
+				observer.next(50)
+			}, 2500);
 		});
 
 		let subscription = this.data.subscribe(

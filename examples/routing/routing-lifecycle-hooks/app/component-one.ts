@@ -1,8 +1,12 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
+
 @Component({
   selector: 'component-one',
-  template: 'Component One'
+  template: `Component One
+  `
 })
 export default class ComponentOne { 
   console.log(window.location)
 }
+
+

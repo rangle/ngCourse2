@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <title>Angular 2 Form</title>
-    
-    <!-- 1. Load libraries -->
-    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js"></script>
-    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <title>Angular 2 Form Builder</title>
+    <script src="https://npmcdn.com/systemjs@0.19.6/dist/system.src.js"></script>
     <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.15/Rx.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2.dev.js"></script>
-    
-    <!-- 2. Configure SystemJS -->
-    <script>
-      System.config({
-        transpiler: 'typescript', 
-        typescriptOptions: { emitDecoratorMetadata: true }, 
-        packages: {'app': {defaultExtension: 'ts'}} 
-      });
-      System.import('app/boot')
-            .then(null, console.error.bind(console));
-    </script>
-    
-    <link rel="stylesheet" href="styles.css">
+    <script src="system.config.js"></script>
   </head>
-
   <body>
     <my-form>Loading...</my-form>
+    
+    <script>
+      System.import('app');
+    </script>
   </body>
 
 </html>

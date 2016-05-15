@@ -1,9 +1,6 @@
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ClickContainer} from './click-container.ts';
 import {CurseContainer} from './curse-container.ts';
-
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
-
 
 @Component({
 	selector: 'simple-redux',

@@ -1,19 +1,23 @@
-import {Component} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Component, ChangeDetectorRef} from '@angular/core';
+import {Http} from '@angular/http';
 
 @Component({
-	selector: 'app-root',
+	selector: 'app',
 	template: `
-	  <b>Angular 2 HTTP requests using RxJs Observables!</b>
+	  <b>Angular 2 HTTP requests using RxJS Observables!</b>
 	  
 	  <div><code>{{response}}</code></div>
 	  `
 })
 
-export class AppComponent {
-  constructor(http: Http) {
+export class App {
+  someData: string;
+  
+  constructor(http: Http, cd: ChangeDetectorRef) {
     http.get('http://jsonplaceholder.typicode.com/posts/1').subscribe((data) => {
       this.response = data._body;
-    })
+
+      cd.detectChanges();
+    });
   }
 }

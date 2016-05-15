@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
+import * as Immutable from 'immutable';
 import {MovieComponent} from './movie.component';
-import * as Immutable from '../lib/immutable.min.js';
 
 @Component({
   selector: 'main',

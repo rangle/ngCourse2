@@ -1,26 +1,24 @@
-import {Component, ElementRef} from 'angular2/core';
+import {Component, ElementRef} from '@angular/core';
 
 @Component({
 	selector: 'app',
 	template: `
   <h1>My App</h1>
   <pre style="background: #eee; padding: 1rem; border-radius: 3px; overflow: auto;"> 
-<code>{{ node }}</code>
+    <code>{{ node }}</code>
   </pre>
 `
 })
-export default class App implements OnInit {
+export class App {
   node: string;
   
-  constructor(
-    private elementRef: ElementRef
-  ) {  }
-
-  ngOnInit(){
-    
+  constructor(private elementRef: ElementRef) {
+  }
+  
+  ngAfterContentInit() {
     const tmp = document.createElement('div');
     const el = this.elementRef.nativeElement.cloneNode(true);
-
+    
     tmp.appendChild(el);
     this.node = tmp.innerHTML;
   }

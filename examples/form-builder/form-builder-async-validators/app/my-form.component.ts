@@ -1,15 +1,12 @@
-import {Component} from 'angular2/core';
-import {FORM_DIRECTIVES} from 'angular2/common';
-import {FormBuilder} from 'angular2/common';
-import {ControlGroup} from 'angular2/common';
-import {Control} from 'angular2/common';
-import {Validators} from 'angular2/common';
+import {Component} from '@angular/core';
+import {FORM_DIRECTIVES, NgForm, FormBuilder, Control, ControlGroup, Validators} from '@angular/common';
 import {CustomValidators} from './custom-validators';
 
 @Component({
   selector: 'my-form',
   templateUrl: 'app/my-form.component.html',
-  directives: [FORM_DIRECTIVES]
+  directives: [FORM_DIRECTIVES],
+  styleUrls: ['styles.css']
 })
 export class MyForm {
   email: Control;

@@ -1,5 +1,5 @@
-import {Component, Input} from 'angular2/core';
-import Counter from './counter.component';
+import {Component, Input} from '@angular/core';
+import {Counter} from './counter.component';
 
 @Component({
 	selector: 'app',
@@ -22,18 +22,16 @@ import Counter from './counter.component';
 export class App {
   number1: number = 0;
   number2: number = 0;
-  number3: number3 = 0;
-  number4: number4 = 0;
+  number3: number = 0;
+  number4: number = 0;
   
   constructor() {
     this.num = 0;
   }
   
-  onCountChanged(value) {
+  onCountChanged(value: number) {
     this.number3 = value;
     this.number4 = value;
   }
-
-  
 }
 

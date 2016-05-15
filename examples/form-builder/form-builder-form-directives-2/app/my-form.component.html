@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" novalidate>
+<form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)" novalidate>
 
   <div>
     <label for="email">Email:</label>

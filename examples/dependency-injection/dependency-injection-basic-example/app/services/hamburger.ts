@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {Bun} from './bun';
 import {Patty} from './patty';
 import {Toppings} from './toppings';

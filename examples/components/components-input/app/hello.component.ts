@@ -1,12 +1,12 @@
-import {Component, Input} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
-	selector: 'hello-component',
-	template: '<p>Hello, {{myName}}!</p>',
-	inputs: ['myName']
+	selector: 'hello',
+	inputs: ['name'],
+	template: '<p>Hello, {{name}}!</p>',
 })
-export default class HelloComponent {
-  myName: string;
+export class Hello {
+  name: string;
   
   constructor() {}
 }

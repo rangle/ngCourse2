@@ -1,19 +1,18 @@
-import {Component, Input} from 'angular2/core';
-import HelloComponent from './hello.component';
+import {Component} from '@angular/core';
+import {Hello} from './hello.component';
 
 @Component({
 	selector: 'app',
+	directives: [Hello],
 	template: `<div>
-	    <hello-component [myName]="name"></hello-component>
-	    <hello-component myName="Other World"></hello-component>
-	  </div>`,
-	directives: [HelloComponent]
+	    <hello [name]="helloName"></hello>
+	    <hello name="Other World"></hello>
+	  </div>`
 })
 export class App {
-  name: string;
+  helloName: string;
   
   constructor() {
-    this.name = "World";
+    this.helloName = "World";
   }
 }
-
