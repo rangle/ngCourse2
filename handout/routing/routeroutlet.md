@@ -32,4 +32,4 @@ export class SimpleRouting {
 }
 // ...
 ```
-[View Example](http://plnkr.co/edit/xZLEIX601g0TqsEOyB8y?p=preview)
+[View Example](https://plnkr.co/edit/c8tiTcT0mso4neVHuN2K?p=preview)

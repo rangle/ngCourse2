@@ -52,7 +52,7 @@ Next, we need to define the link to the auxiliary route for the application to n
 ```javascript
 <a [routerLink]="['./ComponentOne',['TestAux1']]">Test Aux</a>
 ```
-[View Example](http://plnkr.co/edit/USxVl4rBpIPs5Zi3s0pb?p=preview)
+[View Example](https://plnkr.co/edit/RXCHhuAuEFXVbK3Q3PNm?p=preview)
 
 Each auxiliary route is an independent route which can have:
 

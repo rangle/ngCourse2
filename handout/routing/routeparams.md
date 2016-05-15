@@ -35,8 +35,8 @@ And to access the `RouteParams` in `ComponentTwo`,
 
 _app/component-two.ts_
 ```js
-import {Component} from 'angular2/core';
-import {RouteParams} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteParams} from '@angular/router-deprecated';
 @Component({
   selector: 'component-two',
   template: 'Component two: {{ message }}'
@@ -48,4 +48,4 @@ export default class ComponentTwo {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/Sf54bMaDtfVGOwUAcmzv?p=preview)
+[View Example](https://plnkr.co/edit/rF6ZiDuaBbAo24m3c3qg?p=preview)
