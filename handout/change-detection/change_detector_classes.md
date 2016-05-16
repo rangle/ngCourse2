@@ -106,7 +106,7 @@ Finally, Angular has detected that some of the properties bound to the template 
 Traversing all the tree components to check for changes could be costly. Imagine that instead of just having one reference to `<movie>` inside our `MainComponent`'s template, we have multiple references?
 
 ```html
-<movie *ngFor="#movie of movies" [title]="movie.title" [actor]="movie.actor"></movie>`
+<movie *ngFor="let movie of movies" [title]="movie.title" [actor]="movie.actor"></movie>`
 ```
 
 If our movie list grows too big, the performance of our system will start degrading. We can narrow the problem to one particular comparison.
