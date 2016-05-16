@@ -12,7 +12,7 @@ var threeAlso = three; // error
 function scope1() {
   var three = 3;
   var fiveAlso = five; // == 5
-  var sevenALso = seven; // error
+  var sevenAlso = seven; // error
 }
 
 function scopt2() {
@@ -47,7 +47,7 @@ mechanism for dealing with most loops.
 `let` works like `var` in the sense that its data is read/write. `let` is also useful when used in a for loop. For example, without let:
 
 ```js
-for(var x=0;x<5;x++) {
+for(var x=0; x<5; x++) {
   setTimeout(()=>console.log(x), 0)
 }
 ```
@@ -55,7 +55,7 @@ for(var x=0;x<5;x++) {
 Would output `5,5,5,5,5`. However, when using `let` instead of `var`, the value would be scoped in a way that people would expect.
 
 ```js
-for(let x=0;x<5;x++) {
+for(let x=0; x<5; x++) {
   setTimeout(()=>console.log(x), 0)
 }
 ```
