@@ -12,7 +12,7 @@ _parameter_ needs to be injected.  It can be used like so:
  
 ```js
  
- import {Component, Inject, provide} from 'angular2/core';
+ import {Component, Inject, provide} from '@angular/core';
  import {Hamburger} from '../services/hamburger';
  
  @Component({
@@ -34,7 +34,7 @@ example would be simplified in TypeScript to:
  
 ```js
  
- import {Component, Inject, provide} from 'angular2/core';
+ import {Component, Inject, provide} from '@angular/core';
  import {Hamburger} from '../services/hamburger';
  
  @Component({
@@ -63,7 +63,7 @@ Here's an example of `Hamburger` marked up with `@Injectable`
 
 ```js
 
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {Bun} from './bun';
 import {Patty} from './patty';
 import {Toppings} from './toppings';
@@ -82,4 +82,4 @@ In some cases Angular 2's DI need's more information than just types.
 
 
 [decorators]: http://blog.wolksoftware.com/decorators-reflection-javascript-typescript "ES Decorators Explained"
-[plunkBurger1]: https://plnkr.co/edit/KcBaZgbPZjuItiBjtEbD?p=preview "Hamburger DI Demo"
+[plunkBurger1]: https://plnkr.co/edit/sK41Y1W4JbXEqw47tSWh "Hamburger DI Demo"
