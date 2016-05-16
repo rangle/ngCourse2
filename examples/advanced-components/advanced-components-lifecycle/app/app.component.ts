@@ -9,7 +9,7 @@ import {
   AfterViewChecked,
   OnDestroy,
   EventEmitter
-} from 'angular2/core';
+} from '@angular/core';
 
 @Component({
 	selector: 'child',
@@ -82,7 +82,7 @@ class Child {
 	  <h5>Lifecycle Events Log</h5>
 	  {{ logs }}
 	  <ul>
-	    <li *ngFor="#log of logs">
+	    <li *ngFor="let log of logs">
 	      <code>{{ log }}</code>
 	    </li>
 	  </ul>

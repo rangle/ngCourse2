@@ -43,8 +43,8 @@ The following code shows how to configure HashLocationStrategy:
 
 ```javascript
 import {RouterApp} from './router-app/router-app';
-import {ROUTER_PROVIDERS} from 'angular2/router';
-import {LocationStrategy, Location, HashLocationStrategy } from 'angular2/router';
+import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import {LocationStrategy, Location, HashLocationStrategy } from '@angular/common';
 
 export function main() {
   return bootstrap(RouterApp, [

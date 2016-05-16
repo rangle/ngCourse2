@@ -1,5 +1,5 @@
-import {Component, NgForm} from 'angular2/core';
-import {FORM_DIRECTIVES} from 'angular2/common';
+import {Component} from '@angular/core';
+import {FORM_DIRECTIVES, NgForm} from '@angular/common';
 
 @Component({
   selector: 'my-form',
@@ -11,6 +11,8 @@ export class MyForm {
   formValue: any;
   
   onSubmit(regForm: NgForm) {
+    console.log(regForm);
+    console.log(regForm.value);
     this.formValue = regForm.value;
   }
 }

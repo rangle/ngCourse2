@@ -19,7 +19,7 @@ Angular 2's adapter _must_ be a singleton.
 ```js
 
 // Angular 2 Vendor Import
-import {UpgradeAdapter} from 'angular2/upgrade';
+import {UpgradeAdapter} from '@angular/upgrade';
 
 // Instantiate an adapter
 export const upgradeAdapter = new UpgradeAdapter();

@@ -4,7 +4,7 @@ Having three validators is just not enough, let's create a custom validator to c
 
 _app/custom-validators.ts_
 ```javascript
-import {Control} from 'angular2/common';
+import {Control} from '@angular/common';
 
 export class CustomValidators {
   static emailFormat(control: Control): [[key: string]: boolean] {
@@ -53,6 +53,6 @@ _app/my-form.component.html_
 </form>
 ```
 
-[View Example](https://plnkr.co/edit/Q0aUwWF25VUoUnxIQrRL?p=preview)
+[View Example](http://plnkr.co/edit/qjAx0cJMI1meveR7dyHF?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/Q0aUwWF25VUoUnxIQrRL" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/qjAx0cJMI1meveR7dyHF/" frameborder="0" allowfullscren="allowfullscren"></iframe>

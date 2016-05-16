@@ -3,11 +3,11 @@
 Lets take a look at a basic example of how to create and use an Observable in an Angular 2 component
 
 ```js
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
-	selector: 'app-root',
+	selector: 'app',
 	template: `
 	  <b>Angular 2 Component Using Observables!</b>
 	  <div>Values: {{values.toString()}}</div>
@@ -15,23 +15,26 @@ import {Observable} from 'rxjs/Observable';
 	  <div>Finished? {{finished}}</div>
 	`
 })
-export class AppComponent {
+export class App {
   
-  private data:Observable<Array<number>>;
-  private values:Array<number> = [];
-  private anyErrors:boolean = false;
-  private finished:boolean = false;
+  private data: Observable<Array<number>>;
+  private values: Array<number> = [];
+  private anyErrors: boolean;
+  private finished: boolean;
 
   constructor() {
-    
       this.data = new Observable(observer => {
           setTimeout(() => {
               observer.next(42);
+          }, 1000);
+          
+          setTimeout(() => {
               observer.next(43);
-              observer.complete();
           }, 2000);
-
-          console.log('Started Observable sequence!');
+          
+          setTimeout(() => {
+              observer.complete();
+          }, 3000);
       });
 
       let subscription = this.data.subscribe(
@@ -40,12 +43,12 @@ export class AppComponent {
           () => this.finished = true
       );
   }
-
+  
 }
 ```
-[View Example](http://plnkr.co/edit/t5d9XAdgPAk8Y2grjW5p)
+[View Example](http://plnkr.co/edit/m7RX8IPJMtX2PTUyDDu1?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/t5d9XAdgPAk8Y2grjW5p" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/m7RX8IPJMtX2PTUyDDu1/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 First we import `Observable` into our component from `rxjs/Observable`. Next, in our constructor we create a new `Observable`. Note that this creates an `Observable` data type that is cast as an array that contains data of `number` type. This illustrates the array driven stream of data that Observables offer as well as giving us the ability to maintain integrity of the type of data we are expecting to receive. 
 
@@ -69,31 +72,37 @@ new Promise((resolve, reject) => {
 The `forEach` pattern is useful for a sequence of events you only expect to happen once. 
 
 ```js
-export class AppComponent {
-  private data:Observable<Array<number>>;
-  private values:Array<number> = [];
-  private status:string;
-  private subscribeValues
+export class App {
+  
+  private data: Observable<Array<number>>;
+  private values: Array<number> = [];
+  private anyErrors: boolean;
+  private finished: boolean;
 
-	constructor() {
-		this.data = new Observable(observer => {
-			setTimeout(() => {
-				observer.next(42);
-			  observer.next(43);
-        observer.complete();
-      }, 2000);
+  constructor() {
+      this.data = new Observable(observer => {
+          setTimeout(() => {
+              observer.next(42);
+          }, 1000);
+          
+          setTimeout(() => {
+              observer.next(43);
+          }, 2000);
+          
+          setTimeout(() => {
+              observer.complete();
+          }, 3000);
+          
+          this.status = "Started";
+      });
 
-			this.status = "Started";
-		});
+      let subscription = this.data.forEach(v => this.values.push(v))
+		    .then(() => this.status = "Ended");
+  }
 
-		this.data.forEach(value => this.values.push(value))
-      .then(
-        () => this.status = "Ended",
-        () => this.status = "Failed");
-	}
 }
 ```
 
-[View Example](http://plnkr.co/edit/UXoBdOzNeR7D1t4CIPMS)
+[View Example](http://plnkr.co/edit/uHwCuarxgkFR3ig5IPkA?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="http://plnkr.co/edit/UXoBdOzNeR7D1t4CIPMS" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/uHwCuarxgkFR3ig5IPkA/" frameborder="0" allowfullscren="allowfullscren"></iframe>

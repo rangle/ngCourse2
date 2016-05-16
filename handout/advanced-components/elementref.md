@@ -3,24 +3,35 @@
 Provides access to the underlying native element (DOM node).
 
 ```js
-import {Component, ElementRef} from 'angular2/core';
+import {Component, ElementRef} from '@angular/core';
 
 @Component({
-  selector: 'todo-app',
-  template: `...`
+	selector: 'app',
+	template: `
+  <h1>My App</h1>
+  <pre style="background: #eee; padding: 1rem; border-radius: 3px; overflow: auto;"> 
+    <code>{{ node }}</code>
+  </pre>
+`
 })
-export class TodoApp {
-
-  constructor(
-    private elementRef: ElementRef
-  ) {
-    const container = this.elementRef.nativeElement;
+export class App {
+  node: string;
+  
+  constructor(private elementRef: ElementRef) {
   }
-
+  
+  ngAfterContentInit() {
+    const tmp = document.createElement('div');
+    const el = this.elementRef.nativeElement.cloneNode(true);
+    
+    tmp.appendChild(el);
+    this.node = tmp.innerHTML;
+  }
+  
 }
 ```
 
 
-[View Example](http://plnkr.co/edit/QkNbKQh6ya1WX0YdUahX?p=preview)
+[View Example](https://plnkr.co/edit/MEwErdHWpY6BJa4OD8ta?p=preview)
 
-<iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/QkNbKQh6ya1WX0YdUahX" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 600px" src="http://embed.plnkr.co/MEwErdHWpY6BJa4OD8ta/" frameborder="0" allowfullscren="allowfullscren"></iframe>

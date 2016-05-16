@@ -14,7 +14,7 @@ Here we are naming `regForm` (short for "registration form") our local reference
 _app/my-form.component.ts_
 ```javascript
 // ...
-import {NgForm} from 'angular2/common';
+import {NgForm} from '@angular/common';
 
 @Component({
   // ...

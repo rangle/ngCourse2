@@ -34,8 +34,8 @@ Consider the following example:
 
 app/boot.ts
 ```js
-import {bootstrap} from 'angular2/platform/browser';
-import {provide} from 'angular2/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {provide} from '@angular/core';
 import {App} from './containers/app';
 import {Unique} from './services/unique';
 
@@ -45,9 +45,9 @@ bootstrap(App, [Unique]);
 
 In the example above, `Unique` is bootstrapped into the root injector.
 
-app/services/unique.ts
+*app/services/unique.ts*
 ```js
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class Unique {
@@ -62,9 +62,9 @@ export class Unique {
 The `Unique` service, it generates a value unique to _its_ instance upon
 instantiation
 
-app/services/child-inheritor.ts
+*app/components/child-inheritor.component.ts*
 ```js
-import {Component, Inject} from 'angular2/core';
+import {Component, Inject} from '@angular/core';
 import {Unique} from '../services/unique';
 
 @Component({
@@ -82,9 +82,9 @@ export class ChildInheritor {
 The child inheritor has no injector, it will traverse the component tree
 _upwards_ looking for an injector.
 
-app/services/child-own-injector.ts
+*app/components/child-own-injector.component.ts*
 ```js
-import {Component, Inject} from 'angular2/core';
+import {Component, Inject} from '@angular/core';
 import {Unique} from '../services/unique';
 
 @Component({
@@ -104,10 +104,10 @@ The child own injector component has injector that is populated with its own
 instance of `Unique`.  This component will _not_ share the same value as the
 root injector's `Unique` instance.
 
-app/containers/app.ts
+*app/containers/app.ts*
 ```js
 
-import {Component, Inject, provide} from 'angular2/core';
+import {Component, Inject, provide} from '@angular/core';
 import {Hamburger} from '../services/hamburger';
 import {ChildInheritor} from '../components/child-inheritor';
 import {ChildOwnInjector} from '../components/child-own-injector';
@@ -147,4 +147,4 @@ export class App {
 
 [View Example][plunkInjectorTree]
 
-[plunkInjectorTree]: https://plnkr.co/edit/XghXIFpZaA5OpedfxFTp?p=preview "Injector Tree Example"
+[plunkInjectorTree]: http://plnkr.co/edit/GXG3AVoJFI1vmJB3vZF3?p=preview "Injector Tree Example"

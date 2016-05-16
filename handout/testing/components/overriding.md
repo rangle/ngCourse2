@@ -16,29 +16,29 @@ This won't work when using `beforeEachProvider`. Instead we can use the `TestCom
 
 ```js
 
-it('Should work', injectAsync(
-  [TestComponentBuilder], (tcb: TestComponentBuider) => {
-    tcb.overrideProviders(SimpleComponent, [
-      provide(ExampleService, {useClass: MockExampleService})
-    ]).createAsync(SimpleComponent).then(fixture => {
-
-    // test your fixture here
-
-  });
-}));
+it('Should work', 
+  async(inject([TestComponentBuilder], (tcb: TestComponentBuider) => {
+    return tcb.overrideProviders(SimpleComponent, [
+        provide(ExampleService, {useClass: MockExampleService})
+      ]).createAsync(SimpleComponent).then(fixture => {
+        
+        // test your fixture here
+        
+      });
+    })));
 ```
 
 `TestComponentBuilder` also lets you override a components template. This is useful for testing a small part of a large component, as you can ignore the output from the rest of the DOM and only focus on the part you are interested in testing. Calling `overrideTemplate` will set the components template to whatever you pass in.
 
 ```js
 
-it('Should work', injectAsync(
-  [TestComponentBuilder], (tcb: TestComponentBuider) => {
-    tcb.overrideTemplate(SimpleComponent, '<span>{{message}}</span>')
+it('Should work', 
+  async(inject([TestComponentBuilder], (tcb: TestComponentBuider) => {
+    return tcb.overrideTemplate(SimpleComponent, '<span>{{message}}</span>')
       .createAsync(SimpleComponent).then(fixture => {
+ 
+        // test all things relating to the message property here
       
-      // test all things relating to the message property here
-      
-    });
-  }));
+      });
+  })));
 ```

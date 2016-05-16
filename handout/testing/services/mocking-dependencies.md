@@ -6,8 +6,8 @@ Since we want to isolate our service testing from outside network requests, we h
 
 ```js
 
-import {Http} from 'angular2/http';
-import {Injectable} from 'angular2/core';
+import {Http} from '@angular/http';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class SearchWiki {
@@ -41,7 +41,7 @@ import {
   ResponseOptions,
   ConnectionBackend,
   Http
-} from 'angular2/http';
+} from '@angular/http';
 
 import {
   it,
@@ -49,10 +49,10 @@ import {
   describe,
   beforeEachProvider,
   inject
-} from 'angular2/testing';
+} from '@angular/testing';
 
-import {MockBackend} from 'angular2/http/testing';
-import {provide} from 'angular2/core';
+import {MockBackend} from '@angular/http/testing';
+import {provide} from '@angular/core';
 import {SearchWiki} from './wikisearch';
 
 describe('Testing the wikipedia search service', () => {

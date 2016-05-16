@@ -3,7 +3,7 @@
 Components by default support projection. You can use the `ngContent` directive to place the projected content.
 
 ```js
-import {Component, Input} from 'angular2/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'child',
@@ -15,6 +15,6 @@ import {Component, Input} from 'angular2/core';
 class Child {}
 ```
 
-[View Example](http://plnkr.co/edit/LgCjXI5QH7jZkXgwwnsF?p=preview)
+[View Example](http://plnkr.co/edit/d2X7P2lxw4jrIBnElGrI?p=preview)
 
-<iframe style="width: 100%; height: 800px" src="https://embed.plnkr.co/LgCjXI5QH7jZkXgwwnsF" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 800px" src="http://embed.plnkr.co/d2X7P2lxw4jrIBnElGrI/" frameborder="0" allowfullscren="allowfullscren"></iframe>

@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'component-two',
@@ -6,8 +6,7 @@ import {Component} from 'angular2/core';
   `
 })
 
-export default class ComponentTwo { 
-  
+export default class ComponentTwo {
 }
 
 

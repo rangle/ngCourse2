@@ -1,4 +1,4 @@
-import {Control} from 'angular2/common';
+import {Control} from '@angular/common';
 
 export class CustomValidators {
   static emailFormat(control: Control): [[key: string]: boolean] {

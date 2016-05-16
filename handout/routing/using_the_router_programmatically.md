@@ -20,5 +20,5 @@ export default class ComponentOne {
 }
 ```
 
-[View Example](http://plnkr.co/edit/9pGP7YRdpLKpoUREWdWs?p=preview)
+[View Example](https://plnkr.co/edit/uRzACsqaaFppM3kHdsUt?p=preview)
 

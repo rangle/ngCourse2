@@ -1,5 +1,6 @@
-import {Component} from 'angular2/core';
-import {RouteParams} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteParams} from '@angular/router-deprecated';
+
 @Component({
   selector: 'component-two',
   template: 'Component two: {{ message }}'
@@ -10,3 +11,5 @@ export default class ComponentTwo {
     this.message = this.routeParams.get('message');
   }
 }
+
+

@@ -26,10 +26,14 @@ export function incrementIfOdd() {
   };
 }
 
-export function incrementAsync(delay = 1000) {
+const delay = (timeInMs) => {
+  return new Promise((resolve,reject) => {
+    setTimeout(() => resolve() , timeInMs);
+  });
+}
+
+export function incrementAsync(timeInMs = 1000) {
   return dispatch => {
-    setTimeout(() => {
-      dispatch(increment());
-    }, delay);
+    delay(timeInMs).then(() => dispatch(increment()))  
   };
 }

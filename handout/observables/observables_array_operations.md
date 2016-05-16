@@ -4,20 +4,7 @@ In addition to simply iterating over an asynchronous collection, we can perform 
 Let's expand our example and do something a little more with our stream:
 
 ```js
-import {Component} from 'angular2/core';
-import {Http, Headers} from 'angular2/http';
-import 'rxjs/Rx';
-
-@Component({
-	selector: 'app-root',
-	template: `
-	  <b>Angular 2 HTTP requests using RxJs Observables!</b>
-	  
-	  <div><code>{{doctors.toString()}}</code></div>
-	  `
-})
-
-export class AppComponent {
+export class App {
   private doctors = [];
   
   constructor(http: Http) {
@@ -31,7 +18,7 @@ export class AppComponent {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/d3pigxK1JhfAeVMihGGq?p=preview)
+[View Example](http://plnkr.co/edit/B3idk6lePJzf7x9VCEv1?p=preview)
 
 Here are two really useful array operations - `map` and `filter`. What exactly do these do?
 

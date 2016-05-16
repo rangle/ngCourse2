@@ -1,56 +1,17 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>ngCourse2 - Redux</title>
-    <script>document.write('<base href="' + document.location + '" />');</script>
-    <!-- 1. Load libraries -->
-    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js"></script>
-    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://npmcdn.com/systemjs@0.19.6/dist/system.src.js"></script>
     <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.15/Rx.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2.dev.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.15/router.dev.js"></script>
-    <!-- 2. Configure SystemJS -->
-    <script>
-    window.process = { 
-      env: 'DEV'
-    }
-      System.config({
-        meta: {
-        
-          './lib/ng2-redux/*': {
-            format: 'cjs'
-          }
-         
-        },
-        transpiler: 'typescript', 
-        typescriptOptions: { emitDecoratorMetadata: true }, 
-        packages: {
-          'app': {defaultExtension: 'ts'},
-          'lib': {defaultExtension: 'js'}
-        
-        },
-        map: {
-            'redux': 'https://cdnjs.cloudflare.com/ajax/libs/redux/2.0.0/redux.js',
-            'immutable': 'https://raw.githubusercontent.com/facebook/immutable-js/master/dist/immutable.js',
-            'lodash': 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.js',
-            'invariant': 'https://raw.githubusercontent.com/zertosh/invariant/master/browser.js',
-            'ng2-redux': document.location + 'lib/ng2-redux/index.js',
-            'redux-thunk': document.location + 'lib/redux-thunk/index.js',
-            'redux-logger': document.location + 'lib/redux-logger/index.js'
-        }
-      });
-      System.import('app/boot')
-            .then(null, console.error.bind(console));
-            
-    </script>
+    <script src="system.config.js"></script>
   </head>
-
-  <!-- 3. Display the application -->
   <body>
-    <!--<script>document.write('<a href="' + document.location + '" target="_blank">view in new window</a>');</script>-->
-    <simple-redux></simple-redux>
+    <simple-redux>Loading...</simple-redux>
+    
+    <script>
+      System.import('app');
+    </script>
   </body>
 
 </html>

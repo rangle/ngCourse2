@@ -6,7 +6,6 @@
     
     <ul *ngIf="email.dirty && !email.valid">
       <li *ngIf="email.hasError('required')">An email is required</li>
-      <li *ngIf="email.hasError('emailFormat')">The value introduced is not an email</li>
     </ul>
   </div>
 

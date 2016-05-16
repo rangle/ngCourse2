@@ -15,7 +15,7 @@ export class MovieComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/bczNU8cnoNGnHckLbWt8?p=preview)
+[View Example](http://plnkr.co/edit/1qpXrvcUY1sE7wWuOSPo?p=preview)
 
 This will inform Angular that our component only depends on its inputs and that any object that is passed to it should be considered immutable. This time when we click the button "Change Actor Properties" nothing changes in the view.
 

@@ -55,4 +55,4 @@ export default class ComponentOneContainer {
 }
 
 ```
-[View Example](http://plnkr.co/edit/JwPTPbvskkWBSs6SzzkJ?p=preview)
+[View Example](https://plnkr.co/edit/qCYF138UXe6l9CiTXggG?p=preview)

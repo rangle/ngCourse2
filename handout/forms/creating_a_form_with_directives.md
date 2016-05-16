@@ -11,7 +11,7 @@ Then we are going to create a boot file to load the main component of our applic
 
 _app/boot.ts_
 ```javascript
-import {bootstrap} from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {MyForm} from './my-form.component';
 
 bootstrap(MyForm);
@@ -21,8 +21,8 @@ In order to render the `<my-form>` element, we need to define a new component.
 
 _app/my-form.component.ts_
 ```javascript
-import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import {Component} from '@angular/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'my-form',
@@ -54,9 +54,9 @@ _app/my-form.component.html_
 
 > We are using the attribute `novalidate` in our form to prevent the browser from performing its built-in validation for the email field. We are going to create our own validation using Angular in a following section.
 
-[View Example](https://plnkr.co/edit/DzBxhlzGLb3fg3rtPGnx?p=preview)
+[View Example](http://plnkr.co/edit/NYdXMmXLagx9QHwcHpju?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/DzBxhlzGLb3fg3rtPGnx" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/NYdXMmXLagx9QHwcHpju/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 
 At this point, if we click the submit button nothing happens because we defined a standard HTML form, not an Angular 2 form. To fix that, we need to tell our component to upgrade our form using the `NgForm` directive which will give us access to new properties and event bindings on our form to interact with it.
@@ -64,7 +64,7 @@ At this point, if we click the submit button nothing happens because we defined 
 _app/my-form.component.ts_
 ```javascript
 // ...
-import {FORM_DIRECTIVES} from 'angular2/common';
+import {FORM_DIRECTIVES} from '@angular/common';
 
 @Component({
   // ...
@@ -98,6 +98,6 @@ export class MyForm {
 
 Now when we click the submit button, we can see the message "Form submitted!" outputted onto the DOM.
 
-[View Example](https://plnkr.co/edit/KC7GgqPVDaC4JcBGD7Va?p=preview)
+[View Example](http://plnkr.co/edit/mp8B8JzRVtN14bSRaf5n?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/KC7GgqPVDaC4JcBGD7Va" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/mp8B8JzRVtN14bSRaf5n/" frameborder="0" allowfullscren="allowfullscren"></iframe>

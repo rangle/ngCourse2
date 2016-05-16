@@ -1,5 +1,6 @@
-import {Component} from 'angular2/core';
-import {RouteParams, RouteData, CanActivate, CanDeactivate} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteParams, RouteData, CanActivate, CanDeactivate} from '@angular/router-deprecated';
+
 @Component({
   selector: 'component-two',
   template: `Component two:
@@ -7,7 +8,6 @@ import {RouteParams, RouteData, CanActivate, CanDeactivate} from 'angular2/route
   <p>Data: {{data}}</p>`
   
 })
-
 @CanActivate((next: ComponentInstruction, prev: ComponentInstruction)=>{
   return confirm('are you sure you want to go here?')
 })

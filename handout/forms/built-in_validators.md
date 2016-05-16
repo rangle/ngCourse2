@@ -5,7 +5,7 @@ In contrast with our first approach, we are not going to be using the HTML prope
 _app/my-form.component.ts_
 ```javascript
 // ...
-import {Validators} from 'angular2/common';
+import {Validators} from '@angular/common';
 
 // ...
 export class MyForm {
@@ -52,8 +52,8 @@ _app/my-form.component.html_
 </form>
 ```
 
-[View Example](https://plnkr.co/edit/TRjR4wGc3lopwoUdo5Hf?p=preview)
+[View Example](http://plnkr.co/edit/AtW3FrYU3qyNsWtLfUUF?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/TRjR4wGc3lopwoUdo5Hf" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/AtW3FrYU3qyNsWtLfUUF/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Notice that this time the method `hasError` is being used instead of accessing the `errors` object directly as before. When the field is valid, the `errors` object is `null` so trying to access `email.errors.required` will generate an internal error. We avoid that problem by wrapping our error logic inside an `*ngIf="!email.valid"` so we assure that the errors object exists before trying to render each specific error. This might not always be the case, so it's better to use the `hasError` method to check for a validation error.

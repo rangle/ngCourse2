@@ -1,8 +1,8 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
-	selector: 'app-root',
+	selector: 'app',
 	template: `
 	  <b>Angular 2 Component Using Observables!</b>
 	 
@@ -18,12 +18,12 @@ import {Observable} from 'rxjs/Observable';
 	  <button style="margin-top: 2rem;" (click)="init()">Init</button>
 	`
 })
-export class AppComponent {
+export class App {
   
-  private data:Observable<Array<number>>;
-  private values:Array<number> = [];
-  private anyErrors:boolean;
-  private finished:boolean;
+  private data: Observable<Array<number>>;
+  private values: Array<number> = [];
+  private anyErrors: boolean;
+  private finished: boolean;
 
   constructor() {
   }

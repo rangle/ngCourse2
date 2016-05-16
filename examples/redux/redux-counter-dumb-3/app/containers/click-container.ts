@@ -1,6 +1,5 @@
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, Inject} from '@angular/core';
 import {Counter} from '../components/counter-component';
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {bindActionCreators} from 'redux';
 
 import * as CountActions from '../actions/counter-actions';
@@ -9,7 +8,6 @@ import * as CountActions from '../actions/counter-actions';
 	selector: 'click-counter',
 	directives: [Counter]
 	template: `
-	
 <div style="float: left; border: 1px solid red;">
 <h2>Click Counter</h2>
  <counter [counter]="counter"

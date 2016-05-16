@@ -1,7 +1,9 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import ComponentOne from './component-one';
 import ComponentTwo from './component-two';
+
+
 @Component({
 	selector: 'simple-routing',
 	directives: [ROUTER_DIRECTIVES]

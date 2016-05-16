@@ -13,7 +13,7 @@ Here is an example of a very simple Angular 2 component:
 
 ```js
 
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'a2-downgrade',

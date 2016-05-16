@@ -1,25 +1,25 @@
-import {Component, Input} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
 	selector: 'app',
 	template: `
 	  <h4>Syntax 1</h4>
     <ul>
-      <li *ngFor="#item of items; #i = index">
+      <li *ngFor="let item of items; let i = index">
         ({{i + 1 }}) {{ item }}
       </li>
 	  </ul>
 	  
 	  <h4>Syntax 2</h4>
 	  <ul>
-      <li template="ngFor #item of items; #i = index">
+      <li template="ngFor let item of items; let i = index">
         ({{ i + 1 }}) {{ item }}
       </li>
 	  </ul>
 	  
 	  <h4>Syntax 3</h4>
 	  <ul>
-      <template ngFor #item [ngForOf]="items" #i="index">
+      <template ngFor let-item [ngForOf]="items" let-i="index">
         <li>
           ({{ i + 1 }}) {{ item }}
         </li>

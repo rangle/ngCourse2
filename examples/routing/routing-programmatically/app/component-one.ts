@@ -1,5 +1,6 @@
-import {Component} from 'angular2/core';
-import {Router} from 'angular2/router'
+import {Component} from '@angular/core';
+import {Router} from '@angular/router-deprecated'
+
 @Component({
   selector: 'component-one',
   template: `Component One<br/>

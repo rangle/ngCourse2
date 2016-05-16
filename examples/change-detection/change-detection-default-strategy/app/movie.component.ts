@@ -1,5 +1,5 @@
-import {Component, Input} from 'angular2/core';
-import {ChangeDetectionStrategy} from 'angular2/core';
+import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy} from '@angular/core';
 import {Actor} from './actor.model';
 
 @Component({

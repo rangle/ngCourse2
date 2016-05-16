@@ -10,7 +10,7 @@ This is how the Angular 2 team defines a component:
 
 Basically, a component is anything that is visible to the end user and which can be reused many times within an application.
 
-In Angular 1.x we had router views and directives which worked sort of like components. The idea of directive components became quite popular. They were created by using directive with a controller while relying on the `controllerAs` and `bindToController`. For example:
+In Angular 1.x we had router views and directives which worked sort of like components. The idea of directive components became quite popular. They were created by using `directive` with a controller while relying on the `controllerAs` and `bindToController` properties. For example:
 
 ```js
 angular.module('ngcourse')
