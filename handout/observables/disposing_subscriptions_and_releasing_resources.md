@@ -2,12 +2,12 @@
 In some scenarios we may want to unsubscribe from an Observable stream. Doing this is pretty straightforward as the `.subscribe()` call returns a data type that we can call `.unsubscribe` on. 
 
 ```js
-export class AppComponent {
+export class App {
   
-  private data:Observable<Array<string>>;
-  private value:string;
-  private subscribed:boolean;
-  private status:string;
+  private data: Observable<Array<string>>;
+  private value: string;
+  private subscribed: boolean;
+  private status: string;
 
 	constructor() {
 
@@ -39,9 +39,9 @@ export class AppComponent {
 
 }
 ```
-[View Example](http://plnkr.co/edit/tAnLk9Wob5swpC0YqTNd)
+[View Example](http://plnkr.co/edit/498JxHCgse3x9b8QvFJC?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/tAnLk9Wob5swpC0YqTNd" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/498JxHCgse3x9b8QvFJC/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Calling `.unsubscribe` will unhook a members callbacks listening in on the Observable stream. When creating an Observable you can also return a custom callback, `onUnsubscribe`,  that will be invoked when a member listening to the stream has unsubscribed. This is useful for any kind of clean up that needs to be implemented. If we did not clear the setTimeout then values would still be emitting, there would just be no one listening. To save resources we should do whatever it takes to stop values from being emitted. An important thing to note is that when you call `.unsubscribe()` you are destroying the subscription object that is listening, therefore the on complete event attached to that subscription object will not get called. 
 

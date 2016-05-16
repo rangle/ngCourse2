@@ -39,7 +39,7 @@ If the function returns a true value or a promise that resolves, it will allow t
 If a false value or a promise that gets rejected is returned, the component will not activate.
 
 ```javascript
-import {RouteParams, RouteData, CanActivate, CanDeactivate} from 'angular2/router';
+import {RouteParams, RouteData, CanActivate, CanDeactivate} from '@angular/router-deprecated';
 
 @CanActivate((next: ComponentInstruction, prev: ComponentInstruction)=>{
   return confirm('are you sure you want to go here?')
@@ -57,7 +57,7 @@ Just like the `@CanActivate`, if a true value/resolving promise is returned, the
 If a false value/rejecting promise is returned, it will stop navigation away from the component.
 
 ```javascript
-import {RouteParams, RouteData, CanActivate, CanDeactivate} from 'angular2/router';
+import {RouteParams, RouteData, CanActivate, CanDeactivate} from '@angular/router-deprecated';
 export default class ComponentTwo implements CanDeactivate {
 // ...
 routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) {
@@ -65,4 +65,4 @@ routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/BaW7I2x7dEIHyoeR9SNW?p=preview)
+[View Example](https://plnkr.co/edit/rPNmG5w18h7sJNeUQW2D?p=preview)

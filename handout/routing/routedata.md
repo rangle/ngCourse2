@@ -23,8 +23,8 @@ export class SimpleRouting {
 Accordingly, the constructor of the `ComponentTwo` will need an extra argument of type RouteData:
 
 ```javascript
-import {Component} from 'angular2/core';
-import {RouteParams, RouteData} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteParams, RouteData} from '@angular/router-deprecated';
 @Component({
   selector: 'component-two',
   template: `Component two:
@@ -42,6 +42,6 @@ export default class ComponentTwo {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/wIG7xD17OHSaxe7wNkAY?p=preview)
+[View Example](https://plnkr.co/edit/K9hYyLgue2awis2PbnSI?p=preview)
 
 Passing data to a route with `RouteData` is not an alternative to `RouteParams`. While `RouteParams` is used to pass the data from one route to another based on the user’s selections (e.g. show details of the selected product), `RouteData` can come handy when you need to pass some data to a route during the configuration phase, e.g. is it a production or QA environment, should the user have administrator’s privileges, or what URL to use for the product service.

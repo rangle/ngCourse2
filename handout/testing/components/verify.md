@@ -6,7 +6,7 @@ We can test the properties and methods of simple Angular 2 components fairly eas
 
 ```js
 
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 
 @Component({
   selector: 'display-message',
@@ -14,11 +14,11 @@ import {Component} from 'angular2/core'
 })
 
 export class MessageComponent {
-  private message:string = '';
+  private message: string = '';
 
   constructor() {}
 
-  setMessage(newMessage:string) {
+  setMessage(newMessage: string) {
   	this.message = newMessage;
   }
 
@@ -38,7 +38,7 @@ import {
   describe,
   expect,
   it
-} from 'angular2/testing';
+} from '@angular/core/testing';
 
 import {MessageComponent} from './message.component';
 

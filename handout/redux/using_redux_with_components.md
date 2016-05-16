@@ -9,7 +9,7 @@ When using ng2-redux, to connect it up with your angular components you need to 
  __app/components/counter-component.ts__
 
 ```javascript
-import {Component, View, Inject} from 'angular2/core';
+import {Component, View, Inject} from '@angular/core';
 import {bindActionCreators} from 'redux';
 import * as CounterActions from '../actions/counter-actions';
 @Component({
@@ -56,7 +56,7 @@ export class Counter {
 }
  
  ```
- [View Example](http://plnkr.co/edit/Zlti4BiAVM750Dk4YNbU?p=preview)
+ [View Example](https://plnkr.co/edit/TtGfUm3go88kO7hhCVww?p=preview)
  
  The template syntax should be familiar by now, displaying a counter value, and handling some click events. Lets take a look at the use of `ngRedux.connect`.
  

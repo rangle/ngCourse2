@@ -1,4 +1,4 @@
-import {ViewEncapsulation, Component} from 'angular2/core';
+import {ViewEncapsulation, Component} from '@angular/core';
 
 @Component({
 	selector: 'hello-def',
@@ -55,7 +55,7 @@ class HelloNone {
     <hello-none></hello-none>
 	`
 })
-export default class App {
+export class App {
   name: string;
   constructor() {
     this.name = 'World';

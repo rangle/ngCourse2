@@ -16,7 +16,7 @@ it:
 
 ```js
 
-import {Component, Inject} from  'angular2/core';
+import {Component, Inject} from  '@angular/core';
 import {A1UpgradeService} from '../services/a1-upgrade-service';
 
 @Component({
@@ -65,7 +65,7 @@ Here is a very simple Angular 2 service:
 
 ```js
 
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class A2DowngradeService {

@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'counter',
@@ -14,7 +14,7 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
     </div>
   `
 })
-export default class Counter {
+export class Counter {
   @Input() count: number = 0;
   @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
   

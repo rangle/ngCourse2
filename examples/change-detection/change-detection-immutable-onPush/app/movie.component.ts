@@ -1,6 +1,5 @@
-import {Component, Input} from 'angular2/core';
-import {ChangeDetectionStrategy} from 'angular2/core';
-import * as Immutable from '../lib/immutable.min.js';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
+import * as Immutable from 'immutable';
 
 @Component({
   selector: 'movie',

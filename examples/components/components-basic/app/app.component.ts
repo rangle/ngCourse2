@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
 	selector: 'hello',
@@ -6,6 +6,7 @@ import {Component} from 'angular2/core';
 })
 export class Hello {
   name: string;
+  
   constructor() {
     this.name = 'World';
   }

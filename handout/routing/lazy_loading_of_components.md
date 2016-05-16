@@ -6,7 +6,7 @@ loading code is executed.
 We can do this by configuring an `AsyncRoute` as shown below:
 
 ```javascript
-import {RouteConfig, AsyncRoute} from 'angular2/router';
+import {RouteConfig, AsyncRoute} from '@angular/router-deprecated';
 
 @RouteConfig([
   new AsyncRoute({

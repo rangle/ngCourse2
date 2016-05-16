@@ -1,20 +1,20 @@
-import {Component} from 'angular2/core';
-import {Control, ControlGroup, FormBuilder} from 'angular2/common';
+import {Component} from '@angular/core';
+import {Control, ControlGroup, FormBuilder} from '@angular/common';
 
 
 @Component({
-	selector: 'app-root',
+	selector: 'app',
 	template: `
 	  <form [ngFormModel]="coolForm"><input ngControl="email"></form>
 	  <div><b>You Typed:</b> {{data}}</div>
 	`
 })
 
-export class AppComponent {
+export class App {
 
-	email:Control;
-	coolForm:ControlGroup;
-	data:string;
+	email: Control;
+	coolForm: ControlGroup;
+	data: string;
 
 	constructor(private fb: FormBuilder) {
 		this.email = new Control();

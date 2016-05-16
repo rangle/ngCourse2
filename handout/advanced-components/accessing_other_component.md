@@ -3,9 +3,9 @@
 Components depend on other components. For example, `TodoList` relies on `TodoItem`. To let a component know about the dependent components we use the directive attribute.
 
 ```js
-import {Component} from 'angular2/core';
-import TodoInput from 'components/todo-input';
-import TodoList from 'components/todo-list';
+import {Component} from '@angular/core';
+import {TodoInput} from './components/todo-input';
+import {TodoList} from './components/todo-list';
 
 @Component({
   selector: 'todo-app',

@@ -3,23 +3,23 @@
 If something unexpected arises we can raise an error on the Observable stream and use the function reserved for handling errors in our `subscribe` routine to see what happened.
 
 ```js
-export class AppComponent {
+export class App {
 	
-	private data:Observable<Array<number>>;
-	private values:Array<number> = [];
-	private anyErrors:error;
+	private data: Observable<Array<number>>;
+	private values: Array<number> = [];
+	private anyErrors: error;
 
 	constructor() {
 
 		this.data = new Observable(observer => {
 		  	setTimeout(() => {
-				observer.next(10)
+				observer.next(10);
 			}, 1500);
 			setTimeout(() => {
 				observer.error('Hey something bad happened I guess');
 			}, 2000);
 			setTimeout(() => {
-				observer.next(50)
+				observer.next(50);
 			}, 2500);
 		});
 
@@ -30,7 +30,7 @@ export class AppComponent {
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/jfVcLYsy5eOUsaCyaFkF)
+[View Example](http://plnkr.co/edit/hw1JJsShWNWzO1Wtu5p0?p=preview)
 
 <iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/jfVcLYsy5eOUsaCyaFkF/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 

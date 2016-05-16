@@ -4,8 +4,8 @@
 
 **bootstrap.ts**
         
-    import {UpgradeAdapter} from 'angular2/upgrade';
-    import {bootstrap} from 'angular2/platform/browser';
+    import {UpgradeAdapter} from '@angular/upgrade';
+    import {bootstrap} from '@angular2/platform-browser-dynamic';
 	import {NewComponent} from './components/NewComponent/NewComponent';
 	declare var angular:any;
 
@@ -41,7 +41,7 @@
 
 **components/NewComponent/NewComponent.ts**
 
-	import {Component, View} from 'angular2/core';
+	import {Component} from '@angular/core';
 
 	@Component({
 	    selector: 'new'
@@ -80,8 +80,8 @@ We use this old component in an Angular2 component. To make this work call `upgr
 
 **components/NewComponent/NewComponent.ts**
 
-	import {Component} from 'angular2/core';
-    import {bootstrap} from 'angular2/platform/browser';
+	import {Component} from '@angular/core';
+    import {bootstrap} from 'angular/platform-browser-dynamic';
     
 	let adapter: UpgradeAdapter = new UpgradeAdapter();
 	
@@ -115,8 +115,8 @@ Then we can downgrade this new Angular2 component to start using it
 
 **bootstrap.ts**
 
-	import {UpgradeAdapter} from 'angular2/upgrade';
-	import {HTTP_PROVIDERS} from 'angular2/http';
+	import {UpgradeAdapter} from '@angular/upgrade';
+	import {HTTP_PROVIDERS} from '@angular/http';
 	
 	let adapter: UpgradeAdapter = new UpgradeAdapter();
 	
@@ -126,8 +126,8 @@ Then we can downgrade this new Angular2 component to start using it
 
 **server.ts**
 	
-	import {Injectable} from 'angular2/core';
-	import {Http} from 'angular2/http';
+	import {Injectable} from '@angular/core';
+	import {Http} from '@angular/http';
 
 	@Injectable()
 	export default class MyService() {
@@ -160,7 +160,7 @@ To make the Angular1 service injectable all you need to do is upgrade it
 
 **bootstrap.ts**
 	
-	import {UpgradeAdapter} from 'angular2/upgrade';
+	import {UpgradeAdapter} from '@angular/upgrade';
 	
 	let adapter: UpgradeAdapter = new UpgradeAdapter();
 	
@@ -173,7 +173,7 @@ We have an Angular2 service
 
 **services/Angular2Service.ts**
 
-	import {Injectable} from 'angular2/core';
+	import {Injectable} from '@angular/core';
 	
 	@Injectable()
 	class Angular2Service {
@@ -187,7 +187,7 @@ And downgrade it to use it in an Angular1 component
 **services/Angular1Service.ts**
 	
 	import {Angular2Service} from './services/Angular2Service';
-	import {UpgradeProvider} from 'angular2/upgrade';
+	import {UpgradeProvider} from '@angular/upgrade';
 	
 	var Angular2Service = adapter.downgradeNg2Provider(Angular2Service);
 	angular.module('angular1-base').factory('Angular2Service', Angular2Service);

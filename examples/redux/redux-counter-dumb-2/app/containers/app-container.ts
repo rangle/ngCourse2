@@ -1,13 +1,12 @@
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Counter} from '../components/counter-component';
-import {Component, View, Inject, OnDestroy, OnInit} from 'angular2/core';
 import {bindActionCreators} from 'redux';
 import * as CounterActions from '../actions/counter-actions';
 import * as CurseActions from '../actions/curse-actions';
 
 @Component({
 	selector: 'simple-redux',
-	directives: [Counter]
+	directives: [Counter],
 	template: `<div>
 	<h1>Redux: Dumb Counter</h1>
 <div style="float: left; border: 1px solid red;">
@@ -55,7 +54,9 @@ export class SimpleRedux {
 
   mapDispatchToThis(dispatch) {
     
-    let actions = Object.assign({}, CounterActions, CurseActions)
+    let actions = Object.assign({}, CounterActions, CurseActions);
+    
+    console.log('akshonz',actions);
     
     return bindActionCreators(actions, dispatch);
   }

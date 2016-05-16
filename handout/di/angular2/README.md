@@ -11,7 +11,7 @@ For example:
 
 ```js
 
-import {bootstrap} from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {App} from './path/to/your/root/component';
 
 bootstrap(App)
@@ -21,8 +21,8 @@ Believe it or not, the above example creates the root injector.  This example is
 too primitive though, the injector is not told about anything.
 
 ```js
-import {bootstrap} from 'angular2/platform/browser';
-import {Injectable} from 'angular2/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {Injectable} from '@angular/core';
 import {App} from './path/to/your/root/component';
 
 @Injectable()
@@ -50,8 +50,8 @@ It's not, at least not yet.  Angular 2 does not know about them yet.  That can
 be changed easily enough:
 
 ```js
-import {bootstrap} from 'angular2/platform/browser';
-import {Injectable} from 'angular2/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {Injectable} from '@angular/core';
 import {App} from './path/to/your/root/component';
 
 @Injectable()

@@ -1,5 +1,4 @@
 <form [ngFormModel]="group" (ngSubmit)="onSubmit()" novalidate>
-
   <div>
     <label for="email">Email:</label>
     <input type="email" id="email" [ngFormControl]="group.find('email')" [(ngModel)]="user.email">

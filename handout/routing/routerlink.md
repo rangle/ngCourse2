@@ -29,7 +29,7 @@ If we want to define routes with parameters we need to pass the specific paramet
 	  <li><a [routerLink]="['/ComponentThree',{message: 'Hello World'}]">Component Three with Param</a></li>
 </ul>
 ```
-[View Example](http://plnkr.co/edit/6T8sgG9eRfHmMdofWTGy?p=preview)
+[View Example](https://plnkr.co/edit/kooqJGsKNQUgPbxYX1VC?p=preview)
 
 We will cover accessing the `RouteParams` in your component later in the [RouteParams](#routeparams) section.
 
@@ -42,4 +42,4 @@ Routes should be prepended with `/`, `./`, or `../`.  How you prefix the routes 
 | `../`  | Current component parent routes
 
 
-[View Example](http://plnkr.co/edit/lAJvRhGHwu0D6H5OGkhc?p=preview)
+[View Example](https://plnkr.co/edit/wfwe4ucFLSXEBWAMDRpG?p=preview)

@@ -51,11 +51,11 @@ Now that we have created our state reducer, and created a store. We now need to 
 
 __app/boot.ts__
 ```javascript
-import {bootstrap}    from 'angular2/platform/browser'
+import {bootstrap}    from '@angular/platform-browser-dynmic'
 import {SimpleRedux} from './containers/app-container'
-import {ROUTER_PROVIDERS} from 'angular2/router';
+import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
 import {provide} from 'angular2/core';
-import {LocationStrategy, Location, HashLocationStrategy } from 'angular2/router';
+import {LocationStrategy, Location, HashLocationStrategy } from '@angular/router-deprecated';
 import configureStore from './store/configure-store';
 import * as ng2redux from 'ng2-redux'
 const store = configureStore();

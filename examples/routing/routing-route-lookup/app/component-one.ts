@@ -1,8 +1,9 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import ComponentOne from './component-one';
 import ComponentTwo from './component-two';
 import ComponentThree from './component-three';
+
 
 @Component({
   directives: [ROUTER_DIRECTIVES]
@@ -22,16 +23,10 @@ import ComponentThree from './component-three';
   `
 })
 @RouteConfig([
-  {
-    path: '/',  component: ComponentTwo, as 'ComponentOneTop', useAsDefault: true },
-{    
-  path: '/my-path/:message',  component: ComponentThree, as 'ComponentThree', useAsDefault: false }
-    
-  }
+  { path: '/',  component: ComponentTwo, as 'ComponentOneTop', useAsDefault: true },
+  { path: '/my-path/:message',  component: ComponentThree, as 'ComponentThree', useAsDefault: false }
   ])
 export default class ComponentOne { 
   console.log(window.location)
 }
-
-
 

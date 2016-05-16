@@ -8,7 +8,7 @@ This is what a simple Angular 2 component that supports projection looks like:
 
 ```js
 
-import {Component, Input} from 'angular2/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'a2-projection',

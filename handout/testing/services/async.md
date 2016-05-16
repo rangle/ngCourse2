@@ -1,6 +1,6 @@
 # Asynchronous Testing
 
-Services, by their nature, perform asynchronous tasks. When we make an HTTP request we do so in an asynchronous manner so as not to block the rest of the application from carrying out its operations. We you recall, in a previous section we looked a bit at testing components asynchronously. Fortunately a lot of this knowledge carries over into testing services asynchronously. In the `angular2/testing module` there are a few functions that allow us to fake asynchronous behaviour. This is done by wrapping the entire test in a call to `fakeAsync`, and then using calls to `tick` to move the test along. FakeAsync essentially puts our test into a zone, and then listens for any asynchronous operations like setTimeouts, Promises, callbacks, etc. Those functions are not actually called asynchronously, instead Angular will rely on us calling tick, which will call those functions immediately, wait for their execution to finish, and then proceed, thus simulating time elapsing.
+Services, by their nature, perform asynchronous tasks. When we make an HTTP request we do so in an asynchronous manner so as not to block the rest of the application from carrying out its operations. We you recall, in a previous section we looked a bit at testing components asynchronously. Fortunately a lot of this knowledge carries over into testing services asynchronously. In the `@angular/testing module` there are a few functions that allow us to fake asynchronous behaviour. This is done by wrapping the entire test in a call to `fakeAsync`, and then using calls to `tick` to move the test along. FakeAsync essentially puts our test into a zone, and then listens for any asynchronous operations like setTimeouts, Promises, callbacks, etc. Those functions are not actually called asynchronously, instead Angular will rely on us calling tick, which will call those functions immediately, wait for their execution to finish, and then proceed, thus simulating time elapsing.
 
 Now that we have an idea of how to test our asynchronous services, lets take a look at a test to verify the search method of our WikiSearch service.
 
@@ -10,7 +10,7 @@ Now that we have an idea of how to test our asynchronous services, lets take a l
 
 describe('verify search', () => {
   it('searches for the correct term',
-    inject([SearchWiki, MockBackend], fakeAsync((searchWiki, mockBackend) => {
+    fakeAsync(inject([SearchWiki, MockBackend], (searchWiki, mockBackend) => {
       const expectedUrl = 'https://en.wikipedia.org/w/api.php?' +
         'action=query&list=search&srsearch=Angular';
 

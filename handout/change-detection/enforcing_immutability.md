@@ -26,7 +26,7 @@ Then, in our `MainComponent` we import the library and use it to create an actor
 
 _app/main.component.ts_
 ```javascript
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {MovieComponent} from './movie.component';
 import {Immutable} from 'immutable';
 
@@ -58,9 +58,9 @@ Additional changes have to be made to the `MovieComponent` as well. First, we ne
 
 _app/movie.component.ts_
 ```javascript
-import {Component, Input} from 'angular2/core';
-import {ChangeDetectionStrategy} from 'angular2/core';
-import {Immutable} from 'immutable';
+import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy} from '@angular/core';
+import * as Immutable from 'immutable';
 
 @Component({
   selector: 'movie',
@@ -81,7 +81,7 @@ export class MovieComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/8b76FU9lMc6C43L2TIWB?p=preview)
+[View Example](http://plnkr.co/edit/xDf8UnSZaja6tIkaIJOx?p=preview)
 
 Using this pattern we are taking full advantage of the "OnPush" change detection strategy and thus reducing the amount of work done by Angular to propagate changes and to get models and views in sync. This improves the performance of the application.
 
