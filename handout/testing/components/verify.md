@@ -6,7 +6,7 @@ We can test the properties and methods of simple Angular 2 components fairly eas
 
 ```js
 
-import {Component} from '@angular/core'
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'display-message',
@@ -48,7 +48,7 @@ describe('Testing message state in message.component', () => {
   });
 
   it('should set new message', () => {
-    this.app.setMessage('Testing')
+    this.app.setMessage('Testing');
     expect(this.app.message).toBe('Testing');
   });
 
