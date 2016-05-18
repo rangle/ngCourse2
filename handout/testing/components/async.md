@@ -1,6 +1,6 @@
 # Testing Asynchronous Actions
 
-Sometimes we need to test components that rely on asynchronous actions that happen at specific times.  Angular provides a function called `fakeAsync` which allows us to simluate the passage of time. FakeAsync wraps our tests in a zone and gives us access to the `tick` function which will allow us to simulate the passage of time precisely.
+Sometimes we need to test components that rely on asynchronous actions that happen at specific times.  Angular provides a function called `fakeAsync` which allows us to simulate the passage of time. FakeAsync wraps our tests in a zone and gives us access to the `tick` function which will allow us to simulate the passage of time precisely.
 
 Suppose we had a component with a button, clicking that button will trigger an action within a setTimeout of 2 seconds. Here's what our component and unit test might look like:
 

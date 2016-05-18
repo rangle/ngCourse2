@@ -13,34 +13,38 @@ describe('verify search', () => {
     fakeAsync(inject([SearchWiki, MockBackend], (searchWiki, mockBackend) => {
       const expectedUrl = 'https://en.wikipedia.org/w/api.php?' +
         'action=query&list=search&srsearch=Angular';
-
+        
       mockBackend.connections.subscribe((conn) => {
-        expect(conn.request.url).toBe( expectedUrl );
+        expect(conn.request.url).toBe(expectedUrl);
 
-        let response = new ResponseOptions(body: {
-          query: {
-            searchInfo: { totalhits: 1 }
-          },
-          search: [
-            {
-              ns: 0,
-              title: 'Angular',
-              size: 840,
-              wordcount: 115
-            }
-          ]
+        let response = new ResponseOptions({
+          body: {
+            query: {
+              searchInfo: { totalhits: 1 }
+            },
+            search: [
+              {
+                ns: 0,
+                title: 'Angular',
+                size: 840,
+                wordcount: 115
+              }
+            ]
+          }
         });
+
         conn.mockRespond(new Response(response));
       });
 
-      var result;
-      searchWiki.search('Angular').subscribe((result) => {
-        result = result;
+      let result;
+      searchWiki.search('Angular').subscribe((res) => {
+        result = res;
       });
 
       tick();
-      expect(result.query.searchInfo.totalhits).toBe(1)
-    })))
+
+      expect(result.query.searchInfo.totalhits).toBe(1);
+    })));
 });
 
 ```

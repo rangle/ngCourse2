@@ -8,21 +8,23 @@ Since we want to isolate our service testing from outside network requests, we h
 
 import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+
 
 @Injectable()
 export class SearchWiki {
   constructor (private http: Http) {}
 
-  search(term:string): Observable<any> {
+  search(term: string): Observable<any> {
     return this.http.get(
       'https://en.wikipedia.org/w/api.php?' +
       'action=query&list=search&srsearch=' + term
-    ).map((response) => response.json);
+    ).map((response) => response.json());
   }
 
-  searchXML(term:string): Observable<any> {
+  searchXML(term: string): Observable<any> {
     return this.http.get(
-      'https://en.wikipedia.org/w/api.php?' + 
+      'https://en.wikipedia.org/w/api.php?' +
       'action=query&list=search&format=xmlfm&srsearch=' + term
     );
   }
@@ -47,9 +49,9 @@ import {
   it,
   expect,
   describe,
-  beforeEachProvider,
+  beforeEachProviders,
   inject
-} from '@angular/testing';
+} from '@angular/core/testing';
 
 import {MockBackend} from '@angular/http/testing';
 import {provide} from '@angular/core';
@@ -64,20 +66,20 @@ describe('Testing the wikipedia search service', () => {
       provide(
         Http, {
           useFactory: (
-            mockbackend: ConnectionBackend, 
+            mockbackend: ConnectionBackend,
             defaultOptions: BaseRequestOptions
           ) => {
-            return new Http(mockbackend, defaultOptions)
+            return new Http(mockbackend, defaultOptions);
           },
           deps: [MockBackend, BaseRequestOptions]
         }
       )
-    ]
+    ];
   });
 });
 ```
 
-As you can see, we have quite a few imports here to setup our mocked HTTP module. We use `beforeEachProvider` to include `MockBackend` to create our mocked HTTP module. In order to properly setup our mocked module we also include `BaseRequestOptions` and `ConnectionBackend`. We create an instance of `Http` that our service will get by using a factory.
+As you can see, we have quite a few imports here to setup our mocked HTTP module. We use `beforeEachProviders` to include `MockBackend` to create our mocked HTTP module. In order to properly setup our mocked module we also include `BaseRequestOptions` and `ConnectionBackend`. We create an instance of `Http` that our service will get by using a factory.
 
 To create this instance the `Http` class take two parameters - the first is the backend to use (it has the type `ConnectionBackend`), and the second is the default options to use (of type `RequestOptions`). Since we are planning to use a mock backend, we feed in `MockBackend` to the first parameter. The second parameter, default options, doesn't have any bearing on the mocking aspects we plan on using, so we use `BaseRequestOptions`, which is the default implementation.
 
