@@ -9,7 +9,7 @@ Two-way data binding combines the input and output binding into a single notatio
 What this is doing behind the scenes, is equivalent to.
 
 ```html
-<input [ngModel]="name" (ngModelChange)="name=$event.target.value">
+<input [ngModel]="name" (ngModelChange)="name=$event">
 ```
 
 To create your own component that supports two-way binding, you need to define an `@Output` property to match an `@Input`, but suffix it with the `Change`, for example:
