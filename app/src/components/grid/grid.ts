@@ -11,7 +11,7 @@ import Task from '../task-item/task-item';
   template: `
     <ul class="cols list-reset m0">
       <li class="py1 avoid-break"
-        *ngFor="#task of tasks">
+        *ngFor="let task of tasks">
         <ngc-task [task]="task">
         </ngc-task>
       </li>

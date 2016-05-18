@@ -28,7 +28,7 @@ describe('Testing authentication service', () => {
           useFactory: (
             mockBackend: ConnectionBackend, defaultOptions: BaseRequestOptions
           ) => {
-            return new Http(mockBackend, defaultOptions)
+            return new Http(mockBackend, defaultOptions);
           },
           deps: [MockBackend, BaseRequestOptions]
         }

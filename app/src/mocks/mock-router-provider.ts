@@ -15,7 +15,6 @@ export class MockRouteParams {
   private ROUTE_PARAMS = {};
 
   constructor() { 
-    //super(RouteParams); 
   }
 
   set(key: string, value: string) {
@@ -27,10 +26,13 @@ export class MockRouteParams {
   }
 }
 
-export class MockRouter {
-  constructor() { 
-    //super(Router); 
+export class MockRouter  {
+  constructor() {
   }
+  
+  navigate() {}
+  
+  subscribe() {}
   
   isRouteActive(s) { return true; }
   
@@ -54,17 +56,15 @@ export class MockRouter {
 
 export class MockLocationStrategy {
   constructor() { 
-    //super(LocationStrategy); 
   }
 }
 export class MockLocation {
   constructor() { 
-    //super(Location); 
   }
+  prepareExternalUrl() { }
 }
 export class MockRouterLink {
   constructor() { 
-    //super(RouterLink); 
   }
 }
 

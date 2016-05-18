@@ -17,7 +17,7 @@ import {List} from 'immutable';
        {{ defaultValue }}
       </option>
       <option
-       *ngFor="#item of items"
+       *ngFor="let item of items"
        [value]="item">
        {{ item }}
       </option>

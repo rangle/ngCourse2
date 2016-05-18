@@ -1,6 +1,8 @@
 declare const require: any;
 
 require('zone.js');
+require('zone.js/dist/async-test');
+require('zone.js/dist/fake-async-test');
 require('reflect-metadata');
 import { setBaseTestProviders } from '@angular/core/testing';
 

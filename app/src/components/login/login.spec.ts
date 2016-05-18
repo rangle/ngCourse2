@@ -34,12 +34,14 @@ describe('Testing Login Component Success Flow', () => {
 
   it('Login should succeed', async(inject([TestComponentBuilder],
     (tcb: TestComponentBuilder) => {
-      return tcb.createAsync(LoginComponent).then(fixture => {
-        const instance = fixture.debugElement.componentInstance;
-        instance.login();
-        chai.expect(instance.message).to.equal("");
-      });
-    })));
+      return tcb.createAsync(LoginComponent)
+        .then(fixture => {
+          const instance = fixture.debugElement.componentInstance;
+          instance.login();
+          chai.expect(instance.message).to.equal('');
+        });
+      }))
+  );
 });
 
 class MockFailedAuthService extends AuthService {

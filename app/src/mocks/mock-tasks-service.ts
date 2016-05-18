@@ -28,7 +28,6 @@ export class MockTasksService {
   private _taskStatus = 'all';
 
   constructor() {
-    //super(TasksService);
   }
 
   fetch() {}

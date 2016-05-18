@@ -5,6 +5,7 @@ import {
   describe,
   it
 } from '@angular/core/testing';
+import {Action} from 'redux';
 
 describe('counter action creators', () => {
   it('increment should create INCREMENT_COUNTER action', () => {
@@ -30,7 +31,7 @@ describe('counter action creators', () => {
         getState: () => {
           return {
             counter: 1
-          }
+          };
         },
         dispatch: (action) => {
           chai.expect(action)
@@ -40,7 +41,7 @@ describe('counter action creators', () => {
         }
       });
 
-      store.dispatch(CounterActions.incrementIfOdd());
+      store.dispatch(<Action><any>CounterActions.incrementIfOdd());
     });
 
   it('incrementAsync should dispatch INCREMENT_COUNTER after given delay', 
@@ -61,6 +62,6 @@ describe('counter action creators', () => {
         }
       });
 
-      store.dispatch(CounterActions.incrementAsync(100));
+      store.dispatch(<Action><any>CounterActions.incrementAsync(100));
     });
 });
