@@ -2,15 +2,16 @@ declare const require: any;
 
 require('zone.js');
 require('reflect-metadata');
-import { setBaseTestProviders } from 'angular2/testing';
-import {
-  TEST_BROWSER_PLATFORM_PROVIDERS,
-  TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
+import { setBaseTestProviders } from '@angular/core/testing';
 
-setBaseTestProviders(
-  TEST_BROWSER_PLATFORM_PROVIDERS,
-  TEST_BROWSER_APPLICATION_PROVIDERS
+import { 
+  TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+  TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+ } from '@angular/platform-browser-dynamic/testing';
+
+setBaseTestProviders( 
+  TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+  TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
 );
 
 let testContext = (<{ context?: Function }>require).context(

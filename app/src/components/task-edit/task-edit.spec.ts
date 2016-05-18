@@ -1,16 +1,18 @@
-import TaskEdit from './task-edit';
 import {
   it,
   describe,
   injectAsync,
-  TestComponentBuilder,
   beforeEachProviders,
-  ComponentFixture,
   fakeAsync,
   tick
-} from 'angular2/testing';
+} from '@angular/core/testing';
+import {
+  ComponentFixture,
+  TestComponentBuilder
+} from '@angular/compiler/testing';
+import {FormBuilder} from '@angular/common';
+import TaskEdit from './task-edit';
 import {MockTasksService} from '../../mocks/mock-tasks-service';
-import {FormBuilder} from 'angular2/common';
 import {MockRouterProvider} from '../../mocks/mock-router-provider';
 
 describe('Testing Task Edit Component', () => {
@@ -30,7 +32,7 @@ describe('Testing Task Edit Component', () => {
   it('Input should be populated with task', injectAsync(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskEdit).then(
-        (componentFixture: ComponentFixture) => {
+        (componentFixture: ComponentFixture<TaskEdit>) => {
           const element = componentFixture.nativeElement;
           const inputs = element.querySelectorAll('input');
 
@@ -48,10 +50,10 @@ describe('Testing Task Edit Component', () => {
   it('Edit and save item should change the task', injectAsync(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskEdit).then(
-        (componentFixture: ComponentFixture) => {
+        (componentFixture: ComponentFixture<TaskEdit>) => {
           const instance = componentFixture.debugElement.componentInstance;
 
-          let controls = instance.taskEditForm.controls
+          let controls = instance.taskEditForm.controls;
           controls.owner.updateValue('b');
           controls.description.updateValue('change task description');
 

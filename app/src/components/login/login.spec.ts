@@ -1,15 +1,18 @@
-import LoginComponent from './login';
 import {
   it,
   describe,
-  injectAsync,
+  async,
+  inject,
+  beforeEachProviders
+} from '@angular/core/testing';
+import { 
   TestComponentBuilder,
-  beforeEachProviders,
-  ComponentFixture
-} from 'angular2/testing';
-import {provide} from 'angular2/core';
+  ComponentFixture 
+} from '@angular/compiler/testing';
+import {provide} from '@angular/core';
 import {AuthService} from '../../services/auth-service';
-import {FormBuilder} from 'angular2/common';
+import {FormBuilder} from '@angular/common';
+import LoginComponent from './login';
 import {MockRouterProvider} from '../../mocks/mock-router-provider';
 
 class MockSucessAuthService extends AuthService {
@@ -29,14 +32,14 @@ describe('Testing Login Component Success Flow', () => {
     ];
   });
 
-  it('Login should succeed', injectAsync([TestComponentBuilder],
-      (tcb: TestComponentBuilder) => {
-    return tcb.createAsync(LoginComponent).then(fixture => {
-      const instance = fixture.debugElement.componentInstance;
-      instance.login();
-      chai.expect(instance.message).to.equal("");
-    });
-  }));
+  it('Login should succeed', async(inject([TestComponentBuilder],
+    (tcb: TestComponentBuilder) => {
+      return tcb.createAsync(LoginComponent).then(fixture => {
+        const instance = fixture.debugElement.componentInstance;
+        instance.login();
+        chai.expect(instance.message).to.equal("");
+      });
+    })));
 });
 
 class MockFailedAuthService extends AuthService {
@@ -56,12 +59,12 @@ describe('Testing Login Component Failed Flow', () => {
     ];
   });
 
-  it('Login should fail', injectAsync([TestComponentBuilder],
-      (tcb: TestComponentBuilder) => {
-    return tcb.createAsync(LoginComponent).then(fixture => {
-      const instance = fixture.debugElement.componentInstance;
-      instance.login();
-      chai.expect(instance.message).to.equal('Incorrect credentials.');
-    });
-  }));
+  it('Login should fail', async(inject([TestComponentBuilder],
+    (tcb: TestComponentBuilder) => {
+      return tcb.createAsync(LoginComponent).then(fixture => {
+        const instance = fixture.debugElement.componentInstance;
+        instance.login();
+        chai.expect(instance.message).to.equal('Incorrect credentials.');
+      });
+    })));
 });

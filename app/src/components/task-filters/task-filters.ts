@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import TasksService from '../../services/tasks-service';
 import Dropdown from '../dropdown/dropdown'; 
 import {SizePipe} from '../../pipes/size';

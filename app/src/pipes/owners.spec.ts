@@ -1,9 +1,9 @@
-import {OwnersPipe, OwnerTasksPipe} from './owners'
 import {
   describe,
   it,
   beforeEach
-} from 'angular2/testing';
+} from '@angular/core/testing';
+import {OwnersPipe, OwnerTasksPipe} from './owners';
 import {List} from 'immutable';
 import {Task} from '../services/tasks-service';
 
@@ -88,13 +88,13 @@ describe('OwnerTasksPipe', () => {
       description: 'task 3',
       _id: '3'
     }]);
-    let filteredTasksEveryone = ownerTasksPipe.transform(tasks, ['everyone']);
+    let filteredTasksEveryone = ownerTasksPipe.transform(tasks, 'everyone');
     chai.expect(filteredTasksEveryone.size).to.equal(3);
 
-    let filteredTasksA = ownerTasksPipe.transform(tasks, ['a']);
+    let filteredTasksA = ownerTasksPipe.transform(tasks, 'a');
     chai.expect(filteredTasksA.size).to.equal(2);
 
-    let filteredTasksB = ownerTasksPipe.transform(tasks, ['b']);
+    let filteredTasksB = ownerTasksPipe.transform(tasks, 'b');
     chai.expect(filteredTasksB.size).to.equal(1);
   });
 });

@@ -12,6 +12,6 @@ export function mockStore({ getState, dispatch }) {
   const finalCreateStore = applyMiddleware(
     ...middlewares
   )(createStore);
-
+  
   return finalCreateStore();
 }

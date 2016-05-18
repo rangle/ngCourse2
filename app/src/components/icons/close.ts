@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 const CLOSE = require('!raw!../../assets/close.svg');
 
 @Component({

@@ -1,5 +1,5 @@
-import {Component, Injector} from 'angular2/core';
-import {Router, RouteConfig, RouterOutlet} from 'angular2/router';
+import {Component, Injector} from '@angular/core';
+import {Router, RouteConfig, RouterOutlet} from '@angular/router-deprecated';
 import {AuthService} from '../../services/auth-service';
 import TaskAdd from '../task-add/task-add';
 import TaskEdit from '../task-edit/task-edit';
