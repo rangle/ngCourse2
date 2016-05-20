@@ -1,27 +1,15 @@
 
-# Part _____ : The Angular CLI
+# Part 18 : The Angular CLI
 
-Getting started with Angular 2 can sometimes feel overwhelming with all of the configuration and setup steps required.
+With all of these new features Angular 2 takes advantage of like static typing, decorators and es6 module resolution comes the added cost of setup and maintenance. Spending a lot of time with different build setups and configuring all of the different tools used to serve a modern JavaScript application can really take a lot of time and drain productivity by not being able to actually work on the app itself.
 
-The [Angular command line interface (CLI)](https://github.com/angular/angular-cli), currently in beta, was developed to make it easier and faster to set up Angular 2 projects. You no longer need to remember the structure of components or spend time piecing together your build tools and environment/pipeline - with a few commands, the Angular CLI will spin it all up for you automatically. All generated projects follow the [Angular style guide](https://angular.io/styleguide).
+Seeing the popularity of [ember-cli](http://www.ember-cli.com/), Angular 2 decided they would provide their own CLI to solve this problem. [Angular CLI](https://github.com/angular/angular-cli) is geared to be the tool used to create and manage your Angular 2 app. It provides the ability to
 
-Projects generated through the CLI come set up with the tools configured and ready for you to lint, format, test, build, serve and even deploy your app. 
-
-The Angular-CLI is based on the [ember-cli](http://www.ember-cli.com/) project.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    - create a project from scratch
+    - scaffold components, directives, services, etc
+    - lint your code
+    - serve the application
+    - run your unit tests and end to end tests
+    
+ 
+ **Note:** The Angular 2 CLI currently only generates scaffolding in TypeScript, with other dialects to come later. 

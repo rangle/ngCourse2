@@ -1,4 +1,4 @@
-# Built-in / pre-configured commands
+# CLI Command Overview
 
 One of the advantages of using the Angular CLI is that it automatically configures a number of useful tools that you can use right away. To get more details on the options for each task, use `ng --help`. 
 
