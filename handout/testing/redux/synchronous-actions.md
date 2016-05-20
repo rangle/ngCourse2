@@ -32,15 +32,15 @@ import * as CounterActions from './counter';
 
 describe('counter action creators', () => {                     
   it('increment should create INCREMENT_COUNTER action', () => {
-    chai.expect(CounterActions.increment())                     
-      .to.deep.equal({                                          
+    expect(CounterActions.increment())                     
+      .toEqual({                                          
         type: INCREMENT_COUNTER                                 
       });                                                       
   });                                                           
 
   it('decrement should create DECREMENT_COUNTER action', () => {
-    chai.expect(CounterActions.decrement())                     
-      .to.deep.equal({                                          
+    expect(CounterActions.decrement())                     
+      .toEqual({                                          
         type: DECREMENT_COUNTER                                 
       });                                                       
   });                                                           

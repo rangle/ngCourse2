@@ -26,28 +26,28 @@ import counter from './counter';
 
 describe('counter reducers', () => {                                     
   it('should handle initial state', () => {                              
-    chai.expect(                                                         
+    expect(                                                         
       counter(undefined, {})                                             
     )                                                                    
-    .to.equal(0)                                                         
+    .toEqual(0)                                                         
   });                                                                    
 
   it('should handle INCREMENT_COUNTER', () => {                          
-    chai.expect(                                                         
+    expect(                                                         
       counter(0, {                                                       
         type: INCREMENT_COUNTER                                          
       })                                                                 
     )                                                                    
-    .to.equal(1)                                                         
+    .toEqual(1)                                                         
   });                                                                    
 
   it('should handle DECREMENT_COUNTER', () => {                          
-    chai.expect(                                                         
+    expect(                                                         
       counter(1, {                                                       
         type: DECREMENT_COUNTER                                          
       })                                                                 
     )                                                                    
-    .to.equal(0)                                                         
+    .toEqual(0)                                                         
   });                                                                    
 });
 ```
