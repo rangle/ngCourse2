@@ -60,8 +60,8 @@ describe('counter action creators', () => {
           }
         },
         dispatch: (action) => {
-          chai.expect(action)
-            .to.deep.equal(expectedAction);
+          expect(action)
+            .toEqual(expectedAction);
 
           done();
         }
@@ -101,8 +101,8 @@ it('incrementIfOdd should dispatch INCREMENT_COUNTER if counter is odd',
       dispatch: (action) => {
         const expectedAction = expectedActions.shift();
 
-        chai.expect(action)
-          .to.deep.equal(expectedAction);
+        expect(action)
+          .toEqual(expectedAction);
 
         if (expectedActions.length === 0) {
           done();
