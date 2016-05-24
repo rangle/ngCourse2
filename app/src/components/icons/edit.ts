@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 const EDIT = require('!raw!../../assets/edit.svg');
 
 @Component({

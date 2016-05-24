@@ -1,5 +1,4 @@
-import {provide} from 'angular2/core';
-import {SpyObject} from 'angular2/testing_internal';
+import {provide} from '@angular/core';
 import TasksService, {Task} from '../services/tasks-service';
 import {List} from 'immutable';
 
@@ -23,13 +22,12 @@ const MockTasksList = List([
 ]);
 const RESPONSE_TIME = 1000;
 
-export class MockTasksService extends SpyObject {
+export class MockTasksService {
   private _tasks: List<Task> = MockTasksList;
   private _owner = 'everyone';
   private _taskStatus = 'all';
 
   constructor() {
-    super(TasksService);
   }
 
   fetch() {}

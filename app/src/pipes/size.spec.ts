@@ -1,9 +1,9 @@
-import {SizePipe} from './size'
+import {SizePipe} from './size';
 import {
   describe,
   it,
   beforeEach
-} from 'angular2/testing';
+} from '@angular/core/testing';
 import {List} from 'immutable';
 import {Task} from '../services/tasks-service';
 

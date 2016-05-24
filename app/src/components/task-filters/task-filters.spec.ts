@@ -3,10 +3,12 @@ import {
   it,
   describe,
   injectAsync,
+  beforeEachProviders
+} from '@angular/core/testing';
+import {
   TestComponentBuilder,
-  beforeEachProviders,
   ComponentFixture
-} from 'angular2/testing';
+} from '@angular/compiler/testing';
 import {MockTasksService} from '../../mocks/mock-tasks-service';
 
 describe('Testing Task Filter Component', () => {
@@ -22,7 +24,7 @@ describe('Testing Task Filter Component', () => {
       [TestComponentBuilder],
       (tcb: TestComponentBuilder) => {
         return tcb.createAsync(TaskFilters).then(
-          (componentFixture: ComponentFixture) => {
+          (componentFixture: ComponentFixture<TaskFilters>) => {
             const instance = componentFixture.debugElement.componentInstance;
 
             const tasksService = instance.tasksService;

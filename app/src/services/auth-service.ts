@@ -1,4 +1,4 @@
-import {Injectable, provide} from 'angular2/core';
+import {Injectable, provide} from '@angular/core';
 
 export class AuthService {
 

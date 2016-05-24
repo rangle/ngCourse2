@@ -3,14 +3,14 @@ import counter from './counter';
 import {
   describe,
   it
-} from 'angular2/testing';
+} from '@angular/core/testing';
 
 describe('counter reducers', () => {
   it('should handle initial state', () => {
     chai.expect(
       counter(undefined, {})
     )
-    .to.equal(0)
+    .to.equal(0);
   });
 
   it('should handle INCREMENT_COUNTER', () => {

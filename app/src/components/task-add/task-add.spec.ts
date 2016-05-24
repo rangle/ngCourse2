@@ -1,18 +1,20 @@
-import TaskAdd from './task-add';
-import {provide} from 'angular2/core';
+import {provide} from '@angular/core';
 import {
   it,
   describe,
   injectAsync,
-  TestComponentBuilder,
   beforeEachProviders,
-  ComponentFixture,
   fakeAsync,
   tick
-} from 'angular2/testing';
+} from '@angular/core/testing';
+import { 
+  ComponentFixture, 
+  TestComponentBuilder 
+} from '@angular/compiler/testing';
+import {FormBuilder} from '@angular/common';
 import {MockTasksService} from '../../mocks/mock-tasks-service';
-import {FormBuilder} from 'angular2/common';
 import TasksService from '../../services/tasks-service';
+import TaskAdd from './task-add';
 import {MockRouterProvider} from '../../mocks/mock-router-provider';
 
 describe('Testing Add Task Component', () => {
@@ -30,10 +32,10 @@ describe('Testing Add Task Component', () => {
   it('Task should be added into service', injectAsync(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskAdd).then(
-        (componentFixture: ComponentFixture) => {
+        (componentFixture: ComponentFixture<TaskAdd>) => {
           const instance = componentFixture.debugElement.componentInstance;
 
-          let controls = instance.taskAddForm.controls
+          let controls = instance.taskAddForm.controls;
           controls.owner.updateValue('new owner');
           controls.description.updateValue('new task');
 

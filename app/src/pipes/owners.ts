@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from 'angular2/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {Task} from '../services/tasks-service'; 
 import {List} from 'immutable';
 
@@ -18,8 +18,7 @@ export class OwnersPipe implements PipeTransform {
 /* filters tasks by owner */
 @Pipe({ name: 'ownerTasks' })
 export class OwnerTasksPipe implements PipeTransform {
-  transform(tasks: List<Task>, args: string[]): List<Task> {
-    const owner = String(args[0]);  
+  transform(tasks: List<Task>, owner: string): List<Task> {
 
     /* "everyone" owns all tasks */ 
     if (owner === 'everyone') {

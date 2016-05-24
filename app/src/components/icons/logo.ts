@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 const LOGO = require('!raw!../../assets/logo.svg');
 
 @Component({

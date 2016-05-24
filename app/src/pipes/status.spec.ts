@@ -1,9 +1,9 @@
-import {StatusPipe} from './status'
+import {StatusPipe} from './status';
 import {
   describe,
   it,
   beforeEach
-} from 'angular2/testing';
+} from '@angular/core/testing';
 import {List} from 'immutable';
 import {Task} from '../services/tasks-service';
 
@@ -32,13 +32,13 @@ describe('StatusPipe', () => {
       description: 'task 3',
       _id: '3'
     }]);
-    let tasksAll = statusPipe.transform(tasks, ["all"]);
+    let tasksAll = statusPipe.transform(tasks, 'all');
     chai.expect(tasksAll.size).to.equal(3);
 
-    let tasksCompleted = statusPipe.transform(tasks, ["completed"]);
+    let tasksCompleted = statusPipe.transform(tasks, 'completed');
     chai.expect(tasksCompleted.size).to.equal(1);
 
-    let tasksIncomplete = statusPipe.transform(tasks, ["incomplete"]);
+    let tasksIncomplete = statusPipe.transform(tasks, 'incomplete');
     chai.expect(tasksIncomplete.size).to.equal(2);
   });
 });

@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {Router, RouterLink} from 'angular2/router';
+import {Component} from '@angular/core';
+import {Router, RouterLink} from '@angular/router-deprecated';
 import LogoIcon from '../icons/logo';
 import {AuthService} from '../../services/auth-service';
 const TEMPLATE = require('./header.html');
