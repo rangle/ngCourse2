@@ -24,4 +24,4 @@ One of the advantages of using the Angular CLI is that it automatically configur
 Once your app is served, you can run end-to-end tests using `ng e2e`. The CLI uses [Protractor](https://angular.github.io/protractor/) for these tests. 
 
 ## Deploy
-`ng deploy` ... deploy to GitHub pages or Firebase
+`ng deploy` ... deploy to GitHub pages or Firebase.

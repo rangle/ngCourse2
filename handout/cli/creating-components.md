@@ -8,6 +8,6 @@ Executing the command creates a folder ,[component-name], in the project's *src/
 
 - *[component-name].component.ts* the component class file
 - *[component-name].component.css* for styling the component
-- *[component-name].component.css* component html
-- *[component-name].spec.ts* tests for the component
+- *[component-name].component.html* component html
+- *[component-name].component.spec.ts* tests for the component
 - *index.ts* which exports the component
