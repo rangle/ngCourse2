@@ -1,7 +1,8 @@
 import {
   it,
   describe,
-  injectAsync,
+  inject,
+  async,
   beforeEachProviders,
 } from '@angular/core/testing';
 import {
@@ -22,7 +23,7 @@ describe('Testing Test List Component', () => {
     ];
   });
 
-  it('test tasks list component with a mock list', injectAsync(
+  it('test tasks list component with a mock list', async(inject(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TasksList).then(
         (componentFixture: ComponentFixture<TasksList>) => {
@@ -33,5 +34,5 @@ describe('Testing Test List Component', () => {
         }
       );
     }
-  ));
+  )));
 });

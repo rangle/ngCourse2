@@ -1,7 +1,8 @@
 import {
   it,
   describe,
-  injectAsync,
+  inject,
+  async,
   beforeEachProviders,
   fakeAsync,
   tick
@@ -29,7 +30,7 @@ describe('Testing Task Edit Component', () => {
     ];
   });
 
-  it('Input should be populated with task', injectAsync(
+  it('Input should be populated with task', async(inject(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskEdit).then(
         (componentFixture: ComponentFixture<TaskEdit>) => {
@@ -45,9 +46,9 @@ describe('Testing Task Edit Component', () => {
         }
       );
     }
-  ));
+  )));
 
-  it('Edit and save item should change the task', injectAsync(
+  it('Edit and save item should change the task', async(inject(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskEdit).then(
         (componentFixture: ComponentFixture<TaskEdit>) => {
@@ -66,5 +67,5 @@ describe('Testing Task Edit Component', () => {
         }
       );
     }
-  ));
+  )));
 });

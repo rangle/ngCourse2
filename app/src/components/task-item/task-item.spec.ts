@@ -2,7 +2,8 @@ import {provide} from '@angular/core';
 import {
   it,
   describe,
-  injectAsync,
+  inject,
+  async,
   beforeEachProviders,
   fakeAsync,
   tick
@@ -28,7 +29,7 @@ describe('Testing Task Item Component', () => {
   });
 
   function populateTaskItem(callback) {
-    return injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    return async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskItem).then(
         (componentFixture: ComponentFixture<TaskItem>) => {
           const instance = componentFixture.debugElement.componentInstance;
@@ -37,7 +38,7 @@ describe('Testing Task Item Component', () => {
           callback(componentFixture);
         }
       );
-    });
+    }));
   }
 
   it('delete task', populateTaskItem(

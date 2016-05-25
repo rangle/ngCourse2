@@ -2,14 +2,15 @@ import {provide} from '@angular/core';
 import {
   it,
   describe,
-  injectAsync,
+  inject,
+  async,
   beforeEachProviders,
   fakeAsync,
   tick
 } from '@angular/core/testing';
-import { 
-  ComponentFixture, 
-  TestComponentBuilder 
+import {
+  ComponentFixture,
+  TestComponentBuilder
 } from '@angular/compiler/testing';
 import {FormBuilder} from '@angular/common';
 import {MockTasksService} from '../../mocks/mock-tasks-service';
@@ -29,7 +30,7 @@ describe('Testing Add Task Component', () => {
     ];
   });
 
-  it('Task should be added into service', injectAsync(
+  it('Task should be added into service', async(inject(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TaskAdd).then(
         (componentFixture: ComponentFixture<TaskAdd>) => {
@@ -48,5 +49,5 @@ describe('Testing Add Task Component', () => {
         }
       );
     }
-  ));
+  )));
 });

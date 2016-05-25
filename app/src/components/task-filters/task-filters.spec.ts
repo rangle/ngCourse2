@@ -2,7 +2,8 @@ import TaskFilters from './task-filters';
 import {
   it,
   describe,
-  injectAsync,
+  inject,
+  async,
   beforeEachProviders
 } from '@angular/core/testing';
 import {
@@ -20,7 +21,7 @@ describe('Testing Task Filter Component', () => {
 
   it(
     'chnage owner and status should update service',
-    injectAsync(
+    async(inject(
       [TestComponentBuilder],
       (tcb: TestComponentBuilder) => {
         return tcb.createAsync(TaskFilters).then(
@@ -29,19 +30,19 @@ describe('Testing Task Filter Component', () => {
 
             const tasksService = instance.tasksService;
 
-            instance.selectOwner({target: {value: 'a'}});
+            instance.selectOwner({ target: { value: 'a' } });
             chai.expect(tasksService.owner).to.equal('a');
 
-            instance.selectOwner({target: {value: 'everyone'}});
+            instance.selectOwner({ target: { value: 'everyone' } });
             chai.expect(tasksService.owner).to.equal('everyone');
 
-            instance.selectStatus({target: {value: 'completed'}});
+            instance.selectStatus({ target: { value: 'completed' } });
             chai.expect(tasksService.taskStatus).to.equal('completed');
 
-            instance.selectStatus({target: {value: 'all'}});
+            instance.selectStatus({ target: { value: 'all' } });
             chai.expect(tasksService.taskStatus).to.equal('all');
-        });
+          });
       }
-    )
+    ))
   );
 });
