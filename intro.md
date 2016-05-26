@@ -2,9 +2,9 @@
 
 ![ngcourse2](./img/cover.png "Rangle.io's Angular GitBook")
 
-AngularJS is the leading open source JavaScript application framework backed by Google. The "1.x" version of AngularJS has been used quite widely. The new "Angular 2" version of the framework is currently available in beta. This course (ngCourse2) provides an introduction to AngularJS – using Angular 2 – based on our experience at Rangle.io.
+AngularJS is the leading open source JavaScript application framework backed by Google. The "1.x" version of AngularJS has been used quite widely. The new "Angular 2" version of the framework is currently available in release candidate. This course (ngCourse2) provides an introduction to AngularJS – using Angular 2 – based on our experience at Rangle.io.
 
-This book walks the reader through everything they need to know from getting
+This book was designed to be used as course material for Rangle's Angular 2 training.  While some sections are designed to support broader classroom discussion, the book can also serve as a stand-alone text.  It covers everything you need to know from getting
 started with the Angular 2 toolchain to writing applications with scalable
 front end architectures.
 
