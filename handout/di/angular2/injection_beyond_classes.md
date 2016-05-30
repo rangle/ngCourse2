@@ -35,7 +35,7 @@ import {DoubleHamburger} from './services/double-hamburger';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {provide} from '@angular/core';
 
-bootstrap(App, [provide(Hamburger, { useClass: DoubleHamburger })]);
+bootstrap(App, [provide('Hamburger', { useClass: DoubleHamburger })]);
 
 ```
 
