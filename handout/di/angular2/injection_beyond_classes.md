@@ -31,6 +31,7 @@ do this easily:
 ```js
 
 import {App} from './containers/app'; // hypothetical app component
+import {Hamburger} from './services/hamburger'; 
 import {DoubleHamburger} from './services/double-hamburger'; 
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {provide} from '@angular/core';
