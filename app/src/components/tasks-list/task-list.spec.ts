@@ -1,12 +1,15 @@
-import TasksList from './tasks-list';
 import {
   it,
   describe,
-  injectAsync,
-  TestComponentBuilder,
+  inject,
+  async,
   beforeEachProviders,
+} from '@angular/core/testing';
+import {
+  TestComponentBuilder,
   ComponentFixture
-} from 'angular2/testing';
+} from '@angular/compiler/testing';
+import TasksList from './tasks-list';
 import {MockTasksService} from '../../mocks/mock-tasks-service';
 import {MockRouterProvider} from '../../mocks/mock-router-provider';
 
@@ -20,10 +23,10 @@ describe('Testing Test List Component', () => {
     ];
   });
 
-  it('test tasks list component with a mock list', injectAsync(
+  it('test tasks list component with a mock list', async(inject(
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TasksList).then(
-        (componentFixture: ComponentFixture) => {
+        (componentFixture: ComponentFixture<TasksList>) => {
           const element = componentFixture.nativeElement;
           componentFixture.detectChanges();
           chai.expect(element.querySelectorAll('ngc-grid').length).to.equal(1);
@@ -31,5 +34,5 @@ describe('Testing Test List Component', () => {
         }
       );
     }
-  ));
+  )));
 });

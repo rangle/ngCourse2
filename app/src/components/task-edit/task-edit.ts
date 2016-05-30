@@ -1,12 +1,16 @@
-import {Component} from 'angular2/core';
-import {RouterLink, RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+import {
+  RouterLink, 
+  RouteParams, 
+  ROUTER_DIRECTIVES
+} from '@angular/router-deprecated';
 import {
   FORM_BINDINGS,
   FORM_DIRECTIVES,
   ControlGroup,
   FormBuilder,
   Validators
-} from 'angular2/common';
+} from '@angular/common';
 import TasksService from '../../services/tasks-service';
 const TEMPLATE = require('./task-edit.html');
   

@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {List} from 'immutable';
 
 @Component({
@@ -17,7 +17,7 @@ import {List} from 'immutable';
        {{ defaultValue }}
       </option>
       <option
-       *ngFor="#item of items"
+       *ngFor="let item of items"
        [value]="item">
        {{ item }}
       </option>

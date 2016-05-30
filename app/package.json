@@ -9,7 +9,7 @@
     "typescript"
   ],
   "engines": {
-    "node": "4.x"
+    "node": ">=4"
   },
   "scripts": {
     "postinstall": "npm run typings && npm run build",
@@ -31,7 +31,14 @@
     "url": "https://github.com/rangle/ngCourse2.git/issues"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.14",
+    "@angular/common": "^2.0.0-rc.1",
+    "@angular/compiler": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc.1",
+    "@angular/http": "^2.0.0-rc.1",
+    "@angular/platform-browser": "^2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
+    "@angular/router": "^2.0.0-rc.1",
+    "@angular/router-deprecated": "^2.0.0-rc.1",
     "basscss": "^7.1.0",
     "basscss-border-colors": "^1.1.1",
     "chalk": "^1.1.1",
@@ -41,12 +48,12 @@
     "immutable": "^3.7.6",
     "ng2-redux": "^2.0.2",
     "react": "^0.14.5",
-    "redux": "^3.0.5",
-    "redux-devtools": "^3.0.1",
+    "redux": "^3.5.2",
+    "redux-devtools": "^3.3.1",
     "redux-logger": "^2.1.4",
-    "redux-thunk": "^1.0.0",
+    "redux-thunk": "^2.1.0",
     "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.2",
+    "rxjs": "^5.0.0-beta.6",
     "serve-webpack-client": "0.0.4",
     "winston": "^2.1.1",
     "zone.js": "^0.6.6"
@@ -90,7 +97,7 @@
     "ts-loader": "^0.8.1",
     "tslint-loader": "^1.0.2",
     "typescript": "^1.8.0",
-    "typings": "^0.6.8",
+    "typings": "^1.0.4",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.9"
   }

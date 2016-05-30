@@ -2,7 +2,7 @@ import {
   describe,
   expect,
   it
-} from 'angular2/testing';
+} from '@angular/core/testing';
 
 describe('Testing math', () => {
 

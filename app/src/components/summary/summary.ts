@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import TasksService from '../../services/tasks-service';
 import SummaryIcon from '../icons/summary';
 import TaskFilters from '../task-filters/task-filters';

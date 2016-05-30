@@ -4,7 +4,7 @@ import {
   ResponseOptions,
   ConnectionBackend,
   Http
-} from 'angular2/http';
+} from '@angular/http';
 
 import {
   it,
@@ -12,10 +12,9 @@ import {
   describe,
   beforeEachProviders,
   inject
-} from 'angular2/testing';
-
-import {MockBackend} from 'angular2/http/testing';
-import {provide} from 'angular2/core';
+} from '@angular/core/testing';
+import {MockBackend} from '@angular/http/testing';
+import {provide} from '@angular/core';
 import {AuthService} from './auth-service';
 
 describe('Testing authentication service', () => {
@@ -29,7 +28,7 @@ describe('Testing authentication service', () => {
           useFactory: (
             mockBackend: ConnectionBackend, defaultOptions: BaseRequestOptions
           ) => {
-            return new Http(mockBackend, defaultOptions)
+            return new Http(mockBackend, defaultOptions);
           },
           deps: [MockBackend, BaseRequestOptions]
         }

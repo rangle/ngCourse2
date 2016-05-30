@@ -1,19 +1,19 @@
-import {Component} from 'angular2/core';
-import {Router} from 'angular2/router';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router-deprecated';
 import {
   FORM_BINDINGS,
   FORM_DIRECTIVES,
   ControlGroup,
   FormBuilder,
   Validators
-} from 'angular2/common';
+} from '@angular/common';
 import {AuthService} from '../../services/auth-service';
 const TEMPLATE = require('./login.html');
 
 @Component({
   selector: 'login',
   directives: [FORM_DIRECTIVES],
-  viewBindings: [FORM_BINDINGS],
+  viewProviders: [FORM_BINDINGS],
   template: TEMPLATE
 })
 export default class LoginComponent {

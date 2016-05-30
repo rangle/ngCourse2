@@ -4,7 +4,8 @@ import * as CounterActions from './counter';
 import {
   describe,
   it
-} from 'angular2/testing';
+} from '@angular/core/testing';
+import {Action} from 'redux';
 
 describe('counter action creators', () => {
   it('increment should create INCREMENT_COUNTER action', () => {
@@ -21,44 +22,46 @@ describe('counter action creators', () => {
       });
   });
 
-  it('incrementIfOdd should dispatch INCREMENT_COUNTER if counter is odd', (done) => {
+  it('incrementIfOdd should dispatch INCREMENT_COUNTER if counter is odd',
+    (done) => {
 
-    const expectedAction = { type: INCREMENT_COUNTER };
+      const expectedAction = { type: INCREMENT_COUNTER };
 
-    const store = mockStore({
-      getState: () => {
-        return {
-          counter: 1
+      const store = mockStore({
+        getState: () => {
+          return {
+            counter: 1
+          };
+        },
+        dispatch: (action) => {
+          chai.expect(action)
+            .to.deep.equal(expectedAction);
+
+          done();
         }
-      },
-      dispatch: (action) => {
-        chai.expect(action)
-          .to.deep.equal(expectedAction);
+      });
 
-        done();
-      }
+      store.dispatch(<Action><any>CounterActions.incrementIfOdd());
     });
 
-    store.dispatch(CounterActions.incrementIfOdd());
-  });
+  it('incrementAsync should dispatch INCREMENT_COUNTER after given delay', 
+    (done) => {
+      const expectedAction = { type: INCREMENT_COUNTER };
 
-  it('incrementAsync should dispatch INCREMENT_COUNTER after given delay', (done) => {
-    const expectedAction = { type: INCREMENT_COUNTER };
+      const store = mockStore({
+        getState: () => {
+          return {
+            counter: 0
+          }
+        },
+        dispatch: (action) => {
+          chai.expect(action)
+            .to.deep.equal(expectedAction);
 
-    const store = mockStore({
-      getState: () => {
-        return {
-          counter: 0
+          done();
         }
-      },
-      dispatch: (action) => {
-        chai.expect(action)
-          .to.deep.equal(expectedAction);
+      });
 
-        done();
-      }
+      store.dispatch(<Action><any>CounterActions.incrementAsync(100));
     });
-
-    store.dispatch(CounterActions.incrementAsync(100));
-  });
 });

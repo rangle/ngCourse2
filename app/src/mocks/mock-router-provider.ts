@@ -1,19 +1,21 @@
-import {provide} from 'angular2/core';
-import {
+import {provide} from '@angular/core';
+import { 
   Location,
-  LocationStrategy,
+  LocationStrategy
+} from '@angular/common';
+import {
   ComponentInstruction,
   Router,
   RouteParams,
   RouterLink
-} from 'angular2/router';
-import {ResolvedInstruction} from 'angular2/src/router/instruction';
-import {SpyObject} from 'angular2/testing_internal';
+} from '@angular/router-deprecated';
+import {ResolvedInstruction} from '@angular/router-deprecated/src/instruction';
 
-export class MockRouteParams extends SpyObject {
+export class MockRouteParams {
   private ROUTE_PARAMS = {};
 
-  constructor() { super(RouteParams); }
+  constructor() { 
+  }
 
   set(key: string, value: string) {
     this.ROUTE_PARAMS[key] = value;
@@ -24,25 +26,46 @@ export class MockRouteParams extends SpyObject {
   }
 }
 
-export class MockRouter extends SpyObject {
-  constructor() { super(Router); }
+export class MockRouter  {
+  constructor() {
+  }
+  
+  navigate() {}
+  
+  subscribe() {}
+  
   isRouteActive(s) { return true; }
+  
   generate(s) {
     return new ResolvedInstruction(
-      new ComponentInstruction('detail', [], null, null, true, '0'),
+      new ComponentInstruction(
+        'detail',
+        [],
+        null,
+        null,
+        true,
+        '0',
+        {},
+        'detail'
+      ),
       null,
       {}
     );
   }
 }
-export class MockLocationStrategy extends SpyObject {
-  constructor() { super(LocationStrategy); }
+
+export class MockLocationStrategy {
+  constructor() { 
+  }
 }
-export class MockLocation extends SpyObject {
-  constructor() { super(Location); }
+export class MockLocation {
+  constructor() { 
+  }
+  prepareExternalUrl() { }
 }
-export class MockRouterLink extends SpyObject {
-  constructor() { super(RouterLink); }
+export class MockRouterLink {
+  constructor() { 
+  }
 }
 
 export class MockRouterProvider {

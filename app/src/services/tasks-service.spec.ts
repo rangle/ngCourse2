@@ -5,7 +5,7 @@ import {
   ConnectionBackend,
   Http,
   RequestMethod
-} from 'angular2/http';
+} from '@angular/http';
 import {
   it,
   describe,
@@ -13,9 +13,9 @@ import {
   inject,
   fakeAsync,
   tick
-} from 'angular2/testing';
-import {MockBackend} from 'angular2/http/testing';
-import {provide} from 'angular2/core';
+} from '@angular/core/testing';
+import {MockBackend} from '@angular/http/testing';
+import {provide} from '@angular/core';
 import TasksService from './tasks-service';
 import {MockRouterProvider} from '../mocks/mock-router-provider';
 
@@ -55,9 +55,8 @@ describe('Testing Tasks Service', () => {
   });
 
   function fetchTasks(mockResponseBody: any, callback: Function){
-    return inject(
-      [TasksService, MockBackend],
-      fakeAsync((tasksService, mockBackend) => {
+    return fakeAsync(inject([TasksService, MockBackend],
+      (tasksService, mockBackend) => {
 
         mockBackend.connections.subscribe( conn => {
 
