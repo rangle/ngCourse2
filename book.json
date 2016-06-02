@@ -1,16 +1,16 @@
 {
   "plugins": [
-    "versions",
     "highlight",
+    "theme-default",
     "ga"
   ],
+  "theme": "theme-default",
   "pluginsConfig": {
-    "versions": {
-      "type": "branches",
-      "includeFilepath": false
-    },
     "ga": {
-        "token": "UA-41067508-7"
+      "token": "UA-41067508-7"
+    },
+    "theme-default": {
+      "showLevel": true
     }
   },
   "structure": {

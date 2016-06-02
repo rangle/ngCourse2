@@ -1,6 +1,7 @@
-# Summary
-
 * [Why Angular 2?](handout/why_angular_2.md)
+
+---
+
 * [Features](handout/features/README.md)
    * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
@@ -26,6 +27,9 @@
        * [Property Decorators](handout/features/property_decorators.md)
        * [Class Decorators](handout/features/class_decorators.md)
        * [Parameter Decorators](handout/features/parameter_decorators.md)
+
+---
+
 * [Tooling](handout/tooling/README.md)
    * [Source Control: git](handout/tooling/source_control.md)
    * [The Command Line](handout/tooling/the_command_line.md)
@@ -34,6 +38,9 @@
    * [Module Loading, Bundling and Build Tasks: Webpack](handout/tooling/module_loading_bundling_and_build_tasks.md)
    * [Chrome](handout/tooling/chrome.md)
    * [Getting The Code](handout/tooling/getting_the_code.md)
+
+---
+
 * [Components](handout/components/README.md)
    * [Creating Components](handout/components/creating_components.md)
    * [Application Structure With Components](handout/components/app_structure_with_components.md)
@@ -46,6 +53,9 @@
        * [Change Propagation](handout/components/structural/change_propagation.md)
    * [Projection](handout/components/projection.md)
    * [Structuring Applications](handout/components/structuring_applications_with_components.md)
+
+---
+
 * [Observables](handout/observables/README.md)
    * [Using Observables](handout/observables/using_observables.md)
    * [Error Handling](handout/observables/error_handling.md)
@@ -56,6 +66,9 @@
    * [Combining Streams with flatMap](handout/observables/combining_streams_with_flatmap.md)
    * [Cold vs. Hot Observables](handout/observables/cold_vs_hot_observables.md)
    * [Summary](handout/observables/summary.md)
+
+---
+
 * [Dependency Injection](handout/di/README.md)
    * [What is DI?](handout/di/what_is_di.md)
    * [DI as a Framework](handout/di/di_framework.md)
@@ -63,6 +76,9 @@
        * [`@Inject()` and `@Injectable`](handout/di/angular2/inject_and_injectable.md)
        * [Injection Beyond Classes](handout/di/angular2/injection_beyond_classes.md)
        * [The Injector Tree](handout/di/angular2/the_injector_tree.md)
+
+---
+
 * [Change Detection](handout/change-detection/README.md)
    * [Angular 1 vs Angular 2](handout/change-detection/angular_1_vs_angular_2.md)
    * [How Change Detection Works](handout/change-detection/how_change_detection_works.md)
@@ -70,6 +86,9 @@
    * [Change Detection Strategy: OnPush](handout/change-detection/change_detection_strategy_onpush.md)
    * [Enforcing Immutability](handout/change-detection/enforcing_immutability.md)
    * [Additional Resources](handout/change-detection/additional_resources.md)
+
+---
+
 * [Immutable.js](handout/immutable/README.md)
    * [What is Immutability?](handout/immutable/what_is_immutability.md)
    * [The Case for Immutability](handout/immutable/the_case_for_immutability.md)
@@ -86,15 +105,24 @@
        * [Performance](handout/immutable/immutable-js/performance.md)
        * [Persistent and Transient Data Structures](handout/immutable/immutable-js/persistent_and_transient_data_structures.md)
        * [Official Documentation](handout/immutable/immutable-js/official_documentation.md)
+
+---
+
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
    * [Stateful and Async Pipes](handout/pipes/stateful_and_async_pipes.md)
+
+---
+
 * [Advanced Components](handout/advanced-components/README.md)
    * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
    * [Accessing Other Component](handout/advanced-components/accessing_other_component.md)
    * [View Encapsulation](handout/advanced-components/view_encapsulation.md)
    * [ElementRef](handout/advanced-components/elementref.md)
+
+---
+
 * [Form Builder](handout/forms/README.md)
    * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
    * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
@@ -107,6 +135,9 @@
    * [Async Validators](handout/forms/async_validators.md)
    * [Observing Changes](handout/forms/observing_changes.md)
    * [Models](handout/forms/models.md)
+
+---
+
 * [Routing](handout/routing/README.md)
    * [Why Routing](handout/routing/why_routing.md)
    * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
@@ -121,6 +152,9 @@
    * [RouteParams](handout/routing/routeparams.md)
    * [RouteData](handout/routing/routedata.md)
    * [Route Lifecycle Hooks](handout/routing/route_lifecycle_hooks.md)
+
+---
+
 * [Redux](handout/redux/README.md)
    * [Review of Reducers and Pure Functions](handout/redux/review_of_reducers_and_pure_functions.md)
    * [Redux Reducers](handout/redux/redux_reducers.md)
@@ -128,6 +162,9 @@
    * [Configuring your Application to use Redux](handout/redux/configuring_your_application_to_use_redux.md)
    * [Using Redux with Components](handout/redux/using_redux_with_components.md)
    * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
+
+---
+
 * [Testing](handout/testing/README.md)
    * [Tool Chain](handout/testing/intro-to-tdd/toolchain.md)
    * [Setup](handout/testing/intro-to-tdd/setup/README.md)
@@ -156,6 +193,9 @@
        * [Asynchronous Actions](handout/testing/redux/async-actions.md)
        * [Reducers](handout/testing/redux/reducers.md)
        * [After Thoughts](handout/testing/redux/after-thoughts.md)
+
+---
+
 * [Migrate](handout/migrate/README.md)
    * [Migration Prep](handout/migrate/migration-prep/README.md)
        * [Upgrade To Angular 1.3+ Style](handout/migrate/migration-prep/upgrade_to_angular_1_3.md)
@@ -172,6 +212,9 @@
        * [Transclusion](handout/migrate/ng-upgrade/transclusion.md)
        * [Injecting Across Frameworks](handout/migrate/ng-upgrade/injecting_across_frameworks.md)
        * [Upgrade Strategy](handout/migrate/ng-upgrade/upgrade_strategy.md)
+
+---
+
 * [Project Setup](handout/project-setup/README.md)
    * [Webpack](handout/project-setup/webpack.md)
        * [Installation and Usage](handout/project-setup/installation_and_usage.md)
@@ -179,10 +222,16 @@
        * [Plugins](handout/project-setup/plugins.md)
        * [Summary](handout/project-setup/summary.md)
    * [NPM Scripts Integration](handout/project-setup/npm_scripts_integration.md)
+
+---
+
 * [Bootstrapping](handout/bootstrapping/README.md)
    * [File structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
-   * [Using Router Providers](handout/bootstrapping/using_router_providers.md)2
+   * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
+
+---
+
 * [Angular CLI](handout/cli/README.md)
    * [Setup](handout/cli/setup.md)
    * [Creating an App](handout/cli/creating-an-app.md)
@@ -195,9 +244,11 @@
    * [Command Overview](handout/cli/command-overview.md)
    * [Adding 3rd party libraries](handout/cli/adding-third-party-libraries.md)
    * [Integrating an existing app](handout/cli/init.md)(handout/cli/converting-an-existing-app)
+
+---
+
 * [Workshop](handout/workshop/readme.md)
   * [Workshop 0 - Kitchen Sink](handout/workshop/workshop-0.md)
   * [Workshop 1 - Containers and Redux Sink](handout/workshop/workshop-1.md)
   * [Workshop 2 - API Services and Authentication Sink](handout/workshop/workshop-2.md)
 * [Other Resources](handout/other-resources.md)
-
