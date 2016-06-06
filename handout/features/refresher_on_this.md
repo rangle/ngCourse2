@@ -5,7 +5,9 @@ Inside a JavaScript class we'll be using `this` keyword to refer to the instance
 ```js
 class Toppings {
   ...
+  
   formatToppings() { /* implementation details */ }
+  
   list() {
     return this.formatToppings(this.toppings);
   }
