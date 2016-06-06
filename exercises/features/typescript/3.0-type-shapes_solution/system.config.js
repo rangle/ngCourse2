@@ -40,7 +40,7 @@ System.config({
   packages: {
     'app': {
       defaultExtension: 'ts',
-      main: './boot.ts'
+      main: './exercise.ts'
     }
   }
 });
