@@ -9,7 +9,7 @@ function write() {
 
   for (i = 1; i < arguments.length; i += 1) {
 
-    output +=  arguments[i] + ' ';
+    output +=  ' ' + arguments[i];
   }
 
   element.innerHTML = output;
