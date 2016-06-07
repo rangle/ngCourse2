@@ -32,7 +32,7 @@ In fact, this concept became so popular that in Angular 1.5 the `.component` met
 angular.module('ngcourse')
   .component('ngcHelloComponent', {
     bindings: { name: '=' },
-    template: '<span>Hello, {{ ctrl.name }}.</span>',
+    template: '<span>Hello, {{ $ctrl.name }}.</span>',
     controller: MyComponentCtrl
   });
 ```
