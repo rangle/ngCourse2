@@ -25,7 +25,7 @@ export class Counter {
 
 [View Example](http://plnkr.co/edit/bBeHq0a0mtp5I9z2lpJ6?p=preview)
 
-<iframe style="width: 100%; height: 200px" src="http://embed.plnkr.co/bBeHq0a0mtp5I9z2lpJ6/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 200px" src="http://embed.plnkr.co/bBeHq0a0mtp5I9z2lpJ6/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 
 To send data out of components via outputs, start by defining the outputs attribute. It accepts a list of output parameters that a component exposes to its parent.
@@ -60,4 +60,4 @@ export default class Counter {
 
 Together a set of input + output bindings define the public API of your component. In our templates we use the [squareBrackets] to pass inputs and the (parenthesis) handle outputs.
 
-<iframe style="width: 100%; height: 600px" src="http://embed.plnkr.co/LEXaJmvvSpVgSNL4KX9H/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 600px" src="http://embed.plnkr.co/LEXaJmvvSpVgSNL4KX9H/" frameborder="0" allowfullscren="allowfullscren"></iframe>

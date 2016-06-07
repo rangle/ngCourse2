@@ -30,6 +30,6 @@ Even if we fill both inputs and click the submit button, we get an empty object 
 
 [View Example](https://plnkr.co/edit/fo4ZXG9IAcEqtYgT6dJs?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/fo4ZXG9IAcEqtYgT6dJs" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="https://embed.plnkr.co/fo4ZXG9IAcEqtYgT6dJs" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 

@@ -17,4 +17,4 @@ class Child {}
 
 [View Example](http://plnkr.co/edit/d2X7P2lxw4jrIBnElGrI?p=preview)
 
-<iframe style="width: 100%; height: 800px" src="http://embed.plnkr.co/d2X7P2lxw4jrIBnElGrI/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 800px" src="http://embed.plnkr.co/d2X7P2lxw4jrIBnElGrI/" frameborder="0" allowfullscren="allowfullscren"></iframe>

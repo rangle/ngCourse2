@@ -86,5 +86,5 @@ _app/my-form.component.html_
 
 Notice that not only do we have a new error key but our field has a new state called `pending` that is `true` when angular waits for the promise to be resolved and `false` otherwise. That way we can give feedback to the user that some validation is being performed in the background that could take a while to finish.
 
-<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/nOFYzTdbzbS3PkzFOfpc/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/nOFYzTdbzbS3PkzFOfpc/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
