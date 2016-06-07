@@ -37,7 +37,6 @@
    * [Back-End Code Sharing and Distribution: npm](handout/tooling/back_end_code_sharing_and_distribution.md)
    * [Module Loading, Bundling and Build Tasks: Webpack](handout/tooling/module_loading_bundling_and_build_tasks.md)
    * [Chrome](handout/tooling/chrome.md)
-   * [Getting The Code](handout/tooling/getting_the_code.md)
 
 ---
 
