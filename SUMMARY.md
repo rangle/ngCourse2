@@ -55,6 +55,14 @@
 
 ---
 
+* [Advanced Components](handout/advanced-components/README.md)
+   * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
+   * [Accessing Other Component](handout/advanced-components/accessing_other_component.md)
+   * [View Encapsulation](handout/advanced-components/view_encapsulation.md)
+   * [ElementRef](handout/advanced-components/elementref.md)
+
+---
+
 * [Observables](handout/observables/README.md)
    * [Using Observables](handout/observables/using_observables.md)
    * [Error Handling](handout/observables/error_handling.md)
@@ -111,14 +119,6 @@
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
    * [Stateful and Async Pipes](handout/pipes/stateful_and_async_pipes.md)
-
----
-
-* [Advanced Components](handout/advanced-components/README.md)
-   * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
-   * [Accessing Other Component](handout/advanced-components/accessing_other_component.md)
-   * [View Encapsulation](handout/advanced-components/view_encapsulation.md)
-   * [ElementRef](handout/advanced-components/elementref.md)
 
 ---
 
