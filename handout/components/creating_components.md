@@ -25,4 +25,4 @@ To use this component we simply add `<hello></hello>` to our HTML. And Angular w
 
 [View Example](http://plnkr.co/edit/t0qf2zbM5C42Ni44IYmY?p=preview)
 
-<iframe style="width: 100%; height: 400px" src="http://embed.plnkr.co/t0qf2zbM5C42Ni44IYmY/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 400px" src="http://embed.plnkr.co/t0qf2zbM5C42Ni44IYmY/" frameborder="0" allowfullscren="allowfullscren"></iframe>

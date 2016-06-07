@@ -76,7 +76,7 @@ export class App {
 ```
 [View Example](http://plnkr.co/edit/l9YXqdfsptd6jG64b5lV?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/l9YXqdfsptd6jG64b5lV/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/l9YXqdfsptd6jG64b5lV/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Here we have setup a basic form with a single field - `searchField`, which we subscribe to for event changes. We've also setup a simple binding for any results coming from the SearchService. The real magic here is `flatMap` which allows us to flatten our two separate subscribed Observables into a single cohesive stream we can use to control events coming from user input and from server responses. 
 

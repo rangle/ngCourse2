@@ -69,7 +69,7 @@ export class MyForm {
 
 [View Example](https://plnkr.co/edit/MvyM90Ankx46byFWJylh?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/MvyM90Ankx46byFWJylh/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="https://embed.plnkr.co/MvyM90Ankx46byFWJylh/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Using this approach the usual Angular 1, 2-way data binding approach is avoided.
 
@@ -94,7 +94,7 @@ _app/my-form.component.html_
 
 [View Example](https://plnkr.co/edit/FVPapDQnIbv2Ex6fn4js?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/FVPapDQnIbv2Ex6fn4js/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="https://embed.plnkr.co/FVPapDQnIbv2Ex6fn4js/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Now, the model is being updated any time the form is being changed.
 
@@ -170,7 +170,7 @@ _app/my-form.component.html_
 
 [View Example](https://plnkr.co/edit/FVPapDQnIbv2Ex6fn4js?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="https://embed.plnkr.co/FVPapDQnIbv2Ex6fn4js/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="https://embed.plnkr.co/FVPapDQnIbv2Ex6fn4js/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 We are using two methods of our form component, `find` and `hasError`.
 

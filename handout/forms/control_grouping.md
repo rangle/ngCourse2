@@ -52,4 +52,4 @@ Object {email: "joe.satriani@gmail.com", password: "secretpass"}
 
 [View Example](http://plnkr.co/edit/Bp6s20luCdLnDCT98FO4?p=preview)
 
-<iframe style="width: 100%; height: 300px" src="http://embed.plnkr.co/Bp6s20luCdLnDCT98FO4/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/Bp6s20luCdLnDCT98FO4/" frameborder="0" allowfullscren="allowfullscren"></iframe>

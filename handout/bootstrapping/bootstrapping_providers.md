@@ -12,6 +12,6 @@ bootstrap(MyApp, [MyProvider]);
 
 [View Example](https://plnkr.co/edit/gEAfi4PGOel9clqUp6U4?p=preview)
 
-<iframe style="width: 100%; height: 600px" src="https://embed.plnkr.co/gEAfi4PGOel9clqUp6U4" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 600px" src="https://embed.plnkr.co/gEAfi4PGOel9clqUp6U4" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 We import our root Component, `App`, `bootstrap`, and a custom Provider, `MyProvider`. When we bootstrap our root Component we can pass in application wide Providers that will be injected to any Component that wants to use them.
