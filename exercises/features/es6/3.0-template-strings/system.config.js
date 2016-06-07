@@ -39,8 +39,8 @@ System.config({
 
   packages: {
     'app': {
-      defaultExtension: 'ts',
-      main: './boot.ts'
+      defaultExtension: 'js',
+      main: './exercise.js'
     }
   }
 });
