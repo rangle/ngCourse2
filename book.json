@@ -4,6 +4,10 @@
     "theme-default",
     "ga"
   ],
+  "styles": {
+    "ebook": "styles/ebook.css",
+    "pdf": "styles/pdf.css"
+  },
   "theme": "theme-default",
   "pluginsConfig": {
     "ga": {
