@@ -30,7 +30,7 @@ Then, our `MainComponent` will have three properties, the `slogan` of the app, t
 
 _app/main.component.ts_
 ```javascript
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {MovieComponent} from './movie.component';
 import {Actor} from './actor.model';
 
@@ -77,7 +77,7 @@ Finally, the `MovieComponent` shows the information provided by the MainComponen
 
 _app/movie.component.ts_
 ```javascript
-import {Component, Input} from 'angular2/core';
+import {Component, Input} from '@angular/core';
 import {Actor} from './actor.model';
 
 @Component({

@@ -30,7 +30,7 @@ Packages installed through NPM are referenced using *CommonJS* module resolution
 or TypeScript/ES6 file:
 
 ```typescript
-  import { Component } from 'angular2/core';
+  import { Component } from '@angular/core';
 ```
 
 We will use those string values as the module names we pass to webpack.
@@ -48,7 +48,7 @@ Let's look at the entry points we have defined in our sample app:
       'angular2/bootstrap',
       'angular2/platform/browser',
       'angular2/platform/common_dom',
-      'angular2/core',
+      '@angular/core',
       'angular2/router',
       'angular2/http',
       'redux',

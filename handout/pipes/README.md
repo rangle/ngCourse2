@@ -1,4 +1,4 @@
-# Part 9: Pipes #
+# Pipes
 
 ![Pipes](../images/pipes.jpg "Pipes")
 

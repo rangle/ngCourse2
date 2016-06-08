@@ -54,7 +54,7 @@ __app/boot.ts__
 import {bootstrap}    from '@angular/platform-browser-dynmic'
 import {SimpleRedux} from './containers/app-container'
 import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
-import {provide} from 'angular2/core';
+import {provide} from '@angular/core';
 import {LocationStrategy, Location, HashLocationStrategy } from '@angular/router-deprecated';
 import configureStore from './store/configure-store';
 import * as ng2redux from 'ng2-redux'

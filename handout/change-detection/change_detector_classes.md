@@ -48,7 +48,7 @@ By default, Angular defines a certain change detection strategy for every compon
 _app/movie.component.ts_
 ```javascript
 // ...
-import {ChangeDetectionStrategy} from 'angular2/core';
+import {ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   // ...

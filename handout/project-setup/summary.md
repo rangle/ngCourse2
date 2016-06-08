@@ -41,7 +41,7 @@ module.exports = {
       'angular2/bootstrap',
       'angular2/platform/browser',
       'angular2/platform/common_dom',
-      'angular2/core',
+      '@angular/core',
       'angular2/router',
       'angular2/http',
       'redux',

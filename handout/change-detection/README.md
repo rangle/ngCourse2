@@ -1,8 +1,8 @@
-# Part 7: Change Detection
+# Change Detection
 
 ![Change Detection](../images/change-detection.jpg "Detecting Change")
 
-Change detection is the process that allows Angular to keep our views in sync with our models. 
+Change detection is the process that allows Angular to keep our views in sync with our models.
 
 Change detection has changed in a big way between the old version of Angular and the new one. In Angular 1, the framework kept a long list of watchers (one for every property bound to our templates) that needed to be checked every-time a digest cycle was started. This was called *dirty checking* and it was the only change detection mechanism available.
 
