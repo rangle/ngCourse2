@@ -1,4 +1,4 @@
-# Part 2: EcmaScript 6 and TypeScript Features #
+# EcmaScript 6 and TypeScript Features #
 
 ![ES6/TypeScript](../images/es6-typescript.png "ES6 and TypeScript")
 
