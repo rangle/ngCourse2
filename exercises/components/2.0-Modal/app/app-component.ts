@@ -19,8 +19,7 @@ import Modal from './modal';
   </p>
 
   <ngc-modal [(isVisible)]="modalVisible"
-    title="Bacon with Header and Footer"
-    [isVisible]="modalVisible">
+    title="Bacon with Header and Footer">
   </ngc-modal>
 
 </div>`,

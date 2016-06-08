@@ -4,13 +4,13 @@ Complete the implementation of _*app/modal.ts*_ such that you can:
 
 1. Set the visibility of the modal using a property: `isVisible`.
 
-2. Wire up the close button to hide the modal.
+2. Use projection to place all `<button>`s into the third `div` of the modal template – the actions section. Tagged as: `<!-- All actions go here -->`
 
-3. Use projection to place all `<button>`s into the third `div` of the modal template – the actions section. Tagged as: `<!-- All actions go here -->`
+3. Use projection to place any other content in the second `div` of the modal template – the body section. Tagged as: `<!-- All content goes here -->`
 
-4. Use projection to place any other content in the second `div` of the modal template – the body section. Tagged as: `<!-- All content goes here -->`
+4. Provide 2-way binding for the `isVisible` prop.
 
-5. Provide 2-way binding for the `isVisible` prop.
+5. Wire up the close button to hide the modal.
 
 
 Complete the implementation of  _*app/app-component.ts*_ such that:
@@ -36,5 +36,3 @@ Complete the implementation of  _*app/app-component.ts*_ such that:
 ## Expected Results
 
 ![](modal.gif)
-
-
