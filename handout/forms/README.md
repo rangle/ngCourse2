@@ -1,4 +1,4 @@
-# Part 11: Forms
+# Forms
 
 Capturing data from the user is the cornerstone of any application and it's usually done through forms. Angular 2 is much more flexible than Angular 1 for handling forms, we are no longer restricted to just the `ngModel`. In Angular 2, there are two ways to define forms: using directives in our templates or using the `FormBuilder`.
 

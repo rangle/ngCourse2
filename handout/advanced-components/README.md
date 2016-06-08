@@ -1,4 +1,4 @@
-# Part 10: Advanced Components
+# Advanced Components
 
 ![Advanced Components](../images/advanced-component.jpg "Advanced Components")
 

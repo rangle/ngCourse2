@@ -1,4 +1,4 @@
-# Part 14: Introduction to TDD Testing
+# Introduction to TDD Testing
 
 Test-Driven-Development is an engineering process in which the developer writes an initial automated test case that defines a feature, then writes the minimum amount of code to pass the test and eventually refactors the code to acceptable standards.
 

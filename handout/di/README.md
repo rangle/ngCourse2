@@ -1,4 +1,4 @@
-# Part 6: Angular 2 Dependency Injection
+# Angular 2 Dependency Injection
 
 ![Angular Dependency Injection](../images/angular-di.jpg "Angular Dependency Injection")
 

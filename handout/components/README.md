@@ -1,4 +1,4 @@
-# Part 4: Components in Angular 2
+# Components in Angular 2
 
 ![components](../../img/components.jpg)
 

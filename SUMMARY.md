@@ -40,6 +40,13 @@
 
 ---
 
+* [Bootstrapping](handout/bootstrapping/README.md)
+   * [File structure](handout/bootstrapping/file_structure.md)
+   * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
+   * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
+
+---
+
 * [Components](handout/components/README.md)
    * [Creating Components](handout/components/creating_components.md)
    * [Application Structure With Components](handout/components/app_structure_with_components.md)
@@ -221,13 +228,6 @@
        * [Plugins](handout/project-setup/plugins.md)
        * [Summary](handout/project-setup/summary.md)
    * [NPM Scripts Integration](handout/project-setup/npm_scripts_integration.md)
-
----
-
-* [Bootstrapping](handout/bootstrapping/README.md)
-   * [File structure](handout/bootstrapping/file_structure.md)
-   * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
-   * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
 
 ---
 
