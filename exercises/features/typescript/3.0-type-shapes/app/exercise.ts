@@ -43,12 +43,6 @@ const position: Point3D = ;
 
 
 // Exercise C
-type stringOrArray = string | string[];
-
-interface StringOrArrayFn {
-  (data: stringOrArray): void;
-}
-
 // write an interface for this function
 const writeAnInterfaceForThisFunction: StringOrArrayFn = (data) => {
   let array: string[];
@@ -97,4 +91,3 @@ accessor(db, 'someId', (err, data) => {
     write(data);
   });
 });
-
