@@ -1,7 +1,18 @@
 import {bootstrap} from '@angular/platform-browser-dynamic'
-import {ROUTER_PROVIDERS} from '@angular/router-deprecated'
+
 import {LocationStrategy, HashLocationStrategy} from '@angular/common'
 import {provide} from '@angular/core'
 import {SimpleRouting} from './app.component'
+import { provideRouter, RouterConfig } from '@angular/router';
+import ComponentOne from './component-one';
+import ComponentTwo from './component-two';
 
-bootstrap(SimpleRouting, [ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLocationStrategy})]);
+const routerConfig: RouterConfig =
+[
+  {path: '/component-one', useAsDefault: true, component: ComponentOne},
+  {path: '/component-two', useAsDefault: false, component: ComponentTwo}
+] 
+bootstrap(SimpleRouting, [
+  provideRouter(routerConfig),
+  provide(LocationStrategy, {useClass: HashLocationStrategy})
+  ]);
