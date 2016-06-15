@@ -16,7 +16,9 @@ import {Http} from '@angular/http';
 	template: `
 	  <b>Angular 2 HTTP requests using RxJs Observables!</b>
 	  
-	  <div><code>{{response}}</code></div>
+	  <ul>
+	    <li *ngFor="let doctor of doctors">{{doctor}}</li>
+	  </ul>
 	  `
 })
 
@@ -29,7 +31,7 @@ export class App {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/3NfvuQTMPrthutJMrhRA?p=preview)
+[View Example](http://plnkr.co/edit/FjJz4lTX2hhHkMu87cln?p=preview)
 
 This basic examples outlines how the `Http` libraries common routines like `get`, `post`, `put`, and `delete` all return Observables that allow us to asynchronously process any resulting data. 
 
