@@ -5,5 +5,5 @@ import {Component} from '@angular/core';
   template: 'Component One'
 })
 export default class ComponentOne { 
-  console.log(window.location)
+  
 }
