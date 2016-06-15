@@ -20,7 +20,7 @@ This won't work when using `beforeEachProvider`. Instead we can use the `TestCom
     [TestComponentBuilder], (tcb: TestComponentBuilder) => {
       tcb.overrideProviders(SimpleComponent, [
         provide(ExampleService, {useClass: MockExampleService})
-      ]).createAsync(QuoteComponent).then(fixture => {
+      ]).createAsync(SimpleComponent).then(fixture => {
         
         // test your fixture here
         
