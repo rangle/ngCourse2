@@ -50,31 +50,31 @@ them into 'container' components and 'presentational' components.
  components on it as we currently have it.
 
 ```javascript
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {Counter} from '../components/counter-component';
+import { Component } from '@angular/core';
+import { Counter } from '../components/counter-component';
 
 @Component({
   selector: 'simple-redux',
-  directives: [Counter]
+  directives: [ Counter ]
   template: `
-  <div>
-    <h1>Simple Redux</h1>
-    <div style="float: left; border: 1px solid red;">
-      <h2>Click Counter</h2>
-      <counter>
-      </counter>
+    <div>
+      <h1>Redux: Two components, one state.</h1>
+      <div style="float: left; border: 1px solid red;">
+        <h2>Click Counter</h2>
+        <counter>
+        </counter>
+      </div>
+      <div style="float: left; border: 1px solid blue;">
+        <h2>Curse Counter</h2>
+        <counter>
+        </counter>
+      </div>
     </div>
-    <div style="float: left; border: 1px solid blue;">
-      <h2>Curse Counter</h2>
-      <counter>
-      </counter>
-    </div>
-  </div>
   `
 })
 export class SimpleRedux {}
 ```
-[View Example](https://plnkr.co/edit/HT7JhwXA8nHSBolbtOVv?p=preview)
+[View Example](https://plnkr.co/edit/cpPbZvr3FajuiG8GvyoV?p=preview)
 
 As you can see in the example, when clicking on the buttons - the numbers in both components will update in sync. This is because counter component is coupled to a specific piece of state, and action.
 
@@ -95,7 +95,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'counter',
   template: `
   <p>
-    Clicked: {{ counter | async }} times
+    Clicked: {{ counter$ | async }} times
     <button (click)="increment.emit()">+</button>
     <button (click)="decrement.emit()">-</button>
     <button (click)="incrementIfOdd.emit()">Increment if odd</button>
@@ -104,11 +104,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   `
 })
 export class Counter {
-  @Input() counter: Observable<number>;
-  @Output() increment: new EventEmitter<void>();
-  @Output() decrement: new EventEmitter<void>();
-  @Output() incrementIfOdd: new EventEmitter<void>();
-  @Output() incrementAsync: new EventEmitter<void>();
+  @Input() counter$: Observable<number>;
+  @Output() increment = new EventEmitter<void>();
+  @Output() decrement = new EventEmitter<void>();
+  @Output() incrementIfOdd = new EventEmitter<void>();
+  @Output() incrementAsync = new EventEmitter<void>();
 }
 ```
 
@@ -120,13 +120,14 @@ __app/src/containers/app-containter.ts__
 ```typescript
 @Component({
   selector: 'simple-redux',
-  directives: [Counter]
+  providers: [ CounterActions, CurseActions ],
+  directives: [ Counter ],
   template: `
   <div>
-    <h1>Redux: Dumb Counter</h1>
+    <h1>Redux: Presentational Counters</h1>
     <div style="float: left; border: 1px solid red;">
       <h2>Click Counter</h2>
-      <counter [counter]="counter$"
+      <counter [counter$]="counter$"
           (increment)="counterActions.increment()"
           (decrement)="counterActions.decrement()"
           (incrementIfOdd)="counterActions.incrementIfOdd()"
@@ -166,10 +167,15 @@ export class SimpleRedux {
 
   constructor(
     private counterActions: CounterActions,
-    private curseActions: CurseActions) {}
+    private curseActions: CurseActions,
+    redux: NgRedux) {
+      const initialState = {};
+      const middleware = [ logger ];
+      redux.configureStore(reducer, initialState, middleware);
+    }
 }
 ```
-[View Example](https://plnkr.co/edit/d4JVZfCW9YfbWPKyKAc5?p=preview)
+[View Example](https://plnkr.co/edit/d1IzUPYELyhpSK3O65zy?p=preview)
 
 Our two Observables, `counter$` and `curse$` will now get updated with a new
 value every time the relevant store properties are updated by the rest of the

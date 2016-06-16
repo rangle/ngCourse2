@@ -48,8 +48,9 @@ This should be done once, in the top-level component of your application.
 
 __app/containers/SimpleRedux.ts__
 ```javascript
+import { Component } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
-import logger from './configure-logger';
+import logger from '../store/configure-logger';
 import reducer from '../reducers/index';
 
 @Component({
