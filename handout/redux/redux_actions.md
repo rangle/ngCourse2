@@ -79,15 +79,17 @@ export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 export class CounterActions {
   constructor(private redux: NgRedux<any>) {}
 
+  // ...
+
   incrementIfOdd() {
     const { counter } = this.redux.getState();
 
     if (counter % 2 === 0) return;
-    this.redux.dispatch(increment());
+    this.redux.dispatch({ type: INCREMENT_COUNTER });
   }
 
   incrementAsync(timeInMs = 1000) {
-    delay(timeInMs).then(() => this.redux.dispatch(increment()));
+    this.delay(timeInMs).then(() => this.redux.dispatch({ type: INCREMENT_COUNTER }));
   }
 
   private delay(timeInMs) {

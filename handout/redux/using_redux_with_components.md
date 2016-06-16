@@ -14,13 +14,13 @@ that amount.
 __app/components/counter-component.ts__
 
 ```javascript
-import { Component, Inject } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { NgRedux } from 'ng2-redux';
+import { Component } from '@angular/core';
+import { select } from 'ng2-redux';
 import { CounterActions } from '../actions/counter-actions';
 
 @Component({
   selector: 'counter',
+  providers: [ CounterActions ],
   template: `
   <p>
     Clicked: {{ counter$ | async }} times
@@ -32,13 +32,13 @@ import { CounterActions } from '../actions/counter-actions';
   `
 })
 export class Counter {
-  counter$: Observable<number>;
+  @select() counter$: Observable<number>;
 
   constructor(private actions: CounterActions) {}
 }
 ```
 
-[View Example](https://plnkr.co/edit/TtGfUm3go88kO7hhCVww?p=preview)
+[View Example](https://plnkr.co/edit/FRtM0fKZT6LNqBSpDQpk?p=preview)
 
 The template syntax should be familiar by now, displaying a observable counter
 with the 'async' pipe, and handling some click events.
@@ -49,8 +49,8 @@ creators from the `CounterActions` ActionCreatorService.
 Let's take a look at the use of `@select`.
 
 `@select` is a feature of ng2-redux which is designed to help you attach your
-store's state to your containers in a declarative way. You can attach it to a
-property of your container component class and Ng2-Redux will create an
+store's state to your components in a declarative way. You can attach it to a
+property of your component class and Ng2-Redux will create an
 Observable and bind it to that property for you.
 
 In this case, `@select` has no parameters, so Ng2-Redux will look for a store
