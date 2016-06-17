@@ -1,4 +1,4 @@
-# Integrating an existing app
+# Integrating an Existing App
 
 Apps that were created without CLI can be integrated to use CLI later on. This is done by going to the existing app's folder and running `ng init`.
 
