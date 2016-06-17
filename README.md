@@ -14,7 +14,7 @@ See the [handout](https://www.gitbook.com/book/rangle-io/ngcourse2/details) for 
 
 ## The Code
 
-The repository also contains a sample app. The project has a server and the client component. This repository contains only the *client* code. The server code is available at [github.com/rangle/ngcourse-api](https://github.com/rangle/ngcourse-api). However, You do **not** need the server code to run the front end. Instead, you can access the API server deployed to [ngcourse.herokuapp.com/](http://ngcourse.herokuapp.com) and develop the client-side code on your own machine.
+The repository also contains a sample app. The project has a server and client component. This repository contains only the *client* code. The server code is available at [github.com/rangle/ngcourse-api](https://github.com/rangle/ngcourse-api). However, You do **not** need the server code to run the front end. Instead, you can access the API server deployed to [ngcourse.herokuapp.com/](http://ngcourse.herokuapp.com) and develop the client-side code on your own machine.
 
 To run the sample app:
 
