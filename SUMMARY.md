@@ -195,8 +195,8 @@
        * [Testing JSONP/XHR](handout/testing/services/json-xhr.md)
        * [Executing Tests Asynchronously](handout/testing/services/async-execution.md)
    * [Testing Redux](handout/testing/redux/README.md)
-       * [Synchronous Actions](handout/testing/redux/synchronous-actions.md)
-       * [Asynchronous Actions](handout/testing/redux/async-actions.md)
+       * [Simple Actions](handout/testing/redux/simple-actions.md)
+       * [Complex Actions](handout/testing/redux/complex-actions.md)
        * [Reducers](handout/testing/redux/reducers.md)
        * [After Thoughts](handout/testing/redux/after-thoughts.md)
 

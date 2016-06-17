@@ -1,76 +1,154 @@
 # Redux Actions
 
-Redux actions, generally should return a simple JSON object. This is because they should be serialized and replayable into the application state. Even if your actions need to return promises, the final dispatched action should remain a plain JSON object.
+Redux actions should generally be simple JSON objects. This is because
+they should be serializable and replayable into the application state. Even if
+your actions involve asynchronous logic, the final dispatched action should 
+remain a plain JSON object.
 
-Redux actions are generally where side-effects should happen, such as making API calls, or generating ID's. This is because when the final action gets dispatched to the reducers, we want to update the application state to reflect what has already happened.
+Redux actions creators are generally where side-effects should happen, such as
+making API calls, or generating IDs. This is because when the final action gets
+dispatched to the reducers, we want to update the application state to reflect
+what has already happened.
 
-Lets take a look at the actions that are used in this example. For now, lets just focus on the synchronous actions.
+Let's take a look at the actions that are used in this example. For now, let's
+just focus on some simple, synchronous actions.
 
 ## Synchronous Actions
 
+Most Redux apps have a set of functions, called 'action creators', that are
+used to set up and dispatch actions.
+
+In Angular 2, it's convenient to define 'action creator services' for your
+action creators to live in; these services can be injected into the components
+that need to dispatch the actions.
+
 __app/actions/counter-actions.ts__
-```js
+```javascript
+import { Injectable } from '@angular/core';
+import { NgRedux } from 'ng2-redux';
+
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 
-export function increment() {
-  return {
-    type: INCREMENT_COUNTER
-  };
+@Injectable()
+export class CounterActions {
+  constructor(private redux: NgRedux<any>) {}
+
+  increment() {
+    this.redux.dispatch({ type: INCREMENT_COUNTER });
+  }
+
+  decrement() {
+    this.redux.dispatch({ type: DECREMENT_COUNTER });
+  }
 }
-
-export function decrement() {
-
-  return {
-    type: DECREMENT_COUNTER
-  };
-}
-
 ```
-[View Example](https://plnkr.co/edit/3LDKcqExYbm9sytjBzUe?p=preview)
 
-As you can see, the actions creators are simple functions that take parameters, and return a JSON object containing more information. The typical Redux action tends to contain the properties:
+As you can see, the actions creators are simple functions that (optionally)
+take parameters, and then dispatch a JSON object containing more information.
+
+The `dispatch` function expects to be called with something that conforms to
+the 'Action' interface from the redux library:
+
+```typescript
+import { Action } from 'redux';
+```
+
+This interface has the following properties:
 
 * **type**: a string/enum representing the action
-* **payload**: the data that you want to pass into the reducer if applicable
+* **payload?**: optional, the data that you want to pass into the reducer if applicable
 * **error?** : optional, indicates if this message is due to an error
 * **metaData?** : optional - any extra information
 
-When using Redux, libraries like ng2-redux will take care of wrapping your actions into the dispatch so they will get passed off to the store appropriately.
-
 ## Asynchronous Actions
 
-To do async operations, or have actions that return something other than a plain JSON object, you need to register a middleware with redux. For our examples, we can use the `thunk` middleware, and setting this up is covered later in the training. For now, all you need to know is that once you register a middleware with redux, you can make `dispatch` and `getState` available to your actions. To show how these are used, lets take a look at the `incrementIfOdd` and `increaseAsync` actions.
+This 'ActionCreatorService' pattern comes in handy if you need to handle
+asynchronous or conditional actions (users of react-redux may recognize this
+pattern as analogous to redux-thunk in a dependency-injected world).
 
 __app/actions/counter-actions.ts__
-```js
-// ...
-export function incrementIfOdd() {
-  return (dispatch, getState) => {
-    const { counter } = getState();
+```typescript
+import { Injectable } from '@angular/core';
+import { NgRedux } from 'ng2-redux';
 
-    if (counter % 2 === 0) {
-      return;
-    }
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 
-    dispatch(increment());
+@Injectable()
+export class CounterActions {
+  constructor(private redux: NgRedux<any>) {}
+
+  // ...
+
+  incrementIfOdd() {
+    const { counter } = this.redux.getState();
+
+    if (counter % 2 === 0) return;
+    this.redux.dispatch({ type: INCREMENT_COUNTER });
+  }
+
+  incrementAsync(timeInMs = 1000) {
+    this.delay(timeInMs).then(() => this.redux.dispatch({ type: INCREMENT_COUNTER }));
+  }
+
+  private delay(timeInMs) {
+    return new Promise((resolve,reject) => {
+      setTimeout(() => resolve() , timeInMs);
+    });
+  }
+}
+```
+
+In the `incrementIfOdd` action, we are making use of the `getState` function to
+get the current state of the application.
+
+In the `incrementAsync` action, we are delaying the actual call to `dispatch`.
+For example, we have created a Promise that will resolve after the delay. Once
+the Promise resolves, we can then do a dispatch with the increase action.
+
+[View Example](https://plnkr.co/edit/Ck0SngT4GKWVdv4MSevs?p=preview)
+
+## Actions that Depend on Other Services
+
+The ActionCreatorService pattern becomes necessary in cases where your action
+creators need to make use of other Angular 2 services. Consider the following
+ActionCreatorService that handles a remote API call:
+
+```typescript
+import { Injectable } from '@angular/core';
+import { NgRedux } from 'ng2-redux';
+import { AuthService } from '../services/auth/';
+
+@Injectable()
+export class SessionActions {
+  static LOGIN_USER_PENDING = 'LOGIN_USER_PENDING';
+  static LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
+  static LOGIN_USER_ERROR = 'LOGIN_USER_ERROR';
+  static LOGOUT_USER = 'LOGOUT_USER';
+
+  constructor(
+    private ngRedux: NgRedux<any>,
+    private authService: AuthService) {}
+
+  loginUser(credentials) {
+    const username = credentials.username;
+    const password = credentials.password;
+
+    this.ngRedux.dispatch({ type: SessionActions.LOGIN_USER_PENDING });
+
+    this.authService.login(username, password)
+      .then(result => this.ngRedux.dispatch({
+          type: SessionActions.LOGIN_USER_SUCCESS,
+          payload: result
+      }))
+      .catch(() => this.ngRedux.dispatch({
+        type: SessionActions.LOGIN_USER_ERROR
+      }));
   };
-}
 
-const delay = (timeInMs) => {
-  return new Promise((resolve,reject) => {
-    setTimeout(() => resolve() , timeInMs);
-  });
-}
-
-export function incrementAsync(timeInMs = 1000) {
-  return dispatch => {
-    delay(timeInMs).then(() => dispatch(increment()));
+  logoutUser = () => {
+    this.ngRedux.dispatch({ type: SessionActions.LOGOUT_USER });
   };
 }
 ```
-[View Example](https://plnkr.co/edit/3LDKcqExYbm9sytjBzUe?p=preview)
-
-In the `incrementIfOdd` action, we are making use of the getState function to get the current state of the application.
-
-In the `incrementAsync` action, we are making use of dispatch. For example, we have created a Promise that will resolve after the delay. Once the Promise resolves, we can then do a dispatch with the increase action. However, this promise could also be an API call, with the dispatched action containing the result of the API call.

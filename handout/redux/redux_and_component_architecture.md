@@ -1,12 +1,17 @@
 # Redux and Component Architecture
 
- In the above example, our `counter` component is a smart component. It knows about redux, the structure of the state, and the actions it needs to call. While in theory you can drop this component into any area of your application and have it just work. But, it will be tightly bound to that specific slice of state, and those specific actions. For example, what if we wanted to have multiple counters tracking different things on the page? For example, counting the number of red clicks vs blue clicks.
+In the above example, our `counter` component is a smart component. It knows
+about redux, the structure of the state, and the actions it needs to call. In
+theory you can drop this component into any area of your application and have it
+just work. But it will be tightly bound to that specific slice of state, and
+those specific actions. For example, what if we wanted to have multiple counters
+tracking different things on the page? For example, counting the number of red
+clicks vs blue clicks.
 
+To help make components more generic and reusable, it's worth trying to separate
+them into 'container' components and 'presentational' components.
 
- To help make components more generic and reusable, it is worth considering smart component, or container components - and dumb components.
-
-
- <table>
+<table>
     <thead>
         <tr>
             <th></th>
@@ -28,228 +33,150 @@
         <tr>
           <th scope="row" style="text-align:right">To read data</th>
           <td>Subscribe to Redux state</td>
-          <td>Read data from props</td>
+          <td>Read state from @Input properties</td>
         </tr>
         <tr>
           <th scope="row" style="text-align:right">To change data</th>
           <td>Dispatch Redux actions</td>
-          <td>Invoke callbacks from props</td>
+          <td>Invoke callbacks from @Output properties</td>
         </tr>
     </tbody>
 </table>
 
 [redux docs](http://redux.js.org/docs/basics/UsageWithReact.html)
 
- Keeping this in mind, lets refactor our `counter` to be a **dumb/presentational** component.  First, lets modify our `app-container` to have two counter components on it as we currently have it.
+ Keeping this in mind, let's refactor our `counter` to be a **presentational**
+ component.  First, let's modify our `app-container` to have two counter
+ components on it as we currently have it.
 
 ```javascript
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {Counter} from '../components/counter-component';
+import { Component } from '@angular/core';
+import { Counter } from '../components/counter-component';
 
 @Component({
-	selector: 'simple-redux',
-	directives: [Counter]
-	template: `<div>
-	<h1>Simple Redux</h1>
-<div style="float: left; border: 1px solid red;">
-<h2>Click Counter</h2>
-	<counter>
-  </counter>
-</div>
-<div style="float: left; border: 1px solid blue;">
-<h2>Curse Counter</h2>
-	<counter>
-  </counter>
-</div>
-	`
+  selector: 'simple-redux',
+  directives: [ Counter ]
+  template: `
+    <div>
+      <h1>Redux: Two components, one state.</h1>
+      <div style="float: left; border: 1px solid red;">
+        <h2>Click Counter</h2>
+        <counter>
+        </counter>
+      </div>
+      <div style="float: left; border: 1px solid blue;">
+        <h2>Curse Counter</h2>
+        <counter>
+        </counter>
+      </div>
+    </div>
+  `
 })
-
-export class SimpleRedux {
-
-}
+export class SimpleRedux {}
 ```
-[View Example](https://plnkr.co/edit/HT7JhwXA8nHSBolbtOVv?p=preview)
+[View Example](https://plnkr.co/edit/VNNeYwHjucdlMIIA92US?p=preview)
 
 As you can see in the example, when clicking on the buttons - the numbers in both components will update in sync. This is because counter component is coupled to a specific piece of state, and action.
 
-Looking at the example, you can see that there is already an __app/reducers/curse-reducer.ts__, and __app/actions-curse-actions.ts__, this is pretty much the same as the counter actions and counter reducer, we just wanted to create a new reducer to hold the state of it.
+Looking at the example, you can see that there is already an __app/reducers/curse-reducer.ts__, and __app/actions-curse-actions.ts__. They are pretty much the same as the counter actions and counter reducer, we just wanted to create a new reducer to hold the state of it.
 
-To turn the counter component from a smart component into a dumb component, we need to change it to have data and callbacks passed down into it. For this, we will pass the properties into the component, as well as remove the body of the counter class, as it no longer needs to be aware about redux.
+To turn the counter component from a smart component into a dumb component, we need to change it to have data and callbacks passed down into it. For this, we will pass the data
+into the component using `@Input` properties, and the action callbacks as
+`@Output` properties.
+
+We now have a nicely-reusable presentational component with no knowledge of
+Redux or our application state.
 
 __app/components/counter-component.ts__
 ```javascript
-import {Componentt} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'counter',
-  properties: [`counter`, `increment`, `decrement`,`incrementIfOdd`,`incrementAsync`],
   template: `
   <p>
-    Clicked: {{ counter }} times
-    <button (click)="increment()">+</button>
-    <button (click)="decrement()">-</button>
-    <button (click)="incrementIfOdd()">Increment if odd</button>
-    <button (click)="incrementAsync()">Increment async</button>
+    Clicked: {{ counter$ | async }} times
+    <button (click)="increment.emit()">+</button>
+    <button (click)="decrement.emit()">-</button>
+    <button (click)="incrementIfOdd.emit()">Increment if odd</button>
+    <button (click)="incrementAsync.emit()">Increment async</button>
   </p>
   `
 })
 export class Counter {
-
+  @Input() counter$: Observable<number>;
+  @Output() increment = new EventEmitter<void>();
+  @Output() decrement = new EventEmitter<void>();
+  @Output() incrementIfOdd = new EventEmitter<void>();
+  @Output() incrementAsync = new EventEmitter<void>();
 }
 ```
 
-Next, lets modify the main app container to pass down the appropriate data to each component.
+Next, let's modify the main app container to hook up these inputs and outputs
+to the template.
 
 `@Component`
 __app/src/containers/app-containter.ts__
-```javascript
+```typescript
 @Component({
-	selector: 'simple-redux',
-	directives: [Counter]
-	template: `<div>
-	<h1>Redux: Dumb Counter</h1>
-<div style="float: left; border: 1px solid red;">
-<h2>Click Counter</h2>
- <counter [counter]="counter"
-    [increment]="increment"
-    [decrement]="decrement"
-    [incrementIfOdd]="incrementIfOdd"
-    [incrementAsync]="incrementAsync">
-  </counter>
-
-</div>
-<div style="float: left; border: 1px solid blue;">
-<h2>Curse Counter</h2>
- <counter [counter]="curse"
-    [increment]="castCurse"
-    [decrement]="removeCurse"
-    [incrementIfOdd]="castIfOdd"
-    [incrementAsync]="castAsync">
-  </counter>
-</div>
+  selector: 'simple-redux',
+  providers: [ CounterActions, CurseActions ],
+  directives: [ Counter ],
+  template: `
+  <div>
+    <h1>Redux: Presentational Counters</h1>
+    <div style="float: left; border: 1px solid red;">
+      <h2>Click Counter</h2>
+      <counter [counter$]="counter$"
+          (increment)="counterActions.increment()"
+          (decrement)="counterActions.decrement()"
+          (incrementIfOdd)="counterActions.incrementIfOdd()"
+          (incrementAsync)="counterActions.incrementAsync()">
+      </counter>
+    </div>
+    <div style="float: left; border: 1px solid blue;">
+      <h2>Curse Counter</h2>
+      <counter [counter]="curse$"
+          (increment)="curseActions.castCurse()"
+          (decrement)="curseActions.removeCurse()"
+          (incrementIfOdd)="curseActions.castIfOdd()"
+          (incrementAsync)="curseActions.castAsync()">
+      </counter>
+    </div>
+  </div>
 	`
 })
 ```
 
-Here, we are now explicitly passing in the data and callbacks that each of these components needs to use. Next, we update the container class so that we can use ngRedux to get the correct sections of state, and actions to pass into the counter component.
+At this point, the template is attempting to call actions on our two
+ActionCreatorServices, `CounterActions` and `CurseActions`; we just need to hook
+those up using Dependency Injection:
 
 __app/src/containers/app-container.ts__
-```javascript
-import {Component, View, Inject, OnDestroy, OnInit} from '@angular/core';
-import {Counter} from '../components/counter-component';
-import {bindActionCreators} from 'redux';
-import * as CounterActions from '../actions/counter-actions';
-import * as CurseActions from '../actions/curse-actions';
+```typescript
+import { Component, View, Inject, OnDestroy, OnInit } from '@angular/core';
+import { select } from 'ng2-redux';
+import { Counter } from '../components/counter-component';
+import { CounterActions } from '../actions/counter-actions';
+import { CurseActions } from '../actions/curse-actions';
 
 @Component({ /* see above .... */})
 export class SimpleRedux {
-  protected unsubscribe: Function;
+  @select() counter$: Observable<number>;
+  @select() curse$: Observable<number>;
 
-  constructor( @Inject('ngRedux') private ngRedux) {
-
-  }
-
-  ngOnInit() {
-    this.unsubscribe = this.ngRedux.connect(
-      this.mapStateToThis,
-      this.mapDispatchToThis)(this);
-  }
-
-  ngOnDestroy() {
-    this.unsubscribe();
-  }
-
-  mapStateToThis(state) {
-    return { counter, curse } = state;
-  }
-
-  mapDispatchToThis(dispatch) {
-    let actions = Object.assign({},CounterActions, CurseActions);
-    return bindActionCreators(actions, dispatch);
-  }
+  constructor(
+    private counterActions: CounterActions,
+    private curseActions: CurseActions,
+    redux: NgRedux) {
+      const initialState = {};
+      const middleware = [ logger ];
+      redux.configureStore(reducer, initialState, middleware);
+    }
 }
 ```
-[View Example](https://plnkr.co/edit/d4JVZfCW9YfbWPKyKAc5?p=preview)
+[View Example](https://plnkr.co/edit/m910XrXyFrUty2nXUJ1q?p=preview)
 
-Since we are getting actions from both `CounterActions` and `CurseActions`, we are merging them into one object to be bound onto the SimpleRedux class. Depending on how the components are being used, and how generic they need to be. You could potentially create a container component for each one of your dumb components, although this might not always be required. But, for sake of this example - lets do one last refactor of this counter component, and create a `ClickContainer`, and a `CurseContainer`.
-
-__app/containers/curse-container.ts__
-```javascript
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {Counter} from '../components/counter-component';
-import {bindActionCreators} from 'redux';
-import * as CurseActions from '../actions/curse-actions';
-
-@Component({
-	selector: 'curse-counter',
-	directives: [Counter]
-	template: `
-
-<div style="float: left; border: 1px solid blue;">
-<h2>Curse Counter</h2>
- <counter [counter]="curse"
-    [increment]="castCurse"
-    [decrement]="removeCurse"
-    [incrementIfOdd]="castIfOdd"
-    [incrementAsync]="castAsync">
-  </counter>
-</div>
-	`
-})
-
-export class CurseContainer {
-  protected unsubscribe: Function;
-
-  constructor( @Inject('ngRedux') private ngRedux) {
-
-  }
-
-  ngOnInit() {
-    this.unsubscribe = this.ngRedux.connect(
-      this.mapStateToThis,
-      this.mapDispatchToThis)(this);
-  }
-
-  ngOnDestroy() {
-    this.unsubscribe();
-  }
-
-  mapStateToThis(state) {
-    return { curse } = state;
-  }
-
-  mapDispatchToThis(dispatch) {
-
-
-    return bindActionCreators(CurseActions, dispatch);
-  }
-}
-```
-
- The __app/containers/click-container.ts__ is almost the same, except importing click actions and state. Then, we can update the application container.
-
- __app/containers/app-container.ts__
-```javascript
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {ClickContainer} from './click-container.ts';
-import {CurseContainer} from './curse-container.ts';
-
-@Component({
-	selector: 'simple-redux',
-	directives: [CurseContainer, ClickContainer]
-	template: `<div>
-	<h1>Redux: Dumb Counter</h1>
-  <click-counter></click-counter>
-  <curse-counter></curse-counter>
-  <curse-counter></curse-counter>
-</div>
-
-	`
-})
- export class SimpleRedux {
-
-}
- ```
- [View Example](https://plnkr.co/edit/s2HlIydWuzDGk4jlmsuw?p=preview)
-
- Creating a smart container for every component may not always be necessary as a larger part of your application could be acting as the smart container as it did in the initial example.
+Our two Observables, `counter$` and `curse$` will now get updated with a new
+value every time the relevant store properties are updated by the rest of the
+system.

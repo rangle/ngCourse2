@@ -1,73 +1,75 @@
 # Using Redux with Components
 
-When using ng2-redux, to connect it up with your angular components you need to use the `ngRedux.connect`. To demonstrate how this works, lets take a look at a small counter example.
- 
+We will use the
+[select pattern](https://github.com/angular-redux/ng2-redux#the-select-pattern)
+from ng2-redux to bind our components to the store. To demonstrate how this
+works, let's take a look at a small example with a counter component.
+
 ## Counter Example
- 
- To see how `ng2-redux` works with Angular 2, lets start by building out a counter component. The component will be responsible for keeping track of how many times it was clicked, and displaying the amount.
- 
- __app/components/counter-component.ts__
+
+Let's start by building out a counter component. The component will be
+responsible for keeping track of how many times it was clicked, and displaying
+that amount.
+
+__app/components/counter-component.ts__
 
 ```javascript
-import {Component, View, Inject} from '@angular/core';
-import {bindActionCreators} from 'redux';
-import * as CounterActions from '../actions/counter-actions';
+import { Component } from '@angular/core';
+import { select } from 'ng2-redux';
+import { CounterActions } from '../actions/counter-actions';
+
 @Component({
   selector: 'counter',
-  properties: [],
+  providers: [ CounterActions ],
   template: `
   <p>
-    Clicked: {{ counter }} times
-    <button (click)="increment()">+</button>
-    <button (click)="decrement()">-</button>
-    <button (click)="incrementIfOdd()">Increment if odd</button>
-    <button (click)="incrementAsync()">Increment async</button>
+    Clicked: {{ counter$ | async }} times
+    <button (click)="actions.increment()">+</button>
+    <button (click)="actions.decrement()">-</button>
+    <button (click)="actions.incrementIfOdd()">Increment if odd</button>
+    <button (click)="actions.incrementAsync()">Increment async</button>
   </p>
   `
 })
 export class Counter {
-   protected unsubscribe: Function;
+  @select() counter$: Observable<number>;
 
-  constructor( @Inject('ngRedux') private ngRedux) {
-
-  }
-
-  ngOnInit() {
-    
-    this.unsubscribe = this.ngRedux.connect(
-      this.mapStateToThis,
-      this.mapDispatchToThis)(this);
-  }
-
-  ngOnDestroy() {
-    this.unsubscribe();
-  }
-
-  mapStateToThis(state) {
-    
-    return {
-      counter: state.counter
-    };
-  }
-
-  mapDispatchToThis(dispatch) {
-    return bindActionCreators(CounterActions, dispatch);
-  }
+  constructor(private actions: CounterActions) {}
 }
- 
- ```
- [View Example](https://plnkr.co/edit/TtGfUm3go88kO7hhCVww?p=preview)
- 
- The template syntax should be familiar by now, displaying a counter value, and handling some click events. Lets take a look at the use of `ngRedux.connect`.
- 
-* `mapStateToTarget` \(*Function*): connect will subscribe to Redux store updates. Any time it updates, mapStateToTarget will be called. Its result must be a plain object, and it will be merged into `target`. If you have a component which simply triggers actions without needing any state you can pass null to `mapStateToTarget`.
-* [`mapDispatchToTarget`] \(*Object* or *Function*): Optional. If an object is passed, each function inside it will be assumed to be a Redux action creator. An object with the same function names, but bound to a Redux store, will be merged onto `target`. If a function is passed, it will be given `dispatch`. It’s up to you to return an object that somehow uses `dispatch` to bind action creators in your own way. (Tip: you may use the [`bindActionCreators()`](http://gaearon.github.io/redux/docs/api/bindActionCreators.html) helper from Redux.).
+```
 
-*You then need to invoke the function a second time, with `target` as parameter:*
-* `target` \(*Object* or *Function*): If passed an object, the results of `mapStateToTarget` and `mapDispatchToTarget` will be merged onto it. If passed a function, the function will receive the results of `mapStateToTarget` and `mapDispatchToTarget` as parameters.
- [ng2-redux docs](https://github.com/wbuchwalter/ng2-redux/blob/master/README.md#arguments-1)
- 
- In our above example, our `mapStateToThis` function, is getting the property `counter` from the state, and assigning it to the class. The mapDispatchToThis, is taking all of the exported functions from `CounterActions`, and adding them to the Counter class, so `increment`, `decrement`, `incrementIfOdd`, and `incrementAsync` are available.
- 
- 
- 
+[View Example](https://plnkr.co/edit/NmxQEawemZsdrmj3LT9C?p=preview)
+
+The template syntax should be familiar by now, displaying a observable counter
+with the 'async' pipe, and handling some click events.
+
+In this case, the click events are bound to expressions that call our action
+creators from the `CounterActions` ActionCreatorService.
+
+Let's take a look at the use of `@select`.
+
+`@select` is a feature of ng2-redux which is designed to help you attach your
+store's state to your components in a declarative way. You can attach it to a
+property of your component class and Ng2-Redux will create an
+Observable and bind it to that property for you.
+
+In this case, `@select` has no parameters, so Ng2-Redux will look for a store
+property with the same name as the class variable. It omits the trailing `$`
+since that's simply a naming convention for Observables.
+
+So now, any time `store.counter` is updated by a reducer, `counter$` will
+receive the new value and `| async` will update it in the template.
+
+Note that `@select` supports a wide range of arguments to allow you to select
+portions of your Redux store with a great deal of flexibility. See the
+[Ng2-Redux](https://github.com/angular-redux/ng2-redux#the-select-pattern) docs
+for more details.
+
+The Ng2-Redux 'connect pattern' style differs a bit from the 'connect'
+style used by `react-redux`; however by using Angular 2's DI and TypeScript's
+decorators, we can have a nicely declarative binding where most of the work is
+done in the template. We also get the power of Observables and
+`OnPush` change detection for better performance.
+
+Either way, we still benefit the Redux fundamentals of reducers and one-way
+data-flow.
