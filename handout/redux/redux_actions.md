@@ -27,19 +27,19 @@ __app/actions/counter-actions.ts__
 import { Injectable } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
 
-@Injectable
-export class CounterActions {
-  private static INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-  private static DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 
+@Injectable()
+export class CounterActions {
   constructor(private redux: NgRedux<any>) {}
 
   increment() {
-    this.redux.dispatch({ type: CounterActions.INCREMENT_COUNTER });
+    this.redux.dispatch({ type: INCREMENT_COUNTER });
   }
 
   decrement() {
-    this.redux.dispatch({ type: CounterActions.DECREMENT_COUNTER });
+    this.redux.dispatch({ type: DECREMENT_COUNTER });
   }
 }
 ```
