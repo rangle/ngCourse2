@@ -1,13 +1,13 @@
 # Using Redux with Components
 
-We will use the 
+We will use the
 [select pattern](https://github.com/angular-redux/ng2-redux#the-select-pattern)
 from ng2-redux to bind our components to the store. To demonstrate how this
 works, let's take a look at a small example with a counter component.
 
 ## Counter Example
 
-Let's start by building out a counter component. The component will be 
+Let's start by building out a counter component. The component will be
 responsible for keeping track of how many times it was clicked, and displaying
 that amount.
 
@@ -38,7 +38,7 @@ export class Counter {
 }
 ```
 
-[View Example](https://plnkr.co/edit/FRtM0fKZT6LNqBSpDQpk?p=preview)
+[View Example](https://plnkr.co/edit/NmxQEawemZsdrmj3LT9C?p=preview)
 
 The template syntax should be familiar by now, displaying a observable counter
 with the 'async' pipe, and handling some click events.
@@ -68,7 +68,7 @@ for more details.
 The Ng2-Redux 'connect pattern' style differs a bit from the 'connect'
 style used by `react-redux`; however by using Angular 2's DI and TypeScript's
 decorators, we can have a nicely declarative binding where most of the work is
-done in the template. We also get the power of Observables and 
+done in the template. We also get the power of Observables and
 `OnPush` change detection for better performance.
 
 Either way, we still benefit the Redux fundamentals of reducers and one-way

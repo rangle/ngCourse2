@@ -74,7 +74,7 @@ import { Counter } from '../components/counter-component';
 })
 export class SimpleRedux {}
 ```
-[View Example](https://plnkr.co/edit/cpPbZvr3FajuiG8GvyoV?p=preview)
+[View Example](https://plnkr.co/edit/VNNeYwHjucdlMIIA92US?p=preview)
 
 As you can see in the example, when clicking on the buttons - the numbers in both components will update in sync. This is because counter component is coupled to a specific piece of state, and action.
 
@@ -175,7 +175,7 @@ export class SimpleRedux {
     }
 }
 ```
-[View Example](https://plnkr.co/edit/d1IzUPYELyhpSK3O65zy?p=preview)
+[View Example](https://plnkr.co/edit/m910XrXyFrUty2nXUJ1q?p=preview)
 
 Our two Observables, `counter$` and `curse$` will now get updated with a new
 value every time the relevant store properties are updated by the rest of the
