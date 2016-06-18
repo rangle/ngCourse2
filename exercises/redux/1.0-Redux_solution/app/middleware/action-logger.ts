@@ -1,10 +1,9 @@
 declare let __DEV__: any;
 __DEV__ = true;
-import {Iterable} from 'immutable';
+import { Iterable } from 'immutable';
 import createLogger from 'redux-logger';
 
-
-const logger = createLogger({
+export const actionLogger = createLogger({
     level: 'info',
     collapsed: true,
     predicate: (getState, action) => __DEV__ === true,
@@ -20,5 +19,3 @@ const logger = createLogger({
         return newState;
     }
 });
-
-export default logger;

@@ -1,8 +1,9 @@
-import {fromJS} from 'immutable';
-import  {SKILL_UPDATED} from '../actions/people-actions';
+import { Map, fromJS } from 'immutable';
+import { SKILL_UPDATED } from '../actions/people-actions';
+
 const INITIAL_STATE = fromJS([
   {
-    name: 'Elenor',
+    name: 'Eleanor',
     skills: [{name: 'JavaScript', level: 4 },
       { name: 'HTML', level: 3 },
       { name: 'CSS', level: 2 },
@@ -36,16 +37,16 @@ let getSkillIndex = (state, personIndex, skillName) => {
 
 let buildKeyPath = (state, { person, skillName }) => {
   const personIndex = getPersonIndex(state, person);
-  const skillIndex = getSkillIndex(state,personIndex, skillName);  
-  return [personIndex,'skills',skillIndex,'level']; 
+  const skillIndex = getSkillIndex(state,personIndex, skillName);
+  return [personIndex,'skills',skillIndex,'level'];
 }
 
 export default function skillsReducer(state=INITIAL_STATE, action) {
-    switch(action.type) {
-      case SKILL_UPDATED: 
-        const keyPath = buildKeyPath(state, action.payload);
-        return state.setIn(keyPath,action.payload.skillLevel);
-       default:
-        return state;
-    }
+  switch(action.type) {
+    case SKILL_UPDATED:
+      const keyPath = buildKeyPath(state, action.payload);
+      return state.setIn(keyPath, action.payload.skillLevel);
+   default:
+      return state;
+  }
 }
