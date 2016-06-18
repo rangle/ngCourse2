@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router-deprecated';
 import {
-  FORM_BINDINGS,
+  FORM_PROVIDERS,
   FORM_DIRECTIVES,
   ControlGroup,
   FormBuilder,
@@ -13,7 +13,7 @@ const TEMPLATE = require('./login.html');
 @Component({
   selector: 'login',
   directives: [FORM_DIRECTIVES],
-  viewProviders: [FORM_BINDINGS],
+  viewProviders: [FORM_PROVIDERS],
   template: TEMPLATE
 })
 export default class LoginComponent {

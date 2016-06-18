@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {RouterLink} from '@angular/router-deprecated';
 import {
-  FORM_BINDINGS,
+  FORM_PROVIDERS,
   FORM_DIRECTIVES,
   ControlGroup,
   FormBuilder,
@@ -13,7 +13,7 @@ const TEMPLATE = require('./task-add.html');
 @Component({
   selector: 'ngc-task-add',
   directives: [RouterLink, FORM_DIRECTIVES],
-  viewBindings: [FORM_BINDINGS],
+  viewProviders: [FORM_PROVIDERS],
   template: TEMPLATE
 })
 export default class TaskAdd {
