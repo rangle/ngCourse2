@@ -5,7 +5,7 @@ import {
   ROUTER_DIRECTIVES
 } from '@angular/router-deprecated';
 import {
-  FORM_BINDINGS,
+  FORM_PROVIDERS,
   FORM_DIRECTIVES,
   ControlGroup,
   FormBuilder,
@@ -17,7 +17,7 @@ const TEMPLATE = require('./task-edit.html');
 @Component({
   selector: 'ngc-task-edit',
   directives: [RouterLink, ROUTER_DIRECTIVES, FORM_DIRECTIVES],
-  viewBindings: [FORM_BINDINGS],
+  viewProviders: [FORM_PROVIDERS],
   template: TEMPLATE
 })
 export default class TaskEdit {
