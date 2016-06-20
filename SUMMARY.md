@@ -12,7 +12,7 @@
        * [Constants, and Block Scoped Variables](handout/features/constants,_and_block_scoped_variables.md)
        * [...spread, and ...rest](handout/features/spread_and_rest.md)
        * [Destructuring](handout/features/destructuring.md)
-       * [ES6 Modules](handout/features/es6_modules.md)
+       * [Modules](handout/features/es6_modules.md)
    * [TypeScript](handout/features/typescript.md)
        * [Getting Started With TypeScript](handout/features/getting_started_with_typescript.md)
        * [Working With `tsc`](handout/features/working_with_tsc.md)
