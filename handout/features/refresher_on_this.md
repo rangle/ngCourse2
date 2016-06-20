@@ -36,7 +36,7 @@ However, `this` can also refer to other things. There are two basic cases that y
 
    [View Example](http://jsbin.com/vekawimihe/2/edit?js,console)
 
-One of the implications of this is that you cannot easily detach a method from its object. Consider this example:
+One of the implications is that you cannot easily detach a method from its object. Consider this example:
 
 ```js
   var log = console.log;
