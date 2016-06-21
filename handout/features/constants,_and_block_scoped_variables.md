@@ -60,7 +60,7 @@ for(let x=0; x<5; x++) {
 ```
 
 Alternatively, `const` is read-only.  Once `const` has been assigned, the identifier cannot be
-reassigned; the value is [not immutable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
+reassigned; however the value itself is still [mutable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
 For example:
 
 ```js
