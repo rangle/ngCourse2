@@ -30,7 +30,7 @@
 
 ---
 
-* [Tooling](handout/tooling/README.md)
+* [The JavaScript Toolchain](handout/tooling/README.md)
    * [Source Control: git](handout/tooling/source_control.md)
    * [The Command Line](handout/tooling/the_command_line.md)
    * [Command Line JavaScript: NodeJS](handout/tooling/command_line_javascript.md)
