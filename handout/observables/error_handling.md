@@ -1,6 +1,6 @@
 # Error Handling
 
-If something unexpected arises we can raise an error on the Observable stream and use the function reserved for handling errors in our `subscribe` routine to see what happened.
+If something unexpected arises we can raise an error on the observable stream and use the function reserved for handling errors in our `subscribe` routine to see what happened.
 
 ```js
 export class App {
@@ -34,5 +34,7 @@ export class App {
 
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/jfVcLYsy5eOUsaCyaFkF/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
-Here an error is raised, and caught. One thing to take note of is if we included a `.complete()` after we raised the error this event will not actually fire. Therefore you should remember to include some call in your error handler that will turn off any visual loading states in your application. 
-
+Here an error is raised and caught. One thing to note is that if we included a `.complete()` 
+after we raised the error, this event will not actually fire. 
+Therefore you should remember to include some call in your error handler 
+that will turn off any visual loading states in your application. 
