@@ -1,12 +1,12 @@
 # Getting Started With TypeScript
 
-We can install the TypeScript transpiler using npm:
+Install the TypeScript transpiler using npm:
 
 ```shell
 $ npm install -g typescript
 ```
 
-We can then use `tsc` to manually compile a TypeScript source file into ES5:
+Then use `tsc` to manually compile a TypeScript source file into ES5:
 
 ```shell
 $ tsc test.ts
