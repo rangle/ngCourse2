@@ -1,7 +1,7 @@
 # Working With `tsc`
 
 So far `tsc` has been used to compile a single file.  Typically developers have
-a _lot_ more than one file to compile. Thankfully  `tsc` can handle multiple files as
+a lot more than one file to compile. Thankfully  `tsc` can handle multiple files as
 arguments.
 
 Imagine two ultra simple files/modules:
@@ -31,13 +31,10 @@ $ tsc --help | grep module
 
 ```
 
-TypeScript has more help than just what's shown, TypeScript's output has been
-filtered by `grep` for brevity.  There are two help entries that reference
-"module", and `--module` is the one TypeScript was complaining about.
-
-The description explains that TypeScript supports a number of different module
-schemes.  For the moment `commonjs` is desirable.  This will produce modules
-that are compatible with node.js's module system.
+(TypeScript has more help than what we've shown; we filtered by `grep` for brevity.)  
+There are two help entries that reference "module", and `--module` is the one TypeScript was complaining about. 
+The description explains that TypeScript supports a number of different module schemes. 
+For the moment `commonjs` is desirable. This will produce modules that are compatible with node.js's module system.
 
 ```shell
 $ tsc -m commonjs ./a.ts ./b.ts
@@ -52,7 +49,7 @@ $ ls
 a.js	a.ts	b.js	b.ts
 ```
 
-Excellent there are now two JavaScript modules ready for consumption
+Excellent - there are now two JavaScript modules ready for consumption.
 
 Telling the `tsc` command what to compile becomes tedious, and labour intensive
 even on small projects.  Fortunately TypeScript has a means of simplifying this.
@@ -87,7 +84,7 @@ The compilation target. Typescript supports targeting different platforms depend
 
 #### Module
 
-The target module resolution interface. We're integrating TypeScript through webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
+The target module resolution interface. We're integrating TypeScript through Webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
 
 #### Decorators
 
