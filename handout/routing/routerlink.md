@@ -31,7 +31,7 @@ If we want to define routes with parameters we need to pass the specific paramet
 ```
 [View Example](https://plnkr.co/edit/kooqJGsKNQUgPbxYX1VC?p=preview)
 
-We will cover accessing the `RouteParams` in your component later in the [RouteParams](#routeparams) section.
+We will cover accessing the `RouteParams` in your component later in the [RouteParams](./routeparams.md) section.
 
 Routes should be prepended with `/`, `./`, or `../`.  How you prefix the routes will impact how and where Angular 2 looks to find the component and routing information.
 
