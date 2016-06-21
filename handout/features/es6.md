@@ -1,13 +1,13 @@
 # ES6
 
-JavaScript was written by Brendan Eich during a ten day stretch in the nineteen ninties. More than twenty years later, the language is thriving.  There are subsets, supersets, current versions, and an upcoming version.  ES6 is that
-upcoming version, and it brings a lot of new features.
+JavaScript was created in 1995, but the language is still thriving today. There are subsets, supersets, current versions, and an upcoming version, ES6, that brings a lot of new features.
 
 Some of the highlights:
 
 - Classes
-- Template Strings
 - Arrow Functions
+- Template Strings
+- Inheritance
 - Constants and Block Scoped Variables
 - ...spread and ...rest
 - Destructuring
