@@ -2,10 +2,8 @@
 
 One common misconception about TypeScript's types are that code needs to 
 explicitly describe types at every possible opportunity.  Fortunately this is
-_not_ the case.  TypeScript has a rich type inference system that will "fill in
-the blanks" for the developer;
-
-Consider the following:
+not the case.  TypeScript has a rich type inference system that will "fill in
+the blanks" for the programmer. Consider the following:
 
 type-inference-finds-error.ts
 ```js
@@ -19,12 +17,12 @@ type-inference-finds-error.ts(2,1): error TS2322: Type 'string[]' is not assigna
   Type 'string' is not assignable to type 'number'.
 ```
 
-The code contains exactly _zero_ extra type information.  In fact, it's valid
-ES6.  If `var` had been used, it would be valid ES5.  Yet TypeScript is still
+The code contains no extra type information.  In fact, it's valid ES6.  
+If `var` had been used, it would be valid ES5.  Yet TypeScript is still
 able to determine type information.
 
-Type inference can also work through context, which is handy with callbacks,
-imagine the following:
+Type inference can also work through context, which is handy with callbacks. 
+Consider the following:
 
 type-inference-finds-error-2.ts
 ```js
@@ -57,5 +55,5 @@ type-inference-finds-error-2.ts(14,1): error TS2322: Type '(a: number) => void' 
 
 In this example the context is not obvious since the interfaces have been
 defined explicitly.  In a browser environment with a real `window` object, this
-would be quite a handy feature.  Especially type completion of the `Event`
+would be a handy feature, especially the type completion of the `Event`
 object.
