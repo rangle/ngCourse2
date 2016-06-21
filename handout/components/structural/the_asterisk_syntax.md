@@ -14,4 +14,4 @@ Which can be simplified using the * syntax:
 <div *ngIf="hero">{{ hero }}</div>
 ```
 
-For more info see: [angular.io/guide/template-syntax/star-template](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#star-template)
+For more information see: [angular.io/guide/template-syntax/star-template](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#star-template)
