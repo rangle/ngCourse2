@@ -58,7 +58,7 @@
        * [Iteration with `ngFor`](handout/components/structural/iteration_with_ng_for.md)
        * [Change Propagation](handout/components/structural/change_propagation.md)
    * [Projection](handout/components/projection.md)
-   * [Structuring Applications](handout/components/structuring_applications_with_components.md)
+   * [Structuring Applications with Components](handout/components/structuring_applications_with_components.md)
 
 ---
 
