@@ -7,14 +7,13 @@ and `{}`s.
 For example:
 
 ```js
-
 const add = (a, b) => a + b;
 let args = [3, 5];
 add(...args); // same as `add(args[0], args[1])`, or `add.apply(null, args)`
 ```
 
 Functions aren't the only place in JavaScript that makes use of comma separated
-lists. `[]`s can now be concatenated with ease:
+lists - `[]`s can now be concatenated with ease:
 
 ```js
 let cde = ['c', 'd', 'e'];
@@ -30,9 +29,7 @@ let mapABCD = { ...mapABC, d: 7}; // { a: 5, b: 6, c: 3, d: 7 }
 
 ...rest arguments share the ellipsis like syntax of rest operators but are used
 for a different purpose.  ...rest arguments are used to access a variable number
-of arguments passed to a function.
-
-For example:
+of arguments passed to a function. For example:
 
 ```js
 function addSimple(a, b) {
@@ -56,12 +53,11 @@ Technically JavaScript already had an `arguments` variable set on each function
 (except for arrow functions), however `arguments` has a lot of issues, one of
 which is the fact that it is not technically an array.
 
-...rest arguments are in fact arrays.  The other important difference is that
+...rest arguments are in fact arrays. The other important difference is that
 rest arguments only include arguments not specifically named in a function
 like so:
 
 ```js
-
 function print(a, b, c, ...more) {
   console.log(more[0]);
   console.log(arguments[0]);
