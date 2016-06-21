@@ -1,4 +1,4 @@
-# TypeScript classes
+# TypeScript Classes
 
 TypeScript also treats `class`es as their own type:
 
@@ -25,4 +25,4 @@ class Person {
 ```
 
 In the above example, an instance of `Person` is guaranteed to have a `name`,
-and might _optionally_ have a `nickName`
+and might optionally have a `nickName`
