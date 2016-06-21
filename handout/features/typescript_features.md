@@ -52,7 +52,7 @@ a `showMessage` function. In this function the parameters have specific types
 that are checked when `tsc` is run.
 
 In many JavaScript functions it's quite common for functions to take optional
-parameters. TypeScript provides support for this like so:
+parameters. TypeScript provides support for this, like so:
 
 ```ts
 function logMessage(message: string, isDebug?: boolean) {
