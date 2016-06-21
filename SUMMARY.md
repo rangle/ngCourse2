@@ -74,11 +74,11 @@
    * [Using Observables](handout/observables/using_observables.md)
    * [Error Handling](handout/observables/error_handling.md)
    * [Disposing Subscriptions and Releasing Resources](handout/observables/disposing_subscriptions_and_releasing_resources.md)
-   * [Observables vs. Promises](handout/observables/observables_vs_promises.md)
+   * [Observables vs Promises](handout/observables/observables_vs_promises.md)
    * [Using Observables From Other Sources](handout/observables/using_observables_from_other_sources.md)
    * [Observables Array Operations](handout/observables/observables_array_operations.md)
    * [Combining Streams with flatMap](handout/observables/combining_streams_with_flatmap.md)
-   * [Cold vs. Hot Observables](handout/observables/cold_vs_hot_observables.md)
+   * [Cold vs Hot Observables](handout/observables/cold_vs_hot_observables.md)
    * [Summary](handout/observables/summary.md)
 
 ---
