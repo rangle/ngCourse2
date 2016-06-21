@@ -7,16 +7,14 @@ to run in most browsers.
 
 One of TypeScript's primary features is the addition of type information, hence
 the name.  This type information can help make JavaScript programs more
-predictable, and easier to reason about. 
+predictable and easier to reason about. 
 
-Types let programmers write more explicit "contracts", in other words, things 
-like function signatures are more explicit.  This is true for both humans, and 
-the TypeScript compiler.
+Types let developers write more explicit "contracts". In other words, things 
+like function signatures are more explicit. 
 
 Without TS:
 
 ```js
-
 function add(a, b) {
   return a + b;
 }
@@ -28,7 +26,6 @@ add(1, '3'); // '13'
 With TS:
 
 ```js
-
 function add(a: number, b: number) {
   return a + b;
 }
