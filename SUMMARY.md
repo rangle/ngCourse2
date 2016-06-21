@@ -40,7 +40,7 @@
 
 ---
 
-* [Bootstrapping](handout/bootstrapping/README.md)
+* [Bootstrapping an Angular 2 Application](handout/bootstrapping/README.md)
    * [File structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
    * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
