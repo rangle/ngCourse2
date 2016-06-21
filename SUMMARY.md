@@ -47,7 +47,7 @@
 
 ---
 
-* [Components](handout/components/README.md)
+* [Components in Angular 2](handout/components/README.md)
    * [Creating Components](handout/components/creating_components.md)
    * [Application Structure With Components](handout/components/app_structure_with_components.md)
        * [Passing Data into a Component](handout/components/app_structure/passing_data_into_components.md)
