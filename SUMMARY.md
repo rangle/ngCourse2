@@ -83,9 +83,9 @@
 
 ---
 
-* [Dependency Injection](handout/di/README.md)
+* [Angular 2 Dependency Injection](handout/di/README.md)
    * [What is DI?](handout/di/what_is_di.md)
-   * [DI as a Framework](handout/di/di_framework.md)
+   * [DI Framework](handout/di/di_framework.md)
    * [Angular 2's DI](handout/di/angular2/README.md)
        * [`@Inject()` and `@Injectable`](handout/di/angular2/inject_and_injectable.md)
        * [Injection Beyond Classes](handout/di/angular2/injection_beyond_classes.md)
