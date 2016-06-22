@@ -1,6 +1,6 @@
 # Using the Router Programmatically #
 
-In addition to being able to use the `routerLink` directive to control the navigation of your application, you are also able to access the router from your components using the `Router` service. To do this, you need to inject the router into your component.
+In addition to being able to use the `routerLink` directive to control the navigation of your application, you can also access the router from your components using the `Router` service. To do this you must inject the router into your component as shown:
 
 ```javascript
 // ...
@@ -21,4 +21,3 @@ export default class ComponentOne {
 ```
 
 [View Example](https://plnkr.co/edit/uRzACsqaaFppM3kHdsUt?p=preview)
-
