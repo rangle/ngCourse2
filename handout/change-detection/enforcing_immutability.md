@@ -1,10 +1,10 @@
 # Enforcing Immutability
 
-As we can see, in the previous example we cheated a little. We told Angular that all of our inputs, including the `actor` object, were immutable objects, but we went ahead and updated its properties violating the immutability principle. As a result we ended with a sync problem between our models and our views. One way to enforce immutability is using the library [Immutable.js](https://facebook.github.io/immutable-js/).
+We cheated a little in the previous example. We told Angular that all of our inputs, including the `actor` object, were immutable objects, but we went ahead and updated its properties, violating the immutability principle. As a result we ended with a sync problem between our models and our views. One way to enforce immutability is using the library [Immutable.js](https://facebook.github.io/immutable-js/).
 
 Because in JavaScript primitive types like `string` and `number` are immutable by definition, we should only take care of the objects we are using. In this case, the `actor` object.
 
-> Here's an example comparing a mutable type like an `array` to an immutable type like a `string`:
+Here's an example comparing a mutable type like an `array` to an immutable type like a `string`:
 
 ```javascript
 var b = ['C', 'a', 'r'];
@@ -16,13 +16,13 @@ a[0] = 'B';
 console.log(a); // 'Car' => The first letter didn't change, strings are immutable
 ``` 
 
-First, we need to install the `immutable.js` library using the command:
+First we need to install the `immutable.js` library using the command:
 
 ```
 npm install --save immutable
 ```
 
-Then, in our `MainComponent` we import the library and use it to create an actor object as an immutable.
+Then in our `MainComponent` we import the library and use it to create an actor object as an immutable.
 
 _app/main.component.ts_
 ```javascript
@@ -50,11 +50,11 @@ export class MainComponent {
 }
 ```
 
-Now, instead of creating an instance of an `Actor` class, we are now defining an immutable object using `Immutable.Map`. Because `this.actor` is now an immutable object, we cannot change its internal properties `firstName` and `lastName` directly. What we can do however is create another object based on `actor` that has different values for both fields and that is exactly what the `merge` method does.
+Now, instead of creating an instance of an `Actor` class, we are defining an immutable object using `Immutable.Map`. Because `this.actor` is now an immutable object, we cannot change its internal properties (`firstName` and `lastName`) directly. What we can do however is create another object based on `actor` that has different values for both fields - that is exactly what the `merge` method does.
 
 Because we are always getting a new object when we try to change the `actor`, there's no point in having two different methods in our component. We removed the methods `changeActorProperties` and `changeActorObject` and created a new one called `changeActor`.
 
-Additional changes have to be made to the `MovieComponent` as well. First, we need to declare the `actor` object as an immutable, and in the template, instead of trying to access the object properties directly using a syntax like `actor.firstName`, we need to resort on the `get` method of the immutable.
+Additional changes have to be made to the `MovieComponent` as well. First we need to declare the `actor` object as an immutable, and in the template, instead of trying to access the object properties directly using a syntax like `actor.firstName`, we need to resort on the `get` method of the immutable.
 
 _app/movie.component.ts_
 ```javascript
