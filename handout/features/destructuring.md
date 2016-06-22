@@ -23,7 +23,7 @@ console.log(one); // 'one'
 ```
 
 This is pretty interesting, but at first it might be hard to see the use case.
-ES6 also supports Object destructuring, which might make uses more obvious:
+ES6 also supports object destructuring, which might make uses more obvious:
 
 ```js
 let myModule = {
@@ -52,8 +52,8 @@ sayName(jane) // -> Hello Jane N/A Doe
 sayName(john) // -> Helo John Smith Doe
 ```
 
-There are _many_ more sophisticated things that can be done with destructuring,
-and the [mdn][mdnDest] has some great examples, including nested Object
-destructuring, and dynamic destructing during for-ins iterators.
+There are many more sophisticated things that can be done with destructuring,
+and the [mdn][mdnDest] has some great examples, including nested object
+destructuring and dynamic destructuring with  `for ... in`  operators"..
 
 [mdnDest]:https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment "MDN Destructuring" 
