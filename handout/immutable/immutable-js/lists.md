@@ -37,5 +37,4 @@ List [
   */
 ```
 
-Here we use the `Immutable.fromJS` call again since we have objects stored in the array. We call `push` to add items to the list, just like we would call it on an array but since we're creating a new copy we need to rebind the variable. We have the same `set` and `update` calls when we want to update items at specific indexes. We also have access to array functions like `map`, `reduce` with support for extras like the one we're using here, `zipWith`.
-
+Here we use the `Immutable.fromJS` call again since we have objects stored in the array. We call `push` to add items to the list, just like we would call it on an array. But since we're creating a new copy, we must rebind the variable. We have the same `set` and `update` calls when we want to update items at specific indexes. We also have access to array functions like `map`, `reduce` with support for extras like the one we're using here, `zipWith`.
