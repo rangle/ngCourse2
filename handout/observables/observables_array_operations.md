@@ -1,5 +1,5 @@
 # Observables Array Operations
-In addition to simply iterating over an asynchronous collection, we can perform other operations such as filter or map and many more as defined in the RxJS API. This is what bridges observable with the iterable pattern, and lets us conceptualize them as collections.
+In addition to simply iterating over an asynchronous collection, we can perform other operations such as filter or map and many more as defined in the RxJS API. This is what bridges an `Observable` with the iterable pattern, and lets us conceptualize them as collections.
 
 Let's expand our example and do something a little more with our stream:
 
@@ -28,8 +28,8 @@ Here are two really useful array operations - `map` and `filter`. What exactly d
 
 Now when our `subscribe` callback gets invoked, the data it receives will be a list of JSON objects whose `id` properties are greater than or equal to 5 and whose `name` properties have been prepended with `Dr. `. 
 
-Note the chaining function style, and the optional static typing that comes with TypeScript, that we used in this example. Most importantly functions like `filter` return an observable, as in observables beget other observables, similarly to promises. In order to use `map` and `filter` in a chaining sequence we have flattened the results of our observable using `flatMap`. Since `filter` accepts an observable, and not an array, we have to convert our array of JSON objects from `data.json()` to an observable stream. This is done with `flatMap`.
+Note the chaining function style, and the optional static typing that comes with TypeScript, that we used in this example. Most importantly functions like `filter` return an Observable, as in Observables beget other Observables, similarly to promises. In order to use `map` and `filter` in a chaining sequence we have flattened the results of our observable using `flatMap`. Since `filter` accepts an Observable, and not an array, we have to convert our array of JSON objects from `data.json()` to an Observable stream. This is done with `flatMap`.
 
-There are many other array operations you can employ in your observables; look for them in the [RxJS API](https://github.com/Reactive-Extensions/RxJS). 
+There are many other array operations you can employ in your Observables; look for them in the [RxJS API](https://github.com/Reactive-Extensions/RxJS). 
 
 [rxmarbles.com](http://rxmarbles.com) is a helpful resource to understand how the operations work.
