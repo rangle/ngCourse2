@@ -1,8 +1,8 @@
 ## RouteParams ##
 
-`RouteParams` is an immutable map of parameters for the given route based on the url matcher and optional parameters for that route.
+`RouteParams` is an immutable map of parameters for the given route based on the URL matcher and optional parameters for that route.
 
-You can inject `RouteParams` into the constructor of a component to use it.
+You can inject `RouteParams` into the constructor of a component to use it:
 
 _app/app.component.ts_
 ```javascript
@@ -31,7 +31,7 @@ export class SimpleRouting {
 }
 ```
 
-And to access the `RouteParams` in `ComponentTwo`,
+And to access the `RouteParams` in `ComponentTwo`:
 
 _app/component-two.ts_
 ```js
