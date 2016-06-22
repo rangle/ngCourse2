@@ -125,7 +125,7 @@
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
-   * [Stateful and Async Pipes](handout/pipes/stateful_and_async_pipes.md)
+   * [Stateful Pipes](handout/pipes/stateful_and_async_pipes.md)
 
 ---
 
