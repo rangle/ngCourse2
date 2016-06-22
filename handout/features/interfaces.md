@@ -1,17 +1,16 @@
 # Interfaces
 
-Sometimes classes are "more" than a developer wants.  Classes end up creating
-code, in the form of transpiled ES6 classes, or transpiled ES5 constructor
+Sometimes classes are "more" than a programmer wants. Classes end up creating
+code, in the form of transpiled ES6 classes or transpiled ES5 constructor
 functions.
 
 Also, JavaScript is a _subset_ of TypeScript, and in JavaScript functions are
-"first class" (they can be assigned to variables, and passed around) so how can
+"first class" (they can be assigned to variables and passed around), so how can
 functions be described in TypeScript?
 
 TypeScript's interfaces solve both of these problems.  Interfaces are abstract
-descriptions of things.  Interfaces can be used to represent any non-primitive
-JavaScript object.  Interfaces are literally "abstract" in the sense that they
-produce no code, ES6, or ES5.  Interfaces exist only to describe types to `tsc`.
+descriptions of things, and can be used to represent any non-primitive
+JavaScript object.  They produce no code (ES6 or ES5), and exist only to describe types to `tsc`.
 
 Here is an example of an interface describing a function:
 
@@ -27,9 +26,9 @@ callServer((error, data) => console.log(data)); // 'hi'
 callServer('hi');                               // tsc error
 ```
 
-Sometimes JavaScript functions are "overloaded", that is, they _can_ have
-different call signatures.  Interfaces can be used to specify this.  (Methods
-in classes can also be overloaded):
+Sometimes JavaScript functions are "overloaded" - that is, they can have
+different call signatures.  Interfaces can be used to specify this.
+(Methods in classes can also be overloaded):
 
 ```js
 interface PrintOutput {
@@ -50,10 +49,9 @@ printOut(['hi', 'bye']); // 'hi, bye'
 
 ```
 
-Here is an example of an interface describing an Object literal:
+Here is an example of an interface describing an object literal:
 
 ```js
-
 interface Action {
   type: string;
 }
