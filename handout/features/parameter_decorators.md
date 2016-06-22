@@ -16,7 +16,7 @@ new Cow().say('hello', false); // outputs 1 (newline) hello
 ```
 
 The above demonstrates decorating method parameters.  Readers familiar with
-Angular 2 can now start imagining how the Angular 2 implemented their
+Angular 2 can now imagine how  Angular 2 implemented their
 `@Inject()` system.
 
 [mdnDest]:https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment "MDN Destructuring Assignment"
