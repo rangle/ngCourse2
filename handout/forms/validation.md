@@ -1,8 +1,8 @@
 # Validation
 
-In order to show validation messages for every field, we need to do a similar trick to the one we did for the form. We need to define a local template variable that is a reference to the directive itself.
+In order to show validation messages for every field, we must do a similar trick to the one we did for the form. We must define a local template variable that is a reference to the directive itself.
 
-The `ngControl` directive is a little tricky, first the directive definition is not called `NgControl` but [NgControlName](https://angular.io/docs/ts/latest/api/common/NgControlName-directive.html). Second, the directive itself is exported to the template with the same name as before: `ngForm`.
+The `ngControl` directive is a little tricky. First, the directive definition is not called `NgControl` but [NgControlName](https://angular.io/docs/ts/latest/api/common/NgControlName-directive.html). Second, the directive itself is exported to the template with the same name as before: `ngForm`.
 
 _app/my-form.component.html_
 ```html
@@ -20,9 +20,9 @@ _app/my-form.component.html_
 </form>
 ```
 
-Here we have defined two local template variables and also we defined a couple of built-in validators like `required` and `minlength`. The only other built-in validator available for an input field is `maxlength` which we are not going to use in this example.
+Here we have defined two local template variables and also we defined a couple built-in validators like `required` and `minlength`. The only other built-in validator available for an input field is `maxlength` which we are not going to use in this example.
 
-> **Note:** When exporting a directive using for example `#email="ngForm"`, we are getting an instance of the directive `NgControlName`. To access the `Control` instance of the field, we need to get the property `control` like for example `email.control`.
+> When exporting a directive (using for example `#email="ngForm"`), we get an instance of the directive `NgControlName`. To access the `Control` instance of the field, we need to get the property `control` (for example `email.control`).
 
 With these two validators we can then show or hide error messages for each field.
 
@@ -49,7 +49,7 @@ _app/my-form.component.html_
 </form>
 ```
 
-We have at our disposal access to the validity of each field using the property `valid`, the state with `dirty`, `touched` and `pristine` and particular errors based on the validators applied inside the object `errors`. The description of the different states for a particular field are described in the table below.
+We have access to the validity of each field using the property `valid`; the state with `dirty`, `touched` and `pristine`; and particular errors based on the validators applied inside the object `errors`. The description of the different states for a particular field are described in the table below:
 
 State    | Meaning
 -------- | -----------------------------------------------------------------
