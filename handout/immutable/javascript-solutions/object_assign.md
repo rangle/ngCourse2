@@ -1,6 +1,6 @@
 # Object.assign
 
-`Object.assign` lets us merge one object's properties into another one, replacing values of properties with matching names. We can use this to copy an object's values without altering the existing one.
+`Object.assign` lets us merge one object's properties into another, replacing values of properties with matching names. We can use this to copy an object's values without altering the existing one.
 
 ```typescript
 let movie1 = {
