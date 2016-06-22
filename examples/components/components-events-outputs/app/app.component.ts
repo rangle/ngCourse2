@@ -19,7 +19,7 @@ export class App {
   
   constructor() {
     this.num = 0;
-    this.parentcount = 0;
+    this.parentCount = 0;
   }
   
   onChange(val: any) {
