@@ -2,7 +2,7 @@
 
 So far the form only gets information from the user. What if there's a need to edit an existing model? The property `[ngModel]` exists just for that.
 
-First, a model needs to be defined as a new class.
+First, define a model as a new class.
 
 _app/user.model.ts_
 ```javascript
@@ -13,7 +13,7 @@ export class User {
 }
 ```
 
-In order to use it in the `MyForm` component, an instance of the `User` class needs to be defined.
+In order to use it in the `MyForm` component, define an instance of the `User` class.
 
 _app/my-form.component.ts_
 ```javascript
@@ -52,7 +52,7 @@ _app/my-form.component.html_
 </form>
 ```
 
-Notice that when changing the values of the forms, the debug information shown at the bottom of the form is not being updated accordingly. That's because the property binding `[ngModel]` implements one way data binding. To close the circle, the component can be modified as well to update the model on submit.
+Notice that when changing the values of the forms, the debug information shown at the bottom of the form is not being updated accordingly. That's because the property binding `[ngModel]` implements one-way data binding. To close the circle, the component can be modified to update the model on submit.
 
 _app/my-form.component.ts_
 ```javascript
@@ -71,9 +71,7 @@ export class MyForm {
 
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="https://embed.plnkr.co/MvyM90Ankx46byFWJylh/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
-Using this approach the usual Angular 1, 2-way data binding approach is avoided.
-
-If 2-way data binding is still needed, the property syntax can be combined with the event syntax.
+Using this approach we avoid Angular 1's two-way data binding approach. If we still need two-way data binding, we can combine the property syntax with the event syntax.
 
 _app/my-form.component.html_
 ```html
@@ -96,7 +94,7 @@ _app/my-form.component.html_
 
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="https://embed.plnkr.co/FVPapDQnIbv2Ex6fn4js/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
-Now, the model is being updated any time the form is being changed.
+Now the model is updated any time the form is changed.
 
 ## Alternative Syntax
 
@@ -136,9 +134,9 @@ export class MyForm {
 }
 ```
 
-Instead of assigning our controls to every key in the group method, we now pass an array where every element is a map of the arguments present in the `Control` constructor.
+Instead of assigning our controls to each key in the group method, we now pass an array where every element is a map of the arguments present in the `Control` constructor.
 
-Because now we don't have access to every control in our template, we need to resort in the form itself to do the validation for each field.
+Because we no longer have access to every control in our template, we must resort to do the validation for each field in the form itself.
 
 _app/my-form.component.html_
 ```html
@@ -172,8 +170,9 @@ _app/my-form.component.html_
 
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="https://embed.plnkr.co/FVPapDQnIbv2Ex6fn4js/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
-We are using two methods of our form component, `find` and `hasError`.
+We are using two methods of our form component: `find` and `hasError`.
 
-Let's get the instance of the `Control` we are using from the form and in this way, we can do the same validations of state and errors as before.
+Let's get the instance of the `Control` we are using from the form and in this way we can do the same validations of state and errors as before.
 
-> **Note:** You may find in some docs the use of a `control` object instead of the method `find` like this: `group.controls['firstName']`. We are avoiding this approach because it will only work when we are dealing with a `ControlGroup` where every control is stored in an object. If we were working with a `ControlArray` this approach will not work because there's not a key to refer to each control. The method `find` is an abstraction that will take care of both situations and will get us the proper control back.
+> In some docs you may find a `control` object used instead of the method `find`, like this: `group.controls['firstName']`. 
+We are avoiding this approach because it will only work when dealing with a `ControlGroup` where every control is stored in an object. If we were working with a `ControlArray`, this approach would not work because there's not a key to refer to each control. The method `find` is an abstraction that will take care of both situations and will get us the proper control back.
