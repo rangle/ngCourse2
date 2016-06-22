@@ -58,7 +58,7 @@ console.log(movie.toObject());
 */
 ```
 
-So let's say you want to modify `movie.mpaa.rating`, you might think of doing something like this: `movie = movie.get('mpaa').set('rating', 'PG')`. However, `set` will always return the calling Map instance which in this case returns the Map bound to the `mpaa` key rather than the movie you wanted. We need to use the `setIn` method to update nested properties.
+So let's say you want to modify `movie.mpaa.rating`. You might think of doing something like this: `movie = movie.get('mpaa').set('rating', 'PG')`. However, `set` will always return the calling Map instance, which in this case returns the Map bound to the `mpaa` key rather than the movie you wanted. We must use the `setIn` method to update nested properties.
 
 ```typescript
 let movie = Immutable.fromJS({
@@ -88,5 +88,4 @@ console.log(movie.toObject());
 */
 ```
 
-We also added in a call to `Map.update` which, unlike set, accepts a function as the second argument instead of a value. This function accepts the existing value at that key and must return the new value of that key.
-
+We also added a call to `Map.update` which, unlike `set`, accepts a function as the second argument instead of a value. This function accepts the existing value at that key and must return the new value of that key.
