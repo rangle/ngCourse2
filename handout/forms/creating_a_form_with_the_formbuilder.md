@@ -1,6 +1,6 @@
 # Creating a Form with the `FormBuilder`
 
-The [FormBuilder](https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html) is a class that allows us to create a form programatically. To use it in our component, we need to inject it in the constructor.
+The [FormBuilder](https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html) is a class that allows us to create a form programatically. To use it in our component, we must inject it in the constructor.
 
 _app/my-form.component.ts_
 ```javascript
@@ -68,14 +68,14 @@ _app/my-form.component.html_
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/9wCa32tXbYA1cDQEaA97/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 
-There's five things to notice here:
+There are five things to notice here:
 
-1. We have changed the name we use to refer to our form from `regForm` to `group` because `regForm` used to be an instance of the `ngForm` directive while `group` is an instance of `ControlGroup`.
+* We changed the name we use to refer to our form from `regForm` to `group` because `regForm` used to be an instance of the `ngForm` directive while `group` is an instance of `ControlGroup`.
 
-2. We are binding our `ControlGroup` instance `group` created by the `FormBuilder`, to the actual HTML form using the special property `[ngFormModel]`.
+* We are binding our `ControlGroup` instance `group` created by the `FormBuilder` to the actual HTML form using the special property `[ngFormModel]`.
 
-3. We are binding our `Control` instances using the property `[ngFormControl]` to each of the form fields. We are using the `[ngFormControl]` property instead of the `ngControl` directive because the latter will try to create a new `Control` and not use the ones we have already created in our component.
+* We are binding our `Control` instances using the property `[ngFormControl]` to each of the form fields. We are using the `[ngFormControl]` property instead of the `ngControl` directive because the latter will try to create a new `Control` and not use the ones we have already created in our component.
 
-4. We don't need to export the form or the controls using the syntax `#group="ngForm"` or `#email="ngForm"` because we have already created those variables in our component and thus they are available in the template.
+* We don't need to export the form or the controls using the syntax `#group="ngForm"` or `#email="ngForm"` because we have already created those variables in our component and thus they are available in the template.
 
-5. We don't need to pass the form object to the `onSubmit` method because we have access to it inside our component in the variable `this.group`.
+* We don't need to pass the form object to the `onSubmit` method because we have access to it inside our component in the variable `this.group`.
