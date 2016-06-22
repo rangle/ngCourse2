@@ -1,4 +1,4 @@
-# Maps are iterable
+# Maps are Iterable
 
 Maps in Immutable.js are _iterable_, meaning that you can `map`, `filter`, `reduce`, etc. each key-value pair in the map.
 
