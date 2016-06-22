@@ -1,6 +1,6 @@
 # Passing Data into a Component
 
-The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `Hello` component such that `name` can be configured by the parent.
+The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `Hello` component so that `name` can be configured by the parent.
 
 ```js
 import {Component} from '@angular/core';
@@ -15,7 +15,7 @@ export class Hello {
 }
 ```
 
-The point of making components is not only encapsulation, but also re-usability. Inputs allow us to configure a particular instance of a component.
+The point of making components is not only encapsulation, but also reusability. Inputs allow us to configure a particular instance of a component.
 
 We can now use our component like so:
 
@@ -28,6 +28,6 @@ We can now use our component like so:
 
 [View Example](http://plnkr.co/edit/MgzGjYfuUV30MrB6UCsc?p=preview)
 
-*Note* unlike Angular 1.x this is one-way binding.
+>Unlike Angular 1.x, this is one-way binding.
 
 <iframe class="no-pdf" style="width: 100%; height: 600px" src="http://embed.plnkr.co/MgzGjYfuUV30MrB6UCsc/" frameborder="0" allowfullscren="allowfullscren"></iframe>
