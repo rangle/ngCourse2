@@ -1,12 +1,12 @@
 # Component Lifecycle
 
-A Component has a lifecycle managed by Angular itself. Angular manages creation, rendering, data-bound properties etc. It also offers hooks that allow us to respond to key lifecycle events.
+A component has a lifecycle managed by Angular itself. Angular manages creation, rendering, data-bound properties etc. It also offers hooks that allow us to respond to key lifecycle events.
 
 Here is the complete lifecycle hook interface inventory:
 
 - `ngOnChanges` - called when an input or output binding value changes
 - `ngOnInit` - after the first `ngOnChanges`
-- `ngDoCheck` - developer's custom change detection
+- `ngDoCheck` - programmer's custom change detection
 - `ngAfterContentInit` - after component content initialized
 - `ngAfterContentChecked` - after every check of component content
 - `ngAfterViewInit` - after component's view(s) are initialized
