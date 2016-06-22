@@ -5,14 +5,14 @@ its features can be described and experimented with.
 
 - Types
 - Interfaces
-- "Shapes"
+- Shapes
 - Decorators
 
 ## Types
 
 Many people do not realize it, but JavaScript _does_ in fact have types, they're
-just "Duck Typed", which roughly means that the developer does not have to think
-about them.  JavaScript's types also exist in TypeScript:
+just "duck typed", which roughly means that the programmer does not have to think
+about them. JavaScript's types also exist in TypeScript:
 
 - `boolean` (true/false)
 - `number` integers, floats, `Infinity`, and `NaN`
@@ -51,8 +51,8 @@ This illustrates the primitive types in TypeScript, and ends by illustrating
 a `showMessage` function. In this function the parameters have specific types
 that are checked when `tsc` is run.
 
-In _many_ JavaScript functions it's quite common for functions to take optional
-parameters. TypeScript provides support for this like so:
+In many JavaScript functions it's quite common for functions to take optional
+parameters. TypeScript provides support for this, like so:
 
 ```ts
 function logMessage(message: string, isDebug?: boolean) {
@@ -67,4 +67,4 @@ logMessage('test', true); // 'Debug: test'
 ```
 
 Using a `?` lets `tsc` know that `isDebug` is an optional parameter.  `tsc`
-will _not_ complain if `isDebug` is omitted.
+will not complain if `isDebug` is omitted.
