@@ -1,6 +1,6 @@
 # RouteData #
 
-While most of the time parent components will be passing data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the `@RouteConfig` decorator. For example, let's modify the routing for the previous example to add `data` to `ComponentTwo`
+While usually parent components pass data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the `@RouteConfig` decorator. For example, let's modify the routing for the previous example to add `data` to `ComponentTwo`:
 
 _app/component-two.ts_
 
@@ -44,4 +44,4 @@ export default class ComponentTwo {
 ```
 [View Example](https://plnkr.co/edit/K9hYyLgue2awis2PbnSI?p=preview)
 
-Passing data to a route with `RouteData` is not an alternative to `RouteParams`. While `RouteParams` is used to pass the data from one route to another based on the user’s selections (e.g. show details of the selected product), `RouteData` can come handy when you need to pass some data to a route during the configuration phase, e.g. is it a production or QA environment, should the user have administrator’s privileges, or what URL to use for the product service.
+Passing data to a route with `RouteData` is not an alternative to `RouteParams`. While `RouteParams` is used to pass the data from one route to another based on the user’s selections (e.g. show details of the selected product), `RouteData` can come in handy when you need to pass some data to a route during the configuration phase, e.g. is it a production or QA environment, should the user have administrator’s privileges, or what URL to use for the product service.
