@@ -1,8 +1,7 @@
 # Arrow Functions
 
 ES6 offers some new syntax for dealing with `this`: "arrow functions".  
-Arrow functions also make working with "higher order" functions (functions that take
-functions as parameters) much easier to work with.
+Arrow functions also make higher order functions much easier to work with.
 
 The new "fat arrow" notation can be used to define anonymous functions in a simpler way.
 
