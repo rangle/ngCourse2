@@ -6,7 +6,7 @@ The core concept of any Angular 2 application is the *component*. In effect, the
 
 This is how the Angular 2 team defines a component:
 
-> A Component controls a patch of screen real estate that we could call a view, and declares reusable UI building blocks for an application.
+> A component controls a patch of screen real estate that we could call a view, and declares reusable UI building blocks for an application.
 
 Basically, a component is anything that is visible to the end user and which can be reused many times within an application.
 
