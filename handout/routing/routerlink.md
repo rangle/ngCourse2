@@ -1,6 +1,6 @@
 # RouterLink #
 
-After declaring routes and adding the outlet we need to tell Angular how to navigate between the routes. We can do it in two different ways if we like. One is using plain old href links in the templates as shown below.
+After declaring routes and adding the outlet, we must tell Angular how to navigate between the routes. There are two ways to do this. One way is to use href links in the templates as shown below.
 
 ```html
 <nav>
@@ -9,9 +9,10 @@ After declaring routes and adding the outlet we need to tell Angular how to navi
 </nav>
 ```
 
-While this does work, it is not always recommend - as if you change your `@RouteConfig` definition, you will need to manually update all of your templates to reflect the new URL. There is also an issue where this can result in a full-page reload, which is usually something we do not wan't in our single page applications.
+While this does work, it is not always recommended, because if you change your `@RouteConfig` definition you will have to manually update all of your templates to reflect the new URL. There is also an issue where this can result in a full-page reload, which is usually something we do not want in our single page applications.
 
-The preferred way is to define them using the RouterLink. The `RouterLink` directive lets you link to specific parts of your app. The values in the array will map to the `name` or `as` that was given to the component in the `@RouteConfig`. Example of defining route using RouterLink is shown below.
+The preferred way is to define them using the RouterLink. The `RouterLink` directive lets you link to specific parts of your app. The values in the array will map to the `name` or `as` that was given to the component in the `@RouteConfig`. 
+The following example shows how to define routes using RouterLink:
 
 ```html
 <ul>
@@ -20,7 +21,7 @@ The preferred way is to define them using the RouterLink. The `RouterLink` direc
 </ul>
 ```
 
-If we want to define routes with parameters we need to pass the specific parameter value after each route in the `routerLink` array as shown below.
+If we want to define routes with parameters, we must pass the specific parameter value after each route in the `routerLink` array as shown below:
 
 ```html
 <ul>
@@ -33,7 +34,7 @@ If we want to define routes with parameters we need to pass the specific paramet
 
 We will cover accessing the `RouteParams` in your component later in the [RouteParams](./routeparams.md) section.
 
-Routes should be prepended with `/`, `./`, or `../`.  How you prefix the routes will impact how and where Angular 2 looks to find the component and routing information.
+Routes should be prepended with `/`, `./`, or `../`; this tells Angular 2 where to look for the component and routing information.
 
 | Prefix | Looks in
 |--------|---
