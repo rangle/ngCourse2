@@ -1,8 +1,8 @@
 # Async Validators
 
-Until this point, our validation logic is living in the frontend, but what happens if we want to check for some logic that only exists in the server? For example, let's say we want to prevent two users trying to register using the same email. To do that, we need to verify that the email entered does not exist in our database and we want to alert the user as he/she types. That's when the async validator comes in handy.
+Up to this point, our validation logic is living in the frontend, but what happens if we want to check for some logic that only exists in the server? For example, let's say we want to prevent two users trying to register using the same email. To do that, we must verify that the email entered does not exist in our database and we want to alert the user as he/she types. This is where the async validator comes in handy.
 
-Our new async validator is going to live inside the `CustomValidators` class and the return value of the static method is going to be exactly the same as the method `emailFormat` so before writing our now validation rule, let's do a simple refactoring to clean the code a little bit. 
+Our new async validator is going to live inside the `CustomValidators` class and the return value of the static method is going to be exactly the same as the method `emailFormat`, so before writing our new validation rule let's do a simple refactoring to clean the code a bit. 
 
 _app/validators.ts_
 ```javascript
@@ -45,7 +45,7 @@ export class CustomValidators {
 }
 ```
 
-We named our new validator `duplicated` and we used the `setTimeout` function to mock a call to the server that could take 1 second to complete.
+We named our new validator `duplicated` and we used the `setTimeout` function to mock a call to the server that could take one second to complete.
 
 The next step is to add the new validation method as the third argument of the `Control` constructor.
 
@@ -64,7 +64,7 @@ export class MyForm {
 }
 ```
 
-We can modify again our template to accommodate the new error message.
+We can modify our template again to accommodate the new error message.
 
 _app/my-form.component.html_
 ```html
@@ -84,7 +84,6 @@ _app/my-form.component.html_
 
 [View Example](http://plnkr.co/edit/nOFYzTdbzbS3PkzFOfpc?p=preview)
 
-Notice that not only do we have a new error key but our field has a new state called `pending` that is `true` when angular waits for the promise to be resolved and `false` otherwise. That way we can give feedback to the user that some validation is being performed in the background that could take a while to finish.
+Notice that not only do we have a new error key but our field has a new state called `pending` that is `true` when Angular waits for the promise to be resolved and `false` otherwise. This way we can give feedback to the user that some validation is being performed in the background that could take a while to finish.
 
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/nOFYzTdbzbS3PkzFOfpc/" frameborder="0" allowfullscren="allowfullscren"></iframe>
-
