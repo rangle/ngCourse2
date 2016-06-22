@@ -21,5 +21,4 @@ Instead of binding the object literal directly to `movie1`, we pass it as an arg
 
 To _get_ the value of a property, we call the `get` method, passing the property name we want, like how we'd use an object's string indexer.
 
-To _set_ the value of a property, we call the `set` method, passing the property name and the new value. Note that it *won't* mutate the existing Map object. It returns a new object with the updated property so we need to rebind the `movie2` variable to the new object.
-
+To _set_ the value of a property, we call the `set` method, passing the property name and the new value. Note that it won't mutate the existing Map object - it returns a new object with the updated property, so we must rebind the `movie2` variable to the new object.
