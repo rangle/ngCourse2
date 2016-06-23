@@ -192,7 +192,7 @@
            * [Mocking Dependencies](handout/testing/services/mocking-dependencies.md)
        * [Testing HTTP Requests](handout/testing/services/http.md)
            * [Asynchronous Testing](handout/testing/services/async.md)
-       * [Testing JSONP and XHR Backends](handout/testing/services/json-xhr.md)
+       * [Testing JSONP and XHR Back-Ends](handout/testing/services/json-xhr.md)
        * [Executing Tests Asynchronously](handout/testing/services/async-execution.md)
    * [Testing Redux](handout/testing/redux/README.md)
        * [Testing Simple Actions](handout/testing/redux/simple-actions.md)
