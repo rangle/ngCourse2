@@ -1,6 +1,6 @@
 # Testing Simple Actions
 
-Consider the following simple actions, from the redux chapter of this book:
+Consider the following simple actions, from the Redux chapter of this book:
 
 ```js
 import { Injectable } from '@angular/core';
@@ -84,5 +84,4 @@ describe('counter action creators', () => {
 });
 ```
 
-We just make sure that our action creators do indeed dispatch the correct
-actions.
+We just make sure that our action creators do indeed dispatch the correct actions.
