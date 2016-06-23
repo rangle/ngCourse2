@@ -1,11 +1,10 @@
 # Testing Reducers
 
-Luckily, testing reducers is a lot like testing our synchronous action creators, since all reducer operations are synchronous. This plays a big role in making our global state easy to keep track of, which is why we're big fans of redux.
+Luckily, testing reducers is a lot like testing our synchronous action creators, since all reducer operations are synchronous. This plays a big role in making our global state easy to keep track of, which is why we're big fans of Redux.
 
-We'll test the counter reducer in [angular2-redux-starter](https://github.com/rangle/angular2-redux-starter), which is the following:
+We'll test the counter reducer in [angular2-redux-starter](https://github.com/rangle/angular2-redux-starter), as follows:
 
 ```js
-
 export default function counter(state = 0, action)
   switch (action.type) {
     case INCREMENT_COUNTER:
@@ -52,5 +51,5 @@ describe('counter reducers', () => {
 });
 ```
 
-Note that we're only testing the section of redux state that the `counter` reducer is responsible for, and not the whole.
-We can see from these tests that redux is largely built on pure functions.
+Note that we're only testing the section of Redux state that the `counter` reducer is responsible for, and not the whole.
+We can see from these tests that Redux is largely built on pure functions.
