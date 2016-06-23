@@ -1,15 +1,14 @@
 # Redux and Component Architecture
 
-In the above example, our `counter` component is a smart component. It knows
-about redux, the structure of the state, and the actions it needs to call. In
-theory you can drop this component into any area of your application and have it
-just work. But it will be tightly bound to that specific slice of state, and
-those specific actions. For example, what if we wanted to have multiple counters
-tracking different things on the page? For example, counting the number of red
-clicks vs blue clicks.
+In the above example, our `counter` component is a smart component. 
+It knows about redux, the structure of the state, and the actions it needs to call. 
+In theory you can drop this component into any area of your application and just let it work. 
+But it will be tightly bound to that specific slice of state, and those specific actions. 
+For example, what if we wanted to have multiple counters tracking different things on the page? 
+For example, counting the number of red clicks vs blue clicks.
 
 To help make components more generic and reusable, it's worth trying to separate
-them into 'container' components and 'presentational' components.
+them into _container_ components and _presentational_ components.
 
 <table>
     <thead>
@@ -45,7 +44,7 @@ them into 'container' components and 'presentational' components.
 
 [redux docs](http://redux.js.org/docs/basics/UsageWithReact.html)
 
- Keeping this in mind, let's refactor our `counter` to be a **presentational**
+ Keeping this in mind, let's refactor our `counter` to be a _presentational_
  component.  First, let's modify our `app-container` to have two counter
  components on it as we currently have it.
 
@@ -76,18 +75,22 @@ export class SimpleRedux {}
 ```
 [View Example](https://plnkr.co/edit/VNNeYwHjucdlMIIA92US?p=preview)
 
-As you can see in the example, when clicking on the buttons - the numbers in both components will update in sync. This is because counter component is coupled to a specific piece of state, and action.
+As you can see in the example, when clicking on the buttons the numbers in both components will update in sync. 
+This is because the counter component is coupled to a specific piece of state and action.
 
-Looking at the example, you can see that there is already an __app/reducers/curse-reducer.ts__, and __app/actions-curse-actions.ts__. They are pretty much the same as the counter actions and counter reducer, we just wanted to create a new reducer to hold the state of it.
+Looking at the example, you can see that there is already an _app/reducers/curse-reducer.ts_, and _app/actions-curse-actions.ts_. 
+They are pretty much the same as the counter actions and counter reducer, 
+we just wanted to create a new reducer to hold the state of it.
 
-To turn the counter component from a smart component into a dumb component, we need to change it to have data and callbacks passed down into it. For this, we will pass the data
-into the component using `@Input` properties, and the action callbacks as
-`@Output` properties.
+To turn the counter component from a smart component into a dumb component, 
+we need to change it to have data and callbacks passed down into it. 
+For this, we will pass the data into the component using `@Input` properties, 
+and the action callbacks as `@Output` properties.
 
 We now have a nicely-reusable presentational component with no knowledge of
 Redux or our application state.
 
-__app/components/counter-component.ts__
+_app/components/counter-component.ts_
 ```javascript
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
@@ -116,7 +119,7 @@ Next, let's modify the main app container to hook up these inputs and outputs
 to the template.
 
 `@Component`
-__app/src/containers/app-containter.ts__
+_app/src/containers/app-containter.ts_
 ```typescript
 @Component({
   selector: 'simple-redux',
@@ -152,7 +155,7 @@ At this point, the template is attempting to call actions on our two
 ActionCreatorServices, `CounterActions` and `CurseActions`; we just need to hook
 those up using Dependency Injection:
 
-__app/src/containers/app-container.ts__
+_app/src/containers/app-container.ts_
 ```typescript
 import { Component, View, Inject, OnDestroy, OnInit } from '@angular/core';
 import { select } from 'ng2-redux';
