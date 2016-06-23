@@ -242,7 +242,7 @@
    * [Linting](handout/cli/linting.md)
    * [CLI Command Overview](handout/cli/command-overview.md)
    * [Adding Third Party Libraries](handout/cli/adding-third-party-libraries.md)
-   * [Integrating an Existing App](handout/cli/init.md)(handout/cli/converting-an-existing-app)
+   * [Integrating an Existing App](handout/cli/init.md)
 
 ---
 
