@@ -16,14 +16,14 @@ The scripts are defined in the `scripts` property of the `package.json` file. Fo
 ...
 ```
 
-NPM allows pre and post task binding by prepending the word `pre` and `post` to the task name respectively. Here, our `prebuild` task is executed before our `build` task. 
+NPM allows pre and post task binding by prepending the word `pre` or `post` respectively to the task name. Here, our `prebuild` task is executed before our `build` task. 
 
-**Note:** we can run a NPM scripts from inside another NPM script.
+> We can run an NPM script from inside another NPM script.
 
 To invoke the `build` script we run the command `npm run build`:
 
-- Which first executes the `prebuild` task. 
-- The `prebuild` task runs the `clean` task, which executes the `rimraf dist` command. 
-- `rimraf` is an NPM package that recursively deletes everything inside a specified folder.
-- Then the `build` task is executed. This sets the `NODE_ENV` environment variable to `production` and starts the webpack bundling process.
-- Webpack generates bundles based on the `webpack.config.js` available in the project root folder.
+1. The `prebuild` task executes. 
+2. The `prebuild` task runs the `clean` task, which executes the `rimraf dist` command. 
+3. `rimraf` (an NPM package) recursively deletes everything inside a specified folder.
+4. The `build` task is executed. This sets the `NODE_ENV` environment variable to `production` and starts the webpack bundling process.
+5. Webpack generates bundles based on the `webpack.config.js` available in the project root folder.
