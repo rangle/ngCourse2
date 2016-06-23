@@ -7,9 +7,9 @@ Angular 2 application to make use of ng2-redux. For this, we will need to:
 * Create our application reducer
 * Create and configure a store
 
-### Registering ng2-redux with Angular 2
+## Registering ng2-redux with Angular 2
 
-__app/boot.ts__
+_app/boot.ts_
 ```typescript
 import { bootstrap } from '@angular/platform-browser-dynmic'
 import { SimpleRedux } from './containers/app-container'
@@ -23,9 +23,9 @@ bootstrap(
 Here, we're simply adding the `NgRedux` class as a provider in our bootstrap
 file.
 
-### Create our application reducer
+## Create our application reducer
 
-__app/reducers/index.ts__
+_app/reducers/index.ts_
 ```javascript
 import { combineReducers } from 'redux';
 import counter from './counter-reducer';
@@ -41,12 +41,12 @@ property on the state. So when we are subscribing to our state changes with
 ng2-redux's `@select` decorator, we are able to select a counter property
 counter, or any other reducers you have provided.
 
-### Create and configure a store
+## Create and configure a store
 
 Next we want ng2-redux to configure our store based on settings we provide.
 This should be done once, in the top-level component of your application.
 
-__app/containers/SimpleRedux.ts__
+_app/containers/SimpleRedux.ts_
 ```javascript
 import { Component } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
@@ -65,5 +65,5 @@ class SimpleRedux {
 }
 ```
 
-In this example, we are creating a store that is using the `redux-logger`
+In this example we are creating a store that uses the `redux-logger`
 middleware, which will add some logging functionality to the application.
