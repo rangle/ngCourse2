@@ -1,10 +1,10 @@
 # RouterOutlet #
 
-A `RouterOutlet` is a placeholder that Angular dynamically fills based on the application's route. Below is the example how we use the `RouterOutlet` in  Angular 2 inside the template. In order to make use of the `RouterOutlet` we need to give component access to the Router Components we do it by passing `ROUTER_DIRECTIVES` in the component directives array.
+A `RouterOutlet` is a placeholder that Angular dynamically fills based on the application's route. In order to make use of the `RouterOutlet` we must give component access to the router components by passing `ROUTER_DIRECTIVES` in the component directives array.
 
-A component can only have one unnamed `router-outlet` per-template. If you need to use multiple `router-outlets`, they must be provided a name, which will be covered in the [Using Auxiliary Routes](./using_auxiliary_routes.md) section.
+A component can only have one unnamed `router-outlet` per template. If you need to use multiple `router-outlets`, they must be provided a name, which will be covered in the [Using Auxiliary Routes](./using_auxiliary_routes.md) section.
 
-Below is the example of how we use the RouterOutlet in Angular 2
+Below is the example of how we use the RouterOutlet in Angular 2:
 
 ```javascript
 // ...
