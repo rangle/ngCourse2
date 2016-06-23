@@ -5,13 +5,13 @@ of events into the reducer and get your new application state as a result.
 
 Reducers in a Redux application should not mutate the state, but return a copy
 of it, and be side-effect free. This encourages you to think of your application
-as UI that gets 'computed' from a series of events in time.
+as UI that gets "computed" from a series of events in time.
 
 Let's take a look at a simple counter reducer.
 
 ## Simple Reducer
 
-__app/reducer/counter-reducer.ts__
+_app/reducer/counter-reducer.ts_
 ```javascript
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter-actions';
 
@@ -39,9 +39,9 @@ application state as a pure function of the reducer's arguments.
 
 For this reason, side-effect causing operations, such as
 updating a record in a database, generating an id, etc. should be handled
-elsewhere in the application such as in the action creators, or middleware.
+elsewhere in the application such as in the action creators or middleware.
 
-Another consideration when creating your reducers, is to ensure that they are immutable and not modifying the state of your application. If you mutate your application state, it can cause unexpected behavior. There are a few ways to help maintain immutability in your reducers. One way is by using new ES6 features such as `Object.assign` or the spread operator for arrays.
+Another consideration when creating your reducers is to ensure that they are immutable and not modifying the state of your application. If you mutate your application state, it can cause unexpected behavior. There are a few ways to help maintain immutability in your reducers. One way is by using new ES6 features such as `Object.assign` or the spread operator for arrays.
 
 ```js
 function immutableObjectReducer(state = { someValue: 'value'} , action) {
