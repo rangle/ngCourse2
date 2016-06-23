@@ -1,8 +1,8 @@
 # Setup
 
-## Pre-requisites
+## Prerequisites
 
-Angular CLI is currently *only* distributed through npm and requires Node version 4 or greater.
+Angular CLI is currently only distributed through npm and requires Node version 4 or greater.
 
 ## Installation
 
