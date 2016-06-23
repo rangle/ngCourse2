@@ -233,21 +233,21 @@
 
 * [Angular CLI](handout/cli/README.md)
    * [Setup](handout/cli/setup.md)
-   * [Creating an App](handout/cli/creating-an-app.md)
+   * [Creating a New App](handout/cli/creating-an-app.md)
    * [Serving the App](handout/cli/serving-the-app.md)
    * [Creating Components](handout/cli/creating-components.md)
    * [Creating Routes](handout/cli/creating-routes.md)
    * [Creating Other Things](handout/cli/creating-other-things.md)
    * [Testing](handout/cli/testing.md)
    * [Linting](handout/cli/linting.md)
-   * [Command Overview](handout/cli/command-overview.md)
-   * [Adding 3rd party libraries](handout/cli/adding-third-party-libraries.md)
-   * [Integrating an existing app](handout/cli/init.md)(handout/cli/converting-an-existing-app)
+   * [CLI Command Overview](handout/cli/command-overview.md)
+   * [Adding Third Party Libraries](handout/cli/adding-third-party-libraries.md)
+   * [Integrating an Existing App](handout/cli/init.md)(handout/cli/converting-an-existing-app)
 
 ---
 
-* [Workshop](handout/workshop/readme.md)
+* [Training Workshop](handout/workshop/readme.md)
   * [Workshop 0 - Kitchen Sink](handout/workshop/workshop-0.md)
-  * [Workshop 1 - Containers and Redux Sink](handout/workshop/workshop-1.md)
-  * [Workshop 2 - API Services and Authentication Sink](handout/workshop/workshop-2.md)
+  * [Workshop 1 - Containers and Redux](handout/workshop/workshop-1.md)
+  * [Workshop 2 - API Services and Authentication](handout/workshop/workshop-2.md)
 * [Other Resources](handout/other-resources.md)
