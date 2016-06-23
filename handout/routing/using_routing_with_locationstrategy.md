@@ -18,28 +18,22 @@ this allows your application to 'rehydrate' to the correct route on the client s
 
 You can customize this rehydration to use a specific HTML base URL by supplying
 a provider for APP_BASE_HREF set to the base URL of your page. For instance,
-if you provide an APP_BASE_HREF of '/my/app' and call location.go('/foo'), the
-browser's URL will become example.com/my/app/foo.
+if you provide an APP_BASE_HREF of _'/my/app'_ and call location.go('/foo'), the
+browser's URL will become `example.com/my/app/foo`.
 
 By default, Angular will use a base href of '/'.
 
 **`HashLocationStrategy`** is useful for cases where you aren't able to configure
 the server in this way. It represents the routing state in the hash fragment of
-the browser's URL.
-
-For instance, if you call `location.go('/foo')`, the browser's URL will become `example.com/#/foo`.
+the browser's URL. For instance, if you call `location.go('/foo')`, the browser's URL will become `example.com/#/foo`.
 
 This is essentially what was the default in Angular 1, since it allows you to
 use routing in your app and support 'deep linking' without requiring special
-configuration of your app's HTTP server.
-
-However, using URL fragments in this way is uglier and is at odds with the
+configuration of your app's HTTP server. However, using URL fragments in this way is uglier and is at odds with the
 conventional semantics of URLs.
 
-You also need to explicitly provide the `HashLocationStrategy` class to Angular's
-dependency injector, as follows.
-
-The following code shows how to configure HashLocationStrategy:
+You must also explicitly provide the `HashLocationStrategy` class to Angular's
+dependency injector, as follows:
 
 ```javascript
 import {RouterApp} from './router-app/router-app';
