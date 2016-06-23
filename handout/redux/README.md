@@ -8,8 +8,7 @@ data flow in your application.
 
 Where Flux applications traditionally have multiple stores, Redux applications
 have only one global, read-only application state. This state is calculated by
-'reducing' over a collection or stream of actions that update it in controlled
-ways.
+"reducing" over a collection or stream of actions that update it in controlled ways.
 
 The Redux pattern has become very popular and has inspired
 [Ngrx](https://github.com/ngrx "ngrx collection") which is exclusive to
