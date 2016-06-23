@@ -211,7 +211,7 @@
    * [Total Conversion](handout/migrate/total_conversion.md)
    * [ng-forward (Angular 1.x Using 2 Style)](handout/migrate/ng_forward.md)
    * [ng-upgrade (Angular 1.x Coexisting With Angular 2](handout/migrate/ng-upgrade/README.md)
-       * [Bootstrap ng-upgrade](handout/migrate/ng-upgrade/bootstrap.md)
+       * [Bootstrapping ng-upgrade](handout/migrate/ng-upgrade/bootstrap.md)
        * [Downgrading Components](handout/migrate/ng-upgrade/downgrade-component.md)
        * [Upgrading Components](handout/migrate/ng-upgrade/upgrade-component.md)
        * [Projection](handout/migrate/ng-upgrade/projection.md)
