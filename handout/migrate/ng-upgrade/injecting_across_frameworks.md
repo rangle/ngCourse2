@@ -1,21 +1,18 @@
 # Injecting Across Frameworks
 
-Angular 1.x providers/services can be upgraded and injected into Angular 2
+Angular 1.x providers/services can be upgraded and injected into Angular 2.
 
 Simple Angular 1.x service:
 
 ```js
-
 export class A1UpgradeService {
   data = 'Hello from Angular 1 service';
 }
 ```
 
-Simple Angular 2 component that will have an Angular 1.x service injected into
-it:
+Simple Angular 2 component that will have an Angular 1.x service injected into it:
 
 ```js
-
 import {Component, Inject} from  '@angular/core';
 import {A1UpgradeService} from '../services/a1-upgrade-service';
 
@@ -34,7 +31,6 @@ export class A2UsingA1Service {
 Attaching everything to Angular 1.x:
 
 ```js
-
 import {A2UsingA1Service} from './components/a2-using-a1-service';
 import {A1UpgradeService} from './services/a1-upgrade-service';
 
@@ -59,12 +55,11 @@ angular
 Angular 2.x services can be downgraded and injected into Angular 1.  In normal
 operation, Angular 2.x services would be bootstrapped with the application, but
 because of ng-upgrade being a hybrid mode, this is not the case.  The upgrade
-adapter comes with an `addProvider` method that needs to be used in the interim.
+adapter comes with an `addProvider` method that must be used in the interim.
 
 Here is a very simple Angular 2 service:
 
 ```js
-
 import {Injectable} from '@angular/core';
 
 @Injectable()
@@ -80,7 +75,6 @@ register Angular 2 services.  Fortunately the upgrade adapter's `addProvider`
 method can do this:
 
 ```js
-
 upgradeAdapter.addProvider(Phones);
 
 ```
@@ -88,7 +82,6 @@ upgradeAdapter.addProvider(Phones);
 Lastly, Angular 1.x must be informed about the Angular 2 service:
 
 ```js
-
 // The service to downgrade
 import {A2DowngradeService} from './services/a2-downgrade'
 
@@ -112,7 +105,6 @@ angular
 Using this downgraded service in an Angular 1.x directive is as simple as:
 
 ```js
-
 import {A2DowngradeService} from '../services/a2-downgrade';
 
 export function a1UsingA2ServiceDirective() {
@@ -133,4 +125,3 @@ class A1UsingA2 {
   }
 }
 ```
-
