@@ -1,3 +1,5 @@
+# Other Resources
+
 * [Generative Art with SVG And Angular 2](http://teropa.info/blog/2016/02/28/metabubbles-generative-art-with-angular-2.html)
 * [Making your own Canvas Renderer with Angular 2](http://www.yearofmoo.com/2016/02/rendering-in-angular2.html)
   * [Github Repo](https://github.com/matsko/angular2-canvas-renderer-experiment)
