@@ -5,12 +5,11 @@ and the `CanDeactivate` interface.
 
 These are places where you can perform logic to see if the user is able to navigate to or away from the component.
 
-An example use case for `@CanActivate` would be doing a permissions check. A
-potential use case for `routerCanDeactivate` might be is to confirm if a user
-wants to leave a form where s/he has entered unsaved data.
+For example you might use `@CanActivate` to do a permissions check. 
+You might use `routerCanDeactivate` to confirm if a user wants to leave a form where there is unsaved data.
 
 Both of these hooks will receive the next and previous `componentInstruction`,
-which represent the route you are navigating from and to, respectively.
+which represent the route you are navigating from and to respectively.
 
 ## Example componentInstruction
 
@@ -51,7 +50,7 @@ export default class ComponentTwo implements CanDeactivate {
 
 ## CanDeactivate
 
-To use the `CanDeactivate` hook, your component needs to implement the `CanDeactivate` interface, which means your component needs to have a `routerCanDeactivate` method available on it.
+To use the `CanDeactivate` hook, your component must implement the `CanDeactivate` interface, which means your component must have a `routerCanDeactivate` method available on it.
 
 Just like the `@CanActivate`, if a true value/resolving promise is returned, the router will navigate away.
 If a false value/rejecting promise is returned, it will stop navigation away from the component.
