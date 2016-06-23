@@ -1,6 +1,6 @@
 # Creating Child Routes #
 
-To declare the child routes in the application we declare the main route in the main app and then define specific child routes in the main child component.
+To declare the child routes in the application, we declare the main route in the main app and then define specific child routes in the main child component.
 
 ```javascript
 @RouteConfig([
@@ -9,7 +9,9 @@ To declare the child routes in the application we declare the main route in the 
   .....  
 ])
 ```
-In the above example we define the main `/componentOne` route which maps to the `ComponentOneContainer` the `...` dots at the end of the route tells Angular that it has associated child routes with it. Next in the child `ComponentOneContainer` we need to do two things:-
+In the above example we define the main `/componentOne` route which maps to the `ComponentOneContainer`. 
+The `...` dots at the end of the route tell Angular that it has associated child routes. 
+Next in the child `ComponentOneContainer` we must do two things:
 
 * Define the RouterOutlet view where child routes get rendered
 * Set up the child routes using another `@RouteConfig` decorator on the child component.
