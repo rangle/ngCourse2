@@ -1,13 +1,13 @@
 # Configuring your Application to use Redux #
 
 Once you have the reducers and actions created, it is time to configure your 
-Angular 2 application to make use of ng2-redux. For this, we will need to:
+Angular 2 application to make use of Ng2-Redux. For this, we will need to:
 
-* Register ng2-redux with Angular 2
+* Register Ng2-Redux with Angular 2
 * Create our application reducer
 * Create and configure a store
 
-## Registering ng2-redux with Angular 2
+## Registering Ng2-Redux with Angular 2
 
 _app/boot.ts_
 ```typescript
@@ -38,12 +38,12 @@ export default combineReducers({
 `combineReducers` allows us to break out our application into smaller reducers
 with a single area of concern. Each reducer that you pass into it will control a
 property on the state. So when we are subscribing to our state changes with
-ng2-redux's `@select` decorator, we are able to select a counter property
+Ng2-Redux's `@select` decorator, we are able to select a counter property
 counter, or any other reducers you have provided.
 
 ## Create and configure a store
 
-Next we want ng2-redux to configure our store based on settings we provide.
+Next we want Ng2-Redux to configure our store based on settings we provide.
 This should be done once, in the top-level component of your application.
 
 _app/containers/SimpleRedux.ts_
