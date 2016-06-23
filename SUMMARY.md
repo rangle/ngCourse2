@@ -202,22 +202,22 @@
 
 ---
 
-* [Migrate](handout/migrate/README.md)
+* [Migrating Angular 1.x Projects to Angular 2](handout/migrate/README.md)
    * [Migration Prep](handout/migrate/migration-prep/README.md)
        * [Upgrade To Angular 1.3+ Style](handout/migrate/migration-prep/upgrade_to_angular_1_3.md)
        * [Migrate To TypeScript](handout/migrate/migration-prep/migrate_to_typescript.md)
        * [Use Webpack](handout/migrate/migration-prep/use_webpack.md)
-   * [Choose a Path](handout/migrate/choose_a_path.md)
+   * [Choose an Upgrade Path](handout/migrate/choose_a_path.md)
    * [Total Conversion](handout/migrate/total_conversion.md)
-   * [ng-forward](handout/migrate/ng_forward.md)
-   * [ng-upgrade](handout/migrate/ng-upgrade/README.md)
-       * [Bootstrap Angular 2](handout/migrate/ng-upgrade/bootstrap.md)
-       * [Downgrade Components](handout/migrate/ng-upgrade/downgrade-component.md)
-       * [Upgrade Components](handout/migrate/ng-upgrade/upgrade-component.md)
+   * [ng-forward (Angular 1.x Using 2 Style)](handout/migrate/ng_forward.md)
+   * [ng-upgrade (Angular 1.x Coexisting With Angular 2](handout/migrate/ng-upgrade/README.md)
+       * [Bootstrap ng-upgrade](handout/migrate/ng-upgrade/bootstrap.md)
+       * [Downgrading Components](handout/migrate/ng-upgrade/downgrade-component.md)
+       * [Upgrading Components](handout/migrate/ng-upgrade/upgrade-component.md)
        * [Projection](handout/migrate/ng-upgrade/projection.md)
        * [Transclusion](handout/migrate/ng-upgrade/transclusion.md)
        * [Injecting Across Frameworks](handout/migrate/ng-upgrade/injecting_across_frameworks.md)
-       * [Upgrade Strategy](handout/migrate/ng-upgrade/upgrade_strategy.md)
+       * [Upgrading Components Strategically](handout/migrate/ng-upgrade/upgrade_strategy.md)
 
 ---
 
