@@ -1,11 +1,10 @@
 # Testing Asynchronous Actions
 
-Sometimes we need to test components that rely on asynchronous actions that happen at specific times.  Angular provides a function called `fakeAsync` which allows us to simulate the passage of time. FakeAsync wraps our tests in a zone and gives us access to the `tick` function which will allow us to simulate the passage of time precisely.
+Sometimes we need to test components that rely on asynchronous actions that happen at specific times.  Angular provides a function called `fakeAsync` which wraps our tests in a zone and gives us access to the `tick` function, which will allow us to simulate the passage of time precisely.
 
-Suppose we had a component with a button, clicking that button will trigger an action within a setTimeout of 2 seconds. Here's what our component and unit test might look like:
+Suppose we had a component with a button that will trigger an action within a setTimeout of two seconds. Here's what our component and unit test might look like:
 
 ```js
-
 @Component({
   selector: 'example',
   template: `
@@ -25,7 +24,6 @@ class SampleComponent {
 ```
 
 ```js
-
 it('Should work',
   fakeAsync(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     tcb.createAsync(SampleComponent).then(fixture => {
@@ -42,4 +40,4 @@ it('Should work',
 );
 ```
 
-Here we have a `SampleComponent` that has a button, when clicked a `setTimeout` of 2 seconds will be called to set the message property to 'My expected data'. Our unit test builds our component using the `TestComponentBuilder`. We have wrapped our entire test in `fakeAsync` which will allow us to test the asynchronous behaviour of our component using synchronous function calls. We simulate a button click, and then immediately call `tick(2000)` which simulates a 2 second delay.  We can then run `detectChanges` and query the DOM for our expected result.
+Here we have a `SampleComponent` that has a button, when clicked a `setTimeout` of two seconds will be called to set the message property to 'My expected data'. Our unit test builds our component using the `TestComponentBuilder`. We have wrapped our entire test in `fakeAsync` which will allow us to test the asynchronous behaviour of our component using synchronous function calls. We simulate a button click, and then immediately call `tick(2000)` which simulates a two second delay.  We can then run `detectChanges` and query the DOM for our expected result.
