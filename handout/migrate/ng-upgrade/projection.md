@@ -7,7 +7,6 @@ Angular 1.x content into Angular 2 components:
 This is what a simple Angular 2 component that supports projection looks like:
 
 ```js
-
 import {Component, Input} from '@angular/core';
 
 @Component({
@@ -28,7 +27,6 @@ Here's a very simple Angular 1.x directive that will be projected into the
 Angular 2 component:
 
 ```js
-
 export function a1ProjectionContentsDirective() {
   return {
     restrict: 'E',
@@ -45,10 +43,9 @@ class A1ProjectionContents {
 }
 ```
 
-Both the component, and the directive need to be registered with Angular 1.x:
+Both the component and the directive must be registered with Angular 1.x:
 
 ```js
-
 import {A2Projection} from './components/a2-projection';
 import {a1ProjectionContentsDirective} from
   './components/a1-projection-contents';
@@ -74,9 +71,7 @@ angular
 Finally, using the HTML selectors is as simple as:
 
 ```html
-
 <a2-projection>
   <a1-projection-content></a1-projection-content>
 </a2-projection>
 ```
-
