@@ -3,10 +3,8 @@
 The first step of any migration is to upgrade the codebases style to conform
 to Angular 1.3+ style, ideally an Angular 1.5+ style.  This means:
 
-- All controllers should be in `controllerAs` form, and should ideally only
-exist on directives
-- Use directives, specifically "component directives", that use the following
-properties:
+- All controllers should be in `controllerAs` form, and ideally should only exist on directives
+- Use directives, specifically "component directives", that use the following properties:
     - `restrict: 'E'`
     - `scope: {}`
     - `bindToController: {}`
@@ -14,7 +12,8 @@ properties:
     - `template` or `templateUrl`
     - `transclude` (optional)
     - `require` (optional)
-Component directives should _not_ use the following attributes:
+
+- Component directives should _not_ use the following attributes:
     - `compile`
     - `replace: true`
     - `priority`/`terminal`
