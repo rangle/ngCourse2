@@ -1,14 +1,13 @@
-# Upgrading
+# Upgrading Components
 
-The only Angular 1.x components that can be upgraded, and used in Angular 2 code
+The only Angular 1.x components that can be upgraded and used in Angular 2 code
 are those that _strictly_ follow the component pattern outlined at the top of
-this document. Wherever possible use Angular 1.5+'s `.component`
+this document. Wherever possible use Angular 1.5+'s `.component`.
 
 Here is an Angular 1.x directive that conforms to ng-upgrade's "component 
 directive" specification: 
 
 ```js
-
 export function a1UpgradableDirective() {
   return {
     restrict: 'E',
@@ -25,11 +24,10 @@ class Upgradable {
 }
 ```
 
-Here is an Angular 2 component that will _use_ the upgraded Angular 1.x
+Here is an Angular 2 component that will use the upgraded Angular 1.x
 directive:
 
 ```js
-
 import {Component} from '@angular/core';
 import {upgradeAdapter} from '../upgrade-adapter';
 
@@ -47,7 +45,6 @@ export class A2UsingA1Component {
 Finally, let Angular 1.x know about the directive:
 
 ```js
-
 import {a1UpgradableDirective} from './components/a1-upgradable';
 
 // Angular 1 Vendor Import
@@ -59,4 +56,3 @@ angular
   .directive('a1Upgradable', a1UpgradableDirective)
 
 ```
-
