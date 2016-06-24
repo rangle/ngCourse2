@@ -1,6 +1,6 @@
-# What is immutability?
+# What is Immutability?
 
-**Immutability** is a design pattern where something can't be modified after being instantiated. If we want to change the value of that thing, we must recreate it with the new value instead. Some JavaScript types are immutable and some are mutable, meaning their value can change without having to recreate it. Let's explain this difference with some examples:
+_Immutability_ is a design pattern where something can't be modified after being instantiated. If we want to change the value of that thing, we must recreate it with the new value instead. Some JavaScript types are immutable and some are mutable, meaning their value can change without having to recreate it. Let's explain this difference with some examples:
 
 ```typescript
 let movie = {
@@ -32,7 +32,7 @@ console.log(movie1.episode); // outputs 8
 
 In this case however, changing the value of episode on one object also changed the value of the other. That's because `movie1` and `movie2` are of the **Object** type, and Objects are mutable.
 
-Of the JavaScript built-in types, these are immutable:
+Of the JavaScript built-in types, the following are immutable:
   - Boolean
   - Number
   - String
@@ -40,7 +40,7 @@ Of the JavaScript built-in types, these are immutable:
   - Null
   - Undefined
 
-These are mutable:
+And the following are mutable:
   - Object
   - Array
   - Function
@@ -53,5 +53,4 @@ message[5] = '-';
 console.log(message); // writes Hello world
 ```
 
-**Note:** This will throw an error in strict mode and fail silently in non-strict mode.
-
+> This will throw an error in strict mode and fail silently in non-strict mode.
