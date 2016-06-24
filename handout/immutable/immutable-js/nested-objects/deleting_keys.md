@@ -1,4 +1,4 @@
-# Deleting keys
+# Deleting Keys
 
 Keys can be deleted from maps using the `Map.delete` and `Map.deleteIn` methods.
 
