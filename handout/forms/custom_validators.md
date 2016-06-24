@@ -1,6 +1,6 @@
 # Custom Validators
 
-Having three validators is just not enough, let's create a custom validator to check that our email field has the proper format.
+Having three validators is just not enough - let's create a custom validator to check that our email field has the proper format.
 
 _app/custom-validators.ts_
 ```javascript
@@ -14,7 +14,7 @@ export class CustomValidators {
 }
 ```
 
-A validator is just a class with a number of static methods. Each method receives a `Control` instance and returns an object in case the validation fails or `null` in case the validation pass.
+A validator is just a class with a number of static methods. Each method receives a `Control` instance and returns an object in case the validation fails or `null` in case the validation passes.
 
 We can now add the validator in our component logic and add a new item in our HTML to show this error.
 
@@ -37,7 +37,7 @@ export class MyForm {
 }
 ```
 
-In the template, we need to look for the same key that is returned by the validator in case of an error, in this case, the key `emailFormat`.
+In the template, we need to look for the same key that is returned by the validator in case of an error - in this case, the key `emailFormat`.
 
 _app/my-form.component.html_
 ```html
