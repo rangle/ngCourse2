@@ -1,6 +1,6 @@
 # Using Pipes #
 
-Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below.
+Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below:
 
 ```javascript
 import {Component} from '@angular/core'
@@ -17,7 +17,7 @@ export class ProductPrice {
 ## Passing Parameters ##
 
 A pipe can accept optional parameters to modify the output. To pass parameters to a pipe,
-simply add a colon (`:`) and the parameter value to the end of the pipe expression:
+simply add a colon and the parameter value to the end of the pipe expression:
 
 ```
 pipeName:parameterValue
