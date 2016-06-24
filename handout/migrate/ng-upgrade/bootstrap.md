@@ -1,4 +1,4 @@
-# Bootstrap ng-upgrade
+# Bootstrapping ng-upgrade
 
 - Use manual Angular 1.x bootstrapping, and remove `ng-app`/`ng-strict-di` 
 references if they exist
@@ -9,15 +9,11 @@ references if they exist
 Once this is working the foundation is set for transitioning from Angular 1.x to
 Angular 2.  It is important to note that the upgrade adapter's bootstrap 
 mechanism is asynchronous. Additionally it's important to treat the upgrade
-adapter as a singleton.
+adapter as a singleton. 
 
-Bootstrap example:
-
-The following file creates an instance of `UpgradeAdapter`, and exports it.
-Angular 2's adapter _must_ be a singleton.
+The following file creates an instance of `UpgradeAdapter` and exports it.
 
 ```js
-
 // Angular 2 Vendor Import
 import {UpgradeAdapter} from '@angular/upgrade';
 
@@ -29,7 +25,6 @@ export const upgradeAdapter = new UpgradeAdapter();
 The following file bootstraps an Angular 1/2 hybrid application:
 
 ```js
-
 // Angular 1 Vendor Import
 import * as angular from 'angular';
 
@@ -59,6 +54,6 @@ application.
 
 Once bootstrapping is complete, Angular 1.x components can be _upgraded_ to
 work with Angular 2.  Conversely, Angular 2 components can be _downgraded_ to
-work with Angular 1.x
+work with Angular 1.x.
 
 
