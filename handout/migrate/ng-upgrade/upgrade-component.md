@@ -24,7 +24,7 @@ class Upgradable {
 }
 ```
 
-Here is an Angular 2 component that will _use the upgraded Angular 1.x
+Here is an Angular 2 component that will use the upgraded Angular 1.x
 directive:
 
 ```js
