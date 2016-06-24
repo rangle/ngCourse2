@@ -1,6 +1,6 @@
 # Custom Pipes #
 
-Angular 2 also allows you to create your own custom pipes:
+Angular 2 allows you to create your own custom pipes:
 
 ```javascript
 import {Pipe, PipeTransform} from '@angular/core';
@@ -16,12 +16,12 @@ export class LengthPipe implements PipeTransform {
 
 Each custom pipe implementation must:
 
-* Have the `@Pipe` decorator with pipe metadata that has a `name` property. This value will be used to
+* have the `@Pipe` decorator with pipe metadata that has a `name` property. This value will be used to
 call this pipe in template expressions. It must be a valid JavaScript identifier.
-* Implement the `PipeTransform` interface's transform method. This method takes the value being piped
-and a variable number of arguments of any type and return a transformed/"piped" value.
+* implement the `PipeTransform` interface's transform method. This method takes the value being piped
+and a variable number of arguments of any type and return a transformed ("piped") value.
 
-The colon delimited parameters given in the template will each map to one method argument in the same order.
+Each colon-delimited parameter in the template maps to one method argument in the same order.
 
 ```javascript
 import {Component} from '@angular/core';
