@@ -1,6 +1,6 @@
 # Loaders
 
-TypeScript isn't core JavaScript so webpack needs a bit of extra help to parse the `.ts` files. It does this through the use of **loaders**. Loaders are a way of configuring how webpack transforms the outputs of specific files in our bundles. Our `ts-loader` package is handling this transformation for TypeScript files.
+TypeScript isn't core JavaScript so webpack needs a bit of extra help to parse the `.ts` files. It does this through the use of *loaders*. Loaders are a way of configuring how webpack transforms the outputs of specific files in our bundles. Our `ts-loader` package is handling this transformation for TypeScript files.
 
 ## Inline
 
@@ -16,7 +16,7 @@ The loader is specified by using the `!` character to separate the module refere
 const app = require('ts!tslint!./src/index.ts');
 ```
 
-**Note:** although the packages are named `ts-loader`, `tslint-loader`, `style-loader`, we don't need to include the `-loader` part in our config.
+> Although the packages are named `ts-loader`, `tslint-loader`, `style-loader`, we don't need to include the `-loader` part in our config.
 
 Be careful when configuring loaders this way – it couples implementation details of different stages of your application together so it might not be the right choice in a lot of cases.
 
@@ -63,18 +63,18 @@ Tasks specified in this array are chained. If a file matches multiple conditions
 
 Each task has a few configuration options:
 
-- **test:** the file path must match this condition to be handled. This is commonly used to test file extensions eg. `/\.ts$/`
+- *test* - The file path must match this condition to be handled. This is commonly used to test file extensions eg. `/\.ts$/`.
 
-- **loader:** The loaders that will be used to transform the input. This follows the syntax specified above.
+- *loader*  - The loaders that will be used to transform the input. This follows the syntax specified above.
 
-- **exclude:** The file path must not match this condition to be handled. This is commonly used to exclude file folders. eg. `/node_modules/`
+- *exclude*  - The file path must not match this condition to be handled. This is commonly used to exclude file folders, e.g. `/node_modules/`.
 
-- **include:** The file path must match this condition to be handled. This is commonly used to include file folders.  eg. `path.resolve(__dirname, 'app/src')`.
+- *include* - The file path must match this condition to be handled. This is commonly used to include file folders.  eg. `path.resolve(__dirname, 'app/src')`.
 
 
 ### Pre-Loaders
 
-The preLoaders array works just like the loaders array only that it is a separate task chain that is executed before the loaders task chain.
+The preLoaders array works just like the loaders array only it is a separate task chain that is executed before the loaders task chain.
 
 
 ### Non JavaScript Assets
@@ -92,10 +92,10 @@ const STYLES = require('./styles/style.css');
 
 ### Other Commonly Used Loaders
 
-- **raw-loader:** returns the file content as a string.
+- *raw-loader* - returns the file content as a string.
 
-- **url-loader:** returns a base64 encoded data url if the file size is under a certain threshold, otherwise it just returns the file.
+- *url-loader* - returns a base64 encoded data URL if the file size is under a certain threshold, otherwise it just returns the file.
 
-- **css-loader:** resolves `@import` and `url` references in css files as modules.
+- *css-loader* - resolves `@import` and `url` references in CSS files as modules.
 
-- **style-loader:** injects a style tag with the bundled CSS in the `<head>` tag.
+- *style-loader* - injects a style tag with the bundled CSS in the `<head>` tag.
