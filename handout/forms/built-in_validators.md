@@ -1,6 +1,6 @@
 # Built-in Validators
 
-In contrast with our first approach, we are not going to be using the HTML properties `required` and `minlength`, instead we are going to pass these validators to the Control constructor of both fields.
+In contrast with our first approach, we are not going to use the HTML properties `required` and `minlength`. Instead we will pass these validators to the Control constructor of both fields.
 
 _app/my-form.component.ts_
 ```javascript
@@ -23,9 +23,9 @@ export class MyForm {
 }
 ```
 
-The first (optional) value of the `Control` constructor is the default value for the field, in this case we are leaving it empty. The second argument is the validators that should apply to the field.
+The first (optional) value of the `Control` constructor is the default value for the field - we are leaving it empty. The second argument is the validators that should apply to the field.
 
-The `Validator` class gives us access to the three built-in validators `require`, `minLength` and `maxLength`. If more than one validator is needed for a field, we need to combine them using the method `compose` as shown in the example before.
+The `Validator` class gives us access to the three built-in validators, `require`, `minLength` and `maxLength`. If more than one validator is needed for a field, we must combine them using the `compose` method as shown in the previous example.
 
 Now that our validators are in place, we can again add the template to show the error messages.
 
@@ -56,4 +56,4 @@ _app/my-form.component.html_
 
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/AtW3FrYU3qyNsWtLfUUF/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
-Notice that this time the method `hasError` is being used instead of accessing the `errors` object directly as before. When the field is valid, the `errors` object is `null` so trying to access `email.errors.required` will generate an internal error. We avoid that problem by wrapping our error logic inside an `*ngIf="!email.valid"` so we assure that the errors object exists before trying to render each specific error. This might not always be the case, so it's better to use the `hasError` method to check for a validation error.
+Notice that this time the method `hasError` is being used instead of accessing the `errors` object directly as before. When the field is valid, the `errors` object is `null`, so trying to access `email.errors.required` will generate an internal error. We avoid that problem by wrapping our error logic inside an `*ngIf="!email.valid"` so we assure that the errors object exists before trying to render each specific error. This might not always be the case, so it's better to use the `hasError` method to check for a validation error.
