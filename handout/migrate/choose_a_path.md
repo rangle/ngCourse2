@@ -1,8 +1,7 @@
 # Choose an Upgrade Path
 
-There are three primary ways of upgrading from Angular 1, to 2:
+There are three ways to upgrade from Angular 1 to 2:
 
-- Total Conversion
+- Total conversion
 - ng-upgrade
 - ng-forward
-
