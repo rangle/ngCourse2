@@ -1,6 +1,6 @@
-# Testing More Complex Actions
+# Testing Complex Actions
 
-Things get a little tricky when we want to test asynchronous or conditional
+Things get a little trickier when we want to test asynchronous or conditional
 action creators. Our goal is still the same: make sure that our operations are
 dispatching the actions we're expecting.
 
@@ -28,8 +28,7 @@ export class MyActionService {
 }
 ```
 
-Unit testing is similar to before, but we need to mock our our state as well
-as dispatch:
+Unit testing is similar to before, but we need to mock our state as well as dispatch:
 
 ```js
 import { NgRedux } from 'ng2-redux';
@@ -120,9 +119,9 @@ We can test this using the normal techniques for async service functions:
 * If we can make 1incrementAsync1 return a promise, we can just return a promise
 from the test and `mocha` will wait until it settles.
 * Alternately, we can use the `fakeAsync` technique discussed in the section on
-testing Angular 2 components.
+testing components.
 
 The thing to remember is that if we follow the ActionCreatorService
-pattern, our actions are just functions on an Angular service. So, we can mock
+pattern, our actions are just functions on an Angular service. So we can mock
 out NgRedux (and any other dependencies) and just test it as we would any other
 Angular 2 service.
