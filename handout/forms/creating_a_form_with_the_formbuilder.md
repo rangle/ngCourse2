@@ -65,9 +65,6 @@ _app/my-form.component.html_
 
 [View Example](http://plnkr.co/edit/9wCa32tXbYA1cDQEaA97?p=preview)
 
-<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/9wCa32tXbYA1cDQEaA97/" frameborder="0" allowfullscren="allowfullscren"></iframe>
-
-
 There are five things to notice here:
 
 * We changed the name we use to refer to our form from `regForm` to `group` because `regForm` used to be an instance of the `ngForm` directive while `group` is an instance of `ControlGroup`.

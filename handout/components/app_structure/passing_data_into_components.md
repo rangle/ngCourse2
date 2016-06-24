@@ -29,5 +29,3 @@ We can now use our component like so:
 [View Example](http://plnkr.co/edit/MgzGjYfuUV30MrB6UCsc?p=preview)
 
 >Unlike Angular 1.x, this is one-way binding.
-
-<iframe class="no-pdf" style="width: 100%; height: 600px" src="http://embed.plnkr.co/MgzGjYfuUV30MrB6UCsc/" frameborder="0" allowfullscren="allowfullscren"></iframe>

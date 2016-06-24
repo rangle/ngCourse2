@@ -4,7 +4,7 @@ If something unexpected arises we can raise an error on the observable stream an
 
 ```js
 export class App {
-	
+
 	private data: Observable<Array<number>>;
 	private values: Array<number> = [];
 	private anyErrors: error;
@@ -32,9 +32,7 @@ export class App {
 ```
 [View Example](http://plnkr.co/edit/hw1JJsShWNWzO1Wtu5p0?p=preview)
 
-<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/jfVcLYsy5eOUsaCyaFkF/" frameborder="0" allowfullscren="allowfullscren"></iframe>
-
-Here an error is raised and caught. One thing to note is that if we included a `.complete()` 
-after we raised the error, this event will not actually fire. 
-Therefore you should remember to include some call in your error handler 
-that will turn off any visual loading states in your application. 
+Here an error is raised and caught. One thing to note is that if we included a `.complete()`
+after we raised the error, this event will not actually fire.
+Therefore you should remember to include some call in your error handler
+that will turn off any visual loading states in your application.

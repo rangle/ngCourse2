@@ -14,9 +14,7 @@ bootstrap(App, [ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLocat
 
 [View Example](https://plnkr.co/edit/c8tiTcT0mso4neVHuN2K?p=preview)
 
-<iframe class="no-pdf" style="width: 100%; height: 600px" src="https://embed.plnkr.co/c8tiTcT0mso4neVHuN2K/" frameborder="0" allowfullscren="allowfullscren"></iframe>
-
-Here we have imported `ROUTER_PROVIDERS` as an application-wide provider 
-that can be configured in our root component. Since we have injected `ROUTER_PROVIDERS` 
-as an application-wide provider, we can also employ useful router directives in any component we want, 
-thus allowing us to interact with the router at any point in our application. 
+Here we have imported `ROUTER_PROVIDERS` as an application-wide provider
+that can be configured in our root component. Since we have injected `ROUTER_PROVIDERS`
+as an application-wide provider, we can also employ useful router directives in any component we want,
+thus allowing us to interact with the router at any point in our application.
