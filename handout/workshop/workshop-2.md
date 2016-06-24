@@ -1,6 +1,6 @@
 # Workshop 2 - API And Auth
 
-If you pull down the `workshop-2` branch.
+Pull down the `workshop-2` branch.
 
 ```shell
 $ git checkout -b workshop-2 origin/workshop-2
@@ -14,4 +14,4 @@ In this workshop, we will need to:
 - Create an Authentication for login
 - Setup the Login flow and routes
 - Update our Task Actions to use the Task service
-- Update our Task Edit and Task Add containers to navigate after the action has been completed
+- Update our Task Edit and Task Add containers to navigate after the action has been completed.
