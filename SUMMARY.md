@@ -13,7 +13,7 @@
        * [Constants, and Block Scoped Variables](handout/features/constants,_and_block_scoped_variables.md)
        * [...spread, and ...rest](handout/features/spread_and_rest.md)
        * [Destructuring](handout/features/destructuring.md)
-       * [ES6 Modules](handout/features/es6_modules.md)
+       * [Modules](handout/features/es6_modules.md)
    * [TypeScript](handout/features/typescript.md)
        * [Getting Started With TypeScript](handout/features/getting_started_with_typescript.md)
        * [Working With `tsc`](handout/features/working_with_tsc.md)
@@ -31,7 +31,7 @@
 
 ---
 
-* [Tooling](handout/tooling/README.md)
+* [The JavaScript Toolchain](handout/tooling/README.md)
    * [Source Control: git](handout/tooling/source_control.md)
    * [The Command Line](handout/tooling/the_command_line.md)
    * [Command Line JavaScript: NodeJS](handout/tooling/command_line_javascript.md)
@@ -41,31 +41,31 @@
 
 ---
 
-* [Bootstrapping](handout/bootstrapping/README.md)
-   * [File structure](handout/bootstrapping/file_structure.md)
+* [Bootstrapping an Angular 2 Application](handout/bootstrapping/README.md)
+   * [File Structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
    * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
 
 ---
 
-* [Components](handout/components/README.md)
+* [Components in Angular 2](handout/components/README.md)
    * [Creating Components](handout/components/creating_components.md)
-   * [Application Structure With Components](handout/components/app_structure_with_components.md)
+   * [Application Structure with Components](handout/components/app_structure_with_components.md)
        * [Passing Data into a Component](handout/components/app_structure/passing_data_into_components.md)
        * [Responding to Component Events](handout/components/app_structure/responding_to_component_events.md)
        * [Two-Way Data Binding](handout/components/app_structure/two_way_data_binding.md)
-   * [Structural Directive](handout/components/structural_directives.md)
+   * [Structural Directives](handout/components/structural_directives.md)
        * [The Asterisk (*) Syntax](handout/components/structural/the_asterisk_syntax.md)
        * [Iteration with `ngFor`](handout/components/structural/iteration_with_ng_for.md)
        * [Change Propagation](handout/components/structural/change_propagation.md)
    * [Projection](handout/components/projection.md)
-   * [Structuring Applications](handout/components/structuring_applications_with_components.md)
+   * [Structuring Applications with Components](handout/components/structuring_applications_with_components.md)
 
 ---
 
 * [Advanced Components](handout/advanced-components/README.md)
    * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
-   * [Accessing Other Component](handout/advanced-components/accessing_other_component.md)
+   * [Accessing Other Components](handout/advanced-components/accessing_other_component.md)
    * [View Encapsulation](handout/advanced-components/view_encapsulation.md)
    * [ElementRef](handout/advanced-components/elementref.md)
 
@@ -75,18 +75,18 @@
    * [Using Observables](handout/observables/using_observables.md)
    * [Error Handling](handout/observables/error_handling.md)
    * [Disposing Subscriptions and Releasing Resources](handout/observables/disposing_subscriptions_and_releasing_resources.md)
-   * [Observables vs. Promises](handout/observables/observables_vs_promises.md)
+   * [Observables vs Promises](handout/observables/observables_vs_promises.md)
    * [Using Observables From Other Sources](handout/observables/using_observables_from_other_sources.md)
    * [Observables Array Operations](handout/observables/observables_array_operations.md)
    * [Combining Streams with flatMap](handout/observables/combining_streams_with_flatmap.md)
-   * [Cold vs. Hot Observables](handout/observables/cold_vs_hot_observables.md)
+   * [Cold vs Hot Observables](handout/observables/cold_vs_hot_observables.md)
    * [Summary](handout/observables/summary.md)
 
 ---
 
-* [Dependency Injection](handout/di/README.md)
+* [Angular 2 Dependency Injection](handout/di/README.md)
    * [What is DI?](handout/di/what_is_di.md)
-   * [DI as a Framework](handout/di/di_framework.md)
+   * [DI Framework](handout/di/di_framework.md)
    * [Angular 2's DI](handout/di/angular2/README.md)
        * [`@Inject()` and `@Injectable`](handout/di/angular2/inject_and_injectable.md)
        * [Injection Beyond Classes](handout/di/angular2/injection_beyond_classes.md)
@@ -95,7 +95,7 @@
 ---
 
 * [Change Detection](handout/change-detection/README.md)
-   * [Angular 1 vs Angular 2](handout/change-detection/angular_1_vs_angular_2.md)
+   * [Change Detection Strategies in Angular 1 vs Angular 2](handout/change-detection/angular_1_vs_angular_2.md)
    * [How Change Detection Works](handout/change-detection/how_change_detection_works.md)
    * [Change Detector Classes](handout/change-detection/change_detector_classes.md)
    * [Change Detection Strategy: OnPush](handout/change-detection/change_detection_strategy_onpush.md)
@@ -126,7 +126,7 @@
 * [Pipes](handout/pipes/README.md)
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
-   * [Stateful and Async Pipes](handout/pipes/stateful_and_async_pipes.md)
+   * [Stateful Pipes](handout/pipes/stateful_and_async_pipes.md)
 
 ---
 
@@ -146,13 +146,13 @@
 ---
 
 * [Routing](handout/routing/README.md)
-   * [Why Routing](handout/routing/why_routing.md)
+   * [Why Routing?](handout/routing/why_routing.md)
    * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
    * [RouteConfig](handout/routing/routeconfig.md)
    * [RouterOutlet](handout/routing/routeroutlet.md)
    * [RouterLink](handout/routing/routerlink.md)
    * [Using the Router Programmatically](handout/routing/using_the_router_programmatically.md)
-   * [Child Routes](handout/routing/child_routes.md)
+   * [Creating Child Routes](handout/routing/child_routes.md)
    * [Using Routing with LocationStrategy](handout/routing/using_routing_with_locationstrategy.md)
    * [Using Auxiliary Routes](handout/routing/using_auxiliary_routes.md)
    * [Lazy Loading of Components](handout/routing/lazy_loading_of_components.md)
@@ -172,53 +172,53 @@
 
 ---
 
-* [Testing](handout/testing/README.md)
-   * [Tool Chain](handout/testing/intro-to-tdd/toolchain.md)
+* [TDD Testing](handout/testing/README.md)
+   * [Toolchain](handout/testing/intro-to-tdd/toolchain.md)
    * [Setup](handout/testing/intro-to-tdd/setup/README.md)
        * [Filename Conventions](handout/testing/intro-to-tdd/setup/filename-conventions.md)
-       * [Karma Config](handout/testing/intro-to-tdd/setup/karma-config.md)
+       * [Karma Configuration](handout/testing/intro-to-tdd/setup/karma-config.md)
        * [Typings](handout/testing/intro-to-tdd/setup/typings.md)
-       * [Execute Tests](handout/testing/intro-to-tdd/setup/execute.md)
+       * [Executing Test Scripts](handout/testing/intro-to-tdd/setup/execute.md)
    * [Simple Test](handout/testing/intro-to-tdd/simple-test.md)
    * [Using Chai](handout/testing/intro-to-tdd/using-chai.md)
    * [Testing Components](handout/testing/components/README.md)
-       * [Verifying Methods & Properties](handout/testing/components/verify.md)
-       * [Injecting Dependencies](handout/testing/components/injecting-dependencies.md)
-           * [Overriding Components](handout/testing/components/overriding.md)
-       * [Async Testing](handout/testing/components/async.md)
-       * [Refactor Hard To Test Code](handout/testing/components/refactor.md)
+       * [Verifying Methods and Properties](handout/testing/components/verify.md)
+       * [Injecting Dependencies and DOM Changes](handout/testing/components/injecting-dependencies.md)
+           * [Overriding Components for Testing](handout/testing/components/overriding.md)
+       * [Testing Asynchronous Actions](handout/testing/components/async.md)
+       * [Refactor Hard-to-Test Code](handout/testing/components/refactor.md)
    * [Testing Services](handout/testing/services/README.md)
-       * [Strategies](handout/testing/services/strategies.md)
+       * [Testing Strategies for Services](handout/testing/services/strategies.md)
        * [Injecting Dependencies](handout/testing/services/injecting-dependencies.md)
            * [Mocking Dependencies](handout/testing/services/mocking-dependencies.md)
-       * [Testing HTTP](handout/testing/services/http.md)
-           * [Async Testing](handout/testing/services/async.md)
-       * [Testing JSONP/XHR](handout/testing/services/json-xhr.md)
+       * [Testing HTTP Requests](handout/testing/services/http.md)
+           * [Asynchronous Testing](handout/testing/services/async.md)
+       * [Testing JSONP and XHR Back-Ends](handout/testing/services/json-xhr.md)
        * [Executing Tests Asynchronously](handout/testing/services/async-execution.md)
    * [Testing Redux](handout/testing/redux/README.md)
-       * [Simple Actions](handout/testing/redux/simple-actions.md)
-       * [Complex Actions](handout/testing/redux/complex-actions.md)
-       * [Reducers](handout/testing/redux/reducers.md)
-       * [After Thoughts](handout/testing/redux/after-thoughts.md)
+       * [Testing Simple Actions](handout/testing/redux/simple-actions.md)
+       * [Testing Complex Actions](handout/testing/redux/complex-actions.md)
+       * [Testing Reducers](handout/testing/redux/reducers.md)
+       * [Afterthoughts](handout/testing/redux/after-thoughts.md)
 
 ---
 
-* [Migrate](handout/migrate/README.md)
+* [Migrating Angular 1.x Projects to Angular 2](handout/migrate/README.md)
    * [Migration Prep](handout/migrate/migration-prep/README.md)
        * [Upgrade To Angular 1.3+ Style](handout/migrate/migration-prep/upgrade_to_angular_1_3.md)
        * [Migrate To TypeScript](handout/migrate/migration-prep/migrate_to_typescript.md)
        * [Use Webpack](handout/migrate/migration-prep/use_webpack.md)
-   * [Choose a Path](handout/migrate/choose_a_path.md)
+   * [Choose an Upgrade Path](handout/migrate/choose_a_path.md)
    * [Total Conversion](handout/migrate/total_conversion.md)
-   * [ng-forward](handout/migrate/ng_forward.md)
-   * [ng-upgrade](handout/migrate/ng-upgrade/README.md)
-       * [Bootstrap Angular 2](handout/migrate/ng-upgrade/bootstrap.md)
-       * [Downgrade Components](handout/migrate/ng-upgrade/downgrade-component.md)
-       * [Upgrade Components](handout/migrate/ng-upgrade/upgrade-component.md)
+   * [ng-forward (Angular 1.x Using 2 Style)](handout/migrate/ng_forward.md)
+   * [ng-upgrade (Angular 1.x Coexisting With Angular 2](handout/migrate/ng-upgrade/README.md)
+       * [Bootstrapping ng-upgrade](handout/migrate/ng-upgrade/bootstrap.md)
+       * [Downgrading Components](handout/migrate/ng-upgrade/downgrade-component.md)
+       * [Upgrading Components](handout/migrate/ng-upgrade/upgrade-component.md)
        * [Projection](handout/migrate/ng-upgrade/projection.md)
        * [Transclusion](handout/migrate/ng-upgrade/transclusion.md)
        * [Injecting Across Frameworks](handout/migrate/ng-upgrade/injecting_across_frameworks.md)
-       * [Upgrade Strategy](handout/migrate/ng-upgrade/upgrade_strategy.md)
+       * [Upgrading Components Strategically](handout/migrate/ng-upgrade/upgrade_strategy.md)
 
 ---
 
@@ -234,21 +234,21 @@
 
 * [Angular CLI](handout/cli/README.md)
    * [Setup](handout/cli/setup.md)
-   * [Creating an App](handout/cli/creating-an-app.md)
+   * [Creating a New App](handout/cli/creating-an-app.md)
    * [Serving the App](handout/cli/serving-the-app.md)
    * [Creating Components](handout/cli/creating-components.md)
    * [Creating Routes](handout/cli/creating-routes.md)
    * [Creating Other Things](handout/cli/creating-other-things.md)
    * [Testing](handout/cli/testing.md)
    * [Linting](handout/cli/linting.md)
-   * [Command Overview](handout/cli/command-overview.md)
-   * [Adding 3rd party libraries](handout/cli/adding-third-party-libraries.md)
-   * [Integrating an existing app](handout/cli/init.md)(handout/cli/converting-an-existing-app)
+   * [CLI Command Overview](handout/cli/command-overview.md)
+   * [Adding Third Party Libraries](handout/cli/adding-third-party-libraries.md)
+   * [Integrating an Existing App](handout/cli/init.md)
 
 ---
 
-* [Workshop](handout/workshop/readme.md)
+* [Training Workshop](handout/workshop/readme.md)
   * [Workshop 0 - Kitchen Sink](handout/workshop/workshop-0.md)
-  * [Workshop 1 - Containers and Redux Sink](handout/workshop/workshop-1.md)
-  * [Workshop 2 - API Services and Authentication Sink](handout/workshop/workshop-2.md)
+  * [Workshop 1 - Containers and Redux](handout/workshop/workshop-1.md)
+  * [Workshop 2 - API Services and Authentication](handout/workshop/workshop-2.md)
 * [Other Resources](handout/other-resources.md)
