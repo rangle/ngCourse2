@@ -1,8 +1,7 @@
 # Arrow Functions
 
-ES6 offers some new syntax for dealing with `this`: "arrow functions".  Arrow
-function also make working with "higher order" functions (functions that take
-functions as parameters) much easier to work with.
+ES6 offers some new syntax for dealing with `this`: "arrow functions".  
+Arrow functions also make higher order functions much easier to work with.
 
 The new "fat arrow" notation can be used to define anonymous functions in a simpler way.
 
@@ -79,7 +78,6 @@ var ctrl = new Toppings(['cheese', 'lettuce']);
 
 Here `this` inside the arrow function refers to the instance variable.
 
-*Warning* arrow functions do _not_ have their own `arguments` variable, this
+*Warning* arrow functions do _not_ have their own `arguments` variable, which
 can be confusing to veteran JavaScript programmers. `super`, and `new.target`
 are also scoped from the outer enclosure.
-
