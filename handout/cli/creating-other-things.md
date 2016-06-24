@@ -4,7 +4,7 @@ The CLI can scaffold other Angular 2 entities such as services, pipes and direct
 
 `ng generate [entity] [entity-name]`
 
-This creates the entity at `src/app/[entity-name].[entity].ts` along with a spec file or at the current path if the command is executed in a child folder of the project. The CLI provides blueprints for the following entities out of the box:
+This creates the entity at `src/app/[entity-name].[entity].ts` along with a spec file, or at the current path if the command is executed in a child folder of the project. The CLI provides blueprints for the following entities out of the box:
 
 Item       | Command                 | Files generated
 ---        | ---                     | --- 
