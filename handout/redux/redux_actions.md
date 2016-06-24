@@ -5,24 +5,24 @@ they should be serializable and replayable into the application state. Even if
 your actions involve asynchronous logic, the final dispatched action should 
 remain a plain JSON object.
 
-Redux actions creators are generally where side-effects should happen, such as
-making API calls, or generating IDs. This is because when the final action gets
+Redux action creators are generally where side-effects should happen, such as
+making API calls or generating IDs. This is because when the final action gets
 dispatched to the reducers, we want to update the application state to reflect
 what has already happened.
 
 Let's take a look at the actions that are used in this example. For now, let's
-just focus on some simple, synchronous actions.
+just focus on some simple synchronous actions.
 
 ## Synchronous Actions
 
-Most Redux apps have a set of functions, called 'action creators', that are
+Most Redux apps have a set of functions, called "action creators", that are
 used to set up and dispatch actions.
 
-In Angular 2, it's convenient to define 'action creator services' for your
+In Angular 2, it's convenient to define "action creator services" for your
 action creators to live in; these services can be injected into the components
 that need to dispatch the actions.
 
-__app/actions/counter-actions.ts__
+_app/actions/counter-actions.ts_
 ```javascript
 import { Injectable } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
@@ -44,11 +44,11 @@ export class CounterActions {
 }
 ```
 
-As you can see, the actions creators are simple functions that (optionally)
+As you can see, the action creators are simple functions that (optionally)
 take parameters, and then dispatch a JSON object containing more information.
 
 The `dispatch` function expects to be called with something that conforms to
-the 'Action' interface from the redux library:
+the "Action" interface from the redux library:
 
 ```typescript
 import { Action } from 'redux';
@@ -56,18 +56,18 @@ import { Action } from 'redux';
 
 This interface has the following properties:
 
-* **type**: a string/enum representing the action
-* **payload?**: optional, the data that you want to pass into the reducer if applicable
-* **error?** : optional, indicates if this message is due to an error
-* **metaData?** : optional - any extra information
+* _type_ - a string/enum representing the action
+* _payload?_ - optional, the data that you want to pass into the reducer if applicable
+* _error?_ - optional, indicates if this message is due to an error
+* _metaData?_ - optional - any extra information
 
 ## Asynchronous Actions
 
-This 'ActionCreatorService' pattern comes in handy if you need to handle
+This "ActionCreatorService" pattern comes in handy if you must handle
 asynchronous or conditional actions (users of react-redux may recognize this
 pattern as analogous to redux-thunk in a dependency-injected world).
 
-__app/actions/counter-actions.ts__
+_app/actions/counter-actions.ts_
 ```typescript
 import { Injectable } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
@@ -100,7 +100,7 @@ export class CounterActions {
 }
 ```
 
-In the `incrementIfOdd` action, we are making use of the `getState` function to
+In the `incrementIfOdd` action, we are using the `getState` function to
 get the current state of the application.
 
 In the `incrementAsync` action, we are delaying the actual call to `dispatch`.
@@ -112,7 +112,7 @@ the Promise resolves, we can then do a dispatch with the increase action.
 ## Actions that Depend on Other Services
 
 The ActionCreatorService pattern becomes necessary in cases where your action
-creators need to make use of other Angular 2 services. Consider the following
+creators must use other Angular 2 services. Consider the following
 ActionCreatorService that handles a remote API call:
 
 ```typescript
