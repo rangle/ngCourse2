@@ -6,7 +6,6 @@ _really_ do?
 Consider the following code:
 
 ```js
-
 class Hamburger {
   private bun: Bun;
   private patty: Patty;
@@ -27,7 +26,6 @@ bad thing. What if a vegetarian burger were needed?  One naive approach might
 be:
 
 ```js
-
 class VeggieHamburger {
   private bun: Bun;
   private patty: Patty;
@@ -40,11 +38,10 @@ class VeggieHamburger {
 }
 ```
 
-There, problem solved right? But what if we need a gluten free hamburger? What
-about if we want different toppings... maybe something more generic like:
+There, problem solved right? But what if we need a gluten free hamburger? 
+What if we want different toppings... maybe something more generic like:
 
 ```js
-
 class Hamburger {
   private bun: Bun;
   private patty: Patty;
@@ -66,10 +63,9 @@ are changed, `Hamburger` would also have to be changed.
 Also, what happens during testing? How can `Bun`, `Patty`, and `Toppings` be
 effectively mocked?
 
-Taking those concerns into consideration, the class could be re-written as:
+Taking those concerns into consideration, the class could be rewritten as:
 
 ```js
-
 class Hamburger {
   private bun: Bun;
   private patty: Patty;
@@ -88,7 +84,6 @@ moved out of the class.  This pattern is so common that TypeScript allows it to
 be written in shorthand like so:
 
 ```js
-
 class Hamburger {
   constructor(private bun: Bun, private patty: Patty, 
     private toppings: Toppings) {}
