@@ -9,17 +9,17 @@ npm install -D webpack ts-loader html-webpack-plugin tslint-loader
 
 # Setup and Usage
 
-The most common way to use webpack is through the CLI. By default, running the command executes `webpack.config.js`. Which is the configuration file for your webpack setup.
+The most common way to use webpack is through the CLI. By default, running the command executes `webpack.config.js` which is the configuration file for your webpack setup.
 
 
 ## Bundle
 
-The core concept of webpack is the **bundle**. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles: 
+The core concept of webpack is the *bundle*. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles: 
 
-1. `app`: for our application specific client-side logic 
-2. `vendor`: for third party libraries 
+* `app` for our application-specific client-side logic 
+* `vendor` for third party libraries 
   
-In webpack, bundles are configured through **entry points**. Webpack goes through each entry point that has one by one. It maps out a dependency graph by going through each module's references. All the dependencies that it encounters are then packaged into that bundle.
+In webpack, bundles are configured through *entry points*. Webpack goes through each entry point one by one. It maps out a dependency graph by going through each module's references. All the dependencies that it encounters are then packaged into that bundle.
 
 Packages installed through NPM are referenced using *CommonJS* module resolution. In a JavaScript file, this would look like:
 
@@ -61,12 +61,12 @@ Let's look at the entry points we have defined in our sample app:
 }
 ```
 
-The entry point for `app`, `./src/index.ts`, is the base file of our Angular 2 application. If we've defined the dependencies of each module correctly, those references should connect all the parts of our application from here. The entry point for `vendor` is a list of modules that we need for our application code to work correctly. Even if these files are referenced by some module in our app bundle, we want to separate these resources in a bundle just for 3rd party code.
+The entry point for `app`, `./src/index.ts`, is the base file of our Angular 2 application. If we've defined the dependencies of each module correctly, those references should connect all the parts of our application from here. The entry point for `vendor` is a list of modules that we need for our application code to work correctly. Even if these files are referenced by some module in our app bundle, we want to separate these resources in a bundle just for third party code.
 
 
 ## Output Configuration
 
-In most cases we don't _just_ want to configure how webpack generates bundles but, we also want to configure how those bundles are outputted.
+In most cases we don't just want to configure how webpack generates bundles - we also want to configure how those bundles are output.
 
 - Often, we will want to re-route where files are saved. For example into a `bin` or `dist` folder. This is because we want to optimize our builds for production.
 
@@ -74,7 +74,7 @@ In most cases we don't _just_ want to configure how webpack generates bundles bu
 
 - Server routes can be configured in many different ways. We probably want some way of configuring webpack to take our server routing setup into consideration.
 
-All of these configuration options are handled by the config's **output** property. Let's look at how we've setup our config to address these issues:
+All of these configuration options are handled by the config's `output` property. Let's look at how we've setup our config to address these issues:
 
 ```javascript
 {
@@ -89,8 +89,8 @@ All of these configuration options are handled by the config's **output** proper
 }
 ```
 
-**Note**: Some options have words wrapped in square brackets. Webpack has the ability to parse parameters for these properties, with each property having a different set of parameters available for substitution. Here, we're using `name`, the name of the bundle, and `hash`, a hash value of the bundle's content.
+> Some options have words wrapped in square brackets. Webpack has the ability to parse parameters for these properties, with each property having a different set of parameters available for substitution. Here, we're using `name` (the name of the bundle) and `hash` (a hash value of the bundle's content).
 
-To save bundled files in a different folder, we use the `path` property. Here, `path` tells webpack that all of the output files need to be saved to `path.resolve(__dirname, 'dist')`. In our case, we save each bundle into a separate file. The name of this file is specified by the `filename` property. 
+To save bundled files in a different folder, we use the `path` property. Here, `path` tells webpack that all of the output files must be saved to `path.resolve(__dirname, 'dist')`. In our case, we save each bundle into a separate file. The name of this file is specified by the `filename` property. 
 
 Linking these bundled files and the files we've actually coded is done using what's known as source maps. There are different ways to configure source maps. What we want is to save these source maps in a separate file specified by the `sourceMapFilename` property. The way the server accesses the files might not directly follow the filesystem tree. For us, we want to use the files saved under _dist_ as the root folder for our server. To let webpack know this, we've set the `publicPath` property to `/`.
