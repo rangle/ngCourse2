@@ -10,7 +10,6 @@ bootstrap function initializes Angular 2's injection framework.
 For example:
 
 ```js
-
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {App} from './path/to/your/root/component';
 
@@ -18,7 +17,7 @@ bootstrap(App)
 ```
 
 Believe it or not, the above example creates the root injector.  This example is
-too primitive though, the injector is not told about anything.
+too primitive though; the injector is not told about anything.
 
 ```js
 import {bootstrap} from '@angular/platform-browser-dynamic';
@@ -35,7 +34,7 @@ bootstrap(App, [Hamburger]);
 ```
 
 In the above example the root injector is initialized, and told about the
-`Hamburger` class.  Another way of saying this, is that Angular 2 has been
+`Hamburger` class.  Another way of saying this is that Angular 2 has been
 _provided_ a `Hamburger`.
 
 That seems pretty straightforward, but astute readers will be wondering how
@@ -44,7 +43,7 @@ a plain function?
 
 Angular 2 _assumes_ that it's being given a class.
 
-What about `Bun`, `Patty`, and `Toppings`, how is `Hamburger` getting those?
+What about `Bun`, `Patty`, and `Toppings`? How is `Hamburger` getting those?
 
 It's not, at least not yet.  Angular 2 does not know about them yet.  That can
 be changed easily enough:
@@ -73,7 +72,7 @@ class Toppings {}
 bootstrap(App, [Hamburger, Patty, Bun, Toppings]);
 ```
 
-Okay, this is starting to look a little bit more complete.  The key take away
+Okay, this is starting to look a little bit more complete.  The key takeaway
 here is `bootstrap(App, [Hamburger, Patty, Bun, Toppings])`.  The second
 parameter is an array of `providers`.
 
