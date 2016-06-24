@@ -1,16 +1,16 @@
 # Stateful Pipes ##
 
-There are two categories of pipes, stateless and stateful.
+There are two categories of pipes:
 
-Stateless pipes are pure functions that flow input data through without remembering anything or causing detectable side-effects. Most pipes are stateless. The `CurrencyPipe` we used and the length pipe we created both are examples of a stateless pipe.
+* _Stateless_ pipes are pure functions that flow input data through without remembering anything or causing detectable side-effects. Most pipes are stateless. The `CurrencyPipe` we used and the length pipe we created are examples of a stateless pipe.
 
-Stateful pipes are those which can manage the state of the data they transform. A pipe that creates an HTTP request, stores the response and displays the output, is a stateful pipe. Stateful Pipes should be used cautiously.
+* _Stateful_ pipes are those which can manage the state of the data they transform. A pipe that creates an HTTP request, stores the response and displays the output, is a stateful pipe. Stateful Pipes should be used cautiously.
 
 Angular 2 provides `AsyncPipe`, which is stateful.
 
-## Async Pipe ##
+## AsyncPipe ##
 
-AsyncPipe can receive a Promise or Observable as input and subscribe to the input automatically, eventually returning the emitted value(s). It is stateful because the pipe maintains a subscription to the input and its returned values depend on that subscription.
+AsyncPipe can receive a `Promise` or `Observable` as input and subscribe to the input automatically, eventually returning the emitted value(s). It is stateful because the pipe maintains a subscription to the input and its returned values depend on that subscription.
 
 ```javascript
 import {Component} from '@angular/core';
