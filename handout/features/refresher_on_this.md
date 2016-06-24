@@ -14,31 +14,29 @@ class Toppings {
 }
 ```
 
-Here `this` refers to an instance of the `Toppings` class. As long as the `list` method is called using dot notation, like `myToppings.list()`, then `this.formatToppings(this.toppings)` invokes the `formatToppings()` method defined on the instance of the class. This will also ensure that inside `formatToppings`, that `this` refers to the same instance.
+Here `this` refers to an instance of the `Toppings` class. As long as the `list` method is called using dot notation, like `myToppings.list()`, then `this.formatToppings(this.toppings)` invokes the `formatToppings()` method defined on the instance of the class. This will also ensure that inside `formatToppings`, `this` refers to the same instance.
 
-However, `this` can also refer to other things.
+However, `this` can also refer to other things. There are two basic cases that you should remember.
 
-There are two basic cases that you would want to remember.
+1. Method invocation:
 
-The first is "method invocation":
+   ```js
+     someObject.someMethod();
+   ```
 
-```js
-  someObject.someMethod();
-```
+   Here, `this` used inside `someMethod` will refer to `someObject`, which is usually what you want.
 
-Here, `this` used inside `someMethod` will refer to `someObject`, which is usually what you want.
+2. Function invocation:
 
-The second case is "function invocation":
+   ```js
+     someFunction();
+   ```
 
-```js
-  someFunction();
-```
-
-Here, `this` used inside `someFunction` can refer to different things depending on whether we are in "strict" mode or not. Without using the "strict" mode, `this` refers to the context in which `someFunction()` was called. This rarely what you want, and it can be confusing when `this` is not what you were expecting, because of where the function was called from. In "strict" mode, `this` would be undefined, which is slightly less confusing.
+   Here, `this` used inside `someFunction` can refer to different things depending on whether we are in "strict" mode or not. Without using the "strict" mode, `this` refers to the context in which `someFunction()` was called. This rarely what you want, and it can be confusing when `this` is not what you were expecting, because of where the function was called from. In "strict" mode, `this` would be undefined, which is slightly less confusing.
 
 [View Example](http://jsbin.com/vekawimihe/2/edit?js,console)
 
-One of the implications of this is that you cannot easily detach a method from its object. E.g., consider this example:
+One of the implications is that you cannot easily detach a method from its object. Consider this example:
 
 ```js
   var log = console.log;
@@ -73,5 +71,5 @@ class ServerRequest {
 }
 ```
 
-In the above case `this` will _not_ point to the expected object, in "strict"
+In the above case `this` will _not_ point to the expected object: in "strict"
 mode it will be `undefined`.  This leads to another ES6 feature - arrow functions, which will be covered next.
