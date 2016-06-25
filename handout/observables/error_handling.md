@@ -16,7 +16,7 @@ export class App {
 				observer.next(10);
 			}, 1500);
 			setTimeout(() => {
-				observer.error('Hey something bad happened I guess');
+				observer.error(new Error('Something bad happened!'));
 			}, 2000);
 			setTimeout(() => {
 				observer.next(50);
