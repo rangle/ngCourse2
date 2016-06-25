@@ -36,6 +36,3 @@ class SomeComponent {
 ```
 
 [View Example](http://plnkr.co/edit/KX7HdGEdg1mRbttmjWOV?p=preview)
-
-<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/KX7HdGEdg1mRbttmjWOV/" frameborder="0" allowfullscren="allowfullscren"></iframe>
-
