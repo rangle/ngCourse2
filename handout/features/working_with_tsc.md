@@ -1,6 +1,6 @@
 # Working With `tsc`
 
-So far `tsc` has been used to compile a single file.  Typically developers have
+So far `tsc` has been used to compile a single file.  Typically programmers have
 a lot more than one file to compile. Thankfully  `tsc` can handle multiple files as
 arguments.
 
@@ -21,7 +21,7 @@ $ tsc ./a.ts ./b.ts
 a.ts(1,1): error TS1148: Cannot compile modules unless the '--module' flag is provided.
 ```
 
-Hmmm.  What's the deal with this module flag? TypeScript has a help menu, lets
+Hmmm.  What's the deal with this module flag? TypeScript has a help menu, let's
 take a look:
 
 ```shell
@@ -53,7 +53,7 @@ Excellent - there are now two JavaScript modules ready for consumption.
 
 Telling the `tsc` command what to compile becomes tedious, and labour intensive
 even on small projects.  Fortunately TypeScript has a means of simplifying this.
-`tsconfig.json` files let developers write down all the compiler settings they
+`tsconfig.json` files let programmers write down all the compiler settings they
 want.  When `tsc` is run, it looks for `tsconfig.json` files, and uses their
 rules to compile JavaScript.
 
@@ -84,7 +84,7 @@ The compilation target. Typescript supports targeting different platforms depend
 
 #### Module
 
-The target module resolution interface. We're integrating TypeScript through Webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
+The target module resolution interface. We're integrating TypeScript through webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
 
 #### Decorators
 
@@ -92,7 +92,7 @@ Decorator support in TypeScript [hasn't been finalized yet](http://rbuckton.gith
 
 #### TypeScript with Webpack
 
-We won't be running `tsc` manually, however. Instead, Webpack's `ts-loader` will do the transpilation during the build:
+We won't be running `tsc` manually, however. Instead, webpack's `ts-loader` will do the transpilation during the build:
 
 ```javascript
   // webpack.config.js
