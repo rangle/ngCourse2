@@ -15,7 +15,7 @@ function log(prefix?: string) {
       return new c();
     }
    
-    // the new constructor behaviour
+    // the new constructor behavior
     var f : any = function (...args) {
       console.log(prefix + original.name);
       return construct(original, args);
