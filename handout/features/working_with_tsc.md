@@ -21,7 +21,7 @@ $ tsc ./a.ts ./b.ts
 a.ts(1,1): error TS1148: Cannot compile modules unless the '--module' flag is provided.
 ```
 
-Hmmm.  What's the deal with this module flag? TypeScript has a help menu, lets
+Hmmm.  What's the deal with this module flag? TypeScript has a help menu, let's
 take a look:
 
 ```shell
