@@ -40,4 +40,4 @@ it('Should work',
 );
 ```
 
-Here we have a `SampleComponent` that has a button, when clicked a `setTimeout` of two seconds will be called to set the message property to 'My expected data'. Our unit test builds our component using the `TestComponentBuilder`. We have wrapped our entire test in `fakeAsync` which will allow us to test the asynchronous behaviour of our component using synchronous function calls. We simulate a button click, and then immediately call `tick(2000)` which simulates a two second delay.  We can then run `detectChanges` and query the DOM for our expected result.
+Here we have a `SampleComponent` that has a button, when clicked a `setTimeout` of two seconds will be called to set the message property to 'My expected data'. Our unit test builds our component using the `TestComponentBuilder`. We have wrapped our entire test in `fakeAsync` which will allow us to test the asynchronous behavior of our component using synchronous function calls. We simulate a button click, and then immediately call `tick(2000)` which simulates a two second delay.  We can then run `detectChanges` and query the DOM for our expected result.
