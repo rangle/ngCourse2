@@ -84,7 +84,7 @@ The compilation target. Typescript supports targeting different platforms depend
 
 #### Module
 
-The target module resolution interface. We're integrating TypeScript through Webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
+The target module resolution interface. We're integrating TypeScript through webpack which supports different interfaces. We've decided to use node's module resolution interface, `commonjs`.
 
 #### Decorators
 
