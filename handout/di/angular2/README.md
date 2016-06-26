@@ -1,7 +1,7 @@
 # Angular 2's DI
 
 The last example introduced a hypothetical `Injector` object.  Angular 2
-simplifies DI even further.  With Angular 2, developers almost never have to get
+simplifies DI even further.  With Angular 2, programmers almost never have to get
 bogged down with injection details.
 
 Angular 2's DI system is very subtle.  It's not obvious, but calling Angular 2's
