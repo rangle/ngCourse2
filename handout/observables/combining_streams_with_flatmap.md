@@ -11,9 +11,9 @@ A case for FlatMap:
 - [Filter + map simplified with flatMap](http://jsbin.com/sahiye/2/edit?js,console)
 
 
-Let's say we wanted to implement an AJAX search feature in which every keypress in a text field will automatically perform a search and update the page with the results. How would this look? Well we would have an observable subscribed to events coming from an input field, and on every change of input we want to perform some http request, which is also an observable we subscribe to. What we end up with is an observable of an observable.
+Let's say we wanted to implement an AJAX search feature in which every keypress in a text field will automatically perform a search and update the page with the results. How would this look? Well we would have an observable subscribed to events coming from an input field, and on every change of input we want to perform some HTTP request, which is also an observable we subscribe to. What we end up with is an observable of an observable.
 
-By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the http request).
+By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the HTTP request).
 
 *app/services/Search.ts*
 
