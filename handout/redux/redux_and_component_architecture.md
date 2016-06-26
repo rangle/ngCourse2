@@ -1,7 +1,7 @@
 # Redux and Component Architecture
 
 In the above example, our `counter` component is a smart component. 
-It knows about redux, the structure of the state, and the actions it needs to call. 
+It knows about Redux, the structure of the state, and the actions it needs to call. 
 In theory you can drop this component into any area of your application and just let it work. 
 But it will be tightly bound to that specific slice of state, and those specific actions. 
 For example, what if we wanted to have multiple counters tracking different things on the page? 
@@ -180,6 +180,6 @@ export class SimpleRedux {
 ```
 [View Example](https://plnkr.co/edit/m910XrXyFrUty2nXUJ1q?p=preview)
 
-Our two Observables, `counter$` and `curse$` will now get updated with a new
+Our two `Observable`s, `counter$` and `curse$` will now get updated with a new
 value every time the relevant store properties are updated by the rest of the
 system.
