@@ -1,11 +1,11 @@
 # Using Observables From Other Sources
-In the example above we created observables from scratch which is especially useful in understanding the anatomy of an observable.
+In the example above we created `Observables` from scratch which is especially useful in understanding the anatomy of an `Observable`.
 
-However, we will often create observables from callbacks, promises, events, collections or using many of the operators available on the API.
+However, we will often create `Observables` from callbacks, promises, events, collections or using many of the operators available on the API.
 
 
 ## Observable HTTP Events
-A common operation in any web application is getting or posting data to a server. Angular applications do this with the `Http` library, which previously used `Promises` to operate in an asynchronous manner. The updated `Http` library now incorporates observables for triggering events and getting new data. Let's take a quick look at this:
+A common operation in any web application is getting or posting data to a server. Angular applications do this with the `Http` library, which previously used `Promises` to operate in an asynchronous manner. The updated `Http` library now incorporates `Observables` for triggering events and getting new data. Let's take a quick look at this:
 
 ```js
 import {Component} from '@angular/core';
@@ -33,11 +33,11 @@ export class App {
 ```
 [View Example](http://plnkr.co/edit/FjJz4lTX2hhHkMu87cln?p=preview)
 
-This basic examples outlines how the `Http` library's common routines like `get`, `post`, `put`, and `delete` all return observables that allow us to asynchronously process any resulting data. 
+This basic examples outlines how the `Http` library's common routines like `get`, `post`, `put`, and `delete` all return `Observables` that allow us to asynchronously process any resulting data. 
 
 
 ## Observable Form Events
-Let's take a look at how observables are used in Angular 2 forms. Each field in a form is treated as an observable that we can subscribe to and listen for any changes made to the value of the input field. 
+Let's take a look at how `Observables` are used in Angular 2 forms. Each field in a form is treated as an `Observable` that we can subscribe to and listen for any changes made to the value of the input field. 
 
 ```js
 import {Component} from '@angular/core';
@@ -71,4 +71,4 @@ export class App {
 ```
 [View Example](http://plnkr.co/edit/jEQ6o6D81c65mr9sghL3?p=preview)
 
-Here we have created a new form by initializing a new `Control` field and grouped it into a `ControlGroup` tied to the `coolForm` HTML form. The `Control` field has a property `.valueChanges` that returns an observable that we can subscribe to. Now whenever a user types something into the field we'll get it immediately.
+Here we have created a new form by initializing a new `Control` field and grouped it into a `ControlGroup` tied to the `coolForm` HTML form. The `Control` field has a property `.valueChanges` that returns an `Observable` that we can subscribe to. Now whenever a user types something into the field we'll get it immediately.
