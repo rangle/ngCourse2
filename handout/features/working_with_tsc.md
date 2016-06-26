@@ -1,6 +1,6 @@
 # Working With `tsc`
 
-So far `tsc` has been used to compile a single file.  Typically developers have
+So far `tsc` has been used to compile a single file.  Typically programmers have
 a lot more than one file to compile. Thankfully  `tsc` can handle multiple files as
 arguments.
 
@@ -53,7 +53,7 @@ Excellent - there are now two JavaScript modules ready for consumption.
 
 Telling the `tsc` command what to compile becomes tedious, and labour intensive
 even on small projects.  Fortunately TypeScript has a means of simplifying this.
-`tsconfig.json` files let developers write down all the compiler settings they
+`tsconfig.json` files let programmers write down all the compiler settings they
 want.  When `tsc` is run, it looks for `tsconfig.json` files, and uses their
 rules to compile JavaScript.
 
