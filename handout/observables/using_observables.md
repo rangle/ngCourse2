@@ -1,6 +1,6 @@
 # Using Observables
 
-Let's take a look at a basic example of how to create and use an observable in an Angular 2 component:
+Let's take a look at a basic example of how to create and use an `Observable` in an Angular 2 component:
 
 ```js
 import {Component} from '@angular/core';
@@ -50,13 +50,13 @@ export class App {
 
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/m7RX8IPJMtX2PTUyDDu1/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
-First we import `Observable` into our component from `rxjs/Observable`. Next, in our constructor we create a new `Observable`. Note that this creates an `Observable` data type that is cast as an array that contains data of `number` type. This illustrates the array-driven stream of data that observables offer as well as giving us the ability to maintain integrity of the type of data we are expecting to receive. 
+First we import `Observable` into our component from `rxjs/Observable`. Next, in our constructor we create a new `Observable`. Note that this creates an `Observable` data type that is cast as an array that contains data of `number` type. This illustrates the array-driven stream of data that `Observables` offer as well as giving us the ability to maintain integrity of the type of data we are expecting to receive. 
 
-Next we call `subscribe` on this observable which allows us to listen in on any data that is coming through. In subscribing we use three distinctive callbacks: the first one is invoked when receiving new values, the second for any errors that arise, and the last represents the function to be invoked when the sequence of incoming data is complete and successful.
+Next we call `subscribe` on this `Observable` which allows us to listen in on any data that is coming through. In subscribing we use three distinctive callbacks: the first one is invoked when receiving new values, the second for any errors that arise, and the last represents the function to be invoked when the sequence of incoming data is complete and successful.
 
 We can also use `forEach` to listen for incoming data. The key difference between `forEach` and `subscribe` is in how the error and completion callbacks are handled. The `forEach` call only accepts the 'next value' callback as an argument; it then returns a promise instead of a subscription.
 
-When the observable completes, the promise resolves. When the observable encounters an error, the promise is rejected.
+When the `Observable` completes, the promise resolves. When the `Observable` encounters an error, the promise is rejected.
 
 You can think of `Observable.of(1, 2, 3).forEach(doSomething)` as being semantically equivalent to:
 
