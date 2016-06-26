@@ -23,7 +23,7 @@ bootstrap(
 Here, we're simply adding the `NgRedux` class as a provider in our bootstrap
 file.
 
-## Create our application reducer
+## Create our Application Reducer
 
 _app/reducers/index.ts_
 ```javascript
@@ -41,7 +41,7 @@ property on the state. So when we are subscribing to our state changes with
 Ng2-Redux's `@select` decorator, we are able to select a counter property
 counter, or any other reducers you have provided.
 
-## Create and configure a store
+## Create and Configure a Store
 
 Next we want Ng2-Redux to configure our store based on settings we provide.
 This should be done once, in the top-level component of your application.
