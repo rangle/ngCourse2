@@ -7,19 +7,19 @@ Organizations that found value in Angular 1.x will find more value in Angular 2.
 
 ## Angular 2's Advantages
 
-The first release of Angular provided developers with the tools to develop and architect large scale JavaScript applications, but its age has revealed a number of flaws and sharp edges.
+The first release of Angular provided programmers with the tools to develop and architect large scale JavaScript applications, but its age has revealed a number of flaws and sharp edges.
 Angular 2 was built on five years of community feedback.
 
 ### Angular 2 Is Easier
 
-The new Angular 2 codebase is more modern, more capable, and easier for new developers to learn than Angular 1.x, 
+The new Angular 2 codebase is more modern, more capable, and easier for new programmers to learn than Angular 1.x, 
 while also being easier for project veterans to work with.
 
-With Angular 1, developers had to understand the differences between Controllers, Services, Factories, Providers and other concepts that could be confusing, especially for new developers.
+With Angular 1, programmers had to understand the differences between Controllers, Services, Factories, Providers and other concepts that could be confusing, especially for new programmers.
 
-Angular 2 is a more streamlined framework that allows developers to focus on simply building JavaScript classes.
+Angular 2 is a more streamlined framework that allows programmers to focus on simply building JavaScript classes.
 Views and controllers are replaced with components, which can be described as a refined version of directives.
-Even experienced Angular developers are not always aware of all the capabilities of Angular 1.x directives.
+Even experienced Angular programmers are not always aware of all the capabilities of Angular 1.x directives.
 Angular 2 components are considerably easier to read, and their API features less jargon than Angular 1.x's directives.
 Additionally, to help ease the transition to Angular 2, the Angular team has added a `.component` method to Angular 1.5, which has been [back-ported by community member Todd Motto to v1.3](https://toddmotto.com/angular-component-method-back-ported-to-1.3/).
 
@@ -28,15 +28,15 @@ Additionally, to help ease the transition to Angular 2, the Angular team has add
 Angular 2 was written in TypeScript, a superset of JavaScript that implements many new ES2016+ features.
 
 By focusing on making the framework easier for computers to process, Angular 2 allows for a much richer development ecosystem.
-Developers using sophisticated text editors (or IDEs) will notice dramatic improvements with auto-completion and type suggestions.
+Programmers using sophisticated text editors (or IDEs) will notice dramatic improvements with auto-completion and type suggestions.
 These improvements help to reduce the cognitive burden of learning Angular 2.
-Fortunately for traditional ES5 JavaScript developers this does *not* mean that development must be done in TypeScript or ES2015: developers can still write vanilla JavaScript that runs without transpilation.
+Fortunately for traditional ES5 JavaScript programmers this does *not* mean that development must be done in TypeScript or ES2015: programmers can still write vanilla JavaScript that runs without transpilation.
 
 ### Familiarity
 
 Despite being a complete rewrite, Angular 2 has retained many of its core concepts and conventions with Angular 1.x, 
 e.g. a streamlined, "native JS" implementation of dependency injection.
-This means that developers who are already proficient with Angular will have an easier time migrating to Angular 2 than another library like React or framework like Ember.
+This means that programmers who are already proficient with Angular will have an easier time migrating to Angular 2 than another library like React or framework like Ember.
 
 ### Performance and Mobile
 
@@ -55,15 +55,15 @@ Additionally, the Ionic team is working on an Angular 2 version of their product
 
 ### Project Architecture and Maintenance
 
-The first iteration of Angular provided web developers with a highly flexible framework for developing applications.
-This was a dramatic shift for many web developers, and while that framework was helpful, 
+The first iteration of Angular provided web programmers with a highly flexible framework for developing applications.
+This was a dramatic shift for many web programmers, and while that framework was helpful, 
 it became evident that it was often too flexible.
 Over time, best practices evolved, and a community-driven structure was endorsed.
 
 Angular 1.x tried to work around various browser limitations related to JavaScript.
 This was done by introducing a module system that made use of dependency injection. This system was novel, but unfortunately had issues with tooling, notably minification and static analysis.
 
-Angular 2.x makes use of the upcoming ES2015 module system, and modern packaging tools like Webpack or SystemJS.
+Angular 2.x makes use of the upcoming ES2015 module system, and modern packaging tools like webpack or SystemJS.
 Modules are far less coupled to the "Angular way", and it's easier to write more generic JavaScript and plug it into Angular.
 The removal of minification workarounds and the addition of rigid prescriptions make maintaining existing applications simpler.
 The new module system also makes it easier to develop effective tooling that can reason better about larger projects.
