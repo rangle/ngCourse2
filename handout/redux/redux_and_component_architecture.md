@@ -180,6 +180,6 @@ export class SimpleRedux {
 ```
 [View Example](https://plnkr.co/edit/m910XrXyFrUty2nXUJ1q?p=preview)
 
-Our two Observables, `counter$` and `curse$` will now get updated with a new
+Our two `Observable`s, `counter$` and `curse$` will now get updated with a new
 value every time the relevant store properties are updated by the rest of the
 system.
