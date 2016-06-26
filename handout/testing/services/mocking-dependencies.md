@@ -81,4 +81,4 @@ As you can see, we have quite a few imports here to setup our mocked HTTP module
 
 To create this instance the `Http` class takes two parameters: the backend to use (`ConnectionBackend` type), and the default options to use (`RequestOptions` type). Since we are planning to use a mock backend, we feed in `MockBackend` to the first parameter. The second parameter, default options, doesn't have any bearing on the mocking aspects we plan on using, so we use `BaseRequestOptions`, which is the default implementation.
 
-Right now this test doesn't do anything aside from setting up a mockable HTTP module - lets take a look at some actual tests.
+Right now this test doesn't do anything aside from setting up a mockable HTTP module - let's take a look at some actual tests.
