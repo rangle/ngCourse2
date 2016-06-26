@@ -48,7 +48,7 @@ As you can see, the action creators are simple functions that (optionally)
 take parameters, and then dispatch a JSON object containing more information.
 
 The `dispatch` function expects to be called with something that conforms to
-the "Action" interface from the redux library:
+the "Action" interface from the Redux library:
 
 ```typescript
 import { Action } from 'redux';
