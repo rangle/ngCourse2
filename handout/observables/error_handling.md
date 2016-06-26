@@ -1,6 +1,6 @@
 # Error Handling
 
-If something unexpected arises we can raise an error on the observable stream and use the function reserved for handling errors in our `subscribe` routine to see what happened.
+If something unexpected arises we can raise an error on the `Observable` stream and use the function reserved for handling errors in our `subscribe` routine to see what happened.
 
 ```js
 export class App {
