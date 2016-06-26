@@ -92,7 +92,7 @@ Decorator support in TypeScript [hasn't been finalized yet](http://rbuckton.gith
 
 #### TypeScript with Webpack
 
-We won't be running `tsc` manually, however. Instead, Webpack's `ts-loader` will do the transpilation during the build:
+We won't be running `tsc` manually, however. Instead, webpack's `ts-loader` will do the transpilation during the build:
 
 ```javascript
   // webpack.config.js
