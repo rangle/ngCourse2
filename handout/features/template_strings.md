@@ -26,4 +26,4 @@ console.log(`hello my name is ${name}, and I am ${age} years old`);
 ```
 
 There are all sorts of places where this kind of string can come in handy,
-and front end web development is one of them.
+and front-end web development is one of them.
