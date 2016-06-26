@@ -74,7 +74,7 @@ In most cases we don't just want to configure how webpack generates bundles - we
 
 - Server routes can be configured in many different ways. We probably want some way of configuring webpack to take our server routing setup into consideration.
 
-All of these configuration options are handled by the config's `output` property. Let's look at how we've setup our config to address these issues:
+All of these configuration options are handled by the config's `output` property. Let's look at how we've set up our config to address these issues:
 
 ```javascript
 {
