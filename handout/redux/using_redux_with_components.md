@@ -40,7 +40,7 @@ export class Counter {
 
 [View Example](https://plnkr.co/edit/NmxQEawemZsdrmj3LT9C?p=preview)
 
-The template syntax should be familiar by now, displaying a observable counter
+The template syntax should be familiar by now, displaying a `Observable` counter
 with the async pipe, and handling some click events.
 
 In this case, the click events are bound to expressions that call our action
