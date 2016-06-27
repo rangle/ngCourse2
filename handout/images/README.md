@@ -10,8 +10,8 @@
 - di-tree.png - Michael made this
 - es6-typescript.png - Michael made this
 - flat-map.png - Observable docs? Open source?
-- migration.jpg - No longer used
+- migration.jpg - https://pixabay.com/en/great-migration-africa-animal-1021460/ 
 - pipes.jpg - https://pixabay.com/en/pipe-plumbing-connection-pipeline-406906/
 - simple-output.png - Screenshot of our output
-- tools.jpg -I think we made thi://commons.wikimedia.org/wiki/File:Hand_tools.jpg 
-- uluru.jpg - Can't find this particular one but there are many other PD copies
+- tools.jpg - http://commons.wikimedia.org/wiki/File:Hand_tools.jpg
+- uluru.jpg - https://commons.wikimedia.org/wiki/File:Ayers_Rock_Uluru.jpg
