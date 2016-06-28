@@ -1,6 +1,6 @@
 # Rangle's Angular 2 Training Book
 
-![ngcourse2](./img/cover.png "Rangle's Angular 2 Training Book")
+![ngcourse2](./img/book-cover.png "Rangle's Angular 2 Training Book")
 
 Over the last three and a half years, AngularJS has become the leading open
 source JavaScript application framework for hundreds of thousands of developers
