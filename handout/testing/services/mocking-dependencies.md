@@ -79,6 +79,6 @@ describe('Testing the wikipedia search service', () => {
 
 As you can see, we have quite a few imports here to set up our mocked HTTP module. We use `beforeEachProviders` to include `MockBackend` to create our mocked HTTP module. In order to properly set up our mocked module we also include `BaseRequestOptions` and `ConnectionBackend`. We create an instance of `Http` that our service will get by using a factory.
 
-To create this instance the `Http` class takes two parameters: the back-end to use (`ConnectionBackend` type), and the default options to use (`RequestOptions` type). Since we are planning to use a mock back-end, we feed in `MockBackend` to the first parameter. The second parameter, default options, doesn't have any bearing on the mocking aspects we plan on using, so we use `BaseRequestOptions`, which is the default implementation.
+To create this instance the `Http` class takes two parameters: the back-end to use (`ConnectionBackend` type) and the default options to use (`RequestOptions` type). Since we are planning to use a mock back-end, we feed in `MockBackend` to the first parameter. The second parameter, default options, doesn't have any bearing on the mocking aspects we plan on using, so we use `BaseRequestOptions`, which is the default implementation.
 
 Right now this test doesn't do anything aside from setting up a mockable HTTP module - let's take a look at some actual tests.
