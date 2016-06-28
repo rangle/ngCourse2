@@ -1,7 +1,7 @@
-# ...spread, and ...rest
+# ...spread and ...rest
 
 Spread takes a collection of something, like `[]`s or `{}`s, and applies them to
-something else that accepts `,` separated arguments, like `function`s, `[]`s,
+something else that accepts `,` separated arguments, like `function`s, `[]`s
 and `{}`s.
 
 For example:
