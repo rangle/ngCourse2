@@ -8,5 +8,5 @@ The Angular 2 team reworked routing from the ground up. The new component router
 
 Refer to the [official documentation](https://angular.io/docs/ts/latest/guide/router.html) for more information.
 
-Angular 2's component router also allows for child routes, lazy loading of routing data, and a new concept called Auxiliary Routes, which we will cover in this section. First, let's take a look at the `@RouteConfig` decorator and how it is used.
+Angular 2's component router also allows for child routes, lazy loading of routing data and a new concept called Auxiliary Routes, which we will cover in this section. First, let's take a look at the `@RouteConfig` decorator and how it is used.
 
