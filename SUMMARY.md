@@ -1,3 +1,4 @@
+* [Introduction](handout/intro.md)  
 * [License](handout/license.md)
 * [Why Angular 2?](handout/why_angular_2.md)
 
