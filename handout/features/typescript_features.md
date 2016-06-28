@@ -15,8 +15,8 @@ just "duck typed", which roughly means that the programmer does not have to thin
 about them. JavaScript's types also exist in TypeScript:
 
 - `boolean` (true/false)
-- `number` integers, floats, `Infinity`, and `NaN`
-- `string` characters, and strings of characters
+- `number` integers, floats, `Infinity` and `NaN`
+- `string` characters and strings of characters
 - `[]` Arrays of other types, like `number[]` or `boolean[]`
 - `{}` Object literal
 - `undefined` not set
