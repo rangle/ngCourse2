@@ -30,7 +30,7 @@ export default function counter(state = 0, action) {
 We can see here that we are passing in an initial state and an action. To
 handle each action we have set up a switch statement. Instead of each reducer
 needing to explicitly subscribe to the dispatcher, every action gets passed into
-each reducer, which handles the actions it's interested in, and then returns the
+each reducer, which handles the actions it's interested in and then returns the
 new state along to the next reducer.
 
 Reducers in Redux should be side-effect free. This means that they should not
