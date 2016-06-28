@@ -79,5 +79,5 @@ var ctrl = new Toppings(['cheese', 'lettuce']);
 Here `this` inside the arrow function refers to the instance variable.
 
 *Warning* arrow functions do _not_ have their own `arguments` variable, which
-can be confusing to veteran JavaScript programmers. `super`, and `new.target`
+can be confusing to veteran JavaScript programmers. `super` and `new.target`
 are also scoped from the outer enclosure.
