@@ -8,7 +8,7 @@ works, let's take a look at a small example with a counter component.
 ## Counter Example
 
 Let's start by building out a counter component. The component will be
-responsible for keeping track of how many times it was clicked, and displaying
+responsible for keeping track of how many times it was clicked and displaying
 that amount.
 
 _app/components/counter-component.ts_
@@ -41,7 +41,7 @@ export class Counter {
 [View Example](https://plnkr.co/edit/NmxQEawemZsdrmj3LT9C?p=preview)
 
 The template syntax should be familiar by now, displaying a `Observable` counter
-with the async pipe, and handling some click events.
+with the async pipe and handling some click events.
 
 In this case, the click events are bound to expressions that call our action
 creators from the `CounterActions` ActionCreatorService.
