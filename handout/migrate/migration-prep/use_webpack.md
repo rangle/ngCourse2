@@ -1,4 +1,4 @@
-# Use Webpack 
+# Using Webpack 
 
 Using a module loader like webpack is essential for migrating to Angular 2, and
 should already be part of every modern programmer's tool set.  Webpack will make
