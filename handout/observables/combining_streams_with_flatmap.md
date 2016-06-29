@@ -1,6 +1,6 @@
 # Combining Streams with `flatMap`
 
-![](../images/flat-map.png)
+![FlatMap created by ReactiveX licensed under CC-3 (http://reactivex.io/documentation/operators/flatmap.html)](../images/flat-map.png)
 
 A case for FlatMap:
 
