@@ -1,4 +1,4 @@
-# File Structure
+# Understanding the File Structure
 
 To get started let's create a bare-bones Angular 2 application with a single component. To do this we'll need the following files:
 
