@@ -1,4 +1,4 @@
-# Two-Way Data Binding
+# Using Two-Way Data Binding
 
 Two-way data binding combines the input and output binding into a single notation using the `ngModel` directive.
 
