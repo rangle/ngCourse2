@@ -1,4 +1,4 @@
-# Choose an Upgrade Path
+# Choosing an Upgrade Path
 
 There are three ways to upgrade from Angular 1 to 2:
 
