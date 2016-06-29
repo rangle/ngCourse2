@@ -1,4 +1,4 @@
-# Projection
+# Projecting Angular 1 Content into Angular 2 Components
 
 In Angular 2 the concept of "transclusion" has been replaced by the concept of
 projection.  ng-upgrade provides mechanisms for projecting/transcluding
