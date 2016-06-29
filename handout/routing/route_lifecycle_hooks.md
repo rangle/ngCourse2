@@ -1,4 +1,4 @@
-# Route Lifecycle Hooks
+# Including Route Lifecycle Hooks
 
 Angular 2 routing supports two lifecycle hooks: the `@CanActivate` decorator
 and the `CanDeactivate` interface.
