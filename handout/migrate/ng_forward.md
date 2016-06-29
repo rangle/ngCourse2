@@ -1,4 +1,4 @@
-# ng-forward (Angular 1.x Using 2 Style)
+# Using ng-forward (Angular 1.x Using 2 Style)
 
 The ng-forward approach is done with Angular 1.x dependencies and a few small
 helper libraries.  ng-forward allows developers to use Angular 2 style 
