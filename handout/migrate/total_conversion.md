@@ -1,4 +1,4 @@
-# Total Conversion
+# Avoiding Total Conversion
 
 Completely converting an application from Angular 1 to Angular 2 is technically
 possible, but really only suitable for the smallest applications.  Even small
