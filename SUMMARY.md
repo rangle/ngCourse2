@@ -175,7 +175,7 @@
 
 * [TDD Testing](handout/testing/README.md)
    * [The Testing Toolchain](handout/testing/intro-to-tdd/toolchain.md)
-   * [Angular2-Redux-Starter Setup](handout/testing/intro-to-tdd/setup/README.md)
+   * [Test Setup](handout/testing/intro-to-tdd/setup/README.md)
        * [Filename Conventions](handout/testing/intro-to-tdd/setup/filename-conventions.md)
        * [Karma Configuration](handout/testing/intro-to-tdd/setup/karma-config.md)
        * [Typings](handout/testing/intro-to-tdd/setup/typings.md)
