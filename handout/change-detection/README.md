@@ -1,6 +1,6 @@
 # Change Detection
 
-![Change Detection](../images/change-detection.jpg "Detecting Change")
+![Change Detector by Vovka is licensed under Public Domain  (https://pixabay.com/en/coins-handful-russia-ruble-kopek-650779/)](../images/change-detection.jpg)
 
 Change detection is the process that allows Angular to keep our views in sync with our models.
 

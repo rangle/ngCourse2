@@ -1,3 +1,3 @@
 # Migrating Angular 1.x Projects to Angular 2
 
-![Image of Animal Migration](../images/migration.jpg "Migrating Angular 1.x to Angular 2")
+![Great Migration by gekkodigitalmedia licensed under Public Domain (https://pixabay.com/en/great-migration-africa-animal-1021460/)](../images/migration.jpg)
