@@ -2,7 +2,7 @@
 
 In Angular 2, there are three basic built-in classes that help us to manage forms:
 
-- `Control` - A [Control](https://angular.io/docs/ts/latest/api/common/Control-class.html) is the most basic unit of a form, associated with individual fields of a form. Through a `Control` we can know the field's value, its state (whether or not is valid or has been changed), and its errors.
+- `Control` - A [Control](https://angular.io/docs/ts/latest/api/common/Control-class.html) is the most basic unit of a form, associated with individual fields of a form. Through a `Control` we can know the field's value, its state (whether it's valid or has been changed) and its errors.
 - `ControlGroup` - A [ControlGroup](https://angular.io/docs/ts/latest/api/common/ControlGroup-class.html) is a collection of `Control`s of fixed length. A `ControlGroup` is useful to define the validity of the group of controls as a whole, rather than validating each of them manually.
 
     **When we define a form using the `NgForm` directive, automatically every form element creates an internal `ControlGroup` to hold all the `Control`s inside of it.**
