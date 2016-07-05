@@ -1,4 +1,4 @@
-# File Structure
+# Understanding the File Structure
 
 To get started let's create a bare-bones Angular 2 application with a single component. To do this we'll need the following files:
 
@@ -45,4 +45,4 @@ Calling `bootstrap` will return a `Promise` that you can use to determine when t
 
 Why does Angular 2 bootstrap itself in this way? Well there is actually a very good reason. Since Angular 2 is not a web-only based framework, we can write components that will run in NativeScript, or Cordova, or any other environment that can host Angular 2 applications. The magic is then in our bootstrapping process - we can import which `bootstrap` routine we would like to use, depending on the environment we're operating under. In our example, since we were running our Angular 2 application in the browser, we used the bootstrapping process found in `@angular/platform-browser-dynamic`.
 
-It's also a good idea to leave the bootstrapping process in its own separate *boot.ts* file. This makes it easier to test (since the components are isolated from the `bootstrap` call), easier to reuse, and gives better organization and structure to our application.
+It's also a good idea to leave the bootstrapping process in its own separate *boot.ts* file. This makes it easier to test (since the components are isolated from the `bootstrap` call), easier to reuse and gives better organization and structure to our application.
