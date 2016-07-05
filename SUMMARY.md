@@ -210,7 +210,7 @@
        * [Migrating To TypeScript](handout/migrate/migration-prep/migrate_to_typescript.md)
        * [Using Webpack](handout/migrate/migration-prep/use_webpack.md)
    * [Choosing an Upgrade Path](handout/migrate/choose_a_path.md)
-   * [Avoiding Total Conversion](handout/migrate/total_conversion.md)
+   * [Total Conversion](handout/migrate/total_conversion.md)
    * [Using ng-forward (Angular 1.x Using 2 Style)](handout/migrate/ng_forward.md)
    * [Using ng-upgrade (Angular 1.x Coexisting With Angular 2](handout/migrate/ng-upgrade/README.md)
        * [Bootstrapping ng-upgrade](handout/migrate/ng-upgrade/bootstrap.md)
