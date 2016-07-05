@@ -1,9 +1,9 @@
 # Redux and Component Architecture
 
 In the above example, our `counter` component is a smart component. 
-It knows about Redux, the structure of the state, and the actions it needs to call. 
+It knows about Redux, the structure of the state and the actions it needs to call. 
 In theory you can drop this component into any area of your application and just let it work. 
-But it will be tightly bound to that specific slice of state, and those specific actions. 
+But it will be tightly bound to that specific slice of state and those specific actions. 
 For example, what if we wanted to have multiple counters tracking different things on the page? 
 For example, counting the number of red clicks vs blue clicks.
 
@@ -78,7 +78,7 @@ export class SimpleRedux {}
 As you can see in the example, when clicking on the buttons the numbers in both components will update in sync. 
 This is because the counter component is coupled to a specific piece of state and action.
 
-Looking at the example, you can see that there is already an _app/reducers/curse-reducer.ts_, and _app/actions-curse-actions.ts_. 
+Looking at the example, you can see that there is already an _app/reducers/curse-reducer.ts_ and _app/actions-curse-actions.ts_. 
 They are pretty much the same as the counter actions and counter reducer, 
 we just wanted to create a new reducer to hold the state of it.
 
