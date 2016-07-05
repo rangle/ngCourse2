@@ -1,4 +1,4 @@
-# Migrate to TypeScript
+# Migrating to TypeScript
 
 TypeScript is a superset of ES6 and, as its name suggests, uses a type system.
 This can have an enormous impact on developer tools, providing richer
