@@ -17,7 +17,7 @@ export default function counter(state = 0, action)
 }
 ```
 
-As you can see, there are three cases to test: the default case, the increment, and the decrement. We want to test that our actions trigger the state changes we expect from the reducer.
+As you can see, there are three cases to test: the default case, the increment and the decrement. We want to test that our actions trigger the state changes we expect from the reducer.
 
 ```js
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter';
