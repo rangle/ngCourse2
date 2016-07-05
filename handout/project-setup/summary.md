@@ -86,6 +86,6 @@ module.exports = {
 }
 ```
 
-## Going further
+## Going Further
 
 Webpack also does things like hot code reloading and code optimization which we haven't covered. For more information you can check out the [official documentation](http://webpack.github.io/docs/). The source is also available on [Github](https://github.com/webpack/webpack).
