@@ -1,6 +1,6 @@
-# RouteConfig #
+# Defining Routing for a Component (RouteConfig) #
 
-The `@RouteConfig` decorator is used to define the routing for the component. This is where we can set up the expected paths, the components we want to use, and what we want our application to understand them as. To use `@RouteConfig`, you decorate a class with it, and provide an array containing a [Route Definition Object](#route-definition-object).
+The `@RouteConfig` decorator is used to define the routing for the component. This is where we can set up the expected paths, the components we want to use and what we want our application to understand them as. To use `@RouteConfig`, you decorate a class with it and provide an array containing a [Route Definition Object](#route-definition-object).
 
 Below is the sample RouteConfig defined in the main application component:
 
