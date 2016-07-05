@@ -51,10 +51,10 @@ a.js	a.ts	b.js	b.ts
 
 Excellent - there are now two JavaScript modules ready for consumption.
 
-Telling the `tsc` command what to compile becomes tedious, and labour intensive
+Telling the `tsc` command what to compile becomes tedious and labor intensive
 even on small projects.  Fortunately TypeScript has a means of simplifying this.
 `tsconfig.json` files let programmers write down all the compiler settings they
-want.  When `tsc` is run, it looks for `tsconfig.json` files, and uses their
+want.  When `tsc` is run, it looks for `tsconfig.json` files and uses their
 rules to compile JavaScript.
 
 For Angular 2 projects there are a number of specific settings that need to be
