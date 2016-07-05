@@ -1,4 +1,4 @@
-# Transclusion
+# Transcluding Angular 2 Components into Angular 1 Directives
 
 Angular 2 components can be transcluded into Angular 1.x directives.
 
