@@ -1,6 +1,6 @@
 # Workshop 0 - Kitchen Sink
 
-As discussed earlier in the training, there is a difference between containers and presentational (dumb) components. Presentational components are small components that are meant to be reusable throughout the application, that have data and/or callbacks passed in, and emit events out. They do not know about the state of the application, or how they are being used.
+As discussed earlier in the training, there is a difference between containers and presentational (dumb) components. Presentational components are small components that are meant to be reusable throughout the application, that have data and/or callbacks passed in and emit events out. They do not know about the state of the application, or how they are being used.
 
 To help get you started, check out the `workshop-0` branch.
 
