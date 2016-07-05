@@ -33,7 +33,7 @@ export class App {
 ```
 [View Example](http://plnkr.co/edit/FjJz4lTX2hhHkMu87cln?p=preview)
 
-This basic examples outlines how the `Http` library's common routines like `get`, `post`, `put` and `delete` all return `Observables` that allow us to asynchronously process any resulting data. 
+This basic example outlines how the `Http` library's common routines like `get`, `post`, `put` and `delete` all return `Observables` that allow us to asynchronously process any resulting data. 
 
 
 ## Observable Form Events
