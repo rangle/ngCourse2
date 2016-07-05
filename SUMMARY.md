@@ -150,7 +150,7 @@
    * [Why Routing?](handout/routing/why_routing.md)
    * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
    * [Defining Routing for a Component](handout/routing/routeconfig.md)
-   * [Defining a Router's Outlet](handout/routing/routeroutlet.md)
+   * [Defining the Router Outlet](handout/routing/routeroutlet.md)
    * [Defining Links Between Routes](handout/routing/routerlink.md)
    * [Using the Router Programmatically](handout/routing/using_the_router_programmatically.md)
    * [Creating Child Routes](handout/routing/child_routes.md)
