@@ -1,4 +1,4 @@
-# RouterOutlet #
+# Defining the Router Outlet  #
 
 A `RouterOutlet` is a placeholder that Angular dynamically fills based on the application's route. In order to make use of the `RouterOutlet` we must give component access to the router components by passing `ROUTER_DIRECTIVES` in the component directives array.
 
