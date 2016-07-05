@@ -43,7 +43,7 @@ a plain function?
 
 Angular 2 _assumes_ that it's being given a class.
 
-What about `Bun`, `Patty`, and `Toppings`? How is `Hamburger` getting those?
+What about `Bun`, `Patty` and `Toppings`? How is `Hamburger` getting those?
 
 It's not, at least not yet.  Angular 2 does not know about them yet.  That can
 be changed easily enough:
