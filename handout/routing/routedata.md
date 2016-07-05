@@ -1,4 +1,4 @@
-# RouteData #
+# Passing Additional Route Data #
 
 While usually parent components pass data to their children, Angular also offers a mechanism to pass additional data to components at the time of the route configuration. For example, besides the data that a component needs for implementing application logic, we may need to pass a flag indicating if the application runs in production environment or not. This can be done by using the data property of the `@RouteConfig` decorator. For example, let's modify the routing for the previous example to add `data` to `ComponentTwo`:
 
