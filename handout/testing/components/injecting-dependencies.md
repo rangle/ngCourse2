@@ -86,7 +86,7 @@ describe('Testing Quote Component', () => {
 });
 ```
 
-Testing the `QuoteComponent` is a fairly straightforward process. We want to create a `QuoteComponent`, feed it a quote and see if it appears in the DOM. This process requires us to create the component, pass in any dependencies, trigger the component to perform an action, and then look at the DOM to see if the action is what we expected. Let's take a look at how this is accomplished with the above unit test.
+Testing the `QuoteComponent` is a fairly straightforward process. We want to create a `QuoteComponent`, feed it a quote and see if it appears in the DOM. This process requires us to create the component, pass in any dependencies, trigger the component to perform an action and then look at the DOM to see if the action is what we expected. Let's take a look at how this is accomplished with the above unit test.
 
 We use `beforeEachProviders` to feed in any dependencies that our component requires. Here our component depends on the `QuoteService` to get data. We mock this data ourselves thus giving us control over what value we expect to show up. It is good practice to separate component testing from service testing - this makes it easier to test as you are only focusing on a single aspect of the application at a time. If your service or component fails, how will you know which one was the culprit? Using `provide` we inject the `QuoteService` dependency using our mock class `MockQuoteService`, where we will provide mock data for the component to consume.
 
