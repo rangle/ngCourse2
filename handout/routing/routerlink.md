@@ -1,4 +1,4 @@
-# RouterLink #
+# Defining Links Between Routes #
 
 After declaring routes and adding the outlet, we must tell Angular how to navigate between the routes. There are two ways to do this. One way is to use href links in the templates as shown below.
 
