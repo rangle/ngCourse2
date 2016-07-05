@@ -2,7 +2,7 @@
 
 There are many front-end JavaScript frameworks to choose from today, each with its own set of trade-offs.
 Many people were happy with the functionality that Angular 1.x afforded them.
-Angular 2 improved on that functionality and made it faster, more scalable, and more modern.
+Angular 2 improved on that functionality and made it faster, more scalable and more modern.
 Organizations that found value in Angular 1.x will find more value in Angular 2.
 
 ## Angular 2's Advantages
@@ -12,7 +12,7 @@ Angular 2 was built on five years of community feedback.
 
 ### Angular 2 Is Easier
 
-The new Angular 2 codebase is more modern, more capable, and easier for new programmers to learn than Angular 1.x, 
+The new Angular 2 codebase is more modern, more capable and easier for new programmers to learn than Angular 1.x, 
 while also being easier for project veterans to work with.
 
 With Angular 1, programmers had to understand the differences between Controllers, Services, Factories, Providers and other concepts that could be confusing, especially for new programmers.
@@ -42,7 +42,7 @@ This means that programmers who are already proficient with Angular will have an
 
 Angular 2 was designed for mobile from the ground up.
 Aside from limited processing power, mobile devices have other features and limitations that separate them from traditional computers.
-Touch interfaces, limited screen real estate, and mobile hardware have all been considered in Angular 2.
+Touch interfaces, limited screen real estate and mobile hardware have all been considered in Angular 2.
 
 Desktop computers will also see dramatic improvements in performance and responsiveness.
 
