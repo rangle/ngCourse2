@@ -8,7 +8,7 @@ const hamburger = new Hamburger(new Bun(), new Patty('beef'), new Toppings([]));
 ```
 
 That's a lot of work to create a `Hamburger`, and now all the different pieces
-of code that make `Hamburger`s have to understand how `Bun`, `Patty`, and
+of code that make `Hamburger`s have to understand how `Bun`, `Patty` and
 `Toppings` get instantiated.
 
 One approach to dealing with this new problem might be to make a factory
