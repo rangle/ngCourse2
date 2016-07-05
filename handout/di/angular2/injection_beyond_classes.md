@@ -42,7 +42,7 @@ The best part of this implementation swap is that the injection system knows
 how to build `DoubleHamburgers`, and will sort all of that out. 
 
 
-The injector can use more than classes though.  `useValue`, and `useFactory` are
+The injector can use more than classes though.  `useValue` and `useFactory` are
 two other examples of `provider` "recipes" that Angular 2 can use.  For example:
 
 ```js
@@ -77,7 +77,7 @@ export class App {
 [View Example][plunkRandom1]
 
 One important note is that 'Random' is in quotes, both in the `provide` 
-function, and in the consumer.  This is because as a factory we have no `Random`
+function and in the consumer.  This is because as a factory we have no `Random`
 identifier anywhere to access.
 
 The above example uses Angular 2's `useFactory` recipe.  When Angular 2 is told
