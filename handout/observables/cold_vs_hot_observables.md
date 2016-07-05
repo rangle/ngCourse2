@@ -78,7 +78,7 @@ setTimeout(() => {
 ```
 [View Example](http://jsbin.com/fewotud/3/edit?js,console)
 
-In the case above, the live performance starts at `1000ms`, subscriber A arrived to the concert hall at `0s` to get a good seat, and our subscriber B arrived at the performance at `2500ms` and missed a bunch of songs.
+In the case above, the live performance starts at `1000ms`, subscriber A arrived to the concert hall at `0s` to get a good seat and our subscriber B arrived at the performance at `2500ms` and missed a bunch of songs.
 
 Another useful method to work with hot `Observables` instead of `connect` is `refCount`. This is auto connect method, that will start broadcasting as soon as there is more than one subscriber. Analogously, it will stop if the number of subscribers goes to 0; in other words, if everyone in the audience walks out, the performance will stop.
 
