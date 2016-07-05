@@ -2,9 +2,9 @@
 
 Statements that look like `@SomeName` are decorators.  [Decorators][decorators] 
 are a proposed extension to JavaScript.  In short decorators let programmers 
-modify, and/or tag methods, classes, properties, and parameters.  There is a lot
+modify and/or tag methods, classes, properties and parameters.  There is a lot
 to decorators. In this section the focus will be on decorators relevant to DI:
-`@Inject`, and `@Injectable`.  For more information on Decorators
+`@Inject` and `@Injectable`.  For more information on Decorators
 please see [the EcmaScript 6 and TypeScript Features section](../../features/README.md).
 
 `@Inject()` is a _manual_ mechanism for letting Angular 2 know that a 
