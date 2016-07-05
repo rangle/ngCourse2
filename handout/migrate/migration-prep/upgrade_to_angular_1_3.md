@@ -1,4 +1,4 @@
-# Upgrade to Angular 1.3+ Style
+# Upgrading to Angular 1.3+ Style
 
 The first step of any migration is to upgrade the codebases style to conform
 to Angular 1.3+ style, ideally an Angular 1.5+ style.  This means:
