@@ -55,10 +55,6 @@
        * [Passing Data into a Component](handout/components/app_structure/passing_data_into_components.md)
        * [Responding to Component Events](handout/components/app_structure/responding_to_component_events.md)
        * [Using Two-Way Data Binding](handout/components/app_structure/two_way_data_binding.md)
-   * [Structural Directives](handout/components/structural_directives.md)
-       * [The Asterisk (*) Syntax](handout/components/structural/the_asterisk_syntax.md)
-       * [Iteration with `ngFor`](handout/components/structural/iteration_with_ng_for.md)
-       * [Change Propagation](handout/components/structural/change_propagation.md)
    * [Projection](handout/components/projection.md)
    * [Structuring Applications with Components](handout/components/structuring_applications_with_components.md)
 
