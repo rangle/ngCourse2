@@ -64,6 +64,17 @@
 
 ---
 
+* [Directives](handout/directives/README.md)
+    * [Attribute Directives](handout/directives/attribute_directives.md)
+        * [NgStyle Directive](handout/directives/ng_style_directive.md)
+        * [NgClass Directive](handout/directives/ng_class_directive.md)
+    * [Structural Directives](handout/directives/structural_directives.md)
+        * [NgIf Directive](handout/directives/ng_if_directive.md)
+        * [NgFor Directive](handout/directives/ng_for_directive.md)
+        * [NgSwitch Directives](handout/directives/ng_switch_directives.md)
+        * [Using Multiple Structural Directives](handout/directives/using_multiple_structural_directives.md)
+---
+
 * [Advanced Components](handout/advanced-components/README.md)
    * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
    * [Accessing Other Components](handout/advanced-components/accessing_other_component.md)
@@ -103,6 +114,14 @@
    * [Enforcing Immutability](handout/change-detection/enforcing_immutability.md)
    * [Additional Resources](handout/change-detection/additional_resources.md)
 
+---
+
+* [Advanced Angular](handout/advanced-angular/README.md)
+    * [Directives](handout/advanced-angular/directives/README.md)
+        * [Creating an Attribute Directive](handout/advanced-angular/directives/creating_an_attribute_directive.md)
+        * [Creating a Structural Directive](handout/advanced-angular/directives/creating_a_structural_directive.md)
+            * [View Containers and Embedded Views](handout/advanced-angular/directives/view_containers_and_embedded_views.md)
+            * [Providing Context Variables to Directives](handout/advanced-angular/directives/providing_context_variables_to_directives.md)
 ---
 
 * [Immutable.js](handout/immutable/README.md)
