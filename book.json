@@ -16,6 +16,13 @@
     },
     "theme-default": {
       "showLevel": true
+    },
+    "image-captions": {
+      "images": {
+        "1.1.1": {
+          "skip": true
+        }
+      }
     }
   },
   "structure": {
