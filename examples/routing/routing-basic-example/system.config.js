@@ -1,5 +1,5 @@
 var angularVersion = '2.0.0-rc.1';
-
+var routerVer = '@3.0.0-alpha.3'; // lock router version
 System.config({
   baseUrl: '/',
   paths: {
@@ -30,8 +30,9 @@ System.config({
     '@angular/common': 'npmcdn:@angular/common@'+angularVersion,
     '@angular/platform-browser': 'npmcdn:@angular/platform-browser@'+angularVersion,
     '@angular/platform-browser-dynamic': 'npmcdn:@angular/platform-browser-dynamic@'+angularVersion,
+    '@angular/router':            'https://npmcdn.com/@angular/router' + routerVer,
     '@angular/http': 'npmcdn:@angular/http@'+angularVersion,
-    '@angular/router-deprecated': 'npmcdn:@angular/router-deprecated@'+angularVersion,
+   // '@angular/router-deprecated': 'npmcdn:@angular/router-deprecated@'+angularVersion,
     'immutable': 'npmcdn:immutable@3.8.1',
     'redux': 'https://npmcdn.com/redux@2.0.0/dist/redux.js',
     'ng2-redux': 'npmcdn:ng2-redux@2.3.2',
