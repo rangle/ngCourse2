@@ -170,7 +170,7 @@
    * [Configuring your Application to use Redux](handout/redux/configuring_your_application_to_use_redux.md)
    * [Using Redux with Components](handout/redux/using_redux_with_components.md)
    * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
-   * [Getting More from Redux and Ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
+   * [Getting More From Redux and Ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
 ---
 
 * [TDD Testing](handout/testing/README.md)

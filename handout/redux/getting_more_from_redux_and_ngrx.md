@@ -1,4 +1,4 @@
-# Getting More from Redux and Ngrx
+# Getting More From Redux and Ngrx
 
 Redux has a number of tools and middleware available in its ecosystem to facilitate elegant app development.
 
