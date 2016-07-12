@@ -8,7 +8,7 @@ the blanks" for the programmer. Consider the following:
 type-inference-finds-error.ts
 ```js
 let numbers = [2, 3, 5, 7, 11];
-numbers = ['this will fail compilation']
+numbers = ['this will generate a type error'];
 ```
 
 ```bash
