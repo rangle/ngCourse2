@@ -102,5 +102,5 @@ In this case, the product of `Math.random` is assigned to the `useValue`
 property passed to the `provider`.  
 
 
-[plunkRandom1]: http://plnkr.co/edit/tpOJpUYUZk7uP1PHC2FT?p=preview "Random DI 1"
-[plunkRandom2]: http://plnkr.co/edit/uRZxsZUHBctPNaJg0Jio?p=preview "Random DI 2"
+[plunkRandom1]: http://plnkr.co/edit/VVQk6XAOFmJzcfHELB9p?p=preview "Random DI 1"
+[plunkRandom2]: http://plnkr.co/edit/K40yTCkLwDmEpTlOTHVR?p=preview "Random DI 2"

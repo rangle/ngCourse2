@@ -79,4 +79,4 @@ In some cases Angular 2's DI needs more information than just types.
 
 
 [decorators]: http://blog.wolksoftware.com/decorators-reflection-javascript-typescript "ES Decorators Explained"
-[plunkBurger1]: https://plnkr.co/edit/sK41Y1W4JbXEqw47tSWh "Hamburger DI Demo"
+[plunkBurger1]: https://plnkr.co/edit/Nl0Byirxj3RhbDVWCz3l "Hamburger DI Demo"

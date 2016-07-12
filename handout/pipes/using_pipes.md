@@ -12,7 +12,7 @@ export class ProductPrice {
   price: number = 100.1234;
 }
 ```
-[View Example](http://plnkr.co/edit/EJjyvKjYBeMJW2ms2q4o?p=preview)
+[View Example](http://plnkr.co/edit/JPamZgk1tZWoUgc2MS9J?p=preview)
 
 ## Passing Parameters ##
 
@@ -40,7 +40,7 @@ export class ProductPrice {
   price: number = 100.123456;
 }
 ```
-[View Example](http://plnkr.co/edit/edQIk05OO1AUhsW7KzbB?p=preview)
+[View Example](http://plnkr.co/edit/Wp0QLdnhPISmTtMV6fsC?p=preview)
 
 ## Chaining Pipes ##
 
@@ -57,4 +57,4 @@ export class ProductPrice {
   price: number = 100.123456;
 }
 ```
-[View Example](http://plnkr.co/edit/ryJRXnWFoHlSEcHboSbB?p=preview)
+[View Example](http://plnkr.co/edit/86cSXfql4yPUfQsW1uKq?p=preview)

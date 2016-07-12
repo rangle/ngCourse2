@@ -148,4 +148,4 @@ export class App {
 
 [View Example][plunkInjectorTree]
 
-[plunkInjectorTree]: http://plnkr.co/edit/GXG3AVoJFI1vmJB3vZF3?p=preview "Injector Tree Example"
+[plunkInjectorTree]: http://plnkr.co/edit/ioBa4J3cBJpXBrFkUssS?p=preview "Injector Tree Example"

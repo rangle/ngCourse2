@@ -74,7 +74,7 @@ export class App {
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/l9YXqdfsptd6jG64b5lV?p=preview)
+[View Example](http://plnkr.co/edit/CHfYcFT3kVJZRmb4tCFS?p=preview)
 
 Here we have set up a basic form with a single field, `searchField`, which we subscribe to for event changes.
 We've also set up a simple binding for any results coming from the SearchService.
