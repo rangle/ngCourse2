@@ -146,6 +146,17 @@
 
 ---
 
+* [Routing](handout/routing/README.md)
+   * [Why Routing?](handout/routing/why_routing.md)
+   * [Configuring Routes](handout/routing/config.md)
+   * [Route Redirections](handout/routing/redirects.md)
+   * [Defining Links Between Routes](handout/routing/routerlink.md)
+   * [Router Outlet](handout/routing/routeroutlet.md)
+   * [Route Parameters](handout/routing/routeparams.md)
+   * [Child Routes](handout/routing/child_routes.md)
+
+---
+
 * [Routing - Deprecated Router](handout/routing-deprecated/README.md)
    * [Why Routing?](handout/routing-deprecated/why_routing.md)
    * [Routing in Angular 2](handout/routing-deprecated/routing_in_angular_2.md)
