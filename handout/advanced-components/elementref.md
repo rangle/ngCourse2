@@ -32,4 +32,4 @@ export class App {
 ```
 
 
-[View Example](https://plnkr.co/edit/MEwErdHWpY6BJa4OD8ta?p=preview)
+[View Example](https://plnkr.co/edit/cUzRdOoCf17Y3EHoXc8v?p=preview)

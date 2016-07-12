@@ -6,4 +6,4 @@ When we have a list of items, we can use the `ngFor` directive within our compon
 - `<li template="ngFor let item of items; let i = index">...</li>`
 - `<template ngFor let-item [ngForOf]="items" let-i="index"><li>...</li></template>`
 
-[View Example](http://plnkr.co/edit/ocL5lDcXwW4BDSqGNBeD?p=preview)
+[View Example](http://plnkr.co/edit/LhoxLd7QKvMOSPFKW5Pt?p=preview)

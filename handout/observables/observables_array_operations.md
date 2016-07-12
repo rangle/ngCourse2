@@ -18,7 +18,8 @@ export class App {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/B3idk6lePJzf7x9VCEv1?p=preview)
+[View Example](http://plnkr.co/edit/AV5ah0YLjUAHW0cu7mbU?p=preview)
+
 
 Here are two really useful array operations - `map` and `filter`. What exactly do these do?
 
