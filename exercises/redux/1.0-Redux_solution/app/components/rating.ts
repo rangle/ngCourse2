@@ -1,33 +1,35 @@
-import {Component, Input, OnInit, Output, EventEmitter} from 'angular2/core';
-import {NgClass} from 'angular2/common';
-import * as R from 'Ramda';
+import { Component, Input } from '@angular/core';
+import R from 'ramda';
+
 @Component({
   selector: 'rating',
-  styleUrls: ['app/components/rating.css'],
-  templateUrl: 'app/components/rating-tpl.html',
-  directives: [NgClass]
+  template: `
+    <span
+      class="star"
+      [ngClass]="{ selected: isSelected(star) }"
+      *ngFor="let star of getRange()">
+    &#x2605;
+    </span>
+  `,
+  styles: [`
+    .star { font-size: 1.5rem; }
+    .selected { color: gold; }
+
+    .star:hover {
+      cursor: pointer;
+      color: darkgoldenrod;
+    }
+  `]
 })
-export default class RatingComponent implements OnInit {
-  @Input() stars: number;
-  @Output() ratingUpdated = new EventEmitter();
-  
-  skillStars: boolean[];
-  
+export class Rating {
+  @Input() level: number;
+  @Input() max: number;
 
-  ngOnInit() {
-    this.skillStars = this.buildRating(this.stars, 5);
+  getRange() {
+    return R.range(1, this.max+1);
   }
 
-  ratingClicked(event, rating) {
-    this.ratingUpdated.emit(rating+1);
+  isSelected(star) {
+    return star <= this.level;
   }
-  
-  buildRating(rating, max) {
-
-    return R.concat(
-      R.repeat(true, rating),
-      R.repeat(false, max - rating);
-  }
-
 }
-

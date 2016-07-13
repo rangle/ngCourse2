@@ -1,10 +1,16 @@
+import { Injectable } from '@angular/core';
+import { NgRedux } from 'ng2-redux';
+
 export const SKILL_UPDATED = 'SKILL_UPDATED';
 
-export function updateSkill(person, skillName, skillLevel) {
-  return {
-    type: SKILL_UPDATED,
-    payload: { person, skillName, skillLevel}
-  };
-};
+@Injectable()
+export class PeopleActions {
+  constructor(private redux: NgRedux<any>) {}
 
-export default { updateSkill }
+  updateSkill(person, skillName, skillLevel) {
+    this.redux.dispatch({
+      type: SKILL_UPDATED,
+      payload: { person, skillName, skillLevel}
+    });
+  }
+};

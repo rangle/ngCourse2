@@ -1,14 +1,49 @@
-import {Component, Input} from 'angular2/core';
-import {NgClass} from 'angular2/common';
-import PersonsTopSkill from '../containers/persons-top-skill';
-import PersonsBottomSkill from '../containers/persons-bottom-skill';
+import { Component, Input } from '@angular/core';
+import { Skill } from './skill';
+import { SkillTable } from './skill-table';
+
 @Component({
   selector: 'person',
-  templateUrl: 'app/components/person-tpl.html',
-  directives: [NgClass, PersonsTopSkill, PersonsBottomSkill]
+  directives: [ Skill, SkillTable ],
+  template: `
+    <div>Name: {{ person.name }}</div>
+    <div>Top Skill:
+      <skill [skill]="getTopSkill()">
+      </skill>
+    </div>
+    <div>Bottom Skill:
+      <skill [skill]="getBottomSkill()">
+      </skill>
+    </div>
+
+    <skill-table [skills]="person.skills">
+    </skill-table>
+  `,
+    styles: [`
+    :host {
+      border: solid black 1px;
+      display: block;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    skill-table {
+      margin-top: 5px;
+    }
+  `]
 })
-export default class PersonComponent {
-  @Input() person: any;
+export class Person {
+  @Input() person: Object;
 
+  getTopSkill() {
+    return this.person.skills.reduce((top, p) => {
+      return (top.level > p.level) ? top : p;
+    });
+  }
+
+  getBottomSkill() {
+    return this.person.skills.reduce((bottom, p) => {
+      return (bottom.level < p.level) ? bottom : p;
+    });
+  }
 }
-
