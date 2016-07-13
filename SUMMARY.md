@@ -163,14 +163,14 @@
 
 ---
 
-* [Redux](handout/redux/README.md)
+* [Redux and Ngrx](handout/redux/README.md)
    * [Review of Reducers and Pure Functions](handout/redux/review_of_reducers_and_pure_functions.md)
-   * [Redux Reducers](handout/redux/redux_reducers.md)
+   * [Reducers as State Management](handout/redux/reducers_as_state_management.md)
    * [Redux Actions](handout/redux/redux_actions.md)
    * [Configuring your Application to use Redux](handout/redux/configuring_your_application_to_use_redux.md)
    * [Using Redux with Components](handout/redux/using_redux_with_components.md)
    * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
-
+   * [Getting More From Redux and Ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
 ---
 
 * [TDD Testing](handout/testing/README.md)

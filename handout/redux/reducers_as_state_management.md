@@ -1,4 +1,4 @@
-# Redux Reducers
+# Reducers as State Management
 
 This simple idea turns out to be very powerful. With Redux, you replay a series
 of events into the reducer and get your new application state as a result.
@@ -33,13 +33,13 @@ needing to explicitly subscribe to the dispatcher, every action gets passed into
 each reducer, which handles the actions it's interested in and then returns the
 new state along to the next reducer.
 
-Reducers in Redux should be side-effect free. This means that they should not
+Reducers should be side-effect free. This means that they should not
 modify things outside of their own scope. The should simply compute the next
 application state as a pure function of the reducer's arguments. 
 
 For this reason, side-effect causing operations, such as
 updating a record in a database, generating an id, etc. should be handled
-elsewhere in the application such as in the action creators or middleware.
+elsewhere in the application such as in the action creators, using middleware such as [redux-saga](https://github.com/yelouafi/redux-saga) or [ngrx/effects](https://github.com/ngrx/effects).
 
 Another consideration when creating your reducers is to ensure that they are immutable and not modifying the state of your application. If you mutate your application state, it can cause unexpected behavior. There are a few ways to help maintain immutability in your reducers. One way is by using new ES6 features such as `Object.assign` or the spread operator for arrays.
 
