@@ -46,7 +46,6 @@ module.exports = {
       '@angular/platform-browser-dynamic',
       '@angular/http',
       '@angular/router',
-      '@angular/router-deprecated',
       'redux',
       'redux-thunk',
       'ng2-redux',

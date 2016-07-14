@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouterLink} from '@angular/router-deprecated';
+import {RouterLink} from '@angular/router';
 import {
   FORM_PROVIDERS,
   FORM_DIRECTIVES,

@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
 import {
-  RouterLink, 
-  RouteParams, 
+  ActivatedRoute,
   ROUTER_DIRECTIVES
-} from '@angular/router-deprecated';
+} from '@angular/router';
 import {
   FORM_PROVIDERS,
   FORM_DIRECTIVES,
@@ -16,27 +15,37 @@ const TEMPLATE = require('./task-edit.html');
   
 @Component({
   selector: 'ngc-task-edit',
-  directives: [RouterLink, ROUTER_DIRECTIVES, FORM_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES],
   viewProviders: [FORM_PROVIDERS],
   template: TEMPLATE
 })
 export default class TaskEdit {
 
   taskEditForm: ControlGroup;
+  sub: any;
 
   constructor(
     private _builder: FormBuilder,
     private _tasksService: TasksService,
-    public params: RouteParams
+    private _route: ActivatedRoute
   ) {
-    const task = _tasksService.getById(params.get('id'));
+  }
 
-    this.taskEditForm = _builder.group({
-      _id: [task._id, Validators.required],
-      owner: [task.owner, Validators.required],
-      description: [task.description, Validators.required],
-      done: [task.done]
+  private ngOnInit() {
+    this.sub = this._route.params.subscribe(params => {
+      const task = this._tasksService.getById(params['id']);
+
+      this.taskEditForm = this._builder.group({
+        _id: [task._id, Validators.required],
+        owner: [task.owner, Validators.required],
+        description: [task.description, Validators.required],
+        done: [task.done]
+      });
     });
+  }
+
+  private ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   onSubmit(): void {

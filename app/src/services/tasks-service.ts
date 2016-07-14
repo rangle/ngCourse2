@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Request, Response, Headers} from '@angular/http';
-import {Router} from '@angular/router-deprecated';
+import {Router} from '@angular/router';
 import 'rxjs/add/operator/map';
 import {List} from 'immutable';
 
@@ -163,7 +163,7 @@ export default class TasksService {
    * Navigate to the tasks list view
    */
   goToTasksList() {
-    this._router.navigate(['/Main']);
+    this._router.navigate(['tasks']);
   }
 
   /**
