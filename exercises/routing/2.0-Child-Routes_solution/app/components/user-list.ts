@@ -1,12 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import Users from '../services/users-service';
 import {JsonPipe} from '@angular/common';
 @Component({
   directives: [ROUTER_DIRECTIVES],
   selector: 'user-list',
   styles:[`
-
   .router-link-active:after {
     content: '-->'
   }
@@ -14,19 +13,14 @@ import {JsonPipe} from '@angular/common';
   template: `
   <ul>
     <li *ngFor="let user of users">
-      <a [routerLink]="['/Users','UserDetail',{id: user.id}]">
+      <a [routerLink]="['/users/', user.id]">
         {{user.first}} {{user.last}}
        </a>
      </li>
   </ul>
   `,
-  providers: [Users],
-  pipes: [JsonPipe]
+  providers: [Users]
 })
 export default class UserList {
   @Input() users: any;
-  @Input() companyName: string;
-  constructor(private _users: Users) {
-
-  }
 }

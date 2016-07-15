@@ -1,4 +1,5 @@
-var angularVersion = '2.0.0-rc.1';
+var angularVersion = '2.0.0-rc.4';
+var routerVersion = '3.0.0-beta.2';
 
 System.config({
   baseUrl: '/',
@@ -29,7 +30,7 @@ System.config({
     '@angular/common': 'npmcdn:@angular/common@' + angularVersion,
     '@angular/platform-browser': 'npmcdn:@angular/platform-browser@' + angularVersion,
     '@angular/platform-browser-dynamic': 'npmcdn:@angular/platform-browser-dynamic@' + angularVersion,
-    '@angular/router-deprecated': 'npmcdn:@angular/router-deprecated@' + angularVersion,
+    '@angular/router': 'npmcdn:@angular/router@' + routerVersion,
     '@angular/http': 'npmcdn:@angular/http@' + angularVersion,
     'immutable': 'npmcdn:immutable@3.8.1',
     'rxjs': 'npmcdn:rxjs@5.0.0-beta.6',

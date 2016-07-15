@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import UserDetail from '../components/user-detail';
 import UserList from '../components/user-list';
 import CompanyList from '../components/company-list';
@@ -10,8 +10,7 @@ import Home from '../components/home';
   selector: 'users-home',
   template: 'Users List Home Route'
 })
-class UsersHome {}
-
+export class UsersHome {}
 
 @Component({
   selector: 'ngc-app',
@@ -28,11 +27,7 @@ class UsersHome {}
     </div>
   </div>
 	`})
-@RouteConfig([
-  {path: '/', as: 'Home', component: UsersHome, useAsDefault: true},
-  {path: '/:id', as: 'UserDetail', component: UserDetail},
-  ])
-export default class UsersContainer {
+export class UsersContainer {
   public users: any;
   constructor(private _users: Users) {
 

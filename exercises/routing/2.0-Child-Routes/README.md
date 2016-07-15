@@ -3,6 +3,7 @@
 Complete, and or fix implementation of:
 
 * _app/containers/app.ts_
+* _app/routes/app.routes.ts_
 * _app/containers/users.ts_
 * _app/containers/companies.ts_
 * _app/components/company-list.ts_

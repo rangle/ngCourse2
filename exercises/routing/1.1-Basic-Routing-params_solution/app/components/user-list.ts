@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import Users from '../services/users-service';
 import {JsonPipe} from '@angular/common';
 @Component({
@@ -7,9 +7,9 @@ import {JsonPipe} from '@angular/common';
   selector: 'user-list',
   template: `<ul>
     <li *ngFor="let user of users">
-      <a [routerLink]="['/UserDetail',{id: user.id}]">
+      <a [routerLink]="['/users', user.id]">
         {{user.first}} {{user.last}}
-       </a>
+      </a>
      </li>
   </ul>
   `,

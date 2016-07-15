@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import Users from '../services/users-service';
-import {ROUTER_DIRECTIVES, RouteConfig} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import CompanyList from '../components/company-list';
 import UsersListContainer from './users-list-container';
 import UserDetail from '../components/user-detail';
@@ -28,19 +28,7 @@ export class CompaniesHome {}
   providers: [Users],
 
 })
-@RouteConfig([
-  { path: '/',
-    useAsDefault: true,
-    component: CompaniesHome,
-    name: 'CompaniesHome'
-  },
-  {
-    path: '/:companyName',
-    component: UsersListContainer,
-    name: 'CompanyUsers'
-  }
-])
-export default class Companies {
+export class Companies {
   public companies:any;
 
   constructor(private _users: Users) {

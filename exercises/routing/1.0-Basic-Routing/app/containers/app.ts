@@ -1,10 +1,8 @@
 import {Component} from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-import UserDetail from '../components/user-detail';
-import UserList from '../components/user-list';
-import CompanyList from '../components/company-list';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import Users from '../services/users-service';
 import Home from '../components/home';
+
 @Component({
   selector: 'ngc-app',
   directives: [ROUTER_DIRECTIVES, Home],
@@ -34,14 +32,6 @@ import Home from '../components/home';
     </home>
   </div>
 `})
-@RouteConfig([
-  /*
-    Complete the Route Config Definition for:
-      * /users - Route to the UsersList component
-      * /company - Route to the Company List Component
-      * /  - Default route, for the Home component
-  */
-])
 export class App {
   public userNames: any;
   constructor(private _users: Users) {

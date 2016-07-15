@@ -1,12 +1,7 @@
 import {Component} from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-import UserDetail from '../components/user-detail';
-import UserList from '../components/user-list';
-import UsersContainer from './users';
-import CompanyList from '../components/company-list';
-import Companies from './companies';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import Users from '../services/users-service';
-import Home from '../components/home';
+
 @Component({
   selector: 'ngc-app',
   directives: [ROUTER_DIRECTIVES],
@@ -15,24 +10,19 @@ import Home from '../components/home';
   template: `<div>
   <ul>
    <li>
-      <a [routerLink]="['Home']">Home</a>
+      <a [routerLink]="['']">Home</a>
     </li>
     <li>
-      <a [routerLink]="['Users']">Users List</a>
+      <a [routerLink]="['users']">Users</a>
     </li>
     <li>
-      <a [routerLink]="['Companies']">Company List</a>
+      <a [routerLink]="['companies']">Companies</a>
     </li>
   </ul>
   <div style="border: 1px solid black; padding: 10px;">
     <router-outlet></router-outlet>
   </div>
   `})
-@RouteConfig([
-  {path: '/', as: 'Home', component: Home},
-  {path: '/users/...', as: 'Users', component: UsersContainer},
-  {path: '/companies/...', as: 'Companies', component: Companies}
-  ])
 export class App {
   public userNames: any;
   constructor(private _users: Users) {

@@ -106,7 +106,7 @@ export default class Users {
   };
 
   getUserById = (id: string) => {
-    return R.find(R.propEq('_id', id))(mockData) || {};
+    return R.find(R.propEq('_id', id))(mockData);
 
   };
 

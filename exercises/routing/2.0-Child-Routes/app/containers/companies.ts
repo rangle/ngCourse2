@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import Users from '../services/users-service';
-import {ROUTER_DIRECTIVES, RouteConfig} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import CompanyList from '../components/company-list';
 import UsersListContainer from './users-list-container';
 import UserDetail from '../components/user-detail';
@@ -28,18 +28,7 @@ export class CompaniesHome {}
   providers: [Users],
 
 })
-/*
-Complete the routing definition so going to /:companyName will display the list of users for that company,
-you can make use of the existing UsersListContainer if you wish.
-*/
-@RouteConfig([
-  { path: '/',
-    useAsDefault: true,
-    component: CompaniesHome,
-    name: 'CompaniesHome'
-  }
-])
-export default class Companies {
+export class Companies {
   public companies:any;
 
   constructor(private _users: Users) {

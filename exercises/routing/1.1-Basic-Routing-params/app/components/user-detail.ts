@@ -16,11 +16,8 @@ export default class UserDetail {
 
   }
 
-  get userId(): string {
-    return 'correct user id from the router params';
-  }
-
   ngOnInit() {
+    // Set correct user id from the router params
     this.user = this._users.getUserById(this.userId);
   }
 }

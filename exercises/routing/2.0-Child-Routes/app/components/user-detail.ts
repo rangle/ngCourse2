@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouteParams} from '@angular/router-deprecated';
+import {ActivatedRoute} from '@angular/router';
 import Users from '../services/users-service';
 import {JsonPipe} from '@angular/common'
 @Component({
@@ -13,15 +13,18 @@ import {JsonPipe} from '@angular/common'
 })
 export default class UserDetail {
   public user:any;
-  constructor(private _users: Users, private _routeParams: RouteParams) {
+  private sub: any;
+  constructor(private _users: Users, private _activatedRoute: ActivatedRoute) {
 
-  }
-
-  get userId(): string {
-    return this._routeParams.get('id');
   }
 
   ngOnInit() {
-    this.user = this._users.getUserById(this.userId);
+    this.sub = this._activatedRoute.params.subscribe(params => {
+      this.user = this._users.getUserById(params['id']);
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

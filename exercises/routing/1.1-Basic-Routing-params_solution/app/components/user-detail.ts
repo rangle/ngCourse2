@@ -1,27 +1,30 @@
 import {Component} from '@angular/core';
-import {RouteParams} from '@angular/router-deprecated';
 import Users from '../services/users-service';
-import {JsonPipe} from '@angular/common'
+import {ActivatedRoute} from '@angular/router';
+
 @Component({
   selector: 'user-detail',
   template: `<label>First Name: </label> {{user?.name?.first}} <br/>
             <label>Last Name: </label> {{user?.name?.last}} <br/>
-            <label>Email: </label> {{user?.email}}
+            <label>Email: </label> {{user.email}}
   `,
-  providers: [Users],
-  pipes: [JsonPipe]
+  providers: [Users]
 })
 export default class UserDetail {
-  public user:any;
-  constructor(private _users: Users, private _routeParams: RouteParams) {
+  public user: any;
+  private sub: any;
+  constructor(private _users: Users,
+    private _activatedRoute: ActivatedRoute) {
 
-  }
-
-  get userId(): string {
-    return this._routeParams.get('id');
   }
 
   ngOnInit() {
-    this.user = this._users.getUserById(this.userId);
+    this.sub = this._activatedRoute.params.subscribe(params => {
+      this.user = this._users.getUserById(params['id']);
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }
