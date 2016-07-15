@@ -1,6 +1,6 @@
 # NgClass Directive
 
-The `ngClass` directive changes the `class` attribute that is bound to the component or element it's attached to. There are a few different ways of using the directive. 
+The `ngClass` directive changes the `class` attribute that is bound to the component or element it's attached to. There are a few different ways of using the directive.
 
 ## Binding a string
 
@@ -18,11 +18,11 @@ We can bind a string directly to the attribute. This works just like adding an h
     .centered-text {
       text-align: center;
     }
-    
+
     .underlined {
       border-bottom: 1px solid #ccc;
     }
-    
+
     .orange {
       color: orange;
     }
@@ -51,7 +51,7 @@ In this case, we're binding a string directly so we avoid wrapping the directive
       color: red;
       font-weight: bold;
     }
-    
+
     .big {
       font-size: 1.2rem;
     }
@@ -75,6 +75,8 @@ Lastly, an object can be bound to the directive. Angular 2 applies each property
   template: `
     <p [ngClass]="{ card: true, dark: false, flat: flat }">
       <ng-content></ng-content>
+      <br/>
+      <button type="button" (click)="flat=!flat">Toggle Flat</button>
     </p>
   `,
   styles: [`
@@ -85,13 +87,13 @@ Lastly, an object can be bound to the directive. Angular 2 applies each property
       font-family: sans-serif;
       box-shadow: 2px 2px 2px #888888;
     }
-    
+
     .dark {
       background-color: #444;
       border-color: #000;
       color: #fff;
     }
-    
+
     .flat {
       box-shadow: none;
     }
@@ -102,6 +104,6 @@ export class ClassAsObjectComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/8M32UVF8BHJDaRMGziFi?p=preview)
+[View Example](https://plnkr.co/edit/8mGcM3?p=preview)
 
 Here we can see that since the object's `card` and `flat` properties are true, those classes are applied but since `dark` is false, it's not applied.
