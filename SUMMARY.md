@@ -134,6 +134,8 @@
 * [Forms](handout/forms/README.md)
   * [Getting Started](handout/forms/getting-started.md)
   * [Template-Driven Forms](handout/forms/template-driven_forms.md)
+    * [Nested Form Data](handout/forms/nested-form-data.md)
+    * [Template Model Binding](handout/forms/template-model-binding.md)
   * [Form Builder](handout/forms/form-builder.md)
      * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
      * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
