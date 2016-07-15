@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import Grid from '../grid/grid';
 import {StatusPipe} from '../../pipes/status';
 import TasksService from '../../services/tasks-service';

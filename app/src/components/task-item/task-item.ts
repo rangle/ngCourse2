@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {Router} from '@angular/router';
 import {CheckIcon, CloseIcon, EditIcon, UserIcon} from '../icons';
 import {Card, CardTitle, CardActions} from '../card';
 import TasksService, {Task} from '../../services/tasks-service';
@@ -31,7 +31,7 @@ export default class TaskItem {
   ) {}
 
   editItem() {
-    this._router.navigate(['Main', 'TaskEdit', {id: this.task._id}]);
+    this._router.navigate(['tasks', this.task._id]);
   }
 
   deleteItem() {

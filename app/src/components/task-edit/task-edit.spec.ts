@@ -19,7 +19,7 @@ import {MockRouterProvider} from '../../mocks/mock-router-provider';
 describe('Testing Task Edit Component', () => {
   const _id = '1';
   const mockRouterProvider = new MockRouterProvider();
-  mockRouterProvider.mockRouteParams.set('id', _id);
+  mockRouterProvider.mockActivatedRoute.set('id', _id);
   const mockTasksService = new MockTasksService;
 
   beforeEachProviders(() => {
@@ -53,6 +53,7 @@ describe('Testing Task Edit Component', () => {
       return tcb.createAsync(TaskEdit).then(
         (componentFixture: ComponentFixture<TaskEdit>) => {
           const instance = componentFixture.debugElement.componentInstance;
+          componentFixture.detectChanges();
 
           let controls = instance.taskEditForm.controls;
           controls.owner.updateValue('b');

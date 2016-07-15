@@ -5,7 +5,7 @@
 ---
 
 * [EcmaScript 6 and TypeScript Features](handout/features/README.md)
-   * [ES6](handout/features/es6.md)
+  * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
        * [Refresher on 'this'](handout/features/refresher_on_this.md)
        * [Arrow Functions](handout/features/arrow_functions.md)
@@ -174,24 +174,7 @@
    * [Router Outlet](handout/routing/routeroutlet.md)
    * [Route Parameters](handout/routing/routeparams.md)
    * [Child Routes](handout/routing/child_routes.md)
-
----
-
-* [Routing - Deprecated Router](handout/routing-deprecated/README.md)
-   * [Why Routing?](handout/routing-deprecated/why_routing.md)
-   * [Routing in Angular 2](handout/routing-deprecated/routing_in_angular_2.md)
-   * [Defining Routing for a Component](handout/routing-deprecated/routeconfig.md)
-   * [Defining the Router Outlet](handout/routing-deprecated/routeroutlet.md)
-   * [Defining Links Between Routes](handout/routing-deprecated/routerlink.md)
-   * [Using the Router Programmatically](handout/routing-deprecated/using_the_router_programmatically.md)
-   * [Creating Child Routes](handout/routing-deprecated/child_routes.md)
-   * [Using Routing with LocationStrategy](handout/routing-deprecated/using_routing_with_locationstrategy.md)
-   * [Using Auxiliary Routes](handout/routing-deprecated/using_auxiliary_routes.md)
-   * [Lazy Loading of Components](handout/routing-deprecated/lazy_loading_of_components.md)
-   * [Including Route Parameters](handout/routing-deprecated/routeparams.md)
-   * [Passing Additional Route Data](handout/routing-deprecated/routedata.md)
-   * [Including Route Lifecycle Hooks](handout/routing-deprecated/route_lifecycle_hooks.md)
-
+   
 ---
 
 * [Redux and Ngrx](handout/redux/README.md)
