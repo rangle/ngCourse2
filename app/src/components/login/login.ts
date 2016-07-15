@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {Router} from '@angular/router';
 import {
   FORM_PROVIDERS,
   FORM_DIRECTIVES,
@@ -34,7 +34,7 @@ export default class LoginComponent {
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
-      this._router.navigate(['/Main']);
+      this._router.navigate(['tasks']);
     }
   }
 
@@ -44,7 +44,7 @@ export default class LoginComponent {
       this.message = 'Incorrect credentials.';
     } else {
       this.message = '';
-      this._router.navigate(['/Main']);
+      this._router.navigate(['tasks']);
     };
   }
 }

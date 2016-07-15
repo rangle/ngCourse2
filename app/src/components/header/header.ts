@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
-import {Router, RouterLink} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import LogoIcon from '../icons/logo';
 import {AuthService} from '../../services/auth-service';
 const TEMPLATE = require('./header.html');
 
 @Component({
   selector: 'ngc-header',
-  directives: [RouterLink, LogoIcon],
+  directives: [ROUTER_DIRECTIVES, LogoIcon],
   template: TEMPLATE
 })
 export default class Header {

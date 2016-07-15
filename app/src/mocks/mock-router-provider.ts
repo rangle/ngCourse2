@@ -4,17 +4,23 @@ import {
   LocationStrategy
 } from '@angular/common';
 import {
-  ComponentInstruction,
   Router,
-  RouteParams,
+  ActivatedRoute,
   RouterLink
-} from '@angular/router-deprecated';
-import {ResolvedInstruction} from '@angular/router-deprecated/src/instruction';
+} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
 
-export class MockRouteParams {
+export class MockActivatedRoute {
   private ROUTE_PARAMS = {};
 
   constructor() { 
+  }
+
+  get params () {
+    return new Observable(observer => {
+        observer.next(this.ROUTE_PARAMS);
+        observer.complete();
+      })
   }
 
   set(key: string, value: string) {
@@ -31,27 +37,8 @@ export class MockRouter  {
   }
   
   navigate() {}
-  
+
   subscribe() {}
-  
-  isRouteActive(s) { return true; }
-  
-  generate(s) {
-    return new ResolvedInstruction(
-      new ComponentInstruction(
-        'detail',
-        [],
-        null,
-        null,
-        true,
-        '0',
-        {},
-        'detail'
-      ),
-      null,
-      {}
-    );
-  }
 }
 
 export class MockLocationStrategy {
@@ -70,19 +57,19 @@ export class MockRouterLink {
 
 export class MockRouterProvider {
   mockRouter: MockRouter = new MockRouter();
-  mockRouteParams: MockRouteParams = new MockRouteParams();
+  mockActivatedRoute: MockActivatedRoute = new MockActivatedRoute();
   mockLocationStrategy: MockLocationStrategy = new MockLocationStrategy();
   mockLocation: MockLocation = new MockLocation();
   mockRouterLink: MockRouterLink = new MockRouterLink();
 
   setRouteParam(key: string, value: any) {
-    this.mockRouteParams.set(key, value);
+    this.mockActivatedRoute.set(key, value);
   }
 
   getProviders(): Array<any> {
     return [
       provide(Router, {useValue: this.mockRouter}),
-      provide(RouteParams, {useValue: this.mockRouteParams}),
+      provide(ActivatedRoute, {useValue: this.mockActivatedRoute}),
       provide(Location, {useValue: this.mockLocation}),
       provide(LocationStrategy, {useValue: this.mockLocationStrategy}),
       provide(MockRouterLink, {useValue: this.mockRouterLink})

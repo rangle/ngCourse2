@@ -1,10 +1,7 @@
 import {Component, Injector} from '@angular/core';
-import {Router, RouteConfig, RouterOutlet} from '@angular/router-deprecated';
+import {Router, RouterOutlet} from '@angular/router';
 import {AuthService} from '../../services/auth-service';
-import TaskAdd from '../task-add/task-add';
-import TaskEdit from '../task-edit/task-edit';
 import TasksList from '../tasks-list/tasks-list';
-import Summary from '../summary/summary';
 import TasksService from '../../services/tasks-service';
 
 @Component({
@@ -15,20 +12,6 @@ import TasksService from '../../services/tasks-service';
     <ngc-tasks-list></ngc-tasks-list>
   `
 })
-@RouteConfig([{
-  path: '/',
-  name: 'TasksList',
-  component: Summary,
-  useAsDefault: true
-}, {
-  path: '/add',
-  name: 'TaskAdd',
-  component: TaskAdd
-}, {
-  path: '/:id',
-  name: 'TaskEdit',
-  component: TaskEdit
-}])
 export default class Main {
 
   constructor(
@@ -38,7 +21,7 @@ export default class Main {
 
   ngOnInit() {
     if (!this.authService.isLoggedIn()) {
-      this._router.navigate(['/Login']);
+      this._router.navigate(['login']);
     }
   }
 }
