@@ -45,7 +45,6 @@
 * [Bootstrapping an Angular 2 Application](handout/bootstrapping/README.md)
    * [Understanding the File Structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
-   * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
 
 ---
 
