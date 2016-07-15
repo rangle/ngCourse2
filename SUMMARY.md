@@ -151,29 +151,40 @@
 
 * [Routing](handout/routing/README.md)
    * [Why Routing?](handout/routing/why_routing.md)
-   * [Routing in Angular 2](handout/routing/routing_in_angular_2.md)
-   * [Defining Routing for a Component](handout/routing/routeconfig.md)
-   * [Defining the Router Outlet](handout/routing/routeroutlet.md)
+   * [Configuring Routes](handout/routing/config.md)
+   * [Route Redirections](handout/routing/redirects.md)
    * [Defining Links Between Routes](handout/routing/routerlink.md)
-   * [Using the Router Programmatically](handout/routing/using_the_router_programmatically.md)
-   * [Creating Child Routes](handout/routing/child_routes.md)
-   * [Using Routing with LocationStrategy](handout/routing/using_routing_with_locationstrategy.md)
-   * [Using Auxiliary Routes](handout/routing/using_auxiliary_routes.md)
-   * [Lazy Loading of Components](handout/routing/lazy_loading_of_components.md)
-   * [Including Route Parameters](handout/routing/routeparams.md)
-   * [Passing Additional Route Data](handout/routing/routedata.md)
-   * [Including Route Lifecycle Hooks](handout/routing/route_lifecycle_hooks.md)
+   * [Router Outlet](handout/routing/routeroutlet.md)
+   * [Route Parameters](handout/routing/routeparams.md)
+   * [Child Routes](handout/routing/child_routes.md)
 
 ---
 
-* [Redux](handout/redux/README.md)
+* [Routing - Deprecated Router](handout/routing-deprecated/README.md)
+   * [Why Routing?](handout/routing-deprecated/why_routing.md)
+   * [Routing in Angular 2](handout/routing-deprecated/routing_in_angular_2.md)
+   * [Defining Routing for a Component](handout/routing-deprecated/routeconfig.md)
+   * [Defining the Router Outlet](handout/routing-deprecated/routeroutlet.md)
+   * [Defining Links Between Routes](handout/routing-deprecated/routerlink.md)
+   * [Using the Router Programmatically](handout/routing-deprecated/using_the_router_programmatically.md)
+   * [Creating Child Routes](handout/routing-deprecated/child_routes.md)
+   * [Using Routing with LocationStrategy](handout/routing-deprecated/using_routing_with_locationstrategy.md)
+   * [Using Auxiliary Routes](handout/routing-deprecated/using_auxiliary_routes.md)
+   * [Lazy Loading of Components](handout/routing-deprecated/lazy_loading_of_components.md)
+   * [Including Route Parameters](handout/routing-deprecated/routeparams.md)
+   * [Passing Additional Route Data](handout/routing-deprecated/routedata.md)
+   * [Including Route Lifecycle Hooks](handout/routing-deprecated/route_lifecycle_hooks.md)
+
+---
+
+* [Redux and Ngrx](handout/redux/README.md)
    * [Review of Reducers and Pure Functions](handout/redux/review_of_reducers_and_pure_functions.md)
-   * [Redux Reducers](handout/redux/redux_reducers.md)
+   * [Reducers as State Management](handout/redux/reducers_as_state_management.md)
    * [Redux Actions](handout/redux/redux_actions.md)
    * [Configuring your Application to use Redux](handout/redux/configuring_your_application_to_use_redux.md)
    * [Using Redux with Components](handout/redux/using_redux_with_components.md)
    * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
-
+   * [Getting More From Redux and Ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
 ---
 
 * [TDD Testing](handout/testing/README.md)

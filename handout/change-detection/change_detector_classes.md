@@ -59,7 +59,7 @@ export class MovieComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/FVApR429nPezecltxar3?p=preview)
+[View Example](http://plnkr.co/edit/LjyPxgGkqMIwTepMMPId?p=preview)
 
 The enum `ChangeDetectionStrategy` defines seven strategies, as can be seen in the [docs](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html):
 

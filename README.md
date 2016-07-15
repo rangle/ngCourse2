@@ -1,4 +1,4 @@
-# Angular Course From Rangle.io
+# Angular 2 Course From Rangle.io
 
 This repository contains handout materials and code for Rangle.io's AngularJS training course, focusing on Angular 2.
 
@@ -33,9 +33,13 @@ To run the sample app:
 
 3. Then point your browser to <http://localhost:3000>
 
-# Feedback
+
+## Feedback
 
 We welcome your feedback - please take a moment to fill out [this survey](https://docs.google.com/a/rangle.io/forms/d/1XKURJrviGF_eY2s1U_hyAWvq3oZqQ2a3OeUJHjQx-TA/viewform?edit_requested=true) to let us know what you think.
 
 Thanks!
 
+## Contributing
+
+Text that is being contributed to the book must follow the [style guide](https://docs.google.com/a/rangle.io/document/d/1KDzSXf6PZjyLBjpS5tLAH5gDUZoysiSElXb8Vl5ISck/edit?usp=sharing "Rangle.io Angular 2, English Style Guide")

@@ -31,7 +31,7 @@ export class App {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/FjJz4lTX2hhHkMu87cln?p=preview)
+[View Example](http://plnkr.co/edit/4XlPzPrAAKXc27puSRFg?p=preview)
 
 This basic example outlines how the `Http` library's common routines like `get`, `post`, `put` and `delete` all return `Observables` that allow us to asynchronously process any resulting data. 
 
@@ -69,6 +69,8 @@ export class App {
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/jEQ6o6D81c65mr9sghL3?p=preview)
+// [View Example](http://plnkr.co/edit/jEQ6o6D81c65mr9sghL3?p=preview)
+[View Example](http://plnkr.co/edit/LWfiqDGE5qFrlK65EP9J?p=preview)
+// NOTE: using deprecated forms here!  Must opt-in to new forms API.
 
 Here we have created a new form by initializing a new `Control` field and grouped it into a `ControlGroup` tied to the `coolForm` HTML form. The `Control` field has a property `.valueChanges` that returns an `Observable` that we can subscribe to. Now whenever a user types something into the field we'll get it immediately.

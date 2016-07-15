@@ -15,4 +15,4 @@ import {Component, Input} from '@angular/core';
 class Child {}
 ```
 
-[View Example](http://plnkr.co/edit/d2X7P2lxw4jrIBnElGrI?p=preview)
+[View Example](http://plnkr.co/edit/1ISxp5sjAaMgqiG5Lfok?p=preview)

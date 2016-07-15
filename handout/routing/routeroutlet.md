@@ -1,35 +1,28 @@
-# Defining the Router Outlet  #
+# RouterOutlet #
 
-A `RouterOutlet` is a placeholder that Angular dynamically fills based on the application's route. In order to make use of the `RouterOutlet` we must give component access to the router components by passing `ROUTER_DIRECTIVES` in the component directives array.
-
-A component can only have one unnamed `router-outlet` per template. If you need to use multiple `router-outlets`, they must be provided a name, which will be covered in the [Using Auxiliary Routes](./using_auxiliary_routes.md) section.
-
-Below is the example of how we use the RouterOutlet in Angular 2:
+A `RouterOutlet` is a placeholder that Angular dynamically fills based on the application's route. The component for the route being activated is created & inserted next to the `<router-outlet></router-outlet>` element. In order to make use of the `RouterOutlet` we must give component access to the router components by passing `ROUTER_DIRECTIVES` in the component directives array.
 
 ```javascript
-// ...
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+
 @Component({
-	selector: 'simple-routing',
-	directives: [ROUTER_DIRECTIVES]
-	template: `<div>
-	Basic Routing
-	<ul>
-	  <li><a [routerLink]="['/ComponentOne']">Component One</a></li>
-	  <li><a [routerLink]="['/ComponentTwo']">Component Two</a></li>
-	</ul>
-	<div style="border: 1px solid black">
-	  <router-outlet></router-outlet>
-	</div>
-
-	`
+  selector: 'app',
+  directives: [ROUTER_DIRECTIVES],
+  template: `
+    <nav>
+      <a [routerLink]="['/component-one']">Component One</a>
+      <a [routerLink]="['/component-two']">Component Two</a>
+    </nav>
+    <router-outlet></router-outlet>
+    <!-- Route components are added by router here -->
+  `
 })
-@RouteConfig([
-  {path: '/componentOne', as: 'ComponentOne', useAsDefault: true, component: ComponentOne},
-  {path: '/componentTwo', as: 'ComponentTwo', useAsDefault: false, component: ComponentTwo}
-  ])
-export class SimpleRouting {
-
-}
-// ...
+export class AppComponent {}
 ```
-[View Example](https://plnkr.co/edit/c8tiTcT0mso4neVHuN2K?p=preview)
+
+In the above example, the component corresponding to the route specified will be placed after the `<router-outlet></router-outlet>` element when the link is clicked.
+
+[View Example](https://plnkr.co/edit/1c1p877ewo885VaF0KQO?p=preview)
+
+> View examples running in full screen mode to see route changes in the URL.

@@ -35,4 +35,4 @@ class SomeComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/KX7HdGEdg1mRbttmjWOV?p=preview)
+[View Example](http://plnkr.co/edit/5j8w91CuCbAYXF1tfi71?p=preview)
