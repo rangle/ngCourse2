@@ -9,7 +9,6 @@ _app/login-form.component.ts_
 ```ts
 function hasExclamationMark (input: FormControl) {
   const hasExclamation = input.value.indexOf('!') >= 0;
-
   return hasExclamation ? null : { needsExclamation: true };
 }
 
@@ -34,12 +33,14 @@ _app/login-form.component.ts_
 <!-- ... -->
 ```
 
+[View Example](https://plnkr.co/edit/t3Ut3P?p=preview)
+
 ### Predefined Parameters
 Having a custom validator check for exclamation marks might be helpful, but what if you need to check for some other form of punctuation?
 It might be overkill to write nearly the same thing over and over again.
 
 Consider the earlier example `Validators.minLength(5)`.
-How did they get away with allowing you to pass in an argument to control the length?
+How did they get away with allowing you to pass in an argument to control the length, if a validator is just a function?
 Simple, really.
 It's not a trick of Angular, or TypeScript.
 It's simple JavaScript closures.
@@ -84,7 +85,9 @@ _app/login-form.component.html_
 <!-- ... -->
 ```
 
-### Validating Multiple Inputs
+[View Example](https://plnkr.co/edit/9tWvhy?p=preview)
+
+### Validating Inputs Using Other Inputs
 Keep in mind what was mentioned earlier: inputs have access to their parent context via `.root`.
 Therefore, complex validation can happen by drilling through the form, via root.
 
@@ -100,3 +103,5 @@ this.duplicatePassword = new FormControl('', [
   duplicatePassword
 ]);
 ```
+
+[View Example](https://plnkr.co/edit/lMVp52?p=preview)

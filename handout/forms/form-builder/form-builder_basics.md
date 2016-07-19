@@ -31,7 +31,7 @@ export class LoginForm {
   constructor (builder: FormBuilder) {
     this.username = new FormControl('', []);
     this.password = new FormControl('', []);
-    this.testForm = builder.group({
+    this.loginForm = builder.group({
       username: this.username,
       password: this.password
     });
@@ -57,11 +57,15 @@ _app/login-form.component.html_
 </form>
 ```
 
+[View Example](https://plnkr.co/edit/PiCgcL?p=preview)
+
 ### `FormControl`
 You will note that the `FormControl` class is assigned to similarly named fields, both on `this` and in the `FormBuilder#group({ })` method.
 This is mostly for ease of access.
+By saving references to the `FormControl` instances on `this`, you can access the inputs in the template, without having to reference the form, itself.
 The form fields can otherwise be reached in the template by using `loginForm.controls.username` and `loginForm.controls.password`.
 Likewise, any instance of `FormControl` in this situation, can access its parent group by using its `.root` property (eg: `username.root.controls.password`).
+Just be careful to make sure that `root` and `controls` exist, before they're used.
 
 When constructing a `FormControl`, it takes two properties: an initial value, and a list of validators.
-Right now, we have no validation.
+Right now, we have no validation. This will be added in the next steps.

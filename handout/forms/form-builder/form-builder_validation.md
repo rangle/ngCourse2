@@ -24,17 +24,22 @@ export class LoginForm {
       Validators.minLength(5)
     ]);
     this.password = new FormControl('', [Validators.required]);
-    this.testForm = builder.group({
+    this.loginForm = builder.group({
       username: this.username,
       password: this.password
     });
+  }
+
+  login () {
+    console.log(this.loginForm.value);
+    // Attempt Logging in...
   }
 }
 ```
 
 _app/login-form.component.html_
 ```html
-<form [formGroup]="testForm" (ngSubmit)="submitForm()">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
   Inside the form.
   <div>
     <label for="username">username</label>
@@ -53,11 +58,13 @@ _app/login-form.component.html_
       <div [hidden]="!password.hasError('required')">The password is required.</div>
     </div>
   </div>
-  <button type="submit" [disabled]="!testForm.valid">Log In</button>
+  <button type="submit" [disabled]="!loginForm.valid">Log In</button>
 </form>
 ```
 
 Note that we have added rather robust validation on both the fields, and the form itself, using nothing more than built-in validators and some template logic.
+
+[View Example](https://plnkr.co/edit/NGejGL?p=preview)
 
 We are using `.valid` and `.untouched` to determine whether or not we need to show errors. The field may be required, but if it hasn't been visited yet, we have not reason to tell the user that the value is wrong.
 
