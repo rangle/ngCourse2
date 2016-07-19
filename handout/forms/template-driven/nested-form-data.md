@@ -28,7 +28,10 @@ Assuming you had a payment endpoint which required data which looked like the fo
 }
 ```
 
-You might have a form which has a 1-dimensional layout, with over-descriptive (or under-descriptive) names, and some controller or service to combine all of those fields into a data object like the above.
+Forms are sadly flat and one-dimensional, while the data built from them is not.
+This leads to complex transforms, to convert the data you’ve been given into the shape you need.
+
+Worse, in cases where it is possible to run into naming collisions in form inputs, you might find yourself using long and awkward names for semantic purposes.
 
 ```html
 <form >
@@ -65,17 +68,18 @@ When building a template-driven form in Angular 2, we can lean on the `ngModelGr
   <fieldset ngModelGroup="contact">
     <legend>Contact</legend>
 
-    <label for="contact_first-name">First Name</label>
-    <input type="text" name="firstname" id="contact_first-name" ngModel>
-
-    <label for="contact_last-name">Last Name</label>
-    <input type="text" name="lastname" id="contact_last-name" ngModel>
-
-    <label for="contact_email">Email</label>
-    <input type="email" name="email" id="contact_email" ngModel>
-
-    <label for="contact_phone">Phone</label>
-    <input type="text" name="phone" id="contact_phone" ngModel>
+    <label>
+      First Name <input type="text" name="firstname" ngModel>
+    </label>
+    <label>
+      Last Name <input type="text" name="lastname" ngModel>
+    </label>
+    <label>
+      Email <input type="email" name="email" ngModel>
+    </label>
+    <label>
+      Phone <input type="text" name="phone" ngModel>
+    </label>
   </fieldset>
 
   <fieldset ngModelGroup="address">
@@ -88,7 +92,7 @@ When building a template-driven form in Angular 2, we can lean on the `ngModelGr
 </form>
 ```
 
-> - `id`s are only needed for HTML5 compatibility
-> - aside from semantic purposes, there is no reason `ngModelGroup` needs to be used on `<fieldset>` - it would work just as well on a `<div>`
+> - using the alternative HTML5 labeling format; IDs have no bearing on the `ngForm` / `ngModel` paradigm
+> - aside from semantic purposes, there is no reason `ngModelGroup` needs to be used on `<fieldset>` — it would work just as well on a `<div>`
 
-If we were to fill out the form, it would end up in the same shape as we need for our API, and we can still rely on the HTML field validation, if we know it‘s available.
+If we were to fill out the form, it would end up in the same shape as we need for our API, and we can still rely on the HTML field validation, if we know it’s available.
