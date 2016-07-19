@@ -6,7 +6,7 @@ Since services operate in an asynchronous manner it may be useful to execute a s
 ```js
 describe('verify search', () => {
   it('searches for the correct term',
-    fakeAsync(injectAsync([SearchWiki, MockBackend], (searchWiki, mockBackend) => {
+    fakeAsync(inject([SearchWiki, MockBackend], (searchWiki, mockBackend) => {
         return new Promise((pass, fail) => {
           ...
         });
@@ -14,4 +14,4 @@ describe('verify search', () => {
 });
 ```
 
-Instead of using `inject`, we use `injectAsync` to fulfill dependencies and execute the test in an asynchronous process. Using `injectAsync` requires us to return a Promise, which we use to resolve the competition of our test by calling `pass`, or `fail`, depending on the results of our test.
+Instead of only using `inject`, we use `fakeAsync` to wrap it and fulfill dependencies and execute the test in an asynchronous process. Using `fakeAsync` requires us to return a Promise, which we use to resolve the competition of our test by calling `pass`, or `fail`, depending on the results of our test.
