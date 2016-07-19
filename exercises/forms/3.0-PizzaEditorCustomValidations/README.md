@@ -27,4 +27,4 @@ Display the `Checking name availability...` message when the async validator is 
 
 ## Expected Results
 
-![](pizza-editor-custom-validations.gif)
+![](/exercises/forms/3.0-PizzaEditorCustomValidations/pizza-editor-custom-validations.gif)

@@ -1,6 +1,7 @@
 * [Introduction](./intro.md)  
 * [License](handout/license.md)
 * [Why Angular 2?](handout/why_angular_2.md)
+* [Running Exercises](handout/exercises.md)
 
 ---
 
@@ -15,6 +16,7 @@
        * [...spread and ...rest](handout/features/spread_and_rest.md)
        * [Destructuring](handout/features/destructuring.md)
        * [Modules](handout/features/es6_modules.md)
+       * [Exercises](handout/features/es6_exercises.md)
   * [TypeScript](handout/features/typescript.md)
        * [Getting Started With TypeScript](handout/features/getting_started_with_typescript.md)
        * [Working With `tsc`](handout/features/working_with_tsc.md)
@@ -29,6 +31,7 @@
        * [Property Decorators](handout/features/property_decorators.md)
        * [Class Decorators](handout/features/class_decorators.md)
        * [Parameter Decorators](handout/features/parameter_decorators.md)
+       * [Exercises](handout/features/typescript_exercises.md)
 
 ---
 
@@ -56,6 +59,7 @@
        * [Using Two-Way Data Binding](handout/components/app_structure/two_way_data_binding.md)
    * [Projection](handout/components/projection.md)
    * [Structuring Applications with Components](handout/components/structuring_applications_with_components.md)
+   * [Exercises](handout/components/exercises.md)
 
 ---
 
@@ -88,6 +92,7 @@
    * [Combining Streams with flatMap](handout/observables/combining_streams_with_flatmap.md)
    * [Cold vs Hot Observables](handout/observables/cold_vs_hot_observables.md)
    * [Summary](handout/observables/summary.md)
+   * [Exercises](handout/observables/exercises.md)
 
 ---
 
@@ -98,6 +103,7 @@
        * [`@Inject()` and `@Injectable`](handout/di/angular2/inject_and_injectable.md)
        * [Injection Beyond Classes](handout/di/angular2/injection_beyond_classes.md)
        * [The Injector Tree](handout/di/angular2/the_injector_tree.md)
+   * [Exercises](handout/di/exercises.md)
 
 ---
 
@@ -135,6 +141,7 @@
        * [Performance](handout/immutable/immutable-js/performance.md)
        * [Persistent and Transient Data Structures](handout/immutable/immutable-js/persistent_and_transient_data_structures.md)
        * [Official Documentation](handout/immutable/immutable-js/official_documentation.md)
+   * [Exercises](handout/immutable/exercises.md)
 
 ---
 
@@ -142,6 +149,7 @@
    * [Using Pipes](handout/pipes/using_pipes.md)
    * [Custom Pipes](handout/pipes/custom_pipes.md)
    * [Stateful Pipes](handout/pipes/stateful_and_async_pipes.md)
+   * [Exercises](handout/pipes/exercises.md)
 
 ---
 
@@ -154,6 +162,7 @@
     * [FormBuilder Basics](handout/forms/form-builder/form-builder_basics.md)
     * [FormBuilder Validation](handout/forms/form-builder/form-builder_validation.md)
     * [FormBuilder Custom Validation](handout/forms/form-builder/form-builder_custom_validation.md)
+  * [Exercises](handout/forms/exercises.md)
 
 ---
 
@@ -167,6 +176,7 @@
    * [Child Routes](handout/routing/child_routes.md)
    * [Route Guards](handout/routing/route_guards.md)
    * [Query Parameters](handout/routing/query_params.md)
+   * [Exercises](handout/routing/exercises.md)
 
 ---
 
@@ -178,6 +188,8 @@
    * [Using Redux with Components](handout/redux/using_redux_with_components.md)
    * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
    * [Getting More From Redux and Ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
+   * [Exercises](handout/redux/exercises.md)
+
 ---
 
 * [TDD Testing](handout/testing/README.md)

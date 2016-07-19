@@ -1,4 +1,4 @@
-# 1.0 - Modal Component
+# 2.0 - Modal Component
 
 Complete the implementation of _*app/modal.ts*_ such that you can:
 
@@ -35,4 +35,4 @@ Complete the implementation of  _*app/app-component.ts*_ such that:
 
 ## Expected Results
 
-![](modal.gif)
+![](/exercises/components/2.0-Modal/modal.gif)

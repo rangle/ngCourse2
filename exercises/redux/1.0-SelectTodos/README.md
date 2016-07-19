@@ -4,6 +4,6 @@ Use the select pattern to output a list of todos by modifying  _*app/app.compone
 
 **Expected Results**:
 
-![](todo-list.png)
+![](/exercises/redux/1.0-SelectTodos/todo-list.png)
 
 

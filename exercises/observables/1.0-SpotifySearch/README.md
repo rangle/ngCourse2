@@ -21,4 +21,4 @@ _Hint:_ Consider using `flatMap` to combine two observables.
 
 ## Expected Results
 
-![](spotify-search.gif)
+![](/exercises/observables/1.0-SpotifySearch/spotify-search.gif)

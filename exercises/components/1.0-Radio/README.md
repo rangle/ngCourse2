@@ -4,7 +4,7 @@ Complete the implementation of _*app/radio.ts*_ and _*app/app-component.ts*_
 
 ## Expected Results
 
-![](radio.gif)
+![](/exercises/components/1.0-Radio/radio.gif)
 
 The radio component should:
 

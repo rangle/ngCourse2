@@ -7,4 +7,4 @@ For this exercise you are asked to build a pizza editor form for a very opiniona
 
 When the values are modified and the user clicks on `save` the values in grey box should update to match.
 
-![](pizza-editor.gif)
+![](/exercises/forms/1.0-PizzaEditor/pizza-editor.gif)
