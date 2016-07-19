@@ -65,7 +65,7 @@ from '@angular/compiler/testing';
 
 describe('Testing Quote Component', () => {
 
-  beforeEeach(()=>
+  beforeEach(()=>
     addProviders([{provide: QuoteService, useClass: QuoteService }]));
 
   it('Should get quote',
