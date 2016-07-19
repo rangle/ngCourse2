@@ -2,7 +2,7 @@
 
 ## RouterLink ##
 
-Links to routes can be added using the `RouterLink` directive.
+Links to routes can be added using the `RouterLink` directive, which is part of `ROUTER_DIRECTIVES` along with `RouterOutlet`.
 
 For example the following code defines a link to the route at path `component-one`.
 

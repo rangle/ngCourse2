@@ -45,7 +45,6 @@
 * [Bootstrapping an Angular 2 Application](handout/bootstrapping/README.md)
    * [Understanding the File Structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
-   * [Using Router Providers](handout/bootstrapping/using_router_providers.md)
 
 ---
 
@@ -174,7 +173,8 @@
    * [Router Outlet](handout/routing/routeroutlet.md)
    * [Route Parameters](handout/routing/routeparams.md)
    * [Child Routes](handout/routing/child_routes.md)
-   
+   * [Route Guards](handout/routing/route_guards.md)
+
 ---
 
 * [Redux and Ngrx](handout/redux/README.md)
