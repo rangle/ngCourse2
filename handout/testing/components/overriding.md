@@ -11,7 +11,7 @@ In some components, providers are not directly injected through the constructor 
 class SimpleComponent() {}
 ```
 
-This won't work when using `beforeEachProvider`. Instead we can use the `TestComponentBuilder` to explicitly inject the `ExampleService` provider through `overrideProviders`. As we did before, you should create a mocked version of the `ExampleService` to feed in data you expect.
+This won't work when using `addProviders`. Instead we can use the `TestComponentBuilder` to explicitly inject the `ExampleService` provider through `overrideProviders`. As we did before, you should create a mocked version of the `ExampleService` to feed in data you expect.
 
 ```js
   it('Should work', async(inject(
@@ -19,9 +19,9 @@ This won't work when using `beforeEachProvider`. Instead we can use the `TestCom
       tcb.overrideProviders(SimpleComponent, [
         provide(ExampleService, {useClass: MockExampleService})
       ]).createAsync(SimpleComponent).then(fixture => {
-        
+
         // test your fixture here
-        
+
       });
     }))
   );
@@ -34,11 +34,11 @@ it('Should work', async(inject(
   [TestComponentBuilder], (tcb: TestComponentBuider) => {
     tcb.overrideTemplate(SimpleComponent, '<span>{{message}}</span>')
       .createAsync(SimpleComponent).then(fixture => {
- 
+
         // test all things relating to the message property here
-      
+
       // test all things relating to the message property here
-      
+
     });
   }))
 );
