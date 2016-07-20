@@ -39,7 +39,7 @@ application state as a pure function of the reducer's arguments.
 
 For this reason, side-effect causing operations, such as
 updating a record in a database, generating an id, etc. should be handled
-elsewhere in the application such as in the action creators, using middleware such as [redux-saga](https://github.com/yelouafi/redux-saga) or [ngrx/effects](https://github.com/ngrx/effects).
+elsewhere in the application such as in the action creators, using middleware such as ['Epics' from redux-observable](https://github.com/redux-observable/redux-observable) or [ngrx/effects](https://github.com/ngrx/effects).
 
 Another consideration when creating your reducers is to ensure that they are immutable and not modifying the state of your application. If you mutate your application state, it can cause unexpected behavior. There are a few ways to help maintain immutability in your reducers. One way is by using new ES6 features such as `Object.assign` or the spread operator for arrays.
 
