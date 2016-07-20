@@ -15,7 +15,7 @@
        * [...spread and ...rest](handout/features/spread_and_rest.md)
        * [Destructuring](handout/features/destructuring.md)
        * [Modules](handout/features/es6_modules.md)
-   * [TypeScript](handout/features/typescript.md)
+  * [TypeScript](handout/features/typescript.md)
        * [Getting Started With TypeScript](handout/features/getting_started_with_typescript.md)
        * [Working With `tsc`](handout/features/working_with_tsc.md)
        * [Typings](handout/features/typings.md)
