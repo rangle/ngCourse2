@@ -1,13 +1,15 @@
 # Getting More From Redux and Ngrx
 
+## Redux
+
 Redux has a number of tools and middleware available in its ecosystem to facilitate elegant app development.
 
 - *[Redux DevTools](https://github.com/gaearon/redux-devtools)* - a tool that displays a linear timeline of actions that have interacted with its store. Allows for replaying actions and error handling
 - *[redux-thunk](https://github.com/gaearon/redux-thunk)* - middleware that enables lazy evaluation of actions
-- *[redux-saga](https://github.com/yelouafi/redux-saga)* - a model for performing side-effects
-- *[redux-observable](https://github.com/redux-observable/redux-observable)* - allows RxJS observables to be dispatched as actions
+- *[redux-observable](https://github.com/redux-observable/redux-observable)* - an RxJS-based model for handling side-effects on action streams.
+- *[ng2-redux-router](https://github.com/dagstuan/ng2-redux-router) - reactive glue between the Angular 2 router and your redux store.
 
-# Ngrx
+## Ngrx
 
 Ngrx provides most of its Redux implementation through the [ngrx/store](https://github.com/ngrx/store) module. Other modules are available for better integration and development.
 

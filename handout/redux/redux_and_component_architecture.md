@@ -178,7 +178,8 @@ export class SimpleRedux {
     }
 }
 ```
-[View Example](https://plnkr.co/edit/m910XrXyFrUty2nXUJ1q?p=preview)
+[View Ng2-Redux Example](https://plnkr.co/edit/m910XrXyFrUty2nXUJ1q?p=preview)
+[View Ngrx Example](https://plnkr.co/edit/9Lbp8af5milKGuOIXlB8?p=preview)
 
 Our two `Observable`s, `counter$` and `curse$` will now get updated with a new
 value every time the relevant store properties are updated by the rest of the
