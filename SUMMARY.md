@@ -145,18 +145,15 @@
 
 ---
 
-* [Form Builder](handout/forms/README.md)
-   * [Creating a Form with Directives](handout/forms/creating_a_form_with_directives.md)
-   * [Getting the Form's Values](handout/forms/getting_the_forms_values.md)
-   * [Control Grouping](handout/forms/control_grouping.md)
-   * [Validation](handout/forms/validation.md)
-   * [Visual Cues with CSS](handout/forms/visual_cues_with_css.md)
-   * [Creating a Form with the "FormBuilder"](handout/forms/creating_a_form_with_the_formbuilder.md)
-   * [Built-in Validators](handout/forms/built-in_validators.md)
-   * [Custom Validators](handout/forms/custom_validators.md)
-   * [Async Validators](handout/forms/async_validators.md)
-   * [Observing Changes](handout/forms/observing_changes.md)
-   * [Models](handout/forms/models.md)
+* [Forms](handout/forms/README.md)
+  * [Getting Started](handout/forms/getting-started.md)
+  * [Template-Driven Forms](handout/forms/template-driven/template-driven_forms.md)
+    * [Nested Form Data](handout/forms/template-driven/nested-form-data.md)
+    * [Template Model Binding](handout/forms/template-driven/template-model-binding.md)
+  * [FormBuilder](handout/forms/form-builder/form-builder.md)
+    * [FormBuilder Basics](handout/forms/form-builder/form-builder_basics.md)
+    * [FormBuilder Validation](handout/forms/form-builder/form-builder_validation.md)
+    * [FormBuilder Custom Validation](handout/forms/form-builder/form-builder_custom_validation.md)
 
 ---
 

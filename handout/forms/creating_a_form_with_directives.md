@@ -22,7 +22,6 @@ In order to render the `<my-form>` element, we need to define a new component.
 _app/my-form.component.ts_
 ```javascript
 import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'my-form',
