@@ -169,6 +169,7 @@
    * [Route Parameters](handout/routing/routeparams.md)
    * [Child Routes](handout/routing/child_routes.md)
    * [Route Guards](handout/routing/route_guards.md)
+   * [Query Parameters](handout/routing/query_params.md)
 
 ---
 
