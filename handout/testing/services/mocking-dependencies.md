@@ -47,7 +47,7 @@ import {
   it,
   expect,
   describe,
-  beforeEachProviders,
+  addProviders,
   inject
 } from '@angular/core/testing';
 
@@ -56,8 +56,8 @@ import {provide} from '@angular/core';
 import {SearchWiki} from './wikisearch';
 
 describe('Testing the wikipedia search service', () => {
-  beforeEachProviders(() => {
-    return [
+  beforeEach(() => {
+    addProviders([
       MockBackend,
       BaseRequestOptions,
       SearchWiki,
@@ -72,12 +72,12 @@ describe('Testing the wikipedia search service', () => {
           deps: [MockBackend, BaseRequestOptions]
         }
       )
-    ];
+    ]);
   });
 });
 ```
 
-As you can see, we have quite a few imports here to set up our mocked HTTP module. We use `beforeEachProviders` to include `MockBackend` to create our mocked HTTP module. In order to properly set up our mocked module we also include `BaseRequestOptions` and `ConnectionBackend`. We create an instance of `Http` that our service will get by using a factory.
+As you can see, we have quite a few imports here to set up our mocked HTTP module. We use `addProviders` to include `MockBackend` to create our mocked HTTP module. In order to properly set up our mocked module we also include `BaseRequestOptions` and `ConnectionBackend`. We create an instance of `Http` that our service will get by using a factory.
 
 To create this instance the `Http` class takes two parameters: the back-end to use (`ConnectionBackend` type) and the default options to use (`RequestOptions` type). Since we are planning to use a mock back-end, we feed in `MockBackend` to the first parameter. The second parameter, default options, doesn't have any bearing on the mocking aspects we plan on using, so we use `BaseRequestOptions`, which is the default implementation.
 

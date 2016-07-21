@@ -5,8 +5,8 @@ In the previous example the class we were testing, `MessageComponent`, did not h
 *quote.component.ts*
 
 ```js
-import {QuoteService} from './quote.service';
-import {Component} from '@angular/core';
+import { QuoteService } from './quote.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-quote',
@@ -44,9 +44,9 @@ class MockQuoteService {
   }
 }
 
-import {QuoteService} from 'quote.service.ts';
-import {QuoteComponent} from 'quote.component.ts';
-import {provide} from '@angular/core';
+import { QuoteService } from 'quote.service.ts';
+import { QuoteComponent } from 'quote.component.ts';
+import { provide } from '@angular/core';
 import {
   async,
   expect,
@@ -54,7 +54,7 @@ import {
   describe,
   inject,
   beforeEach,
-  beforeEachProvider,
+  addProviders,
 } from '@angular/core/testing';
 
 import {
@@ -65,9 +65,8 @@ from '@angular/compiler/testing';
 
 describe('Testing Quote Component', () => {
 
-  beforeEachProviders(() => [
-    provide(QuoteService, { useClass: MockQuoteService })
-  ]);
+  beforeEach(()=>
+    addProviders([{provide: QuoteService, useClass: QuoteService }]));
 
   it('Should get quote',
     async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
@@ -88,7 +87,7 @@ describe('Testing Quote Component', () => {
 
 Testing the `QuoteComponent` is a fairly straightforward process. We want to create a `QuoteComponent`, feed it a quote and see if it appears in the DOM. This process requires us to create the component, pass in any dependencies, trigger the component to perform an action and then look at the DOM to see if the action is what we expected. Let's take a look at how this is accomplished with the above unit test.
 
-We use `beforeEachProviders` to feed in any dependencies that our component requires. Here our component depends on the `QuoteService` to get data. We mock this data ourselves thus giving us control over what value we expect to show up. It is good practice to separate component testing from service testing - this makes it easier to test as you are only focusing on a single aspect of the application at a time. If your service or component fails, how will you know which one was the culprit? Using `provide` we inject the `QuoteService` dependency using our mock class `MockQuoteService`, where we will provide mock data for the component to consume.
+We use `addProviders` to feed in any dependencies that our component requires. Here our component depends on the `QuoteService` to get data. We mock this data ourselves thus giving us control over what value we expect to show up. It is good practice to separate component testing from service testing - this makes it easier to test as you are only focusing on a single aspect of the application at a time. If your service or component fails, how will you know which one was the culprit? Using `provide` we inject the `QuoteService` dependency using our mock class `MockQuoteService`, where we will provide mock data for the component to consume.
 
 Next we use `inject` to inject the `TestComponentBuilder` into our test.  We wrap this in `async()` so our tests run in an asynchronous test zone.  Once we have a reference to `TestComponentBuilder` we call `createAsync` to create the component we will be testing (`QuoteComponent`). The `TestComponentBuilder` will then create a new instance of our component, fulfilling any Angular-specific routines like dependency injection. Using `async` creates a test zone which will ensure that all asynchronous functions have resolved prior to ending the test.
 
