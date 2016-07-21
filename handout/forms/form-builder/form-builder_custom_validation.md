@@ -93,7 +93,11 @@ Therefore, complex validation can happen by drilling through the form, via root.
 
 ```ts
 function duplicatePassword (input: FormControl) {
-  const exactMatch = input.root.controls.password = input.value;
+  if (!input.root || !input.root.controls) {
+    return null;
+  }
+
+  const exactMatch = input.root.controls.password === input.value;
   return exactMatch ? null : { mismatchedPassword: true };
 }
 
