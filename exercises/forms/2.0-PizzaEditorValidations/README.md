@@ -10,4 +10,4 @@ Now that we have a pizza editor let's add some validations to it. Complete the i
 
 ## Expected Results
 
-![](pizza-editor-validations.gif)
+![](/exercises/forms/2.0-PizzaEditorValidations/pizza-editor-validations.gif)

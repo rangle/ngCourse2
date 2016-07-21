@@ -6,6 +6,6 @@ Make the text of each todo aware of the state of checkbox.  Change events emitte
 **Expected Results**:
 
 
-![](todo-toggle-action.gif)
+![](/exercises/redux/2.0-DispatchActions/todo-toggle-action.gif)
 
 
