@@ -79,3 +79,37 @@ Notice that there is an odd `let-episode` property on the template element. The 
 })
 ```
 [View Example](https://plnkr.co/edit/GaxhVSjfY8UmHm4T3PNg?p=preview)
+
+## trackBy ##
+
+Often `ngFor` is used to iterate through a list of objects with a unique ID field. In this case, we can provie a `trackBy` function which helps Angular keep track of items in the list so that it can detect which items have been added or removed and improve performance.
+
+Say each item of `episodes` has an ID number property `id`, we could add a `trackBy` function:
+
+```typescript
+@Component({
+  selector: 'app',
+  directives: [ForExampleComponent],
+  template: `
+    <for-example *ngFor="let episode of episodes; trackBy: trackById" [episode]="episode">
+      {{episode.title}}
+    </for-example>
+  `
+})
+export class AppComponent {
+  episodes: any[] = [
+    { title: 'Winter Is Coming', director: 'Tim Van Patten', id: 0 },
+    { title: 'The Kingsroad', director: 'Tim Van Patten', id: 1 },
+    { title: 'Lord Snow', director: 'Brian Kirk', id: 2 },
+    { title: 'Cripples, Bastards, and Broken Things', director: 'Brian Kirk', id: 3 },
+    { title: 'The Wolf and the Lion', director: 'Brian Kirk', id: 4 },
+    { title: 'A Golden Crown', director: 'Daniel Minahan', id: 5 },
+    { title: 'You Win or You Die', director: 'Daniel Minahan', id: 6 }
+    { title: 'The Pointy End', director: 'Daniel Minahan', id: 7 }
+  ];
+
+  trackById(index: number, episode: any): number {
+    return episode.id;
+  }
+}
+```
