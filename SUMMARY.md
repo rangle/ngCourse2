@@ -56,6 +56,7 @@
        * [Using Two-Way Data Binding](handout/components/app_structure/two_way_data_binding.md)
    * [Projection](handout/components/projection.md)
    * [Structuring Applications with Components](handout/components/structuring_applications_with_components.md)
+   * [Accessing Child Component Classes](handout/components/access_child_components.md)
 
 ---
 
