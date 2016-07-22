@@ -85,8 +85,43 @@ export const routes: RouterConfig = [
 ```
 Since the `Overview` child route of `product-details` has an empty path, it will be loaded by default. The `specs` child route remains the same.
 
+[View Example with child routes](https://plnkr.co/edit/QlMe6pMINxJGTdA3xm0B?p=preview)
 
-## Links
+[View Example with route params & child routes](https://plnkr.co/edit/g88pvg4LQq7XVJo7iG9b?p=preview)
+
+> View examples running in full screen mode to see route changes in the URL.
+
+## Accessing a Parent's Route Params ##
+
+In the above example, say that the child routes of `product-details` needed the ID of the product to fetch the spec or overview information. The child route component can access the parent route's params as follows:
+
+```javascript
+export default class Overview {
+  private sub: any;
+  private parentRouteId: number;
+
+  constructor(private router: Router,
+    private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    // Get parent ActivatedRoute of this route.
+    this.sub = this.router.routerState.parent(this.route)
+      .params.subscribe(params => {
+        this.parentRouteId = +params["id"];
+      });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+}
+```
+
+[View Example child routes accessing parent's route params](https://plnkr.co/edit/Lk8DMrOlGRYPKQtIDEkN?p=preview)
+
+> View examples running in full screen mode to see route changes in the URL.
+
+## Links ##
 
 Routes can be prepended with `/`, or `../`; this tells Angular 2 where in the route tree to link to.
 
@@ -107,10 +142,6 @@ Example:
 In the above example, the link for route one links to a child of the current route.
 The link for route two links to a sibling of the current route.
 The link for route three links to a child of the root component (Same as route one link if current route is root component).
-
-[View Example with child routes](https://plnkr.co/edit/QlMe6pMINxJGTdA3xm0B?p=preview)
-
-[View Example with route params & child routes](https://plnkr.co/edit/g88pvg4LQq7XVJo7iG9b?p=preview)
 
 [View Example with linking throughout route tree](https://plnkr.co/edit/6Mdn7qUblMtktpQyFJAc?p=preview)
 
