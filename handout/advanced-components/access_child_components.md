@@ -90,7 +90,7 @@ export class App {
 }
 ```
 
-[ViewChildren Example](http://plnkr.co/edit/NnWXogk7x5MMEdnJNLT5?p=preview)
+[View Example](http://plnkr.co/edit/NnWXogk7x5MMEdnJNLT5?p=preview)
 
 ## @ContentChild & @ContentChildren ##
 
@@ -98,4 +98,4 @@ export class App {
 
 Also note that content children will not be set until `ngAfterContentInit` component lifecycle hook.
 
-[ContentChildren Example](http://plnkr.co/edit/F5BaUEO9nJzb0AfVMOEE?p=preview)
+[View Example](http://plnkr.co/edit/F5BaUEO9nJzb0AfVMOEE?p=preview)

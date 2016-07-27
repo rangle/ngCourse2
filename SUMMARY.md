@@ -56,7 +56,7 @@
        * [Using Two-Way Data Binding](handout/components/app_structure/two_way_data_binding.md)
    * [Projection](handout/components/projection.md)
    * [Structuring Applications with Components](handout/components/structuring_applications_with_components.md)
-   * [Accessing Child Component Classes](handout/components/access_child_components.md)
+   * [Using Other Components](handout/components/using_other_components.md)
 
 ---
 
@@ -73,7 +73,7 @@
 
 * [Advanced Components](handout/advanced-components/README.md)
    * [Component Lifecycle](handout/advanced-components/component_lifecycle.md)
-   * [Accessing Other Components](handout/advanced-components/accessing_other_component.md)
+   * [Accessing Other Components](handout/advanced-components/access_child_components.md)
    * [View Encapsulation](handout/advanced-components/view_encapsulation.md)
    * [ElementRef](handout/advanced-components/elementref.md)
 
