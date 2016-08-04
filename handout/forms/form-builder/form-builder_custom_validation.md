@@ -20,7 +20,7 @@ this.password = new FormControl('', [
 ]);
 ```
 
-I've created a simple function which takes the `FormControl` instance and returns null if everything is fine.
+A simple function takes the `FormControl` instance and returns null if everything is fine.
 If the test fails, it returns an object with an arbitrarily named property.
 The property name is what will be used for the `.hasError()` test.
 
@@ -36,14 +36,13 @@ _app/login-form.component.ts_
 [View Example](https://plnkr.co/edit/t3Ut3P?p=preview)
 
 ### Predefined Parameters
-Having a custom validator check for exclamation marks might be helpful, but what if you need to check for some other form of punctuation?
+Having a custom validator to check for exclamation marks might be helpful, but what if you need to check for some other form of punctuation?
 It might be overkill to write nearly the same thing over and over again.
 
 Consider the earlier example `Validators.minLength(5)`.
-How did they get away with allowing you to pass in an argument to control the length, if a validator is just a function?
+How did they get away with allowing an argument to control the length, if a validator is just a function?
 Simple, really.
-It's not a trick of Angular, or TypeScript.
-It's simple JavaScript closures.
+It's not a trick of Angular, or TypeScript - it's simple JavaScript closures.
 
 ```javascript
 function minLength (minimum) {
@@ -53,8 +52,7 @@ function minLength (minimum) {
 }
 ```
 
-I have a function which takes a "minimum" parameter, and returns another function. The function defined and returned from the inside becomes my validator. My closure reference allows me to remember the value of the minimum, when the validator is eventually called.
-
+Assume you have a function which takes a "minimum" parameter and returns another function. The function defined and returned from the inside becomes the validator. The closure reference allows you to remember the value of the minimum when the validator is eventually called.
 
 Let's apply that thinking back to a `PunctuationValidator`.
 
