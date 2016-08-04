@@ -1,6 +1,6 @@
 # TypeScript
 
-ES6 is the upcoming version of JavaScript.  TypeScript is a superset of ES6,
+ES6 is the current version of JavaScript.  TypeScript is a superset of ES6,
 which means all ES6 features are part of TypeScript, but not all TypeScript
 features are part of ES6.  Consequently, TypeScript must be transpiled into ES5
 to run in most browsers.

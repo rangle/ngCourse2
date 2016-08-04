@@ -63,7 +63,7 @@ Over time, best practices evolved, and a community-driven structure was endorsed
 Angular 1.x tried to work around various browser limitations related to JavaScript.
 This was done by introducing a module system that made use of dependency injection. This system was novel, but unfortunately had issues with tooling, notably minification and static analysis.
 
-Angular 2.x makes use of the upcoming ES2015 module system, and modern packaging tools like webpack or SystemJS.
+Angular 2.x makes use of the ES2015 module system, and modern packaging tools like webpack or SystemJS.
 Modules are far less coupled to the "Angular way", and it's easier to write more generic JavaScript and plug it into Angular.
 The removal of minification workarounds and the addition of rigid prescriptions make maintaining existing applications simpler.
 The new module system also makes it easier to develop effective tooling that can reason better about larger projects.
