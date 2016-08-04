@@ -68,7 +68,7 @@ class Toppings {
   outputList() {
     this.toppings
       .forEach((topping, i) => console
-        .log(topping, i + '/' + this.toppings.length);  // `this` works! 
+        .log(topping, i + '/' + this.toppings.length)  // `this` works! 
     )
   }
 }
