@@ -1,6 +1,6 @@
 # Template-Driven Forms
 
-The most straightforward approach to building forms in Angular 2 is to take advantage of the directives which have already been made for you.
+The most straightforward approach to building forms in Angular 2 is to take advantage of the directives provided for you.
 
 First, consider a typical form:
 
@@ -16,10 +16,7 @@ First, consider a typical form:
 </form>
 ```
 
-The simplest method for dealing with forms in Angular 2 is not much more complicated than this.
-That's because Angular has already provided you a `form` directive (and friends), which operates under the covers.
-
-For a basic implementation, we really just need to add a few attributes, and make sure our component knows what to do with the data.
+Angular 2 has already provided you a `form` directive (and friends) which operates under the covers. For a basic implementation, we just have to add a few attributes and make sure our component knows what to do with the data.
 
 _index.html_
 ```html
