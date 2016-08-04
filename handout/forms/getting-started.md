@@ -18,12 +18,12 @@ bootstrap(MyApp, [
 ```
 
 
-> This override will be deprecated in future releases
+> This override will be deprecated in future releases.
 
 
 ### Input Labeling
 
-The majority of the form examples will use the following HTML5 style for labeling inputs:
+Most of the form examples use the following HTML5 style for labeling inputs:
 
 ```html
 <label for="name">Name</label>
