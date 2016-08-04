@@ -1,7 +1,7 @@
 # Template Model Binding
 
 ### One-Way Binding
-If you find yourself needing a form with default values, you can start using the value-binding syntax for ngModel.
+If you need a form with default values, you can start using the value-binding syntax for ngModel.
 
 _app/signup-form.component.html_
 ```html
@@ -34,14 +34,12 @@ export class SignupForm {
 ```
 
 ### Two-Way Binding
-The corollary to having one-way binding is, of course, to have two-way data binding.
 
-
-The default behavior for Angular 2 is to assume one-way binding, but two-way is still available in the case you should need it.
+While Angular 2 assumes one-way binding by default, two-way binding is still available if you need it.
 
 In order to have access to two-way binding in template-driven forms, use the “Banana-Box” syntax (`[(ngModel)]="propertyName"`).
 
-Be sure to declare all of the properties you will need, on the component.
+Be sure to declare all of the properties you will need on the component.
 
 ```html
 <form #signupForm="ngForm" (ngSubmit)=register(signupForm)>
