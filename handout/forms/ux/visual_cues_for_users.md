@@ -38,12 +38,12 @@ Rather than writing extra code, and creating and enforcing your own CSS classes,
 .ng-dirty {}
 ```
 
-Note the three pairs.
+Note the three pairs:
 - valid / invalid
 - untouched / touched
 - pristine / dirty
 
-These pairs can be used in many combinations in your CSS, to change style based on the three separate flags they represent. Angular will toggle between the pairs on each input, as the state of the input changes.
+These pairs can be used in many combinations in your CSS to change style based on the three separate flags they represent. Angular will toggle between the pairs on each input as the state of the input changes.
 
 ```css
 /* field has been unvisited and unchanged */
