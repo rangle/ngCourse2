@@ -1,6 +1,6 @@
-# Route Guards #
+# Controlling Access to or from a Route #
 
-Route guards provide a way to control whether the user can navigate to or navigate away from a given route.
+To control whether the user can navigate to or away from a given route, use route guards.
 
 For example, we may want some routes to only be accessible once the user has logged in or accepted Terms & Conditions. We can use route guards to check these conditions and control access to routes.
 
@@ -65,13 +65,13 @@ This class implements the `CanActivate` interface by implementing the `canActiva
 
 When `canActivate` returns true, the user can activate the route. When `canActivate` returns false, the user cannot access the route. In the above example, we allow access when the user is logged in.
 
-We can do other things in the `canActivate` function as well such as notify the user that they can't access that part of the application, or redirect them to the login page.
+`canActivate` can also be used to notify the user that they can't access that part of the application, or redirect them to the login page.
 
 [See Official Definition for CanActivate](https://angular.io/docs/ts/latest/api/router/index/CanActivate-interface.html)
 
 ## Implementing CanDeactivate ##
 
-`CanDeactivate` works in a similar way to `CanActivate`, however there are some important differences. The `canDeactivate` function passes the component being deactivated as an argument to the function:
+`CanDeactivate` works in a similar way to `CanActivate` but there are some important differences. The `canDeactivate` function passes the component being deactivated as an argument to the function:
 
 ```javascript
 export interface CanDeactivate<T> {
@@ -101,9 +101,9 @@ export class SaveFormsGuard implements CanDeactivate<AccountPage> {
 
 ## Async Route Guards ##
 
-The `canActivate` and `canDeactivate` functions can either return values of type `boolean`, or `Observable<boolean>` (an Observable that resolve to `boolean`). If you need to do an asynchronous request (like a server request) to determine whether the user can navigate to or away from the route, you can simply return an `Observable<boolean>`. The router will wait until it is resolved and use that value to determine access.
+The `canActivate` and `canDeactivate` functions can either return values of type `boolean`, or `Observable<boolean>` (an Observable that resolves to `boolean`). If you need to do an asynchronous request (like a server request) to determine whether the user can navigate to or away from the route, you can simply return an `Observable<boolean>`. The router will wait until it is resolved and use that value to determine access.
 
-For example, when the user navigates away we could have a dialog service ask the user to confirm the navigation. The dialog service returns an `Observable<boolean>` which resolves to true if the user has clicked 'OK', false if user clicks 'Cancel'.
+For example, when the user navigates away you could have a dialog service ask the user to confirm the navigation. The dialog service returns an `Observable<boolean>` which resolves to true if the user clicks 'OK', or false if user clicks 'Cancel'.
 
 ```javascript
   canDeactivate() {
