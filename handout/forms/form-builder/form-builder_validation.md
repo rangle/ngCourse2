@@ -1,4 +1,4 @@
-# FormBuilder Validation
+# Validating FormBuilder Forms
 
 Building from the previous login form, we can quickly and easily add validation.
 
