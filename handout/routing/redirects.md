@@ -1,4 +1,4 @@
-# Route Redirections #
+# Redirecting the Router to Another Route #
 
 When your application starts, it navigates to the empty route by default.
 We can configure the router to redirect to a named route by default:
