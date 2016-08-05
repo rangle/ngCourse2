@@ -92,7 +92,7 @@ When building a template-driven form in Angular 2, we can lean on the `ngModelGr
 </form>
 ```
 
-> - using the alternative HTML5 labeling format; IDs have no bearing on the `ngForm` / `ngModel` paradigm
-> - aside from semantic purposes, `ngModelGroup` does not have to be used on `<fieldset>` — it would work just as well on a `<div>`.
+> - Using the alternative HTML5 labeling format; IDs have no bearing on the `ngForm` / `ngModel` paradigm
+> - Aside from semantic purposes, `ngModelGroup` does not have to be used on `<fieldset>` — it would work just as well on a `<div>`.
 
 If we were to fill out the form, it would end up in the shape we need for our API, and we can still rely on the HTML field validation if we know it’s available.
