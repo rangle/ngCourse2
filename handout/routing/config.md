@@ -19,7 +19,7 @@ Each route can have different attributes; some of the common attributes are:
 * _path_ - URL to be shown in the browser when application is on the specific route
 * _component_ - component to be rendered when the application is on the specific route
 * _redirectTo_ - redirect route if needed; each route can have either component or redirect attribute defined in the route (covered later in this chapter)
-* _pathMatch_ - optional property that defaults to 'prefix'; determines whether to match full URLs or just the beginning. Set to 'full' when defining the redirect route.
+* _pathMatch_ - optional property that defaults to 'prefix'; determines whether to match full URLs or just the beginning. When defining a route with empty path string set pathMatch to 'full', otherwise it will match all paths.
 * _children_ - array of route definitions objects representing the child routes of this route (covered later in this chapter).
 
 To use `RouteConfig`, create a RouteConfig array which contains [Route Definition Object](#route-definition-object)s.
