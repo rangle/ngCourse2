@@ -163,7 +163,7 @@
 * [Routing](handout/routing/README.md)
    * [Why Routing?](handout/routing/why_routing.md)
    * [Configuring Routes](handout/routing/config.md)
-   * [Route Redirections](handout/routing/redirects.md)
+   * [Redirecting the Router to Another Route](handout/routing/redirects.md)
    * [Defining Links Between Routes](handout/routing/routerlink.md)
    * [Router Outlet](handout/routing/routeroutlet.md)
    * [Route Parameters](handout/routing/routeparams.md)
