@@ -1,7 +1,5 @@
 # FormBuilder Basics
 
-Several steps beyond Angular 2‘s `ngForm` directive is the `FormBuilder`. There is a little bit of black-magic in its simplicity, at first, but after you're comfortable with the basics, learning its building blocks will allow you to handle more complex use cases.
-
 To begin with FormBuilder, we must first ensure we are working with the right directives and the right classes in order to take advantage of procedural forms.
 In our case, these are `FormBuilder`, `FormGroup` and `FormControl`.
 Angular allows us to import a list of all of the helpful directives.
