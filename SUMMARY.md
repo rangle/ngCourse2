@@ -166,10 +166,10 @@
    * [Redirecting the Router to Another Route](handout/routing/redirects.md)
    * [Defining Links Between Routes](handout/routing/routerlink.md)
    * [Using a Placeholder for a Route Component](handout/routing/routeroutlet.md)
-   * [Route Parameters](handout/routing/routeparams.md)
-   * [Child Routes](handout/routing/child_routes.md)
-   * [Route Guards](handout/routing/route_guards.md)
-   * [Query Parameters](handout/routing/query_params.md)
+   * [Using Route Parameters](handout/routing/routeparams.md)
+   * [Defining Child Routes](handout/routing/child_routes.md)
+   * [Controlling Access to or from a Route](handout/routing/route_guards.md)
+   * [Passing Optional Parameters to a Route](handout/routing/query_params.md)
 
 ---
 
