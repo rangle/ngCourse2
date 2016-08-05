@@ -165,7 +165,7 @@
    * [Configuring Routes](handout/routing/config.md)
    * [Redirecting the Router to Another Route](handout/routing/redirects.md)
    * [Defining Links Between Routes](handout/routing/routerlink.md)
-   * [Router Outlet](handout/routing/routeroutlet.md)
+   * [Using a Placeholder for a Route Component](handout/routing/routeroutlet.md)
    * [Route Parameters](handout/routing/routeparams.md)
    * [Child Routes](handout/routing/child_routes.md)
    * [Route Guards](handout/routing/route_guards.md)
