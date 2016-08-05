@@ -1,4 +1,4 @@
-# Template Model Binding
+# Using Template Model Binding
 
 ### One-Way Binding
 If you need a form with default values, you can start using the value-binding syntax for ngModel.
