@@ -1,10 +1,10 @@
-# Child Routes #
+# Defining Child Routes #
 
-Sometimes it makes sense to organize your routes such that some routes are children of others. When some routes may only be accessible & viewed within other routes it may be appropriate to create them as child routes.
+When some routes may only be accessible and viewed within other routes it may be appropriate to create them as child routes. 
 
-For example: The product details page may have a tabbed navigation section within the page where by default it shows the overview description of the product. When the user clicks the "Technical Specs" tab the section shows the specs instead of the overview.
+For example: The product details page may have a tabbed navigation section that shows the product overview by default. When the user clicks the "Technical Specs" tab the section shows the specs instead.
 
-If the user clicks on product with ID 3, we want to show the product details page with the overview:
+If the user clicks on the product with ID 3, we want to show the product details page with the overview:
 
 `localhost:3000/product-details/3/overview`
 
@@ -67,7 +67,7 @@ export default class ProductDetails {
 }
 ```
 
-Alternatively, we could also specify the route such that the `overview` route URL simply be:
+Alternatively, we could specify `overview` route URL simply as:
 
 `localhost:3000/product-details/3`
 
