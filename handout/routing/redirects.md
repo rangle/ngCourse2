@@ -14,5 +14,3 @@ export const routes: RouterConfig = [
 This tells the router to redirect to component-one when matching the empty path ('').
 
 When starting the application, it will automatically navigate to the route for `component-one`.
-
-> pathMatch is an optional property that defaults to 'prefix' which determines whether to match full URLs or just the beginning. When defining a route with empty path string we must set pathMatch to 'full', otherwise it would match all paths.
