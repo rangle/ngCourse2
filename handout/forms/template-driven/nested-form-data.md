@@ -1,4 +1,4 @@
-# Nested Form Data
+# Nesting Form Data
 
 If you find yourself wrestling to fit nested trees of data inside of a flat form, Angular has you covered for both simple and complex cases.
 
@@ -56,8 +56,7 @@ Worse, in cases where it is possible to run into naming collisions in form input
 </form>
 ```
 
-Some form handler is going to have to convert that data into a form that your API expects.
-Thankfully, this is something Angular 2 has a solution for.
+A form handler would have to convert that data into a form that your API expects. Thankfully, this is something Angular 2 has a solution for.
 
 ### `ngModelGroup`
 
