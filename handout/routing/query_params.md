@@ -1,20 +1,16 @@
-# Query Parameters #
+# Passing Optional Parameters #
 
 Query parameters allow you to pass optional parameters to a route such as pagination information.
 
-For example: on a route with a paginated list, the URL might look like the following to indicate that we've loaded the 2nd page:
+For example, on a route with a paginated list, the URL might look like the following to indicate that we've loaded the second page:
 
 `localhost:3000/product-list?page=2`
 
-## Query Parameters vs Route Parameters ##
-
-The key difference between query parameters and [route parameters](/handout/routing/routeparams.md) is that route parameters are essential to determining route, whereas query parameters are optional.
+> The key difference between query parameters and [route parameters](/handout/routing/routeparams.md) is that route parameters are essential to determining route, whereas query parameters are optional.
 
 ## Passing Query Parameters ##
 
-We can use the `[queryParams]` directive along with `[routerLink]` to pass query parameters.
-
-Example:
+Use the `[queryParams]` directive along with `[routerLink]` to pass query parameters. For example:
 
 ```html
 <a [routerLink]="['product-list']" [queryParams]="{ page: 99 }">Go to Page 99</a>
