@@ -8,11 +8,14 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "gitbook-cli": "^2.2.0"
+    "gitbook-cli": "^2.2.0",
+    "live-server": "^1.0.0"
   },
   "scripts": {
     "build": "gitbook build",
     "dev": "gitbook serve",
+    "examples": "live-server ./examples",
+    "exercises": "live-server ./exercises",
     "postinstall": "gitbook install"
   },
   "repository": {
