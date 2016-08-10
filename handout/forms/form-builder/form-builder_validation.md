@@ -1,9 +1,8 @@
-# FormBuilder Validation
+# Validating FormBuilder Forms
 
-Building from the previous login form, we can also rather quickly and easily add validation.
+Building from the previous login form, we can quickly and easily add validation.
 
-Angular 2 provides a lot of validators, out of the box.
-They can be imported along with the rest of the rest of the dependencies for procedural forms.
+Angular 2 provides many validators out of the box. They can be imported along with the rest of dependencies for procedural forms.
 
 _app/login-form.component.ts_
 ```ts
@@ -62,10 +61,10 @@ _app/login-form.component.html_
 </form>
 ```
 
-Note that we have added rather robust validation on both the fields, and the form itself, using nothing more than built-in validators and some template logic.
+Note that we have added rather robust validation on both the fields and the form itself, using nothing more than built-in validators and some template logic.
 
 [View Example](https://plnkr.co/edit/NGejGL?p=preview)
 
-We are using `.valid` and `.untouched` to determine whether or not we need to show errors. The field may be required, but if it hasn't been visited yet, we have not reason to tell the user that the value is wrong.
+We are using `.valid` and `.untouched` to determine if we need to show errors - while the field is required, there is no reason to tell the user that the value is wrong if the field hasn't been visited yet.
 
-For built-in validation, we are calling `.hasError()` on the form element, and we are passing a string which represents the validator function we included. If this test returns true, then we display the error message, which is otherwise hidden.
+For built-in validation, we are calling `.hasError()` on the form element, and we are passing a string which represents the validator function we included. The error message only displays if this test returns true.
