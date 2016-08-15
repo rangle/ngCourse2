@@ -20,7 +20,7 @@ export class AppComponent {
     { title: 'Cripples, Bastards, and Broken Things', director: 'Brian Kirk' },
     { title: 'The Wolf and the Lion', director: 'Brian Kirk' },
     { title: 'A Golden Crown', director: 'Daniel Minahan' },
-    { title: 'You Win or You Die', director: 'Daniel Minahan' }
+    { title: 'You Win or You Die', director: 'Daniel Minahan' },
     { title: 'The Pointy End', director: 'Daniel Minahan' }
   ];
 }
