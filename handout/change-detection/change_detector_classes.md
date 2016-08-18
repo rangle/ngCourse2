@@ -61,18 +61,6 @@ export class MovieComponent {
 
 [View Example](http://plnkr.co/edit/LjyPxgGkqMIwTepMMPId?p=preview)
 
-The enum `ChangeDetectionStrategy` defines seven strategies, as can be seen in the [docs](https://angular.io/docs/ts/latest/api/core/ChangeDetectionStrategy-enum.html):
-
-* `CheckOnce`
-* `Checked`
-* `CheckAlways`
-* `Detached`
-* `OnPush`
-* `Default`
-* `DefaultObserver`
-
-We are going to concentrate on the two main ones: `Default` and `OnPush`.
-
 Let's see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy.
 
 As noted previously, changes are triggered by events and the propagation of changes is done in two phases: the application phase and the change detection phase.
