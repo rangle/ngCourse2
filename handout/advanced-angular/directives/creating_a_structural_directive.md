@@ -25,11 +25,11 @@ We use the same `@Directive` class decorator as attribute directives and define 
   selector: 'app',
   directives: [CardComponent,DelayDirective],
   template: `
-    <template ngFor [ngForOf]="[1,2,3,4,5,6]" let-item>
+    <div *ngFor="let item of [1,2,3,4,5,6]">
       <card *delay="500 * item">
         {{item}}
       </card>
-    </template>
+    </div>
   `
   
 })
