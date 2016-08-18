@@ -258,8 +258,4 @@
 
 ---
 
-* [Training Workshop](handout/workshop/readme.md)
-  * [Workshop 0 - Kitchen Sink](handout/workshop/workshop-0.md)
-  * [Workshop 1 - Containers and Redux](handout/workshop/workshop-1.md)
-  * [Workshop 2 - API Services and Authentication](handout/workshop/workshop-2.md)
 * [Other Resources](handout/other-resources.md)
