@@ -51,17 +51,17 @@ import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
   directives: [ROUTER_DIRECTIVES]
 })
 export default class ProductDetails {
-  private id;
+  id: number;
 
   constructor(private route: ActivatedRoute) {}
 
-  private ngOnInit() {
+  ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; // (+) converts string 'id' to a number
     });
   }
 
-  private ngOnDestroy() {
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
 }
@@ -97,8 +97,8 @@ In the above example, say that the child routes of `product-details` needed the 
 
 ```javascript
 export default class Overview {
+  parentRouteId: number;
   private sub: any;
-  private parentRouteId: number;
 
   constructor(private router: Router,
     private route: ActivatedRoute) {}

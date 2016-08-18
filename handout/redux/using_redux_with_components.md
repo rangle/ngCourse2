@@ -34,7 +34,7 @@ import { CounterActions } from '../actions/counter-actions';
 export class Counter {
   @select() counter$: Observable<number>;
 
-  constructor(private actions: CounterActions) {}
+  constructor(public actions: CounterActions) {}
 }
 ```
 

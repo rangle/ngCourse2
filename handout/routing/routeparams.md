@@ -58,12 +58,12 @@ import { ActivatedRoute } from '@angular/router';
   `,
 })
 export class LoanDetailsPage {
+  id: number;
   private sub: any;
-  private id: number;
 
   constructor(private route: ActivatedRoute) {}
 
-  private ngOnInit() {
+  ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; // (+) converts string 'id' to a number
 
@@ -71,7 +71,7 @@ export class LoanDetailsPage {
     });
   }
 
-  private ngOnDestroy() {
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
 }

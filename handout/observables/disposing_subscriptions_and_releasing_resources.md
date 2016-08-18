@@ -4,10 +4,10 @@ In some scenarios we may want to unsubscribe from an `Observable` stream. Doing 
 ```js
 export class App {
   
-  private data: Observable<Array<string>>;
-  private value: string;
-  private subscribed: boolean;
-  private status: string;
+  value: string;
+  subscribed: boolean;
+  status: string;
+  private data: Observable<string[]>;
 
 	constructor() {
 

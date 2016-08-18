@@ -17,10 +17,10 @@ import {Observable} from 'rxjs/Observable';
 })
 export class App {
   
-  private data: Observable<Array<number>>;
-  private values: Array<number> = [];
-  private anyErrors: boolean;
-  private finished: boolean;
+  values: number[] = [];
+  anyErrors: boolean;
+  finished: boolean;
+  private data: Observable<number>;
 
   constructor() {
       this.data = new Observable(observer => {
@@ -74,10 +74,10 @@ The `forEach` pattern is useful for a sequence of events you only expect to happ
 ```js
 export class App {
   
-  private data: Observable<Array<number>>;
-  private values: Array<number> = [];
-  private anyErrors: boolean;
-  private finished: boolean;
+  values: number[] = [];
+  anyErrors: boolean;
+  finished: boolean;
+  private data: Observable<number>;
 
   constructor() {
       this.data = new Observable(observer => {

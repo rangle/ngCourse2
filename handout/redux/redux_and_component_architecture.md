@@ -167,8 +167,8 @@ export class SimpleRedux {
   @select() curse$: Observable<number>;
 
   constructor(
-    private counterActions: CounterActions,
-    private curseActions: CurseActions,
+    public counterActions: CounterActions,
+    public curseActions: CurseActions,
     redux: NgRedux) {
       const initialState = {};
       const middleware = [ logger ];

@@ -35,7 +35,7 @@ In order to test this component we need to initiate the `QuoteComponent` class. 
 
 ```js
 class MockQuoteService {
-  public quote: 'Test quote';
+  quote: 'Test quote';
 
   getQuote() {
     return new Promise((resolve, reject) => {
