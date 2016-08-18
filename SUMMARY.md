@@ -160,6 +160,14 @@
 
 ---
 
+* [Modules](handout/modules/README.md)
+   * [What is an Angular 2 Module?](handout/modules/introduction.md)
+   * [Adding Components, Pipes and Services to a Module](handout/modules/multiple-elements.md)
+   * [Creating a Feature Module](handout/modules/feature-modules.md)
+   * [Directive Duplications](handout/modules/directive-duplications.md)
+
+---
+
 * [Routing](handout/routing/README.md)
    * [Why Routing?](handout/routing/why_routing.md)
    * [Configuring Routes](handout/routing/config.md)

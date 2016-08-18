@@ -27,5 +27,6 @@
   },
   "structure": {
     "readme": "intro.md"
-  }
+  },
+  "gitbook": ">= 3.0.0"
 }
