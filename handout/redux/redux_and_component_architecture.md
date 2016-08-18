@@ -137,7 +137,7 @@ _app/src/containers/app-containter.ts_
     </div>
     <div style="float: left; border: 1px solid blue;">
       <h2>Curse Counter</h2>
-      <counter [counter]="curse$"
+      <counter [counter$]="curse$"
           (increment)="curseActions.castCurse()"
           (decrement)="curseActions.removeCurse()"
           (incrementIfOdd)="curseActions.castIfOdd()"

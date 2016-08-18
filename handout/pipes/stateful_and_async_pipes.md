@@ -28,7 +28,7 @@ export class ProductPrice {
     setTimeout(() => resolve(10), 500);
   });
 
-  seconds:any = new Observable(observer => {
+  seconds: Observable<number> = new Observable(observer => {
     setInterval(() => { observer.next(this.count++); }, 1000);
   });
 }

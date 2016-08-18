@@ -8,7 +8,7 @@ In some components, providers are not directly injected through the constructor 
   template: '<div>Simple example</div>',
   providers: [ExampleService]
 });
-class SimpleComponent() {}
+class SimpleComponent {}
 ```
 
 This won't work when using `addProviders`. Instead we can use the `TestComponentBuilder` to explicitly inject the `ExampleService` provider through `overrideProviders`. As we did before, you should create a mocked version of the `ExampleService` to feed in data you expect.

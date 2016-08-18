@@ -11,20 +11,19 @@ please see [the EcmaScript 6 and TypeScript Features section](../../features/REA
 _parameter_ must be injected.  It can be used like so:
  
 ```js
-  import {Component, Inject, provide} from '@angular/core';
- import {Hamburger} from '../services/hamburger';
- 
- @Component({
-   selector: 'app',
-   template: `Bun Type: {{ bunType }}`
- })
- export class App {
-   bunType: string;
-   constructor(@Inject(Hamburger) h) {
-     this.bunType = h.bun.type;
-   }
- }
+import {Component, Inject} from '@angular/core';
+import {Hamburger} from '../services/hamburger';
 
+@Component({
+  selector: 'app',
+  template: `Bun Type: {{ bunType }}`
+})
+export class App {
+  bunType: string;
+  constructor(@Inject(Hamburger) h) {
+    this.bunType = h.bun.type;
+  }
+}
 ```
  
 When using TypeScript, `@Inject` is only needed for injecting _primitives_.
@@ -32,20 +31,19 @@ TypeScript's types let Angular 2 know what to do in most cases.  The above
 example would be simplified in TypeScript to:
  
 ```js
- import {Component, Inject, provide} from '@angular/core';
- import {Hamburger} from '../services/hamburger';
- 
- @Component({
-   selector: 'app',
-   template: `Bun Type: {{ bunType }}`
- })
- export class App {
-   bunType: string;
-   constructor(h: Hamburger) {
-     this.bunType = h.bun.type;
-   }
- }
+import {Component} from '@angular/core';
+import {Hamburger} from '../services/hamburger';
 
+@Component({
+  selector: 'app',
+  template: `Bun Type: {{ bunType }}`
+})
+export class App {
+  bunType: string;
+  constructor(h: Hamburger) {
+    this.bunType = h.bun.type;
+  }
+}
 ```
 [View Example][plunkBurger1]
 

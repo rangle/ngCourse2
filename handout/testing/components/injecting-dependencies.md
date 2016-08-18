@@ -38,14 +38,12 @@ class MockQuoteService {
   quote: 'Test quote';
 
   getQuote() {
-    return new Promise((resolve, reject) => {
-      resolve(this.quote);
-    });
+    return Promise.resolve(this.quote);
   }
 }
 
-import { QuoteService } from 'quote.service.ts';
-import { QuoteComponent } from 'quote.component.ts';
+import { QuoteService } from './quote.service';
+import { QuoteComponent } from './quote.component';
 import { provide } from '@angular/core';
 import {
   async,
@@ -66,7 +64,7 @@ from '@angular/compiler/testing';
 describe('Testing Quote Component', () => {
 
   beforeEach(()=>
-    addProviders([{provide: QuoteService, useClass: QuoteService }]));
+    addProviders([{provide: QuoteService, useClass: MockQuoteService }]));
 
   it('Should get quote',
     async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {

@@ -85,7 +85,7 @@ We can use that component to determine whether the user can deactivate.
 ```javascript
 import { CanDeactivate } from '@angular/router';
 import { Injectable } from '@angular/core';
-import AccountPage from './account-page';
+import { AccountPage } from './account-page';
 
 @Injectable()
 export class SaveFormsGuard implements CanDeactivate<AccountPage> {

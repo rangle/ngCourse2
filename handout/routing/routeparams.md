@@ -46,7 +46,7 @@ The `ProductDetails` component must read the parameter, then load the product ba
 The `ActivatedRoute` service provides a `params` Observable which we can subscribe to to get the route parameters (see [Observables](/handout/observables/README.md)).
 
 ```javascript
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -57,7 +57,7 @@ import { ActivatedRoute } from '@angular/router';
     </div>
   `,
 })
-export class LoanDetailsPage {
+export class LoanDetailsPage implements OnInit, OnDestroy {
   id: number;
   private sub: any;
 

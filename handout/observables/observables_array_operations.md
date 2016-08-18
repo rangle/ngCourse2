@@ -9,7 +9,7 @@ export class App {
   
   constructor(http: Http) {
     http.get('http://jsonplaceholder.typicode.com/users/')
-        .flatMap((data) => data.json())
+        .flatMap((response) => response.json())
         .filter((person) => person.id > 5)
         .map((person) => "Dr. " + person.name)
         .subscribe((data) => {

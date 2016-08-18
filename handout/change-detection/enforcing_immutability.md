@@ -28,7 +28,7 @@ _app/main.component.ts_
 ```javascript
 import {Component} from '@angular/core';
 import {MovieComponent} from './movie.component';
-import {Immutable} from 'immutable';
+import * as Immutable from 'immutable';
 
 @Component({
   selector: 'main',
