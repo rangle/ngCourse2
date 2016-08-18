@@ -1,7 +1,7 @@
 # `@Inject` and `@Injectable`
 
 Statements that look like `@SomeName` are decorators.  [Decorators][decorators] 
-are a proposed extension to JavaScript.  In short decorators let programmers 
+are a proposed extension to JavaScript.  In short, decorators let programmers 
 modify and/or tag methods, classes, properties and parameters.  There is a lot
 to decorators. In this section the focus will be on decorators relevant to DI:
 `@Inject` and `@Injectable`.  For more information on Decorators

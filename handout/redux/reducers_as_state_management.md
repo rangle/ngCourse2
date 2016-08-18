@@ -34,7 +34,7 @@ each reducer, which handles the actions it's interested in and then returns the
 new state along to the next reducer.
 
 Reducers should be side-effect free. This means that they should not
-modify things outside of their own scope. The should simply compute the next
+modify things outside of their own scope. They should simply compute the next
 application state as a pure function of the reducer's arguments. 
 
 For this reason, side-effect causing operations, such as

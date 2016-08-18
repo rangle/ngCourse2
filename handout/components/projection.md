@@ -1,6 +1,6 @@
 # Projection
 
-Components by default support projection. You can use the `ngContent` directive to place the projected content.
+Components by default support projection. You can use the `ngContent` directive to place the projected content in your template.
 
 ```js
 import {Component, Input} from '@angular/core';

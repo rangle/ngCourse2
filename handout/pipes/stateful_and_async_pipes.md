@@ -18,8 +18,8 @@ import {Observable} from 'rxjs/Observable';
 @Component({
   selector: 'product-price',
   template: `
-    <p>Total price of product is {{fetchPrice | async | currency:"CAD":true:"1.2-2"}}</p>
-    <p> Seconds: {{seconds | async}} </p>
+    <p>Total price of product is {{fetchPrice | async | currency: "CAD": true: "1.2-2"}}</p>
+    <p>Seconds: {{seconds | async}}</p>
   `
 })
 export class ProductPrice {
@@ -47,7 +47,7 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'delay',
   pure: false
 })
-export class DelayPipe  implements PipeTransform{
+export class DelayPipe implements PipeTransform {
 
   private fetchedValue: number;
   private fetchPromise: Promise<number>;
@@ -58,7 +58,7 @@ export class DelayPipe  implements PipeTransform{
         setTimeout(() => resolve(value * 1000), value * 500);
       });
 
-      this.fetchPromise.then((val:number)   => this.fetchedValue = val);
+      this.fetchPromise.then((val: number) => this.fetchedValue = val);
     }
     return this.fetchedValue;
   }

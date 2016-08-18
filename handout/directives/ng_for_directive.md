@@ -82,7 +82,7 @@ Notice that there is an odd `let-episode` property on the template element. The 
 
 ## trackBy ##
 
-Often `ngFor` is used to iterate through a list of objects with a unique ID field. In this case, we can provie a `trackBy` function which helps Angular keep track of items in the list so that it can detect which items have been added or removed and improve performance.
+Often `ngFor` is used to iterate through a list of objects with a unique ID field. In this case, we can provide a `trackBy` function which helps Angular keep track of items in the list so that it can detect which items have been added or removed and improve performance.
 
 Angular 2 will try and track objects by reference to determine which items should be created and destroyed. However, if you replace the list with a new source of objects, perhaps as a result of an API request - we can get some extra performance by telling Angular 2 how we want to keep track of things.
 
@@ -135,7 +135,7 @@ export class AppComponent {
 }
 ```
 
-To see how this can affect how the `ForExample` component, lets add some logging to it.
+To see how this can affect the `ForExample` component, let's add some logging to it.
 
 ```typescript
 export class ForExampleComponent {

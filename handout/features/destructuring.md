@@ -53,7 +53,7 @@ sayName(john) // -> Helo John Smith Doe
 ```
 
 There are many more sophisticated things that can be done with destructuring,
-and the [mdn][mdnDest] has some great examples, including nested object
+and the [MDN][mdnDest] has some great examples, including nested object
 destructuring and dynamic destructuring with  `for ... in`  operators".
 
 [mdnDest]:https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment "MDN Destructuring" 

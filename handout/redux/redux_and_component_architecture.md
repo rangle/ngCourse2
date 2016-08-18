@@ -60,13 +60,11 @@ import { Counter } from '../components/counter-component';
       <h1>Redux: Two components, one state.</h1>
       <div style="float: left; border: 1px solid red;">
         <h2>Click Counter</h2>
-        <counter>
-        </counter>
+        <counter></counter>
       </div>
       <div style="float: left; border: 1px solid blue;">
         <h2>Curse Counter</h2>
-        <counter>
-        </counter>
+        <counter></counter>
       </div>
     </div>
   `
@@ -181,6 +179,6 @@ export class SimpleRedux {
 [View Ng2-Redux Example](https://plnkr.co/edit/m910XrXyFrUty2nXUJ1q?p=preview)
 [View Ngrx Example](https://plnkr.co/edit/9Lbp8af5milKGuOIXlB8?p=preview)
 
-Our two `Observable`s, `counter$` and `curse$` will now get updated with a new
+Our two `Observable`s, `counter$` and `curse$`, will now get updated with a new
 value every time the relevant store properties are updated by the rest of the
 system.

@@ -25,7 +25,7 @@ The above example must be compiled with both the `--experimentalDecorators`
 and `--emitDecoratorMetadata` flags.  
 
 In this case the decorated property is replaced by the `label` passed to the
-decorator.  In this case it's important to note that property values cannot be
+decorator.  It's important to note that property values cannot be
 directly manipulated by the decorator; instead an accessor is used.
 
 Here's a classic property example that uses a _plain decorator_

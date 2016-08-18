@@ -38,8 +38,8 @@ export default combineReducers({
 `combineReducers` allows us to break out our application into smaller reducers
 with a single area of concern. Each reducer that you pass into it will control a
 property on the state. So when we are subscribing to our state changes with
-Ng2-Redux's `@select` decorator, we are able to select a counter property
-counter, or any other reducers you have provided.
+Ng2-Redux's `@select` decorator, we are able to select a counter property, 
+or any other reducers you have provided.
 
 ## Create and Configure a Store
 

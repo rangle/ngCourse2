@@ -15,7 +15,7 @@ function scope1() {
   var sevenAlso = seven; // error
 }
 
-function scopt2() {
+function scope2() {
   var seven = 7;
   var fiveAlso = five; // == 5
   var threeAlso = three; // error

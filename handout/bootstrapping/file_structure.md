@@ -39,7 +39,7 @@ bootstrap(MyApp);
 
 [View Example](https://plnkr.co/edit/2e7YB7884UAOHs3jvstu?p=preview)
 
-This is the main entry point of the application: the `App` component operates as the root component of our entire application and will be rendered on any `app` HTML element encountered. There is an `app` HTML element in the *index.html* file, and we use *app/boot.ts* to import the `MyApp` component and the `bootstrap` function and kickstart the bootstrapping process, which will read the `App` metadata and then load the application wherever the `app` selector/tag-name is found.
+This is the main entry point of the application. The `App` component operates as the root component of our entire application and will be rendered on any `app` HTML element encountered. There is an `app` HTML element in the *index.html* file, and we use *app/boot.ts* to import the `MyApp` component and the `bootstrap` function and kickstart the bootstrapping process, which will read the `App` metadata and then load the application wherever the `app` selector/tag-name is found.
 
 Calling `bootstrap` will return a `Promise` that you can use to determine when the bootstrapping routine has completed. This is useful if you want to incorporate an initial UI loading state into your application.
 

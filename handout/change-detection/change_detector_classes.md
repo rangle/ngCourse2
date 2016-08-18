@@ -117,7 +117,7 @@ As we have learned, this result is not very useful because we could have changed
 
 What if we can find a way to indicate to the change detection that our `MovieComponent` depends only on its inputs and that these inputs are immutable? In short, we are trying to guarantee that when we change any of the properties of the `actor` object, we  end up with a different `Actor` instance so the comparison `actor !== previousActor` will always return `true`. On the other hand, if we did not change any property, we are not going to create a new instance, so the same comparison is going to return `false`.
 
-If the above condition can be guaranteed (create a new object every time any of its properties changes, otherwise we keep the same object), then when checking the inputs of the `MovieComponent` has this result:
+If the above condition can be guaranteed (create a new object every time any of its properties changes, otherwise we keep the same object) and when checking the inputs of the `MovieComponent` has this result:
 
 - Is `title !== previousTitle`? No, it's the same.
 - Is `actor !== previousActor`? No, it's the same.
