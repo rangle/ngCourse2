@@ -50,10 +50,10 @@ export class App {
 
 `@Injectable()` lets Angular 2 know that a _class_ can be used with the 
 dependency injector.  `@Injectable()` is not _strictly_ required if the class 
-has _other_ Angular 2 decorators on it.  What is important is that any class 
-that is going to be injected with Angular 2 _is decorated_.  However best
-practice is to decorate injectables with `@Injectable()`, as it makes more
-sense to the reader.
+has _other_ Angular 2 decorators on it or does not have any dependencies.  
+What is important is that any class that is going to be injected with Angular 2 
+_is decorated_.  However, best practice is to decorate injectables with 
+`@Injectable()`, as it makes more sense to the reader.
 
 Here's an example of `Hamburger` marked up with `@Injectable`:
 
