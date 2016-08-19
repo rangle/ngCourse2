@@ -2,19 +2,19 @@
   "plugins": [
     "image-captions",
     "highlight",
-    "theme-default",
+    "theme-rangle-io",
     "ga"
   ],
   "styles": {
     "ebook": "styles/ebook.css",
     "pdf": "styles/pdf.css"
   },
-  "theme": "theme-default",
+  "theme": "theme-rangle-io",
   "pluginsConfig": {
     "ga": {
       "token": "UA-41067508-7"
     },
-    "theme-default": {
+    "theme-rangle-io": {
       "showLevel": true
     },
     "image-captions": {
