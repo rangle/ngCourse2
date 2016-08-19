@@ -11,7 +11,7 @@ export class DelayDirective {
     private templateRef: TemplateRef<any>,
     private viewContainerRef: ViewContainerRef
   ) { }
-
+  
   @Input('delay')
   set delayTime(time: number): void { }
 }
@@ -31,7 +31,7 @@ We use the same `@Directive` class decorator as attribute directives and define 
       </card>
     </template>
   `
-
+  
 })
 export class App {
 }

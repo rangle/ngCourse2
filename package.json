@@ -14,7 +14,6 @@
   "scripts": {
     "build": "gitbook build",
     "dev": "gitbook serve",
-    "pdf": "gitbook pdf",
     "examples": "live-server ./examples",
     "exercises": "live-server ./exercises",
     "postinstall": "gitbook install"
