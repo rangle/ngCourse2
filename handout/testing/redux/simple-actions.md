@@ -32,12 +32,6 @@ import {
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
 } from './counter';
-import {
-  beforeEach,
-  describe,
-  expect,
-  it,
-} from '@angular/core/testing';
 
 // Mock out the NgRedux class with just enough to test what we want.
 class MockRedux extends NgRedux<any> {

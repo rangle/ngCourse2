@@ -3,12 +3,6 @@
 To begin, let's start by writing a simple test in Jasmine.
 
 ```js
-import {
-  describe,
-  expect,
-  it
-} from '@angular/core/testing';
-
 describe('Testing math', () => {
   it('multiplying should work', () => {
     expect(4 * 4).toEqual(16);
