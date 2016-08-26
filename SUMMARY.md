@@ -1,4 +1,4 @@
-* [Introduction](./intro.md)  
+* [Introduction](./intro.md)
 * [License](handout/license.md)
 * [Why Angular 2?](handout/why_angular_2.md)
 
@@ -178,6 +178,7 @@
    * [Defining Child Routes](handout/routing/child_routes.md)
    * [Controlling Access to or from a Route](handout/routing/route_guards.md)
    * [Passing Optional Parameters to a Route](handout/routing/query_params.md)
+   * [Using Auxiliary Routes](handout/routing/aux-routes.md)
 
 ---
 
