@@ -40,12 +40,12 @@ In the component using `delay`, we access the `loadTime` context variable in the
   selector: 'app',
   directives: [CardComponent,DelayDirective],
   template: `
-    <template ngFor [ngForOf]="[1,2,3,4,5,6]" let-item>
+    <div *ngFor="let item of [1,2,3,4,5,6]">
       <card *delay="500 * item; let loaded = loadTime">
         <div class="main">{{item}}</div>
         <div class="sub">{{loaded | number:'1.4-4'}}</div>
       </card>
-    </template>
+    </div>
   `
 })
 ```

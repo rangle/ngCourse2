@@ -80,7 +80,7 @@ configured in a project's `tsconfig.json`
 
 #### Target
 
-The compilation target. Typescript supports targeting different platforms depending on your needs. In our case, we're targeting modern browsers which support ES5.
+The compilation target. TypeScript supports targeting different platforms depending on your needs. In our case, we're targeting modern browsers which support ES5.
 
 #### Module
 

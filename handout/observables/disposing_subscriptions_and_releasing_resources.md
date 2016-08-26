@@ -1,13 +1,13 @@
 # Disposing Subscriptions and Releasing Resources 
-In some scenarios we may want to unsubscribe from an `Observable` stream. Doing this is pretty straightforward as the `.subscribe()` call returns a data type that we can call `.unsubscribe` on. 
+In some scenarios we may want to unsubscribe from an `Observable` stream. Doing this is pretty straightforward as the `.subscribe()` call returns a data type that we can call `.unsubscribe()` on. 
 
 ```js
 export class App {
   
-  private data: Observable<Array<string>>;
-  private value: string;
-  private subscribed: boolean;
-  private status: string;
+  value: string;
+  subscribed: boolean;
+  status: string;
+  private data: Observable<string[]>;
 
 	constructor() {
 
@@ -43,6 +43,6 @@ export class App {
 
 <iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/0f53hpPI5hnWuy4uoXQs/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
-Calling `.unsubscribe` will unhook a member's callbacks listening in on the `Observable` stream. When creating an `Observable` you can also return a custom callback, `onUnsubscribe`,  that will be invoked when a member listening to the stream has unsubscribed. This is useful for any kind of cleanup that must be implemented. If we did not clear the setTimeout then values would still be emitting, but there would be no one listening. To save resources we should stop values from being emitted. An important thing to note is that when you call `.unsubscribe()` you are destroying the subscription object that is listening, therefore the on-complete event attached to that subscription object will not get called. 
+Calling `.unsubscribe()` will unhook a member's callbacks listening in on the `Observable` stream. When creating an `Observable` you can also return a custom callback, `onUnsubscribe`,  that will be invoked when a member listening to the stream has unsubscribed. This is useful for any kind of cleanup that must be implemented. If we did not clear the setTimeout then values would still be emitting, but there would be no one listening. To save resources we should stop values from being emitted. An important thing to note is that when you call `.unsubscribe()` you are destroying the subscription object that is listening, therefore the on-complete event attached to that subscription object will not get called. 
 
 In most cases we will not need to explicitly call the `unsubscribe` method unless we want to cancel early or our `Observable` has a longer lifespan than our subscription. The default behavior of `Observable` operators is to dispose of the subscription as soon as `.complete()` or `.error()` messages are published. Keep in mind that RxJS was designed to be used in a "fire and forget" fashion most of the time. 

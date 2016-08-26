@@ -13,7 +13,7 @@ import {Component} from '@angular/core';
 })
 
 export class MessageComponent {
-  private message: string = '';
+  message: string = '';
 
   constructor() {}
 

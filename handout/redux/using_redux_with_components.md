@@ -34,7 +34,7 @@ import { CounterActions } from '../actions/counter-actions';
 export class Counter {
   @select() counter$: Observable<number>;
 
-  constructor(private actions: CounterActions) {}
+  constructor(public actions: CounterActions) {}
 }
 ```
 
@@ -71,5 +71,5 @@ decorators, we can have a nicely declarative binding where most of the work is
 done in the template. We also get the power of `Observables` and
 `OnPush` change detection for better performance.
 
-Either way, we still benefit the Redux fundamentals of reducers and one-way
+Either way, we still benefit from the Redux fundamentals of reducers and one-way
 data-flow.

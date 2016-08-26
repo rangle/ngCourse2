@@ -63,7 +63,7 @@ export class ClassAsArrayComponent {
 
 [View Example](https://plnkr.co/edit/8M32UVF8BHJDaRMGziFi?p=preview)
 
-Here, since we are binding to the `ngClass` directive by using an expression, we need to wrap the directive name in square brackets. Passing in an array is useful want to have a function put together the list of applicable class names.
+Here, since we are binding to the `ngClass` directive by using an expression, we need to wrap the directive name in square brackets. Passing in an array is useful when you want to have a function put together the list of applicable class names.
 
 ## Binding an object
 

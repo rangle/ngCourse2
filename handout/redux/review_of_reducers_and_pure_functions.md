@@ -5,6 +5,6 @@ One of the core concepts of Redux is the *reducer*. A reducer is a function with
 A simple example of a reducer is the sum function:
 
 ```javascript
-let x = [1,2,3].reduce((value,state)=>value+state,0)
+let x = [1,2,3].reduce((value, state) => value + state, 0)
 // x == 6 
 ```

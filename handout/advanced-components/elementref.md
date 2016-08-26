@@ -6,8 +6,8 @@ Provides access to the underlying native element (DOM node).
 import {Component, ElementRef} from '@angular/core';
 
 @Component({
-	selector: 'app',
-	template: `
+  selector: 'app',
+  template: `
   <h1>My App</h1>
   <pre style="background: #eee; padding: 1rem; border-radius: 3px; overflow: auto;">
     <code>{{ node }}</code>

@@ -36,7 +36,7 @@ export class ConfirmDirective {
 ```
 [View Example](https://plnkr.co/edit/4VyJpBhIrSXBCK87inLU?p=preview)
 
-Directives are created by using the `@Directive` decorator on a class and specifying a selector. For directives, the selector name must be wrapped in square brackets to specify that it is an attribute binding. We're using the `@HostListener` decorator to listen in on events on the component or element it's attached to. In this case we're watching the `click` event and passing in the event details which are given by the special `$event` keyword. Next, we want to attach this directive to the button we created earlier.
+Directives are created by using the `@Directive` decorator on a class and specifying a selector. For directives, the selector name must be camelCase and wrapped in square brackets to specify that it is an attribute binding. We're using the `@HostListener` decorator to listen in on events on the component or element it's attached to. In this case we're watching the `click` event and passing in the event details which are given by the special `$event` keyword. Next, we want to attach this directive to the button we created earlier.
 
 ```typescript
 directives: [ConfirmDirective],

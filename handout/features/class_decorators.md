@@ -8,7 +8,7 @@ function log(prefix?: string) {
  
     // a utility function to generate instances of a class
     function construct(constructor, args) {
-      var c : any = function () {
+      var c: any = function () {
         return constructor.apply(this, args);
       }
       c.prototype = constructor.prototype;
@@ -16,7 +16,7 @@ function log(prefix?: string) {
     }
    
     // the new constructor behavior
-    var f : any = function (...args) {
+    var f: any = function (...args) {
       console.log(prefix + original.name);
       return construct(original, args);
     }
