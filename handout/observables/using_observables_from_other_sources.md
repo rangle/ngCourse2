@@ -23,10 +23,12 @@ import {Http} from '@angular/http';
 })
 
 export class App {
+  doctors: any;
+
   constructor(http: Http) {
     http.get('http://jsonplaceholder.typicode.com/posts/1')
-        .subscribe((data) => {
-            this.response = data._body;
+        .subscribe((response) => {
+            this.doctors = response.json();
         })
   }
 }

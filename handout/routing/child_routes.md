@@ -33,7 +33,7 @@ export const routes: RouterConfig = [
 Where would the components for these child routes be displayed? Just like we had a `<router-outlet></router-outlet>` for the root application component, we would have a router outlet inside the `ProductDetails` component. The components corresponding to the child routes of `product-details` would be placed in the router outlet in `ProductDetails`.
 
 ```javascript
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -50,18 +50,18 @@ import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
   `,
   directives: [ROUTER_DIRECTIVES]
 })
-export default class ProductDetails {
-  private id;
+export default class ProductDetails implements OnInit, OnDestroy {
+  id: number;
 
   constructor(private route: ActivatedRoute) {}
 
-  private ngOnInit() {
+  ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; // (+) converts string 'id' to a number
     });
   }
 
-  private ngOnDestroy() {
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
 }
@@ -97,8 +97,8 @@ In the above example, say that the child routes of `product-details` needed the 
 
 ```javascript
 export default class Overview {
+  parentRouteId: number;
   private sub: any;
-  private parentRouteId: number;
 
   constructor(private router: Router,
     private route: ActivatedRoute) {}

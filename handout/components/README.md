@@ -16,7 +16,6 @@ In Angular 1.x we had router views and directives which worked sort of like comp
 angular.module('ngcourse')
   .directive('ngcHelloComponent', () => ({
       restrict: 'E',
-      replace: true,
       scope: { name: '=' },
       template: '<span>Hello, {{ ctrl.name }}.</span>',
       controller: MyComponentCtrl,

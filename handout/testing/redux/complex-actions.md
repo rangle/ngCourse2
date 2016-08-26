@@ -116,8 +116,8 @@ export class CounterActions {
 
 We can test this using the normal techniques for async service functions:
 
-* If we can make 1incrementAsync1 return a promise, we can just return a promise
-from the test and `mocha` will wait until it settles.
+* If we can make `incrementAsync` return a promise, we can just return a promise
+from the test and `jasmine` will wait until it settles.
 * Alternately, we can use the `fakeAsync` technique discussed in the section on
 testing components.
 

@@ -3,7 +3,7 @@
 - Use manual Angular 1.x bootstrapping, and remove `ng-app`/`ng-strict-di` 
 references if they exist
 - Add Angular 2 dependencies 
-- Add the upgrade adapter `import {UpgradeAdapter} from 'angular2/upgrade'`
+- Add the upgrade adapter `import {UpgradeAdapter} from '@angular/upgrade'`
 - Call the upgrade adapter's bootstrap
 
 Once this is working the foundation is set for transitioning from Angular 1.x to

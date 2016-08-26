@@ -1,6 +1,6 @@
 # NPM Scripts Integration
 
-NPM allows us to define custom scripts in the `package.json` file. These can then be execute tasks using the NPM CLI. 
+NPM allows us to define custom scripts in the `package.json` file. These can then execute tasks using the NPM CLI. 
 
 We rely on these scripts to manage most of our project tasks and webpack fits in as well.
 

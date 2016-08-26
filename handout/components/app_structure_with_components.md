@@ -8,11 +8,11 @@ For example consider the following:
 ```html
 <TodoApp>
   <TodoList>
-    <TodoItem />
-    <TodoItem />
-    <TodoItem />
+    <TodoItem></TodoItem>
+    <TodoItem></TodoItem>
+    <TodoItem></TodoItem>
   </TodoList>
-  <TodoForm />
+  <TodoForm></TodoForm>
 </TodoApp>
 ```
 

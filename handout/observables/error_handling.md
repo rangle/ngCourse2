@@ -5,9 +5,9 @@ If something unexpected arises we can raise an error on the `Observable` stream 
 ```js
 export class App {
 
-	private data: Observable<Array<number>>;
-	private values: Array<number> = [];
-	private anyErrors: error;
+	values: number[] = [];
+	anyErrors: Error;
+	private data: Observable<number[]>;
 
 	constructor() {
 

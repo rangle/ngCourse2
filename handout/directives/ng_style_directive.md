@@ -7,7 +7,7 @@ Angular 2 provides a built-in directive, `ngStyle`, to modify a component or ele
 @Component({
   selector: 'style-example',
   template: `
-    <p  style="padding: 1rem"
+    <p style="padding: 1rem"
         [ngStyle]="{ 
             color: 'red',
             'font-weight': 'bold',

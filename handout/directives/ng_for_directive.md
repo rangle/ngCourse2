@@ -20,14 +20,14 @@ export class AppComponent {
     { title: 'Cripples, Bastards, and Broken Things', director: 'Brian Kirk' },
     { title: 'The Wolf and the Lion', director: 'Brian Kirk' },
     { title: 'A Golden Crown', director: 'Daniel Minahan' },
-    { title: 'You Win or You Die', director: 'Daniel Minahan' }
+    { title: 'You Win or You Die', director: 'Daniel Minahan' },
     { title: 'The Pointy End', director: 'Daniel Minahan' }
   ];
 }
 ```
 [View Example](https://plnkr.co/edit/E2Q8Xi6LATpWcXk6bAUQ?p=preview)
 
-The `ngFor` directive has a different syntax from other directives we've seen. If you're familiar with the [for...of statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of), you'll notice that they're almost identical. `ngFor` lets you specify an iterable object to iterate over and the name to refer to each item by inside the scope. In our example, you can see that `episode` is available for interpolation as well as attribute binding. The directive does some extra parsing so that when this is expanded to template form, it looks a bit different:
+The `ngFor` directive has a different syntax from other directives we've seen. If you're familiar with the [for...of statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of), you'll notice that they're almost identical. `ngFor` lets you specify an iterable object to iterate over and the name to refer to each item by inside the scope. In our example, you can see that `episode` is available for interpolation as well as property binding. The directive does some extra parsing so that when this is expanded to template form, it looks a bit different:
 
 
 ```typescript
@@ -82,7 +82,7 @@ Notice that there is an odd `let-episode` property on the template element. The 
 
 ## trackBy ##
 
-Often `ngFor` is used to iterate through a list of objects with a unique ID field. In this case, we can provie a `trackBy` function which helps Angular keep track of items in the list so that it can detect which items have been added or removed and improve performance.
+Often `ngFor` is used to iterate through a list of objects with a unique ID field. In this case, we can provide a `trackBy` function which helps Angular keep track of items in the list so that it can detect which items have been added or removed and improve performance.
 
 Angular 2 will try and track objects by reference to determine which items should be created and destroyed. However, if you replace the list with a new source of objects, perhaps as a result of an API request - we can get some extra performance by telling Angular 2 how we want to keep track of things.
 
@@ -135,7 +135,7 @@ export class AppComponent {
 }
 ```
 
-To see how this can affect how the `ForExample` component, lets add some logging to it.
+To see how this can affect the `ForExample` component, let's add some logging to it.
 
 ```typescript
 export class ForExampleComponent {

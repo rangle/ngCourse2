@@ -31,7 +31,6 @@ directive:
 import {Component} from '@angular/core';
 import {upgradeAdapter} from '../upgrade-adapter';
 
-
 @Component({
   selector: 'a2-using-a1',
   directives: [upgradeAdapter.upgradeNg1Component('a1Upgradable')],

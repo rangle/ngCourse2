@@ -2,36 +2,45 @@
 
 This repository contains handout materials and code for Rangle.io's AngularJS training course, focusing on Angular 2.
 
-This is meant to be used as a part of the course, which is normally offered as a 2-3 day event. See [rangle.io/javascript-training.html](http://rangle.io/javascript-training.html) for more information.
+This is meant to be used as a part of the course, which is normally offered as a 2-4 day event. See [rangle.io/javascript-training.html](http://rangle.io/javascript-training.html) for more information.
 
 
-## The Handouts
+## The Book
 
-See the [handout](https://www.gitbook.com/book/rangle-io/ngcourse2/details) for the handout. You can either view it in your browser or download a PDF, ePub or Mobi version.
-
-
-[ngCourse2 - Git Book](http://rangle-io.gitbooks.io)
+ [Read our Angular 2 training book](http://angular-2-training-book.rangle.io/ "Rangle.io's Angular 2 Book") or [visit our GitBook page](https://www.gitbook.com/book/rangle-io/ngcourse2/details "Rangle.io's Angular 2 Book on GitBooks") to either view it in your browser or download a PDF, ePub or Mobi version.
 
 ## The Code
 
-The repository also contains a sample app. The project has a server and client component. This repository contains only the *client* code. The server code is available at [github.com/rangle/ngcourse-api](https://github.com/rangle/ngcourse-api). However, You do **not** need the server code to run the front end. Instead, you can access the API server deployed to [ngcourse.herokuapp.com/](http://ngcourse.herokuapp.com) and develop the client-side code on your own machine.
+The repository also contains a number of examples and exercises. To work with them:
 
-To run the sample app:
+Get the source code:
 
-1. Install dependencies and typings:
+```
+git clone https://github.com/rangle/ngCourse2
+```
 
-    ```bash
-    cd app
-    npm install
-    ```
+- Navigate to your source folder and then install the dependencies:
 
-2. Start the build process and the development server:
+```
+cd /path/to/your/ngCourse2
+npm install
+```
 
-    ```bash
-    npm run dev
-    ```
+- Then run either the examples:
 
-3. Then point your browser to <http://localhost:3000>
+```
+npm run examples
+```
+
+Your browser should load showing the folders the examples are stored in. Navigate around and see them in action.  Changing the code will update the examples in real time.
+
+- or run the exercises:
+
+```
+npm run exercises
+```
+
+Your browser should load showing the folder the exercises are stored in. Navigate around and see them in action, be warned that the folders _not_ marked with "_solution" might not work out of the box.
 
 
 ## Feedback
@@ -42,4 +51,6 @@ Thanks!
 
 ## Contributing
 
-Text that is being contributed to the book must follow the [style guide](https://docs.google.com/a/rangle.io/document/d/1KDzSXf6PZjyLBjpS5tLAH5gDUZoysiSElXb8Vl5ISck/edit?usp=sharing "Rangle.io Angular 2, English Style Guide")
+Text that is being contributed to the book must follow the [style guide](https://docs.google.com/document/d/1Na6tKvNUowJqlQHgAd-oG2op_SoN4fP4XR7LzVIpatw "Rangle.io Angular 2, English Style Guide")
+
+

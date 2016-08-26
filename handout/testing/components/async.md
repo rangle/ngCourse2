@@ -13,7 +13,7 @@ Suppose we had a component with a button that will trigger an action within a se
 	`})
 
 class SampleComponent {
-  constructor() {}
+  message: string;
 
   performAction () {
     setTimeout(() => {

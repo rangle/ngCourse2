@@ -32,6 +32,7 @@ not look like the signatures used by Angular 2 specific decorators like
 Notice the `()` on `@Component`.  This means that the `@Component` is
 called once JavaScript encounters `@Component()`.  In turn, this means that
 there must be a `Component` function somewhere that returns a function matching
-one of the decorator signatures outlined above.
+one of the decorator signatures outlined above. This is an example of the 
+decorator factory pattern.
 
 If decorators still look confusing, perhaps some examples will clear things up.

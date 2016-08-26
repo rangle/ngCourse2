@@ -1,8 +1,0 @@
-{
-  "name": "ngCourse2",
-  "globalDependencies": {
-    "chai": "registry:dt/chai#3.4.0+20160317120654",
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
-    "node": "registry:env/node#4.0.0+20160507210304"
-  }
-}

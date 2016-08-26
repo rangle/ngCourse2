@@ -19,7 +19,7 @@ export class MovieComponent {
 
 This will inform Angular that our component only depends on its inputs and that any object that is passed to it should be considered immutable. This time when we click the "Change Actor Properties" button nothing changes in the view.
 
-Let's follow again the logic behind it. When the user clicks the button, the method `changeActorProperties` is called and the properties of the `actor` object get updated.
+Let's follow the logic behind it again. When the user clicks the button, the method `changeActorProperties` is called and the properties of the `actor` object get updated.
 
 When the change detection analyzes the properties bound to the `MainComponent`'s template, it will see the same picture as before:
 
@@ -35,4 +35,4 @@ Let's rerun the app but this time we will click the "Change Actor Object" button
 - Is `title !== previousTitle`? No, it's the same.
 - Is `actor !== previousActor`? **Yes**, it has changed.
 
-Because now change detection knows that the `actor` object changed (it's a new instance) it will go ahead and continue checking the template for `MovieComponent` to update its view. At the end, our templates and models are in sync.
+Because change detection now knows that the `actor` object changed (it's a new instance) it will go ahead and continue checking the template for `MovieComponent` to update its view. At the end, our templates and models are in sync.

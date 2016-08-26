@@ -2,7 +2,7 @@
 
 ## RouterLink ##
 
-Links to routes can be added using the `RouterLink` directive, which is part of `ROUTER_DIRECTIVES` along with `RouterOutlet`.
+Add links to routes using the `RouterLink` directive, which is part of `ROUTER_DIRECTIVES` along with `RouterOutlet`.
 
 For example the following code defines a link to the route at path `component-one`.
 
@@ -12,7 +12,7 @@ For example the following code defines a link to the route at path `component-on
 
 ## Navigating Programmatically ##
 
-Routes can be navigated to by calling the `navigate` function on the router as well:
+Alternatively, you can navigate to a route by calling the `navigate` function on the router:
 
 ```javascript
 this.router.navigate(['/component-one']);

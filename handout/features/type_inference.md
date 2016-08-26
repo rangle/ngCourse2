@@ -1,11 +1,11 @@
 # Type Inference
 
-One common misconception about TypeScript's types are that code needs to 
+One common misconception about TypeScript's types is that code needs to 
 explicitly describe types at every possible opportunity.  Fortunately this is
 not the case.  TypeScript has a rich type inference system that will "fill in
 the blanks" for the programmer. Consider the following:
 
-type-inference-finds-error.ts
+*type-inference-finds-error.ts*
 ```js
 let numbers = [2, 3, 5, 7, 11];
 numbers = ['this will generate a type error'];
@@ -24,15 +24,14 @@ able to determine type information.
 Type inference can also work through context, which is handy with callbacks. 
 Consider the following:
 
-type-inference-finds-error-2.ts
+*type-inference-finds-error-2.ts*
 ```js
-
 interface FakeEvent {
   type: string;
 }
 
 interface FakeEventHandler {
-  (e: FakeEvent):void; 
+  (e: FakeEvent): void; 
 }
 
 class FakeWindow {
