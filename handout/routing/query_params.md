@@ -59,6 +59,6 @@ export default class ProductList {
 }
 ```
 
-[View Example](http://plnkr.co/edit/WxqO2UtJUaYMy3Rit9A7?p=preview)
+[View Example](http://plnkr.co/edit/mfy711B4wgqGWzqcoS83?p=preview)
 
 [See Official Documentation on Query Parameters](https://angular.io/docs/ts/latest/guide/router.html#!#query-parameters)
