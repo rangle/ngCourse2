@@ -38,7 +38,7 @@ Rather than writing extra code, and creating and enforcing your own CSS classes,
 .ng-dirty {}
 ```
 
-Note the three pairs.
+Note the three pairs:
 - valid / invalid
 - untouched / touched
 - pristine / dirty
