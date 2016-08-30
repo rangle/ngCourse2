@@ -3,7 +3,7 @@
 Provides access to the underlying native element (DOM node).
 
 ```js
-import {Component, ElementRef} from '@angular/core';
+import {AfterContentInit, Component, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -14,7 +14,7 @@ import {Component, ElementRef} from '@angular/core';
   </pre>
 `
 })
-export class App {
+export class App implements AfterContentInit {
   node: string;
 
   constructor(private elementRef: ElementRef) {
@@ -32,4 +32,4 @@ export class App {
 ```
 
 
-[View Example](https://plnkr.co/edit/cUzRdOoCf17Y3EHoXc8v?p=preview)
+[View Example](https://plnkr.co/edit/mPgthXMvwet6QBQ331cV?p=preview)
