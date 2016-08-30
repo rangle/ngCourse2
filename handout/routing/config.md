@@ -12,7 +12,7 @@ The Base URL tag must be set within the `<head>` tag of index.html:
 
 ## Route Definition Object ##
 
-The `RouteConfig` type is an array of routes that defines the routing for the application. This is where we can set up the expected paths, the components we want to use and what we want our application to understand them as. 
+The `Routes` type is an array of routes that defines the routing for the application. This is where we can set up the expected paths, the components we want to use and what we want our application to understand them as.
 
 Each route can have different attributes; some of the common attributes are:
 
@@ -22,35 +22,48 @@ Each route can have different attributes; some of the common attributes are:
 * _pathMatch_ - optional property that defaults to 'prefix'; determines whether to match full URLs or just the beginning. When defining a route with empty path string set pathMatch to 'full', otherwise it will match all paths.
 * _children_ - array of route definitions objects representing the child routes of this route (covered later in this chapter).
 
-To use `RouteConfig`, create a RouteConfig array which contains [Route Definition Object](#route-definition-object)s.
+To use `Routes`, create an array of [route configurations](https://angular.io/docs/ts/latest/api/router/index/Route-interface.html).
 
-Below is the sample RouteConfig array definition:
+Below is the sample `Routes` array definition:
 
 ```javascript
-const routes: RouterConfig = [
+const routes: Routes = [
   { path: 'component-one', component: ComponentOne },
   { path: 'component-two', component: ComponentTwo }
 ];
 ```
 
-[See RouteConfig definition](https://angular.io/docs/ts/latest/api/router/index/RouterConfig-type-alias.html)
+[See Routes definition](https://angular.io/docs/ts/latest/api/router/index/Routes-type-alias.html)
 
-## provideRouter ##
+## RouterModule ##
 
-`provideRouter` takes the `RouteConfig` array as an argument and returns the providers necessary for routing.
-
-The providers returned by `provideRouter` *must* be provided when bootstrapping the application to register the routes. In the bootstrap file:
+`RouterModule.forRoot` takes the `Routes` array as an argument and returns a _configured_ router module. This router module must be specified in the list of imports of the app module.
 
 ```javascript
-import { provideRouter, RouterConfig } from '@angular/router';
+...
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: RouterConfig = [
+const routes: Routes = [
   { path: 'component-one', component: ComponentOne },
   { path: 'component-two', component: ComponentTwo }
 ];
 
-bootstrap(AppComponent, [
-  provideRouter(routes)
-]);
-```
+export const routing = RouterModule.forRoot(routes);
 
+@NgModule({
+  imports: [
+    BrowserModule,
+    routing
+  ],
+  declarations: [
+    AppComponent,
+    ComponentOne,
+    ComponentTwo
+  ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule {
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+```
