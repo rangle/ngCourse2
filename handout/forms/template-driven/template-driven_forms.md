@@ -16,7 +16,7 @@ First, consider a typical form:
 </form>
 ```
 
-Angular 2 has already provided you a `form` directive (and friends) which operates under the covers. For a basic implementation, we just have to add a few attributes and make sure our component knows what to do with the data.
+Angular 2 has already provided you a `form` directive, and form related directives such as input, etc  which operates under the covers. For a basic implementation, we just have to add a few attributes and make sure our component knows what to do with the data.
 
 _index.html_
 ```html
