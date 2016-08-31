@@ -1,26 +1,27 @@
 # Disposing Subscriptions and Releasing Resources 
+
 In some scenarios we may want to unsubscribe from an `Observable` stream. Doing this is pretty straightforward as the `.subscribe()` call returns a data type that we can call `.unsubscribe()` on. 
 
 ```js
-export class App {
+export class MyApp {
   
-  value: string;
-  subscribed: boolean;
-  status: string;
-  private data: Observable<string[]>;
+  private data: Observable<Array<string>>;
+  private value: string;
+  private subscribed: boolean;
+  private status: string;
 
-	constructor() {
+	init() {
 
 		this.data = new Observable(observer => {
 			let timeoutId = setTimeout(() => {
-				observer.next("You'll never see this message");
+				observer.next('You will never see this message');
 			}, 2000);
 			
-			this.status = "Started";
+			this.status = 'Started';
 			
 			return onUnsubscribe = () => {
 				this.subscribed = false;
-				this.status = "Finished";
+				this.status = 'Finished';
 				clearTimeout(timeoutId);
 			}
 		});
@@ -28,7 +29,7 @@ export class App {
 		let subscription = this.data.subscribe(
 			value => this.value = value,
 			error => console.log(error),
-			() => this.status = "Finished"
+			() => this.status = 'Finished';
 		);
 		this.subscribed = true;
 		
@@ -39,9 +40,9 @@ export class App {
 
 }
 ```
-[View Example](http://plnkr.co/edit/0f53hpPI5hnWuy4uoXQs?p=preview)
+[View Example](http://plnkr.co/edit/vobR7i?p=preview)
 
-<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/0f53hpPI5hnWuy4uoXQs/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/vobR7i/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 Calling `.unsubscribe()` will unhook a member's callbacks listening in on the `Observable` stream. When creating an `Observable` you can also return a custom callback, `onUnsubscribe`,  that will be invoked when a member listening to the stream has unsubscribed. This is useful for any kind of cleanup that must be implemented. If we did not clear the setTimeout then values would still be emitting, but there would be no one listening. To save resources we should stop values from being emitted. An important thing to note is that when you call `.unsubscribe()` you are destroying the subscription object that is listening, therefore the on-complete event attached to that subscription object will not get called. 
 
