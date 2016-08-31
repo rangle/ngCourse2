@@ -13,7 +13,7 @@ export class DelayPipe implements PipeTransform {
       this.fetchPromise = new Promise<number>((resolve, reject) => {
         setTimeout(() => resolve(value * 1000), value * 500);
       });
-      
+
       this.fetchPromise.then((val: number)   => this.fetchedValue = val);
     }
     return this.fetchedValue;
