@@ -1,14 +1,14 @@
-var angularVersion = '2.0.0-rc.4';
+var angularVersion = '2.0.0-rc.5';
 
 System.config({
   baseUrl: '/',
   paths: {
-    'npmcdn:*': 'https://npmcdn.com/*'
+    'npmcdn:*': 'https://unpkg.com/*'
   }
 });
 
 System.config({
-  transpiler: 'typescript',
+  transpiler: 'typescript', 
   typescriptOptions: { emitDecoratorMetadata: true },
 
   meta: {
@@ -22,7 +22,7 @@ System.config({
   packageConfigPaths: [
     "npmcdn:@*/*/package.json"
   ],
-
+  
   map: {
     '@angular/core': 'npmcdn:@angular/core@'+angularVersion,
     '@angular/compiler': 'npmcdn:@angular/compiler@'+angularVersion,
@@ -34,7 +34,7 @@ System.config({
     'reflect-metadata': 'npmcdn:reflect-metadata@0.1.3',
     "crypto": "@empty"
   },
-
+  
   packages: {
     'app': {
       defaultExtension: 'ts',

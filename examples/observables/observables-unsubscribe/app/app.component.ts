@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
 	selector: 'app',
@@ -18,7 +18,7 @@ import {Observable} from 'rxjs/Observable';
 	  <button style="margin-top: 2rem" (click)="init()">Init</button>
   `
 })
-export class App {
+export class MyApp {
   
   private data: Observable<Array<string>>;
   private value: string;
@@ -29,14 +29,14 @@ export class App {
 
 		this.data = new Observable(observer => {
 			let timeoutId = setTimeout(() => {
-				observer.next("You'll never see this message");
+				observer.next('You will never see this message');
 			}, 2000);
 			
-			this.status = "Started";
+			this.status = 'Started';
 			
 			return onUnsubscribe = () => {
 				this.subscribed = false;
-				this.status = "Finished";
+				this.status = 'Finished';
 				clearTimeout(timeoutId);
 			}
 		});
@@ -44,7 +44,7 @@ export class App {
 		let subscription = this.data.subscribe(
 			value => this.value = value,
 			error => console.log(error),
-			() => this.status = "Finished"
+			() => this.status = 'Finished';
 		);
 		this.subscribed = true;
 		
