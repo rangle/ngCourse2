@@ -3,7 +3,7 @@ var formsVersion = '0.3.0'
 System.config({
   baseUrl: '/',
   paths: {
-    'npmcdn:*': 'https://npmcdn.com/*'
+    'npmcdn:*': 'https://unpkg.com/*'
   }
 });
 
