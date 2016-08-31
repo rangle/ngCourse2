@@ -1,4 +1,4 @@
-import {Component, ContentChild, ContentChildren} from '@angular/core';
+import {Component, ContentChild, ContentChildren, QueryList} from '@angular/core';
 import {Hello} from './hello.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class HelloList {
 
   constructor() {}
   ngAfterContentInit() {
-    // content children now set
+    // Content children now set
     this.onClickAll();
   }
 
