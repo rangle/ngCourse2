@@ -30,7 +30,7 @@ export class App {
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/5R2YrJIGlxXYloIBe4DO?p=preview)
+[View Example](http://plnkr.co/edit/Kye130?p=preview)
 
 Here an error is raised and caught. One thing to note is that if we included a `.complete()`
 after we raised the error, this event will not actually fire.
