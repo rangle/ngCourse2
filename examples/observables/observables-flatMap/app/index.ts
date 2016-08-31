@@ -1,7 +1,4 @@
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {HTTP_BINDINGS} from '@angular/http'
-import {App} from './app.component';
-import {SearchService} from './services/search.service'
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
+import { MyAppModule } from './app.module'
 
-
-bootstrap(App, [HTTP_BINDINGS, SearchService]);
+platformBrowserDynamic().bootstrapModule(MyAppModule)  

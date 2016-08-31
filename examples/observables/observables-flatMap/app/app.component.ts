@@ -1,12 +1,14 @@
-import {Component} from '@angular/core';
-import {Control, ControlGroup, FormBuilder} from '@angular/common';
-import {SearchService} from './services/search.service';
+import { Component } from '@angular/core';
+import { FormControl, 
+	FormGroup, 
+	FormBuilder } from '@angular/forms'; 
+import { SearchService } from './services/search.service';
 import 'rxjs/Rx';
 
 @Component({
 	selector: 'app',
 	template: `
-		<form [ngFormModel]="coolForm"><input ngControl="search" placeholder="Search Spotify artist"></form>
+		<form [formGroup]="coolForm"><input formControlName="search" placeholder="Search Spotify artist"></form>
 		
 		<div *ngFor="let artist of result">
 		  {{artist.name}}
@@ -14,12 +16,12 @@ import 'rxjs/Rx';
 	`
 })
 
-export class App {
-	searchField: Control;
-	coolForm: ControlGroup;
+export class MyApp {
+	searchField: FormControl;
+	coolForm: FormGroup;
 	
 	constructor(private searchService:SearchService, private fb:FormBuilder) {
-		this.searchField = new Control();
+		this.searchField = new FormControl();
 		this.coolForm = fb.group({search: this.searchField});
 		
 		this.searchField.valueChanges

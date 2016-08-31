@@ -1,28 +1,32 @@
 import {Component} from '@angular/core';
-import {Control, ControlGroup, FormBuilder} from '@angular/common';
-
+import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
 
 @Component({
 	selector: 'app',
 	template: `
-	  <form [ngFormModel]="coolForm"><input ngControl="email"></form>
-	  <div><b>You Typed:</b> {{data}}</div>
+	  <form [formGroup]="coolForm"><input formControlName="email"></form>
+	  <div><b>You Typed Reversed:</b> {{data}}</div>
 	`
 })
 
-export class App {
+export class MyApp {
 
-	email: Control;
-	coolForm: ControlGroup;
+	email: FormControl;
+	coolForm: FormGroup;
 	data: string;
 
 	constructor(private fb: FormBuilder) {
-		this.email = new Control();
+		this.email = new FormControl();
 
 		this.coolForm = fb.group({
 			email: this.email
 		});
 
-		this.email.valueChanges.subscribe(value => this.data = value);
+		this.email.valueChanges
+		.filter(n=>n)
+		.map(n=>n.split('').reverse().join(''))
+		.subscribe(value => this.data = value);
 	}
 }
