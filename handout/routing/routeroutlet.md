@@ -2,15 +2,11 @@
 
 Rather than define each route's component separately, use `RouterOutlet` which serves as a component placeholder; Angular 2 dynamically adds the component for the route being activated into the `<router-outlet></router-outlet>` element.
 
-In order to make use of the `RouterOutlet` we must give our component access to the router components by passing `ROUTER_DIRECTIVES` in the component directives array.
-
 ```javascript
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   selector: 'app',
-  directives: [ROUTER_DIRECTIVES],
   template: `
     <nav>
       <a [routerLink]="['/component-one']">Component One</a>

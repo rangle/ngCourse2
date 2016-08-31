@@ -34,7 +34,7 @@ Where would the components for these child routes be displayed? Just like we had
 
 ```javascript
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'product-details',
@@ -47,8 +47,7 @@ import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
     </nav>
     <router-outlet></router-outlet>
     <!-- Overview & Specs components get added here by the router -->
-  `,
-  directives: [ROUTER_DIRECTIVES]
+  `
 })
 export default class ProductDetails implements OnInit, OnDestroy {
   id: number;

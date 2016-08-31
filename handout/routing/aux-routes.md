@@ -8,7 +8,6 @@ Here's an example:
 
 ```javascript
 import {Component} from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   selector: 'app',
