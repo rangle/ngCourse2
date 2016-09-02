@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {LengthPipe} from './length.pipe';
 
 @Component({
 	selector: 'hello',
@@ -7,8 +6,7 @@ import {LengthPipe} from './length.pipe';
 	  <div>
 	    <p>{{ message | length:true }}</p>
 	    <p>{{ message | length:false }}</p>
-    </div>`,
-	pipes: [LengthPipe]
+    </div>`
 })
 export class Hello {
   message: string = 'Hello There';

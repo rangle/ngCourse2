@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Child } from './child.component';
 
 @Component({
 	selector: 'app',
@@ -12,8 +11,7 @@ import { Child } from './child.component';
 	    </li>
 	  </ul>
 	  <child *ngIf="showChild" [name]="name" (log)="onLog($event)"></child>
-	`,
-	directives: [Child]
+	`
 })
 export class App {
   name: string;

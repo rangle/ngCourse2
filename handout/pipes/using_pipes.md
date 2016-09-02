@@ -3,7 +3,8 @@
 Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below:
 
 ```javascript
-import {Component} from '@angular/core'
+import {Component} from '@angular/core';
+
 @Component({
   selector: 'product-price',
   template: `<p>Total price of product is {{ price | currency }}</p>`

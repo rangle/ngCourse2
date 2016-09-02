@@ -15,6 +15,7 @@ AsyncPipe can receive a `Promise` or `Observable` as input and subscribe to the 
 ```javascript
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+
 @Component({
   selector: 'product-price',
   template: `
