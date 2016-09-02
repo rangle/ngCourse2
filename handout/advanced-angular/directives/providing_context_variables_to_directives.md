@@ -15,13 +15,13 @@ export class DelayDirective {
     private templateRef: TemplateRef<DelayContext>,
     private viewContainerRef: ViewContainerRef
   ) { }
-  
+
   @Input('delay')
   set delayTime(time: number): void {
     setTimeout(
       () => {
         this.viewContainerRef.createEmbeddedView(
-          this.templateRef, 
+          this.templateRef,
           new DelayContext(performance.now())
         );
       },
@@ -29,16 +29,15 @@ export class DelayDirective {
   }
 }
 ```
-[View Example](https://plnkr.co/edit/GT88r0syO2lJJLkXVB8w?p=preview)
+[View Example](https://plnkr.co/edit/QOEIk4BugDH7CZqfIEkL?p=preview)
 
-We've made a few changes to our `delay` directive. We've created a new `DelayContext` class that contains the context that we want to provide to our directive. In this case, we want to capture the actual time the `createEmbeddedView` call occurs and make that available as `loadTime` in our directive. We've also provided our new class as the generic argument to the `TemplateRef` function. This enables static analysis and lets us make sure our calls to `createEmbeddedView` pass in a variable of type `DelayContext`. In our `createEmbeddedView` call we pass in our variable which has captured the time of the method call. 
+We've made a few changes to our `delay` directive. We've created a new `DelayContext` class that contains the context that we want to provide to our directive. In this case, we want to capture the actual time the `createEmbeddedView` call occurs and make that available as `loadTime` in our directive. We've also provided our new class as the generic argument to the `TemplateRef` function. This enables static analysis and lets us make sure our calls to `createEmbeddedView` pass in a variable of type `DelayContext`. In our `createEmbeddedView` call we pass in our variable which has captured the time of the method call.
 
 In the component using `delay`, we access the `loadTime` context variable in the same way we access variables in `ngFor`.
 
 ```typescript
 @Component({
   selector: 'app',
-  directives: [CardComponent,DelayDirective],
   template: `
     <div *ngFor="let item of [1,2,3,4,5,6]">
       <card *delay="500 * item; let loaded = loadTime">
@@ -49,4 +48,4 @@ In the component using `delay`, we access the `loadTime` context variable in the
   `
 })
 ```
-[View Example](https://plnkr.co/edit/GT88r0syO2lJJLkXVB8w?p=preview)
+[View Example](https://plnkr.co/edit/QOEIk4BugDH7CZqfIEkL?p=preview)
