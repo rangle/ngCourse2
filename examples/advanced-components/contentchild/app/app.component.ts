@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
-import {Hello} from './hello.component';
-import {HelloList} from './hello-list.component';
 
 @Component({
 	selector: 'app',
-	directives: [Hello, HelloList],
 	template: `
 	  <hello-list>
 	    <hello name="World"></hello>

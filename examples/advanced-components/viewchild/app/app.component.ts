@@ -3,7 +3,6 @@ import {Hello} from './hello.component';
 
 @Component({
 	selector: 'app',
-	directives: [Hello],
 	template: `
     <div>
 	    <hello name="World"></hello>

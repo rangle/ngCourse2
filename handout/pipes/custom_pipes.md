@@ -14,6 +14,7 @@ export class LengthPipe implements PipeTransform {
   }
 }
 ```
+[View Example](http://plnkr.co/edit/l5koabsVYdoIhHDe24pR?p=preview)
 
 Each custom pipe implementation must:
 
