@@ -8,7 +8,7 @@ For this, we will register a service called `Greeter` with the `providers` prope
 
 _*app/app.module.ts*_
 ```js
-import { BrowserModule }  from '@angular/platform-browser';  
+import { BrowserModule }  from '@angular/platform-browser';
 import { NgModule } '@angular/core';
 import { MyApp } from './app.component'
 import { Greeter } from './greeter.service';
@@ -24,4 +24,4 @@ export class MyAppModule {
 }
 ```
 
-[View Example](https://plnkr.co/edit/0E5SG8?p=preview)
+[View Example](https://plnkr.co/edit/yzS1TK?p=preview)
