@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'component-two',
   template: `
-    <p>Component Two {{id}}</p>
+    <p>Component Two with route param <code>ID: {{ id }}</code></p>
+
     <nav>
       <a [routerLink]="['child-one']">Child One</a>
       <a [routerLink]="['child-two']">Child Two</a>
     </nav>
-    <span style="color: red;">Component Two's router outlet:</span>
-    <div style="border: 1px solid red;">
+
+    <div style="color: red; margin-top: 1rem;">
+      Component Two's router outlet:
+    </div>
+    <div style="border: 2px solid red; padding: 1rem;">
       <router-outlet></router-outlet>
     </div>
-  `,
-  directives: [ROUTER_DIRECTIVES]
+  `
 })
 export default class ComponentTwo {
   private id;

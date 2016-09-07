@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'component-one',
@@ -8,13 +8,13 @@ import { Router } from '@angular/router';
     <div><button (click)="nextPage()">Next Page</button></div>
     <p>Run example full screen to see query param "page" change</p>`
 })
-export default class ComponentOne { 
+export default class ComponentOne {
   constructor(
+    private route: ActivatedRoute,
     private router: Router) {}
 
   ngOnInit() {
-    this.sub = this.router
-      .routerState
+    this.sub = this.route
       .queryParams
       .subscribe(params => {
         // Defaults to 0 if no query param provided.

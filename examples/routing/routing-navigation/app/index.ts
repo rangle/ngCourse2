@@ -1,7 +1,33 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { bootstrap, platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppComponent } from './app.component.ts';
-import { APP_ROUTER_PROVIDERS } from './app.routes';
+import { routing, appRoutingProviders } from './app.routes';
+import ComponentOne from './component-one';
+import ComponentTwo from './component-two';
+import ChildOne from './child-one';
+import ChildTwo from './child-two';
+import ChildTwoNested from './child-two-nested';
 
-bootstrap(AppComponent, [
-  APP_ROUTER_PROVIDERS
-]);
+@NgModule({
+  imports: [
+    BrowserModule,
+    routing
+  ],
+  declarations: [
+    AppComponent,
+    ComponentOne,
+    ComponentTwo,
+    ChildOne,
+    ChildTwo,
+    ChildTwoNested
+  ],
+  providers: [
+    appRoutingProviders
+  ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule {
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule);
