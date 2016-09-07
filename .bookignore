@@ -1,5 +1,5 @@
-app
-examples
-exercises
+app/*
+examples/*
+exercises/*
 webinar-series
-node_modules
+node_modules/*

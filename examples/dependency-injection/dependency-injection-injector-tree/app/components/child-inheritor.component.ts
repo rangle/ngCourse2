@@ -1,5 +1,5 @@
-import {Component, Inject} from '@angular/core';
-import {Unique} from '../services/unique';
+import { Component, Inject } from '@angular/core';
+import { Unique } from '../services/unique';
 
 @Component({
   selector: 'child-inheritor',
