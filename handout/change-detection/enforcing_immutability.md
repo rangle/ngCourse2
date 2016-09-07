@@ -80,6 +80,6 @@ export class MovieComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/nScAZBKUjFa9JyXwDODD?p=preview)
+[View Example](http://plnkr.co/edit/MCMgTQTpYFkML7i7FWIH?p=preview)
 
 Using this pattern we are taking full advantage of the "OnPush" change detection strategy and thus reducing the amount of work done by Angular to propagate changes and to get models and views in sync. This improves the performance of the application.

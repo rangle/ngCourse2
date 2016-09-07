@@ -1,10 +1,8 @@
 import {Component} from '@angular/core';
-import {MovieComponent} from './movie.component';
 import {Actor} from './actor.model';
 
 @Component({
   selector: 'main',
-  directives: [MovieComponent],
   template: `
     <h1>MovieApp</h1>
     <p>{{ slogan }}</p>
@@ -16,12 +14,12 @@ export class MainComponent {
   slogan: string = 'Just movie information';
   title: string = 'Terminator 1';
   actor: Actor = new Actor('Arnold', 'Schwarzenegger');
-  
+
   changeActorProperties(): void {
     this.actor.firstName = 'Nicholas';
     this.actor.lastName = 'Cage';
   }
-  
+
   changeActorObject(): void {
     this.actor = new Actor('Bruce', 'Willis');
   }
