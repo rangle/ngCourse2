@@ -1,5 +1,17 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Hello } from './app.component.ts';
 
-
-bootstrap(Hello);
+@NgModule({
+  imports: [
+    BrowserModule
+  ],
+  declarations: [
+    Hello
+  ],
+  bootstrap: [ Hello ]
+})
+export class AppModule {
+}
+platformBrowserDynamic().bootstrapModule(AppModule);
