@@ -5,12 +5,11 @@ import { Greeter } from './greeter.service';
   template: '<b>{{greeting}}</b>'
 })
 export class MyApp implements OnInit {
-  public greeting:string='';
-  constructor(private greeter:Greeter) {
-
+  public greeting: string = '';
+  constructor(private greeter: Greeter) {
   }
+
   ngOnInit() {
     this.greeting = this.greeter.message;
   }
-
 }

@@ -31,7 +31,7 @@ export class MyApp {}
 
 *app/app.module.ts*
 ```js
-import { BrowserModule }  from '@angular/platform-browser';  
+import { BrowserModule }  from '@angular/platform-browser';
 import { NgModule } '@angular/core';
 import { MyApp } from './app.component'
 
@@ -51,14 +51,14 @@ export class MyAppModule {
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 import { MyAppModule } from './app.module'
 
-platformBrowserDynamic().bootstrapModule(MyAppModule)  
+platformBrowserDynamic().bootstrapModule(MyAppModule)
 ```
 
-[View Example](https://plnkr.co/edit/UhjGI3?p=preview)
+[View Example](https://plnkr.co/edit/XMpxd6?p=preview)
 
 This is the main entry point of the application. The `MyAppModule`  operates as the root module of our  application. The module is configured to use `MyApp` as the component to bootstrap, and will be rendered on any `app` HTML element encountered.
 
-There is an `app` HTML element in the *index.html* file, and we use *app/index.ts* to import the `MyAppModule` component and the `platformBrowserDynamic().bootstrapMdule` function and kickstart the  process.
+There is an `app` HTML element in the *index.html* file, and we use *app/index.ts* to import the `MyAppModule` component and the `platformBrowserDynamic().bootstrapModule` function and kickstart the  process.
 
 Why does Angular 2 bootstrap itself in this way? Well there is actually a very good reason. Since Angular 2 is not a web-only based framework, we can write components that will run in NativeScript, or Cordova, or any other environment that can host Angular 2 applications.
 
