@@ -1,7 +1,5 @@
-import {Component, Inject, provide} from '@angular/core';
-import {ChildInheritor} from './components/child-inheritor.component';
-import {ChildOwnInjector} from './components/child-own-injector.component';
-import {Unique} from './services/unique';
+import { Component, Inject, provide } from '@angular/core';
+import { Unique } from './services/unique';
 
 @Component({
   selector: 'app',
@@ -24,7 +22,6 @@ ChildOwnInjector should have its own value: <child-own-injector></child-own-inje
 ChildOwnInjector's other instance should also have its own value <child-own-injector></child-own-injector>
 </p>
   `,
-  directives: [ChildInheritor, ChildOwnInjector]
 })
 export class App {
   value: number;

@@ -1,5 +1,5 @@
 import {Component, Inject, provide} from '@angular/core';
-import {Hamburger} from './services/hamburger';
+import {Hamburger} from '../services/index';
 
 @Component({
   selector: 'app',

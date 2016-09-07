@@ -1,8 +1,8 @@
 # FormBuilder Basics
 
-To begin with FormBuilder, we must first ensure we are working with the right directives and the right classes in order to take advantage of procedural forms.
-In our case, these are `FormBuilder`, `FormGroup` and `FormControl`.
-Angular allows us to import a list of all of the helpful directives.
+To begin with FormBuilder, we must first ensure we are working with the right directives and the right classes in order to take advantage of procedural forms. For this, we need to ensure that the `FormsModule` and `ReactiveFormsModule` was imported in the bootstrap phase of the application module.
+
+This will give us access to components, directives and providers like `FormBuilder`, `FormGroup`, and `FormControl`
 
 In our case, to build a login form, we're looking at something like the following:
 
@@ -10,7 +10,6 @@ _app/login-form.component.ts_
 ```ts
 import {Component} from '@angular/core';
 import {
-  REACTIVE_FORM_DIRECTIVES,
   FormBuilder,
   FormControl
 } from '@angular/forms';
@@ -18,7 +17,6 @@ import {
 @Component({
   selector: 'login-form',
   templateUrl: 'app/login-form.component.html',
-  directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class LoginForm {
   loginForm: FormGroup;

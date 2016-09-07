@@ -1,6 +1,6 @@
 # Understanding the File Structure
 
-To get started let's create a bare-bones Angular 2 application with a single component. To do this we'll need the following files:
+To get started let's create a bare-bones Angular 2 application with a single component. To do this we need the following files:
 
 - *app/app.component.ts* - this is where we define our root component
 - *app/app.module.ts* - the entry Angular Module to be bootstrapped
