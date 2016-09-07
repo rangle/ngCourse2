@@ -81,8 +81,8 @@ export class LoanDetailsPage implements OnInit, OnDestroy {
 > The reason that the `params` property on `ActivatedRoute` is an Observable is that the router may not recreate the component when navigating to the same component. In this case the parameter may change without the component being recreated.
 
 
-[View Basic Example](https://plnkr.co/edit/UKAVsVcKhQ4sDYKofzoK?p=preview)
+[View Basic Example](https://plnkr.co/edit/d7dE9TE0rN9gkqLTS9f5?p=preview)
 
-[View Example with Programmatic Route Navigation](https://plnkr.co/edit/kEYQrEaAsGIEeD9ERYxO?p=preview)
+[View Example with Programmatic Route Navigation](https://plnkr.co/edit/H04aObLCjsL5oQIjB6el?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.

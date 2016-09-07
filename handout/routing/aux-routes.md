@@ -41,7 +41,7 @@ Next we must define the link to the auxiliary route for the application to navig
   Component Aux
 </a>
 ```
-[View Example](https://plnkr.co/edit/WKOqvDwGqZh99Z4Prsta?p=preview)
+[View Example](https://plnkr.co/edit/T6nC0Rl6pYOYxrsHjlIT?p=preview)
 
 Each auxiliary route is an independent route which can have:
 
