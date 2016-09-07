@@ -54,6 +54,7 @@
        * [Passing Data into a Component](handout/components/app_structure/passing_data_into_components.md)
        * [Responding to Component Events](handout/components/app_structure/responding_to_component_events.md)
        * [Using Two-Way Data Binding](handout/components/app_structure/two_way_data_binding.md)
+       * [Accessing Child Components from Template](handout/components/app_structure/access_child_components_from_template.md)
    * [Projection](handout/components/projection.md)
    * [Structuring Applications with Components](handout/components/structuring_applications_with_components.md)
    * [Using Other Components](handout/components/using_other_components.md)
