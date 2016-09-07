@@ -3,18 +3,26 @@
 
 ### Opt-In APIs
 Before we dive into any of the form features, we need to do a little bit of housekeeping.
-If you are using a current release candidate version of Angular 2, you must add two `Provider` imports to your `bootstrap`.
+If you are using a RC5 or above of Angular 2, we need to bootstrap our application using the new `FormsModule` and/or `ReactiveForms` module.
 
 ```js
-import {bootstrap} from "@angular/core";
-// ...
-import {disableDeprecatedForms, provideForms} from "@angular/forms";
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MyApp } from './components'
 
-bootstrap(MyApp, [
-  // ...
-  disableDeprecatedForms(),
-  provideForms()
-]);
+@NgModule({
+  imports: [BrowserModule,
+    ReactiveFormsModule,
+    FormsModule]
+  declarations: [MyApp],
+  bootstrap: [MyApp]
+})
+export class MyAppModule {
+
+}
+
+platformBrowserDynamic().bootstrapModule(MyAppModule)  
+
 ```
 
 
