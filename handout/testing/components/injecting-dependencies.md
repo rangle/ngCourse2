@@ -81,7 +81,7 @@ describe('Testing Quote Component', () => {
   })));
 });
 ```
-[View Example](http://plnkr.co/edit/6rbWs6nTyLq2nQJaIfE0?p=preview)
+[View Example](http://plnkr.co/edit/zPpp86FBJUkqcZlLGH0O?p=preview)
 
 Testing the `QuoteComponent` is a fairly straightforward process. We want to create a `QuoteComponent`, feed it a quote and see if it appears in the DOM. This process requires us to create the component, pass in any dependencies, trigger the component to perform an action and then look at the DOM to see if the action is what we expected. Let's take a look at how this is accomplished with the above unit test.
 
