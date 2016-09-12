@@ -14,9 +14,10 @@
   "scripts": {
     "build": "gitbook build",
     "dev": "gitbook serve",
+    "postinstall": "gitbook install",
+    "gitbook": "gitbook",
     "examples": "live-server ./examples",
-    "exercises": "live-server ./exercises",
-    "postinstall": "gitbook install"
+    "exercises": "live-server ./exercises"
   },
   "repository": {
     "type": "git",

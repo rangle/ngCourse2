@@ -17,4 +17,4 @@ all components on the page.
 export class Hello { ... }
  ```
 
-[View Example](http://plnkr.co/edit/08w7iE9dkw970A0hiMBt?p=preview)
+[View Example](http://plnkr.co/edit/ZlFFvQufvbsTEueLixeB?p=preview)

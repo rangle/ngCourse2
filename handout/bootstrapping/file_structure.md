@@ -1,10 +1,11 @@
 # Understanding the File Structure
 
-To get started let's create a bare-bones Angular 2 application with a single component. To do this we'll need the following files:
+To get started let's create a bare-bones Angular 2 application with a single component. To do this we need the following files:
 
 - *app/app.component.ts* - this is where we define our root component
+- *app/app.module.ts* - the entry Angular Module to be bootstrapped
 - *index.html* - this is the page the component will be rendered in
-- *app/boot.ts* - is the glue that combines the component and page together
+- *app/index.ts* - is the glue that combines the component and page together
 
 *app/app.component.ts*
 
@@ -28,21 +29,41 @@ export class MyApp {}
 ...
 ```
 
-*app/boot.ts*
-
+*app/app.module.ts*
 ```js
-import {bootstrap} from '@angular/platform/browser'
-import {MyApp} from './app.component'
+import { BrowserModule }  from '@angular/platform-browser';
+import { NgModule } '@angular/core';
+import { MyApp } from './app.component'
 
-bootstrap(MyApp);
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [MyApp],
+  bootstrap: [MyApp]
+})
+export class MyAppModule {
+
+}
 ```
 
-[View Example](https://plnkr.co/edit/2e7YB7884UAOHs3jvstu?p=preview)
+*app/index.ts*
 
-This is the main entry point of the application. The `App` component operates as the root component of our entire application and will be rendered on any `app` HTML element encountered. There is an `app` HTML element in the *index.html* file, and we use *app/boot.ts* to import the `MyApp` component and the `bootstrap` function and kickstart the bootstrapping process, which will read the `App` metadata and then load the application wherever the `app` selector/tag-name is found.
+```js
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
+import { MyAppModule } from './app.module'
 
-Calling `bootstrap` will return a `Promise` that you can use to determine when the bootstrapping routine has completed. This is useful if you want to incorporate an initial UI loading state into your application.
+platformBrowserDynamic().bootstrapModule(MyAppModule)
+```
 
-Why does Angular 2 bootstrap itself in this way? Well there is actually a very good reason. Since Angular 2 is not a web-only based framework, we can write components that will run in NativeScript, or Cordova, or any other environment that can host Angular 2 applications. The magic is then in our bootstrapping process - we can import which `bootstrap` routine we would like to use, depending on the environment we're operating under. In our example, since we were running our Angular 2 application in the browser, we used the bootstrapping process found in `@angular/platform-browser-dynamic`.
+[View Example](https://plnkr.co/edit/XMpxd6?p=preview)
 
-It's also a good idea to leave the bootstrapping process in its own separate *boot.ts* file. This makes it easier to test (since the components are isolated from the `bootstrap` call), easier to reuse and gives better organization and structure to our application.
+This is the main entry point of the application. The `MyAppModule`  operates as the root module of our  application. The module is configured to use `MyApp` as the component to bootstrap, and will be rendered on any `app` HTML element encountered.
+
+There is an `app` HTML element in the *index.html* file, and we use *app/index.ts* to import the `MyAppModule` component and the `platformBrowserDynamic().bootstrapModule` function and kickstart the  process.
+
+Why does Angular 2 bootstrap itself in this way? Well there is actually a very good reason. Since Angular 2 is not a web-only based framework, we can write components that will run in NativeScript, or Cordova, or any other environment that can host Angular 2 applications.
+
+The magic is then in our bootstrapping process - we can import which platform we would like to use, depending on the environment we're operating under. In our example, since we were running our Angular 2 application in the browser, we used the bootstrapping process found in `@angular/platform-browser-dynamic`.
+
+It's also a good idea to leave the bootstrapping process in its own separate *index.ts* file. This makes it easier to test (since the components are isolated from the `bootstrap` call), easier to reuse and gives better organization and structure to our application.
+
+There is more to understanding Angular Modules and `@NgModule` which will be covered later, but for now this is enough to get started.

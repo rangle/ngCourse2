@@ -1,56 +1,9 @@
-import {ViewEncapsulation, Component} from '@angular/core';
-
-@Component({
-	selector: 'hello-def',
-	template: '<p class="hello"><code>Emulated / .hello:</code> Hello World</p>',
-	encapsulation: ViewEncapsulation.Emulated,
-	styles: [`
-    .hello { color: green; }	  
-	`]
-})
-class HelloDef {
-  name: string;
-  constructor() {
-    this.name = 'World';
-  }
-}
-
-@Component({
-	selector: 'hello-native',
-	template: '<p class="hello"><code>Native / .hello:</code> Hello World</p>',
-	encapsulation: ViewEncapsulation.Native,
-})
-class HelloNative {
-  name: string;
-  constructor() {
-    this.name = 'World';
-  }
-}
-
-@Component({
-	selector: 'hello-none',
-	template: '<p class="hello other-hello"><code>None / .other-hello:</code> Hello World</p>',
-	encapsulation: ViewEncapsulation.None,
-	styles: [`
-    .other-hello {
-      color: white;
-      background-color: gray;
-      padding: 5px;
-    }	  
-	`]
-})
-class HelloNone {
-  name: string;
-  constructor() {
-    this.name = 'World';
-  }
-}
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
 	selector: 'app',
-	directives: [HelloDef, HelloNative, HelloNone],
 	template: `
-	  <hello-def></hello-def>
+	  <hello-emulated></hello-emulated>
     <hello-native></hello-native>
     <hello-none></hello-none>
 	`

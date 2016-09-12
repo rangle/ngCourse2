@@ -1,4 +1,4 @@
-* [Introduction](./intro.md)  
+* [Introduction](./intro.md)
 * [License](handout/license.md)
 * [Why Angular 2?](handout/why_angular_2.md)
 
@@ -161,6 +161,14 @@
 
 ---
 
+* [Modules](handout/modules/README.md)
+   * [What is an Angular 2 Module?](handout/modules/introduction.md)
+   * [Adding Components, Pipes and Services to a Module](handout/modules/multiple-elements.md)
+   * [Creating a Feature Module](handout/modules/feature-modules.md)
+   * [Directive Duplications](handout/modules/directive-duplications.md)
+
+---
+
 * [Routing](handout/routing/README.md)
    * [Why Routing?](handout/routing/why_routing.md)
    * [Configuring Routes](handout/routing/config.md)
@@ -171,6 +179,7 @@
    * [Defining Child Routes](handout/routing/child_routes.md)
    * [Controlling Access to or from a Route](handout/routing/route_guards.md)
    * [Passing Optional Parameters to a Route](handout/routing/query_params.md)
+   * [Using Auxiliary Routes](handout/routing/aux-routes.md)
 
 ---
 
@@ -201,11 +210,10 @@
        * [Refactoring Hard-to-Test Code](handout/testing/components/refactor.md)
    * [Testing Services](handout/testing/services/README.md)
        * [Testing Strategies for Services](handout/testing/services/strategies.md)
-       * [Injecting Dependencies](handout/testing/services/injecting-dependencies.md)
-           * [Mocking Dependencies](handout/testing/services/mocking-dependencies.md)
        * [Testing HTTP Requests](handout/testing/services/http.md)
-           * [Asynchronous Testing](handout/testing/services/async.md)
-       * [Testing JSONP and XHR Back-Ends](handout/testing/services/json-xhr.md)
+           * [Using MockBackend](handout/testing/services/mockbackend.md)
+           * [Alternative Mocking Strategy](handout/testing/services/alt-http-mocking.md)
+           * [Testing JSONP and XHR Back-Ends](handout/testing/services/json-xhr.md)
        * [Executing Tests Asynchronously](handout/testing/services/async-execution.md)
    * [Testing Redux](handout/testing/redux/README.md)
        * [Testing Simple Actions](handout/testing/redux/simple-actions.md)

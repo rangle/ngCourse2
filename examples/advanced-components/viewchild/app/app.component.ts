@@ -1,9 +1,8 @@
-import {Component, ViewChild, ViewChildren} from '@angular/core';
+import {Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Hello} from './hello.component';
 
 @Component({
 	selector: 'app',
-	directives: [Hello],
 	template: `
     <div>
 	    <hello name="World"></hello>

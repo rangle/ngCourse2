@@ -1,4 +1,4 @@
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {MyForm} from './my-form.component.ts';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
+import { MyAppModule } from './app.module'
 
-bootstrap(MyForm);
+platformBrowserDynamic().bootstrapModule(MyAppModule)  

@@ -3,7 +3,8 @@
 Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below:
 
 ```javascript
-import {Component} from '@angular/core'
+import {Component} from '@angular/core';
+
 @Component({
   selector: 'product-price',
   template: `<p>Total price of product is {{ price | currency }}</p>`
@@ -12,7 +13,7 @@ export class ProductPrice {
   price: number = 100.1234;
 }
 ```
-[View Example](http://plnkr.co/edit/JPamZgk1tZWoUgc2MS9J?p=preview)
+[View Example](http://plnkr.co/edit/JdiPRRHDxwTIMSQiWAC7?p=preview)
 
 ## Passing Parameters ##
 
@@ -20,7 +21,7 @@ A pipe can accept optional parameters to modify the output. To pass parameters t
 simply add a colon and the parameter value to the end of the pipe expression:
 
 ```
-pipeName:parameterValue
+pipeName: parameterValue
 ```
 
 You can also pass multiple parameters this way:
@@ -34,13 +35,13 @@ import {Component} from '@angular/core';
 
 @Component({
 	selector: 'product-price',
-	template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4"}}</p>'
+	template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" }}</p>'
 })
 export class ProductPrice {
   price: number = 100.123456;
 }
 ```
-[View Example](http://plnkr.co/edit/Wp0QLdnhPISmTtMV6fsC?p=preview)
+[View Example](http://plnkr.co/edit/HONbr4g33364pe9gmEmg?p=preview)
 
 ## Chaining Pipes ##
 
@@ -51,10 +52,10 @@ import {Component} from '@angular/core';
 
 @Component({
 	selector: 'product-price',
-	template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" | lowercase}}</p>'
+	template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" | lowercase }}</p>'
 })
 export class ProductPrice {
   price: number = 100.123456;
 }
 ```
-[View Example](http://plnkr.co/edit/86cSXfql4yPUfQsW1uKq?p=preview)
+[View Example](http://plnkr.co/edit/bLcGKKeB6spJ3m7HwBBy?p=preview)

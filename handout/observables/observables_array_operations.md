@@ -4,7 +4,7 @@ In addition to simply iterating over an asynchronous collection, we can perform 
 Let's expand our example and do something a little more with our stream:
 
 ```js
-export class App {
+export class MyApp {
   private doctors = [];
   
   constructor(http: Http) {
@@ -18,7 +18,7 @@ export class App {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/AV5ah0YLjUAHW0cu7mbU?p=preview)
+[View Example](http://plnkr.co/edit/NLdvFl?p=preview)
 
 
 Here are two really useful array operations - `map` and `filter`. What exactly do these do?

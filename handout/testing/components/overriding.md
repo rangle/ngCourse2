@@ -1,45 +1,72 @@
-# Overriding Components for Testing
+# Overriding Dependencies for Testing
 
-In some components, providers are not directly injected through the constructor but instead defined through a decorator. Consider the following component:
+`TestBed` provides several functions to allow us to override dependencies that are being used in a test module.
+- `overrideModule`
+- `overrideComponent`
+- `overrideDirective`
+- `overridePipe`
+
+For example, you might want to override the template of a component. This is useful for testing a small part of a large component, as you can ignore the output from the rest of the DOM and only focus on the part you are interested in testing.
 
 ```js
+import {Component} from '@angular/core';
+
 @Component({
-  selector: 'example',
-  template: '<div>Simple example</div>',
-  providers: [ExampleService]
-});
-class SimpleComponent {}
+  selector: 'display-message',
+  template: `
+    <div>
+      <div>
+        <h1>{{message}}</h1>
+      <div>
+    </div>
+  `
+})
+export class MessageComponent {
+  public message: string = '';
+
+  setMessage(newMessage: string) {
+  	this.message = newMessage;
+  }
+}
 ```
 
-This won't work when using `addProviders`. Instead we can use the `TestComponentBuilder` to explicitly inject the `ExampleService` provider through `overrideProviders`. As we did before, you should create a mocked version of the `ExampleService` to feed in data you expect.
-
 ```js
-  it('Should work', async(inject(
-    [TestComponentBuilder], (tcb: TestComponentBuilder) => {
-      tcb.overrideProviders(SimpleComponent, [
-        provide(ExampleService, {useClass: MockExampleService})
-      ]).createAsync(SimpleComponent).then(fixture => {
+import {MessageComponent} from './message.component';
+import { provide } from '@angular/core';
+import {
+  async,
+  inject,
+  TestBed,
+} from '@angular/core/testing';
 
-        // test your fixture here
+describe('MessageComponent', () => {
 
-      });
-    }))
-  );
-```
+  let fixture;
 
-`TestComponentBuilder` also lets you override a component's template. This is useful for testing a small part of a large component, as you can ignore the output from the rest of the DOM and only focus on the part you are interested in testing. Calling `overrideTemplate` will set the component's template to whatever you pass in.
-
-```js
-it('Should work', async(inject(
-  [TestComponentBuilder], (tcb: TestComponentBuider) => {
-    tcb.overrideTemplate(SimpleComponent, '<span>{{message}}</span>')
-      .createAsync(SimpleComponent).then(fixture => {
-
-        // test all things relating to the message property here
-
-      // test all things relating to the message property here
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [MessageComponent],
+      providers: []
     });
-  }))
-);
+
+    fixture = TestBed.overrideComponent(MessageComponent, {
+      set: {
+        template: '<span>{{message}}</span>'
+      }})
+      .createComponent(MessageComponent);
+
+    fixture.detectChanges();
+  });
+
+  it('should set the message', async(inject([], () => {
+    fixture.componentInstance.setMessage('Test message');
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      const compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector('span').innerText).toEqual('Test message');
+    });
+  })));
+
+});
 ```
+[View Example](http://plnkr.co/edit/DBcWsjI0dFkWLkUbE0Mb?p=preview)

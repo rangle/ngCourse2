@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {ChildSelect} from './child-select.component';
-import {Child} from './child.component';
 
 @Component({
 	selector: 'app',
@@ -23,8 +21,7 @@ import {Child} from './child.component';
 	      <header>Header Content</header>
 	    </child-select>
 	  </div>
-	`,
-	directives: [Child, ChildSelect]
+	`
 })
 export class App {
   count: number = 12;

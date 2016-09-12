@@ -30,18 +30,19 @@ Similar to reading [route parameters](/handout/routing/routeparams.md), the `Rou
 
 ```javascript
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'product-list',
   template: `<!-- Show product list -->`
 })
 export default class ProductList {
-  constructor(private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
-    this.sub = this.router
-      .routerState
+    this.sub = this.route
       .queryParams
       .subscribe(params => {
         // Defaults to 0 if no query param provided.
@@ -59,6 +60,6 @@ export default class ProductList {
 }
 ```
 
-[View Example](http://plnkr.co/edit/WxqO2UtJUaYMy3Rit9A7?p=preview)
+[View Example](http://plnkr.co/edit/TjwzF28CCrJlOThMrzya?p=preview)
 
 [See Official Documentation on Query Parameters](https://angular.io/docs/ts/latest/guide/router.html#!#query-parameters)

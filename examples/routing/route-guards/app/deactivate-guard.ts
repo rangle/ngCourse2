@@ -1,9 +1,7 @@
 import { CanDeactivate } from '@angular/router';
-import { Injectable } from '@angular/core';
 import ComponentTwo from './component-two';
 
-@Injectable()
-export class DeactivateGuard implements CanDeactivate<ComponentTwo> {
+export default class DeactivateGuard implements CanDeactivate<ComponentTwo> {
 
   canDeactivate(component: ComponentTwo) {
     let can = component.canDeactivate();

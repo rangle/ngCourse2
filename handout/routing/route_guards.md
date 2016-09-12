@@ -15,14 +15,12 @@ For example, say we have an `accounts` route that only users that are logged in 
 In our route config we can add our guards to that route:
 
 ```javascript
+import { Routes, RouterModule } from '@angular/router';
+import { AccountPage } from './account-page';
 import { LoginRouteGuard } from './login-route-guard';
 import { SaveFormsGuard } from './save-forms-guard';
 
-import { provideRouter, RouterConfig } from '@angular/router';
-import { HomePage } from './home-page';
-import { AccountPage } from './account-page';
-
-const routes: RouterConfig = [
+const routes: Routes = [
   { path: 'home', component: HomePage },
   {
     path: 'accounts',
@@ -32,11 +30,9 @@ const routes: RouterConfig = [
   }
 ];
 
-bootstrap(AppComponent, [
-  provideRouter(routes),
-  LoginRouteGuard,
-  SaveFormsGuard
-]);
+export const appRoutingProviders: any[] = [];
+
+export const routing = RouterModule.forRoot(routes);
 ```
 
 Now `LoginRouteGuard` will be checked by the router when activating the `accounts` route, and `SaveFormsGuard` will be checked when leaving that route.
@@ -112,6 +108,6 @@ For example, when the user navigates away you could have a dialog service ask th
 ```
 
 
-[View Example](http://plnkr.co/edit/Y5i1bE6ENkrMxWQg7Y1z?p=preview)
+[View Example](http://plnkr.co/edit/NCb0QjpKkIlCvZ00y0VO?p=preview)
 
 [See Official Documentation for Route Guards](https://angular.io/docs/ts/latest/guide/router.html#!#guards)

@@ -1,14 +1,14 @@
-var angularVersion = '2.0.0-rc.4';
+var angularVersion = '2.0.0-rc.6';
 
 System.config({
   baseUrl: '/',
   paths: {
-    'npmcdn:*': 'https://npmcdn.com/*'
+    'unpkg:*': 'https://unpkg.com/*'
   }
 });
 
 System.config({
-  transpiler: 'typescript', 
+  transpiler: 'typescript',
   typescriptOptions: { emitDecoratorMetadata: true },
 
   meta: {
@@ -20,22 +20,22 @@ System.config({
 
 System.config({
   packageConfigPaths: [
-    "npmcdn:@*/*/package.json"
+    "unpkg:@*/*/package.json"
   ],
-  
+
   map: {
-    '@angular/core': 'npmcdn:@angular/core@'+angularVersion,
-    '@angular/compiler': 'npmcdn:@angular/compiler@'+angularVersion,
-    '@angular/common': 'npmcdn:@angular/common@'+angularVersion,
-    '@angular/platform-browser': 'npmcdn:@angular/platform-browser@'+angularVersion,
-    '@angular/platform-browser-dynamic': 'npmcdn:@angular/platform-browser-dynamic@'+angularVersion,
-    '@angular/http': 'npmcdn:@angular/http@'+angularVersion,
-    'rxjs': 'npmcdn:rxjs@5.0.0-beta.6',
-    'zone.js': 'npmcdn:zone.js@0.6.12',
-    'reflect-metadata': 'npmcdn:reflect-metadata@0.1.3',
+    '@angular/core': 'unpkg:@angular/core@'+angularVersion,
+    '@angular/compiler': 'unpkg:@angular/compiler@'+angularVersion,
+    '@angular/common': 'unpkg:@angular/common@'+angularVersion,
+    '@angular/platform-browser': 'unpkg:@angular/platform-browser@'+angularVersion,
+    '@angular/platform-browser-dynamic': 'unpkg:@angular/platform-browser-dynamic@'+angularVersion,
+    '@angular/http': 'unpkg:@angular/http@'+angularVersion,
+    'rxjs': 'unpkg:rxjs@5.0.0-beta.11',
+    'zone.js': 'unpkg:zone.js@0.6.17',
+    'reflect-metadata': 'unpkg:reflect-metadata@0.1.3',
     "crypto": "@empty"
   },
-  
+
   packages: {
     'app': {
       defaultExtension: 'ts',

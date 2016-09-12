@@ -1,43 +1,76 @@
 # Testing Asynchronous Actions
 
-Sometimes we need to test components that rely on asynchronous actions that happen at specific times.  Angular provides a function called `fakeAsync` which wraps our tests in a zone and gives us access to the `tick` function, which will allow us to simulate the passage of time precisely.
+Sometimes we need to test components that rely on asynchronous actions that happen at specific times. Angular provides a function called `fakeAsync` which wraps our tests in a zone and gives us access to the `tick` function, which will allow us to simulate the passage of time precisely.
 
-Suppose we had a component with a button that will trigger an action within a setTimeout of two seconds. Here's what our component and unit test might look like:
+Let's go back to the example of the `QuoteComponent` component and rewrite the unit test using `fakeAsync`:
 
 ```js
+import { Component } from '@angular/core';
+import { QuoteService } from './quote.service';
+
 @Component({
-  selector: 'example',
-  template: `
-		<span>{{message}}</span>
-		<button (click)="performAction()">Click me</button>
-	`})
+  selector: 'my-quote',
+  template: '<h3>Random Quote</h3> <div>{{quote}}</div>'
+})
 
-class SampleComponent {
-  message: string;
+export class QuoteComponent {
+  quote: string;
 
-  performAction () {
-    setTimeout(() => {
-      this.message = 'My expected data';
-    }, 2000);
-  }
+  constructor(private quoteService: QuoteService){};
+
+  getQuote() {
+    this.quoteService.getQuote().then((quote) => {
+      this.quote = quote;
+    });
+  };
 }
 ```
 
 ```js
-it('Should work',
-  fakeAsync(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-    tcb.createAsync(SampleComponent).then(fixture => {
-      fixture.debugElement.nativeElement.querySelector('button')
-        .click();
+import { QuoteService } from './quote.service';
+import { QuoteComponent } from './quote.component';
+import { provide } from '@angular/core';
+import {
+  async,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
 
-      tick(2000);
+class MockQuoteService {
+  public quote: string = 'Test quote';
 
-      fixture.detectChanges();
-      expect(fixture.debugElement.nativeElement.querySelector('span'))
-        .toHaveText('My expected data');
+  getQuote() {
+    return Promise.resolve(this.quote);
+  }
+}
+
+describe('Testing Quote Component', () => {
+
+  let fixture;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        QuoteComponent
+      ],
+      providers: [
+        { provide: QuoteService, useClass: MockQuoteService }
+      ]
     });
-  }));
-);
-```
+    fixture = TestBed.createComponent(QuoteComponent);
+    fixture.detectChanges();
+  });
 
-Here we have a `SampleComponent` that has a button, when clicked a `setTimeout` of two seconds will be called to set the message property to 'My expected data'. Our unit test builds our component using the `TestComponentBuilder`. We have wrapped our entire test in `fakeAsync` which will allow us to test the asynchronous behavior of our component using synchronous function calls. We simulate a button click and then immediately call `tick(2000)` which simulates a two second delay.  We can then run `detectChanges` and query the DOM for our expected result.
+  it('Should get quote', fakeAsync(() => {
+    fixture.componentInstance.getQuote();
+    tick();
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('div').innerText).toEqual('Test quote');
+  }));
+});
+```
+[View Example](http://plnkr.co/edit/lwsENNi428VxroAHITI1?p=preview)
+
+Here we have a `QuoteComponent` that has a `getQuote` which triggers an asynchronous update. We have wrapped our entire test in `fakeAsync` which will allow us to test the asynchronous behavior of our component (`getQuote()`) using synchronous function calls by calling `tick()`. We can then run `detectChanges` and query the DOM for our expected result.

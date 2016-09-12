@@ -1,4 +1,18 @@
-import {bootstrap}    from '@angular/platform-browser-dynamic'
-import {ProductPrice} from './app.component'
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { bootstrap, platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { ProductPrice } from './product-price.component';
 
-bootstrap(ProductPrice);
+@NgModule({
+  imports: [
+    BrowserModule
+  ],
+  declarations: [
+    ProductPrice
+  ],
+  bootstrap: [ ProductPrice ]
+})
+export class AppModule {
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

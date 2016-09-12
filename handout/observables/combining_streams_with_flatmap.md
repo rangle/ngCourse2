@@ -15,7 +15,7 @@ Let's say we wanted to implement an AJAX search feature in which every keypress 
 
 By using `flatMap` we can transform our event stream (the keypress events on the text field) into our response stream (the search results from the HTTP request).
 
-*app/services/Search.ts*
+_*app/services/search.service.ts*_
 
 ```js
 import {Http} from '@angular/http';
@@ -38,46 +38,48 @@ Here we have a basic service that will undergo a search query to Spotify by perf
 
 OK, let's take a look at the component that will be using this service.
 
-*app/app.ts*
+_*app/app.component.ts*_
 
 ```js
-import {Component} from '@angular/core';
-import {Control, ControlGroup, FormBuilder} from '@angular/common';
-import {SearchService} from './services/Search';
+import { Component } from '@angular/core';
+import { FormControl, 
+	FormGroup, 
+	FormBuilder } from '@angular/forms'; 
+import { SearchService } from './services/search.service';
 import 'rxjs/Rx';
 
 @Component({
 	selector: 'app',
 	template: `
-		<form [ngFormModel]="coolForm"><input ngControl="search" placeholder="Search Spotify artist"></form>
-
+		<form [formGroup]="coolForm"><input formControlName="search" placeholder="Search Spotify artist"></form>
+		
 		<div *ngFor="let artist of result">
 		  {{artist.name}}
 		</div>
 	`
 })
 
-export class App {
-	searchField: Control;
-	coolForm: ControlGroup;
-
-	constructor(private searchService: SearchService, private fb: FormBuilder) {
-		this.searchField = new Control();
+export class MyApp {
+	searchField: FormControl;
+	coolForm: FormGroup;
+	
+	constructor(private searchService:SearchService, private fb:FormBuilder) {
+		this.searchField = new FormControl();
 		this.coolForm = fb.group({search: this.searchField});
-
+		
 		this.searchField.valueChanges
-						.debounceTime(400)
-						.flatMap(term => this.searchService.search(term))
-						.subscribe((result) => {
-						  this.result = result.artists.items
-						});
+		  .debounceTime(400)
+			.flatMap(term => this.searchService.search(term))
+			.subscribe((result) => {
+				this.result = result.artists.items
+			});
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/CHfYcFT3kVJZRmb4tCFS?p=preview)
+[View Example](http://plnkr.co/edit/ABfRQW?p=preview)
 
-Here we have set up a basic form with a single field, `searchField`, which we subscribe to for event changes.
-We've also set up a simple binding for any results coming from the SearchService.
+Here we have set up a basic form with a single field, `search`, which we subscribe to for event changes.
+We've also set up a simple binding for any results coming from the `SearchService`.
 The real magic here is `flatMap` which allows us to flatten our two separate subscribed `Observables`
 into a single cohesive stream we can use to control events coming from user input and from server responses.
 

@@ -11,7 +11,7 @@ import 'rxjs/Rx';
 	  `
 })
 
-export class App {
+export class MyApp {
   private doctors = [];
   
   constructor(http: Http, cd: ChangeDetectorRef) {

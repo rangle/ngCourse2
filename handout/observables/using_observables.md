@@ -10,19 +10,30 @@ import {Observable} from 'rxjs/Observable';
 	selector: 'app',
 	template: `
 	  <b>Angular 2 Component Using Observables!</b>
-	  <div>Values: {{values.toString()}}</div>
-	  <div>Errors? {{anyErrors}}</div>
-	  <div>Finished? {{finished}}</div>
+	 
+	  <h6 style="margin-bottom: 0">VALUES:</h6>
+	  <div *ngFor="let value of values">- {{ value }}</div>
+	  
+	  <h6 style="margin-bottom: 0">ERRORs:</h6>
+	  <div>Errors: {{anyErrors}}</div>
+	  
+	  <h6 style="margin-bottom: 0">FINISHED:</h6>
+	  <div>Finished: {{ finished }}</div>
+	  
+	  <button style="margin-top: 2rem;" (click)="init()">Init</button>
 	`
 })
-export class App {
+export class MyApp {
   
-  values: number[] = [];
-  anyErrors: boolean;
-  finished: boolean;
-  private data: Observable<number>;
+  private data: Observable<Array<number>>;
+  private values: Array<number> = [];
+  private anyErrors: boolean;
+  private finished: boolean;
 
   constructor() {
+  }
+  
+  init() {
       this.data = new Observable(observer => {
           setTimeout(() => {
               observer.next(42);
@@ -43,12 +54,12 @@ export class App {
           () => this.finished = true
       );
   }
-  
+
 }
 ```
-[View Example](http://plnkr.co/edit/Nv7yFFBN6GR7ViLaOjiG?p=preview)
+[View Example](http://plnkr.co/edit/Sl4KLv?p=preview)
 
-<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/Nv7yFFBN6GR7ViLaOjiG/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/Sl4KLv/" frameborder="0" allowfullscren="allowfullscren"></iframe>
 
 First we import `Observable` into our component from `rxjs/Observable`. Next, in our constructor we create a new `Observable`. Note that this creates an `Observable` data type that contains data of `number` type. This illustrates the stream of data that `Observables` offer as well as giving us the ability to maintain integrity of the type of data we are expecting to receive. 
 
@@ -72,14 +83,17 @@ new Promise((resolve, reject) => {
 The `forEach` pattern is useful for a sequence of events you only expect to happen once. 
 
 ```js
-export class App {
+export class MyApp {
   
-  values: number[] = [];
-  anyErrors: boolean;
-  finished: boolean;
-  private data: Observable<number>;
+  private data: Observable<Array<number>>;
+  private values: Array<number> = [];
+  private anyErrors: boolean;
+  private finished: boolean;
 
   constructor() {
+  }
+  
+  init() {
       this.data = new Observable(observer => {
           setTimeout(() => {
               observer.next(42);
@@ -103,6 +117,6 @@ export class App {
 }
 ```
 
-[View Example](http://plnkr.co/edit/GBqxOgi4e55hs6JLKWt8?p=preview)
+[View Example](http://plnkr.co/edit/Sef6op?p=preview)
 
-<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/GBqxOgi4e55hs6JLKWt8/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<iframe class="no-pdf" style="width: 100%; height: 300px" src="http://embed.plnkr.co/Sef6op/" frameborder="0" allowfullscren="allowfullscren"></iframe>

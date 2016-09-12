@@ -4,28 +4,6 @@ Let's see how change detection works with a simple example.
 
 We are going to create a simple `MovieApp` to show information about one movie. This app is going to consist of only two components: the `MovieComponent` that shows information about the movie and the `MainComponent` which holds a reference to the movie with buttons to perform some actions.
 
-As always, the first step is to create our `index.html` file using the HTML element defined in the root component of our app `MainComponent`.
-
-_index.html_
-```html
-<html>
-  <!-- ... -->
-  <body>
-    <main>Loading...</main>
-  </body>
-</html>
-```
-
-And the boot file to load the application.
-
-_app/boot.ts_
-```javascript
-import {bootstrap} from 'angular2/platform/browser';
-import {MainComponent} from './main.component';
-
-bootstrap(MainComponent);
-```
-
 Our `MainComponent` will have three properties: the `slogan` of the app, the `title` of the movie and the lead `actor`. The last two properties will be passed to the `MovieComponent` element referenced in the template.
 
 _app/main.component.ts_
@@ -36,7 +14,6 @@ import {Actor} from './actor.model';
 
 @Component({
   selector: 'main',
-  directives: [MovieComponent],
   template: `
     <h1>MovieApp</h1>
     <p>{{ slogan }}</p>
@@ -48,12 +25,12 @@ export class MainComponent {
   slogan: string = 'Just movie information';
   title: string = 'Terminator 1';
   actor: Actor = new Actor('Arnold', 'Schwarzenegger');
-  
+
   changeActorProperties() {
     this.actor.firstName = 'Nicholas';
     this.actor.lastName = 'Cage';
   }
-  
+
   changeActorObject() {
     this.actor = new Actor('Bruce', 'Willis');
   }
@@ -62,7 +39,7 @@ export class MainComponent {
 
 In the above code snippet, we can see that our component defines two buttons that trigger different methods. The `changeActorProperties` will update the lead actor of the movie by directly changing the properties of the `actor` object. In contrast, the method `changeActorObject` will change the information of the actor by creating a completely new instance of the `Actor` class.
 
-The `Actor` model is pretty straightforward, it is just a class that defines the `firstName` and the `lastName` of an actor. 
+The `Actor` model is pretty straightforward, it is just a class that defines the `firstName` and the `lastName` of an actor.
 
 _app/actor.model.ts_
 ```javascript
@@ -101,4 +78,3 @@ export class MovieComponent {
 The final result of the app is shown in the screenshot below:
 
 ![File Structure](../images/app-screenshot.png)
-

@@ -32,7 +32,7 @@ export class ClassAsStringComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/8M32UVF8BHJDaRMGziFi?p=preview)
+[View Example](https://plnkr.co/edit/gRYMBBS7Iugw3nT5gT2l?p=preview)
 
 In this case, we're binding a string directly so we avoid wrapping the directive in square brackets. Also notice that the `ngClass` works with the `class` attribute to combine the final classes.
 
@@ -61,7 +61,7 @@ export class ClassAsArrayComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/8M32UVF8BHJDaRMGziFi?p=preview)
+[View Example](https://plnkr.co/edit/gRYMBBS7Iugw3nT5gT2l?p=preview)
 
 Here, since we are binding to the `ngClass` directive by using an expression, we need to wrap the directive name in square brackets. Passing in an array is useful when you want to have a function put together the list of applicable class names.
 
@@ -104,6 +104,6 @@ export class ClassAsObjectComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/8mGcM3?p=preview)
+[View Example](https://plnkr.co/edit/AttvuX?p=preview)
 
 Here we can see that since the object's `card` and `flat` properties are true, those classes are applied but since `dark` is false, it's not applied.

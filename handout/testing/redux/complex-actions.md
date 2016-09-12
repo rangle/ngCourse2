@@ -33,12 +33,6 @@ Unit testing is similar to before, but we need to mock our state as well as disp
 ```js
 import { NgRedux } from 'ng2-redux';
 import { CounterActions } from './counter';
-import {
-  beforeEach,
-  describe,
-  expect,
-  it,
-} from '@angular/core/testing';
 
 class MockRedux extends NgRedux<any> {
   constructor(private state: any) {

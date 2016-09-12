@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   selector: 'app',
-  directives: [ROUTER_DIRECTIVES],
   template: `
     <nav>
       <a [routerLink]="['/component-one']">No param</a>
@@ -15,6 +13,6 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     </div>
   `
 })
-export class AppComponent {
-  
+export default class AppComponent {
+
 }

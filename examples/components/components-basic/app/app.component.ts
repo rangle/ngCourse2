@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
 })
 export class Hello {
   name: string;
-  
+
   constructor() {
     this.name = 'World';
   }

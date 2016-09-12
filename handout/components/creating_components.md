@@ -23,4 +23,4 @@ export class Hello {
 
 To use this component we simply add `<hello></hello>` to our HTML, and Angular will insert an instance of the `Hello` view between those tags.
 
-[View Example](http://plnkr.co/edit/4lHGKTIhe0V8ykVtkTIN?p=preview)
+[View Example](http://plnkr.co/edit/kKOqFc0xwcdnxK7SkKnA?p=preview)

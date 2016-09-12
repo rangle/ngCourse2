@@ -14,7 +14,7 @@ console.log(b) // ['B', 'a', 'r'] => The first letter changed, arrays are mutabl
 var a = 'Car';
 a[0] = 'B';
 console.log(a); // 'Car' => The first letter didn't change, strings are immutable
-``` 
+```
 
 First we need to install the `immutable.js` library using the command:
 
@@ -32,7 +32,6 @@ import * as Immutable from 'immutable';
 
 @Component({
   selector: 'main',
-  directives: [MovieComponent],
   template: `
     <h1>MovieApp</h1>
     <p>{{ slogan }}</p>
@@ -43,7 +42,7 @@ export class MainComponent {
   slogan: string = 'Just movie information';
   title: string = 'Terminator 1';
   actor: Immutable.Map<string, string> = Immutable.Map({firstName: 'Arnold', lastName: 'Schwarzenegger'});
-  
+
   changeActor() {
     this.actor = this.actor.merge({firstName: 'Nicholas', lastName: 'Cage'});
   }
@@ -81,7 +80,6 @@ export class MovieComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/KH3a4qHBpIKd7yYZF3ww?p=preview)
+[View Example](http://plnkr.co/edit/MCMgTQTpYFkML7i7FWIH?p=preview)
 
 Using this pattern we are taking full advantage of the "OnPush" change detection strategy and thus reducing the amount of work done by Angular to propagate changes and to get models and views in sync. This improves the performance of the application.
-

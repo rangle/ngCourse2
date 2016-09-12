@@ -5,14 +5,16 @@ Angular 2 allows you to create your own custom pipes:
 ```javascript
 import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({name: 'length'})
+@Pipe({
+  name: 'length'
+})
 export class LengthPipe implements PipeTransform {
-  transform(value:string, displayMessage: boolean): string {
+  transform(value: string, displayMessage: boolean): string {
     return displayMessage ? `${value} ${value.length}` : `${value.length}`
   }
 }
 ```
-[View Example](http://plnkr.co/edit/HFxvxiv3XibvDzbQkfhG?p=preview)
+[View Example](http://plnkr.co/edit/l5koabsVYdoIhHDe24pR?p=preview)
 
 Each custom pipe implementation must:
 
@@ -25,15 +27,17 @@ Each colon-delimited parameter in the template maps to one method argument in th
 
 ```javascript
 import {Component} from '@angular/core';
-import {LengthPipe} from './length.pipe';
 
 @Component({
 	selector: 'hello',
-	template: '<div><p>{{ message | length: true }}</p><p>{{ message | length: false }}</p></div>',
-	pipes: [LengthPipe]
+	template: `
+	  <div>
+	    <p>{{ message | length:true }}</p>
+	    <p>{{ message | length:false }}</p>
+    </div>`
 })
 export class Hello {
   message: string = 'Hello There';
 }
 ```
-[View Example](http://plnkr.co/edit/GhvTYRwESG9QAdw0eBc3?p=preview)
+[View Example](http://plnkr.co/edit/l5koabsVYdoIhHDe24pR?p=preview)

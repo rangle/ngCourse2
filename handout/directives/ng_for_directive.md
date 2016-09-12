@@ -5,7 +5,6 @@ The `ngFor` directive is a way of repeating a template by using each item of an 
 ```typescript
 @Component({
   selector: 'app',
-  directives: [ForExampleComponent],
   template: `
     <for-example *ngFor="let episode of episodes" [episode]="episode">
       {{episode.title}}
@@ -25,7 +24,7 @@ export class AppComponent {
   ];
 }
 ```
-[View Example](https://plnkr.co/edit/E2Q8Xi6LATpWcXk6bAUQ?p=preview)
+[View Example](https://plnkr.co/edit/qXH6rcUAZIIHUuAEKwa8?p=preview)
 
 The `ngFor` directive has a different syntax from other directives we've seen. If you're familiar with the [for...of statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of), you'll notice that they're almost identical. `ngFor` lets you specify an iterable object to iterate over and the name to refer to each item by inside the scope. In our example, you can see that `episode` is available for interpolation as well as property binding. The directive does some extra parsing so that when this is expanded to template form, it looks a bit different:
 
@@ -33,7 +32,6 @@ The `ngFor` directive has a different syntax from other directives we've seen. I
 ```typescript
 @Component({
   selector: 'app',
-  directives: [ForExampleComponent],
   template: `
     <template ngFor [ngForOf]="episodes" let-episode>
       <for-example [episode]="episode">
@@ -43,7 +41,7 @@ The `ngFor` directive has a different syntax from other directives we've seen. I
   `
 })
 ```
-[View Example](https://plnkr.co/edit/E2Q8Xi6LATpWcXk6bAUQ?p=preview)
+[View Example](https://plnkr.co/edit/qXH6rcUAZIIHUuAEKwa8?p=preview)
 
 Notice that there is an odd `let-episode` property on the template element. The `ngFor` directive provides some variables as context within its scope. `let-episode` is a context binding and here it takes on the value of each item of the iterable. `ngFor` also provides some other values that can be bound to:
 
@@ -57,7 +55,6 @@ Notice that there is an odd `let-episode` property on the template element. The 
 ```typescript
 @Component({
   selector: 'app',
-  directives: [ForExampleComponent],
   template: `
     <for-example
       *ngFor="let episode of episodes; let i = index; let isOdd = odd"
@@ -78,7 +75,7 @@ Notice that there is an odd `let-episode` property on the template element. The 
   `
 })
 ```
-[View Example](https://plnkr.co/edit/GaxhVSjfY8UmHm4T3PNg?p=preview)
+[View Example](https://plnkr.co/edit/YFkwmcMiiEuuEVThgpKG?p=preview)
 
 ## trackBy ##
 
@@ -91,18 +88,15 @@ For example, if the `Add Episode` button was to make a request and return a new 
 ```typescript
 @Component({
   selector: 'app',
-  directives: [ForExampleComponent],
   template: `
   <button (click)="addOtherEpisode()" [disabled]="otherEpisodes.length === 0">Add Episode</button>
     <for-example
-      *ngFor="let episode of episodes;  
-      let i = index; let isOdd = odd;  
+      *ngFor="let episode of episodes;
+      let i = index; let isOdd = odd;
       trackBy: trackById" [episode]="episode"
       [ngClass]="{ odd: isOdd }">
       {{episode.title}}
     </for-example>
-
-
   `
 })
 export class AppComponent {
@@ -149,10 +143,10 @@ export class ForExampleComponent {
   }
 }
 ```
-[View Example](https://plnkr.co/edit/bjqil7?p=preview)
+[View Example](https://plnkr.co/edit/apNLg8?p=preview)
 
 When we view the example, as we click on `Add Episode`, we can see console output indicating that only one component was created - for the newly added item to the list.
 
-However, if we were to remove the `trackBy` from the `*ngFor` - every time we click the button, we would see the items in the component getting destroyed and recreated.  
+However, if we were to remove the `trackBy` from the `*ngFor` - every time we click the button, we would see the items in the component getting destroyed and recreated.
 
-[View Example Without trackBy](https://plnkr.co/edit/CbPDig?p=preview)
+[View Example Without trackBy](https://plnkr.co/edit/UxZsqR?p=preview)

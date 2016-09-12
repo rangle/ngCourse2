@@ -4,6 +4,6 @@ import {Component} from '@angular/core';
   selector: 'component-one',
   template: 'Component One'
 })
-export default class ComponentOne { 
+export default class ComponentOne {
 
 }

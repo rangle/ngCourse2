@@ -39,7 +39,7 @@ class MainComponent_ChangeDetector {
 
 Because in the template of our `MainComponent` we reference three variables (`slogan`, `title` and `actor`), our change detector will have three properties to store the "old" values of these three properties, plus a reference to the `MainComponent` instance that it's supposed to "watch". When the change detection process wants to know if our `MainComponent` instance has changed, it will run the method `detectChanges` passing the current model values to compare with the old ones. If a change was detected, the component gets updated.
 
-> Disclaimer: This is just a conceptual overview of how change detector classes work; the actual implementation may be different.  
+> Disclaimer: This is just a conceptual overview of how change detector classes work; the actual implementation may be different.
 
 ## Change Detection Strategy: Default
 
@@ -59,7 +59,7 @@ export class MovieComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/LjyPxgGkqMIwTepMMPId?p=preview)
+[View Example](http://plnkr.co/edit/Z5gWPosxIpCqsBcepMEu?p=preview)
 
 Let's see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy.
 

@@ -1,19 +1,27 @@
 # Bootstrapping Providers
 
-Calling `bootstrap` also starts the dependency injection system in Angular 2.
+The bootstrap process also starts the dependency injection system in Angular 2.
 We won't go over Angular 2's dependency injection system here - that is covered later.
 Instead let's take a look at an example of how to bootstrap your application with application-wide providers.
 
-```js
-import {bootstrap} from '@angular/platform-browser-dynamic'
-import {MyProvider} from './myprovider'
-import {App} from './app.component'
+For this, we will register a service called `Greeter` with the `providers` property of the module we are using to bootstrap the application.
 
-bootstrap(MyApp, [MyProvider]);
+_*app/app.module.ts*_
+```js
+import { BrowserModule }  from '@angular/platform-browser';
+import { NgModule } '@angular/core';
+import { MyApp } from './app.component'
+import { Greeter } from './greeter.service';
+
+@NgModule({
+  imports: [BrowserModule],
+  providers: [Greeter],
+  declarations: [MyApp],
+  bootstrap: [MyApp]
+})
+export class MyAppModule {
+
+}
 ```
 
-[View Example](https://plnkr.co/edit/H39hzVfQSmfmQqrk972u?p=preview)
-
-We import our root Component, `App`, `bootstrap` and a custom provider, `MyProvider`.
-When we bootstrap our root component we can pass in application-wide providers
-that will be injected to any component that wants to use them.
+[View Example](https://plnkr.co/edit/yzS1TK?p=preview)

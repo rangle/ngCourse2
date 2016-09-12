@@ -1,6 +1,6 @@
 # Defining Child Routes #
 
-When some routes may only be accessible and viewed within other routes it may be appropriate to create them as child routes. 
+When some routes may only be accessible and viewed within other routes it may be appropriate to create them as child routes.
 
 For example: The product details page may have a tabbed navigation section that shows the product overview by default. When the user clicks the "Technical Specs" tab the section shows the specs instead.
 
@@ -14,10 +14,10 @@ When the user clicks "Technical Specs":
 
 `overview` and `specs` are child routes of `product-details/:id`. They are only reachable within product details.
 
-Our `RouteConfig` with children would look like:
+Our `Routes` with children would look like:
 
 ```javascript
-export const routes: RouterConfig = [
+export const routes: Routes = [
   { path: '', redirectTo: 'product-list', pathMatch: 'full' },
   { path: 'product-list', component: ProductList },
   { path: 'product-details/:id', component: ProductDetails,
@@ -34,7 +34,7 @@ Where would the components for these child routes be displayed? Just like we had
 
 ```javascript
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'product-details',
@@ -47,8 +47,7 @@ import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
     </nav>
     <router-outlet></router-outlet>
     <!-- Overview & Specs components get added here by the router -->
-  `,
-  directives: [ROUTER_DIRECTIVES]
+  `
 })
 export default class ProductDetails implements OnInit, OnDestroy {
   id: number;
@@ -72,7 +71,7 @@ Alternatively, we could specify `overview` route URL simply as:
 `localhost:3000/product-details/3`
 
 ```javascript
-export const routes: RouterConfig = [
+export const routes: Routes = [
   { path: '', redirectTo: 'product-list', pathMatch: 'full' },
   { path: 'product-list', component: ProductList },
   { path: 'product-details/:id', component: ProductDetails,
@@ -85,9 +84,9 @@ export const routes: RouterConfig = [
 ```
 Since the `Overview` child route of `product-details` has an empty path, it will be loaded by default. The `specs` child route remains the same.
 
-[View Example with child routes](https://plnkr.co/edit/QlMe6pMINxJGTdA3xm0B?p=preview)
+[View Example with child routes](https://plnkr.co/edit/5sgMKcCtAluRuyz7VZRZ?p=preview)
 
-[View Example with route params & child routes](https://plnkr.co/edit/g88pvg4LQq7XVJo7iG9b?p=preview)
+[View Example with route params & child routes](https://plnkr.co/edit/nCYxArisezQAqnPTLa7B?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.
 
@@ -117,7 +116,7 @@ export default class Overview {
 }
 ```
 
-[View Example child routes accessing parent's route parameters](https://plnkr.co/edit/Lk8DMrOlGRYPKQtIDEkN?p=preview)
+[View Example child routes accessing parent's route parameters](https://plnkr.co/edit/7bLPo9NHpxSdsbimUAoj?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.
 
@@ -143,6 +142,6 @@ In the above example, the link for route one links to a child of the current rou
 The link for route two links to a sibling of the current route.
 The link for route three links to a child of the root component (same as route one link if current route is root component).
 
-[View Example with linking throughout route tree](https://plnkr.co/edit/6Mdn7qUblMtktpQyFJAc?p=preview)
+[View Example with linking throughout route tree](https://plnkr.co/edit/UYBPrTAodRHFmbfRJoXz?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.

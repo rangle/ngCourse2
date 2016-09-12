@@ -1,20 +1,18 @@
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app',
-  directives: [ROUTER_DIRECTIVES],
   template: `
     <nav>
       <a [routerLink]="['/component-one']">Component One</a>
-      <a [routerLink]="['/component-two', 123]">Component Two</a>
+      <a [routerLink]="['/component-two', 123]">Component Two (id: 123)</a>
     </nav>
-    <div style="color: green;">Outlet:</div>
-    <div style="border: 1px solid green;">
+    <div style="color: green; margin-top: 1rem;">Outlet:</div>
+    <div style="border: 2px solid green; padding: 1rem;">
       <router-outlet></router-outlet>
     </div>
   `
 })
 export class AppComponent {
-  
+
 }

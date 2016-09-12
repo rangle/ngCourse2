@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
 	selector: 'app',
@@ -16,7 +16,7 @@ import {Observable} from 'rxjs/Observable';
   `
 })
 
-export class App {
+export class MyApp {
 	
 	private data: Observable<Array<number>>;
 	private values: Array<number> = [];

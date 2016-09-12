@@ -14,7 +14,6 @@ import {Hello} from './hello.component';
 
 @Component({
     selector: 'app',
-    directives: [Hello],
     template: `
       <div>
         <hello></hello>
@@ -35,12 +34,11 @@ export class App {
 We can also use `@ViewChildren` to get a list of class instances if there are multiple, which selects a `QueryList` of the elements:
 
 ```typescript
-import {Component, ViewChildren} from '@angular/core';
+import {Component, QueryList, ViewChildren} from '@angular/core';
 import {Hello} from './hello.component';
 
 @Component({
     selector: 'app',
-    directives: [Hello],
     template: `
       <div>
         <hello></hello>
@@ -65,12 +63,11 @@ As shown above, when given a class type `@ViewChild` & `@ViewChildren` select ch
 In the below, only the middle `hello` element is selected & called:
 
 ```typescript
-import {Component, ViewChildren} from '@angular/core';
+import {Component, QueryList, ViewChildren} from '@angular/core';
 import {Hello} from './hello.component';
 
 @Component({
     selector: 'app',
-    directives: [Hello],
     template: `
       <div>
         <hello></hello>
@@ -90,7 +87,7 @@ export class App {
 }
 ```
 
-[View Example](http://plnkr.co/edit/NnWXogk7x5MMEdnJNLT5?p=preview)
+[View Example](http://plnkr.co/edit/619u9UjTxJyxAyEVJ0NE?p=preview)
 
 ## @ContentChild & @ContentChildren ##
 
@@ -98,4 +95,4 @@ export class App {
 
 Also note that content children will not be set until `ngAfterContentInit` component lifecycle hook.
 
-[View Example](http://plnkr.co/edit/F5BaUEO9nJzb0AfVMOEE?p=preview)
+[View Example](http://plnkr.co/edit/VNHWmGMnOFXHN8cEsN9N?p=preview)

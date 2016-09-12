@@ -7,7 +7,6 @@ Here's our app component, where we bind the `ngIf` directive to an example compo
 ```typescript
 @Component({
   selector: 'app',
-  directives: [IfExampleComponent],
   template: `
     <button type="button" (click)="toggleExists()">Toggle Component</button>
     <hr/>
@@ -18,12 +17,12 @@ Here's our app component, where we bind the `ngIf` directive to an example compo
 })
 export class AppComponent {
   exists: boolean = true;
-  
+
   toggleExists() {
     this.exists = !this.exists;
   }
 }
 ```
-[View Example](https://plnkr.co/edit/fe1drmczwhn54ypeDIv3?p=preview)
+[View Example](https://plnkr.co/edit/zzxw8D1DmNw1Mdea7app?p=preview)
 
 Clicking the button will toggle whether or not `IfExampleComponent` is a part of the DOM and not just whether it is visible or not. This means that every time the button is clicked, `IfExampleComponent` will be created or destroyed. This can be an issue with components that have expensive create/destroy actions. For example, a component could have a large child subtree or make several HTTP calls when constructed. In these cases it may be better to avoid using `ngIf` if possible.
