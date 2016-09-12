@@ -69,4 +69,4 @@ describe('MessageComponent', () => {
 
 });
 ```
-[View Example](http://plnkr.co/edit/L6fIlOHIhy4yuRzEa14S?p=preview)
+[View Example](http://plnkr.co/edit/DBcWsjI0dFkWLkUbE0Mb?p=preview)
