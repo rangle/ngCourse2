@@ -1,13 +1,12 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { NgRedux, select } from 'ng2-redux';
+import { Observable } from 'rxjs';
 import { CounterActions } from '../actions/counter-actions';
-import { Counter } from '../components/counter-component';
 import logger from '../store/configure-logger';
 import reducer from '../reducers/index';
 
 @Component({
 	selector: 'simple-redux',
-	directives: [ Counter ],
 	providers: [ CounterActions ],
 	template: `
 	<div>
