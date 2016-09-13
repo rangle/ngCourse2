@@ -1,15 +1,22 @@
-import { bootstrap }    from '@angular/platform-browser-dynamic';
-import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
-import { LocationStrategy, Location, HashLocationStrategy } from '@angular/common';
-import { APP_BASE_HREF } from '@angular/common/index';
-import { provide } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgReduxModule } from 'ng2-redux';
+
 import { SimpleRedux } from './containers/app-container';
-import { NgRedux } from 'ng2-redux'
+import { Counter } from './components/counter-component';
 
-bootstrap(SimpleRedux, [
-  ROUTER_PROVIDERS,
-  provide(LocationStrategy, {useClass: HashLocationStrategy}),
-  provide(APP_BASE_HREF, { useValue: '/' }),
-  NgRedux
-]);
-
+@NgModule({
+  imports: [
+    BrowserModule,
+    NgReduxModule
+  ],
+  declarations: [
+    SimpleRedux,
+    Counter
+  ],
+  bootstrap: [ SimpleRedux ]
+})
+class AppModule {
+}
+platformBrowserDynamic().bootstrapModule(AppModule);
