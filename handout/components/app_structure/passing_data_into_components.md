@@ -3,15 +3,14 @@
 The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `Hello` component so that `name` can be configured by the parent.
 
 ```js
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'hello',
-  inputs: ['name'],
   template: '<p>Hello, {{name}}</p>'
 })
 export class Hello {
-  name: string;
+  @Input() name: string;
 }
 ```
 
@@ -26,6 +25,6 @@ We can now use our component like so:
 <hello [name]="name"></hello>
 ```
 
-[View Example](http://plnkr.co/edit/R0ayQkjksKeE7NR8CK7F?p=preview)
+[View Example](http://plnkr.co/edit/fpjDiE?p=preview)
 
 >Unlike Angular 1.x, this is one-way binding.
