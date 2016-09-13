@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgRedux, select } from 'ng2-redux';
-import { Counter } from '../components/counter-component';
+import { Observable } from 'rxjs';
 import { CounterActions } from '../actions/counter-actions';
 import { CurseActions } from '../actions/curse-actions';
 import logger from '../store/configure-logger';
@@ -9,13 +9,12 @@ import reducer from '../reducers/index';
 @Component({
   selector: 'simple-redux',
   providers: [ CounterActions, CurseActions ],
-  directives: [ Counter ],
   template: `
   <div>
     <h1>Redux: Presentational Counters</h1>
     <div style="float: left; border: 1px solid red;">
       <h2>Click Counter</h2>
-      <counter [counter$]="counter$"
+      <counter [counter]="counter$"
           (increment)="counterActions.increment()"
           (decrement)="counterActions.decrement()"
           (incrementIfOdd)="counterActions.incrementIfOdd()"
@@ -24,7 +23,7 @@ import reducer from '../reducers/index';
     </div>
     <div style="float: left; border: 1px solid blue;">
       <h2>Curse Counter</h2>
-      <counter [counter$]="curse$"
+      <counter [counter]="curse$"
           (increment)="curseActions.castCurse()"
           (decrement)="curseActions.removeCurse()"
           (incrementIfOdd)="curseActions.castIfOdd()"
