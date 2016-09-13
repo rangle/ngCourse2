@@ -28,12 +28,10 @@ export class Counter {
 To send data out of components via outputs, start by defining the outputs attribute. It accepts a list of output parameters that a component exposes to its parent.
 
 ```js
-import {Component, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'counter',
-  inputs: ['count'],
-  outputs: ['result'],
   template: `
     <div>
       <p>Count: {{ count }}</p>
@@ -41,9 +39,9 @@ import {Component, EventEmitter} from '@angular/core';
     </div>
   `
 })
-export default class Counter {
-  count: number = 0;
-  result: EventEmitter<number> = new EventEmitter<number>();
+export class Counter {
+  @Input() count: number = 0;
+  @Output() result: EventEmitter = new EventEmitter();
 
   increment() {
     this.count++;
@@ -52,6 +50,6 @@ export default class Counter {
 }
 ```
 
-[View Example](http://plnkr.co/edit/iMoehv7loiV5twHWkyca?p=preview)
+[View Example](http://plnkr.co/edit/USYJ9d?p=preview)
 
 Together a set of input + output bindings define the public API of your component. In our templates we use the [squareBrackets] to pass inputs and the (parenthesis) to handle outputs.
