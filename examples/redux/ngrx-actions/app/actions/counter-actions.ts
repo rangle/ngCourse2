@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import 'rxjs/add/operator/take';
 
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
@@ -14,6 +15,15 @@ export class CounterActions {
 
   decrement() {
     this.store.dispatch({ type: DECREMENT_COUNTER });
+  }
+
+  incrementIfOdd() {
+    this.store.take(1)
+      .subscribe(({ counter }) => {
+        if (counter % 2 !== 0) {
+          this.store.dispatch({ type: INCREMENT_COUNTER });
+        }
+      });
   }
 
   incrementAsync(timeInMs = 1000) {

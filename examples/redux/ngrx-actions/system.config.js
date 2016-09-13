@@ -1,4 +1,5 @@
 var angularVersion = '2.0.0-rc.6';
+var rcVersion = '2.0.0-rc.2';
 
 System.config({
   baseUrl: '/',
@@ -34,8 +35,8 @@ System.config({
     '@angular/router': 'unpkg:@angular/router@'+rcVersion,
     'immutable': 'unpkg:immutable@3.8.1',
     'redux': 'unpkg:redux@2.0.0/dist/redux.js',
-    '@ngrx/core': 'npmcdn:@ngrx/core',
-    '@ngrx/store': 'npmcdn:@ngrx/store@2.1.2',
+    '@ngrx/core': 'unpkg:@ngrx/core',
+    '@ngrx/store': 'unpkg:@ngrx/store@2.1.2',
     'lodash': 'unpkg:lodash@4.0.0',
     'invariant': 'unpkg:invariant@2.2.1',
     'redux-logger': 'unpkg:redux-logger@2.6.0',
