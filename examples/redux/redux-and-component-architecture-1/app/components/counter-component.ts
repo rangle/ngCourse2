@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { select } from 'ng2-redux';
+import { Observable } from 'rxjs';
 import { CounterActions } from '../actions/counter-actions';
 
 @Component({
