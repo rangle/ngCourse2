@@ -45,7 +45,7 @@ _app/login-form.component.html_
     <input type="text" name="username" id="username" [formControl]="username">
     <div [hidden]="username.valid || username.untouched">
       <div>The following problems have been found with the username:</div>
-      <div [hidden]="!username.hasError('minLength')">Username can not be shorter than 5 characters.</div>
+      <div [hidden]="!username.hasError('minlength')">Username can not be shorter than 5 characters.</div>
       <div [hidden]="!username.hasError('required')">Username is required.</div>
     </div>
   </div>
