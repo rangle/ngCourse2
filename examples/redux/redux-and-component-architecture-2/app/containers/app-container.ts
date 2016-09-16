@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { NgRedux, select } from 'ng2-redux';
+import { select } from 'ng2-redux';
 import { Observable } from 'rxjs';
 import { CounterActions } from '../actions/counter-actions';
 import { CurseActions } from '../actions/curse-actions';
-import logger from '../store/configure-logger';
-import reducer from '../reducers/index';
 
 @Component({
   selector: 'simple-redux',
@@ -39,10 +37,6 @@ export class SimpleRedux {
 
   constructor(
     private counterActions: CounterActions,
-    private curseActions: CurseActions,
-    redux: NgRedux) {
-      const initialState = {};
-      const middleware = [ logger ];
-      redux.configureStore(reducer, initialState, middleware);
+    private curseActions: CurseActions) {
     }
 }

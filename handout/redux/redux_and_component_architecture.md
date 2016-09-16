@@ -166,11 +166,7 @@ export class SimpleRedux {
 
   constructor(
     public counterActions: CounterActions,
-    public curseActions: CurseActions,
-    redux: NgRedux) {
-      const initialState = {};
-      const middleware = [ logger ];
-      redux.configureStore(reducer, initialState, middleware);
+    public curseActions: CurseActions) {
     }
 }
 ```

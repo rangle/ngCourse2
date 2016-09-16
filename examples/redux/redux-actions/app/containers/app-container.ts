@@ -1,9 +1,7 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { NgRedux, select } from 'ng2-redux';
+import { select } from 'ng2-redux';
 import { Observable } from 'rxjs';
 import { CounterActions } from '../actions/counter-actions';
-import logger from '../store/configure-logger';
-import reducer from '../reducers/index';
 
 @Component({
 	selector: 'simple-redux',
@@ -23,9 +21,6 @@ import reducer from '../reducers/index';
 export class SimpleRedux {
   @select() counter$: Observable<number>;
 
-  constructor(
-    private redux: NgRedux,
-    private actions: CounterActions) {
-    redux.configureStore(reducer, {}, [ logger ]);
+  constructor(private actions: CounterActions) {
   }
 }

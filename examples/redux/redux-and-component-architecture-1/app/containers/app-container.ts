@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { NgRedux } from 'ng2-redux';
-import logger from '../store/configure-logger';
-import reducer from '../reducers/index';
 
 @Component({
 	selector: 'simple-redux',
@@ -22,9 +19,6 @@ import reducer from '../reducers/index';
 	`
 })
 export class SimpleRedux {
-  constructor(ngRedux: NgRedux) {
-    const initialState = {};
-    const middleware = [ logger ];
-    ngRedux.configureStore(reducer, initialState, middleware);
+  constructor() {
   }
 }
