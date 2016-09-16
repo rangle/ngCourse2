@@ -166,6 +166,10 @@
    * [Adding Components, Pipes and Services to a Module](handout/modules/multiple-elements.md)
    * [Creating a Feature Module](handout/modules/feature-modules.md)
    * [Directive Duplications](handout/modules/directive-duplications.md)
+   * [Lazy Loading a Module](handout/modules/lazy-loading-module.md)
+   * [Lazy Loading and the Dependency Injection Tree](handout/modules/lazy-load-di.md)
+   * [Shared Modules and Dependency Injection](handout/modules/shared-modules-di.md)
+   * [Sharing the Same Dependency Injection Tree](handout/modules/shared-di-tree.md)
 
 ---
 
