@@ -16,6 +16,7 @@ _app/components/counter-component.ts_
 ```javascript
 import { Component } from '@angular/core';
 import { select } from 'ng2-redux';
+import { Observable } from 'rxjs';
 import { CounterActions } from '../actions/counter-actions';
 
 @Component({
@@ -38,7 +39,7 @@ export class Counter {
 }
 ```
 
-[View Example](https://plnkr.co/edit/NmxQEawemZsdrmj3LT9C?p=preview)
+[View Example](https://plnkr.co/edit/yieXt6DmnELzF86f7Fwj?p=preview)
 
 The template syntax should be familiar by now, displaying a `Observable` counter
 with the async pipe and handling some click events.

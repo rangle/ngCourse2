@@ -1,13 +1,24 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provide } from '@angular/core';
-import { provideStore } from '@ngrx/store';
-import { SimpleNgrx } from './containers/app-container';
-import { counterReducer } from './reducers/counter-reducer.ts';
-import { curseReducer } from './reducers/curse-reducer.ts';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { StoreModule, combineReducers } from '@ngrx/store';
 
-bootstrap(SimpleNgrx, [
-  provideStore({
-    counter: counterReducer,
-    curse: curseReducer
-  }),
-]);
+import { SimpleNgrx } from './containers/app-container';
+import { Counter } from './components/counter-component';
+import rootReducer from './reducers/index';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    StoreModule.provideStore(rootReducer)
+  ],
+  declarations: [
+    SimpleNgrx,
+    Counter
+  ],
+  bootstrap: [ SimpleNgrx ]
+})
+class AppModule {
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

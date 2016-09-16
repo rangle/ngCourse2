@@ -15,7 +15,7 @@ export class CounterActions {
   decrement() {
     this.redux.dispatch({ type: DECREMENT_COUNTER });
   }
-  
+
   incrementIfOdd() {
     const { counter } = this.redux.getState();
 

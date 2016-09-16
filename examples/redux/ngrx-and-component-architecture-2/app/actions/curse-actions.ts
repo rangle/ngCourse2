@@ -12,10 +12,19 @@ export class CurseActions {
     this.store.dispatch({ type: CAST_CURSE });
   }
 
+  castIfOdd() {
+    this.store.take(1)
+      .subscribe(({ curse }) => {
+        if (curse % 2 !== 0) {
+          this.store.dispatch({ type: CAST_CURSE });
+        }
+      });
+  }
+
   removeCurse() {
     this.store.dispatch({ type: REMOVE_CURSE });
   }
-  
+
   castAsync(timeInMs = 1000) {
     this.delay(timeInMs).then(() => this.store.dispatch({ type: CAST_CURSE }));
   }

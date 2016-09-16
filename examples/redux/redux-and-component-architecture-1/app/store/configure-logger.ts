@@ -3,7 +3,6 @@ __DEV__ = true;
 import {Iterable} from 'immutable';
 import createLogger from 'redux-logger';
 
-
 const logger = createLogger({
     level: 'info',
     collapsed: true,

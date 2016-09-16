@@ -1,13 +1,12 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { CounterActions } from '../actions/counter-actions';
-import { Counter } from '../components/counter-component';
 import logger from '../store/configure-logger';
 import reducer from '../reducers/index';
 
 @Component({
 	selector: 'simple-ngrx',
-	directives: [ Counter ],
 	providers: [ CounterActions ],
 	template: `
 	<div>
@@ -27,7 +26,7 @@ export class SimpleNgrx {
   constructor(
     private store: Store<any>,
     private actions: CounterActions) {
-    
+
     this.counter$ = store.select('counter');
   }
 }
