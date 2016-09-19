@@ -1,6 +1,6 @@
 # Lazy Loading a Module
 
-Another advantage of using modules to group related pieces of functionality of our application, is the ability to load those pieces on demand. Lazy loading modules will help us decrease the startup time of our application because we don't need to load everything at once, we only need to load what the user expects to see at the beginning and then conditionally load other modules as the user navigates to different sections. As you can imagine, there's a relationship between lazy loading and routing.
+Another advantage of using modules to group related pieces of functionality of our application is the ability to load those pieces on demand. Lazy loading modules helps us decrease the startup time. With lazy loading our application does not need to load everything at once, it only needs to load what the user expects to see when the app first loads. Modules that are lazily loaded will only be loaded when the user navigates to their routes.
 
 To show this relationship, let's start by defining a simple module that will act as the root module of our example application.
 
@@ -81,7 +81,7 @@ import { Component } from '@angular/core';
 export class EagerComponent {}
 ```
 
-But more importantly, we can see that whenever we try to go to the path `lazy`, we are going to lazy load a module called conveniently `LazyModule`. Look closely at the definition of that route:
+But more importantly, we can see that whenever we try to go to the path `lazy`, we are going to lazy load a module conveniently called `LazyModule`. Look closely at the definition of that route:
 
 ```js
 { path: 'lazy', loadChildren: 'lazy/lazy.module#LazyModule' }
@@ -89,9 +89,9 @@ But more importantly, we can see that whenever we try to go to the path `lazy`, 
 
 There's a few important things to notice here:
 
-1. We are using the property `loadChildren` instead of `component`.
-2. We are passing a string instead of a symbol to avoid loading the module eagerly.
-3. We are defining not only the path to the module but the name of the class as well.
+1. We use the property `loadChildren` instead of `component`.
+2. We pass a string instead of a symbol to avoid loading the module eagerly.
+3. We define not only the path to the module but the name of the class as well.
 
 There's nothing special about `LazyModule` other than it has its own `routing` and a component called `LazyComponent`.
 
@@ -129,7 +129,7 @@ const routes: Routes = [
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);
 ```
 
-Notice that we are using the method call `forChild` instead of `forRoot` to create the routing object. We should always do that when creating a routing object for a feature module, no matter if the module is supposed to be eagerly or lazy loaded.
+Notice that we use the method call `forChild` instead of `forRoot` to create the routing object. We should always do that when creating a routing object for a feature module, no matter if the module is supposed to be eagerly or lazily loaded.
 
 Finally, our `LazyComponent` is very similar to `EagerComponent` and is just a placeholder for some text.
 
@@ -148,5 +148,5 @@ export class LazyComponent {}
 
 When we load our application for the first time, the `AppModule` along the `AppComponent` will be loaded in the browser and we should see the navigation system and the text "Eager Component". Until this point, the `LazyModule` has not being downloaded, only when we click the link "Lazy" the needed code will be downloaded and we will see the message "Lazy Component" in the browser. 
 
-We have effectively lazy loaded a module.
+We have effectively lazily loaded a module.
 

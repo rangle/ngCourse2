@@ -17,7 +17,7 @@ import { CounterService } from './counter.service';
 export class LazyModule {}
 ```
 
-Here we have added the `CounterService` to the `providers` array. Our `CounterService` is a simple class that holds a reference to a `counter` property.
+Here we added the `CounterService` to the `providers` array. Our `CounterService` is a simple class that holds a reference to a `counter` property.
 
 _app/lazy/counter.service.ts_
 
@@ -30,7 +30,7 @@ export class CounterService {
 }
 ```
 
-We can now modify the `LazyComponent` to use this service with a button to increment the `counter` property.
+We can modify the `LazyComponent` to use this service with a button to increment the `counter` property.
 
 _app/lazy/lazy.component.ts_
 
@@ -90,4 +90,4 @@ If we try to run this new version of our code, we are going to get an error mess
 No provider for CounterService!
 ```
 
-What this error is telling us is that the `AppModule`, where the `EagerComponent` is defined, has no knowledge of a service called `CounterService`. `CounterService` lives in a different branch of the DI tree created for `LazyModule` when it was lazy loaded in the browser.
+What this error tells us is that the `AppModule`, where the `EagerComponent` is defined, has no knowledge of a service called `CounterService`. `CounterService` lives in a different branch of the DI tree created for `LazyModule` when it was lazy loaded in the browser.
