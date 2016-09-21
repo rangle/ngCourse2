@@ -42,9 +42,9 @@ _*app/app.component.ts*_
 
 ```js
 import { Component } from '@angular/core';
-import { FormControl, 
-	FormGroup, 
-	FormBuilder } from '@angular/forms'; 
+import { FormControl,
+	FormGroup,
+	FormBuilder } from '@angular/forms';
 import { SearchService } from './services/search.service';
 import 'rxjs/Rx';
 
@@ -52,7 +52,7 @@ import 'rxjs/Rx';
 	selector: 'app',
 	template: `
 		<form [formGroup]="coolForm"><input formControlName="search" placeholder="Search Spotify artist"></form>
-		
+
 		<div *ngFor="let artist of result">
 		  {{artist.name}}
 		</div>
@@ -62,11 +62,11 @@ import 'rxjs/Rx';
 export class MyApp {
 	searchField: FormControl;
 	coolForm: FormGroup;
-	
+
 	constructor(private searchService:SearchService, private fb:FormBuilder) {
 		this.searchField = new FormControl();
 		this.coolForm = fb.group({search: this.searchField});
-		
+
 		this.searchField.valueChanges
 		  .debounceTime(400)
 			.flatMap(term => this.searchService.search(term))
@@ -76,7 +76,7 @@ export class MyApp {
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/ABfRQW?p=preview)
+[View Example](http://plnkr.co/edit/d4oUpd?p=preview)
 
 Here we have set up a basic form with a single field, `search`, which we subscribe to for event changes.
 We've also set up a simple binding for any results coming from the `SearchService`.
