@@ -23,6 +23,6 @@ export class AppComponent {
   }
 }
 ```
-[View Example](https://plnkr.co/edit/zzxw8D1DmNw1Mdea7app?p=preview)
+[View Example](https://plnkr.co/edit/MTyYN0ntm1BNKE20HT7a?p=preview)
 
 Clicking the button will toggle whether or not `IfExampleComponent` is a part of the DOM and not just whether it is visible or not. This means that every time the button is clicked, `IfExampleComponent` will be created or destroyed. This can be an issue with components that have expensive create/destroy actions. For example, a component could have a large child subtree or make several HTTP calls when constructed. In these cases it may be better to avoid using `ngIf` if possible.
