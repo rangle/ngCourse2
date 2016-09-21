@@ -59,7 +59,7 @@ export class MovieComponent {
 }
 ```
 
-[View Example](http://plnkr.co/edit/Z5gWPosxIpCqsBcepMEu?p=preview)
+[View Example](http://plnkr.co/edit/9sA7vXUSpElsVvEvG2of?p=preview)
 
 Let's see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy.
 
