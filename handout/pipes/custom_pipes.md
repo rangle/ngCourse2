@@ -14,7 +14,7 @@ export class LengthPipe implements PipeTransform {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/l5koabsVYdoIhHDe24pR?p=preview)
+[View Example](http://plnkr.co/edit/PqjoPjotYrmkj5EbwrAH?p=preview)
 
 Each custom pipe implementation must:
 
@@ -40,4 +40,4 @@ export class Hello {
   message: string = 'Hello There';
 }
 ```
-[View Example](http://plnkr.co/edit/l5koabsVYdoIhHDe24pR?p=preview)
+[View Example](http://plnkr.co/edit/7sLihnMxpil5kqTSsIw0?p=preview)
