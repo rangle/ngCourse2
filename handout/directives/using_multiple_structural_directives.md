@@ -15,4 +15,4 @@ Sometimes we'll want to combine multiple structural directives together, like it
   `
 })
 ```
-[View Example](https://plnkr.co/edit/OI2ZGsfupph501rOlzmR?p=preview)
+[View Example](https://plnkr.co/edit/gmIbP6s7S1pN7vDk9YHG?p=preview)
