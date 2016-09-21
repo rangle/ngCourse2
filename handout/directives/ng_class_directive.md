@@ -32,7 +32,7 @@ export class ClassAsStringComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/gRYMBBS7Iugw3nT5gT2l?p=preview)
+[View Example](https://plnkr.co/edit/uYihwapmBxNaqGDeawwS?p=preview)
 
 In this case, we're binding a string directly so we avoid wrapping the directive in square brackets. Also notice that the `ngClass` works with the `class` attribute to combine the final classes.
 
