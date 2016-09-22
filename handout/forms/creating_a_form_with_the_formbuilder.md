@@ -63,7 +63,7 @@ _app/my-form.component.html_
 </form>
 ```
 
-[View Example](http://plnkr.co/edit/9wCa32tXbYA1cDQEaA97?p=preview)
+[View Example](http://plnkr.co/edit/ZkD8rZFsCbeEKr3N33ek?p=preview)
 
 There are five things to notice here:
 
