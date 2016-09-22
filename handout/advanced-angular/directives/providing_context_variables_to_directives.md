@@ -29,7 +29,7 @@ export class DelayDirective {
   }
 }
 ```
-[View Example](https://plnkr.co/edit/QOEIk4BugDH7CZqfIEkL?p=preview)
+[View Example](https://plnkr.co/edit/pSv4JsGhxxwzJOh9qSNj?p=preview)
 
 We've made a few changes to our `delay` directive. We've created a new `DelayContext` class that contains the context that we want to provide to our directive. In this case, we want to capture the actual time the `createEmbeddedView` call occurs and make that available as `loadTime` in our directive. We've also provided our new class as the generic argument to the `TemplateRef` function. This enables static analysis and lets us make sure our calls to `createEmbeddedView` pass in a variable of type `DelayContext`. In our `createEmbeddedView` call we pass in our variable which has captured the time of the method call.
 
@@ -48,4 +48,4 @@ In the component using `delay`, we access the `loadTime` context variable in the
   `
 })
 ```
-[View Example](https://plnkr.co/edit/QOEIk4BugDH7CZqfIEkL?p=preview)
+[View Example](https://plnkr.co/edit/pSv4JsGhxxwzJOh9qSNj?p=preview)

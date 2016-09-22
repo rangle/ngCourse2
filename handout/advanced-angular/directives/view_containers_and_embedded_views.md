@@ -26,6 +26,6 @@ export class DelayDirective {
   }
 }
 ```
-[View Example](https://plnkr.co/edit/Rd1NJOzAyIeS5aQ2KBaW?p=preview)
+[View Example](https://plnkr.co/edit/yjWcUE7zJgoUPc9NJR0n?p=preview)
 
 Directives get access to the view container by injecting a `ViewContainerRef`. Embedded views are created and attached to a view container by calling the `ViewContainerRef`'s `createEmbeddedView` method and passing in the template. We want to use the template our directive is attached to so we pass in the injected `TemplateRef`.
