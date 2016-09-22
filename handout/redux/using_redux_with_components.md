@@ -39,7 +39,7 @@ export class Counter {
 }
 ```
 
-[View Example](https://plnkr.co/edit/yieXt6DmnELzF86f7Fwj?p=preview)
+[View Example](https://plnkr.co/edit/pujePgvmkyKHurXtOS3k?p=preview)
 
 The template syntax should be familiar by now, displaying a `Observable` counter
 with the async pipe and handling some click events.

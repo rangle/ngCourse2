@@ -1,5 +1,5 @@
 var angularVersion = '2.0.0';
-var rcVersion = '3.0.0-rc.2';
+var rcVersion = '3.0.0';
 
 System.config({
   baseUrl: '/',
