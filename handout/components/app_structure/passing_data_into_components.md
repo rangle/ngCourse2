@@ -25,6 +25,6 @@ We can now use our component like so:
 <hello [name]="name"></hello>
 ```
 
-[View Example](http://plnkr.co/edit/fpjDiE?p=preview)
+[View Example](http://plnkr.co/edit/GbpCKy?p=preview)
 
 >Unlike Angular 1.x, this is one-way binding.
