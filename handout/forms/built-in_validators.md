@@ -52,6 +52,6 @@ _app/my-form.component.html_
 </form>
 ```
 
-[View Example](http://plnkr.co/edit/AtW3FrYU3qyNsWtLfUUF?p=preview)
+[View Example](http://plnkr.co/edit/AVx1TH0MarhMmBYARGJp?p=preview)
 
 Notice that this time the method `hasError` is being used instead of accessing the `errors` object directly as before. When the field is valid, the `errors` object is `null`, so trying to access `email.errors.required` will generate an internal error. We avoid that problem by wrapping our error logic inside an `*ngIf="!email.valid"` so we assure that the errors object exists before trying to render each specific error. This might not always be the case, so it's better to use the `hasError` method to check for a validation error.
