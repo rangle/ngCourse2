@@ -71,6 +71,6 @@ describe('Testing Quote Component', () => {
   }));
 });
 ```
-[View Example](http://plnkr.co/edit/lwsENNi428VxroAHITI1?p=preview)
+[View Example](http://plnkr.co/edit/W7zHfjFvEGYW0BBNdQlU?p=preview)
 
 Here we have a `QuoteComponent` that has a `getQuote` which triggers an asynchronous update. We have wrapped our entire test in `fakeAsync` which will allow us to test the asynchronous behavior of our component (`getQuote()`) using synchronous function calls by calling `tick()`. We can then run `detectChanges` and query the DOM for our expected result.

@@ -52,7 +52,7 @@ describe('Testing message state in message.component', () => {
   });
 });
 ```
-[View Example](http://plnkr.co/edit/REzRtUEGC6ELFXb1BPSy?p=preview)
+[View Example](http://plnkr.co/edit/XUM8Gfz08nfbQf1BhDN1?p=preview)
 
 We have created two tests: one for `setMessage` and the other for `clearMessage`. In order to call those functions we must first initialize the `MessageComponent` class. This is accomplished by calling the `beforeEach` function before each test is performed.
 
