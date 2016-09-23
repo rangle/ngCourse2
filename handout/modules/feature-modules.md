@@ -65,7 +65,7 @@ _app/app.component.ts_
 })
 export class AppComponent {}
 ```
- 
+
 > We are keeping the `CreditCardMaskPipe` private because it's only being used inside the `CreditCardModule` and no other module should use it directly.
 
 We can now import this feature module into our simplified root module.
@@ -92,7 +92,7 @@ export class AppModule { }
 
 At this point we are done and our application behaves as expected.
 
-[View Example](https://plnkr.co/edit/3PmR8SOEHPZoeBgK6exT?p=preview)
+[View Example](https://plnkr.co/edit/0j1jS5PIHI8MAbZjECnK?p=preview)
 
 ## Services and Lazy Loaded Modules
 
@@ -102,7 +102,7 @@ It's hard to understand that at first so let's try to see what's happening with 
 
 When a module is lazy loaded, Angular is going to create a child injector (which is a child of the root injector from the root module) and will create an instance of our service there.
 
-Imagine for a moment that our `CreditCardModule` is configured to be lazy loaded. With our current configuration, when the application is bootstrapped and our root module is loaded in memory, an instance of the `CreditCardService` (a singleton) is going to be added to the root injector. But, when the `CreditCardModule` is lazy loaded sometime in the future, a child injector will be created for that module **with a new instance** of the `CreditCardService`. At this point we have a hierarchical injector with **two instances** of the same service, which is not usually what we want. 
+Imagine for a moment that our `CreditCardModule` is configured to be lazy loaded. With our current configuration, when the application is bootstrapped and our root module is loaded in memory, an instance of the `CreditCardService` (a singleton) is going to be added to the root injector. But, when the `CreditCardModule` is lazy loaded sometime in the future, a child injector will be created for that module **with a new instance** of the `CreditCardService`. At this point we have a hierarchical injector with **two instances** of the same service, which is not usually what we want.
 
 Think for example of a service that does the authentication. We want to have only one singleton in the entire application, disregarding if our modules are being loaded at bootstrap or lazy loaded. So, in order to have our feature module's service **only** added to the root injector, we need to use a different approach.
 
@@ -152,6 +152,6 @@ export class AppModule { }
 
 Can you spot the difference? We are not importing the `CreditCardModule` directly, instead what we are importing is the object returned from the `forRoot` method, which includes the `CreditCardService`. Although this syntax is a little more convoluted than the original, it will guarantee us that only one instance of the `CreditCardService` is added to the root module. When the `CreditCardModule` is loaded (even lazy loaded), no new instance of that service is going to be added to the child injector.
 
-[View Example](https://plnkr.co/edit/c2VWbjNfetvl3KIPOz3x?p=preview)
+[View Example](https://plnkr.co/edit/nnyE8L4ciKCL2uBruM12?p=preview)
 
 As a rule of thumb, **always use the `forRoot` syntax when exporting services from feature modules**, unless you have a very special need that requires multiple instances at different levels of the dependency injection tree.

@@ -59,7 +59,7 @@ The file _app.component.ts_ is just a "hello world" component, nothing interesti
 
 The first thing that we notice is that our module is importing the `BrowserModule` as an explicit dependency. The `BrowserModule` is a built-in module that exports basic directives, pipes and services. Unlike previous versions of Angular 2, we have to explicitly import those dependencies to be able to use directives like `*ngFor` or `*ngIf` in our templates.
 
-Given that the root (and only) component of our module is the `AppComponent` we have to list it in the `bootstrap` array. Because in the `declarations` property we are supposed to define **all** the components or pipes that make up our application, we have to define the `AppComponent` again there too. 
+Given that the root (and only) component of our module is the `AppComponent` we have to list it in the `bootstrap` array. Because in the `declarations` property we are supposed to define **all** the components or pipes that make up our application, we have to define the `AppComponent` again there too.
 
 Before moving on, there's an important clarification to make. **There are two types of modules, root modules and feature modules**.
 
@@ -84,6 +84,6 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 > It is also possible to perform the compilation as a build step of our workflow. This method is called "Ahead of Time" (AOT) compilation and will require a slightly different bootstrap process that we are going to discuss in another section.
 
-[View Example](https://plnkr.co/edit/y5wuXshv7uqjbJHr3x5I?p=preview)
+[View Example](https://plnkr.co/edit/4u6UKQuVSjHFeQYS993g?p=preview)
 
 In the next section we are going to see how to create a module with multiple components, services and pipes.
