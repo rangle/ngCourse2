@@ -21,13 +21,13 @@ import 'rxjs/Rx';
 	  <ul>
 	    <li *ngFor="let doctor of doctors">{{doctor.name}}</li>
 	  </ul>
-	  
+
 	  `
 })
 
 export class MyApp {
   private doctors = [];
-  
+
   constructor(http: Http) {
     http.get('http://jsonplaceholder.typicode.com/users/')
         .flatMap((data) => data.json())
@@ -38,14 +38,14 @@ export class MyApp {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/JbFNpn?p=preview)
+[View Example](http://plnkr.co/edit/AikZi1?p=preview)
 
-This basic example outlines how the `Http` library's common routines like `get`, `post`, `put` and `delete` all return `Observables` that allow us to asynchronously process any resulting data. 
+This basic example outlines how the `Http` library's common routines like `get`, `post`, `put` and `delete` all return `Observables` that allow us to asynchronously process any resulting data.
 
 
 ## Observable Form Events
 
-Let's take a look at how `Observables` are used in Angular 2 forms. Each field in a form is treated as an `Observable` that we can subscribe to and listen for any changes made to the value of the input field. 
+Let's take a look at how `Observables` are used in Angular 2 forms. Each field in a form is treated as an `Observable` that we can subscribe to and listen for any changes made to the value of the input field.
 
 ```js
 import {Component} from '@angular/core';
@@ -85,7 +85,7 @@ export class MyApp {
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/Dedd43?p=preview)
+[View Example](http://plnkr.co/edit/vCdjZM?p=preview)
 
 
 Here we have created a new form by initializing a new `FormControl` field and grouped it into a `FormGroup` tied to the `coolForm` HTML form. The `Control` field has a property `.valueChanges` that returns an `Observable` that we can subscribe to. Now whenever a user types something into the field we'll get it immediately.

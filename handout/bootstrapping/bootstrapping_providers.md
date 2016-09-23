@@ -24,4 +24,4 @@ export class MyAppModule {
 }
 ```
 
-[View Example](https://plnkr.co/edit/yzS1TK?p=preview)
+[View Example](https://plnkr.co/edit/jty1DE?p=preview)

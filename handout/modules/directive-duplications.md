@@ -74,7 +74,7 @@ We can see that in the template of our component, we are using the directive `hi
 
 The answer is: the text is going to be gray and the background yellow.
 
-[View Example](https://plnkr.co/edit/KwpirwJohx3HaKheDWiu?p=preview)
+[View Example](https://plnkr.co/edit/vwfSCpqOspwjICC6eKY2?p=preview)
 
 We are allowed to define multiple directives that target the same elements in the same module. What's going to happen is that Angular is going to do every transformation **in order**.
 
@@ -86,7 +86,6 @@ declarations: [
 ]
 ```
 
-Because we have defined both directives in an array, and **arrays are ordered collection of items**, when the compiler finds an element with the property `highlight`, it will first apply the transformations of `BlueHighlightDirective`, setting the text gray and the background blue, and then will apply the transformations of `YellowHighlightDirective`, changing again the background color to yellow. 
+Because we have defined both directives in an array, and **arrays are ordered collection of items**, when the compiler finds an element with the property `highlight`, it will first apply the transformations of `BlueHighlightDirective`, setting the text gray and the background blue, and then will apply the transformations of `YellowHighlightDirective`, changing again the background color to yellow.
 
 In summary, **when two or more directives target the same element, they are going to be applied in the order they were defined**.
-

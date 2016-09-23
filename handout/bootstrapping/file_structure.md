@@ -54,7 +54,7 @@ import { MyAppModule } from './app.module'
 platformBrowserDynamic().bootstrapModule(MyAppModule)
 ```
 
-[View Example](https://plnkr.co/edit/XMpxd6?p=preview)
+[View Example](https://plnkr.co/edit/kVqEKf?p=preview)
 
 This is the main entry point of the application. The `MyAppModule`  operates as the root module of our  application. The module is configured to use `MyApp` as the component to bootstrap, and will be rendered on any `app` HTML element encountered.
 

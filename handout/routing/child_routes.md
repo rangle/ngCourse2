@@ -84,9 +84,9 @@ export const routes: Routes = [
 ```
 Since the `Overview` child route of `product-details` has an empty path, it will be loaded by default. The `specs` child route remains the same.
 
-[View Example with child routes](https://plnkr.co/edit/5sgMKcCtAluRuyz7VZRZ?p=preview)
+[View Example with child routes](https://plnkr.co/edit/UpHEteaI4Bypaf0AkD4B?p=preview)
 
-[View Example with route params & child routes](https://plnkr.co/edit/nCYxArisezQAqnPTLa7B?p=preview)
+[View Example with route params & child routes](https://plnkr.co/edit/7SGuVQpkcTvj1CFct8rx?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.
 
@@ -116,7 +116,7 @@ export default class Overview {
 }
 ```
 
-[View Example child routes accessing parent's route parameters](https://plnkr.co/edit/7bLPo9NHpxSdsbimUAoj?p=preview)
+[View Example child routes accessing parent's route parameters](https://plnkr.co/edit/b0Knfv929tfRdsqpXHgP?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.
 
@@ -142,6 +142,6 @@ In the above example, the link for route one links to a child of the current rou
 The link for route two links to a sibling of the current route.
 The link for route three links to a child of the root component (same as route one link if current route is root component).
 
-[View Example with linking throughout route tree](https://plnkr.co/edit/UYBPrTAodRHFmbfRJoXz?p=preview)
+[View Example with linking throughout route tree](https://plnkr.co/edit/HX9LFuysyKmxAngv1nN3?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.

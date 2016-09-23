@@ -98,7 +98,7 @@ describe('Wikipedia search service', () => {
 
 });
 ```
-[View Example](http://plnkr.co/edit/91Idq9u42SE2xx1cWEmb?p=preview)
+[View Example](http://plnkr.co/edit/K9gzDOcEOcmfFaOacdKZ?p=preview)
 
 We use `inject` to inject the `SearchWiki` service and the `MockBackend` into our test. We then wrap our entire test with a call to `fakeAsync`, which will be used to control the asynchronous behavior of the `SearchWiki` service for testing.
 

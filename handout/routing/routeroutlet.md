@@ -22,6 +22,6 @@ export class AppComponent {}
 
 In the above example, the component corresponding to the route specified will be placed after the `<router-outlet></router-outlet>` element when the link is clicked.
 
-[View Example](https://plnkr.co/edit/meHbc7zXVFRLiHXYlYXt?p=preview)
+[View Example](https://plnkr.co/edit/odsZq1pL43HtWcUr0taJ?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.

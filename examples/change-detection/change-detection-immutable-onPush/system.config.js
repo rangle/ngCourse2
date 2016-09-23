@@ -1,4 +1,4 @@
-var angularVersion = '2.0.0-rc.6';
+var angularVersion = '2.0.0';
 
 System.config({
   baseUrl: '/',
@@ -31,8 +31,8 @@ System.config({
     '@angular/platform-browser-dynamic': 'unpkg:@angular/platform-browser-dynamic@'+angularVersion,
     '@angular/http': 'unpkg:@angular/http@'+angularVersion,
     'immutable': 'unpkg:immutable@3.8.1',
-    'rxjs': 'unpkg:rxjs@5.0.0-beta.11',
-    'zone.js': 'unpkg:zone.js@0.6.17',
+    'rxjs': 'unpkg:rxjs@5.0.0-beta.12',
+    'zone.js': 'unpkg:zone.js@0.6.25',
     'reflect-metadata': 'unpkg:reflect-metadata@0.1.3',
     "crypto": "@empty"
   },

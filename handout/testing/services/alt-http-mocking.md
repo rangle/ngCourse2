@@ -80,4 +80,4 @@ describe('Wikipedia search service', () => {
 
 });
 ```
-[View Example](http://plnkr.co/edit/roGcoddZT0CmjAPBtcAG?p=preview)
+[View Example](http://plnkr.co/edit/eplM1SETfR51USVZLUlU?p=preview)

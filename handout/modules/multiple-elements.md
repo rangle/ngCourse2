@@ -106,9 +106,8 @@ export class AppModule { }
 
 Notice that we have added the component `CreditCardComponent` and the pipe `CreditCardMaskPipe` to the `declarations` property, along with the root component of the module `AppComponent`. In the other hand, our custom service is configured with the dependency injection system with the `providers` property.
 
-[View Example](https://plnkr.co/edit/8SKc6PnCQhN04veXA2Z2?p=preview)
+[View Example](https://plnkr.co/edit/Jab7Wsijc9w0rbgdIBDO?p=preview)
 
-Be aware that this method of defining a service in the `providers` property **should only be used in the root module**. Doing this in a feature module is going to cause unintended consequences when working with lazy loaded modules. 
+Be aware that this method of defining a service in the `providers` property **should only be used in the root module**. Doing this in a feature module is going to cause unintended consequences when working with lazy loaded modules.
 
-In the next section, we are going to see how to safely define services in feature modules. 
-
+In the next section, we are going to see how to safely define services in feature modules.
