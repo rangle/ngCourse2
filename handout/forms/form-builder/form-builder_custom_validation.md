@@ -33,7 +33,7 @@ _app/login-form.component.ts_
 <!-- ... -->
 ```
 
-[View Example](https://plnkr.co/edit/t3Ut3P?p=preview)
+[View Example](https://plnkr.co/edit/UqQtxj?p=preview)
 
 ### Predefined Parameters
 Having a custom validator to check for exclamation marks might be helpful, but what if you need to check for some other form of punctuation?
@@ -83,7 +83,7 @@ _app/login-form.component.html_
 <!-- ... -->
 ```
 
-[View Example](https://plnkr.co/edit/9tWvhy?p=preview)
+[View Example](https://plnkr.co/edit/m5BpOX?p=preview)
 
 ### Validating Inputs Using Other Inputs
 Keep in mind what was mentioned earlier: inputs have access to their parent context via `.root`.
@@ -106,4 +106,4 @@ this.duplicatePassword = new FormControl('', [
 ]);
 ```
 
-[View Example](https://plnkr.co/edit/lMVp52?p=preview)
+[View Example](https://plnkr.co/edit/DcLIRa?p=preview)

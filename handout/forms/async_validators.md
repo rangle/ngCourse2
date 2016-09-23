@@ -82,6 +82,6 @@ _app/my-form.component.html_
 </form>
 ```
 
-[View Example](http://plnkr.co/edit/nOFYzTdbzbS3PkzFOfpc?p=preview)
+[View Example](http://plnkr.co/edit/AYBZ8MRy63GKmRqjwA1Q?p=preview)
 
 Notice that not only do we have a new error key but our field has a new state called `pending` that is `true` when Angular waits for the promise to be resolved and `false` otherwise. This way we can give feedback to the user that some validation is being performed in the background that could take a while to finish.

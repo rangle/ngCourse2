@@ -52,7 +52,7 @@ _app/login-form.component.html_
 </form>
 ```
 
-[View Example](https://plnkr.co/edit/PiCgcL?p=preview)
+[View Example](https://plnkr.co/edit/o1Gfqg?p=preview)
 
 ### `FormControl`
 Note that the `FormControl` class is assigned to similarly named fields, both on `this` and in the `FormBuilder#group({ })` method.

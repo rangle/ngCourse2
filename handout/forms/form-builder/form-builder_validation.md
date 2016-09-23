@@ -63,7 +63,7 @@ _app/login-form.component.html_
 
 Note that we have added rather robust validation on both the fields and the form itself, using nothing more than built-in validators and some template logic.
 
-[View Example](https://plnkr.co/edit/NGejGL?p=preview)
+[View Example](https://plnkr.co/edit/kr8Q41?p=preview)
 
 We are using `.valid` and `.untouched` to determine if we need to show errors - while the field is required, there is no reason to tell the user that the value is wrong if the field hasn't been visited yet.
 
