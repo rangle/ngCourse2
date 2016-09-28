@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="./styles/website.css">
 # Rangle's Angular 2 Training Book
 <div class="version-btn"><a class="version-btn" href="https://watrool.gitbooks.io/d/content/v/rc4/">2.0.0-RC.4</a></div>
 <div class="version-btn"><a class="version-btn" href="https://watrool.gitbooks.io/d/content/v/rc5/">2.0.0-RC.5</a></div>
