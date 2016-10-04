@@ -5,8 +5,7 @@
 Over the last three and a half years, AngularJS has become the leading open
 source JavaScript application framework for hundreds of thousands of programmers
 around the world. The "1.x" version of AngularJS has been widely used and became
-extremely popular for complex applications. The new "Angular 2" version of the
-framework is currently available as a release candidate.
+extremely popular for complex applications. The new "Angular 2" has also announced its [final release version](http://angularjs.blogspot.ca/2016/09/angular2-final.html).
 
 ## About Rangle’s Angular 2 Training Book
 
