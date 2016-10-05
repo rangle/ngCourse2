@@ -117,6 +117,7 @@
     * [Directives](handout/advanced-angular/directives/README.md)
         * [Creating an Attribute Directive](handout/advanced-angular/directives/creating_an_attribute_directive.md)
             * [Listening to an Element Host](handout/advanced-angular/directives/listening_to_an_element_host.md)
+            * [Setting Properties in a Directive](handout/advanced-angular/directives/setting_properties_in_a_directive.md)
         * [Creating a Structural Directive](handout/advanced-angular/directives/creating_a_structural_directive.md)
             * [View Containers and Embedded Views](handout/advanced-angular/directives/view_containers_and_embedded_views.md)
             * [Providing Context Variables to Directives](handout/advanced-angular/directives/providing_context_variables_to_directives.md)
