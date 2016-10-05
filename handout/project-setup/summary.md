@@ -67,11 +67,8 @@ module.exports = {
   plugins: plugins,
 
   module: {
-    preLoaders: [{
-      test: /\.ts$/,
-      loader: 'tslint'
-    }],
-    loaders: [
+    rules: [
+      { test: /\.ts$/, loader: 'tslint' },
       { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' },
       { test: /\.css$/, loader: 'style!css?sourceMap' },

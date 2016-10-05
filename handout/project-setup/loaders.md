@@ -41,11 +41,8 @@ Tasks specified in this array are chained. If a file matches multiple conditions
 {
   ...
   module: {
-    preLoaders: [{
-      test: /\.ts$/,
-      loader: 'tslint'
-    }],
-    loaders: [
+    rules: [
+      { test: /\.ts$/, loader: 'tslint' },
       { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' },
       { test: /\.css$/, loader: 'style!css?sourceMap' },
@@ -84,7 +81,7 @@ Webpack also allows us to load non JavaScript assets such as: CSS, SVG, font fil
 ```javascript
 import './styles/style.css';
 
-// or 
+// or
 
 const STYLES = require('./styles/style.css');
 ```
