@@ -2,19 +2,30 @@
 
 Angular 2 allows you to create your own custom pipes:
 
-```javascript
+```typescript
 import {Pipe, PipeTransform} from '@angular/core';
 
+const FILE_SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+const FILE_SIZE_UNITS_LONG = ['Bytes', 'Kilobytes', 'Megabytes', 'Gigabytes', 'Pettabytes', 'Exabytes', 'Zettabytes', 'Yottabytes'];
+
 @Pipe({
-  name: 'length'
+  name: 'formatFileSize'
 })
-export class LengthPipe implements PipeTransform {
-  transform(value: string, displayMessage: boolean): string {
-    return displayMessage ? `${value} ${value.length}` : `${value.length}`
+export class FormatFileSizePipe implements PipeTransform {
+  transform(sizeInBytes: number, longForm: boolean): string {
+    const units = longForm
+      ? FILE_SIZE_UNITS_LONG
+      : FILE_SIZE_UNITS;
+    let power = Math.round(Math.log(sizeInBytes)/Math.log(1024));
+    power = Math.min(power, units.length - 1);
+    const size = sizeInBytes / Math.pow(1024, power); // size in new units
+    const formattedSize = Math.round(size * 100) / 100; // keep up to 2 decimals
+    const unit = units[power];
+    return `${formattedSize} ${unit}`;
   }
 }
+
 ```
-[View Example](http://plnkr.co/edit/PqjoPjotYrmkj5EbwrAH?p=preview)
 
 Each custom pipe implementation must:
 
@@ -25,19 +36,21 @@ and a variable number of arguments of any type and return a transformed ("piped"
 
 Each colon-delimited parameter in the template maps to one method argument in the same order.
 
-```javascript
+```typescript
 import {Component} from '@angular/core';
 
 @Component({
-	selector: 'hello',
-	template: `
-	  <div>
-	    <p>{{ message | length:true }}</p>
-	    <p>{{ message | length:false }}</p>
+  selector: 'hello',
+  template: `
+    <div>
+      <p *ngFor="let f of fileSizes">{{ f | formatFileSize }}</p>
+      <p>{{ largeFileSize | formatFileSize:true }}</p>
     </div>`
 })
 export class Hello {
-  message: string = 'Hello There';
+  fileSizes = [10, 100, 1000, 10000, 100000, 10000000, 10000000000];
+  largeFileSize = Math.pow(10, 15)
 }
+
 ```
-[View Example](http://plnkr.co/edit/7sLihnMxpil5kqTSsIw0?p=preview)
+[View Example](http://plnkr.co/edit/hFLQ3qyukTet1h7rREYW?p=preview)

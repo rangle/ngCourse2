@@ -12,7 +12,7 @@ Angular 2 provides `AsyncPipe`, which is stateful.
 
 AsyncPipe can receive a `Promise` or `Observable` as input and subscribe to the input automatically, eventually returning the emitted value(s). It is stateful because the pipe maintains a subscription to the input and its returned values depend on that subscription.
 
-```javascript
+```typescript
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
@@ -41,29 +41,55 @@ export class ProductPrice {
 
 Pipes are stateless by default. We must declare a pipe to be stateful by setting the pure property of the `@Pipe` decorator to false. This setting tells Angular’s change detection system to check the output of this pipe each cycle, whether its input has changed or not.
 
-```javascript
-import {Pipe, PipeTransform} from '@angular/core';
+```typescript
+import {Pipe, PipeTransform, ChangeDetectorRef} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/timer';
+import 'rxjs/add/operator/take';
 
+/**
+ * On number change, animates from `oldNumber` to `newNumber`
+ */
+// naive implementation assumes small number increments
 @Pipe({
-  name: 'delay',
+  name: 'animateNumber',
   pure: false
 })
-export class DelayPipe implements PipeTransform {
+export class AnimateNumberPipe implements PipeTransform {
+  private currentNumber: number = null; // intermediary number
+  private newNumber: number = null;
+  private subscription;
+  
+  constructor(private cdRef: ChangeDetectorRef) {}
 
-  private fetchedValue: number;
-  private fetchPromise: Promise<number>;
-
-  transform(value: number): number {
-    if (!this.fetchPromise) {
-      this.fetchPromise = new Promise<number>((resolve, reject) => {
-        setTimeout(() => resolve(value * 1000), value * 500);
-      });
-
-      this.fetchPromise.then((val: number) => this.fetchedValue = val);
+  transform(newNumber: number): string {
+    if (this.newNumber === null) { // set inital value
+      this.currentNumber = this.newNumber = newNumber;
     }
-    return this.fetchedValue;
+    if (newNumber !== this.newNumber) {
+      if (this.subscription) {
+        this.currentNumber = this.newNumber;
+        this.subscription.unsubscribe();
+      }
+      this.newNumber = newNumber;
+      const oldNumber = this.currentNumber;
+      const direction = ((newNumber - oldNumber) > 0) ? 1 : -1;
+      const numbersToCount = Math.abs(newNumber - oldNumber) + 1;
+      this.subscription = Observable.timer(0, 100) // every 100 ms
+        .take(numbersToCount)
+        .subscribe(
+          () => {
+            this.currentNumber += direction;
+            this.cdRef.markForCheck();
+          },
+          null,
+          () => this.subscription = null
+        );
+    }
+
+    return this.currentNumber;
   }
 }
 
 ```
-[View Example](http://plnkr.co/edit/R3KUmmXIeQe3SpVyHvI1?p=preview)
+[View Example](http://plnkr.co/edit/PQwaKTYeUXWdS3mm2ojY?p=preview)
