@@ -10,7 +10,6 @@ class MyDirective {
   @HostListener('click', ['$event'])
   onClick() {}
 
-  @HostListener
 }
 ```
 
@@ -22,7 +21,7 @@ We can also respond to external events, such as from `window` or `document`, by 
 })
 export class HighlightDirective {
   constructor(private el: ElementRef, private renderer: Renderer) {}
-  
+
   @HostListener('document:click', ['$event'])
   handleClick(event: Event) {
     if (this.el.nativeElement.contains(event.target)) {
@@ -31,7 +30,7 @@ export class HighlightDirective {
       this.highlight(null);
     }
   }
-  
+
   highlight(color) {
     this.renderer.setElementStyle(this.el.nativeElement, 'backgroundColor', color);
   }
