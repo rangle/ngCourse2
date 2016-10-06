@@ -44,14 +44,16 @@ let Car = {
   }
 };
 
-Car.init(weight, dimension, price);
+Car.init(...);
 Car.honk = function() {
   console.log("Beep!");
 }
+
 let Bus = Object.create( Car );
-Bus.init(weight, dimension, price);
+//Delegate to Car's init method
+Bus.init(...);
 Bus.honk = function() {
   console.log("Beeeeeeeeep!");
 }
 ```
-The main difference here is that in delegation, we create the instance `Car` and `Bus` directly, then let the `Car` object link(delegate) to another object `Bus` when we need its methods. But in inheritance case, we create two blueprints (class) first, then make instances accordingly. Delegation simplifies the thinking process behind the project and consequently leads to a more efficient development cycle. More detailed explanation on delegation pattern can be found [here](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md).  
+The main difference here is that in delegation case, we create the instance `Car` and `Bus` directly, then let the `Car` object link(delegate) to another object `Bus` when we need its methods. But in inheritance case, we create two blueprints (class) first, then make instances accordingly. The method is inherited from parent class. Delegation simplifies the thinking process behind the project and consequently leads to a more efficient development cycle. More detailed explanation on delegation pattern can be found [here](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md).  
