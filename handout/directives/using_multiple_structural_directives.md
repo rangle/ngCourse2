@@ -16,3 +16,51 @@ Sometimes we'll want to combine multiple structural directives together, like it
 })
 ```
 [View Example](https://plnkr.co/edit/gmIbP6s7S1pN7vDk9YHG?p=preview)
+
+The previous tabs example can use `ngFor` and `ngSwitch` if the tab title and content is abstracted away into the component class.
+
+```typescript
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <div class="tabs-selection">
+      <tab
+        *ngFor="let tab of tabs; let i = index"
+        [active]="isSelected(i)"
+        (click)="setTab(i)">
+
+        {{ tab.title }}
+      </tab>
+    </div>
+
+    <div [ngSwitch]="tabNumber">
+      <template ngFor [ngForOf]="tabs" let-tab let-i="index">
+        <tab-content *ngSwitchCase="i">
+          {{tab.content}}
+        </tab-content>
+      </template>
+      <tab-content *ngSwitchDefault>Select a tab</tab-content>
+    </div>
+  `
+})
+export class AppComponent {
+  tabNumber: number = -1;
+  
+  tabs = [
+    { title: 'Tab 1', content: 'Tab content 1' },
+    { title: 'Tab 2', content: 'Tab content 2' },
+    { title: 'Tab 3', content: 'Tab content 3' },
+  ];
+
+  setTab(num: number) {
+    this.tabNumber = num;
+  }
+  
+  isSelected(num: number) {
+    return this.tabNumber === i;
+  }
+}
+```
+[View Example](https://plnkr.co/edit/zSAFw16MBCHE1Nh8lrDA?p=preview)
