@@ -2,58 +2,53 @@
 
 JavaScript's inheritance works differently from inheritance in other languages, which can be very confusing. ES6 classes provide a syntactic sugar attempting to alleviate the issues with using prototypical inheritance present in ES5. Our recommendation is still to avoid using inheritance or at least deep inheritance hierarchies. Try solving the same problems through delegation instead.
 
-To illustrate this, let's image we have a transit project where two types of vehicles are available including a car and a bus. In the classical inheritance case, we would define an parent class `Vehicle` first, then let `Car` and `Bus` be two descents of `Vehicle`:
+To illustrate this, let's image we have a zoo application where types of birds are created. In the classical inheritance case, we would define an parent class `Bird` first, then let, say, `Penguin` be a descent of `Bird`:
 ```js
 //ES6
-class Vehicle {
-  constructor(weight, dimension, price){
+class Bird {
+  constructor(weight, height){
     this.weight = weight;
-    this.dimension = dimension;
-    this.price = price;
+    this.height = height;
+  }
+  walk() {
+    console.log('walk!');
   }
 }
 
-class Car extends Vehicle {
-  constructor(weight, dimension, price){
-    super(weight, dimension, price);
+class Penguin extends Bird {
+  constructor(weight, height){
+    super(weight, height);
   }
-  honk() {
-    console.log("Beep!");
-  }
-}
-
-class Bus extends Vehicle {
-  constructor(weight, dimension, price){
-    super(weight, dimension, price);
-  }
-  honk() {
-    console.log("Beeeeeeeeep!");
+  swim(){
+    console.log('swim!');
   }
 }
 
-let car = new Car(...);
-let bus = new Bike(...);
+let penguin = new Penguin(...);
+penguin.walk(); //walk!
+penguin.swim(); //swim!
 ```
 and if we use delegation:
 ```js
-let Car = {
-  init(weight, dimension, price){
+let Bird = {
+  init(weight, height){
     this.weight = weight;
-    this.dimension = dimension;
-    this.price = price;
+    this.height = height;
+  },
+  walk(){
+    console.log("walk!")''
   }
 };
 
-Car.init(...);
-Car.honk = function() {
-  console.log("Beep!");
+let Penguin = Object.create( Bird );
+Penguin.swim = function(){
+  console.log("swim!");
 }
 
-let Bus = Object.create( Car );
-//Delegate to Car's init method
-Bus.init(...);
-Bus.honk = function() {
-  console.log("Beeeeeeeeep!");
-}
+//Delegate to Bird's walk method
+Penguin.walk(); //walk!
+Penguin.swim(); //swim!
 ```
-The main difference here is that in delegation case, we create the instance `Car` and `Bus` directly, then let the `Car` object link(delegate) to another object `Bus` when we need its methods. But in inheritance case, we create two blueprints (class) first, then make instances accordingly. The method is inherited from parent class. Delegation simplifies the thinking process behind the project and consequently leads to a more efficient development cycle. More detailed explanation on delegation pattern can be found [here](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md).  
+The main difference here is that in delegation case, we create the instance `Penguin` directly, then let the `Penguin` object link(delegate) to object `Bird` when we need its methods. But in inheritance case, we create two blueprints (class) first, then make instances accordingly. The method is inherited from parent class. Delegation simplifies the thinking process behind the project and consequently leads to a more efficient development cycle. More detailed explanation on delegation pattern can be found [here](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md).  
+
+Nota that in Angular 2, developers do not need to worry about this too much. The framework has already taken care of this and we just need to follow Angular's pattern and API.
