@@ -278,7 +278,7 @@
     * [Key Concerns of Accessible Web Applications](handout/a11y/key-concerns/README.md)
         * [Semantic Markup](handout/a11y/key-concerns/semantic-markup.md)
         * [Keyboard Accessibility](handout/a11y/key-concerns/keyboard-accessibility.md)
-        * [Visual Assisstance](handout/a11y/key-concerns/visual-assistance.md)
+        * [Visual Assistance](handout/a11y/key-concerns/visual-assistance.md)
     * [Additional Resources](handout/a11y/additional-resources.md)
 
 ---

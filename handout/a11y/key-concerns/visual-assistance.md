@@ -6,4 +6,4 @@ One category of disability are people åwho are color blind or deficient. This m
 
 ## Transcripts, Captions and Descriptions
 
-If there are audiovisual elements in the application such as video, sound effects or audio (ie. podcasts). These elements need related textual representations such as transcripts, captions or descriptions.
+Audiovisual elements in the application such as video, sound effects or audio (ie. podcasts) need related textual representations such as transcripts, captions or descriptions.

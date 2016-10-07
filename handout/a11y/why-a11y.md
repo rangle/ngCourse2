@@ -4,7 +4,7 @@ While making websites accessible can lead to more time spent in development, the
 
 ## Reaching out to everyone
 
-Multiple studies suggest that around 15-20% of the population is suffering from a disability of some kind<sup>1</sup>. In comparison, that number is higher than any single browser demographic currently, other than Chrome<sup>2</sup>. Not considering those users when developing an application means excluding a large number of people from being able use it smoothly or at all.
+Multiple studies suggest that around 15-20% of the population is suffering from a disability of some kind<sup>1</sup>. In comparison, that number is higher than any single browser demographic currently, other than Chrome<sup>2</sup>. Not considering those users when developing an application means excluding a large number of people from being able use it comfortable or at all.
 
 ## Overlap with User Experience and SEO
 
