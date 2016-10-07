@@ -6,7 +6,7 @@ To illustrate this, let's image we have a zoo application where types of birds a
 ```js
 //ES6
 class Bird {
-  constructor(weight, height){
+  constructor(weight, height) {
     this.weight = weight;
     this.height = height;
   }
@@ -16,10 +16,10 @@ class Bird {
 }
 
 class Penguin extends Bird {
-  constructor(weight, height){
+  constructor(weight, height) {
     super(weight, height);
   }
-  swim(){
+  swim() {
     console.log('swim!');
   }
 }
@@ -32,7 +32,7 @@ and if we use delegation with `class` keyword:
 ```js
 //ES6
 class Bird {
-  constructor(weight, height){
+  constructor(weight, height) {
     this.weight = weight;
     this.height = height;
   }
@@ -42,8 +42,8 @@ class Bird {
 }
 
 class Penguin {
-  constructor(weight, height){
-    this.bird = new Bird(weight, height);
+  constructor(bird) {
+    this.bird = bird;
   }
   walk() {
     this.bird.walk();
@@ -53,30 +53,32 @@ class Penguin {
   }
 }
 
-let penguin = new Penguin(...);
+let bird = new Bird(...);
+let penguin = new Penguin(bird);
 penguin.walk(); //walk!
-penguin.swim();  //swim!
+penguin.swim(); //swim!
 ```
 and delegation without `class` keyword (which is a more general JavaScript way):
 ```js
 //ES6
-let Bird = {
-  init(weight, height){
+let bird = {
+  init(weight, height) {
     this.weight = weight;
     this.height = height;
   },
-  walk(){
+  walk() {
     console.log("walk!")''
   }
 };
 
-let Penguin = Object.create( Bird );
-Penguin.swim = function(){
+bird.init(...);
+let penguin = Object.create( bird );
+penguin.swim = function() {
   console.log("swim!");
 }
 
 //Delegate to Bird's walk method
-Penguin.walk(); //walk!
+penguin.walk(); //walk!
 Penguin.swim(); //swim!
 ```
 The main difference here is that in delegation case, we let the `Penguin` delegate to `Bird` when we need `walk()`. But in inheritance case, we create two blueprints (class) first, the method is inherited from parent class. Delegation simplifies the thinking process behind the project and consequently leads to a more efficient development cycle. More detailed explanation on delegation pattern can be found [here](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md).  
