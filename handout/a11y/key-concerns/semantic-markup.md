@@ -23,7 +23,7 @@ A common trap when structuring html is using too many divs and marking them up w
 ```
 [View Example](http://plnkr.co/edit/cm3wBDRqIrmxpECiQhg7?p=info)
 
-While it might be obvious to someone reading the html what the purpose of each element is, the class names don't have any semantic meaning for browsers and screen readers. We can give both more information by using the proper html elements instead.
+While it might be obvious to someone reading the html what the purpose of each element is, or someone viewing the site, the class names don't have any semantic meaning for browsers and screen readers. We can give them more information by using the proper html elements instead.
 
 ```
 @Component({
@@ -48,7 +48,7 @@ While it might be obvious to someone reading the html what the purpose of each e
 ```
 [View Example](https://plnkr.co/edit/LHFNBsdcfbRPFnQg1DE8?p=preview)
 
-Here, we use the `header` element, which lets the browser know that the elements within are used for providing information about the site as a whole rather than about the specific page and the `navigation` element, which lets the browser know the elements within are related to accessing different parts of the page or site. We also nest `router-outlet` within a `main` element, which tells the browser that the content loaded into the router outlet is the main content of the page.
+Here, we use the `header` element instead of a `div`. This lets the browser know that the elements within provide information about the site as a whole rather than about the specific page. We replace anotehr `div` with the `navigation` element. This lets the browser know the elements within are related to accessing different parts of the page or site. We also nest `router-outlet` within a `main` element, which tells the browser that the content loaded into the router outlet is the main content of the page.
 
 There are a couple of new attributes on different elements as well to give the browser even more information. The `alt` attribute has been added to the image to let the browser know that it's a logo image. There's also an `aria-live` attribute on the `main` element. This attribute is part of larger spec known as [Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/TR/wai-aria/) which we'll go over in detail. This is something that lets screen readers know that the content within the `main` tag will be updated on the client-side after the page has loaded and needs to be watched for updates.
 

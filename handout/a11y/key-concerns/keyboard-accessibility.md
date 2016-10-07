@@ -1,16 +1,18 @@
 # Keyboard Accessibility
 
-Keyboard accessibility is the ability of your application to be used with just a keyboard. The more streamlined the site can be used this way, the more keyboard accessible it is. Keyboard accessibility is one of the largest aspects of web accessibility since it targets both those with motor disabilities who can't use a mouse, blind users who typically prefer to navigate websites with their keyboard and those who prefer not to use a mouse.
+Keyboard accessibility is the ability of your application to be interacted with using just a keyboard. The more streamlined the site can be used this way, the more keyboard accessible it is. Keyboard accessibility is one of the largest aspects of web accessibility since it targets both those with motor disabilities who can't use a mouse, blind users who typically prefer to navigate websites with their keyboard and those who prefer not to use a mouse.
 
 
 ## Page focus
 
-Keyboard interaction is largely determined by which element on the page has focus. In web applications only one element has page focus at a time, and this element can be accessed through the `document.activeElement` DOM method.
+Keyboard interaction is driven by something called *page focus*. In web applications only one element has page focus at a time, and keypresses are done using that element as the main point of context. This element can be accessed programmatically through the `document.activeElement` DOM method and visually, this is often represented by a glowing border surrounding the rendered element.
+
+![Focus border](./focus-border.png)
 
 
 ### Tabbing
 
-The most common way of moving focus along the page is through the `tab` key. By default, elements will be traversed in the order they appear in the document markup, which means that order must be carefully considered during development. By default, only links, buttons and form controls can receive keyboard. There may be cases where you'll want to change the default behaviour, this can be done through the `tabindex` attribute. The `tabindex` can be given the values:
+The most common way of moving focus along the page is through the `tab` key. By default, elements will be traversed in the order they appear in the document markup, so that order must be carefully considered during development. By default, only links, buttons and form controls can receive keyboard focus. There may be cases where you'll want to change the default behaviour, this can be done through the `tabindex` attribute. The `tabindex` can be given the values:
   - *less than zero* - to let readers know that an element should be focusable but not keyboard accessible
   - *0* - to let readers know that that element should be accessible by keyboard
   - *greater than zero* - to let readers know the order in which the focusable element should be reached using the keyboard. Order is calculated from lowest to highest.
