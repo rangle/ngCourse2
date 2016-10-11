@@ -15,7 +15,7 @@ b.ts
 ```ts
 export const B = (b) => console.log(b);
 ```
-
+Before TypeScript@1.8.2:
 ```shell
 $ tsc ./a.ts ./b.ts
 a.ts(1,1): error TS1148: Cannot compile modules unless the '--module' flag is provided.
@@ -31,14 +31,19 @@ $ tsc --help | grep module
 
 ```
 
-(TypeScript has more help than what we've shown; we filtered by `grep` for brevity.)  
-There are two help entries that reference "module", and `--module` is the one TypeScript was complaining about. 
-The description explains that TypeScript supports a number of different module schemes. 
+(TypeScript has more help than what we've shown; we filtered by `grep` for brevity.)
+There are two help entries that reference "module", and `--module` is the one TypeScript was complaining about.
+The description explains that TypeScript supports a number of different module schemes.
 For the moment `commonjs` is desirable. This will produce modules that are compatible with node.js's module system.
 
 ```shell
 $ tsc -m commonjs ./a.ts ./b.ts
 ```
+Since TypeScript@1.8.2, `tsc` has a default rule for `--module` option: `target === 'ES6' ? 'ES6' : 'commonjs'` (more details can be found [here](https://www.typescriptlang.org/docs/handbook/compiler-options.html)), so we can simply run:
+```shell
+$ tsc ./a.ts ./b.ts
+```
+
 
 `tsc` should produce no output.  In many command line traditions, no output is
 actually a mark of success.  Listing the directory contents will confirm that
@@ -97,7 +102,7 @@ We won't be running `tsc` manually, however. Instead, webpack's `ts-loader` will
 ```javascript
   // webpack.config.js
   //...
-  loaders: [
+  rules: [
     { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
     //...
   ]
