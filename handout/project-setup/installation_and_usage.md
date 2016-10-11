@@ -14,11 +14,11 @@ The most common way to use webpack is through the CLI. By default, running the c
 
 ## Bundle
 
-The core concept of webpack is the *bundle*. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles: 
+The core concept of webpack is the *bundle*. A bundle is simply a collection of modules, where we define the boundaries for how they are separated. In this project, we have two bundles:
 
-* `app` for our application-specific client-side logic 
-* `vendor` for third party libraries 
-  
+* `app` for our application-specific client-side logic
+* `vendor` for third party libraries
+
 In webpack, bundles are configured through *entry points*. Webpack goes through each entry point one by one. It maps out a dependency graph by going through each module's references. All the dependencies that it encounters are then packaged into that bundle.
 
 Packages installed through NPM are referenced using *CommonJS* module resolution. In a JavaScript file, this would look like:
@@ -43,18 +43,20 @@ Let's look at the entry points we have defined in our sample app:
   entry: {
     app: './src/index.ts',
     vendor: [
-      'es6-shim',
-      'angular2/bundles/angular2-polyfills',
-      'angular2/bootstrap',
-      'angular2/platform/browser',
-      'angular2/platform/common_dom',
       '@angular/core',
-      'angular2/router',
-      'angular2/http',
+      '@angular/compiler',
+      '@angular/common',
+      '@angular/http',
+      '@angular/platform-browser',
+      '@angular/platform-browser-dynamic',
+      '@angular/router',
+      'es6-shim',
       'redux',
       'redux-thunk',
+      'redux-logger',
+      'reflect-metadata',
       'ng2-redux',
-      'redux-logger'
+      'zone.js',
     ]
   }
   ...
@@ -91,6 +93,6 @@ All of these configuration options are handled by the config's `output` property
 
 > Some options have words wrapped in square brackets. Webpack has the ability to parse parameters for these properties, with each property having a different set of parameters available for substitution. Here, we're using `name` (the name of the bundle) and `hash` (a hash value of the bundle's content).
 
-To save bundled files in a different folder, we use the `path` property. Here, `path` tells webpack that all of the output files must be saved to `path.resolve(__dirname, 'dist')`. In our case, we save each bundle into a separate file. The name of this file is specified by the `filename` property. 
+To save bundled files in a different folder, we use the `path` property. Here, `path` tells webpack that all of the output files must be saved to `path.resolve(__dirname, 'dist')`. In our case, we save each bundle into a separate file. The name of this file is specified by the `filename` property.
 
 Linking these bundled files and the files we've actually coded is done using what's known as source maps. There are different ways to configure source maps. What we want is to save these source maps in a separate file specified by the `sourceMapFilename` property. The way the server accesses the files might not directly follow the filesystem tree. For us, we want to use the files saved under _dist_ as the root folder for our server. To let webpack know this, we've set the `publicPath` property to `/`.

@@ -36,18 +36,20 @@ module.exports = {
   entry: {
     app: './src/index.ts',
     vendor: [
-      'es6-shim',
-      'angular2/bundles/angular2-polyfills',
-      'angular2/bootstrap',
-      'angular2/platform/browser',
-      'angular2/platform/common_dom',
       '@angular/core',
-      'angular2/router',
-      'angular2/http',
+      '@angular/compiler',
+      '@angular/common',
+      '@angular/http',
+      '@angular/platform-browser',
+      '@angular/platform-browser-dynamic',
+      '@angular/router',
+      'es6-shim',
       'redux',
       'redux-thunk',
+      'redux-logger',
+      'reflect-metadata',
       'ng2-redux',
-      'redux-logger'
+      'zone.js',
     ]
   },
 
@@ -61,17 +63,14 @@ module.exports = {
   devtool: 'source-map',
 
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+    extensions: ['.webpack.js', '.web.js', '.ts', '.js']
   },
 
   plugins: plugins,
 
   module: {
-    preLoaders: [{
-      test: /\.ts$/,
-      loader: 'tslint'
-    }],
-    loaders: [
+    rules: [
+      { test: /\.ts$/, loader: 'tslint' },
       { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' },
       { test: /\.css$/, loader: 'style!css?sourceMap' },
