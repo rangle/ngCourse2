@@ -50,6 +50,35 @@ export class Counter {
 }
 ```
 
+```js
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <div>
+      Parent Num: {{ num }}<br />
+      Parent Count: {{ parentCount }}
+	    <counter [count]="num" (result)="onChange($event)">
+	    </counter>
+	  </div>
+  `
+})
+export class App {
+  num: number;
+  parentCount: number;
+
+  constructor() {
+    this.num = 0;
+    this.parentcount = 0;
+  }
+
+  onChange(val: any) {
+    this.parentCount = val;
+  }
+}
+```
+
 [View Example](http://plnkr.co/edit/iwQePN?p=preview)
 
 Together a set of input + output bindings define the public API of your component. In our templates we use the [squareBrackets] to pass inputs and the (parenthesis) to handle outputs.
