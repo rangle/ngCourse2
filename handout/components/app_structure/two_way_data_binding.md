@@ -15,8 +15,21 @@ What this is doing behind the scenes is equivalent to:
 To create your own component that supports two-way binding, you must define an `@Output` property to match an `@Input`, but suffix it with the `Change`, for example:
 
 ```js
-@Component({/*....*/})
-export default class Counter {
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+
+@Component({
+  selector: 'counter',
+  template: `
+    <div>
+      <p>
+        <ng-content></ng-content>
+        Count: {{ count }} -
+        <button (click)="increment()">Increment</button>
+      </p>
+    </div>
+  `
+})
+export class Counter {
   @Input() count: number = 0;
   @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
 
@@ -25,14 +38,6 @@ export default class Counter {
     this.countChange.emit(this.count);
   }
 }
-
-@Component({
-  template:'<counter [(count)]="myNumber"></counter>'
-  directives:[Counter]
-})
-class SomeComponent {
-  // ...
-}
 ```
 
-[View Example](http://plnkr.co/edit/Mo8Bti5kDUmMcwSdPr58?p=preview)
+[View Example](http://plnkr.co/edit/nwRNxpoTuk4M60Y5Khq8?p=preview)
