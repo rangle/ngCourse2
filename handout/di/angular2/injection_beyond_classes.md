@@ -25,7 +25,7 @@ This example is yet another example that `provide`s a class, but it does so with
 Angular 2's longer format.
 
 This long format is really handy.  If the programmer wanted to switch out
-`Hamburger` implementations, for example to allow for a `MockChatWidget`, they could
+`ChatWidget` implementations, for example to allow for a `MockChatWidget`, they could
 do this easily:
 
 ```js
@@ -65,7 +65,6 @@ In the hypothetical app component, 'Random' could be injected like:
 
 ```js
 import { Component, Inject, provide } from '@angular/core';
-import { Hamburger } from '../services/hamburger';
 
 @Component({
   selector: 'app',

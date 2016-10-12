@@ -19,7 +19,7 @@ class ChatWidget {
 
 ```
 
-The above code is a contrived class that represents a chat app we would like to build.  The class
+The above code is a contrived class that represents a chat widget we would like to build.  The class
 assumes a `ChatWidget` consists of a `AuthService`, `AuthWidget` and `ChatSocket`.  The class
 is also responsible for _making_ the `AuthService`, `AuthWidget` and `ChatSocket`.  This is a
 bad thing. What if a chat app that accepts `Linkedin` account were needed?  One naive approach might
@@ -39,7 +39,7 @@ class ChatWidget {
 ```
 
 There, problem solved right? But what if we need a smaller auth widget?
-What if we want to turn on encryption... maybe something more generic like:
+What if we want to turn off encryption... maybe something more generic like:
 
 ```js
 class ChatWidget {
