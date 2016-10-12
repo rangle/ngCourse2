@@ -273,5 +273,14 @@
 
 ---
 
+  * [Testing for Accessibility](handout/a11y/testing/README.md)
+      * [Is my Application Readable?](handout/a11y/testing/readable.md)
+      * [Is my Application Predictable?](handout/a11y/testing/predictable.md)
+      * [Is my Application Navigable?](handout/a11y/testing/navigable.md)
+      * [Testing with Screen Readers](handout/a11y/testing/screen-readers.md)
+  * [Additional Resources](handout/a11y/additional-resources.md)
+
+---
+
 * [Glossary](handout/glossary.md)
 * [Other Resources](handout/other-resources.md)
