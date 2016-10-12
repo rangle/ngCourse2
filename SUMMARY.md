@@ -273,5 +273,20 @@
 
 ---
 
+* [Accessibility in Angular 2](handout/a11y/README.md)
+    * [Why Make my Application Accessible?](handout/a11y/why-a11y.md)
+    * [Key Concerns of Accessible Web Applications](handout/a11y/key-concerns/README.md)
+        * [Semantic Markup](handout/a11y/key-concerns/semantic-markup.md)
+        * [Keyboard Accessibility](handout/a11y/key-concerns/keyboard-accessibility.md)
+        * [Visual Assistance](handout/a11y/key-concerns/visual-assistance.md)
+    * [Testing for Accessibility](handout/a11y/testing/README.md)
+      * [Is my Application Readable?](handout/a11y/testing/readable.md)
+      * [Is my Application Predictable?](handout/a11y/testing/predictable.md)
+      * [Is my Application Navigable?](handout/a11y/testing/navigable.md)
+      * [Testing with Screen Readers](handout/a11y/testing/screen-readers.md)
+    * [Additional Resources](handout/a11y/additional-resources.md)
+
+---
+
 * [Glossary](handout/glossary.md)
 * [Other Resources](handout/other-resources.md)
