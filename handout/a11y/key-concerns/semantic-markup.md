@@ -23,7 +23,7 @@ A common trap when structuring html is using too many divs and marking them up w
 ```
 [View Example](http://plnkr.co/edit/cm3wBDRqIrmxpECiQhg7?p=info)
 
-While it might be obvious to someone reading the html what the purpose of each element is, or someone viewing the site, the class names don't have any semantic meaning for browsers and screen readers. We can give them more information by using the proper html elements instead.
+While it might be obvious to someone reading the HTML or using the application what the purpose of each element is, the class names don't have any semantic meaning for browsers and screen readers. We can give them more information by using the proper HTML elements instead.
 
 ```
 @Component({
@@ -48,7 +48,11 @@ While it might be obvious to someone reading the html what the purpose of each e
 ```
 [View Example](https://plnkr.co/edit/LHFNBsdcfbRPFnQg1DE8?p=preview)
 
-Here, we use the `header` element instead of a `div`. This lets the browser know that the elements within provide information about the site as a whole rather than about the specific page. We replace anotehr `div` with the `navigation` element. This lets the browser know the elements within are related to accessing different parts of the page or site. We also nest `router-outlet` within a `main` element, which tells the browser that the content loaded into the router outlet is the main content of the page.
+Here, we use the `header` element instead of a `div`, which lets the browser know that the elements within provide information about the site as a whole rather than about the specific page. 
+
+We replace another `div` with the `nav` element, which lets the browser know the elements within are related to accessing different parts of the page or site. 
+
+We also nest `router-outlet` within a `main` element, which tells the browser that the content loaded into the router outlet is the main content of the page.
 
 There are a couple of new attributes on different elements as well to give the browser even more information. The `alt` attribute has been added to the image to let the browser know that it's a logo image. There's also an `aria-live` attribute on the `main` element.
 
@@ -107,7 +111,13 @@ This lets you create a component that has the same semantics as a `button` eleme
 
 ### ARIA attributes
 
-Some native html tags have attributes that providers extra context on what's being displayed on the browser: The `img` tag's `alt` attribute for example, lets the reader know what is being shown using a short description. However, native tags don't cover all cases. This is where ARIA fits in. ARIA attributes can provide context on what roles specific elements have in the application or can provide context on how some elements are related to other elements on the document. One example of this is modals. Native modals provided by different platforms such as web browsers, often have limited customization options which can make for a poor experience in some cases. This necessitates the creation of custom modals. A modal component can be given the `role` of [dialog](https://www.w3.org/TR/wai-aria/roles#dialog) or [alertdialog](https://www.w3.org/TR/wai-aria/roles#alertdialog) to let the browser know that that component is acting as a modal.  Within the component we can use the ARIA attributes `aria-labelledby` and `aria-described` by to let readers know which elements within those modals say what the title of that modal is and a longer description of what exactly the user is being shown within that modal.
+Some native HTML tags have attributes that providers extra context on what's being displayed on the browser. For example, the `img` tag's `alt` attribute  lets the reader know what is being shown using a short description. 
+
+However, native tags don't cover all cases. This is where ARIA fits in. ARIA attributes can provide context on what roles specific elements have in the application or on how elements within the document relate to each other. 
+
+One example of this is modals. Native modals provided by different platforms such as web browsers often have limited customization options, which can make for a poor experience. This necessitates the creation of custom modals. 
+
+A modal component can be given the `role` of [dialog](https://www.w3.org/TR/wai-aria/roles#dialog) or [alertdialog](https://www.w3.org/TR/wai-aria/roles#alertdialog) to let the browser know that that component is acting as a modal. The modal component template can use the ARIA attributes `aria-labelledby` and `aria-described` to describe to readers what the title and purpose of the modal is.
 
 *app.component.ts*
 ```
@@ -153,6 +163,4 @@ export class ModalComponent {
 ```
 [View Example](https://plnkr.co/edit/Vvu62nDZ18IkqiAop2A9?p=preview)
 
-
-## Additional Information
-This information covered highlights some of the key concepts and considerations regarding semantic markup and ARIA details. More information is available in the [WAI-ARIA specification](https://www.w3.org/TR/wai-aria/).
+ARIA tags can enhance the accessibility of an application, but should by no means be the only accessibility consideration. More information is available in the [WAI-ARIA specification](https://www.w3.org/TR/wai-aria/).
