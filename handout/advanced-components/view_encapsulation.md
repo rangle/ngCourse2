@@ -5,8 +5,7 @@ View encapsulation defines whether the template and styles defined within the co
 - `Emulated` (default) - styles from main HTML propagate to the component. Styles defined in this component's `@Component` decorator are scoped to this component only.
 - `Native` - styles from main HTML do not propagate to the component. Styles defined in this
 component's `@Component` decorator are scoped to this component only.
-- `None` - styles from the component propagate back to the main HTML and therefore are visible to
-all components on the page.
+- `None` - styles from the component propagate back to the main HTML and therefore are visible to all components on the page. Be careful with apps that have `None` and `Native` components in the application. All components with `None` encapsulation will have their styles duplicated in all components with `Native` encapsulation.
 
  ```js
 @Component({
@@ -17,4 +16,4 @@ all components on the page.
 export class Hello { ... }
  ```
 
-[View Example](http://plnkr.co/edit/q8XV8Tc5Mv10ZFgfUfVt?p=preview)
+[View Example](http://plnkr.co/edit/hE4Yl8MraQ1vswhQbQmx?p=preview)
