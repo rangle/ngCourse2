@@ -3,7 +3,7 @@
 
 ### Opt-In APIs
 Before we dive into any of the form features, we need to do a little bit of housekeeping.
-If you are using a RC5 or above version of Angular 2, we need to bootstrap our application using the new `FormsModule` and/or `ReactiveFormsModule`.
+We need to bootstrap our application using the `FormsModule` and/or `ReactiveFormsModule`.
 
 ```js
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
