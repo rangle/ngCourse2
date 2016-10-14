@@ -16,14 +16,14 @@ import {
 
 @Component({
   selector: 'login-form',
-  templateUrl: 'app/login-form.component.html',
+  templateUrl: 'app/login-form.component.html'
 })
 export class LoginForm {
   loginForm: FormGroup;
   username: FormControl;
   password: FormControl;
 
-  constructor (builder: FormBuilder) {
+  constructor(builder: FormBuilder) {
     this.username = new FormControl('', []);
     this.password = new FormControl('', []);
     this.loginForm = builder.group({
@@ -32,7 +32,7 @@ export class LoginForm {
     });
   }
 
-  login () {
+  login() {
     console.log(this.loginForm.value);
     // Attempt Logging in...
   }

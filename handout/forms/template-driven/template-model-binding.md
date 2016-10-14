@@ -19,7 +19,8 @@ _app/signup-form.component.html_
 
 _app/signup-form.component.ts_
 ```ts
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 // ...
 
 @Component({ /* ... */ })
@@ -55,7 +56,8 @@ Be sure to declare all of the properties you will need on the component.
 ```
 
 ```ts
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 // ...
 
 @Component({ /* ... */ })

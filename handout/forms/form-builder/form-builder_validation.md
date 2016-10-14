@@ -17,7 +17,7 @@ export class LoginForm {
   username: FormControl;
   password: FormControl;
 
-  constructor (builder: FormBuilder) {
+  constructor(builder: FormBuilder) {
     this.username = new FormControl('', [
       Validators.required,
       Validators.minLength(5)
@@ -29,7 +29,7 @@ export class LoginForm {
     });
   }
 
-  login () {
+  login() {
     console.log(this.loginForm.value);
     // Attempt Logging in...
   }

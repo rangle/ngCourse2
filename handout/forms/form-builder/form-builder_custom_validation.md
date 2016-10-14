@@ -7,7 +7,7 @@ Let's assume we are using the same Login Form, but now we also want to test that
 
 _app/login-form.component.ts_
 ```ts
-function hasExclamationMark (input: FormControl) {
+function hasExclamationMark(input: FormControl) {
   const hasExclamation = input.value.indexOf('!') >= 0;
   return hasExclamation ? null : { needsExclamation: true };
 }
@@ -45,9 +45,9 @@ Simple, really.
 It's not a trick of Angular, or TypeScript - it's simple JavaScript closures.
 
 ```javascript
-function minLength (minimum) {
-  return function (input) {
-    return input.value >= minimum ? null : { minLength: true };
+function minLength(minimum) {
+  return function(input) {
+    return input.value.length >= minimum ? null : { minLength: true };
   };
 }
 ```
@@ -58,8 +58,8 @@ Let's apply that thinking back to a `PunctuationValidator`.
 
 _app/login-form.component.ts_
 ```ts
-function hasPunctuation (punctuation: string, errorType: string) {
-  return function (input: FormControl) {
+function hasPunctuation(punctuation: string, errorType: string) {
+  return function(input: FormControl) {
     return input.value.indexOf(punctuation) >= 0 ?
         null :
         { [errorType]: true };
@@ -90,7 +90,7 @@ Keep in mind what was mentioned earlier: inputs have access to their parent cont
 Therefore, complex validation can happen by drilling through the form, via root.
 
 ```ts
-function duplicatePassword (input: FormControl) {
+function duplicatePassword(input: FormControl) {
   if (!input.root || !input.root.controls) {
     return null;
   }
@@ -106,4 +106,4 @@ this.duplicatePassword = new FormControl('', [
 ]);
 ```
 
-[View Example](https://plnkr.co/edit/DcLIRa?p=preview)
+[View Example](https://plnkr.co/edit/OVL1Vl?p=preview)
