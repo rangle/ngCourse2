@@ -5,26 +5,27 @@ simplifies DI even further.  With Angular 2, programmers almost never have to ge
 bogged down with injection details.
 
 Angular 2's DI system is (mostly) controlled through `@NgModule`.  Specifically
-the `providers` array.
+the `providers` and `declarations` array. (`declarations` is where we put components,
+pipes and directives; `providers` is where we put services)
 
 For example:
 
 ```js
 import { Injectable, NgModule } from '@angular/core';
 
-@Injectable()
+@Component({...})
 class ChatWidget {
   constructor(private authService: AuthService, private authWidget: AuthWidget,
     private chatSocket: ChatSocket) {}
 }
 
 @NgModule({
-  providers: [ ChatWidget ],
+  declarations: [ ChatWidget ]
 })
-export class DiExample {};
+export class AppModule {};
 ```
 
-In the above example the `DiExample` module is told about the `ChatWidget` class. Another way of saying this is that Angular 2 has been _provided_ a `ChatWidget`.
+In the above example the `AppModule` is told about the `ChatWidget` class. Another way of saying this is that Angular 2 has been _provided_ a `ChatWidget`.
 
 That seems pretty straightforward, but astute readers will be wondering how
 Angular 2 knows how to build `ChatWidget`.  What if `ChatWidget` was a string, or
@@ -40,23 +41,24 @@ be changed easily enough:
 ```js
 import { Injectable, NgModule } from '@angular/core';
 
-@Injectable()
+@Component({...})
 class ChatWidget {
   constructor(private authService: AuthService, private authWidget: AuthWidget,
     private chatSocket: ChatSocket) {}
 }
 
-@Injectable()
-class AuthService {}
+@Component({...})
+class AuthWidget {}
 
 @Injectable()
-class AuthWidget {}
+class AuthService {}
 
 @Injectable()
 class ChatSocket {}
 
 @NgModule({
-  providers: [ ChatWidget, AuthService, AuthWidget, ChatSocket ],
+  declarations[ ChatWidget, AuthWidget ]
+  providers: [ AuthService, ChatSocket ],
 })
 ```
 
