@@ -15,15 +15,18 @@ In `app/i18n-providers.ts`
 
 ```javascript
 import { TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
+
 export function getTranslationProviders(): Promise<Object[]> {
   // Get the locale id from the global
   const locale = document['locale'] as string;
   // return no providers if fail to get translation file for locale
   const noProviders: Object[] = [];
+  
   // No locale or U.S. English: no translation providers
   if (!locale || locale === 'en-US') {
     return Promise.resolve(noProviders);
   }
+  
   // Ex: 'locale/messages.fr.xlf`
   const translationFile = `./locale/messages.${locale}.xlf`;
   return getTranslationsWithSystemJs(translationFile)
@@ -34,12 +37,17 @@ export function getTranslationProviders(): Promise<Object[]> {
     ])
     .catch(() => noProviders); // ignore if file not found
 }
+
+
 declare var System: any;
 function getTranslationsWithSystemJs(file: string) {
   return System.import(file + '!text'); // relies on text plugin
 }
 
 ```
+
+Note that above, we had to create a function `getTranslationsWithSystemJs` and rely 
+on a text-plugin to import the files. This is only necessary if you are using SystemJs.
 
 Lastly, we have to boostrap the app with the translation providers.
 
