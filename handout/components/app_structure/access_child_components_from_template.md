@@ -11,6 +11,7 @@ _app/my-example.component.html_
     <input type="text" name="name" id="name" ngModel>
     <button type="submit">Submit</button>
   </form>
+  Form value: {{formValue}}
 </section>
 ```
 
@@ -24,29 +25,30 @@ import {Component} from '@angular/core';
   templateUrl: 'app/my-example.component.html'
 })
 export class MyExampleComponent {
+  formValue: string = JSON.stringify({});
   submitForm (form: NgForm) {
-    console.log(form.value);
+    this.formValue = JSON.stringify(form.value);
   }
 }
 ```
-[View Example](https://plnkr.co/edit/TH2x5b?p=preview)
+[View Example](https://plnkr.co/edit/DtQk2c?p=preview)
 
 This isn't a magic feature which only forms or inputs have, but rather a way of referencing the instance of a child component in your template. With that reference, you can then access public properties and methods on that component.
 
 ```html
-<red-ball #myBall></red-ball>
-The ball is {{ myBall.color }}.
+<my-profile #profile></my-profile>
+My name is {{ profile.name }}
 ```
 
 ```ts
 @Component({
-  selector: 'red-ball',
-  template: '<div > · </div>'
+  selector: 'my-profile',
+  templateUrl: 'app/my-profile.component.html'
 })
-export class RedBallComponent {
-  color: string = 'red'
+export class MyProfile {
+  name: string = 'John Doe';
 }
 ```
-[View Example](https://plnkr.co/edit/0SXR28?p=preview)
+[View Example](https://plnkr.co/edit/KYSL5h?p=preview)
 
 There are other means of accessing and interfacing with child components, but if you simply need to reference properties or methods of a child, this can be a simple and straightforward method of doing so.
