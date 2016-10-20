@@ -16,7 +16,7 @@ import {
 
 @Component({
   selector: 'login-form',
-  templateUrl: 'app/login-form.component.html'
+  templateUrl: 'app/login-form.component.html',
 })
 export class LoginForm {
   loginForm: FormGroup;

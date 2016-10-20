@@ -43,7 +43,7 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'signup-form',
-  templateUrl: 'app/signup-form.component.html'
+  templateUrl: 'app/signup-form.component.html',
 })
 export class SignupForm {
   registerUser(form: NgForm) {
