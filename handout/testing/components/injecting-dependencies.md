@@ -35,12 +35,16 @@ In order to test this component we need initiate the `QuoteComponent` class. The
 ```js
 import { QuoteService } from './quote.service';
 import { QuoteComponent } from './quote.component';
-import { provide } from '@angular/core';
+import { provide, destroyPlatform } from '@angular/core';
 import {
   async,
   inject,
   TestBed,
 } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
 
 class MockQuoteService {
   public quote: string = 'Test quote';
@@ -54,7 +58,14 @@ describe('Testing Quote Component', () => {
 
   let fixture;
 
+  beforeEach(() => destroyPlatform());
+
   beforeEach(() => {
+    TestBed.initTestEnvironment(
+      BrowserDynamicTestingModule,
+      platformBrowserDynamicTesting()
+    );
+
     TestBed.configureTestingModule({
       declarations: [
         QuoteComponent
@@ -83,12 +94,18 @@ describe('Testing Quote Component', () => {
 ```
 [View Example](http://plnkr.co/edit/7KZu1Yg6kBX7rksrpRHV?p=preview)
 
-Testing the `QuoteComponent` is a fairly straightforward process. We want to create a `QuoteComponent`, feed it a quote and see if it appears in the DOM. This process requires us to create the component, pass in any dependencies, trigger the component to perform an action and then look at the DOM to see if the action is what we expected. Let's take a look at how this is accomplished with the above unit test.
+Testing the `QuoteComponent` is a fairly straightforward process. We want to create a `QuoteComponent`, feed it a quote and see if it appears in the DOM. This process requires us to create the component, pass in any dependencies, trigger the component to perform an action and then look at the DOM to see if the action is what we expected. 
+
+Let's take a look at how this is accomplished with the above unit test.
+
+We use `TestBed.initTestingEnvironment` to create a testing platform using `BrowserDynamicTestingModule` and `platformBrowserDynamicTesting` as arguments, which are also imported from angular and allow the application to be bootstrapped for testing. This is necessary for all unit tests that make use of `TestBed`. Notice that this platform is destroyed and reset before every new test runs.
 
 We use `TestBed.configureTestingModule` to feed in any dependencies that our component requires. Here our component depends on the `QuoteService` to get data. We mock this data ourselves thus giving us control over what value we expect to show up. It is good practice to separate component testing from service testing - this makes it easier to test as you are only focusing on a single aspect of the application at a time. If your service or component fails, how will you know which one was the culprit? We inject the `QuoteService` dependency using our mock class `MockQuoteService`, where we will provide mock data for the component to consume.
 
 Next we use `TestBed.createComponent(QuoteComponent)` to create a *fixture* for us to use in our tests. This will then create a new instance of our component, fulfilling any Angular-specific routines like dependency injection. A fixture is a powerful tool that allows us to query the DOM rendered by a component, as well as change DOM elements and component properties. It is the main access point of testing components and we use it extensively.
 
-In the `Should get quote` test we have gotten access to our component through the `fixture.componentInstance` property. We then call `getQuote` to kickstart our only action in the `QuoteComponent` component. We run the test when the fixture is stable by using its `whenStable` method which will ensure the promise inside the `getQuote()` has resolved. Giving the component a chance to set the quote value. We call `fixture.detectChanges` to keep an eye out for any changes taking place to the DOM, and use the `fixture.debugElement.nativeElement` property to get access to those underlying DOM elements. Now we can check to see if the DOM rendered by our `QuoteComponent` contains the quote that we mocked in through the `QuoteService`. The final line attempts to assert that the DOM's div tag contains the mocked quote 'Test Quote' inside. If it does, then our component passes the test and works as expected; if it doesn't, that means our component is not outputting quotes correctly.
+In the `Should get quote` test we have gotten access to our component through the `fixture.componentInstance` property. We then call `getQuote` to kickstart our only action in the `QuoteComponent` component. We run the test when the fixture is stable by using its `whenStable` method which will ensure the promise inside the `getQuote()` has resolved, giving the component a chance to set the quote value. We call `fixture.detectChanges` to keep an eye out for any changes taking place to the DOM, and use the `fixture.debugElement.nativeElement` property to get access to those underlying DOM elements. 
+
+Now we can check to see if the DOM rendered by our `QuoteComponent` contains the quote that we mocked in through the `QuoteService`. The final line attempts to assert that the DOM's div tag contains the mocked quote 'Test Quote' inside. If it does, then our component passes the test and works as expected; if it doesn't, that means our component is not outputting quotes correctly.
 
 We wrap `Should get quote` test in `async()`. This is to allow our tests run in an asynchronous test zone. Using `async` creates a test zone which will ensure that all asynchronous functions have resolved prior to ending the test.
