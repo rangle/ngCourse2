@@ -39,6 +39,8 @@ export const configureTests = (configure: (testBed: TestBed) => void) => {
 
 `tests.configure.ts` creates the testing platform if it doesn't already exist, compiles the template, and exports `configureTests` which can then be imported and used in our unit tests.
 
+Here's a look at how it would be used:
+
 ```ts
 import { TestBed } from '@angular/core/testing';
 import { ExampleComponent } from './index';

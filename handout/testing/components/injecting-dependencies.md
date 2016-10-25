@@ -98,7 +98,7 @@ Testing the `QuoteComponent` is a fairly straightforward process. We want to cre
 
 Let's take a look at how this is accomplished with the above unit test.
 
-We use `TestBed.initTestingEnvironment` to create a testing platform using `BrowserDynamicTestingModule` and `platformBrowserDynamicTesting` as arguments, which are also imported from angular and allow the application to be bootstrapped for testing. This is necessary for all unit tests that make use of `TestBed`. Notice that this platform is destroyed and reset before every new test runs.
+We use `TestBed.initTestingEnvironment` to create a testing platform using `BrowserDynamicTestingModule` and `platformBrowserDynamicTesting` as arguments, which are also imported from angular and allow the application to be bootstrapped for testing. This is necessary for all unit tests that make use of `TestBed`. Notice that this platform is destroyed and reset before each test runs.
 
 We use `TestBed.configureTestingModule` to feed in any dependencies that our component requires. Here our component depends on the `QuoteService` to get data. We mock this data ourselves thus giving us control over what value we expect to show up. It is good practice to separate component testing from service testing - this makes it easier to test as you are only focusing on a single aspect of the application at a time. If your service or component fails, how will you know which one was the culprit? We inject the `QuoteService` dependency using our mock class `MockQuoteService`, where we will provide mock data for the component to consume.
 

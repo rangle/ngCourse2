@@ -1,7 +1,7 @@
 # Karma Configuration
 Karma is the foundation of our testing workflow. It brings together our other testing tools to define the framework we want to use, the environment to test under, the specific actions we want to perform, etc. In order to do this Karma relies on a configuration file named by default *karma.conf.js*. 
 
-You can seed a new configuration file though the `karma init` command, which will guide you through a few basic questions to get a bare minimum setup running. If we take a look at the [*karma.conf.js* file in angular-redux-starter](https://github.com/rangle/angular2-redux-example/blob/master/karma.conf.js) we'll see a few important points of interest:
+You can seed a new configuration file though the `karma init` command, which will guide you through a few basic questions to get a bare minimum setup running. If we take a look at the customized [*karma.conf.js* file in angular-redux-starter](https://github.com/rangle/angular2-redux-example/blob/master/karma.conf.js) we'll see a few important points of interest:
 
 ```js
 const loaders = require('./webpack/loaders');
