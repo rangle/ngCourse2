@@ -5,10 +5,10 @@ JavaScript was created in 1995, but the language is still thriving today. There 
 Some of the highlights:
 
 - Classes
-- Arrow Functions
-- Template Strings
+- Arrow Function
+- Template String
 - Inheritance
-- Constants and Block Scoped Variables
-- ...spread and ...rest
+- Constants and Block Scoped Variable
+- Spread and Rest operators
 - Destructuring
-- Modules
+- Module

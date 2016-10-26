@@ -1,15 +1,14 @@
  # Accessing Child Component Classes #
 
- ## @ViewChild & @ViewChildren ##
+ ## @ViewChild and @ViewChildren ##
+The @ViewChild and @ViewChildren decorators provide access to the classe of child component from the containing component.
 
-The `@ViewChild` & `@ViewChildren` decorators allow access to the classes of child components of the current component.
+The @ViewChild is a decarator function that takes the name of a component class as its input and finds it's selector in the template of the containing component to bind to. @ViewChild can also be passed a template reference variable.
 
-`@ViewChild` selects one class instance of the given child component class when given a type.
-
-For example, we can call `show` which is on the child component `Alert` class:
+For example, we bind the component class 'Alert' to its selector '<my-alert>' and assign it to the property 'alert'. This allows us to gain access to the functions in that class like Alert.show().
 
 ```typescript
-import {Component, QueryList, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Alert} from './alert.component';
 
 @Component({
@@ -30,10 +29,10 @@ export class App {
 
 In the interest of separation of concern, we'd normally want to have child elements take care of their own behaviors and pass in an `@Input()`. However, it might be a useful construct in keeping things generic.
 
-We can also use `@ViewChildren` to get a list of class instances if there are multiple, which selects a `QueryList` of the elements:
+When there are multiple embedded components in the template, we make use of @ViewChildren to collect an instance of its component class inside a QueryList container. QueryList is a TypeScript generic class that simply states it is a list container of class Alert. The embedded component in the template is identified by it's selector, in the code below that would be each '<my-alert>' selector.
 
 ```typescript
-import {Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {Component, QueryList, ViewChildren} from '@angular/core';
 import {Alert} from './alert.component';
 
 @Component({
@@ -59,7 +58,7 @@ export class App {
 ```
 [View Example](http://plnkr.co/edit/8Eak9DANedsZDHBHuLea?p=preview)
 
-As shown above, when given a class type `@ViewChild` & `@ViewChildren` select child components based on type. However, they can also be passed selector strings:
+As shown above, given a class type to @ViewChild and @ViewChildren a child component or a list of children component are selected respectively using their selector from the template. In addition both @ViewChild and @ViewChildren can be passed a selector string:
 
 ```typescript
 import {Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
@@ -88,12 +87,12 @@ export class App {
 }
 ```
 
-Note that View children will not be set until `ngAfterViewInit`
+Note that View children will not be set until the 'ngAfterViewInit' lifecycle hook is called.
 
 
-## @ContentChild & @ContentChildren ##
+## @ContentChild and @ContentChildren ##
 
-`@ContentChild` & `@ContentChildren` work the same way as the equivalent `@ViewChild` & `@ViewChildren`, however, the key difference is that `@ContentChild` & `@ContentChildren` select from the [projected content](/handout/components/projection.md) within the component.
+`@ContentChild` and `@ContentChildren` work the same way as the equivalent `@ViewChild` and `@ViewChildren`, however, the key difference is that `@ContentChild` and `@ContentChildren` select from the [projected content](/handout/components/projection.md) within the component.
 
 Again, note that content children will not be set until `ngAfterContentInit` component lifecycle hook.
 

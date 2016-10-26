@@ -1,86 +1,88 @@
 ## Inheritance
 
-JavaScript's inheritance works differently from inheritance in other languages, which can be very confusing. ES6 classes provide a syntactic sugar attempting to alleviate the issues with using prototypical inheritance present in ES5. Our recommendation is still to avoid using inheritance or at least deep inheritance hierarchies. Try solving the same problems through delegation instead.
+JavaScript's inheritance works differently from inheritance in other languages, which can be very confusing. ES6 classes provide a syntactic sugar attempting to alleviate the issues with using prototypical inheritance present in ES5.
 
-To illustrate this, let's image we have a zoo application where types of birds are created. In the classical inheritance case, we would define an parent class `Bird` first, then let, say, `Penguin` be a descent of `Bird`:
+To illustrate this, let's image we have a zoo application where types of birds are created. In classical inheritance, we define a base class and then subclass it to create a derived class.
+
+## Subclassing
+
+The example code below shows how to derive Penguin from Bird using the **extend** keyword. Also pay attention to the **super** keyword used in the subclass constructor of Penguin, it is used to pass the argument to the base class Bird's constructor.
+
+The Bird class defines the method _walk_ which is inherited by the Penguin class and is available for use by instance of Penguin objects. Likewise the Penguin class defines the method _swim_ which is not avilable to Bird objects. Inheritance works top-down from base class to its subclass.
+
+## Object Initialization
+
+The class constructor is called when an object is created using the **new** operator, it will be called before the object is fully created. A consturctor is used to pass in arguments to initialize the newly created object.
+
+The order of object creation starts from its base class and then moves down to any subclass(es).
+
 ```js
-//ES6
+// Base Class (ES2016)
 class Bird {
   constructor(weight, height) {
     this.weight = weight;
     this.height = height;
   }
+
   walk() {
     console.log('walk!');
   }
 }
 
+// Subclass
 class Penguin extends Bird {
   constructor(weight, height) {
     super(weight, height);
   }
+
   swim() {
     console.log('swim!');
   }
 }
 
+// Penguin object
 let penguin = new Penguin(...);
 penguin.walk(); //walk!
 penguin.swim(); //swim!
 ```
-and if we use delegation with `class` keyword:
+
+Below we show how prototypal inheritance was done before class was introduced to JavaScript.
+
 ```js
-//ES6
-class Bird {
-  constructor(weight, height) {
-    this.weight = weight;
-    this.height = height;
-  }
-  walk() {
-    console.log('walk!');
-  }
+// JavaScript classical inheritance.
+
+// Bird constructor
+function Bird(weight, height) {
+  this.weight = weight;
+  this.height = height;
 }
 
-class Penguin {
-  constructor(bird) {
-    this.bird = bird;
-  }
-  walk() {
-    this.bird.walk();
-  }
-  swim() {
-    console.log('swim!');
-  }
-}
-
-let bird = new Bird(...);
-let penguin = new Penguin(bird);
-penguin.walk(); //walk!
-penguin.swim(); //swim!
-```
-and delegation without `class` keyword (which is a more general JavaScript way):
-```js
-//ES6
-let bird = {
-  init(weight, height) {
-    this.weight = weight;
-    this.height = height;
-  },
-  walk() {
-    console.log("walk!")''
-  }
+// Add method to Bird prototype.
+Bird.prototype.walk = function() {
+  console.log("walk!");
 };
 
-bird.init(...);
-let penguin = Object.create( bird );
-penguin.swim = function() {
-  console.log("swim!");
+// Penguin constructor.
+function Penguin(weight, height) {
+   Bird.call(this, weight, height);
 }
 
-//Delegate to Bird's walk method
-penguin.walk(); //walk!
-Penguin.swim(); //swim!
-```
-The main difference here is that in delegation case, we let the `Penguin` delegate to `Bird` when we need `walk()`. But in inheritance case, we create two blueprints (class) first, the method is inherited from parent class. Delegation simplifies the thinking process behind the project and consequently leads to a more efficient development cycle. More detailed explanation on delegation pattern can be found [here](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md).  
+// Prototypal inheritance (Penguin is-a Bird).
+Penguin.prototype = Object.create( Bird.prototype );
+Penguin.prototype.constructor = Penguin;
 
-Nota that in Angular 2, developers do not need to worry about this too much. The framework has already taken care of this and we just need to follow Angular's patterns and APIs.
+// Add method to Penguin prototype.
+Penguin.prototype.swim = function() {
+  console.log("swim!");
+};
+
+// Create a Penguin object.
+let penguin = new Penguin(50,10);
+
+// Calls method on Bird, since it's not defined by Penguin.
+penguin.walk(); // walk!
+
+// Calls method on Penguin.
+penguin.swim(); // swim!
+```
+

@@ -1,6 +1,8 @@
 # Passing Data into a Component
 
-The `inputs` attribute defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `Hello` component so that `name` can be configured by the parent.
+There are two ways to pass data into a component, with 'property binding' and 'event binding'. Data flows top-down from parent into children, while events flow bottom-up from child to parent. Events works just like they do in regular HTML DOM based events and are cancelable.
+
+The `inputs` decarator defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `Hello` component so that `name` can be configured by the parent.
 
 ```js
 import {Component, Input} from '@angular/core';

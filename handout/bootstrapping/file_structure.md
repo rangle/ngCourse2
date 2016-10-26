@@ -45,7 +45,7 @@ export class MyAppModule {
 }
 ```
 
-*app/index.ts*
+*app/main.ts*
 
 ```js
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
@@ -56,7 +56,7 @@ platformBrowserDynamic().bootstrapModule(MyAppModule)
 
 [View Example](https://plnkr.co/edit/kVqEKf?p=preview)
 
-This is the main entry point of the application. The `MyAppModule`  operates as the root module of our  application. The module is configured to use `MyApp` as the component to bootstrap, and will be rendered on any `app` HTML element encountered.
+The bootstrap process loads **main.ts** which is the main entry point of the application. The `MyAppModule` operates as the root module of our application. The module is configured to use `MyApp` as the component to bootstrap, and will be rendered on any `app` HTML element encountered.
 
 There is an `app` HTML element in the *index.html* file, and we use *app/index.ts* to import the `MyAppModule` component and the `platformBrowserDynamic().bootstrapModule` function and kickstart the  process.
 

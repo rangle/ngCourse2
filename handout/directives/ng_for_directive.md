@@ -1,6 +1,6 @@
 # NgFor Directive
 
-The `ngFor` directive is a way of repeating a template by using each item of an iterable as that template's context.
+The `ngFor` directive is a way of repeatly adding content inside the ngFor block to the DOM.
 
 ```typescript
 @Component({

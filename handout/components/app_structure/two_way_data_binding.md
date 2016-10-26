@@ -12,7 +12,7 @@ What this is doing behind the scenes is equivalent to:
 <input [ngModel]="name" (ngModelChange)="name=$event">
 ```
 
-To create your own component that supports two-way binding, you must define an `@Output` property to match an `@Input`, but suffix it with the `Change`, for example:
+To create your own component that supports two-way binding, you must define an `@Output` property to match an `@Input`, but suffix it with the `Change`. The code example below, inside class Counter shows how to make property count support two-way binding.
 
 ```js
 import {Component, Input, Output, EventEmitter} from '@angular/core';

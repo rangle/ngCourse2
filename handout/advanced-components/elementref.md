@@ -1,6 +1,6 @@
 # ElementRef
 
-Provides access to the underlying native element (DOM node).
+Provides access to the underlying native element (DOM element).
 
 ```js
 import {AfterContentInit, Component, ElementRef} from '@angular/core';
@@ -30,6 +30,5 @@ export class App implements AfterContentInit {
 
 }
 ```
-
 
 [View Example](https://plnkr.co/edit/j777G2HKVrT9d3n4yxUj?p=preview)

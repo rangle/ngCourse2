@@ -14,7 +14,7 @@ console.log('hello my name is ' + name + ' I am ' + age + ' years old');
 ```
 
 ES6 introduces a new type of string literal that is marked with back ticks (`).
-These string literals _can_ include newlines, and there is a new mechanism for
+These string literals _can_ include newlines, and there is a string interpolation for
 inserting variables into strings:
 
 ```js
