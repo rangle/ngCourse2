@@ -6,64 +6,40 @@ The JiT (Just-in-time) compiler compiles the application dynamically, as the app
    * `TRANSLATIONS_FORMAT` is the format of the file.
    * `LOCALE_ID` is the locale of the target language.
 
-After importing all three providers, we need to:
-  * Get the locale id
-  * Retrieve the translations for the locale
-  * Compose a providers array with the three translation providers
+Here's how to boostrap the app with the translation providers for French. We're assuming the translation file is `messages.fr.xlf`.
 
-In `app/i18n-providers.ts`
+*app/index.ts*:
 
 ```javascript
-import { TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
+import { NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Hello } from './app.component.ts';
 
-export function getTranslationProviders(): Promise<Object[]> {
-  // Get the locale id from the global
-  const locale = document['locale'] as string;
-  // return no providers if fail to get translation file for locale
-  const noProviders: Object[] = [];
-  
-  // No locale or U.S. English: no translation providers
-  if (!locale || locale === 'en-US') {
-    return Promise.resolve(noProviders);
-  }
-  
-  // Ex: 'locale/messages.fr.xlf`
-  const translationFile = `./locale/messages.${locale}.xlf`;
-  return getTranslationsWithSystemJs(translationFile)
-    .then( (translations: string ) => [
-      { provide: TRANSLATIONS, useValue: translations },
-      { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' },
-      { provide: LOCALE_ID, useValue: locale }
-    ])
-    .catch(() => noProviders); // ignore if file not found
+// Using SystemJs' text plugin
+import translations from './messages.fr.xlf!text';
+const localeId = 'fr';
+
+@NgModule({
+  imports: [
+    BrowserModule
+  ],
+  declarations: [
+    Hello
+  ],
+  bootstrap: [ Hello ]
+})
+export class AppModule {
 }
 
-
-declare var System: any;
-function getTranslationsWithSystemJs(file: string) {
-  return System.import(file + '!text'); // relies on text plugin
-}
-
-```
-
-Note that above, we had to create a function `getTranslationsWithSystemJs` and rely 
-on a text-plugin to import the files. This is only necessary if you are using SystemJs.
-
-Lastly, we have to boostrap the app with the translation providers.
-
-In `app/main.ts`:
-
-```javascript
-
-import { platformBrowserDynamic }  from '@angular/platform-browser-dynamic';
-import { getTranslationProviders } from './i18n-providers';
-
-import { AppModule } from './app.module';
-
-getTranslationProviders().then(providers => {
-  const options = { providers };
-  platformBrowserDynamic().bootstrapModule(AppModule, options);
+platformBrowserDynamic().bootstrapModule(AppModule, {
+  providers: [
+    { provide: TRANSLATIONS, useValue: translations },
+    { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' },
+    { provide: LOCALE_ID, useValue: localeId }
+  ]
 });
-
 ```
+[View Example](http://plnkr.co/edit/p1bK6TFnKupReH9HmCOt?p=preview)
 
+We're using SystemJS text plugin to import raw xlf files. We could alternately use webpack and `raw-loader` to achieve the same effect. Better yet, we could make an http call based on which language we're interested in, and asynchronously bootstrap the app once its loaded.

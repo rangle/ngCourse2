@@ -3,7 +3,7 @@ To get started, we will have to specify the text in our templates that we would 
 
 
 ```
-  <h1 i18n="User welcome|An introduction header for this sample">Hello i18n</h1>
+<h1 i18n="User welcome|An introduction header for this sample">Hello {{name}}</h1>
 ```
 
-Note the usage of the `|` character to seperate the description and contextual meaning, to the left and right of the `|` character respectively.
+We use the pipe (`|`) to seperate the description (left) and contextual meaning (right).
