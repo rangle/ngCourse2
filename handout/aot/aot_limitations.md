@@ -1,0 +1,2 @@
+# AoT limitations
+However, AoT is not perfect. The main limitation is that AoT, due to the way it compiles the raw code, cannot be used with common code patterns, for example, default exports from modules, template literals for templates, and functions in providers, routes, or declarations. Currently, we do not have a complete list of "AoT Do's and Don'ts" and the Angular team has not released anything regarding this issue. Rangle made its own list [here](https://github.com/rangle/angular-2-aot-sandbox) and also provides a sandbox for testing features with AoT.
