@@ -17,7 +17,7 @@ The class constructor is called when an object is created using the **new** oper
 The order of object creation starts from its base class and then moves down to any subclass(es).
 
 ```js
-// Base Class (ES2016)
+// Base Class : ECMAScript 2015
 class Bird {
   constructor(weight, height) {
     this.weight = weight;

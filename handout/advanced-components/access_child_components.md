@@ -3,9 +3,9 @@
  ## @ViewChild and @ViewChildren ##
 The @ViewChild and @ViewChildren decorators provide access to the classe of child component from the containing component.
 
-The @ViewChild is a decarator function that takes the name of a component class as its input and finds it's selector in the template of the containing component to bind to. @ViewChild can also be passed a template reference variable.
+The `@ViewChild` is a decarator function that takes the name of a component class as its input and finds it's selector in the template of the containing component to bind to. @ViewChild can also be passed a template reference variable.
 
-For example, we bind the component class 'Alert' to its selector '<my-alert>' and assign it to the property 'alert'. This allows us to gain access to the functions in that class like Alert.show().
+For example, we bind the component class `Alert` to its selector `<my-alert>` and assign it to the property `alert`. This allows us to gain access to the functions in that class like Alert.show().
 
 ```typescript
 import {Component, ViewChild} from '@angular/core';
@@ -58,7 +58,7 @@ export class App {
 ```
 [View Example](http://plnkr.co/edit/8Eak9DANedsZDHBHuLea?p=preview)
 
-As shown above, given a class type to @ViewChild and @ViewChildren a child component or a list of children component are selected respectively using their selector from the template. In addition both @ViewChild and @ViewChildren can be passed a selector string:
+As shown above, given a class type to `@ViewChild` and `@ViewChildren` a child component or a list of children component are selected respectively using their selector from the template. In addition both `@ViewChild` and `@ViewChildren` can be passed a selector string:
 
 ```typescript
 import {Component, QueryList, ViewChild, ViewChildren} from '@angular/core';

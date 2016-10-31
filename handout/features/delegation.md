@@ -5,7 +5,7 @@ In the inheritance section we looked at one way to extend a class functionality,
 The code below shows how to use delegation with the Bird class and Penguin class. The Penguin class how a reference to the Bird class and it delegrates call made to it's _walk_ method over to Bird's _walk_ method.
 
 ```js
-//ES6
+//ECMAScript 2015 (ES6)
 class Bird {
   constructor(weight, height) {
     this.weight = weight;
@@ -28,8 +28,8 @@ class Penguin {
   }
 }
 
-let bird = new Bird(...);
-let penguin = new Penguin(bird);
+const bird = new Bird(...);
+const penguin = new Penguin(bird);
 penguin.walk(); //walk!
 penguin.swim(); //swim!
 ```
