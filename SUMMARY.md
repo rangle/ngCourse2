@@ -289,5 +289,15 @@
 
 ---
 
+* [Internationalization in Angular 2](handout/i18n/README.md)
+    * [What is the process like and how is involved?](handout/i18n/process-and-roles.md)
+    * [Marking text in our templates](handout/i18n/marking-text-in-templates.md)
+    * [Extracting translation text using the Angular CLI](handout/i18n/translation-text-extraction.md)
+    * [How to import the completed translation files](handout/i18n/import-translation-files.md)
+        * [Using the AoT Compiler](handout/i18n/import-using-aot.md)
+        * [Using the JiT Compiler](handout/i18n/import-using-jit.md)
+---
+
+
 * [Glossary](handout/glossary.md)
 * [Other Resources](handout/other-resources.md)
