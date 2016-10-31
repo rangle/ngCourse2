@@ -204,6 +204,7 @@
    * [Test Setup](handout/testing/intro-to-tdd/setup/README.md)
        * [Filename Conventions](handout/testing/intro-to-tdd/setup/filename-conventions.md)
        * [Karma Configuration](handout/testing/intro-to-tdd/setup/karma-config.md)
+       * [TestBed Configuration (Optional)](handout/testing/intro-to-tdd/setup/testbed-configuration.md)
        * [Typings](handout/testing/intro-to-tdd/setup/typings.md)
        * [Executing Test Scripts](handout/testing/intro-to-tdd/setup/execute.md)
    * [Simple Test](handout/testing/intro-to-tdd/simple-test.md)
