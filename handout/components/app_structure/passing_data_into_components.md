@@ -1,8 +1,8 @@
 # Passing Data into a Component
 
-There are two ways to pass data into a component, with 'property binding' and 'event binding'. Data flows top-down from parent into children, while events flow bottom-up from child to parent. Events works just like they do in regular HTML DOM based events, which makes event propagation cancelable.
+There are two ways to pass data into a component, with 'property binding' and 'event binding'. In Angular 2, data and event change detection happens top-down from parent to children. However for Angular 2 events we can use the DOM event mental model where events flow bottom-up from child to parent. So, Angular 2 events can be treated like regular HTML DOM based events when it comes to cancellable event propagation.
 
-The `@Input()` decarator defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `Hello` component so that `name` can be configured by the parent.
+The `@Input()` decarator defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `Hello` component so that `name` can be provided by the parent.
 
 ```js
 import {Component, Input} from '@angular/core';

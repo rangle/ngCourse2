@@ -6,9 +6,9 @@ To illustrate this, let's image we have a zoo application where types of birds a
 
 ## Subclassing
 
-The example code below shows how to derive Penguin from Bird using the **extend** keyword. Also pay attention to the **super** keyword used in the subclass constructor of Penguin, it is used to pass the argument to the base class Bird's constructor.
+The example code below shows how to derive `Penguin` from `Bird` using the **extends** keyword. Also pay attention to the **super** keyword used in the subclass constructor of `Penguin`, it is used to pass the argument to the base class `Bird`'s constructor.
 
-The Bird class defines the method _walk_ which is inherited by the Penguin class and is available for use by instance of Penguin objects. Likewise the Penguin class defines the method _swim_ which is not avilable to Bird objects. Inheritance works top-down from base class to its subclass.
+The `Bird` class defines the method _walk_ which is inherited by the `Penguin` class and is available for use by instance of `Penguin` objects. Likewise the `Penguin` class defines the method _swim_ which is not avilable to `Bird` objects. Inheritance works top-down from base class to its subclass.
 
 ## Object Initialization
 
@@ -17,7 +17,7 @@ The class constructor is called when an object is created using the **new** oper
 The order of object creation starts from its base class and then moves down to any subclass(es).
 
 ```js
-// Base Class : ECMAScript 2015
+// Base Class : ES6
 class Bird {
   constructor(weight, height) {
     this.weight = weight;

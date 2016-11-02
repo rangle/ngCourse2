@@ -1,7 +1,7 @@
-# ECMAScript 2015 Modules
+# ES6 Modules
 
 
-ECMAScript 2015 introduced _module_ support. A module in ECMAScript 2015 is single file that allows code and data to be isolated, it helps in organizing and grouping code logically. In other languages it's called a package or library.
+ES6 introduced _module_ support. A module in ES6 is single file that allows code and data to be isolated, it helps in organizing and grouping code logically. In other languages it's called a package or library.
 
 All code and data inside the module has file scope, what this means is they are not accessible from code outside the module. To share code or data outside a module, it needs to be exported using the **export** keyword.
 
@@ -13,7 +13,7 @@ export const pi = 3.141592;
 export const circumference = diameter => diameter * pi;
 ```
 
-The code above uses the _Arrow_ function for `circumference`, which was introduced in ECMAScript 2016, and is a shortform for the following.
+The code above uses the _Arrow_ function for `circumference`, which was introduced in ES6, and is a shortform for the following.
 
 ```js
 export function circumference(diameter) {
@@ -30,6 +30,8 @@ We won't get into the various module systems out there, but it's worth understan
 * RequireJS
 * SystemJS
 * Webpack
+
+Currently `System.import` is the standard way to load a module in the browser.
 
 ## Loading a Module From a Browser
 

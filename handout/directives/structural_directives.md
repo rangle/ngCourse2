@@ -1,6 +1,6 @@
 # Structural Directives
 
-Structural Directives control what is added or removed from the DOM. It allows us to run some code that decides what the final rendered output will be. Angular 2 has a few built-in structural directives such as `ngIf`, `ngFor`, and `ngSwitch`.
+Structural Directives are a way of handling how a component or element renders through the use of the `template` tag. This allows us to run some code that decides what the final rendered output will be. Angular 2 has a few built-in structural directives such as `ngIf`, `ngFor`, and `ngSwitch`.
 
 *Note: For those who are unfamiliar with the `template` tag, it is an HTML element with a few special properties. Content nested in a template tag is not rendered on page load and is something that is meant to be loaded through code at runtime. For more information on the `template` tag, visit the [MDN documentation](https://developer.mozilla.org/en/docs/Web/HTML/Element/template)*.
 

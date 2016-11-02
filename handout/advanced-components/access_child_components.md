@@ -1,11 +1,12 @@
  # Accessing Child Component Classes #
 
  ## @ViewChild and @ViewChildren ##
+
 The @ViewChild and @ViewChildren decorators provide access to the classe of child component from the containing component.
 
-The `@ViewChild` is a decarator function that takes the name of a component class as its input and finds it's selector in the template of the containing component to bind to. @ViewChild can also be passed a template reference variable.
+The `@ViewChild` is a decorator function that takes the name of a component class as its input and finds its selector in the template of the containing component to bind to. `@ViewChild` can also be passed a template reference variable.
 
-For example, we bind the component class `Alert` to its selector `<my-alert>` and assign it to the property `alert`. This allows us to gain access to the functions in that class like Alert.show().
+For example, we bind the component class `Alert` to its selector `<my-alert>` and assign it to the property `alert`. This allows us to gain access to class methods, like `show()`.
 
 ```typescript
 import {Component, ViewChild} from '@angular/core';
@@ -29,7 +30,7 @@ export class App {
 
 In the interest of separation of concern, we'd normally want to have child elements take care of their own behaviors and pass in an `@Input()`. However, it might be a useful construct in keeping things generic.
 
-When there are multiple embedded components in the template, we make use of @ViewChildren to collect an instance of its component class inside a QueryList container. QueryList is a TypeScript generic class that simply states it is a list container of class Alert. The embedded component in the template is identified by it's selector, in the code below that would be each '<my-alert>' selector.
+When there are multiple embedded components in the template, we can also use `@ViewChildren`. It collects a list of instances of the Alert component, stored in a QueryList object that behaves similar to an array.
 
 ```typescript
 import {Component, QueryList, ViewChildren} from '@angular/core';

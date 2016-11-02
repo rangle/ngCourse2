@@ -17,16 +17,17 @@ Traditional class-based languages often reserve the word `this` to reference the
 
 ## Object
 
-An object is an instance of a class which is created using operator `new`. When using a dot notation to access a method on the object, `this` will refer to the object to the left of the dot.
+An object is an instance of a class which is created using the `new` operator. When using a dot notation to access a method on the object, `this` will refer to the object to the left of the dot.
 
 ```js
 let burger = new Hamburger();
 burger.listToppings();
 ```
 
-Above whenever `this` is used from inside class Hamburger, it will refer to object `burger`.
+In the snippet above, whenever `this` is used from inside class Hamburger, it will refer to object `burger`.
 
 ## Changing Caller Context
+
 JavaScript code can _optionally_ supply `this` to a method at call time using one of the following.
 
 * Function.prototype.call(object [,arg, ...])

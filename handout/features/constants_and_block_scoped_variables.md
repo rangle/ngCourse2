@@ -1,9 +1,6 @@
 # Constants and Block Scoped Variables
 
-ES6 introduces the concept of block scoping.  Block scoping will be familiar to
-programmers from other languages like C, Java, or even PHP.
-In ES5 JavaScript and earlier, `var`s are scoped to `function`s,
-and they can "see" outside their functions to the outer context.
+ES6 introduces the concept of block scoping.  Block scoping will be familiar to programmers from other languages like C, Java, or even PHP. In ES5 JavaScript and earlier, `var`s are scoped to `function`s, and they can "see" outside their functions to the outer context.
 
 ```js
 var five = 5;
@@ -96,10 +93,11 @@ person.name = 'Pushpa'; // OK, name property changed.
 person = null;          // "TypeError: Assignment to constant variable.
 ```
 
-The example above demonstrates that we are able to change the **name** property of object person, but we are unable to reset the reference **person** since it has been marked const.
+The example above demonstrates that we are able to change the **name** property of object person, but we are unable to reset the reference **person** since it has been marked as `const`.
 
 ## Const Reference To An Object
-Something similar to the above code is using a const reference, below we've switch to using **let** for the literal object.
+
+Something similar to the above code is using a `const` reference, below we've switch to using **let** for the literal object.
 
 ```js
 let person = {

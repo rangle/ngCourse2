@@ -1,14 +1,14 @@
-# ECMAScript 2015 (ES6)
+# ES6
 
-JavaScript was created in 1995, but the language is still thriving today. There are subsets, supersets, current versions and the latest version, ECMAScript 2015, that brings a lot of new features.
+JavaScript was created in 1995, but the language is still thriving today. There are subsets, supersets, current versions and the latest version ES6 that brings a lot of new features.
 
 Some of the highlights:
 
 - Classes
-- Arrow Function
-- Template String
+- Arrow Functions
+- Template Strings
 - Inheritance
-- Constants and Block Scoped Variable
+- Constants and Block Scoped Variables
 - Spread and Rest operators
 - Destructuring
-- Module
+- Modules
