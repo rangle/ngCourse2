@@ -1,18 +1,10 @@
 # Interfaces
 
-Sometimes classes are "more" than a programmer wants. Classes end up creating
-code, in the form of transpiled ES6 classes or transpiled ES5 constructor
-functions.
+An _interface_ is a TypeScript artifact, it is not part of ECMAScript. A _interface_ is a way to define a _contract_ on a function with respect to the arguments and their type. Along with functions, an _interface_ can also be used with a Class as well to define custom types.
 
-Also, JavaScript is a _subset_ of TypeScript, and in JavaScript functions are
-"first class" (they can be assigned to variables and passed around), so how can
-functions be described in TypeScript?
+An interface is an abstract type, it does not contain any code as a _class_ does. It only defines the 'signature' or shape of an API. During transpilation, an `interface` will not generate any code, it is only used by Typescript for type checking during development.
 
-TypeScript's interfaces solve both of these problems.  Interfaces are abstract
-descriptions of things, and can be used to represent any non-primitive
-JavaScript object.  They produce no code (ES6 or ES5), and exist only to describe types to `tsc`.
-
-Here is an example of an interface describing a function:
+Here is an example of an interface describing a function API:
 
 ```js
 interface Callback {
@@ -22,13 +14,12 @@ interface Callback {
 function callServer(callback: Callback) {
   callback(null, 'hi');
 }
-callServer((error, data) => console.log(data)); // 'hi'
-callServer('hi');                               // tsc error
+
+callServer((error, data) => console.log(data));  // 'hi'
+callServer('hi');                                // tsc error
 ```
 
-Sometimes JavaScript functions are "overloaded" - that is, they can have
-different call signatures.  Interfaces can be used to specify this.
-(Methods in classes can also be overloaded):
+Sometimes JavaScript functions can accept multiple types as well as varying arguments, that is, they can have different call signatures. Interfaces can be used to specify this.
 
 ```js
 interface PrintOutput {
@@ -46,7 +37,6 @@ let printOut: PrintOutput = (message) => {
 
 printOut('hello');       // 'hello'
 printOut(['hi', 'bye']); // 'hi, bye'
-
 ```
 
 Here is an example of an interface describing an object literal:
@@ -57,7 +47,7 @@ interface Action {
 }
 
 let a: Action = {
-    type: 'literal' 
+    type: 'literal'
 }
 
 ```

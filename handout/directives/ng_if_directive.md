@@ -1,6 +1,6 @@
 # NgIf Directive
 
-The `ngIf` directive conditionally renders components or elements based on whether or not an expression is true or false.
+The `ngIf` directive conditionally adds or removes content from the DOM based on whether or not an expression is true or false.
 
 Here's our app component, where we bind the `ngIf` directive to an example component.
 

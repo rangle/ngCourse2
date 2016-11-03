@@ -1,10 +1,16 @@
-# ...spread and ...rest
+# Operators Spread and Rest
 
-Spread takes a collection of something, like `[]`s or `{}`s, and applies them to
-something else that accepts `,` separated arguments, like `function`s, `[]`s
-and `{}`s.
+A Spread operator allows in-place expansion of an expression for the following cases:
 
-For example:
+1. Array
+1. Function call
+1. Multiple variable destructuring
+
+The Rest operator works in the opposite direction of the spread operator, it collects an indefinite number of comma separated expressions into an array.
+
+## Operator Spread
+
+Spread example:
 
 ```js
 const add = (a, b) => a + b;
@@ -13,22 +19,24 @@ add(...args); // same as `add(args[0], args[1])`, or `add.apply(null, args)`
 ```
 
 Functions aren't the only place in JavaScript that makes use of comma separated
-lists - `[]`s can now be concatenated with ease:
+lists - arrays can now be concatenated with ease:
 
 ```js
 let cde = ['c', 'd', 'e'];
-let scale = ['a', 'b', ...cde, 'f', 'g']; // ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+let scale = ['a', 'b', ...cde, 'f', 'g'];  // ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 ```
 
 Similarly, object literals can do the same thing:
 
 ```js
 let mapABC  = { a: 5, b: 6, c: 3};
-let mapABCD = { ...mapABC, d: 7}; // { a: 5, b: 6, c: 3, d: 7 }
+let mapABCD = { ...mapABC, d: 7};  // { a: 5, b: 6, c: 3, d: 7 }
 ```
 
-...rest arguments share the ellipsis like syntax of rest operators but are used
-for a different purpose.  ...rest arguments are used to access a variable number
+## Operator Rest
+
+Rest arguments share the ellipsis like syntax of rest operators but are used
+for a different purpose. Rest arguments are used to access a variable number
 of arguments passed to a function. For example:
 
 ```js
@@ -53,7 +61,7 @@ Technically JavaScript already had an `arguments` variable set on each function
 (except for arrow functions), however `arguments` has a lot of issues, one of
 which is the fact that it is not technically an array.
 
-...rest arguments are in fact arrays. The other important difference is that
+Rest arguments are in fact arrays. The other important difference is that
 rest arguments only include arguments not specifically named in a function
 like so:
 

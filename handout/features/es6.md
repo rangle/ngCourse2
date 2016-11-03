@@ -1,6 +1,6 @@
 # ES6
 
-JavaScript was created in 1995, but the language is still thriving today. There are subsets, supersets, current versions and the latest version, ES6, that brings a lot of new features.
+JavaScript was created in 1995, but the language is still thriving today. There are subsets, supersets, current versions and the latest version ES6 that brings a lot of new features.
 
 Some of the highlights:
 
@@ -9,6 +9,6 @@ Some of the highlights:
 - Template Strings
 - Inheritance
 - Constants and Block Scoped Variables
-- ...spread and ...rest
+- Spread and Rest operators
 - Destructuring
 - Modules

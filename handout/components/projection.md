@@ -1,6 +1,6 @@
 # Projection
 
-Projection is a very important concept in Angular 2. It enables developers to build reusable components and make applications more scalable and maintainable. To illustrate that, suppose we have a `ChildComponent` like:
+Projection is a very important concept in Angular 2. It enables developers to build reusable components and make applications more scalable and flexible. To illustrate that, suppose we have a `ChildComponent` like:
 
 ```js
 @Component({

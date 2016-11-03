@@ -1,6 +1,6 @@
 # Responding to Component Events
 
-Events in Angular 2 work similar to how they worked in Angular 1.x. The big change is template syntax.
+An event handler is specified inside the template using round brackets to denote event binding. This event handler is then coded in the class to process the event.
 
 ```js
 import {Component} from '@angular/core';
@@ -73,7 +73,7 @@ export class App {
     this.parentcount = 0;
   }
 
-  onChange(val: any) {
+  onChange(val: number) {
     this.parentCount = val;
   }
 }
