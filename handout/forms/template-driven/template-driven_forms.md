@@ -38,15 +38,15 @@ _signup-form.component.html_
 
 _signup-form.component.ts_
 ```ts
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'signup-form',
   templateUrl: 'app/signup-form.component.html',
-  providers: [NgForm]
 })
 export class SignupForm {
-  registerUser (form: NgForm) {
+  registerUser(form: NgForm) {
     console.log(form.value);
     // {email: '...', password: '...'}
     // ...

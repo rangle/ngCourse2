@@ -6,13 +6,13 @@ Using the template-driven approach, form validation is a matter of following HTM
 
 ```html
 <!-- a required field -->
-<input type="text" ... required>
+<input type="text" required>
 
 <!-- an optional field of a specific length -->
-<input type="text" ... pattern=".{3,8}">
+<input type="text" pattern=".{3,8}">
 
 <!-- a non-optional field of specific length -->
-<input type="text" ... pattern=".{3,8}" required>
+<input type="text" pattern=".{3,8}" required>
 
 <!-- alphanumeric field of specific length -->
 <input type="text" pattern="[A-Za-z0-9]{0,5}">
