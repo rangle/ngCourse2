@@ -31,11 +31,11 @@ We won't get into the various module systems out there, but it's worth understan
 * SystemJS
 * Webpack
 
-Currently `System.import` is the standard way to load a module in the browser.
-
 ## Loading a Module From a Browser
 
 Below we make use of SystemJS to load a module. The script first loads the code for the SystemJS library, then the function call **System.import** is use to import(load) the _app_ module.
+
+Loading ES6 modules is a little trickier. In an ES6-compliant browser you use the System keyword to load modules asynchronously. To make our code work with current browsers, however, we will use the SystemJS library as a polyfill:
 
 ```html
   <script src="/node_module/systemjs/dist/system.js"></script>

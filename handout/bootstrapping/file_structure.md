@@ -48,17 +48,26 @@ export class MyAppModule {
 *app/main.ts*
 
 ```js
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
-import { MyAppModule } from './app.module'
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { MyAppModule } from './app.module';
 
-platformBrowserDynamic().bootstrapModule(MyAppModule)
+platformBrowserDynamic().bootstrapModule(MyAppModule);
+```
+
+If you're making use of Ahead-of-Time (AoT) compilation, you would code `main.ts` as follows.
+
+```js
+import { platformBrowser} from '@angular/platform-browser';
+import { MyAppModuleNgFactory } from '../aot/app/app.module.ngfactory';
+
+platformBrowser().bootstrapModuleFactory(MyAppModuleNgFactory);
 ```
 
 [View Example](https://plnkr.co/edit/kVqEKf?p=preview)
 
 The bootstrap process loads **main.ts** which is the main entry point of the application. The `MyAppModule` operates as the root module of our application. The module is configured to use `MyApp` as the component to bootstrap, and will be rendered on any `app` HTML element encountered.
 
-There is an `app` HTML element in the *index.html* file, and we use *app/index.ts* to import the `MyAppModule` component and the `platformBrowserDynamic().bootstrapModule` function and kickstart the  process.
+There is an `app` HTML element in the *index.html* file, and we use *app/index.ts* to import the `MyAppModule` component and the `platformBrowserDynamic().bootstrapModule` function and kickstart the process. As shown above, you may optionally use **AoT** in which case you will be working with Factories, in the example, `MyAppModuleNgFactory` and `bootstrapModuleFactory`.
 
 Why does Angular 2 bootstrap itself in this way? Well there is actually a very good reason. Since Angular 2 is not a web-only based framework, we can write components that will run in NativeScript, or Cordova, or any other environment that can host Angular 2 applications.
 
