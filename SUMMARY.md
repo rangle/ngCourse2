@@ -70,6 +70,7 @@
         * [NgFor Directive](handout/directives/ng_for_directive.md)
         * [NgSwitch Directives](handout/directives/ng_switch_directives.md)
         * [Using Multiple Structural Directives](handout/directives/using_multiple_structural_directives.md)
+
 ---
 
 * [Advanced Components](handout/advanced-components/README.md)
@@ -121,6 +122,7 @@
         * [Creating a Structural Directive](handout/advanced-angular/directives/creating_a_structural_directive.md)
             * [View Containers and Embedded Views](handout/advanced-angular/directives/view_containers_and_embedded_views.md)
             * [Providing Context Variables to Directives](handout/advanced-angular/directives/providing_context_variables_to_directives.md)
+
 ---
 
 * [Immutable.js](handout/immutable/README.md)
@@ -197,6 +199,7 @@
    * [Using Redux with Components](handout/redux/using_redux_with_components.md)
    * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
    * [Getting More From Redux and Ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
+
 ---
 
 * [TDD Testing](handout/testing/README.md)
@@ -286,6 +289,16 @@
       * [Is my Application Navigable?](handout/a11y/testing/navigable.md)
       * [Testing with Screen Readers](handout/a11y/testing/screen-readers.md)
     * [Additional Resources](handout/a11y/additional-resources.md)
+
+---
+
+* [Internationalization in Angular 2](handout/i18n/README.md)
+    * [What is the process like and how is involved?](handout/i18n/process-and-roles.md)
+    * [Marking text in our templates](handout/i18n/marking-text-in-templates.md)
+    * [Extracting translation text using the Angular CLI](handout/i18n/translation-text-extraction.md)
+    * [How to import the completed translation files](handout/i18n/import-translation-files.md)
+        * [Using the AoT Compiler](handout/i18n/import-using-aot.md)
+        * [Using the JiT Compiler](handout/i18n/import-using-jit.md)
 
 ---
 
