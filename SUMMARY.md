@@ -122,8 +122,11 @@
         * [Creating a Structural Directive](handout/advanced-angular/directives/creating_a_structural_directive.md)
             * [View Containers and Embedded Views](handout/advanced-angular/directives/view_containers_and_embedded_views.md)
             * [Providing Context Variables to Directives](handout/advanced-angular/directives/providing_context_variables_to_directives.md)
+    * [AoT](handout/aot/README.md)
+        * [AoT limitations](handout/aot/aot_limitations.md)
+        * [AoT Configuration](handout/aot/aot_config.md)
 
----
+---     
 
 * [Immutable.js](handout/immutable/README.md)
    * [What is Immutability?](handout/immutable/what_is_immutability.md)
