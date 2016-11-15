@@ -88,7 +88,6 @@
    * [Observables vs Promises](handout/observables/observables_vs_promises.md)
    * [Using Observables From Other Sources](handout/observables/using_observables_from_other_sources.md)
    * [Observables Array Operations](handout/observables/observables_array_operations.md)
-   * [Combining Streams with flatMap](handout/observables/combining_streams_with_flatmap.md)
    * [Cold vs Hot Observables](handout/observables/cold_vs_hot_observables.md)
    * [Summary](handout/observables/summary.md)
 
@@ -101,6 +100,17 @@
        * [`@Inject()` and `@Injectable`](handout/di/angular2/inject_and_injectable.md)
        * [Injection Beyond Classes](handout/di/angular2/injection_beyond_classes.md)
        * [The Injector Tree](handout/di/angular2/the_injector_tree.md)
+
+---
+
+* [Http](handout/http/README.md)
+   * [Making Requests](handout/http/making_requests.md)
+   * [Catching Rejections](handout/http/catching-rejections/README.md)
+       * [Catch and Release](handout/http/catching-rejections/catch_and_release.md)
+       * [Cancel a Request](handout/http/catching-rejections/cancel_request.md)
+       * [Retry](handout/http/catching-rejections/retry.md)
+   * [Search with flatmap](handout/http/search_with_flatmap.md)
+   * [Requests as Promises](handout/http/requests_as_promises.md)
 
 ---
 
@@ -126,7 +136,7 @@
         * [AoT limitations](handout/aot/aot_limitations.md)
         * [AoT Configuration](handout/aot/aot_config.md)
 
----     
+---
 
 * [Immutable.js](handout/immutable/README.md)
    * [What is Immutability?](handout/immutable/what_is_immutability.md)
