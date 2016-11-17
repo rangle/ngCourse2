@@ -19,5 +19,3 @@ to Angular 1.3+ style, ideally an Angular 1.5+ style.  This means:
     - `priority`/`terminal`
 - Ideally have one component, or one _thing_ per file
 - Ideally have folders organized by feature
-
-

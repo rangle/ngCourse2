@@ -8,7 +8,7 @@ Here is an Angular 1.x directive that conforms to ng-upgrade's "component
 directive" specification: 
 
 ```js
-export function a1UpgradableDirective() {
+angular.module('app').directive('a1Upgradable', function a1UpgradableDirective() {
   return {
     restrict: 'E',
     scope: {},
@@ -17,23 +17,46 @@ export function a1UpgradableDirective() {
     controllerAs: 'a1Upgradable',
     template: `<span>{{ a1Upgradable.message }}</span>`
   };
-}
+});
 
 class Upgradable {
   message = 'I am an Angular 1 Directive';
 }
 ```
 
-Here is an Angular 2 component that will use the upgraded Angular 1.x
+Equivalently this can be written using `.component` in Angular 1.5+:
+
+```js
+angular.module('app').component('a1Upgradable', {
+  controller: Upgradable,
+  template: `<span>{{ a1Upgradable.message }}</span>`
+});
+
+class Upgradable {
+  message = 'I am an Angular 1 Directive';
+}
+```
+
+Below is an Angular 2 component that will use the upgraded Angular 1.x
 directive:
 
 ```js
-import {Component} from '@angular/core';
 import {upgradeAdapter} from '../upgrade-adapter';
+import {A2UsingA1Component} from './a2-using-a1.component';
+
+@NgModule({
+  declarations: [upgradeAdapter.upgradeNg1Component('a1Upgradable'), A2UsingA1Component],
+  providers: [],
+  imports: [BrowserModule]
+})
+export class AppModule {
+}```
+
+```js
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'a2-using-a1',
-  directives: [upgradeAdapter.upgradeNg1Component('a1Upgradable')],
   template: `<p>{{ message }}<a1-upgradable></a1-upgradable></p>`
 })
 export class A2UsingA1Component {
