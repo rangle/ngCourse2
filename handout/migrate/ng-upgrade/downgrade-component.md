@@ -30,6 +30,9 @@ Registering the downgraded component with Angular 1.x:
 // Angular 1 Vendor Import
 import * as angular from 'angular';
 
+// Import the upgradeAdapter singleton
+import {upgradeAdapter} from './upgrade-adapter';
+
 // Angular 2 component from above
 import {A2DowngradeComponent} from './components/a2-downgrade';
 

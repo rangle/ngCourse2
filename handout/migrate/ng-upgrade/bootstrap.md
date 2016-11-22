@@ -16,39 +16,39 @@ The following file creates an instance of `UpgradeAdapter` and exports it.
 ```js
 // Angular 2 Vendor Import
 import {UpgradeAdapter} from '@angular/upgrade';
+import {NgModule, forwardRef} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-// Instantiate an adapter
-export const upgradeAdapter = new UpgradeAdapter();
+// Instantiate an adapter with the AppModule
+// Use forwardRef to pass AppModule reference at runtime
+export const upgradeAdapter = new UpgradeAdapter(forwardRef(() => AppModule));
 
+@NgModule({
+  declarations: [],
+  providers: [],
+  imports: [BrowserModule]
+})
+export class AppModule {
+}
 ```
 
 The following file bootstraps an Angular 1/2 hybrid application:
 
 ```js
-// Angular 1 Vendor Import
-import * as angular from 'angular';
-
 // Import the upgradeAdapter singleton
 import {upgradeAdapter} from './upgrade-adapter';
-
 
 // Name the application
 const APPNAME = 'angular-upgrade-example';
 
 // Register classic Angular 1 modules
-angular
-  .module(APPNAME, []);
-
-// Bootstrap Angular 1 manually
-angular.bootstrap(document.body, [APPNAME]);
+angular.module(APPNAME, []);
 
 // Bootstrap Angular 2 - *note* this is asynchronous
-upgradeAdapter.bootstrap(document.documentElement, [APPNAME], {strictDi: true});
-
+upgradeAdapter.bootstrap(document.body, [APPNAME], {strictDi: true});
 ```
 
-The above example does not actually do anything other than bootstrap an empty
-application. 
+The above example does not actually do anything other than bootstrap an empty application.
 
 ## Upgrading/Downgrading Components
 
