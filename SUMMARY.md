@@ -124,6 +124,10 @@
 
 ---
 
+* [Zone.js](handout/zones/README.md)
+
+---
+
 * [Advanced Angular](handout/advanced-angular/README.md)
     * [Directives](handout/advanced-angular/directives/README.md)
         * [Creating an Attribute Directive](handout/advanced-angular/directives/creating_an_attribute_directive.md)
