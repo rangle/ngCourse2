@@ -25,6 +25,7 @@
        * [Interfaces](handout/features/interfaces.md)
        * [Shapes](handout/features/shapes.md)
        * [Type Inference](handout/features/type_inference.md)
+       * [Type Keyword](handout/features/type_keyword.md)
        * [Decorators](handout/features/decorators.md)
        * [Property Decorators](handout/features/property_decorators.md)
        * [Class Decorators](handout/features/class_decorators.md)
