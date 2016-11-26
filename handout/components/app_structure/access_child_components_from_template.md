@@ -6,7 +6,7 @@ The most straightforward examples of this may be seen dealing with forms or inpu
 _app/my-example.component.html_
 ```html
 <section >
-  <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+  <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" ngModel>
     <button type="submit">Submit</button>
@@ -26,8 +26,8 @@ import {Component} from '@angular/core';
 })
 export class MyExampleComponent {
   formValue: string = JSON.stringify({});
-  submitForm (form: NgForm) {
-    this.formValue = JSON.stringify(form.value);
+  onSubmit(data: any) {
+    this.formValue = JSON.stringify(data);
   }
 }
 ```
