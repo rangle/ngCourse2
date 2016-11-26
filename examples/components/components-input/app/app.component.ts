@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 	    <hello name="Other World"></hello>
 	  </div>`
 })
-export class App {
+export class AppComponent {
   helloName: string;
 
   constructor() {
