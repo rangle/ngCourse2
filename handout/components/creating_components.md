@@ -11,10 +11,10 @@ The Component below will interpolate the value of `name` variable into the templ
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'rio-app',
-  template: '<p>Hello {{name}}</p>'
+  selector: 'rio-hello',
+  template: '<p>Hello, {{name}}!</p>',
 })
-export class AppComponent {
+export class HelloComponent {
   name: string;
 
   constructor() {
@@ -23,6 +23,6 @@ export class AppComponent {
 }
 ```
 
-We need to import the `Component` decarator from `@angular/core` before we can make use of it. To use this component we simply add `<rio-app></rio-app>` to the HTML file or another template, and Angular will insert an instance of the `AppComponent` view between those tags.
+We need to import the `Component` decarator from `@angular/core` before we can make use of it. To use this component we simply add `<rio-hello></rio-hello>` to the HTML file or another template, and Angular will insert an instance of the `HelloComponent` view between those tags.
 
 [View Example](http://plnkr.co/edit/bXrxWVkP2MWD8yNDYqVD?p=preview)

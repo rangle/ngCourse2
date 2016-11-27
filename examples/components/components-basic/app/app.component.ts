@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'rio-app',
-  template: '<p>Hello {{name}}</p>'
+  template: `
+    <div>
+      <rio-hello></rio-hello>
+    </div>
+  `
 })
 export class AppComponent {
-  name: string;
-
-  constructor() {
-    this.name = 'World';
-  }
 }
