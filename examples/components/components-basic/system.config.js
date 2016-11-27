@@ -36,9 +36,9 @@ System.config({
   },
 
   packages: {
-    'app': {
+    '/': {
       defaultExtension: 'ts',
-      main: './index.ts'
+      main: './main.ts'
     }
   }
 });

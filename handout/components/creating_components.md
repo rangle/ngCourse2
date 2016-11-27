@@ -8,13 +8,13 @@ Components in Angular 2 build upon the lessons learned from Angular 1.5. We defi
 The Component below will interpolate the value of `name` variable into the template between the double braces `{{name}}`, what get rendered in the view is `<p>Hello World</p>`.
 
 ``` js
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-	selector: 'hello',
-	template: '<p>Hello, {{name}}</p>'
+  selector: 'rio-app',
+  template: '<p>Hello {{name}}</p>'
 })
-export class HelloComponent {
+export class AppComponent {
   name: string;
 
   constructor() {
@@ -23,6 +23,6 @@ export class HelloComponent {
 }
 ```
 
-We need to import the `Component` decarator from `@angular/core` before we can make use of it. To use this component we simply add `<hello></hello>` to the HTML file or another template, and Angular will insert an instance of the `HelloComponent` view between those tags.
+We need to import the `Component` decarator from `@angular/core` before we can make use of it. To use this component we simply add `<rio-app></rio-app>` to the HTML file or another template, and Angular will insert an instance of the `AppComponent` view between those tags.
 
-[View Example](http://plnkr.co/edit/LmsR4psbJZwXH0c4lpMa?p=preview)
+[View Example](http://plnkr.co/edit/bXrxWVkP2MWD8yNDYqVD?p=preview)
