@@ -32,13 +32,13 @@ System.config({
     'rxjs': 'unpkg:rxjs@5.0.0-beta.12',
     'zone.js': 'unpkg:zone.js@0.6.25',
     'reflect-metadata': 'unpkg:reflect-metadata@0.1.3',
-    "crypto": "@empty"
+    "crypto": "@empty",
+    "main": "main.ts"
   },
 
   packages: {
-    '/': {
-      defaultExtension: 'ts',
-      main: './main.ts'
+    'app': {
+      defaultExtension: 'ts'
     }
   }
 });
