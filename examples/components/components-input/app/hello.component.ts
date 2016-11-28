@@ -1,11 +1,9 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-	selector: 'hello',
-	template: '<p>Hello, {{name}}!</p>',
+  selector: 'rio-hello',
+  template: '<p>Hello, {{name}}!</p>',
 })
 export class HelloComponent {
   @Input() name: string;
-
-  constructor() {}
 }
