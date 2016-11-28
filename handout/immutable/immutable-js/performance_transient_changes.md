@@ -2,7 +2,7 @@
 
 ## Performance
 
-Immutable data structures often have a performance penalty due to the costs of allocation new memory and copying data as well as the overhead of any diffing engine that might be used. Consider these two examples, one which uses a mutable array and one which uses an Immutable.js collection.
+Immutable data structures often have a performance penalty due to the costs of allocation new memory and copying data. Consider these two examples, one which uses a mutable array and one which uses an Immutable.js collection.
 
 **Mutable**
 ```typescript

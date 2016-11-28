@@ -35,7 +35,7 @@ new state along to the next reducer.
 
 Reducers should be side-effect free. This means that they should not
 modify things outside of their own scope. They should simply compute the next
-application state as a pure function of the reducer's arguments. 
+application state as a pure function of the reducer's arguments.
 
 For this reason, side-effect causing operations, such as
 updating a record in a database, generating an id, etc. should be handled
@@ -63,4 +63,4 @@ function immutableArrayReducer(state = [1,2,3], action) {
 }
 ```
 
-However, when dealing with complex or deeply nested objects, it can be difficult to maintain immutability in your application using this syntax. This is where a library like ImmutableJS can help.
+However, when dealing with complex or deeply nested objects, it can be difficult to maintain immutability in your application using this syntax. This is where a library like Immutable.js can help.
