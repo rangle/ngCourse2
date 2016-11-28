@@ -31,7 +31,7 @@ export class CounterComponent {
 
 To send data out of components via outputs, start by defining the outputs attribute. It accepts a list of output parameters that a component exposes to its parent.
 
-`counter.component.ts`
+`app/counter.component.ts`
 ```js
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
@@ -55,7 +55,7 @@ export class CounterComponent {
 }
 ```
 
-`counter.component.html`
+`app/counter.component.html`
 ```html
 <div>
   <p>Count: {{ count }}</p>
@@ -63,7 +63,7 @@ export class CounterComponent {
 </div>
 ```
 
-`app.component.ts`
+`app/app.component.ts`
 ```js
 import { Component, OnChange } from '@angular/core';
 
@@ -86,7 +86,7 @@ export class AppComponent implements OnChange {
 }
 ```
 
-`app.component.html`
+`app/app.component.html`
 ```html
 <div>
   Parent Num: {{ num }}<br />
