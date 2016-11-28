@@ -12,26 +12,24 @@ What this is doing behind the scenes is equivalent to:
 <input [ngModel]="name" (ngModelChange)="name=$event">
 ```
 
-To create your own component that supports two-way binding, you must define an `@Output` property to match an `@Input`, but suffix it with the `Change`. The code example below, inside class Counter shows how to make property count support two-way binding.
+To create your own component that supports two-way binding, you must define an `@Output` property to match an `@Input`, but suffix it with the `Change`. The code example below, inside class CounterComponent shows how to make property count support two-way binding.
 
+`app/counter.component.ts`
 ```js
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'counter',
-  template: `
-    <div>
-      <p>
-        <ng-content></ng-content>
-        Count: {{ count }} -
-        <button (click)="increment()">Increment</button>
-      </p>
-    </div>
-  `
+  selector: 'rio-counter',
+  templateUrl: 'app/counter.component.html'
 })
-export class Counter {
-  @Input() count: number = 0;
-  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
+export class CounterComponent {
+  @Input() count: number;
+  @Output() countChange: EventEmitter<number>;
+
+  constructor() {
+    this.count = 0;
+    this.countChange = new EventEmitter<number>();
+  }
 
   increment() {
     this.count++;
@@ -40,4 +38,15 @@ export class Counter {
 }
 ```
 
-[View Example](http://plnkr.co/edit/nwRNxpoTuk4M60Y5Khq8?p=preview)
+`app/counter.component.html`
+```html
+<div>
+  <p>
+    <ng-content></ng-content>
+    Count: {{ count }} -
+    <button (click)="increment()">Increment</button>
+  </p>
+</div>
+```
+
+[View Example](http://plnkr.co/edit/nkww1Ov2AWZRMHFyjhjl?p=preview)
