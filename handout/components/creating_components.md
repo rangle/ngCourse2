@@ -14,7 +14,7 @@ import {Component} from '@angular/core';
 	selector: 'hello',
 	template: '<p>Hello, {{name}}</p>'
 })
-export class Hello {
+export class HelloComponent {
   name: string;
 
   constructor() {
@@ -23,6 +23,6 @@ export class Hello {
 }
 ```
 
-We need to import the `Component` decarator from `@angular/core` before we can make use of it. To use this component we simply add `<hello></hello>` to the HTML file or another template, and Angular will insert an instance of the `Hello` view between those tags.
+We need to import the `Component` decarator from `@angular/core` before we can make use of it. To use this component we simply add `<hello></hello>` to the HTML file or another template, and Angular will insert an instance of the `HelloComponent` view between those tags.
 
 [View Example](http://plnkr.co/edit/LmsR4psbJZwXH0c4lpMa?p=preview)

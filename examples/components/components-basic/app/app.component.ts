@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
 	selector: 'hello',
 	template: '<p>Hello {{name}}</p>'
 })
-export class Hello {
+export class HelloComponent {
   name: string;
 
   constructor() {
