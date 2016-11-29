@@ -20,9 +20,9 @@ class Hamburger {
 ```
 
 The above code is a contrived class that represents a hamburger.  The class
-assumes a `Hamburger` consists of a `Bun`, `Patty` and `Toppings`.  The class 
-is also responsible for _making_ the `Bun`, `Patty` and `Toppings`.  This is a 
-bad thing. What if a vegetarian burger were needed?  One naive approach might 
+assumes a `Hamburger` consists of a `Bun`, `Patty` and `Toppings`.  The class
+is also responsible for _making_ the `Bun`, `Patty` and `Toppings`.  This is a
+bad thing. What if a vegetarian burger were needed?  One naive approach might
 be:
 
 ```js
@@ -38,7 +38,7 @@ class VeggieHamburger {
 }
 ```
 
-There, problem solved right? But what if we need a gluten free hamburger? 
+There, problem solved right? But what if we need a gluten free hamburger?
 What if we want different toppings... maybe something more generic like:
 
 ```js
@@ -85,7 +85,7 @@ be written in shorthand like so:
 
 ```js
 class Hamburger {
-  constructor(private bun: Bun, private patty: Patty, 
+  constructor(private bun: Bun, private patty: Patty,
     private toppings: Toppings) {}
 }
 ```
@@ -94,9 +94,8 @@ class Hamburger {
 The `Hamburger` class is now simpler and easier to test.  This model of having
 the dependencies provided to `Hamburger` is basic dependency injection.
 
-However there is still a problem.  How can the instantiation of `Bun`, 
+However there is still a problem.  How can the instantiation of `Bun`,
 `Patty` and `Toppings` best be managed?
 
 This is where dependency injection as a _framework_ can benefit programmers, and
 it is what Angular 2 provides with its dependency injection system.
-

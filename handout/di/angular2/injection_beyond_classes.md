@@ -12,10 +12,10 @@ by providing Angular 2 an Object literal (`{}`):
 ```js
 import { NgModule } from '@angular/core';
 import { App } from './containers/app'; // hypothetical app component
-import { Hamburger } from './services/hamburger';
+import { ChatWidget } from './components/chat-widget';
 
 @NgModule({
-  providers: [ { provide: Hamburger, useClass: Hamburger } ],
+  providers: [ { provide: ChatWidget, useClass: ChatWidget } ],
 })
 export class DiExample {};
 
@@ -25,24 +25,24 @@ This example is yet another example that `provide`s a class, but it does so with
 Angular 2's longer format.
 
 This long format is really handy.  If the programmer wanted to switch out
-`Hamburger` implementations, for example to allow for a `DoubleHamburger`, they could
+`ChatWidget` implementations, for example to allow for a `MockChatWidget`, they could
 do this easily:
 
 ```js
 import { NgModule } from '@angular/core';
 import { App } from './containers/app'; // hypothetical app component
-import {Hamburger} from './services/hamburger';
-import {DoubleHamburger} from './services/double-hamburger';
+import { ChatWidget } from './components/chat-widget';
+import { MockChatWidget } from './components/mock-chat-widget';
 
 @NgModule({
-  providers: [ { provide: Hamburger, useClass: DoubleHamburger } ],
+  providers: [ { provide: ChatWidget, useClass: MockChatWidget } ],
 })
 export class DiExample {};
 
 ```
 
 The best part of this implementation swap is that the injection system knows
-how to build `DoubleHamburgers`, and will sort all of that out.
+how to build `MockChatWidget`, and will sort all of that out.
 
 
 The injector can use more than classes though.  `useValue` and `useFactory` are
@@ -65,7 +65,6 @@ In the hypothetical app component, 'Random' could be injected like:
 
 ```js
 import { Component, Inject, provide } from '@angular/core';
-import { Hamburger } from '../services/hamburger';
 
 @Component({
   selector: 'app',
