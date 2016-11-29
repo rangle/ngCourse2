@@ -15,11 +15,7 @@ import {Component} from '@angular/core';
   `
 })
 export class CounterComponent {
-  num: number;
-
-  constructor() {
-    this.num = 0;
-  }
+  num = 0;
 
   increment() {
     this.num++;
@@ -40,13 +36,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: 'app/counter.component.html'
 })
 export class CounterComponent {
-  @Input()  count: number;
-  @Output() result: EventEmitter;
-
-  constructor() {
-    this.count = 0;
-    this.result = new EventEmitter();
-  }
+  @Input()  count = 0;
+  @Output() result = new EventEmitter<number>();
 
   increment() {
     this.count++;
@@ -72,15 +63,10 @@ import { Component, OnChange } from '@angular/core';
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent implements OnChange {
-  num: number;
-  parentCount: number;
+  num = 0;
+  parentCount = 0;
 
-  constructor() {
-    this.num = 0;
-    this.parentCount = 0;
-  }
-
-  ngOnChange(val: any) {
+  ngOnChange(val: number) {
     this.parentCount = val;
   }
 }

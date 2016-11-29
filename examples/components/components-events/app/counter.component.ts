@@ -10,11 +10,7 @@ import { Component } from '@angular/core';
   `
 })
 export class CounterComponent {
-  num: number;
-
-  constructor() {
-    this.num = 0;
-  }
+  num = 0;
 
   increment() {
     this.num++;

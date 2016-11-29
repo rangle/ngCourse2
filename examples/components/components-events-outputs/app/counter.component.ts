@@ -5,13 +5,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: 'app/counter.component.html'
 })
 export class CounterComponent {
-  @Input()  count: number;
-  @Output() result: EventEmitter;
-
-  constructor() {
-    this.count = 0;
-    this.result = new EventEmitter();
-  }
+  @Input()  count = 0;
+  @Output() result = new EventEmitter<number>();
 
   increment() {
     this.count++;

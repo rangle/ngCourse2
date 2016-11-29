@@ -5,15 +5,10 @@ import { Component, OnChange } from '@angular/core';
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent implements OnChange {
-  num: number;
-  parentCount: number;
+  num = 0;
+  parentCount = 0;
 
-  constructor() {
-    this.num = 0;
-    this.parentCount = 0;
-  }
-
-  ngOnChange(val: any) {
+  ngOnChange(val: number) {
     this.parentCount = val;
   }
 }
