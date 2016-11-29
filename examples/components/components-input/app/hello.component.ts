@@ -1,12 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
 	selector: 'hello',
-	inputs: ['name'],
 	template: '<p>Hello, {{name}}!</p>',
 })
-export class Hello {
-  name: string;
-  
+export class HelloComponent {
+  @Input() name: string;
+
   constructor() {}
 }

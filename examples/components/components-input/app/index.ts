@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { App } from './app.component.ts';
-import { Hello } from './hello.component.ts';
+import { AppComponent } from './app.component.ts';
+import { HelloComponent } from './hello.component.ts';
 
 @NgModule({
   imports: [
     BrowserModule
   ],
   declarations: [
-    App,
-    Hello
+    AppComponent,
+    HelloComponent
   ],
-  bootstrap: [ App ]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }
