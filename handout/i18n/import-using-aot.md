@@ -1,6 +1,6 @@
 # Importing the Translation Files with the AoT Compiler
 
-To Internationalize with the AoT (Ahed of time) compiler, you will have to:
+To Internationalize with the AoT (Ahead of time) compiler, you will have to:
 
  * pre-build a seperate application package for each language 
  * determine which language the user needs
