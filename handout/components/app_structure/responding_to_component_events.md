@@ -6,16 +6,16 @@ An event handler is specified inside the template using round brackets to denote
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'counter',
+  selector: 'rio-counter',
   template: `
     <div>
-      <p>Count: {{ num }}</p>
+      <p>Count: {{num}}</p>
       <button (click)="increment()">Increment</button>
     </div>
   `
 })
-export class Counter {
-  num: number = 0;
+export class CounterComponent {
+  num = 0;
 
   increment() {
     this.num++;
@@ -23,25 +23,21 @@ export class Counter {
 }
 ```
 
-[View Example](http://plnkr.co/edit/15wHrpea6GY7yLr7hl61?p=preview)
+[View Example](http://plnkr.co/edit/l4FweMxodN8I26OeqhGH?p=preview)
 
 To send data out of components via outputs, start by defining the outputs attribute. It accepts a list of output parameters that a component exposes to its parent.
 
+`app/counter.component.ts`
 ```js
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'counter',
-  template: `
-    <div>
-      <p>Count: {{ count }}</p>
-      <button (click)="increment()">Increment</button>
-    </div>
-  `
+  selector: 'rio-counter',
+  templateUrl: 'app/counter.component.html'
 })
-export class Counter {
-  @Input() count: number = 0;
-  @Output() result: EventEmitter = new EventEmitter();
+export class CounterComponent {
+  @Input()  count = 0;
+  @Output() result = new EventEmitter<number>();
 
   increment() {
     this.count++;
@@ -50,35 +46,42 @@ export class Counter {
 }
 ```
 
+`app/counter.component.html`
+```html
+<div>
+  <p>Count: {{ count }}</p>
+  <button (click)="increment()">Increment</button>
+</div>
+```
+
+`app/app.component.ts`
 ```js
-import {Component} from '@angular/core';
+import { Component, OnChange } from '@angular/core';
 
 @Component({
-  selector: 'app',
-  template: `
-    <div>
-      Parent Num: {{ num }}<br />
-      Parent Count: {{ parentCount }}
-	    <counter [count]="num" (result)="onChange($event)">
-	    </counter>
-	  </div>
-  `
+  selector: 'rio-app',
+  templateUrl: 'app/app.component.html'
 })
-export class App {
-  num: number;
-  parentCount: number;
+export class AppComponent implements OnChange {
+  num = 0;
+  parentCount = 0;
 
-  constructor() {
-    this.num = 0;
-    this.parentcount = 0;
-  }
-
-  onChange(val: number) {
+  ngOnChange(val: number) {
     this.parentCount = val;
   }
 }
 ```
 
-[View Example](http://plnkr.co/edit/iwQePN?p=preview)
+`app/app.component.html`
+```html
+<div>
+  Parent Num: {{ num }}<br />
+  Parent Count: {{ parentCount }}
+  <rio-counter [count]="num" (result)="ngOnChange($event)">
+  </rio-counter>
+</div>
+```
+
+[View Example](http://plnkr.co/edit/fYgi05?p=preview)
 
 Together a set of input + output bindings define the public API of your component. In our templates we use the [squareBrackets] to pass inputs and the (parenthesis) to handle outputs.

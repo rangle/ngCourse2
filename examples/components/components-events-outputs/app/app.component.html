@@ -1,0 +1,6 @@
+<div>
+  Parent Num: {{ num }}<br />
+  Parent Count: {{ parentCount }}
+  <rio-counter [count]="num" (result)="ngOnChange($event)">
+  </rio-counter>
+</div>

@@ -1,20 +1,13 @@
-import {Component, EventEmitter} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'counter',
-  inputs: ['count'],
-  outputs: ['result'],
-  template: `
-    <div>
-      <p>Count: {{ count }}</p>
-      <button (click)="increment()">Increment</button>
-    </div>
-  `
+  selector: 'rio-counter',
+  templateUrl: 'app/counter.component.html'
 })
-export class Counter {
-  count: number = 0;
-  result: EventEmitter = new EventEmitter();
-  
+export class CounterComponent {
+  @Input()  count = 0;
+  @Output() result = new EventEmitter<number>();
+
   increment() {
     this.count++;
     this.result.emit(this.count);
