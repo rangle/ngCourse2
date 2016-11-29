@@ -156,8 +156,7 @@
            * [Deleting Keys](handout/immutable/immutable-js/nested-objects/deleting_keys.md)
            * [Maps are Iterable](handout/immutable/immutable-js/nested-objects/maps_are_iterable.md)
        * [Immutable.List](handout/immutable/immutable-js/lists.md)
-       * [Performance](handout/immutable/immutable-js/performance.md)
-       * [Persistent and Transient Data Structures](handout/immutable/immutable-js/persistent_and_transient_data_structures.md)
+       * [Performance and Transient Changes](handout/immutable/immutable-js/performance_transient_changes.md)
        * [Official Documentation](handout/immutable/immutable-js/official_documentation.md)
 
 ---
