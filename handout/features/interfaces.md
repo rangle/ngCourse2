@@ -1,6 +1,6 @@
 # Interfaces
 
-An _interface_ is a TypeScript artifact, it is not part of ECMAScript. A _interface_ is a way to define a _contract_ on a function with respect to the arguments and their type. Along with functions, an _interface_ can also be used with a Class as well to define custom types.
+An _interface_ is a TypeScript artifact, it is not part of ECMAScript. An _interface_ is a way to define a _contract_ on a function with respect to the arguments and their type. Along with functions, an _interface_ can also be used with a Class as well to define custom types.
 
 An interface is an abstract type, it does not contain any code as a _class_ does. It only defines the 'signature' or shape of an API. During transpilation, an `interface` will not generate any code, it is only used by Typescript for type checking during development.
 
