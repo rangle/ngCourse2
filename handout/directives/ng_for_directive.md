@@ -1,6 +1,6 @@
 # NgFor Directive
 
-The `ngFor` directive is a way of repeating a template by using each item of an iterable as that template's context.
+The `NgFor` directive is a way of repeating a template by using each item of an iterable as that template's context.
 
 ```typescript
 @Component({
@@ -26,7 +26,7 @@ export class AppComponent {
 ```
 [View Example](https://plnkr.co/edit/vtYGE5LosH5Rs4L7PMmM?p=preview)
 
-The `ngFor` directive has a different syntax from other directives we've seen. If you're familiar with the [for...of statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of), you'll notice that they're almost identical. `ngFor` lets you specify an iterable object to iterate over and the name to refer to each item by inside the scope. In our example, you can see that `episode` is available for interpolation as well as property binding. The directive does some extra parsing so that when this is expanded to template form, it looks a bit different:
+The `NgFor` directive has a different syntax from other directives we've seen. If you're familiar with the [for...of statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of), you'll notice that they're almost identical. `NgFor` lets you specify an iterable object to iterate over and the name to refer to each item by inside the scope. In our example, you can see that `episode` is available for interpolation as well as property binding. The directive does some extra parsing so that when this is expanded to template form, it looks a bit different:
 
 
 ```typescript
@@ -43,7 +43,11 @@ The `ngFor` directive has a different syntax from other directives we've seen. I
 ```
 [View Example](https://plnkr.co/edit/vtYGE5LosH5Rs4L7PMmM?p=preview)
 
-Notice that there is an odd `let-episode` property on the template element. The `ngFor` directive provides some variables as context within its scope. `let-episode` is a context binding and here it takes on the value of each item of the iterable. `ngFor` also provides some other values that can be bound to:
+Notice that there is an odd `let-episode` property on the template element. The `NgFor` directive provides some variables as context within its scope. `let-episode` is a context binding and here it takes on the value of each item of the iterable.
+
+## Local Variables
+
+`NgFor` also provides other values that can be aliased to local variables:
 
 - _index_ - position of the current item in the iterable starting at `0`
 - _first_ - `true` if the current item is the first item in the iterable
@@ -79,7 +83,7 @@ Notice that there is an odd `let-episode` property on the template element. The 
 
 ## trackBy ##
 
-Often `ngFor` is used to iterate through a list of objects with a unique ID field. In this case, we can provide a `trackBy` function which helps Angular keep track of items in the list so that it can detect which items have been added or removed and improve performance.
+Often `NgFor` is used to iterate through a list of objects with a unique ID field. In this case, we can provide a `trackBy` function which helps Angular keep track of items in the list so that it can detect which items have been added or removed and improve performance.
 
 Angular 2 will try and track objects by reference to determine which items should be created and destroyed. However, if you replace the list with a new source of objects, perhaps as a result of an API request - we can get some extra performance by telling Angular 2 how we want to keep track of things.
 
