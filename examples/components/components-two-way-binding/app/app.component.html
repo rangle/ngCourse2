@@ -1,0 +1,11 @@
+<div>
+  <rio-counter [(count)]="number1">Number 1:</rio-counter>
+  <rio-counter [count]="number2" (countChange)="number2=$event">Number 2:</rio-counter>
+  <rio-counter [count]="number3" (countChange)="onCountChanged($event)">Number 3:</rio-counter>
+  <ul>
+    <li> number1: {{number1}} </li>
+    <li> number2: {{number2}} </li>
+    <li> number3: {{number3}} </li>
+    <li> number4: {{number4}} </li>
+  </ul>
+</div>
