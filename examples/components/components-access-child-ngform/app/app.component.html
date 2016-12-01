@@ -1,0 +1,8 @@
+<section >
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" ngModel>
+    <button type="submit">Submit</button>
+  </form>
+  Form Value: {{formValue}}
+</section>
