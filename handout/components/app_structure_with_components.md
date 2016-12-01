@@ -6,15 +6,15 @@ each having an isolated scope.
 For example consider the following:
 
 ```html
-<TodoApp>
-  <TodoList>
-    <TodoItem></TodoItem>
-    <TodoItem></TodoItem>
-    <TodoItem></TodoItem>
-  </TodoList>
-  <TodoForm></TodoForm>
-</TodoApp>
+<rio-todo-app>
+  <rio-todo-list>
+    <rio-todo-item></rio-todo-item>
+    <rio-todo-item></rio-todo-item>
+    <rio-todo-item></rio-todo-item>
+  </rio-todo-list>
+  <rio-todo-form></rio-todo-form>
+</rio-todo-app>
 ```
 
-At the root we have `TodoApp` which consists of a `TodoList` and a `TodoForm`. Within the list we have several `TodoItem`s. Each of these components is visible to the user, who can interact with these components and perform actions.
+At the root we have `rio-todo-app` which consists of a `rio-todo-list` and a `rio-todo-form`. Within the list we have several `rio-todo-item`s. Each of these components is visible to the user, who can interact with these components and perform actions.
 
