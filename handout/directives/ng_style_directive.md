@@ -40,7 +40,7 @@ We can remove the style properties out of the template into the component as a p
 export class StyleExampleComponent {
   borderStyle: string = '1px solid black';
 
-  // Must be JSON valid.
+  // Properties must be quoted.
   alertStyles = {
     'color': 'red',
     'font-weight': 'bold',
