@@ -9,9 +9,9 @@ Angular 2 provides a built-in directive, `ngStyle`, to modify a component or ele
   template: `
     <p style="padding: 1rem"
         [ngStyle]="{
-            color: 'red',
+            'color': 'red',
             'font-weight': 'bold',
-            borderBottom: borderStyle
+            'borderBottom': borderStyle
         }">
         <ng-content></ng-content>
     </p>
@@ -24,3 +24,26 @@ export class StyleExampleComponent {
 [View Example](https://plnkr.co/edit/Vcpt1vDWryaiYcmoQEyC?p=preview)
 
 Notice that binding a directive works the exact same way as component attribute bindings. Here, we're binding an expression, an object literal, to the `ngStyle` directive so the directive name must be enclosed in square brackets. `ngStyle` accepts an object whose properties and values define that element's style. In this case, we can see that both kebab case and lower camel case can be used when specifying a style property. Also notice that both the html `style` attribute and Angular 2 `ngStyle` directive are combined when styling the element.
+
+We can remove the style properties out of the template into the component as a property object, which then gets assigned to `NgStyle` using property binding. This allows dynamic changes to the values as well as provides the flexibility to add and remove style properties.
+
+```typescript
+@Component({
+  selector: 'style-example',
+  template: `
+    <p style="padding: 1rem"
+        [ngStyle]="alertStyles">
+        <ng-content></ng-content>
+    </p>
+  `
+})
+export class StyleExampleComponent {
+  borderStyle: string = '1px solid black';
+
+  alertStyles = {
+    'color': 'red',
+    'font-weight': 'bold',
+    'borderBottom': this.borderStyle
+  };
+}
+```
