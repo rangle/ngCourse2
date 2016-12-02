@@ -1,4 +1,4 @@
-var angularVersion = '2.0.0-rc.6';
+var angularVersion = '2.0.0';
 
 System.config({
   baseUrl: '/',
@@ -27,18 +27,21 @@ System.config({
     '@angular/core': 'unpkg:@angular/core@'+angularVersion,
     '@angular/compiler': 'unpkg:@angular/compiler@'+angularVersion,
     '@angular/common': 'unpkg:@angular/common@'+angularVersion,
+    '@angular/forms': 'unpkg:@angular/forms@'+angularVersion,
     '@angular/platform-browser': 'unpkg:@angular/platform-browser@'+angularVersion,
     '@angular/platform-browser-dynamic': 'unpkg:@angular/platform-browser-dynamic@'+angularVersion,
-    'rxjs': 'unpkg:rxjs@5.0.0-beta.6',
-    'zone.js': 'unpkg:zone.js@0.6.12',
+    '@angular/http': 'unpkg:@angular/http@'+angularVersion,
+    'rxjs': 'unpkg:rxjs@5.0.0-beta.12',
+    'zone.js': 'unpkg:zone.js@0.6.25',
     'reflect-metadata': 'unpkg:reflect-metadata@0.1.3',
-    "crypto": "@empty"
+    "crypto": "@empty",
+    "main": "main.ts"
   },
 
   packages: {
     'app': {
-      defaultExtension: 'ts',
-      main: './index.ts'
+      defaultExtension: 'ts'
     }
   }
 });
+
