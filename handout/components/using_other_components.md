@@ -1,19 +1,25 @@
 # Using Other Components
 
-Components depend on other components, directives and pipes. For example, `TodoList` relies on `TodoItem`. To let a component know about these dependencies we group them into a module.
+Components depend on other components, directives and pipes. For example, `TodoListComponent` relies on `TodoItemComponent`. To let a component know about these dependencies we group them into a module.
 
-```js
+```ts
 import {NgModule} from '@angular/core';
-import {TodoInput} from './components/todo-input';
-import {TodoItem} from './components/todo-item';
-import {TodoList} from './components/todo-list';
+
+import {TodoListComponent} from './components/todo-list.component';
+import {TodoItemComponent} from './components/todo-item.component';
+import {TodoInputComponent} from './components/todo-input.component';
 
 @NgModule({
   imports: [ ... ],
-  declarations: [ TodoList, TodoItem, TodoInput ],
+  declarations: [
+    TodoListComponent,
+    TodoItemComponent,
+    TodoInputComponent
+  ],
   bootstrap: [ ... ]
 })
-export class ToDoAppModule { }
+export class ToDoAppModule {
+}
 ```
 
 The property `declarations` expects an array of components, directives and pipes that are part of the module.
