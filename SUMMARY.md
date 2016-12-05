@@ -11,6 +11,7 @@
        * [Arrow Functions](handout/features/arrow_functions.md)
        * [Template Strings](handout/features/template_strings.md)
        * [Inheritance](handout/features/inheritance.md)
+       * [Delegation](handout/features/delegation.md)
        * [Constants and Block Scoped Variables](handout/features/constants_and_block_scoped_variables.md)
        * [...spread and ...rest](handout/features/spread_and_rest.md)
        * [Destructuring](handout/features/destructuring.md)
