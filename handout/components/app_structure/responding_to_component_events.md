@@ -75,13 +75,13 @@ export class AppComponent implements OnChange {
 `app/app.component.html`
 ```html
 <div>
-  Parent Num: {{ num }}<br />
+  Parent Num: {{ num }}<br>
   Parent Count: {{ parentCount }}
   <rio-counter [count]="num" (result)="ngOnChange($event)">
   </rio-counter>
 </div>
 ```
 
-[View Example](http://plnkr.co/edit/fYgi05?p=preview)
+[View Example](http://plnkr.co/edit/5RYLZ0?p=preview)
 
 Together a set of input + output bindings define the public API of your component. In our templates we use the [squareBrackets] to pass inputs and the (parenthesis) to handle outputs.

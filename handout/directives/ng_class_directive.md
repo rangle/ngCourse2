@@ -75,7 +75,7 @@ Lastly, an object can be bound to the directive. Angular 2 applies each property
   template: `
     <p [ngClass]="{ card: true, dark: false, flat: flat }">
       <ng-content></ng-content>
-      <br/>
+      <br>
       <button type="button" (click)="flat=!flat">Toggle Flat</button>
     </p>
   `,
@@ -104,6 +104,6 @@ export class ClassAsObjectComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/0xrwGT?p=preview)
+[View Example](https://plnkr.co/edit/b6E2CU?p=preview)
 
 Here we can see that since the object's `card` and `flat` properties are true, those classes are applied but since `dark` is false, it's not applied.

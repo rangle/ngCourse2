@@ -67,7 +67,7 @@ Notice that there is an odd `let-episode` property on the template element. The 
       {{i+1}}. {{episode.title}}
     </for-example>
 
-    <hr/>
+    <hr>
 
     <h2>Desugared</h2>
 
@@ -79,7 +79,7 @@ Notice that there is an odd `let-episode` property on the template element. The 
   `
 })
 ```
-[View Example](https://plnkr.co/edit/8PcjEr5aOwoVSNe2Gowb?p=preview)
+[View Example](https://plnkr.co/edit/pZjLXYrW2FTZELBIeTwa?p=preview)
 
 ## trackBy ##
 
