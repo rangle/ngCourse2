@@ -49,7 +49,7 @@ import { SearchService } from './services/search.service';
 import 'rxjs/Rx';
 
 @Component({
-	selector: 'app',
+	selector: 'app-root',
 	template: `
 		<form [formGroup]="coolForm"><input formControlName="search" placeholder="Search Spotify artist"></form>
 
@@ -59,7 +59,7 @@ import 'rxjs/Rx';
 	`
 })
 
-export class MyApp {
+export class AppComponent {
 	searchField: FormControl;
 	coolForm: FormGroup;
 
@@ -76,7 +76,7 @@ export class MyApp {
 	}
 }
 ```
-[View Example](http://plnkr.co/edit/d4oUpd?p=preview)
+[View Example](http://plnkr.co/edit/L6CLXo?p=preview)
 
 Here we have set up a basic form with a single field, `search`, which we subscribe to for event changes.
 We've also set up a simple binding for any results coming from the `SearchService`.
