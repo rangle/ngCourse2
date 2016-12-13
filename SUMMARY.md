@@ -101,6 +101,7 @@
    * [Angular 2's DI](handout/di/angular2/README.md)
        * [`@Inject()` and `@Injectable`](handout/di/angular2/inject_and_injectable.md)
        * [Injection Beyond Classes](handout/di/angular2/injection_beyond_classes.md)
+       * [Avoiding Injection Collisions: OpaqueToken](handout/di/angular2/avoiding_collisions_opaque_token.md)
        * [The Injector Tree](handout/di/angular2/the_injector_tree.md)
 
 ---
