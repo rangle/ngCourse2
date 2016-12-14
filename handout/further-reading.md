@@ -34,3 +34,11 @@ Observables are known for having a steep learning curve due to the fact that it 
 - [ng2-redux Github](https://github.com/angular-redux/ng2-redux)
 - [ngrx Github](https://github.com/ngrx) - Includes links to ngrx scoped libraries including: store, effects, router
 - [Redux Documentation](http://redux.js.org/docs/introduction/)
+
+
+## Keeping up to date
+- [Angular 2 Weekly Notes](http://g.co/ng/weekly-notes)
+- [Angular blog](http://angularjs.blogspot.ca/) - Includes blog posts for Angular 1.x
+- [Angular Air](https://angularair.com/) - Angular podcast
+- [Adventures in Angular](https://devchat.tv/adv-in-angular) - Angular podcast
+- [Angular 2 Changelog](https://github.com/angular/angular/blob/master/CHANGELOG.md) - Technical Changelog
