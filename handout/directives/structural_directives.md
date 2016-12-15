@@ -8,12 +8,12 @@ Structural directives have their own special syntax in the template that works a
 
 ```typescript
 @Component({
-    selector: 'directive-example',
-    template: `
-        <p *structuralDirective="expression">
-            Under a structural directive.
-        </p>
-    `
+  selector: 'app-directive-example',
+  template: `
+    <p *structuralDirective="expression">
+      Under a structural directive.
+    </p>
+  `
 })
 ```
 
@@ -21,27 +21,26 @@ Instead of being enclosed by square brackets, our dummy structural directive is 
 
 ```typescript
 @Component({
-    selector: 'directive-example',
-    template: `
-        <template [structuralDirective]="expression">
-            <p>
-                Under a structural directive.
-            </p>
-        </template>
-    `
+  selector: 'app-directive-example',
+  template: `
+    <template [structuralDirective]="expression">
+      <p>
+        Under a structural directive.
+      </p>
+    </template>
+  `
 })
 ```
-
 
 Here, we see what was mentioned earlier when we said that structural directives use the `template` tag. Angular 2 also has a built-in `template` directive that does the same thing:
 
 ```typescript
 @Component({
-    selector: 'directive-example',
-    template: `
-        <p template="structuralDirective expression">
-            Under a structural directive.
-        </p>
-    `
+  selector: 'app-directive-example',
+  template: `
+    <p template="structuralDirective expression">
+      Under a structural directive.
+    </p>
+  `
 })
 ```

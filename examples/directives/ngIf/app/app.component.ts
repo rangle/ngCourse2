@@ -1,17 +1,17 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <button type="button" (click)="toggleExists()">Toggle Component</button>
-    <hr/>
-    <if-example *ngIf="exists">
+    <hr>
+    <app-if-example *ngIf="exists">
       Hello
-    </if-example>
+    </app-if-example>
   `
 })
 export class AppComponent {
-  exists: boolean = true;
+  exists = true;
   
   toggleExists() {
     this.exists = !this.exists;

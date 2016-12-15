@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'if-example',
+  selector: 'app-if-example',
   template: `<ng-content></ng-content>`
 })
 export class IfExampleComponent {

@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'style-example',
+  selector: 'app-style-example',
   template: `
     <p  style="padding: 1rem"
         [ngStyle]="{ 
@@ -14,5 +14,5 @@ import {Component} from '@angular/core';
   `
 })
 export class StyleExampleComponent {
-  borderStyle: string = '1px solid black';
+  borderStyle = '1px solid black';
 }
