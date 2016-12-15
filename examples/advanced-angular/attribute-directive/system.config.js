@@ -1,4 +1,4 @@
-var angularVersion = '2.0.0-rc.6';
+var angularVersion = '2.3.0';
 
 System.config({
   baseUrl: '/',
@@ -20,8 +20,7 @@ System.config({
 
 System.config({
   packageConfigPaths: [
-    "unpkg:@*/*/package.json",
-    "unpkg:*/package.json"
+    "unpkg:@*/*/package.json"
   ],
   
   map: {
@@ -39,8 +38,8 @@ System.config({
     'invariant': 'unpkg:invariant@2.2.1',
     'redux-thunk': 'unpkg:redux-thunk@2.1.0',
     'redux-logger': 'unpkg:redux-logger@2.6.0',
-    'rxjs': 'unpkg:rxjs@5.0.0-beta.11',
-    'zone.js': 'unpkg:zone.js@0.6.17',
+    'rxjs': 'unpkg:rxjs@5.0.0-beta.12',
+    'zone.js': 'unpkg:zone.js@0.6.25',
     'reflect-metadata': 'unpkg:reflect-metadata@0.1.3',
     "crypto": "@empty"
   },
@@ -48,7 +47,7 @@ System.config({
   packages: {
     'app': {
       defaultExtension: 'ts',
-      main: './index.ts'
+      main: './main.ts'
     }
   }
 });

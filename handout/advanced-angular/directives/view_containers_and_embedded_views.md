@@ -5,10 +5,10 @@ View Containers are containers where one or more *Views* can be attached. Views 
 Two types of views can be attached to a view container: *Host Views* which are linked to a *Component*, and *Embedded Views* which are linked to a *template*. Since structural directives interact with templates, we are interested in using *Embedded Views* in this case.
 
 ```typescript
-import {Directive, Input, TemplateRef, ViewContainerRef} from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[delay]'
+  selector: '[appDelay]'
 })
 export class DelayDirective {
   constructor(
@@ -16,8 +16,8 @@ export class DelayDirective {
     private viewContainerRef: ViewContainerRef
   ) { }
 
-  @Input('delay')
-  set delayTime(time: number): void {
+  @Input()
+  set appDelay(time: number): void {
     setTimeout(
       () => {
         this.viewContainerRef.createEmbeddedView(this.templateRef);
@@ -26,6 +26,6 @@ export class DelayDirective {
   }
 }
 ```
-[View Example](https://plnkr.co/edit/yjWcUE7zJgoUPc9NJR0n?p=preview)
+[View Example](https://plnkr.co/edit/UIyFaG6VyHeeGlCKM76L?p=preview)
 
 Directives get access to the view container by injecting a `ViewContainerRef`. Embedded views are created and attached to a view container by calling the `ViewContainerRef`'s `createEmbeddedView` method and passing in the template. We want to use the template our directive is attached to so we pass in the injected `TemplateRef`.
