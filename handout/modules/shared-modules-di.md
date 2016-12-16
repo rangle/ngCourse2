@@ -78,10 +78,10 @@ export class EagerComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/7evZh7XMUxf9HPPKdqYa?p=preview)
+[View Example](https://plnkr.co/edit/L2ypUQZiltSPXnLlxBoa?p=info)
 
 If you play with the live example, you will notice that the `counter` seems to behave independently in `EagerComponent` and `LazyComponent`, we can increase the value of one counter without altering the other one. In other words, we have ended up with two instances of the `CounterService`, one that lives in the root of the DI tree of the `AppModule` and another that lives in a lower branch of the DI tree accessible by the `LazyModule`.
 
-This is not neccessarily wrong, you may find situations where you could need different instances of the same service, but I bet most of the time that's not what you want. Think for example of an authentication service, you need to have the same instance with the same information available everywhere disregarding if we are using the service in an eagerly or lazy loaded module. 
+This is not neccessarily wrong, you may find situations where you could need different instances of the same service, but I bet most of the time that's not what you want. Think for example of an authentication service, you need to have the same instance with the same information available everywhere disregarding if we are using the service in an eagerly or lazy loaded module.
 
 In the next section we are going to learn how to have only one instance of a shared service.
