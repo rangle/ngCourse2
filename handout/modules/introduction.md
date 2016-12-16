@@ -33,7 +33,7 @@ _app/app.component.ts_
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'rio-app',
+  selector: 'app-root',
   template: '<h1>My Angular 2 App</h1>'
 })
 export class AppComponent {}
@@ -84,6 +84,6 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 > It is also possible to perform the compilation as a build step of our workflow. This method is called "Ahead of Time" (AOT) compilation and will require a slightly different bootstrap process that we are going to discuss in another section.
 
-[View Example](https://plnkr.co/edit/4u6UKQuVSjHFeQYS993g?p=preview)
+[View Example](https://plnkr.co/edit/f2TLtnGAtcZTSSuhWNQ9?p=preview)
 
 In the next section we are going to see how to create a module with multiple components, services and pipes.

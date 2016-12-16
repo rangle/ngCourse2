@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
-  selector: '[highlight]'
+  selector: '[appHighlight]'
 })
 export class BlueHighlightDirective {
   constructor(renderer: Renderer, el: ElementRef) {

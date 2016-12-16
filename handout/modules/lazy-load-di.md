@@ -56,9 +56,9 @@ export class LazyComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/RUp3QhHWmxBIQQAAw2im?p=preview)
+[View Example](https://plnkr.co/edit/C1QKHk9Uijtxtb13UU9t?p=preview)
 
-The service is working. If we increment the counter and then navigate back and forth between the `eager` and the `lazy` routes, the `counter` value will persist in the lazy loaded module. 
+The service is working. If we increment the counter and then navigate back and forth between the `eager` and the `lazy` routes, the `counter` value will persist in the lazy loaded module.
 
 But the question is, how can we verify that the service is isolated and cannot be used in a component that belongs to a different module? Let's try to use the same service in the `EagerComponent`.
 

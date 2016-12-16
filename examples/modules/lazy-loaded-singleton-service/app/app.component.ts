@@ -1,10 +1,14 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'rio-app',
+  selector: 'app-root',
   template: `
-    <h1>My Angular 2 App</h1>
-    <rio-credit-card></rio-credit-card>
+    <h1>My App</h1>
+    <nav>
+      <a routerLink="eager">Eager</a>
+      <a routerLink="lazy">Lazy</a>
+    </nav>
+    <router-outlet></router-outlet>
   `
 })
-export class AppComponent {}
+export class AppComponent { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreditCardService } from './credit-card.service';
 
 @Component({
-  selector: 'rio-credit-card',
+  selector: 'app-credit-card',
   template: `
     <p>Your credit card is: {{ creditCardNumber | creditCardMask }}</p>
   `
