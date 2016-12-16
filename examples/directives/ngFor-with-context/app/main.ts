@@ -11,7 +11,7 @@ import { ForExampleComponent } from './for-example.component';
   ],
   declarations: [
     AppComponent,
-    ForExampleComponent
+    ForExampleComponent,
   ],
   bootstrap: [ AppComponent ]
 })

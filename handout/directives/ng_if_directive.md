@@ -6,17 +6,17 @@ Here's our app component, where we bind the `ngIf` directive to an example compo
 
 ```typescript
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <button type="button" (click)="toggleExists()">Toggle Component</button>
     <hr>
-    <if-example *ngIf="exists">
+    <app-if-example *ngIf="exists">
       Hello
-    </if-example>
+    </app-if-example>
   `
 })
 export class AppComponent {
-  exists: boolean = true;
+  exists = true;
 
   toggleExists() {
     this.exists = !this.exists;

@@ -1,6 +1,6 @@
 # Providing Context Variables to Directives
 
-Suppose we want to record some metadata on how our directive affected components and make this data available to them. For example, in our `delay` directive, we're making a `setTimeout` call, which in JavaScript's single-threaded asynchronous model means that it may not run after the exact time we provided. We'll capture the exact time it loads and make that variable available in the template.
+Suppose we want to record some metadata on how our directive affected components and make this data available to them. For example, in our `appDelay` directive, we're making a `setTimeout` call, which in JavaScript's single-threaded asynchronous model means that it may not run after the exact time we provided. We'll capture the exact time it loads and make that variable available in the template.
 
 ```typescript
 export class DelayContext {
@@ -8,7 +8,7 @@ export class DelayContext {
 }
 
 @Directive({
-  selector: '[delay]'
+  selector: '[appDelay]'
 })
 export class DelayDirective {
   constructor(
@@ -16,8 +16,8 @@ export class DelayDirective {
     private viewContainerRef: ViewContainerRef
   ) { }
 
-  @Input('delay')
-  set delayTime(time: number): void {
+  @Input()
+  set appDelay(time: number): void {
     setTimeout(
       () => {
         this.viewContainerRef.createEmbeddedView(
@@ -29,15 +29,15 @@ export class DelayDirective {
   }
 }
 ```
-[View Example](https://plnkr.co/edit/pSv4JsGhxxwzJOh9qSNj?p=preview)
+[View Example](https://plnkr.co/edit/GmjxiDSbv78zbBFqw8yv?p=preview)
 
-We've made a few changes to our `delay` directive. We've created a new `DelayContext` class that contains the context that we want to provide to our directive. In this case, we want to capture the actual time the `createEmbeddedView` call occurs and make that available as `loadTime` in our directive. We've also provided our new class as the generic argument to the `TemplateRef` function. This enables static analysis and lets us make sure our calls to `createEmbeddedView` pass in a variable of type `DelayContext`. In our `createEmbeddedView` call we pass in our variable which has captured the time of the method call.
+We've made a few changes to our `appDelay` directive. We've created a new `DelayContext` class that contains the context that we want to provide to our directive. In this case, we want to capture the actual time the `createEmbeddedView` call occurs and make that available as `loadTime` in our directive. We've also provided our new class as the generic argument to the `TemplateRef` function. This enables static analysis and lets us make sure our calls to `createEmbeddedView` pass in a variable of type `DelayContext`. In our `createEmbeddedView` call we pass in our variable which has captured the time of the method call.
 
-In the component using `delay`, we access the `loadTime` context variable in the same way we access variables in `ngFor`.
+In the component using `appDelay`, we access the `loadTime` context variable in the same way we access variables in `ngFor`.
 
 ```typescript
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <div *ngFor="let item of [1,2,3,4,5,6]">
       <card *delay="500 * item; let loaded = loadTime">

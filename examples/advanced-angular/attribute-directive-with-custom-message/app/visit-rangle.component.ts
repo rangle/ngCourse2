@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'visit-rangle',
+  selector: 'app-visit-rangle',
   template: `
     <button 
       type="button" 
-      [confirm]="visitRangle" 
+      [appConfirm]="visitRangle" 
       confirmMessage="Click ok to visit Rangle.io!">
       Visit Rangle
     </button>

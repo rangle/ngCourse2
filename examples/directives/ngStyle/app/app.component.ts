@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
-  template: '<style-example>Style me!</style-example>'
+  selector: 'app-root',
+  template: '<app-style-example>Style me!</app-style-example>'
 })
 export class AppComponent {
   

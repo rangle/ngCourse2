@@ -1,27 +1,31 @@
-import {Component} from '@angular/core';
-import { fromJS } from 'immutable';
+import { Component } from '@angular/core';
+
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
-  <button (click)="addOtherEpisode()" [disabled]="otherEpisodes.length === 0">Add Episode</button>
-    <for-example 
-      *ngFor="let episode of episodes;  
-      let i = index; let isOdd = odd;  
-      trackBy: trackById" [episode]="episode"
-      [ngClass]="{ odd: isOdd }">
-      {{episode.title}}
-    </for-example>
+  <button
+    (click)="addOtherEpisode()"
+    [disabled]="otherEpisodes.length === 0">
+    Add Episode
+  </button>
+  <app-for-example 
+    *ngFor="let episode of episodes;  
+    let i = index; let isOdd = odd;  
+    trackBy: trackById" [episode]="episode"
+    [ngClass]="{ odd: isOdd }">
+    {{episode.title}}
+  </app-for-example>
   `
 })
 export class AppComponent {
 
-  otherEpisodes: any[] = [
+  otherEpisodes = [
     { title: 'Two Swords', director: 'D. B. Weiss', id: 8 },
     { title: 'The Lion and the Rose', director: 'Alex Graves', id: 9 },
     { title: 'Breaker of Chains', director: 'Michelle MacLaren', id: 10 },
     { title: 'Oathkeeper', director: 'Michelle MacLaren', id: 11 }]
 
-  episodes: any[] = [
+  episodes = [
     { title: 'Winter Is Coming', director: 'Tim Van Patten', id: 0 },
     { title: 'The Kingsroad', director: 'Tim Van Patten', id: 1 },
     { title: 'Lord Snow', director: 'Brian Kirk', id: 2 },
@@ -34,8 +38,9 @@ export class AppComponent {
 
   addOtherEpisode() {
     let episodesCopy = JSON.parse(JSON.stringify(this.episodes))
-    this.episodes=[...episodesCopy,this.otherEpisodes.pop()];
+    this.episodes=[ ...episodesCopy, this.otherEpisodes.pop() ];
   }
+
   trackById(index: number, episode: any): number {
     return episode.id;
   }

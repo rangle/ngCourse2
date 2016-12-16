@@ -1,4 +1,4 @@
-var angularVersion = '2.0.0';
+var angularVersion = '2.3.0';
 
 System.config({
   baseUrl: '/',
@@ -32,7 +32,7 @@ System.config({
     '@angular/http': 'unpkg:@angular/http@'+angularVersion,
     '@angular/router-deprecated': 'unpkg:@angular/router-deprecated@'+angularVersion,
     'immutable': 'unpkg:immutable@3.8.1',
-    'redux': 'unpkg:redux@2.0.0/dist/redux.js',
+    'redux': 'https://unpkg.com/redux@2.0.0/dist/redux.js',
     'ng2-redux': 'unpkg:ng2-redux@2.3.2',
     'lodash': 'unpkg:lodash@4.0.0',
     'invariant': 'unpkg:invariant@2.2.1',
@@ -47,7 +47,7 @@ System.config({
   packages: {
     'app': {
       defaultExtension: 'ts',
-      main: './index.ts'
+      main: './main.ts'
     }
   }
 });

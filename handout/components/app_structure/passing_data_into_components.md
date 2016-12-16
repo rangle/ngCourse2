@@ -26,7 +26,6 @@ We can now use our component like so:
 <!-- To bind to a variable in the parent scope -->
 <rio-hello [name]="helloName"></rio-hello>
 ```
-
-  [View Example](http://plnkr.co/edit/LEtEN9?p=preview)
+[View Example](http://plnkr.co/edit/LEtEN9?p=preview)
 
 >Unlike Angular 1.x, this is one-way binding.

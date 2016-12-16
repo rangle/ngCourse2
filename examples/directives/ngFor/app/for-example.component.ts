@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'for-example',
+  selector: 'app-for-example',
   template: `
     <div>
       <ng-content></ng-content>

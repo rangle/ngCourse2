@@ -1,25 +1,25 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
-    <for-example *ngFor="let episode of episodes" [episode]="episode">
+    <app-for-example *ngFor="let episode of episodes" [episode]="episode">
       {{episode.title}}
-    </for-example>
+    </app-for-example>
         
-    <hr/>
+    <hr>
     
     <h2>Desugared</h2>
     
     <template ngFor [ngForOf]="episodes" let-episode>
-      <for-example [episode]="episode">
+      <app-for-example [episode]="episode">
         {{episode.title}}
-      </for-example>
+      </app-for-example>
     </template>
   `
 })
 export class AppComponent {
-  episodes: any[] = [
+  episodes  = [
     { title: 'Winter Is Coming', director: 'Tim Van Patten' },
     { title: 'The Kingsroad', director: 'Tim Van Patten' },
     { title: 'Lord Snow', director: 'Brian Kirk' },

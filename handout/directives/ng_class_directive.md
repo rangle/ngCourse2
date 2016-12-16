@@ -8,7 +8,7 @@ We can bind a string directly to the attribute. This works just like adding an h
 
 ```typescript
 @Component({
-  selector: 'class-as-string',
+  selector: 'app-class-as-string',
   template: `
     <p ngClass="centered-text underlined" class="orange">
       <ng-content></ng-content>
@@ -32,7 +32,7 @@ export class ClassAsStringComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/uYihwapmBxNaqGDeawwS?p=preview)
+[View Example](https://plnkr.co/edit/uUtjY1Qlkx5dOB8gsqCm?p=preview)
 
 In this case, we're binding a string directly so we avoid wrapping the directive in square brackets. Also notice that the `ngClass` works with the `class` attribute to combine the final classes.
 
@@ -40,7 +40,7 @@ In this case, we're binding a string directly so we avoid wrapping the directive
 
 ```typescript
 @Component({
-  selector: 'class-as-array',
+  selector: 'app-class-as-array',
   template: `
     <p [ngClass]="['warning', 'big']">
       <ng-content></ng-content>
@@ -61,7 +61,7 @@ export class ClassAsArrayComponent {
 }
 ```
 
-[View Example](https://plnkr.co/edit/uYihwapmBxNaqGDeawwS?p=preview)
+[View Example](https://plnkr.co/edit/uUtjY1Qlkx5dOB8gsqCm?p=preview)
 
 Here, since we are binding to the `ngClass` directive by using an expression, we need to wrap the directive name in square brackets. Passing in an array is useful when you want to have a function put together the list of applicable class names.
 
@@ -71,7 +71,7 @@ Lastly, an object can be bound to the directive. Angular 2 applies each property
 
 ```typescript
 @Component({
-  selector: 'class-as-object',
+  selector: 'app-class-as-object',
   template: `
     <p [ngClass]="{ card: true, dark: false, flat: flat }">
       <ng-content></ng-content>
@@ -103,7 +103,6 @@ export class ClassAsObjectComponent {
   flat: boolean = true;
 }
 ```
-
-[View Example](https://plnkr.co/edit/b6E2CU?p=preview)
+[View Example](https://plnkr.co/edit/uUtjY1Qlkx5dOB8gsqCm?p=preview)
 
 Here we can see that since the object's `card` and `flat` properties are true, those classes are applied but since `dark` is false, it's not applied.

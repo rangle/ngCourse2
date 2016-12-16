@@ -1,9 +1,13 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'visit-rangle',
+  selector: 'app-visit-rangle',
   template: `
-    <button type="button" (click)="visitRangle()">Visit Rangle</button>
+    <button 
+      type="button"
+      (click)="visitRangle()">
+      Visit Rangle
+    </button>
   `
 })
 export class VisitRangleComponent {

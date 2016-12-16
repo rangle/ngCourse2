@@ -5,7 +5,7 @@ Sometimes we'll want to combine multiple structural directives together, like it
 
 ```typescript
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <template ngFor [ngForOf]="[1,2,3,4,5,6]" let-item>
       <div *ngIf="item > 3">
@@ -15,7 +15,7 @@ Sometimes we'll want to combine multiple structural directives together, like it
   `
 })
 ```
-[View Example](https://plnkr.co/edit/gmIbP6s7S1pN7vDk9YHG?p=preview)
+[View Example](https://plnkr.co/edit/V2nWlGOwIITPrUDksGNG?p=preview)
 
 The previous tabs example can use `ngFor` and `ngSwitch` if the tab title and content is abstracted away into the component class.
 
@@ -23,7 +23,7 @@ The previous tabs example can use `ngFor` and `ngSwitch` if the tab title and co
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <div class="tabs-selection">
       <tab
@@ -47,7 +47,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   tabNumber: number = -1;
-  
+
   tabs = [
     { title: 'Tab 1', content: 'Tab content 1' },
     { title: 'Tab 2', content: 'Tab content 2' },
@@ -57,10 +57,10 @@ export class AppComponent {
   setTab(num: number) {
     this.tabNumber = num;
   }
-  
+
   isSelected(num: number) {
     return this.tabNumber === i;
   }
 }
 ```
-[View Example](https://plnkr.co/edit/zSAFw16MBCHE1Nh8lrDA?p=preview)
+[View Example](https://plnkr.co/edit/YOT4G4buUZduwvVi8cMA?p=preview)
