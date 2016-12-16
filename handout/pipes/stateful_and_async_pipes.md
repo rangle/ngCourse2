@@ -12,6 +12,7 @@ Angular 2 provides `AsyncPipe`, which is stateful.
 
 AsyncPipe can receive a `Promise` or `Observable` as input and subscribe to the input automatically, eventually returning the emitted value(s). It is stateful because the pipe maintains a subscription to the input and its returned values depend on that subscription.
 
+{% raw %}
 ```typescript
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
@@ -35,6 +36,7 @@ export class ProductPrice {
 }
 
 ```
+{% endraw %}
 [View Example](http://plnkr.co/edit/YrJEE5UBTlZ8HtfMGfR2?p=preview)
 
 ## Implementing Stateful Pipes ##

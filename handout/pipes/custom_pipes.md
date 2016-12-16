@@ -36,6 +36,7 @@ and a variable number of arguments of any type and return a transformed ("piped"
 
 Each colon-delimited parameter in the template maps to one method argument in the same order.
 
+{% raw %}
 ```typescript
 import {Component} from '@angular/core';
 
@@ -53,4 +54,5 @@ export class Hello {
 }
 
 ```
+{% endraw %}
 [View Example](http://plnkr.co/edit/hFLQ3qyukTet1h7rREYW?p=preview)
