@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'card',
+  selector: 'app-card',
   template: `
     <ng-content select=".main"></ng-content>
     <ng-content select=".sub"></ng-content>

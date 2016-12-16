@@ -4,12 +4,11 @@ Listening to the *host* - that is, the DOM element the directive is attached to 
 
 ```typescript
 @Directive({
-  selector: '[myDirective]'  
+  selector: '[appMyDirective]'
 })
 class MyDirective {
   @HostListener('click', ['$event'])
   onClick() {}
-
 }
 ```
 
@@ -17,10 +16,10 @@ We can also respond to external events, such as from `window` or `document`, by 
 
 ```typescript
 @Directive({
-  selector: `[highlight]`
+  selector: `[appHighlight]`
 })
 export class HighlightDirective {
-  constructor(private el: ElementRef, private renderer: Renderer) {}
+  constructor(private el: ElementRef, private renderer: Renderer) { }
 
   @HostListener('document:click', ['$event'])
   handleClick(event: Event) {
@@ -36,19 +35,19 @@ export class HighlightDirective {
   }
 }
 ```
-[View Example](https://plnkr.co/edit/HXJwSb2zvrhHy0NmBAzb?p=preview)
+[View Example](https://plnkr.co/edit/iJvMpPYDQmiwqvUTKSU8?p=preview)
 
 > Although less common, we can also use `@HostListener` if we'd like to register listeners on the host element of a Component.
 
 ## Host Elements
 
-The concept of a host element applies to both directives and components. 
+The concept of a host element applies to both directives and components.
 
 For a directive, the concept is fairly straight forward. Whichever template tag you place your directive attribute on is considered the host element. If we were implementing the `HighlightDirective` above like so:
 
 ```html
 <div>
-  <p highlight>
+  <p appHighlight>
     <span>Text to be highlighted</span>
   </p>
 </div>
@@ -58,10 +57,10 @@ The `<p>` tag would be considered the host element. If we were using a custom `T
 
 ```html
 <div>
-  <my-text-box highlight>
+  <app-my-text-box appHighlight>
     <span>Text to be highlighted</span>
-  </my-text-box>
+  </app-my-text-box>
 </div>
 ```
 
-In the context of a Component, the host element is the tag that you create through the `selector` string in the component configuration. For the `TextBoxComponent` in the example above, the host element in the context of the component class would be the `<my-text-box>` tag.
+In the context of a Component, the host element is the tag that you create through the `selector` string in the component configuration. For the `TextBoxComponent` in the example above, the host element in the context of the component class would be the `<app-my-text-box>` tag.

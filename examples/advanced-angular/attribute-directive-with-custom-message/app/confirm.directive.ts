@@ -1,11 +1,12 @@
-import {Directive, HostListener, Input} from '@angular/core';
+import { Directive, HostListener, Input } from '@angular/core';
 
 @Directive({
-  selector: `[confirm]`
+  selector: `[appConfirm]`
 })
 export class ConfirmDirective {
-  @Input('confirm') onConfirmed: Function = () => {};
-  @Input() confirmMessage: string = 'Are you sure you want to do this?';
+  @Input() appConfirm = () => {};
+  
+  @Input() confirmMessage = 'Are you sure you want to do this?';
   
   @HostListener('click', ['$event'])
   confirmFirst() {
@@ -14,7 +15,7 @@ export class ConfirmDirective {
     console.log('confirm was', confirmed);
     
     if(confirmed) {
-      this.onConfirmed();
+      this.appConfirm());
     }
   }
 }

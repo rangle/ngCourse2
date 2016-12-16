@@ -1,7 +1,7 @@
 import {Directive, HostListener} from '@angular/core';
 
 @Directive({
-  selector: `[confirm]`
+  selector: '[appConfirm]'
 })
 export class ConfirmDirective {
   @HostListener('click', ['$event'])

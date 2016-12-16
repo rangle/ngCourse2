@@ -3,11 +3,8 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <div *ngFor="let item of [1,2,3,4,5,6]">
-      <card *appDelay="500 * item">
-        {{item}}
-      </card>
-    </div>
+    <p appHighlight>Hover to emphasize p tag</p>
+    <div appHighlight>Hover to emphasize div tag</div>
   `
 })
 export class AppComponent {

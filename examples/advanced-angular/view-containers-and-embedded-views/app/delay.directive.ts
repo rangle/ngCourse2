@@ -1,7 +1,7 @@
-import {Directive, Input, TemplateRef, ViewContainerRef} from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[delay]'
+  selector: '[appDelay]'
 })
 export class DelayDirective {
   constructor(
@@ -9,8 +9,8 @@ export class DelayDirective {
     private viewContainerRef: ViewContainerRef
   ) { }
   
-  @Input('delay')
-  set delayTime(time: number): void {
+  @Input()
+  set appDelay(time: number): void {
     setTimeout(
       () => {
         this.viewContainerRef.createEmbeddedView(this.templateRef);
