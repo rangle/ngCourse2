@@ -325,4 +325,4 @@
 ---
 
 * [Glossary](handout/glossary.md)
-* [Other Resources](handout/other-resources.md)
+* [Further Reading And Reference](handout/further-reading.md)
