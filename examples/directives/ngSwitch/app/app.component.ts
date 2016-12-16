@@ -1,29 +1,45 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
-    <div [ngSwitch]="door">
-      <door [id]="1" *ngSwitchCase="1">A new car!</door>
-      <door [id]="2" *ngSwitchCase="2">A washer and dryer!</door>
-      <door [id]="3" *ngSwitchCase="3">A trip to Tahiti!</door>
-      <door [id]="4" *ngSwitchCase="4">25 000 dollars!</door>
-      <door *ngSwitchDefault class="closed"></door>
+    <div class="tabs-selection">
+      <app-tab [active]="isSelected(1)" (click)="setTab(1)">Tab 1</app-tab>
+      <app-tab [active]="isSelected(2)" (click)="setTab(2)">Tab 2</app-tab>
+      <app-tab [active]="isSelected(3)" (click)="setTab(3)">Tab 3</app-tab>
     </div>
-    
-    <div class="options">
-      <h2>See what's behind each door</h2>
-      <input type="radio" name="door" (click)="setDoor(1)" /> Door 1
-      <input type="radio" name="door" (click)="setDoor(2)" /> Door 2
-      <input type="radio" name="door" (click)="setDoor(3)" /> Door 3
-      <input type="radio" checked="checked" name="door" (click)="setDoor()"/> Close all
+
+    <div [ngSwitch]="tab">
+      <app-tab-content *ngSwitchCase="1">Tab content 1</app-tab-content>
+      <app-tab-content *ngSwitchCase="2">Tab content 2</app-tab-content>
+      <app-tab-content *ngSwitchCase="3"><app-tab-3></app-tab-3></app-tab-content>
+      <app-tab-content *ngSwitchDefault>Select a tab</app-tab-content>
     </div>
-  `
+  `,
+  styles: [`
+    :host {
+      font-family: Arial;
+    }
+
+    .tabs-selection {
+      background-color: #ddd;
+      display: flex;
+      box-sizing: border-box;
+      flex-direction: row;
+      padding-left: 16px;
+      padding-right: 16px;
+      width: 100%;
+    }
+  `]
 })
 export class AppComponent {
-  door: number;
+  tab = 0;
+
+  setTab(num: number) {
+    this.tab = num;
+  }
   
-  setDoor(num: number) {
-    this.door = num;
+  isSelected(num: number) {
+    return this.tab === num;
   }
 }

@@ -1,4 +1,4 @@
-var angularVersion = '2.0.0';
+var angularVersion = '2.3.0';
 
 System.config({
   baseUrl: '/',
@@ -47,7 +47,7 @@ System.config({
   packages: {
     'app': {
       defaultExtension: 'ts',
-      main: './index.ts'
+      main: './main.ts'
     }
   }
 });

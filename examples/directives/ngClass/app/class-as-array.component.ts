@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'class-as-array',
+  selector: 'app-class-as-array',
   template: `
     <p [ngClass]="['warning', 'big']">
       <ng-content></ng-content>

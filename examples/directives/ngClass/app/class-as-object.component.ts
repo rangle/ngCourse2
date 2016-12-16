@@ -1,7 +1,7 @@
-import {Component} '@angular/core';
+import { Component } '@angular/core';
 
 @Component({
-  selector: 'class-as-object',
+  selector: 'app-class-as-object',
   template: `
     <p [ngClass]="{ card: true, dark: false, flat: flat }">
       <ng-content></ng-content>

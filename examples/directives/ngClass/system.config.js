@@ -1,4 +1,4 @@
-var angularVersion = '2.0.0';
+var angularVersion = '2.3.0';
 
 System.config({
   baseUrl: '/',
@@ -24,7 +24,7 @@ System.config({
   ],
   
   map: {
-    '@angular/core': 'unpkg:@angular/core@'+angularVersion,
+    '@angular/core': 'unpkg:@angular/core@'+ angularVersion,
     '@angular/compiler': 'unpkg:@angular/compiler@'+angularVersion,
     '@angular/common': 'unpkg:@angular/common@'+angularVersion,
     '@angular/platform-browser': 'unpkg:@angular/platform-browser@'+angularVersion,
@@ -47,7 +47,7 @@ System.config({
   packages: {
     'app': {
       defaultExtension: 'ts',
-      main: './index.ts'
+      main: './main.ts'
     }
   }
 });

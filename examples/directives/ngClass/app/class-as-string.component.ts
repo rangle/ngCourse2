@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'class-as-string',
+  selector: 'app-class-as-string',
   template: `
     <p ngClass="centered-text underlined" class="orange">
       <ng-content></ng-content>
