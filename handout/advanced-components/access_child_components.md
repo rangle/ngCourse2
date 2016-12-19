@@ -6,46 +6,52 @@ The @ViewChild and @ViewChildren decorators provide access to the classe of chil
 
 The `@ViewChild` is a decorator function that takes the name of a component class as its input and finds its selector in the template of the containing component to bind to. `@ViewChild` can also be passed a template reference variable.
 
-For example, we bind the component class `Alert` to its selector `<my-alert>` and assign it to the property `alert`. This allows us to gain access to class methods, like `show()`.
+For example, we bind the class `AlertComponent` to its selector `<app-alert>` and assign it to the property `alert`. This allows us to gain access to class methods, like `show()`.
 
 ```typescript
-import {Component, ViewChild} from '@angular/core';
-import {Alert} from './alert.component';
+import { Component, ViewChild } from '@angular/core';
+import { AlertComponent } from './alert.component';
 
 @Component({
-  selector: 'app',
-  template: `
-    <my-alert>My alert</my-alert>
-    <button (click)="showAlert()">Show Alert</button>`
+	selector: 'app-root',
+	template: `
+    <app-alert>My alert</app-alert>
+	  <button (click)="showAlert()">Show Alert</button>`
 })
-export class App {
-  @ViewChild(Alert) alert: Alert;
+export class AppComponent {
+  @ViewChild(AlertComponent) alert: AlertComponent;
 
   showAlert() {
     this.alert.show();
   }
 }
 ```
-[View Example](http://plnkr.co/edit/5CpQzHbNIiS1k5YuYZdw?p=preview)
+[View Example](http://plnkr.co/edit/NEeEPfkHsYBbVuuAxz5z?p=preview)
 
-In the interest of separation of concern, we'd normally want to have child elements take care of their own behaviors and pass in an `@Input()`. However, it might be a useful construct in keeping things generic.
+In the interest of separation of concerns, we'd normally want to have child elements take care of their own behaviors and pass in an `@Input()`. However, it might be a useful construct in keeping things generic.
 
 When there are multiple embedded components in the template, we can also use `@ViewChildren`. It collects a list of instances of the Alert component, stored in a QueryList object that behaves similar to an array.
 
 ```typescript
-import {Component, QueryList, ViewChildren} from '@angular/core';
-import {Alert} from './alert.component';
+import { Component, QueryList, ViewChildren } from '@angular/core';
+import { AlertComponent } from './alert.component';
 
 @Component({
-  selector: 'app',
-  template: `
-    <my-alert ok="Next" (close)="showAlert(2)">Step 1: Learn angular</my-alert>
-    <my-alert ok="Next" (close)="showAlert(3)">Step 2: Love angular</my-alert>
-    <my-alert ok="Close">Step 3: Build app</my-alert>
-    <button (click)="showAlert(1)">Show steps</button>`
+	selector: 'app-root',
+	template: `
+    <app-alert ok="Next" (close)="showAlert(2)">
+      Step 1: Learn angular
+    </app-alert>
+    <app-alert ok="Next" (close)="showAlert(3)">
+      Step 2: Love angular
+    </app-alert>
+    <app-alert ok="Close">
+      Step 3: Build app
+    </app-alert>
+	  <button (click)="showAlert(1)">Show steps</button>`
 })
-export class App {
-  @ViewChildren(Alert) alerts: QueryList<Alert>;
+export class AppComponent {
+  @ViewChildren(AlertComponent) alerts: QueryList<AlertComponent>;
   alertsArr = [];
 
   ngAfterViewInit() {
@@ -57,44 +63,40 @@ export class App {
   }
 }
 ```
-[View Example](http://plnkr.co/edit/8Eak9DANedsZDHBHuLea?p=preview)
+[View Example](http://plnkr.co/edit/zPtb3ZJLx7CWJa7RptxZ?p=preview)
 
 As shown above, given a class type to `@ViewChild` and `@ViewChildren` a child component or a list of children component are selected respectively using their selector from the template. In addition both `@ViewChild` and `@ViewChildren` can be passed a selector string:
 
 ```typescript
-import {Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {Alert} from './alert.component';
-
 @Component({
-  selector: 'app',
-  template: `
-    <my-alert #first ok="Next" (close)="showAlert(2)">Step 1: Learn angular</my-alert>
-    <my-alert ok="Next" (close)="showAlert(3)">Step 2: Love angular</my-alert>
-    <my-alert ok="Close">Step 3: Build app</my-alert>
-    <button (click)="showAlert(1)">Show steps</button>`
+	selector: 'app-root',
+	template: `
+    <app-alert #first ok="Next" (close)="showAlert(2)">
+      Step 1: Learn angular
+    </app-alert>
+    <app-alert ok="Next" (close)="showAlert(3)">
+      Step 2: Love angular
+    </app-alert>
+    <app-alert ok="Close">
+      Step 3: Build app
+    </app-alert>
+	  <button (click)="showAlert(1)">Show steps</button>`
 })
-export class App {
-  @ViewChild('first') alerts: Alert;
-  @ViewChildren(Alert) alerts: QueryList<Alert>;
-  alertsArr = [];
-
-  ngAfterViewInit() {
-    this.alertsArr = this.alerts.toArray();
-  }
-
-  showAlert(step) {
-    this.first.show();
-  }
+export class AppComponent {
+  @ViewChild('first') alert: AlertComponent;
+  @ViewChildren(AlertComponent) alerts: QueryList<AlertComponent>;
+  // ...
 }
 ```
+[View Example](http://plnkr.co/edit/EnOxkmJy7Y1LIPN4wUKc?p=preview)
 
-Note that View children will not be set until the 'ngAfterViewInit' lifecycle hook is called.
+Note that view children will not be set until the `ngAfterViewInit` lifecycle hook is called.
 
 
 ## @ContentChild and @ContentChildren ##
 
 `@ContentChild` and `@ContentChildren` work the same way as the equivalent `@ViewChild` and `@ViewChildren`, however, the key difference is that `@ContentChild` and `@ContentChildren` select from the [projected content](/handout/components/projection.md) within the component.
 
-Again, note that content children will not be set until `ngAfterContentInit` component lifecycle hook.
+Again, note that content children will not be set until the `ngAfterContentInit` component lifecycle hook.
 
-[View Example](http://plnkr.co/edit/IsivWgg8A6zKVSuOLfE8?p=preview)
+[View Example](http://plnkr.co/edit/SkX3kkAA4uprtwfjDZ6y?p=preview)
