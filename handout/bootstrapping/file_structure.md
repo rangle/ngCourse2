@@ -9,28 +9,25 @@ To get started let's create a bare-bones Angular 2 application with a single com
 
 *app/app.component.ts*
 
-```js
-import {Component} from '@angular/core'
+```typescript
+import { Component } from '@angular/core'
 
 @Component({
-	selector: 'app',
+	selector: 'app-root',
 	template: '<b>Bootstrapping an Angular 2 Application</b>'
 })
-
-export class AppComponent {}
+export class AppComponent { }
 ```
 *index.html*
 
-```js
-...
+```html
 <body>
-	<app>Loading...</app>
+	<app-root>Loading...</app-root>
 </body>
-...
 ```
 
 *app/app.module.ts*
-```js
+```typescript
 import { BrowserModule }  from '@angular/platform-browser';
 import { NgModule } '@angular/core';
 import { AppComponent } from './app.component'
@@ -41,13 +38,12 @@ import { AppComponent } from './app.component'
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
 }
 ```
 
 *app/main.ts*
 
-```js
+```typescript
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
 
@@ -56,16 +52,16 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 If you're making use of Ahead-of-Time (AoT) compilation, you would code `main.ts` as follows.
 
-```js
+```typescript
 import { platformBrowser} from '@angular/platform-browser';
 import { AppModuleNgFactory } from '../aot/app/app.module.ngfactory';
 
 platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 ```
 
-[View Example](https://plnkr.co/edit/kVqEKf?p=preview)
+[View Example](https://plnkr.co/edit/X0EBXA?p=preview)
 
-The bootstrap process loads *main.ts* which is the main entry point of the application. The `AppModule` operates as the root module of our application. The module is configured to use `AppComponent` as the component to bootstrap, and will be rendered on any `app` HTML element encountered.
+The bootstrap process loads *main.ts* which is the main entry point of the application. The `AppModule` operates as the root module of our application. The module is configured to use `AppComponent` as the component to bootstrap, and will be rendered on any `app-root` HTML element encountered.
 
 There is an `app` HTML element in the *index.html* file, and we use *app/main.ts* to import the `AppModule` component and the `platformBrowserDynamic().bootstrapModule` function and kickstart the process. As shown above, you may optionally use **AoT** in which case you will be working with Factories, in the example, `AppModuleNgFactory` and `bootstrapModuleFactory`.
 
