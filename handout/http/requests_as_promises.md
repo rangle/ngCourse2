@@ -17,7 +17,7 @@ export class SearchService {
 
   search(term: string) {
     return this.http
-      .get('https://api.spotify.com/v1/search?q=' + term + '&type=artist')
+      .get(`https://api.spotify.com/v1/search?q=${term}&type=artist`)
       .map((response) => response.json())
       .toPromise();
   }
@@ -28,7 +28,7 @@ We would then consume it as a regular promise in the component.
 
 ```ts
 @Component({ /* ... */ })
-export class MyApp {
+export class AppComponent {
 	/* ... */
 
 	search() {
