@@ -103,7 +103,6 @@ export class ClassAsObjectComponent {
   flat: boolean = true;
 }
 ```
-
 [View Example](https://plnkr.co/edit/uUtjY1Qlkx5dOB8gsqCm?p=preview)
 
 Here we can see that since the object's `card` and `flat` properties are true, those classes are applied but since `dark` is false, it's not applied.
