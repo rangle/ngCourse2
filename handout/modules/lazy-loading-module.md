@@ -36,7 +36,7 @@ _app/app.component.ts_
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   template: `
     <h1>My App</h1>
     <nav>
@@ -112,7 +112,7 @@ export class LazyModule {}
 
 > If we define the class `LazyModule` as the `default` export of the file, we don't need to define the class name in the `loadChildren` property as shown above.
 
-The `routing` object is very simple and only defines the default component to load when navigating to the `lazy` path. 
+The `routing` object is very simple and only defines the default component to load when navigating to the `lazy` path.
 
 _app/lazy/lazy.routing.ts_
 
@@ -144,9 +144,9 @@ import { Component } from '@angular/core';
 export class LazyComponent {}
 ```
 
-[View Example](https://plnkr.co/edit/SGsAFpGhFX3vg3PysjnX?p=preview)
+[View Example](https://plnkr.co/edit/vpCqRHDAj7V6mlN1AknN?p=preview)
 
-When we load our application for the first time, the `AppModule` along the `AppComponent` will be loaded in the browser and we should see the navigation system and the text "Eager Component". Until this point, the `LazyModule` has not being downloaded, only when we click the link "Lazy" the needed code will be downloaded and we will see the message "Lazy Component" in the browser. 
+When we load our application for the first time, the `AppModule` along the `AppComponent` will be loaded in the browser and we should see the navigation system and the text "Eager Component". Until this point, the `LazyModule` has not being downloaded, only when we click the link "Lazy" the needed code will be downloaded and we will see the message "Lazy Component" in the browser.
 
 We have effectively lazily loaded a module.
 
