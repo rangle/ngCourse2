@@ -2,29 +2,33 @@
 
 Let's see how change detection works with a simple example.
 
-We are going to create a simple `MovieApp` to show information about one movie. This app is going to consist of only two components: the `MovieComponent` that shows information about the movie and the `MainComponent` which holds a reference to the movie with buttons to perform some actions.
+We are going to create a simple `MovieApp` to show information about one movie. This app is going to consist of only two components: the `MovieComponent` that shows information about the movie and the `AppComponent` which holds a reference to the movie with buttons to perform some actions.
 
-Our `MainComponent` will have three properties: the `slogan` of the app, the `title` of the movie and the lead `actor`. The last two properties will be passed to the `MovieComponent` element referenced in the template.
+Our `AppComponent` will have three properties: the `slogan` of the app, the `title` of the movie and the lead `actor`. The last two properties will be passed to the `MovieComponent` element referenced in the template.
 
-_app/main.component.ts_
+_app/app.component.ts_
 ```javascript
 import {Component} from '@angular/core';
 import {MovieComponent} from './movie.component';
 import {Actor} from './actor.model';
 
 @Component({
-  selector: 'main',
+  selector: 'app-root',
   template: `
     <h1>MovieApp</h1>
     <p>{{ slogan }}</p>
-    <button type="button" (click)="changeActorProperties()">Change Actor Properties</button>
-    <button type="button" (click)="changeActorObject()">Change Actor Object</button>
-    <movie [title]="title" [actor]="actor"></movie>`
+    <button type="button" (click)="changeActorProperties()">
+      Change Actor Properties
+    </button>
+    <button type="button" (click)="changeActorObject()">
+      Change Actor Object
+    </button>
+    <app-movie [title]="title" [actor]="actor"></app-movie>`
 })
-export class MainComponent {
-  slogan: string = 'Just movie information';
-  title: string = 'Terminator 1';
-  actor: Actor = new Actor('Arnold', 'Schwarzenegger');
+export class AppComponent {
+  slogan = 'Just movie information';
+  title = 'Terminator 1';
+  actor = new Actor('Arnold', 'Schwarzenegger');
 
   changeActorProperties() {
     this.actor.firstName = 'Nicholas';
@@ -50,16 +54,15 @@ export class Actor {
 }
 ```
 
-Finally, the `MovieComponent` shows the information provided by the `MainComponent` in its template.
+Finally, the `MovieComponent` shows the information provided by the `AppComponent` in its template.
 
 _app/movie.component.ts_
 ```javascript
-import {Component, Input} from '@angular/core';
-import {Actor} from './actor.model';
+import { Component, Input } from '@angular/core';
+import { Actor } from './actor.model';
 
 @Component({
-  selector: 'movie',
-  styles: ['div {border: 1px solid black}'],
+  selector: 'app-movie',
   template: `
     <div>
       <h3>{{ title }}</h3>
@@ -74,7 +77,4 @@ export class MovieComponent {
   @Input() actor: Actor;
 }
 ```
-
-The final result of the app is shown in the screenshot below:
-
-![File Structure](../images/app-screenshot.png)
+[View Example](http://plnkr.co/edit/RKfTH5xSEA9KhuY9quSa?p=preview)

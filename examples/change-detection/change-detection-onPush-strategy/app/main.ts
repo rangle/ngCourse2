@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { MainComponent } from './main.component.ts';
+import { AppComponent } from './app.component.ts';
 import { MovieComponent } from './movie.component';
 
 
@@ -10,10 +10,10 @@ import { MovieComponent } from './movie.component';
     BrowserModule
   ],
   declarations: [
-    MainComponent,
+    AppComponent,
     MovieComponent
   ],
-  bootstrap: [ MainComponent ]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }

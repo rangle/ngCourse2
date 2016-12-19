@@ -2,7 +2,7 @@ import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 import * as Immutable from 'immutable';
 
 @Component({
-  selector: 'movie',
+  selector: 'app-movie',
   styles: ['div {border: 1px solid black}'],
   template: `
     <div>
