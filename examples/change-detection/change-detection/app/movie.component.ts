@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/core';
 import { Actor } from './actor.model';
 
 @Component({
@@ -12,8 +11,7 @@ import { Actor } from './actor.model';
         <label>Actor:</label>
         <span>{{actor.firstName}} {{actor.lastName}}</span>
       </p>
-    </div>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    </div>`
 })
 export class MovieComponent {
   @Input() title: string;

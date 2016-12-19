@@ -22,29 +22,34 @@ First we need to install the `immutable.js` library using the command:
 npm install --save immutable
 ```
 
-Then in our `MainComponent` we import the library and use it to create an actor object as an immutable.
+Then in our `AppComponent` we import the library and use it to create an actor object as an immutable.
 
-_app/main.component.ts_
-```javascript
-import {Component} from '@angular/core';
-import {MovieComponent} from './movie.component';
+_app/app.component.ts_
+```typescript
+import { Component } from '@angular/core';
+import { MovieComponent } from './movie.component';
 import * as Immutable from 'immutable';
 
 @Component({
-  selector: 'main',
+  selector: 'app-root',
   template: `
     <h1>MovieApp</h1>
     <p>{{ slogan }}</p>
-    <button type="button" (click)="changeActor()">Change Actor</button>
-    <movie [title]="title" [actor]="actor"></movie>`
+    <button type="button" (click)="changeActor()">
+      Change Actor
+    </button>
+    <app-movie [title]="title" [actor]="actor"></app-movie>`
 })
-export class MainComponent {
-  slogan: string = 'Just movie information';
-  title: string = 'Terminator 1';
-  actor: Immutable.Map<string, string> = Immutable.Map({firstName: 'Arnold', lastName: 'Schwarzenegger'});
+export class AppComponent {
+  slogan = 'Just movie information';
+  title = 'Terminator 1';
+  actor = Immutable.Map({
+    firstName: 'Arnold',
+    lastName: 'Schwarzenegger'
+  })
 
   changeActor() {
-    this.actor = this.actor.merge({firstName: 'Nicholas', lastName: 'Cage'});
+    this.actor = this.actor.merge({ firstName: 'Nicholas', lastName: 'Cage' });
   }
 }
 ```
@@ -56,20 +61,19 @@ Because we are always getting a new object when we try to change the `actor`, th
 Additional changes have to be made to the `MovieComponent` as well. First we need to declare the `actor` object as an immutable type, and in the template, instead of trying to access the object properties directly using a syntax like `actor.firstName`, we need to use the `get` method of the immutable.
 
 _app/movie.component.ts_
-```javascript
-import {Component, Input} from '@angular/core';
-import {ChangeDetectionStrategy} from '@angular/core';
+```typescript
+import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
 import * as Immutable from 'immutable';
 
 @Component({
-  selector: 'movie',
-  styles: ['div {border: 1px solid black}'],
+  selector: 'app-movie',
   template: `
     <div>
       <h3>{{ title }}</h3>
       <p>
         <label>Actor:</label>
-        <span>{{actor.get('firstName')}} {{actor.get('lastName')}}</span>
+        <span>{{ actor.get('firstName') }} {{ actor.get('lastName') }}</span>
       </p>
     </div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -79,7 +83,6 @@ export class MovieComponent {
   @Input() actor: Immutable.Map<string, string>;
 }
 ```
-
-[View Example](http://plnkr.co/edit/A72OjtHMZrIF2N5k00kR?p=preview)
+[View Example](http://plnkr.co/edit/0Qp7ynAcZCqcv67OvsSD?p=preview)
 
 Using this pattern we are taking full advantage of the "OnPush" change detection strategy and thus reducing the amount of work done by Angular to propagate changes and to get models and views in sync. This improves the performance of the application.
