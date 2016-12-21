@@ -3,17 +3,17 @@
 Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below:
 
 ```javascript
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'product-price',
   template: `<p>Total price of product is {{ price | currency }}</p>`
 })
 export class ProductPrice {
-  price: number = 100.1234;
+  price = 100.1234;
 }
 ```
-[View Example](http://plnkr.co/edit/WH5RGHItodj1RHznlNHo?p=preview)
+[View Example](http://plnkr.co/edit/JIdYGCz1U9ElEpCArg01?p=preview)
 
 ## Passing Parameters ##
 
@@ -30,32 +30,32 @@ You can also pass multiple parameters this way:
 pipeName: parameter1: parameter2
 ```
 
-```javascript
-import {Component} from '@angular/core';
+```typescript
+import { Component } from '@angular/core';
 
 @Component({
-	selector: 'product-price',
+	selector: 'app-root',
 	template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" }}</p>'
 })
-export class ProductPrice {
-  price: number = 100.123456;
+export class AppComponent {
+  price = 100.123456;
 }
 ```
-[View Example](http://plnkr.co/edit/DjSWU9CEpQFxM4HGn25x?p=preview)
+[View Example](http://plnkr.co/edit/IjGPii3n7qpezcglp03O?p=preview)
 
 ## Chaining Pipes ##
 
 We can chain pipes together to make use of multiple pipes in one expression.
 
-```javascript
-import {Component} from '@angular/core';
+```typescript
+import { Component } from '@angular/core';
 
 @Component({
-	selector: 'product-price',
+	selector: 'app-root',
 	template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" | lowercase }}</p>'
 })
 export class ProductPrice {
-  price: number = 100.123456;
+  price = 100.123456;
 }
 ```
-[View Example](http://plnkr.co/edit/4lkikl3GShOcFve1RY7g?p=preview)
+[View Example](http://plnkr.co/edit/mnnujN8qPMfRzmNg4uo4?p=preview)
