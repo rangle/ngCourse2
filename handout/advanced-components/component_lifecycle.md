@@ -15,4 +15,4 @@ Here is the complete lifecycle hook interface inventory:
 
 📄 from [Component Lifecycle](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html)
 
-[View Example](http://plnkr.co/edit/SUxXHr0SV4Fvx2zCiRlE?p=preview)
+[View Example](http://plnkr.co/edit/kBHV6AximaHAC26kYEOA?p=preview)
