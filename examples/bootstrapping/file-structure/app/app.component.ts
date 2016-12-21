@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: '<b>Bootstrapping an Angular 2 application!</b>'
 })
-export class MyApp {
-
+export class AppComponent {
 }
