@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { App } from './containers/app';
+import { AppComponent } from './containers/app.component';
 import { ChatWidget, AuthService, AuthWidget, ChatSocket } from './components/index';
 
 @NgModule({
-  imports: [
-    BrowserModule
-  ],
-  declarations: [
-    App
-  ],
+  imports: [BrowserModule],
+  declarations: [AppComponent],
   /** Provide dependencies here */
   providers: [
     ChatWidget, 
@@ -17,6 +13,6 @@ import { ChatWidget, AuthService, AuthWidget, ChatSocket } from './components/in
     AuthWidget, 
     ChatSocket,
   ],
-  bootstrap: [ App ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
