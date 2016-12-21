@@ -1,4 +1,4 @@
-# Redux Actions
+# Modifying your Application State by Dispatching Actions
 
 Redux actions should generally be simple JSON objects. This is because
 they should be serializable and replayable into the application state. Even if

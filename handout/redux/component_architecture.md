@@ -1,11 +1,11 @@
-# Redux and Component Architecture
+# Component Architecture
 
 In the above example, our `counter` component is a smart component.
 It knows about Redux, the structure of the state and the actions it needs to call.
 In theory you can drop this component into any area of your application and just let it work.
 But it will be tightly bound to that specific slice of state and those specific actions.
 For example, what if we wanted to have multiple counters tracking different things on the page?
-For example, counting the number of red clicks vs blue clicks.
+Or counting the number of red clicks vs blue clicks?
 
 To help make components more generic and reusable, it's worth trying to separate
 them into _container_ components and _presentational_ components.
@@ -48,26 +48,27 @@ them into _container_ components and _presentational_ components.
  component.  First, let's modify our `app-container` to have two counter
  components on it as we currently have it.
 
-```javascript
-import { Component } from '@angular/core';
+```typescript
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs';
+
+import {Counter} from '../../models/counter';
+import {CounterService} from '../../services/counter.service';
 
 @Component({
-  selector: 'simple-redux'
-  template: `
-    <div>
-      <h1>Redux: Two components, one state.</h1>
-      <div style="float: left; border: 1px solid red;">
-        <h2>Click Counter</h2>
-        <counter></counter>
-      </div>
-      <div style="float: left; border: 1px solid blue;">
-        <h2>Curse Counter</h2>
-        <counter></counter>
-      </div>
-    </div>
-  `
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class SimpleRedux {}
+export class AppComponent {
+
+  counter$: Observable<Counter>;
+
+  constructor(counterService: CounterService) {
+    this.counter$ = counterService.getCounter();
+  }
+
+}
 ```
 [View Example](https://plnkr.co/edit/w9qg7UklSryt4ujmCpTy?p=preview)
 
@@ -87,28 +88,25 @@ We now have a nicely-reusable presentational component with no knowledge of
 Redux or our application state.
 
 _app/components/counter-component.ts_
-```javascript
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+```typescript
+import {Component, Input} from '@angular/core';
+
+import {Counter} from '../../models/counter';
+import {CounterActions} from '../../state/counter/counter.actions';
 
 @Component({
   selector: 'counter',
-  template: `
-  <p>
-    Clicked: {{ counter | async }} times
-    <button (click)="increment.emit()">+</button>
-    <button (click)="decrement.emit()">-</button>
-    <button (click)="incrementIfOdd.emit()">Increment if odd</button>
-    <button (click)="incrementAsync.emit()">Increment async</button>
-  </p>
-  `
+  templateUrl: './counter.component.html'
 })
-export class Counter {
-  @Input() counter: Observable<number>;
-  @Output() increment = new EventEmitter<void>();
-  @Output() decrement = new EventEmitter<void>();
-  @Output() incrementIfOdd = new EventEmitter<void>();
-  @Output() incrementAsync = new EventEmitter<void>();
+export class CounterComponent {
+
+  @Input()
+  counter: Counter;
+
+  constructor(public actions: CounterActions) {
+
+  }
+
 }
 ```
 

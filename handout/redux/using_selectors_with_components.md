@@ -1,4 +1,4 @@
-# Using Redux with Components
+# Using Selectors with Components
 
 We will use the
 [select pattern](https://github.com/angular-redux/ng2-redux#the-select-pattern)
@@ -11,32 +11,38 @@ Let's start by building out a counter component. The component will be
 responsible for keeping track of how many times it was clicked and displaying
 that amount.
 
-_app/components/counter-component.ts_
+_/app/components/counter.component.ts
 
-```javascript
-import { Component } from '@angular/core';
-import { select } from 'ng2-redux';
-import { Observable } from 'rxjs';
-import { CounterActions } from '../actions/counter-actions';
+```typescript
+import {Component, Input} from '@angular/core';
+
+import {Counter} from '../../models/counter';
+import {CounterActions} from '../../state/counter/counter.actions';
 
 @Component({
   selector: 'counter',
-  providers: [ CounterActions ],
-  template: `
-  <p>
-    Clicked: {{ counter$ | async }} times
-    <button (click)="actions.increment()">+</button>
-    <button (click)="actions.decrement()">-</button>
-    <button (click)="actions.incrementIfOdd()">Increment if odd</button>
-    <button (click)="actions.incrementAsync()">Increment async</button>
-  </p>
-  `
+  templateUrl: './counter.component.html'
 })
-export class Counter {
-  @select() counter$: Observable<number>;
+export class CounterComponent {
 
-  constructor(public actions: CounterActions) {}
+  @Input()
+  counter: Counter;
+
+  constructor(public actions: CounterActions) {
+
+  }
+
 }
+```
+
+_/app/components/counter.component.html_
+```html
+<p>
+  Clicked: {{counter.currentValue}} times
+  <button (click)="actions.increment()">+</button>
+  <button (click)="actions.decrement()">-</button>
+  <button (click)="actions.reset()">Reset</button>
+</p>
 ```
 
 [View Example](https://plnkr.co/edit/pujePgvmkyKHurXtOS3k?p=preview)

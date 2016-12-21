@@ -211,12 +211,17 @@
 ---
 
 * [Redux and Ngrx](handout/redux/README.md)
-   * [Review of Reducers and Pure Functions](handout/redux/review_of_reducers_and_pure_functions.md)
+   * [Define your Main Application State](handout/define_your_main_application_state.md)
+   * [Actions](handout/redux/actions.md)
+   * [Reducers and Pure Functions](handout/redux/reducers_and_pure_functions.md)
    * [Reducers as State Management](handout/redux/reducers_as_state_management.md)
-   * [Redux Actions](handout/redux/redux_actions.md)
-   * [Configuring your Application to use Redux](handout/redux/configuring_your_application_to_use_redux.md)
-   * [Using Redux with Components](handout/redux/using_redux_with_components.md)
-   * [Redux and Component Architecture](handout/redux/redux_and_component_architecture.md)
+   * [Create your Application's Root Reducer](handout/redux/create_your_applications_root_reducer.md)
+   * [Configuring your Application to use Ngrx](handout/redux/configuring_your_application_to_use_ngrx.md)
+   * [Modifying your Application State by Dispatching Actions](handout/redux/modifying_your_application_state_by_dispatching_actions.md)
+   * [Reading your Application State using Selectors](handout/redux/reading_your_application_state_using_selectors.md)
+   * [Using Selectors with Components](handout/redux/using_selectors_with_components.md)
+   * [Component Architecture](handout/redux/component_architecture.md)
+   * [Side Effects](handout/redux/side_effects.md)
    * [Getting More From Redux and Ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
 
 ---
