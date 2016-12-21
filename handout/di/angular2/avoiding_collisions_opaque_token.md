@@ -89,7 +89,7 @@ export class EmailService {
 }
 ```
 
-```
+```typescript
 export const apiConfig = new OpaqueToken('api-config');
 
 @Injectable()

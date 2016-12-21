@@ -5,7 +5,7 @@ _really_ do?
 
 Consider the following code:
 
-```js
+```typescript
 class Hamburger {
   private bun: Bun;
   private patty: Patty;
@@ -25,11 +25,12 @@ is also responsible for _making_ the `Bun`, `Patty` and `Toppings`.  This is a
 bad thing. What if a vegetarian burger were needed?  One naive approach might
 be:
 
-```js
+```typescript
 class VeggieHamburger {
   private bun: Bun;
   private patty: Patty;
   private toppings: Toppings;
+
   constructor() {
     this.bun = new Bun('withSesameSeeds');
     this.patty = new Patty('tofu');
@@ -41,11 +42,12 @@ class VeggieHamburger {
 There, problem solved right? But what if we need a gluten free hamburger?
 What if we want different toppings... maybe something more generic like:
 
-```js
+```typescript
 class Hamburger {
   private bun: Bun;
   private patty: Patty;
   private toppings: Toppings;
+
   constructor(bunType: string, pattyType: string, toppings: string[]) {
     this.bun = new Bun(bunType);
     this.patty = new Patty(pattyType);
@@ -65,11 +67,12 @@ effectively mocked?
 
 Taking those concerns into consideration, the class could be rewritten as:
 
-```js
+```typescript
 class Hamburger {
   private bun: Bun;
   private patty: Patty;
   private toppings: Toppings;
+
   constructor(bun: Bun, patty: Patty, toppings: Toppings) {
     this.bun = bun;
     this.patty = patty;
@@ -83,13 +86,12 @@ Now when `Hamburger` is instantiated it does not need to know anything about its
 moved out of the class.  This pattern is so common that TypeScript allows it to
 be written in shorthand like so:
 
-```js
+```typescript
 class Hamburger {
   constructor(private bun: Bun, private patty: Patty,
     private toppings: Toppings) {}
 }
 ```
-
 
 The `Hamburger` class is now simpler and easier to test.  This model of having
 the dependencies provided to `Hamburger` is basic dependency injection.

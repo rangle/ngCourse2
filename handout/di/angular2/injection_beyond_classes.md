@@ -1,6 +1,6 @@
 # Injection Beyond Classes
 
-So far the only types that injection has been used for have been classes, but  
+So far the only types that injection has been used for have been classes, but
 Angular 2 is not limited to injecting classes.  The concept of `providers` was
 also briefly touched upon.
 
@@ -9,7 +9,7 @@ array.  `providers` have also all been class identifiers.  Angular 2 lets
 programmers specify providers with a more verbose "recipe". This is done with
 by providing Angular 2 an Object literal (`{}`):
 
-```js
+```typescript
 import { NgModule } from '@angular/core';
 import { App } from './containers/app'; // hypothetical app component
 import { ChatWidget } from './components/chat-widget';
@@ -18,7 +18,6 @@ import { ChatWidget } from './components/chat-widget';
   providers: [ { provide: ChatWidget, useClass: ChatWidget } ],
 })
 export class DiExample {};
-
 ```
 
 This example is yet another example that `provide`s a class, but it does so with
@@ -28,7 +27,7 @@ This long format is really handy.  If the programmer wanted to switch out
 `ChatWidget` implementations, for example to allow for a `MockChatWidget`, they could
 do this easily:
 
-```js
+```typescript
 import { NgModule } from '@angular/core';
 import { App } from './containers/app'; // hypothetical app component
 import { ChatWidget } from './components/chat-widget';
@@ -38,7 +37,6 @@ import { MockChatWidget } from './components/mock-chat-widget';
   providers: [ { provide: ChatWidget, useClass: MockChatWidget } ],
 })
 export class DiExample {};
-
 ```
 
 The best part of this implementation swap is that the injection system knows
@@ -67,11 +65,12 @@ In the hypothetical app component, 'Random' could be injected like:
 import { Component, Inject, provide } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `Random: {{ value }}`
 })
-export class App {
+export class AppCompoennt {
   value: number;
+
   constructor(@Inject('Random') r) {
     this.value = r;
   }
@@ -89,22 +88,21 @@ a function. Sometimes functions and classes are even more than what's needed.
 Angular 2 has a "recipe" called `useValue` for these cases that works almost
 exactly the same:
 
-```js
+```typescript
 import { NgModule } from '@angular/core';
-import { App } from './containers/app'; // hypothetical app component
+import { AppComponent } from './containers/app.component'; // hypothetical app component
 
 @NgModule({
   providers: [ { provide: 'Random', useValue: Math.random() } ],
 })
 export class DiExample {};
-
 ```
-
 [View Example][plunkRandom2]
 
 In this case, the product of `Math.random` is assigned to the `useValue`
-property passed to the `provider`.  
+property passed to the `provider`.
 
 
-[plunkRandom1]: http://plnkr.co/edit/Dkm0cJF80EdmPcWZx45W?p=preview "Random DI 1"
-[plunkRandom2]: http://plnkr.co/edit/63GsCDOElY7J8LNAbTjL?p=preview "Random DI 2"
+
+[plunkRandom1]: http://plnkr.co/edit/BKMZYlAviRhauCzxMnx6?p=preview "Random DI 1"
+[plunkRandom2]: http://plnkr.co/edit/xGMOsHn1v3tTbc9RkuDz?p=preview "Random DI 2"
