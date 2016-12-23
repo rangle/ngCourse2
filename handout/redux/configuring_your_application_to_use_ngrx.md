@@ -1,7 +1,8 @@
 # Configuring your application to use ngrx #
 
 Once you have the reducers created, it’s time to configure your
-Angular application to make use of ngrx.
+Angular application. In your main application module, simple add the 
+`StoreModule.provideStore()` call to your NgModule's imports:
 
 _app/app.module.ts_
 ```typescript
@@ -25,8 +26,7 @@ import {CounterService} from './services';
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore(rootReducer),
-    EffectsModule.run(CounterEffects)
+    StoreModule.provideStore(rootReducer)
   ],
   declarations: [
     AppComponent,
@@ -42,5 +42,3 @@ export class AppModule {
 
 }
 ```
-
-Here, we're simply adding the `NgReduxModule` class as an import in our NgModule declaration.

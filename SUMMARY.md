@@ -211,11 +211,13 @@
 ---
 
 * [Redux and Ngrx](handout/redux/README.md)
-   * [Define your Main Application State](handout/define_your_main_application_state.md)
+   * [Adding Ngrx to your Project](handout/redux/adding_ngrx_to_your_project.md)
+   * [Defining your Main Application State](handout/redux/defining_your_main_application_state.md)
    * [Actions](handout/redux/actions.md)
    * [Reducers and Pure Functions](handout/redux/reducers_and_pure_functions.md)
+   * [Example Application](handout/redux/example_application.md)
    * [Reducers as State Management](handout/redux/reducers_as_state_management.md)
-   * [Create your Application's Root Reducer](handout/redux/create_your_applications_root_reducer.md)
+   * [Creating your Application's Root Reducer](handout/redux/creating_your_applications_root_reducer.md)
    * [Configuring your Application to use Ngrx](handout/redux/configuring_your_application_to_use_ngrx.md)
    * [Modifying your Application State by Dispatching Actions](handout/redux/modifying_your_application_state_by_dispatching_actions.md)
    * [Reading your Application State using Selectors](handout/redux/reading_your_application_state_using_selectors.md)
