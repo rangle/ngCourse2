@@ -44,10 +44,8 @@ things outside of their own scope. They should simply compute the next
 application state as a pure function of the reducer's arguments.
 
 For this reason, side-effect causing operations, such as updating a record in a 
-database, generating an id, etc. should be handled elsewhere in the application 
-such as in the action creators, using middleware such as 
-['Epics' from redux-observable](https://github.com/redux-observable/redux-observable) 
-or [ngrx/effects](https://github.com/ngrx/effects).
+database, generating an id, etc. should be handled elsewhere in the application,
+typically using [ngrx/effects](https://github.com/ngrx/effects).
 
 ## Complex Reducer
 
@@ -55,7 +53,24 @@ Another consideration when creating your reducers is to ensure that they are
 immutable and not modifying the state of your application. If you mutate your 
 application state, it can cause unexpected behavior. There are a few ways to 
 help maintain immutability in your reducers. One way is by using new ES6 
-features such as `Object.assign` or the spread operator for arrays.
+features such as `Object.assign` or the spread operator for arrays:
+
+_/src/models/counter.ts_
+```typescript
+// ...
+
+export function setCounterCurrentValue(counter: Counter, currentValue: number): Counter {
+  return Object.assign({}, counter, {
+    currentValue: currentValue
+  });
+}
+
+// ...
+```
+
+Here, the `setCounterCurrentValue()` function overwrites the `currentValue` 
+property with a new value/reference while maintaining the references and values
+of other properties.
 
 ```typescript
 import {Action} from '@ngrx/store';
@@ -63,9 +78,10 @@ import {Action} from '@ngrx/store';
 import {Counter, createDefaultCounter, setCounterCurrentValue} from '../../models/counter';
 import {CounterActions} from './counter.actions';
 
-export function counterReducer(counter: Counter, action: Action): Counter {
-  counter = counter || createDefaultCounter();
-
+export function counterReducer(
+  counter: Counter = { currentValue: 0 }, 
+  action: Action
+): Counter {
   switch (action.type) {
     case CounterActions.INCREMENT:
       return setCounterCurrentValue(counter, counter.currentValue + 1);
@@ -92,7 +108,7 @@ function immutableObjectReducer(state = { someValue: 'value'} , action) {
   }
 }
 
-function immutableArrayReducer(state = [1,2,3], action) {
+function immutableArrayReducer(state = [1, 2, 3], action) {
   switch(action.payload) {
     case ADD_ITEM:
       return [...state,action.payload.value];
