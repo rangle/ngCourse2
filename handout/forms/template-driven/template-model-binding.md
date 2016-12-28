@@ -5,8 +5,7 @@ If you need a form with default values, you can start using the value-binding sy
 
 _app/signup-form.component.html_
 ```html
-<form #signupForm="ngForm" (ngSubmit)=register(signupForm)>
-
+<form #signupForm="ngForm" (ngSubmit)="register(signupForm)">
   <label for="username">Username</label>
   <input type="text" name="username" id="username" [ngModel]="generatedUser">
 
@@ -18,13 +17,15 @@ _app/signup-form.component.html_
 ```
 
 _app/signup-form.component.ts_
-```ts
+```typescript
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 // ...
 
-@Component({ /* ... */ })
-export class SignupForm {
+@Component({
+  // ...
+})
+export class SignupFormComponent {
   generatedUser: string = generateUniqueUserID();
 
   register(form: NgForm) {
@@ -43,8 +44,7 @@ In order to have access to two-way binding in template-driven forms, use the “
 Be sure to declare all of the properties you will need on the component.
 
 ```html
-<form #signupForm="ngForm" (ngSubmit)=register(signupForm)>
-
+<form #signupForm="ngForm" (ngSubmit)="register(signupForm)">
   <label for="username">Username</label>
   <input type="text" name="username" id="username" [(ngModel)]="username">
 
@@ -55,15 +55,16 @@ Be sure to declare all of the properties you will need on the component.
 </form>
 ```
 
-```ts
+```typescript
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-// ...
 
-@Component({ /* ... */ })
-export class SignUpForm {
+@Component({
+  // ...
+})
+export class SignUpFormComponent {
   username: string = generateUniqueUserID();
-  email: string = '';
+  email = '';
 
   register(form: NgForm) {
     console.log(form.value.username);

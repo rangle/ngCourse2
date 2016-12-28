@@ -5,7 +5,7 @@ The most straightforward approach to building forms in Angular 2 is to take adva
 First, consider a typical form:
 
 ```html
-<form method="POST" action="/register" id="SignupForm">
+<form method="POST" action="/register" id="signup-form">
   <label for="email">Email</label>
   <input type="text" name="email" id="email">
 
@@ -42,10 +42,10 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'signup-form',
+  selector: 'app-signup-form',
   templateUrl: 'app/signup-form.component.html',
 })
-export class SignupForm {
+export class SignupFormComponent {
   registerUser(form: NgForm) {
     console.log(form.value);
     // {email: '...', password: '...'}

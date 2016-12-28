@@ -176,10 +176,10 @@
     * [Nesting Form Data](handout/forms/template-driven/nested-form-data.md)
     * [Using Template Model Binding](handout/forms/template-driven/template-model-binding.md)
     * [Validating Template-Driven Forms](handout/forms/template-driven/validating_forms.md)
-  * [FormBuilder](handout/forms/form-builder/form-builder.md)
-    * [FormBuilder Basics](handout/forms/form-builder/form-builder_basics.md)
-    * [Validating FormBuilder Forms](handout/forms/form-builder/form-builder_validation.md)
-    * [FormBuilder Custom Validation](handout/forms/form-builder/form-builder_custom_validation.md)
+  * [Reactive/Model-Driven Forms](handout/forms/reactive-forms/reactive-forms.md)
+    * [FormBuilder Basics](handout/forms/reactive-forms/reactive-forms_basics.md)
+    * [Validating FormBuilder Forms](handout/forms/reactive-forms/reactive-forms_validation.md)
+    * [FormBuilder Custom Validation](handout/forms/reactive-forms/reactive-forms_custom_validation.md)
   * [Visual Cues for Users](handout/forms/ux/visual_cues_for_users.md)
 
 ---

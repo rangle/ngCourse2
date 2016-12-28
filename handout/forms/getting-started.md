@@ -3,27 +3,25 @@
 
 ### Opt-In APIs
 Before we dive into any of the form features, we need to do a little bit of housekeeping.
-We need to bootstrap our application using the `FormsModule` and/or `ReactiveFormsModule`.
+We need to bootstrap our application using the `FormsModule` or `ReactiveFormsModule`.
 
-```js
+```typescript
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MyApp } from './components'
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from './components'
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
   ],
-  declarations: [MyApp],
-  bootstrap: [MyApp]
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class MyAppModule {
-
+export class AppModule {
 }
 
-platformBrowserDynamic().bootstrapModule(MyAppModule)  
+platformBrowserDynamic().bootstrapModule(AppModule)
 ```
 
 ### Input Labeling

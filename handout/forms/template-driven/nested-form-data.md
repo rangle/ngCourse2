@@ -3,6 +3,7 @@
 If you find yourself wrestling to fit nested trees of data inside of a flat form, Angular has you covered for both simple and complex cases.
 
 Let's assume you had a payment endpoint which required data, similar to the following:
+
 ```json
 {
   "contact": {
@@ -28,13 +29,12 @@ Let's assume you had a payment endpoint which required data, similar to the foll
 }
 ```
 
-While forms are flat and one-dimensional, the data built from them is not.
-This leads to complex transforms to convert the data you’ve been given into the shape you need.
+While forms are flat and one-dimensional, the data built from them is not. This leads to complex transforms to convert the data you’ve been given into the shape you need.
 
 Worse, in cases where it is possible to run into naming collisions in form inputs, you might find yourself using long and awkward names for semantic purposes.
 
 ```html
-<form >
+<form>
   <fieldset>
     <legend>Contact</legend>
 
