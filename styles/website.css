@@ -1,1 +1,37 @@
 /* CSS for website */
+div.version-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: small;
+    border: 2px solid #e5373a;
+}
+
+div.version-btn:hover{
+  background-color: #e5373a;
+}
+
+div.version-btn:hover > a.version-btn {
+    color: white;
+}
+
+div.version-btn.selected{
+  background-color: #e5373a;
+}
+
+a.version-btn{
+  cursor: pointer;
+  color: black;
+  font-family: "Source Sans Pro",sans-serif;
+  font-weight: bold;
+}
+a.version-btn:hover{
+  color: white;
+  text-decoration: none;
+}
+a.version-btn.selected{
+  color: white;
+  text-decoration: none;
+  cursor: default;
+}
