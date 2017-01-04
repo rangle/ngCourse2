@@ -3,5 +3,5 @@ An application without user input is just a page. Capturing input from the user 
 
 Angular 2 is much more flexible than Angular 1 for handling forms — we are no longer restricted to relying solely on `ngModel`. Instead, we are given degrees of simplicity and power, depending on the form's purpose.
 
-- [Template-Driven Forms](template-driven/template-driven_forms.md) use built-in directives to create straightforward form components with minimal code.
-- [FormBuilder](form-builder/form-builder.md) uses the provided APIs to handle more complex validation and subforms.
+- [Template-Driven Forms](template-driven/template-driven_forms.md) places most of the form handling logic within that form's template
+- [Reactive Forms](reactive-forms/reactive-forms.md) places form handling logic within a component's class properties and provides interaction through observables
