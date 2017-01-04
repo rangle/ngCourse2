@@ -10,10 +10,12 @@ pipes and directives; `providers` is where we put services)
 
 For example:
 
-```js
+```typescript
 import { Injectable, NgModule } from '@angular/core';
 
-@Component({...})
+@Component({
+  // ...
+})
 class ChatWidget {
   constructor(private authService: AuthService, private authWidget: AuthWidget,
     private chatSocket: ChatSocket) {}
@@ -22,10 +24,12 @@ class ChatWidget {
 @NgModule({
   declarations: [ ChatWidget ]
 })
-export class AppModule {};
+export class AppModule {
+};
 ```
 
-In the above example the `AppModule` is told about the `ChatWidget` class. Another way of saying this is that Angular 2 has been _provided_ a `ChatWidget`.
+In the above example the `AppModule` is told about the `ChatWidget` class. Another way
+of saying this is that Angular 2 has been _provided_ a `ChatWidget`.
 
 That seems pretty straightforward, but astute readers will be wondering how
 Angular 2 knows how to build `ChatWidget`.  What if `ChatWidget` was a string, or
@@ -38,16 +42,20 @@ What about `AuthService`, `AuthWidget` and `ChatSocket`? How is `ChatWidget` get
 It's not, at least not yet.  Angular 2 does not know about them yet.  That can
 be changed easily enough:
 
-```js
+```typescript
 import { Injectable, NgModule } from '@angular/core';
 
-@Component({...})
+@Component({
+  // ...
+})
 class ChatWidget {
   constructor(private authService: AuthService, private authWidget: AuthWidget,
     private chatSocket: ChatSocket) {}
 }
 
-@Component({...})
+@Component({
+  // ...
+})
 class AuthWidget {}
 
 @Injectable()
