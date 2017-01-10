@@ -8,7 +8,9 @@
   "styles": {
     "ebook": "styles/ebook.css",
     "pdf": "styles/pdf.css",
-    "website": "styles/website.css"
+    "website": "styles/website.css",
+    "mobi": "styles/mobi.css",
+    "epub": "styles/epub.css"
   },
   "theme": "theme-rangle-io",
   "pluginsConfig": {
