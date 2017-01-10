@@ -1,3 +1,7 @@
 iframe.no-pdf {
   display: none;
 }
+
+div.version-btn {
+    display: none;
+}
