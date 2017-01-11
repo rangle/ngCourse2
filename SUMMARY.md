@@ -210,8 +210,8 @@
 
 ---
 
-* [Redux and Ngrx](handout/redux/README.md)
-   * [Adding Ngrx to your Project](handout/redux/adding_ngrx_to_your_project.md)
+* [Redux and @ngrx](handout/redux/README.md)
+   * [Adding @ngrx to your Project](handout/redux/adding_ngrx_to_your_project.md)
    * [Defining your Main Application State](handout/redux/defining_your_main_application_state.md)
    * [Example Application](handout/redux/example_application.md)
    * [Reading your Application State using Selectors](handout/redux/reading_your_application_state_using_selectors.md)
@@ -220,11 +220,11 @@
    * [Reducers and Pure Functions](handout/redux/reducers_and_pure_functions.md)
    * [Reducers as State Management](handout/redux/reducers_as_state_management.md)
    * [Creating your Application's Root Reducer](handout/redux/creating_your_applications_root_reducer.md)
-   * [Configuring your Application to use Ngrx](handout/redux/configuring_your_application_to_use_ngrx.md)
+   * [Configuring your Application to use @ngrx](handout/redux/configuring_your_application_to_use_ngrx.md)
    * [Implementing Components](handout/redux/implementing_components.md)
    * [Component Architecture](handout/redux/component_architecture.md)
    * [Side Effects](handout/redux/side_effects.md)
-   * [Getting More From Redux and Ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
+   * [Getting More From Redux and @ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
 
 ---
 
