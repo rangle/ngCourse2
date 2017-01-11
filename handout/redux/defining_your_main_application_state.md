@@ -22,16 +22,16 @@ Here's an example:
 _src/models/appState.ts_
 ```typescript
 export interface AppState {
-  
   readonly colors: Colors;
   readonly localization: Localization;
   readonly login: Login;
   readonly projectList: ProjectList;
   readonly registration: Registration;
   readonly showMainNavigation: boolean;
-  
 }
 ```
 
-> **Note:** We're using `readonly` to ensure compile-time immutability, however 
-feel free to use another approach on your project that makes sense for your team.
+> **Note:** We're using `readonly` to ensure compile-time immutability, and it
+provides the simplest immutable implementation without adding more dependencies 
+to clutter the examples. However, feel free to use another approach on your
+project that makes sense for your team.

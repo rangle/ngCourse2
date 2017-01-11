@@ -92,7 +92,7 @@ _app/components/counter-component.ts_
 import {Component, Input} from '@angular/core';
 
 import {Counter} from '../../models/counter';
-import {CounterActions} from '../../state/counter/counter.actions';
+import {CounterActions} from '../../store/counter/counter.actions';
 
 @Component({
   selector: 'counter',

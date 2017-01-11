@@ -1,6 +1,6 @@
 # Reducers as State Management
 
-Reducers are simple idea that turns out to be very powerful. With Redux, you 
+Reducers are a simple idea that turns out to be very powerful. With Redux, you 
 replay a series of events into the reducer and get your new application state as
 a result.
 
@@ -8,11 +8,11 @@ Reducers in a Redux application should not mutate the state, but *return a copy*
 of it, and be side-effect free. This encourages you to think of your application
 as UI that gets "computed" from a series of events in time.
 
-Let's take a look at a simple counter reducer.
-
 ## Simple Reducer
 
-_app/state/counter/counter.reducer.ts_
+Let's take a look at a simple counter reducer.
+
+_app/store/counter/counter.reducer.ts_
 ```typescript
 import {Action} from '@ngrx/store';
 
@@ -53,24 +53,22 @@ Another consideration when creating your reducers is to ensure that they are
 immutable and not modifying the state of your application. If you mutate your 
 application state, it can cause unexpected behavior. There are a few ways to 
 help maintain immutability in your reducers. One way is by using new ES6 
-features such as `Object.assign` or the spread operator for arrays:
+features such as `Object.assign()` or the spread operator for arrays.
 
 _/src/models/counter.ts_
 ```typescript
 // ...
 
 export function setCounterCurrentValue(counter: Counter, currentValue: number): Counter {
-  return Object.assign({}, counter, {
-    currentValue: currentValue
-  });
+  return Object.assign({}, counter, { currentValue });
 }
 
 // ...
 ```
 
-Here, the `setCounterCurrentValue()` function overwrites the `currentValue` 
-property with a new value/reference while maintaining the references and values
-of other properties.
+Here, the `setCounterCurrentValue()` function creates a new `Counter` object that overwrites 
+the `counter.currentValue` property with a new value while maintaining the references and values
+of all of the other properties from `counter`.
 
 ```typescript
 import {Action} from '@ngrx/store';
@@ -98,24 +96,6 @@ export function counterReducer(
 }
 ```
 
-```js
-function immutableObjectReducer(state = { someValue: 'value'} , action) {
-  switch(action.payload) {
-    case SOME_ACTION:
-      return Object.assign({}, state, { someValue: action.payload.value });
-    default:
-      return state;
-  }
-}
-
-function immutableArrayReducer(state = [1, 2, 3], action) {
-  switch(action.payload) {
-    case ADD_ITEM:
-      return [...state,action.payload.value];
-    default:
-      return state;
-  }
-}
-```
-
-However, when dealing with complex or deeply nested objects, it can be difficult to maintain immutability in your application using this syntax. This is where a library like Immutable.js can help.
+However, when dealing with complex or deeply nested objects, it can be difficult to 
+maintain immutability in your application using this syntax. This is where a library 
+like [Ramda](http://ramdajs.com/) can help.

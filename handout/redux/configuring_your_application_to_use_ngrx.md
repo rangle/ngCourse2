@@ -15,9 +15,9 @@ import {EffectsModule} from '@ngrx/effects';
 
 import 'rxjs/Rx';
 
-import {rootReducer} from './state/rootReducer';
-import {CounterActions} from './state/actions';
-import {CounterEffects} from './state/effects';
+import {rootReducer} from './store/rootReducer';
+import {CounterActions} from './store/actions';
+import {CounterEffects} from './store/effects';
 import {AppComponent, CounterComponent} from './components';
 import {CounterService} from './services';
 
