@@ -29,7 +29,7 @@
       }
     },
     "versions": {
-      "type": "branches"
+      "type": "tags"
     }
   },
   "structure": {
