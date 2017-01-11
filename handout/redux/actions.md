@@ -38,7 +38,7 @@ logic, the final dispatched action will remain a plain JSON object.
 To simplify action creation, you can create a factory function to take care of
 the repeating parts within your application:
 
-_/src/store/createAction.ts_
+_app/store/createAction.ts_
 ```typescript
 import {Action} from '@ngrx/store';
 

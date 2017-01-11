@@ -19,7 +19,7 @@ To define your application state, use an interface called `AppState` or
 
 Here's an example:
 
-_src/models/appState.ts_
+_app/models/appState.ts_
 ```typescript
 export interface AppState {
   readonly colors: Colors;

@@ -5,7 +5,7 @@ In this chapter, you'll be creating a simple counter application using
 decrement a number by one, as well as reset that value back to zero. Here's the 
 `AppState` that we'll be using throughout the example:
 
-_src/models/appState.ts_
+_app/models/appState.ts_
 ```typescript
 import {Counter} from './counter';
 
@@ -14,7 +14,7 @@ export interface AppState {
 }
 ```
 
-_src/models/counter.ts_
+_app/models/counter.ts_
 ```typescript
 export interface Counter {
   readonly currentValue: number;

@@ -41,7 +41,7 @@ throughout your application.
 
 Let's tie everything together by building out a `CounterService` example:
 
-_/app/services/counter.service.ts_
+_app/services/counter.service.ts_
 ```typescript
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';

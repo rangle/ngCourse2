@@ -56,7 +56,7 @@ application state, it can cause unexpected behavior. There are a few ways to
 help maintain immutability in your reducers. One way is by using new ES6 
 features such as `Object.assign()` or the spread operator for arrays.
 
-_/src/models/counter.ts_
+_app/models/counter.ts_
 ```typescript
 // ...
 
