@@ -109,8 +109,6 @@ In turn, we need to make the `CounterComponent` from a *smart component* into a
 `@Input` properties and click events using `@Output()` properties, removing the 
 use of `CounterService` and `CounterActions` entirely.
 
-Now, we can use this component in a variety of instances, even outside of Redux:
-
 _app/counter/counter.component.ts_
 ```typescript
 import {Component, Input, EventEmitter, Output} from '@angular/core';
@@ -138,9 +136,12 @@ export class CounterComponent {
 }
 ```
 
-Our templates become much simpler and testable, because we don't have to use the 
-`async` pipe in any of our child components, and we can simply use core Angular 
-features to emit values whenever a click event happens:
+Our child components become much simpler and testable, because we don't have to 
+use the `async` pipe to work with our state, which removes a lot of pain when 
+dealing with lots of `@Input`'s or the need to use complex expressions. 
+
+We can also now simply use core Angular features to emit values whenever a click 
+event happens:
 
 _app/counter/counter.component.html_
 
