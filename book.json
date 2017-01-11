@@ -3,7 +3,8 @@
     "image-captions",
     "highlight",
     "theme-rangle-io",
-    "ga"
+    "ga",
+    "versions"
   ],
   "styles": {
     "ebook": "styles/ebook.css",
@@ -26,6 +27,9 @@
           "skip": true
         }
       }
+    },
+    "versions": {
+      "type": "tags"
     }
   },
   "structure": {
