@@ -138,7 +138,8 @@ export class CounterComponent {
 
 Our child components become much simpler and testable, because we don't have to 
 use the `async` pipe to work with our state, which removes a lot of pain when 
-dealing with lots of `@Input`'s or the need to use complex expressions. 
+dealing with lots of `@Input`'s or the need to use complex expressions with 
+`Observable`'s. 
 
 We can also now simply use core Angular features to emit values whenever a click 
 event happens:
