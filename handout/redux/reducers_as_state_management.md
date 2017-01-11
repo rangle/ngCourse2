@@ -1,12 +1,12 @@
 # Reducers as State Management
 
-Reducers are a simple idea that turns out to be very powerful. With Redux, you 
-replay a series of events into the reducer and get your new application state as
-a result.
+Reducers are a simple idea that turns out to be very powerful. With Redux, you
+replay a series of actions into the reducer and get your new application state 
+as a result.
 
 Reducers in a Redux application should not mutate the state, but *return a copy*
 of it, and be side-effect free. This encourages you to think of your application
-as UI that gets "computed" from a series of events in time.
+as UI that gets "computed" from a series of actions in time.
 
 ## Simple Reducer
 
@@ -33,7 +33,7 @@ export default function counterReducer(state: number = 0, action: Action): numbe
 ```
 
 We can see here that we are passing in an initial state (the current number) and
-an `Action`. To handle each action, a common approach is to use a switch 
+an `Action`. To handle each action, a common approach is to use a `switch` 
 statement. Instead of each reducer needing to explicitly subscribe to the 
 dispatcher, every action gets passed into each reducer, which handles the 
 actions it's interested in and then returns the new state along to the next 
@@ -45,7 +45,8 @@ application state as a pure function of the reducer's arguments.
 
 For this reason, side-effect causing operations, such as updating a record in a 
 database, generating an id, etc. should be handled elsewhere in the application,
-typically using [ngrx/effects](https://github.com/ngrx/effects).
+like in your action creators or using 
+[ngrx/effects](https://github.com/ngrx/effects).
 
 ## Complex Reducer
 
@@ -66,9 +67,12 @@ export function setCounterCurrentValue(counter: Counter, currentValue: number): 
 // ...
 ```
 
-Here, the `setCounterCurrentValue()` function creates a new `Counter` object that overwrites 
-the `counter.currentValue` property with a new value while maintaining the references and values
-of all of the other properties from `counter`.
+Here, the `setCounterCurrentValue()` function creates a new `Counter` object 
+that overwrites the `counter.currentValue` property with a new value while 
+maintaining the references and values of all of the other properties from 
+`counter`.
+
+Let's update our reducer to utilize this concept:
 
 ```typescript
 import {Action} from '@ngrx/store';
@@ -96,6 +100,9 @@ export function counterReducer(
 }
 ```
 
-However, when dealing with complex or deeply nested objects, it can be difficult to 
-maintain immutability in your application using this syntax. This is where a library 
-like [Ramda](http://ramdajs.com/) can help.
+With each action, we take the existing `counter` state and create a new
+state with the updated value (such as `counter.currentValue + 1`).
+
+When dealing with complex or deeply nested objects, it can be difficult to 
+maintain immutability in your application using this syntax. This is where a 
+library like [Ramda](http://ramdajs.com/) can help.

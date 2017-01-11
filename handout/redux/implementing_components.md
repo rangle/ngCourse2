@@ -1,4 +1,4 @@
-# Using Selectors and Actions to Implement Components
+# Implementing Components
 
 To demonstrate how to use the `CounterService` in your components, let's start 
 by building out a small `CounterComponent`. The component will be
@@ -41,8 +41,6 @@ _app/components/counter.component.html_
   <button (click)="actions.reset()">Reset</button>
 </p>
 ```
-
-[View Example](https://plnkr.co/edit/pujePgvmkyKHurXtOS3k?p=preview)
 
 The template syntax should be familiar by now, displaying an `Observable` 
 counter value with the `async` pipe. Any time `appState.counter.currentValue` is

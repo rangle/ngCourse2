@@ -93,7 +93,7 @@ export class CounterActions {
 }
 ```
 
-In the `incrementIfOdd()` action creator, we created a one-time 
+In the `incrementIfOdd()` action creator, we create a one-time 
 subscription to the counter's `currentValue` in the application state. From 
 there, we check to see if it's odd before dispatching an action.
 
