@@ -1,8 +1,8 @@
-# Configuring your application to use ngrx #
+# Configuring your application to use @ngrx #
 
 Once you have your reducers created, it’s time to configure your Angular 
 application. In your main application module, simple add the 
-`StoreModule.provideStore()` call to your `NgModule`'s imports:
+`StoreModule.provideStore()` call to your `@NgModule`'s imports:
 
 _app/app.module.ts_
 ```typescript

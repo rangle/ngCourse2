@@ -1,4 +1,4 @@
-# Redux and Ngrx
+# Redux and @ngrx
 
 ## What is Redux?
 
@@ -14,16 +14,16 @@ One popular Angular 2 specific implementation of the Redux pattern is
 [Ng2-Redux](https://github.com/wbuchwalter/ng2-redux).
 
 
-## What is Ngrx?
+## What is @ngrx?
 
 Redux implementation has been very well received and has inspired the creation 
-of [ngrx](https://github.com/ngrx "ngrx collection"), a set of modules that 
+of [@ngrx](https://github.com/ngrx "ngrx collection"), a set of modules that 
 implement the same way of managing state as well as some of the middleware and 
-tools in the Redux ecosystem. Ngrx was created to be used specifically with 
+tools in the Redux ecosystem. @ngrx was created to be used specifically with 
 Angular 2 and [RxJS](https://github.com/Reactive-Extensions/RxJS), as it leans 
 heavily on the observable paradigm.
 
 We'll describe how to use this approach in an application.
 
-*For further on Redux and ngrx see the 
+*For further on Redux and @ngrx see the 
 [Further reading](../further-reading.html#redux-and-ngrx) section*

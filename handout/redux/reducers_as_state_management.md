@@ -46,7 +46,7 @@ application state as a pure function of the reducer's arguments.
 For this reason, side-effect causing operations, such as updating a record in a 
 database, generating an id, etc. should be handled elsewhere in the application,
 like in your action creators or using 
-[ngrx/effects](https://github.com/ngrx/effects).
+[@ngrx/effects](https://github.com/ngrx/effects).
 
 ## Complex Reducer
 

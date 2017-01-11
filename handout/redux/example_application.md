@@ -1,7 +1,7 @@
 # Example Application
 
 In this chapter, you'll be creating a simple counter application using 
-[ngrx](https://github.com/ngrx). Your app will allow users to increment and 
+[@ngrx](https://github.com/ngrx). Your app will allow users to increment and 
 decrement a number by one, as well as reset that value back to zero. Here's the 
 `AppState` that we'll be using throughout the example:
 

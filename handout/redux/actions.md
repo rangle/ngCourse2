@@ -2,7 +2,7 @@
 
 Redux uses a concept called Actions, which describe state changes to your 
 application. Redux actions are simple JSON objects that implement the `Action` 
-interface provided by [ngrx](https://github.com/ngrx):
+interface provided by [@ngrx](https://github.com/ngrx):
 
 ```typescript
 export interface Action {

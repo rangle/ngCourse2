@@ -1,7 +1,7 @@
 # Reading your Application State using Selectors
 
 To read your application state in Redux, we need to use the `select()` method on 
-[ngrx's](https://github.com/ngrx/store) `Store` class. This method creates and
+[@ngrx's](https://github.com/ngrx/store) `Store` class. This method creates and
 returns an `Observable` that is bound to a specific property in your application 
 state.
 

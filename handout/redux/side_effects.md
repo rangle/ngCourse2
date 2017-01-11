@@ -6,8 +6,8 @@ need a way to handle these side-effects. Sometimes we can put this logic with
 our action creator services, and that works for simple cases, but often times 
 the same block of logic needs to run in response to multiple action types.
 
-[Ngrx](https://github.com/ngrx) offers a library called 
-[ngrx-effects](https://github.com/ngrx/effects) to solve these problems.
+[@ngrx](https://github.com/ngrx) offers a library called 
+[@ngrx/effects](https://github.com/ngrx/effects) to solve these problems.
 
 ## Creating your first effects service
 
@@ -48,7 +48,7 @@ export class CustomizationEffects {
 }
 ```
 
-[@ngrx-effects](https://github.com/ngrx/effects) provides an Angular `actions$` 
+[@ngrx/effects](https://github.com/ngrx/effects) provides an Angular `actions$` 
 service (which is also an `Observable`) to emit every action that has been 
 dispatched by your application in a single stream. Its `ofType()` method can be 
 used to filter the one or more actions we're interesting in before adding a 
@@ -62,7 +62,7 @@ Regardless if this requests succeeds or fails, we need to create and return an
 storing the customizations when the request is successful, or processing the 
 error returned by the server if there's an error.
 
-To tell [@ngrx-effects](https://github.com/ngrx/effects) which `Observable` 
+To tell [@ngrx/effects](https://github.com/ngrx/effects) which `Observable` 
 objects are side-effects to associate them with Redux, we need to provide a hint
 using the `@Effect()` decorator. Without it, your side-effect will not run.
 
