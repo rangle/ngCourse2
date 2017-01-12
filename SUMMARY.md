@@ -220,7 +220,7 @@
    * [Reducers and Pure Functions](handout/redux/reducers_and_pure_functions.md)
    * [Reducers as State Management](handout/redux/reducers_as_state_management.md)
    * [Creating your Application's Root Reducer](handout/redux/creating_your_applications_root_reducer.md)
-   * [Configuring your Application to use @ngrx](handout/redux/configuring_your_application_to_use_ngrx.md)
+   * [Configuring your Application](handout/redux/configuring_your_application.md)
    * [Implementing Components](handout/redux/implementing_components.md)
    * [Component Architecture](handout/redux/component_architecture.md)
    * [Side Effects](handout/redux/side_effects.md)

@@ -1,4 +1,4 @@
-# Configuring your application to use @ngrx #
+# Configuring your application #
 
 Once you have your reducers created, it’s time to configure your Angular 
 application. In your main application module, simple add the 
