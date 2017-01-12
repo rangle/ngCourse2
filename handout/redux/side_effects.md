@@ -55,12 +55,12 @@ used to filter the one or more actions we're interesting in before adding a
 side-effect.
 
 In this example, when the `LOGIN_SEND_SUCCESS` action occurs from anywhere in 
-the application, we make a call to server to fetch the user's customizations 
-given their `userId`, which has been attached to payload of this action. 
-Regardless if this requests succeeds or fails, we need to create and return an 
-`Observable` that is bound to the new action we'd like Redux to perform, such as
-storing the customizations when the request is successful, or processing the 
-error returned by the server if there's an error.
+the application, we make a request to the server to fetch the user's 
+customizations given their `userId`, which has been attached to the payload of 
+this action. Regardless if this requests succeeds or fails, we need to create 
+and return an `Observable` that is bound to the new action we'd like Redux to 
+perform, such as storing the customizations when the request is successful, or 
+processing the error returned by the server if there's an error.
 
 To tell [@ngrx/effects](https://github.com/ngrx/effects) which `Observable` 
 objects are side-effects to associate them with Redux, we need to provide a hint
