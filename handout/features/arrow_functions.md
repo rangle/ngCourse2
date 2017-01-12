@@ -46,17 +46,17 @@ class Toppings {
   }
   outputList() {
     this.toppings.forEach(function(topping, i) {
-      console.log(topping, i + '/' + this.toppings.length);  // no this
+      console.log(topping, i + '/' + this.toppings.length);  // `this` will be undefined
     })
   }
 }
 
-var ctrl = new Toppings(['cheese', 'lettuce']);
+var myToppings = new Toppings(['cheese', 'lettuce']);
 
-ctrl.outputList();
+myToppings.outputList();
 ```
 
-Let's try this code on ES6 Fiddle ([http://www.es6fiddle.net/](http://www.es6fiddle.net/)). As we see, this gives us an error, since `this` is undefined inside the anonymous function.
+Let's try this code on [http://jsbin.com](http://jsbin.com/qakigoqulo/edit?js,console). As we see, this gives us an error, since `this` is undefined inside the anonymous function.
 
 Now, let's change the method to use the arrow function:
 
@@ -68,15 +68,18 @@ class Toppings {
   outputList() {
     this.toppings
       .forEach((topping, i) => console
-        .log(topping, i + '/' + this.toppings.length)  // `this` works! 
+        .log(topping, i + '/' + this.toppings.length)  // `this` works!
     )
   }
 }
 
-var ctrl = new Toppings(['cheese', 'lettuce']);
+var myToppings = new Toppings(['cheese', 'lettuce']);
+
+myToppings.outputList();
+
 ```
 
-Here `this` inside the arrow function refers to the instance variable.
+Let's try this code on [http://jsbin.com](http://jsbin.com/tulikutife/edit?js,console). Here `this` inside the arrow function refers to the instance variable. 
 
 *Warning* arrow functions do _not_ have their own `arguments` variable, which
 can be confusing to veteran JavaScript programmers. `super` and `new.target`
