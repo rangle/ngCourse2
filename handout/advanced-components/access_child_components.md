@@ -2,7 +2,7 @@
 
  ## @ViewChild and @ViewChildren ##
 
-The @ViewChild and @ViewChildren decorators provide access to the classe of child component from the containing component.
+The @ViewChild and @ViewChildren decorators provide access to the class of child component from the containing component.
 
 The `@ViewChild` is a decorator function that takes the name of a component class as its input and finds its selector in the template of the containing component to bind to. `@ViewChild` can also be passed a template reference variable.
 
