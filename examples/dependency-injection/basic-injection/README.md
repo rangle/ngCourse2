@@ -1,1 +1,1 @@
-# Angular 2 Dependency Injection (DI) Example
+# Angular Dependency Injection (DI) Example
