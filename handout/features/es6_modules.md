@@ -13,13 +13,7 @@ export const pi = 3.141592;
 export const circumference = diameter => diameter * pi;
 ```
 
-The code above uses the _Arrow_ function for `circumference`, which was introduced in ES6, and is a shortform for the following.
-
-```js
-export function circumference(diameter) {
-  return diameter * pi;
-}
-```
+The code above uses the _Arrow_ function for `circumference`. Read more about arrow functions [here](https://angular-2-training-book.rangle.io/handout/features/arrow_functions.html)
 
 ## Module Systems
 
