@@ -50,7 +50,6 @@ Let's take a look at how `Observables` are used in Angular 2 forms. Each field i
 ```js
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
-import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -79,7 +78,6 @@ export class MyApp {
 		});
 
 		this.email.valueChanges
-		.filter(n=>n)
 		.map(n=>n.split('').reverse().join(''))
 		.subscribe(value => this.data = value);
 	}
