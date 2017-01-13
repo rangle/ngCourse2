@@ -28,7 +28,7 @@ You can see that A2 arrives after B2 even though the A1 request began first. So 
 
 ## What is `switchMap`?
 
-SwitchMap is very similar to `flatMap`, but with a very important distinction. Any events to be merged into the trunk stream are cancelled or ignored if a new event comes in. Here is a marble diagram showing the behavior of `switchMap`:
+SwitchMap is very similar to `flatMap`, but with a very important distinction. Any events to be merged into the trunk stream are ignored if a new event comes in. Here is a marble diagram showing the behavior of `switchMap`:
 
 ![SwitchMap created by ReactiveX licensed under CC-3 (http://reactivex.io/documentation/operators/flatmap.html)](../images/switch-map.png)
 
@@ -86,6 +86,6 @@ export class AppComponent {
 
 ## Further Resources
 
-https://www.learnrxjs.io/operators/transformation/switchmap.html
-https://egghead.io/lessons/rxjs-starting-a-stream-with-switchmap?course=step-by-step-async-javascript-with-rxjs
-http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-switchMap
+- [SwitchMap Examples](https://www.learnrxjs.io/operators/transformation/switchmap.html)
+- [Egghead Video Tutorial on SwitchMap](https://egghead.io/lessons/rxjs-starting-a-stream-with-switchmap?course=step-by-step-async-javascript-with-rxjs)
+- [RxJS Documentation for SwitchMap](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-switchMap)
