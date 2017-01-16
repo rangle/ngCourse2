@@ -37,7 +37,8 @@ const routes: Routes = [
 
 ## RouterModule ##
 
-`RouterModule.forRoot` takes the `Routes` array as an argument and returns a _configured_ router module. This router module must be specified in the list of imports of the app module.
+`RouterModule.forRoot` takes the `Routes` array as an argument and returns a _configured_ router module. The following sample shows how we import this module in an 
+`app.routes.ts` file. We then import our routing configuration in the root of our application.
 
 _app/app.routes.ts_
 
@@ -53,7 +54,7 @@ const routes: Routes = [
 export const routing = RouterModule.forRoot(routes);
 ```
 
-_app/app.module.ts_
+_app/index.ts_
 
 ```javascript
 ...
@@ -73,4 +74,6 @@ import { routing } from './app.routes';
 })
 export class AppModule {
 }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
 ```
