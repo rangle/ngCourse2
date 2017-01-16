@@ -1,6 +1,6 @@
 # Injecting Across Frameworks
 
-Angular 1.x providers/services can be upgraded and injected into Angular >= 2.
+Angular 1.x providers/services can be upgraded and injected into Angular 2.
 
 Simple Angular 1.x service:
 
@@ -10,7 +10,7 @@ export class A1UpgradeService {
 }
 ```
 
-Simple Angular >= 2 component that will have an Angular 1.x service injected into it:
+Simple Angular 2 component that will have an Angular 1.x service injected into it:
 
 ```js
 import {Component, Inject} from  '@angular/core';
@@ -52,12 +52,12 @@ angular
 
 ```
 
-Angular >= 2.x services can be downgraded and injected into Angular 1.  In normal
-operation, Angular >= 2.x services would be bootstrapped with the application, but
+Angular 2.x services can be downgraded and injected into Angular 1.  In normal
+operation, Angular 2.x services would be bootstrapped with the application, but
 because of ng-upgrade being a hybrid mode, this is not the case.  The upgrade
 adapter comes with an `addProvider` method that must be used in the interim.
 
-Here is a very simple Angular >= 2 service:
+Here is a very simple Angular 2 service:
 
 ```js
 import {Injectable} from '@angular/core';
@@ -70,8 +70,8 @@ export class A2DowngradeService {
 }
 ```
 
-Since Angular >= 2 is bootstrapped with the upgrade adapter, there is no place to
-register Angular >= 2 services.  Fortunately the upgrade adapter's `addProvider`
+Since Angular 2 is bootstrapped with the upgrade adapter, there is no place to
+register Angular 2 services.  Fortunately the upgrade adapter's `addProvider`
 method can do this:
 
 ```js
@@ -79,7 +79,7 @@ upgradeAdapter.addProvider(Phones);
 
 ```
 
-Lastly, Angular 1.x must be informed about the Angular >= 2 service:
+Lastly, Angular 1.x must be informed about the Angular 2 service:
 
 ```js
 // The service to downgrade

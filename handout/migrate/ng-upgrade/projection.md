@@ -1,10 +1,10 @@
-# Projecting Angular 1 Content into Angular >= 2 Components
+# Projecting Angular 1 Content into Angular 2 Components
 
-In Angular >= 2 the concept of "transclusion" has been replaced by the concept of
+In Angular 2 the concept of "transclusion" has been replaced by the concept of
 projection.  ng-upgrade provides mechanisms for projecting/transcluding
-Angular 1.x content into Angular >= 2 components:
+Angular 1.x content into Angular 2 components:
 
-This is what a simple Angular >= 2 component that supports projection looks like:
+This is what a simple Angular 2 component that supports projection looks like:
 
 ```js
 import {Component, Input} from '@angular/core';
@@ -13,9 +13,9 @@ import {Component, Input} from '@angular/core';
   selector: 'a2-projection',
   template: `
   <p>
-    Angular >= 2 Outer Component (Top)
+    Angular 2 Outer Component (Top)
     <ng-content></ng-content>
-    Angular >= 2 Outer Component (Bottom)
+    Angular 2 Outer Component (Bottom)
   </p>
   `
 })
@@ -24,7 +24,7 @@ export class A2Projection { }
 ```
 
 Here's a very simple Angular 1.x directive that will be projected into the
-Angular >= 2 component:
+Angular 2 component:
 
 ```js
 export function a1ProjectionContentsDirective() {
@@ -39,7 +39,7 @@ export function a1ProjectionContentsDirective() {
 }
 
 class A1ProjectionContents {
-  message = 'I am an Angular 1 Directive "projected" into Angular >= 2';
+  message = 'I am an Angular 1 Directive "projected" into Angular 2';
 }
 ```
 
