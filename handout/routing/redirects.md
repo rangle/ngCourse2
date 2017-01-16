@@ -11,6 +11,7 @@ export const routes: Routes = [
 ];
 ```
 
-This tells the router to redirect to component-one when matching the empty path ('').
+The `pathMatch` property, which is required, tells the router how it should match the URL provided in order to redirect to the specified route. 
+Since `pathMatch: full` is provided, the router will redirect to `component-one` if the entire URL matches the empty path ('').
 
-When starting the application, it will automatically navigate to the route for `component-one`.
+When starting the application, it will now automatically navigate to the route for `component-one`.

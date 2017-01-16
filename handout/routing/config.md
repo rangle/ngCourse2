@@ -39,6 +39,8 @@ const routes: Routes = [
 
 `RouterModule.forRoot` takes the `Routes` array as an argument and returns a _configured_ router module. This router module must be specified in the list of imports of the app module.
 
+_app/app.routes.ts_
+
 ```javascript
 ...
 import { RouterModule, Routes } from '@angular/router';
@@ -49,6 +51,13 @@ const routes: Routes = [
 ];
 
 export const routing = RouterModule.forRoot(routes);
+```
+
+_app/app.module.ts_
+
+```javascript
+...
+import { routing } from './app.routes';
 
 @NgModule({
   imports: [
@@ -64,6 +73,4 @@ export const routing = RouterModule.forRoot(routes);
 })
 export class AppModule {
 }
-
-platformBrowserDynamic().bootstrapModule(AppModule);
 ```

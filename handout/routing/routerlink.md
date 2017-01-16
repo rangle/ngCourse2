@@ -7,7 +7,7 @@ Add links to routes using the `RouterLink` directive.
 For example the following code defines a link to the route at path `component-one`.
 
 ```html
-<a [routerLink]="['/component-one']">Component One</a>
+<a routerLink="/component-one">Component One</a>
 ```
 
 ## Navigating Programmatically ##
