@@ -24,13 +24,17 @@ Here is a simple diagram to illustrate the issue:
 ------B1--B2------>
 ```
 
-You can see that A2 arrives after B2 even though the A1 request began first. So how do we get around this problem? We can use `switchMap`.
+You can see that A2 arrives after B2 even though the A1 request began first. This will end up showing the wrong results to the user. "If the last input in the search was `ABCX` why am I seeing the results for `ABC`?" the user might think. To get around this problem we need to replace `flatMap` with `switchMap`.
 
 ## What is `switchMap`?
 
-SwitchMap is very similar to `flatMap`, but with a very important distinction. Any events to be merged into the trunk stream are ignored if a new event comes in. Here is a marble diagram showing the behavior of `switchMap`:
+`switchMap` is very similar to `flatMap`, but with a very important distinction. Any events to be merged into the trunk stream are ignored if a new event comes in. Here is a marble diagram showing the behavior of `switchMap`:
 
 ![SwitchMap created by ReactiveX licensed under CC-3 (http://reactivex.io/documentation/operators/flatmap.html)](../images/switch-map.png)
+
+In short, every time an event comes down the stream, `flatMap` will subscribe to (and invoke) a new observable without unsubscribing from any other observable created by a previous event. `switchMap` on the other hand will automatically unsubscribe from any previous observable when a new event comes down the stream.
+
+In the diagram above, the round "marbles" represent events in the originating stream. In the resulting stream, "diamonds" mark the creation (and subscription) of an inner observable (that is eventually merged onto the trunk stream) and "squares" represent values emitted from that same inner observable.
 
 Just like `flatMap`, the red marble gets replaced with a red diamond and a subsequent red square. The interaction between the green and blue marble events are more interesting. Note that the green marble gets mapped to a green diamond immediately. And if enough time had passed, a green square would be pushed into the trunk stream but we do not see that here.
 
@@ -83,6 +87,8 @@ export class AppComponent {
 }
 ```
 [View Example](http://plnkr.co/edit/FYLTcx?p=preview)
+
+This implementation of incremental search with `switchMap` is more robust than the one we saw on the previous page with `flatMap`. The suggestions that the user sees will always eventually reflect the last thing the user typed. Thanks to this, we can guarantee a great user experience regardless of how the server responds.
 
 ## Further Resources
 
