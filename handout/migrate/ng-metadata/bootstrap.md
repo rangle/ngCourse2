@@ -1,7 +1,7 @@
 # Bootstrapping ng-metadata
 
 ng-metadata provides [`@NgModule`](https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html)
-from Angular 2 to Angular 1. To use `@NgModule`, update your application
+from Angular >= 2 to Angular 1. To use `@NgModule`, update your application
 bootstrap from `angular.bootstrap` to the example below.
 
 ## Bootstrap (bootstrap.ts)

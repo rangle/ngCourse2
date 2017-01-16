@@ -1,6 +1,6 @@
 # Upgrading Components
 
-The only Angular 1.x components that can be upgraded and used in Angular 2 code
+The only Angular 1.x components that can be upgraded and used in Angular >= 2 code
 are those that _strictly_ follow the component pattern outlined at the top of
 this document. Wherever possible use Angular 1.5+'s `.component`.
 
@@ -37,7 +37,7 @@ class Upgradable {
 }
 ```
 
-Below is an Angular 2 component that will use the upgraded Angular 1.x
+Below is an Angular >= 2 component that will use the upgraded Angular 1.x
 directive:
 
 ```js
@@ -60,7 +60,7 @@ import {Component} from '@angular/core';
   template: `<p>{{ message }}<a1-upgradable></a1-upgradable></p>`
 })
 export class A2UsingA1Component {
-  message = 'Angular 2 Using Angular 1: ';
+  message = 'Angular >= 2 Using Angular 1: ';
 }
 ```
 

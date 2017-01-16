@@ -118,7 +118,7 @@
 ---
 
 * [Change Detection](handout/change-detection/README.md)
-   * [Change Detection Strategies in Angular 1 vs Angular 2](handout/change-detection/angular_1_vs_angular_2.md)
+   * [Change Detection Strategies in Angular 1 vs Angular >= 2](handout/change-detection/angular_1_vs_angular_2.md)
    * [How Change Detection Works](handout/change-detection/how_change_detection_works.md)
    * [Change Detector Classes](handout/change-detection/change_detector_classes.md)
    * [Change Detection Strategy: OnPush](handout/change-detection/change_detection_strategy_onpush.md)
@@ -252,7 +252,7 @@
 
 ---
 
-* [Migrating Angular 1.x Projects to Angular 2](handout/migrate/README.md)
+* [Migrating Angular 1.x Projects to Angular >= 2](handout/migrate/README.md)
    * [Migration Prep](handout/migrate/migration-prep/README.md)
        * [Upgrading To Angular 1.3+ Style](handout/migrate/migration-prep/upgrade_to_angular_1_3.md)
        * [Using Webpack](handout/migrate/migration-prep/use_webpack.md)
@@ -262,14 +262,14 @@
    * [Using ng-metadata (Angular 1.x Using 2 Style)](handout/migrate/ng-metadata/README.md)
        * [Bootstrapping ng-metadata](handout/migrate/ng-metadata/bootstrap.md)
        * [Components and Services](handout/migrate/ng-metadata/components-and-services.md)
-   * [Using ng-upgrade (Angular 1.x Coexisting With Angular 2)](handout/migrate/ng-upgrade/README.md)
+   * [Using ng-upgrade (Angular 1.x Coexisting With Angular >= 2)](handout/migrate/ng-upgrade/README.md)
        * [Order of Operations](handout/migrate/ng-upgrade/order_of_operations.md)
        * [Replacing Services with TypeScript Classes](handout/migrate/ng-upgrade/replacing_services.md)
        * [Bootstrapping ng-upgrade](handout/migrate/ng-upgrade/bootstrap.md)
        * [Downgrading Components](handout/migrate/ng-upgrade/downgrade-component.md)
        * [Upgrading Components](handout/migrate/ng-upgrade/upgrade-component.md)
-       * [Projecting Angular 1 Content into Angular 2 Components](handout/migrate/ng-upgrade/projection.md)
-       * [Transcluding Angular 2 Components into Angular 1 Directives](handout/migrate/ng-upgrade/transclusion.md)
+       * [Projecting Angular 1 Content into Angular >= 2 Components](handout/migrate/ng-upgrade/projection.md)
+       * [Transcluding Angular >= 2 Components into Angular 1 Directives](handout/migrate/ng-upgrade/transclusion.md)
        * [Injecting Across Frameworks](handout/migrate/ng-upgrade/injecting_across_frameworks.md)
 
 ---

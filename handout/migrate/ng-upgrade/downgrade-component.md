@@ -1,15 +1,15 @@
 # Downgrading Components
 
 Upgrading components sounds like it should happen before downgrading, but
-the point of upgrading is to make an Angular 1.x component work with Angular 2.
-For an Angular 2 component to use an Angular 1.x component in an ng-upgrade
-application there must first be a downgraded Angular 2 component. Consequently
-it's important to first learn how to downgrade Angular 2 components to work with
+the point of upgrading is to make an Angular 1.x component work with Angular >= 2.
+For an Angular >= 2 component to use an Angular 1.x component in an ng-upgrade
+application there must first be a downgraded Angular >= 2 component. Consequently
+it's important to first learn how to downgrade Angular >= 2 components to work with
 Angular 1.x
 
 All downgraded components operate like Angular 1.x `'E'` element directives.
 
-Here is an example of a very simple Angular 2 component:
+Here is an example of a very simple Angular >= 2 component:
 
 ```js
 import {Component} from '@angular/core';
@@ -33,7 +33,7 @@ import * as angular from 'angular';
 // Import the upgradeAdapter singleton
 import {upgradeAdapter} from './upgrade-adapter';
 
-// Angular 2 component from above
+// Angular >= 2 component from above
 import {A2DowngradeComponent} from './components/a2-downgrade';
 
 // Register classic Angular 1 modules

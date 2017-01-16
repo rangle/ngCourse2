@@ -1,4 +1,4 @@
-# Change Detection Strategies in Angular 1 vs Angular 2
+# Change Detection Strategies in Angular 1.x vs Angular >= 2
 
 Another difference between both versions of the framework is the way the nodes of an application (directives or components) are checked to see if the DOM needs to be updated.
 
@@ -10,6 +10,6 @@ Because of the nature of two-way data binding, in Angular 1 there was no guarant
 
 In Angular, changes are guaranteed to propagate unidirectionally. The change detector will **traverse each node only once**, always starting from the root. That means that a parent component is always checked before its children components.
 
-_Tree traversing in Angular 1 vs Angular 2_
+_Tree traversing in Angular 1.x vs Angular >= 2_
 
 ![File Structure](../images/angular1-vs-angular2.jpg)
