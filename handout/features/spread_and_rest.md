@@ -35,7 +35,7 @@ let mapABCD = { ...mapABC, d: 7};  // { a: 5, b: 6, c: 3, d: 7 }
 
 ## Rest parameter
 
-Rest parameters share the ellipsis like syntax of spread operator but are used
+Rest parameters share the ellipsis like syntax of spread syntax but are used
 for a different purpose. Rest parameters are used to access indefinite number
 of arguments passed to a function. For example:
 
@@ -76,6 +76,4 @@ print(1, 2, 3, 4, 5);
 
 ```
 
-_Note: Commonly spread syntax and rest parameters are referenced as Spread and Rest operators but they aren't operators according to ECMAScript specifications. Few references
-[MDN-Spread Syntax](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator), [MDN-Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters),
-[ECMAScript Spec - Spread Syntax](http://www.ecma-international.org/ecma-262/6.0/#sec-array-initializer), [ECMAScript Spec - Rest Parameters](http://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions)_
+_Note: Commonly spread syntax and rest parameters are referenced as Spread and Rest operators but they aren't operators according to ECMAScript specifications. Few references [MDN-Spread Syntax](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator), [MDN-Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), [ECMAScript Spec - Spread Syntax](http://www.ecma-international.org/ecma-262/6.0/#sec-array-initializer), [ECMAScript Spec - Rest Parameters](http://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions)_
