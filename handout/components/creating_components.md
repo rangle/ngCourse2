@@ -1,6 +1,6 @@
 # Creating Components
 
-Components in Angular 2 build upon the lessons learned from Angular 1.5. We define a component's application logic inside a class. To this we attach `@Component`, a TypeScript `decorator`, which allows you to modify a class or function definition and adds metadata to properties and function arguments.
+Components in Angular build upon the lessons learned from Angular 1.5. We define a component's application logic inside a class. To this we attach `@Component`, a TypeScript `decorator`, which allows you to modify a class or function definition and adds metadata to properties and function arguments.
 
 - _selector_ is the element property that we use to tell Angular to create and insert an instance of this component.
 - _template_ is a form of HTML that tells Angular what needs to be to rendered in the DOM.
