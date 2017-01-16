@@ -12,7 +12,7 @@ code this way are:
 
 * It becomes framework agnostic (doesn't rely on Angular 1 explicitly)
 * It is easier to test
-* It instantly works with both Angular 1 and Angular >= 2
+* It instantly works with both Angular 1 and Angular 2
 
 Even services that depend on a limited set of Angular 1 services (e.g. `$http`)
 can be rewritten by depending on other libraries (e.g. `window.fetch`).
@@ -20,7 +20,7 @@ can be rewritten by depending on other libraries (e.g. `window.fetch`).
 ## How do we get there?
 
 * Convert services using `.factory` to `.service`
-  * Angular >= 2's `@Injectable` expects an object it can use `new` with,
+  * Angular 2's `@Injectable` expects an object it can use `new` with,
   similar to how `.service` works (e.g. `new CalculatorService()`)
 * Replace constructor functions with TypeScript `class`
 * Use the class directly by `export`ing it.

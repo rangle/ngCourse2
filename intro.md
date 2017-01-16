@@ -5,7 +5,7 @@
 Over the last three and a half years, Angular has become the leading open
 source JavaScript application framework for hundreds of thousands of programmers
 around the world. The "1.x" version of Angular has been widely used and became
-extremely popular for complex applications. The new Angular >= 2.x has also announced its [final release version](http://angularjs.blogspot.ca/2016/09/angular2-final.html).
+extremely popular for complex applications. The new Angular 2.x has also announced its [final release version](http://angularjs.blogspot.ca/2016/09/angular2-final.html).
 
 ## About Rangle’s Angular Training Book
 
@@ -23,6 +23,6 @@ transition their technology to Angular, or individuals looking to upgrade
 their skills.
 
 Rangle.io also has an [Angular 1.x](http://ngcourse-1.rangle.io/) book which is
-geared towards writing Angular 1.x applications in an Angular >= 2 style. We hope
+geared towards writing Angular 1.x applications in an Angular 2 style. We hope
 you enjoy this book. We welcome your feedback in the
 [Discussion Area](https://www.gitbook.com/book/rangle-io/ngcourse2/discussions).
