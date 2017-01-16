@@ -1,6 +1,6 @@
 * [Introduction](./intro.md)
 * [License](handout/license.md)
-* [Why Angular 2?](handout/why_angular_2.md)
+* [Why Angular?](handout/why_angular_2.md)
 
 ---
 
@@ -44,13 +44,13 @@
 
 ---
 
-* [Bootstrapping an Angular 2 Application](handout/bootstrapping/README.md)
+* [Bootstrapping an Angular Application](handout/bootstrapping/README.md)
    * [Understanding the File Structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
 
 ---
 
-* [Components in Angular 2](handout/components/README.md)
+* [Components in Angular](handout/components/README.md)
    * [Creating Components](handout/components/creating_components.md)
    * [Application Structure with Components](handout/components/app_structure_with_components.md)
        * [Passing Data into a Component](handout/components/app_structure/passing_data_into_components.md)
@@ -95,10 +95,10 @@
 
 ---
 
-* [Angular 2 Dependency Injection](handout/di/README.md)
+* [Angular Dependency Injection](handout/di/README.md)
    * [What is DI?](handout/di/what_is_di.md)
    * [DI Framework](handout/di/di_framework.md)
-   * [Angular 2's DI](handout/di/angular2/README.md)
+   * [Angular's DI](handout/di/angular2/README.md)
        * [`@Inject()` and `@Injectable`](handout/di/angular2/inject_and_injectable.md)
        * [Injection Beyond Classes](handout/di/angular2/injection_beyond_classes.md)
        * [Avoiding Injection Collisions: OpaqueToken](handout/di/angular2/avoiding_collisions_opaque_token.md)
@@ -119,7 +119,7 @@
 ---
 
 * [Change Detection](handout/change-detection/README.md)
-   * [Change Detection Strategies in Angular 1 vs Angular 2](handout/change-detection/angular_1_vs_angular_2.md)
+   * [Change Detection Strategies in Angular 1 vs Angular >= 2](handout/change-detection/angular_1_vs_angular_2.md)
    * [How Change Detection Works](handout/change-detection/how_change_detection_works.md)
    * [Change Detector Classes](handout/change-detection/change_detector_classes.md)
    * [Change Detection Strategy: OnPush](handout/change-detection/change_detection_strategy_onpush.md)
@@ -186,7 +186,7 @@
 ---
 
 * [Modules](handout/modules/README.md)
-   * [What is an Angular 2 Module?](handout/modules/introduction.md)
+   * [What is an Angular Module?](handout/modules/introduction.md)
    * [Adding Components, Pipes and Services to a Module](handout/modules/multiple-elements.md)
    * [Creating a Feature Module](handout/modules/feature-modules.md)
    * [Directive Duplications](handout/modules/directive-duplications.md)
@@ -253,7 +253,7 @@
 
 ---
 
-* [Migrating Angular 1.x Projects to Angular 2](handout/migrate/README.md)
+* [Migrating Angular 1.x Projects to Angular >= 2](handout/migrate/README.md)
    * [Migration Prep](handout/migrate/migration-prep/README.md)
        * [Upgrading To Angular 1.3+ Style](handout/migrate/migration-prep/upgrade_to_angular_1_3.md)
        * [Using Webpack](handout/migrate/migration-prep/use_webpack.md)
@@ -263,14 +263,14 @@
    * [Using ng-metadata (Angular 1.x Using 2 Style)](handout/migrate/ng-metadata/README.md)
        * [Bootstrapping ng-metadata](handout/migrate/ng-metadata/bootstrap.md)
        * [Components and Services](handout/migrate/ng-metadata/components-and-services.md)
-   * [Using ng-upgrade (Angular 1.x Coexisting With Angular 2)](handout/migrate/ng-upgrade/README.md)
+   * [Using ng-upgrade (Angular 1.x Coexisting With Angular >= 2)](handout/migrate/ng-upgrade/README.md)
        * [Order of Operations](handout/migrate/ng-upgrade/order_of_operations.md)
        * [Replacing Services with TypeScript Classes](handout/migrate/ng-upgrade/replacing_services.md)
        * [Bootstrapping ng-upgrade](handout/migrate/ng-upgrade/bootstrap.md)
        * [Downgrading Components](handout/migrate/ng-upgrade/downgrade-component.md)
        * [Upgrading Components](handout/migrate/ng-upgrade/upgrade-component.md)
-       * [Projecting Angular 1 Content into Angular 2 Components](handout/migrate/ng-upgrade/projection.md)
-       * [Transcluding Angular 2 Components into Angular 1 Directives](handout/migrate/ng-upgrade/transclusion.md)
+       * [Projecting Angular 1 Content into Angular >= 2 Components](handout/migrate/ng-upgrade/projection.md)
+       * [Transcluding Angular >= 2 Components into Angular 1 Directives](handout/migrate/ng-upgrade/transclusion.md)
        * [Injecting Across Frameworks](handout/migrate/ng-upgrade/injecting_across_frameworks.md)
 
 ---
@@ -300,7 +300,7 @@
 
 ---
 
-* [Accessibility in Angular 2](handout/a11y/README.md)
+* [Accessibility in Angular](handout/a11y/README.md)
     * [Why Make my Application Accessible?](handout/a11y/why-a11y.md)
     * [Key Concerns of Accessible Web Applications](handout/a11y/key-concerns/README.md)
         * [Semantic Markup](handout/a11y/key-concerns/semantic-markup.md)
@@ -315,7 +315,7 @@
 
 ---
 
-* [Internationalization in Angular 2](handout/i18n/README.md)
+* [Internationalization in Angular](handout/i18n/README.md)
     * [What is the process like and how is involved?](handout/i18n/process-and-roles.md)
     * [Marking text in our templates](handout/i18n/marking-text-in-templates.md)
     * [Extracting translation text using the Angular CLI](handout/i18n/translation-text-extraction.md)
