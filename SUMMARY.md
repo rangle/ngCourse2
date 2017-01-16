@@ -112,7 +112,8 @@
        * [Catch and Release](handout/http/catching-rejections/catch_and_release.md)
        * [Cancel a Request](handout/http/catching-rejections/cancel_request.md)
        * [Retry](handout/http/catching-rejections/retry.md)
-   * [Search with flatmap](handout/http/search_with_flatmap.md)
+   * [Search with flatMap](handout/http/search_with_flatmap.md)
+   * [Enhancing Search with switchMap](handout/http/search_with_switchmap.md)
    * [Requests as Promises](handout/http/requests_as_promises.md)
 
 ---
