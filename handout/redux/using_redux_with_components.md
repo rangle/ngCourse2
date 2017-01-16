@@ -67,7 +67,7 @@ portions of your Redux store with a great deal of flexibility. See the
 for more details.
 
 The Ng2-Redux "select pattern" style differs a bit from the "connect"
-style used by `react-redux`; however by using Angular 2's DI and TypeScript's
+style used by `react-redux`; however by using Angular's DI and TypeScript's
 decorators, we can have a nicely declarative binding where most of the work is
 done in the template. We also get the power of `Observables` and
 `OnPush` change detection for better performance.

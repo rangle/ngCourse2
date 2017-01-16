@@ -1,6 +1,6 @@
 # Verifying Methods and Properties
 
-We can test the properties and methods of simple Angular 2 components fairly easily - after all, Angular 2 components are simple classes that we can create and interface with. Say we had a simple component that kept a defined message displayed. The contents of the message may be changed through the `setMessage` function, and the `clearMessage` function would put an empty message in place. This is a very trivial component but how would we test it?
+We can test the properties and methods of simple Angular components fairly easily - after all, Angular components are simple classes that we can create and interface with. Say we had a simple component that kept a defined message displayed. The contents of the message may be changed through the `setMessage` function, and the `clearMessage` function would put an empty message in place. This is a very trivial component but how would we test it?
 
 *message.component.ts*
 

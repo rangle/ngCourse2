@@ -1,10 +1,10 @@
-# Components in Angular 2
+# Components in Angular
 
 ![components](../../img/components.jpg)
 
-The core concept of any Angular 2 application is the *component*. In effect, the whole application can be modeled as a tree of these components.
+The core concept of any Angular application is the *component*. In effect, the whole application can be modeled as a tree of these components.
 
-This is how the Angular 2 team defines a component:
+This is how the Angular team defines a component:
 
 > A component controls a patch of screen real estate that we could call a view, and declares reusable UI building blocks for an application.
 

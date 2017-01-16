@@ -2,7 +2,7 @@
 
 Building from the previous login form, we can quickly and easily add validation.
 
-Angular 2 provides many validators out of the box. They can be imported along with the rest of dependencies for procedural forms.
+Angular provides many validators out of the box. They can be imported along with the rest of dependencies for procedural forms.
 
 _app/login-form.component.ts_
 ```typescript

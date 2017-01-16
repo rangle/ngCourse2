@@ -1,6 +1,6 @@
 # Change Detector Classes
 
-At runtime, Angular 2 will create special classes that are called _change detectors_, one for every component that we have defined. In this case, Angular will create two classes: `AppComponent` and `AppComponent_ChangeDetector`.
+At runtime, Angular will create special classes that are called _change detectors_, one for every component that we have defined. In this case, Angular will create two classes: `AppComponent` and `AppComponent_ChangeDetector`.
 
 The goal of the change detectors is to know which model properties used in the template of a component have changed since the last time the change detection process ran.
 

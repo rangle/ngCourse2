@@ -1,6 +1,6 @@
 # Additional Resources
 
-While this section goes over the key aspects of making an accessible website with respect to Angular 2, it is not a comprehensive guide for everything related to web accessibility. For more information, please visit one of the resources below:
+While this section goes over the key aspects of making an accessible website with respect to Angular, it is not a comprehensive guide for everything related to web accessibility. For more information, please visit one of the resources below:
 
 - [WAI-ARIA Specification](https://www.w3.org/TR/wai-aria/)
 - [Web Content Accessibility Guidelines (WCAG) 2.0](https://www.w3.org/TR/WCAG20/)

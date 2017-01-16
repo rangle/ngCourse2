@@ -9,7 +9,7 @@ Keyboard accessibility is the ability of your application to be interacted with 
 
 ## Focus
 
-Keyboard interaction is driven by something called *focus*. In web applications, only one element on a document has focus at a time, and keypresses will activate whatever function is bound to that element. The currently focused element can be accessed programmatically through the `document.activeElement` DOM method. 
+Keyboard interaction is driven by something called *focus*. In web applications, only one element on a document has focus at a time, and keypresses will activate whatever function is bound to that element. The currently focused element can be accessed programmatically through the `document.activeElement` DOM method.
 
 Visually, an element with focus is represented by default with a glowing border around the element:
 
@@ -29,13 +29,13 @@ There may, however, be cases where you'll want to change the default behaviour o
   - *0* - to let readers know that that element should be accessible by keyboard
   - *greater than zero* - to let readers know the order in which the focusable element should be reached using the keyboard. Order is calculated from lowest to highest.
 
-Altering `tabindex` [should be done carefully](http://webaim.org/techniques/keyboard/tabindex), and must also be paired with keypress support for `space` and `enter`. 
+Altering `tabindex` [should be done carefully](http://webaim.org/techniques/keyboard/tabindex), and must also be paired with keypress support for `space` and `enter`.
 
 ### Transitions
 
-The majority of transitions that happen in an Angular 2 application will not involve a page reload. This means that developers will need to carefully manage what happens to focus in these cases. 
+The majority of transitions that happen in an Angular application will not involve a page reload. This means that developers will need to carefully manage what happens to focus in these cases. 
 
-It's important that if some action involves a transition away from the natural page flow, then focus should be handled as well. 
+It's important that if some action involves a transition away from the natural page flow, then focus should be handled as well.
 
 Modals are one example of this:
 
@@ -69,4 +69,4 @@ export class ModalComponent {
 ```
 [View Example](https://plnkr.co/edit/Vvu62nDZ18IkqiAop2A9?p=preview)
 
-In this example, we see that when the modal becomes visible, the `OK` button immediately receives focus. This streamlines the experience for keyboard users or screen readers to match the experience given to mouse users or those without screen readers. 
+In this example, we see that when the modal becomes visible, the `OK` button immediately receives focus. This streamlines the experience for keyboard users or screen readers to match the experience given to mouse users or those without screen readers.

@@ -1,6 +1,6 @@
 # AoT Configuration
 
-To enable AoT in Angular 2, there are two possible methods:
+To enable AoT in Angular, there are two possible methods:
 
 - using `ngc` directly
 - using `@ngtools/webpack`

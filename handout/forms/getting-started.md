@@ -33,7 +33,7 @@ Most of the form examples use the following HTML5 style for labeling inputs:
 <input type="text" name="username" id="name">
 ```
 
-Angular 2 also supports the alternate HTML5 style, which precludes the necessity of `id`s on `<input>`s:
+Angular also supports the alternate HTML5 style, which precludes the necessity of `id`s on `<input>`s:
 
 ```html
 <label>
