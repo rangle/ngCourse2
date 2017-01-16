@@ -4,17 +4,17 @@ JavaScript application development has evolved rapidly in the last few years.
 In that time, we have seen a set of best practices emerge to help developers
 structure complex applications in a more sustainable way.
 
-Angular 2 collects many of these practices into a 'component-oriented' strategy
+Angular collects many of these practices into a 'component-oriented' strategy
 which formalizes the best aspects of the approach.
 
 # Objective
 
-This webinar will provide a crucial overview of Angular 2 components and how
+This webinar will provide a crucial overview of Angular components and how
 they can help you write better applications.
 
 # Target Audience
 
-Developers familiar with JavaScript who are interested in what Angular 2 has to
+Developers familiar with JavaScript who are interested in what Angular has to
 offer.
 
 # Assumed Audience Knowledge

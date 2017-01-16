@@ -6,17 +6,17 @@ adopted certain patterns to help control the increasing complexity
 brought upon by the presence of multiple data sources, asynchrony, web
 workers and demanding UI requirements.
 
-The Angular 2 ecosystem, in both core development and community
+The Angular ecosystem, in both core development and community
 contributions, provides support for many of these patterns.
 
 # Objective
 
 This webinar will outline best practices relating to structuring and
-scaling rich Angular 2 applications.
+scaling rich Angular applications.
 
 # Target Audience
 
-Developers undertaking building large and complex Angular 2 application.
+Developers undertaking building large and complex Angular application.
 
 # Assumed Audience Knowledge
 

@@ -1,4 +1,4 @@
-### Components in Angular 2
+### Components in Angular
 
 .img-max-width[![components](../img/components.jpg)]
 
@@ -22,7 +22,7 @@
 * <a href="https://facebook.github.io/react/"
   target="\_blank">ReactJS</a> made it mainstream
 * It's the central concept of <a href="https://angular.io/"
-  target="\_blank">Angular 2</a>
+  target="\_blank">Angular</a>
 
 ---
 
@@ -86,7 +86,7 @@ angular.module('ngcourse')
 
 ### The Evolution of Angular Components
 
-In Angular 2 it's the main way to build UI:
+In Angular it's the main way to build UI:
 
 ```typescript
 import {Component} from 'angular2/core';
@@ -765,11 +765,11 @@ model is insufficient:
 
 Documentation:
 
-  * <a target="\_blank" href="https://angular.io">Google's Angular 2
+  * <a target="\_blank" href="https://angular.io">Google's Angular
   Documentation</a>
   * <a target="\_blank"
   href="https://www.gitbook.com/book/rangle-io/ngcourse2/details">Rangle.io's
-  Angular 2 GitBook</a>
+  Angular GitBook</a>
 
 Rangle Starter Setups:
 
