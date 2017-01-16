@@ -1,8 +1,8 @@
-# Exploring Angular 2 Routes
+# Exploring Angular Routes
 
-One of the largest changes in Angular 2, has been the full adoption of component based architecture, and this has carried over into Angular 2's approach to routing with the new component router.
+One of the largest changes in Angular, has been the full adoption of component based architecture, and this has carried over into Angular's approach to routing with the new component router.
 
-This webinar is aimed at developers new to Angular 2, and looking to get strong start at understanding how to best use the component router in their applications.
+This webinar is aimed at developers new to Angular, and looking to get strong start at understanding how to best use the component router in their applications.
 
 In this webinar, we will cover:
 
@@ -11,7 +11,7 @@ In this webinar, we will cover:
 * Setting up routes on your root component
 * Using RouterLink
 * Creating components with child routes
-* How Angular 2 performs route lookup
+* How Angular performs route lookup
 * Using Route Parameters and Query Parameters
 
 # Prerequisites
