@@ -61,8 +61,7 @@ Technically JavaScript already had an `arguments` variable set on each function
 (except for arrow functions), however `arguments` has a lot of issues, one of
 which is the fact that it is not technically an array.
 
-Rest parameters are in fact arrays which provides access to methods like `map, filter, reduce and more`. The other important difference is that
-rest parameters only include arguments not specifically named in a function like so:
+Rest parameters are in fact arrays which provides access to methods like `map, filter, reduce and more`. The other important difference is that rest parameters only include arguments not specifically named in a function like so:
 
 ```js
 function print(a, b, c, ...more) {
