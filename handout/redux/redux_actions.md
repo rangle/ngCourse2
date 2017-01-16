@@ -18,7 +18,7 @@ just focus on some simple synchronous actions.
 Most Redux apps have a set of functions, called "action creators", that are
 used to set up and dispatch actions.
 
-In Angular 2, it's convenient to define "action creator services" for your
+In Angular, it's convenient to define "action creator services" for your
 action creators to live in; these services can be injected into the components
 that need to dispatch the actions.
 
@@ -113,7 +113,7 @@ the Promise resolves, we can then do a dispatch with the increase action.
 ## Actions that Depend on Other Services
 
 The ActionCreatorService pattern becomes necessary in cases where your action
-creators must use other Angular 2 services. Consider the following
+creators must use other Angular services. Consider the following
 ActionCreatorService that handles a remote API call:
 
 ```typescript

@@ -6,7 +6,7 @@ There are two categories of pipes:
 
 * _Stateful_ pipes are those which can manage the state of the data they transform. A pipe that creates an HTTP request, stores the response and displays the output, is a stateful pipe. Stateful Pipes should be used cautiously.
 
-Angular 2 provides `AsyncPipe`, which is stateful.
+Angular provides `AsyncPipe`, which is stateful.
 
 ## AsyncPipe ##
 

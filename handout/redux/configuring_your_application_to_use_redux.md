@@ -1,13 +1,13 @@
 # Configuring your Application to use Redux #
 
 Once you have the reducers and actions created, it is time to configure your
-Angular 2 application to make use of Ng2-Redux. For this, we will need to:
+Angular application to make use of Ng2-Redux. For this, we will need to:
 
-* Register Ng2-Redux with Angular 2
+* Register Ng2-Redux with Angular
 * Create our application reducer
 * Create and configure a store
 
-## Registering Ng2-Redux with Angular 2
+## Registering Ng2-Redux with Angular
 
 _app/index.ts_
 ```typescript

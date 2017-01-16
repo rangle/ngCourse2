@@ -37,7 +37,7 @@ export class SignupFormComponent {
 
 ### Two-Way Binding
 
-While Angular 2 assumes one-way binding by default, two-way binding is still available if you need it.
+While Angular assumes one-way binding by default, two-way binding is still available if you need it.
 
 In order to have access to two-way binding in template-driven forms, use the “Banana-Box” syntax (`[(ngModel)]="propertyName"`).
 

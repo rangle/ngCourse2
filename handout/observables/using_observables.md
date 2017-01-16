@@ -1,6 +1,6 @@
 # Using Observables
 
-Let's take a look at a basic example of how to create and use an `Observable` in an Angular 2 component:
+Let's take a look at a basic example of how to create and use an `Observable` in an Angular component:
 
 ```js
 import {Component} from '@angular/core';
@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Observable';
 @Component({
 	selector: 'app',
 	template: `
-	  <b>Angular 2 Component Using Observables!</b>
+	  <b>Angular Component Using Observables!</b>
 
 	  <h6 style="margin-bottom: 0">VALUES:</h6>
 	  <div *ngFor="let value of values">- {{ value }}</div>

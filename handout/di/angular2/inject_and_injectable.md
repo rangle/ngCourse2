@@ -9,7 +9,7 @@ please see [the EcmaScript 6 and TypeScript Features section](../../features/REA
 
 ## @Inject()
 
-`@Inject()` is a _manual_ mechanism for letting Angular 2 know that a
+`@Inject()` is a _manual_ mechanism for letting Angular know that a
 _parameter_ must be injected.  It can be used like so:
 
 ```typescript
@@ -34,7 +34,7 @@ its singleton. We are _not_ using `ChatWidget` to instantiate anything, Angular
 does that for us behind the scenes.
 
 When using TypeScript, `@Inject` is only needed for injecting _primitives_.
-TypeScript's types let Angular 2 know what to do in most cases.  The above
+TypeScript's types let Angular know what to do in most cases.  The above
 example would be simplified in TypeScript to:
 
 ```typescript
@@ -56,10 +56,10 @@ export class App {
 
 ## @Injectable()
 
-`@Injectable()` lets Angular 2 know that a _class_ can be used with the
+`@Injectable()` lets Angular know that a _class_ can be used with the
 dependency injector.  `@Injectable()` is not _strictly_ required if the class
-has _other_ Angular 2 decorators on it or does not have any dependencies.
-What is important is that any class that is going to be injected with Angular 2
+has _other_ Angular decorators on it or does not have any dependencies.
+What is important is that any class that is going to be injected with Angular
 _is decorated_.  However, best practice is to decorate injectables with
 `@Injectable()`, as it makes more sense to the reader.
 
@@ -80,9 +80,9 @@ export class ChatWidget {
 }
 ```
 
-In the above example Angular 2's injector determines what to inject into
+In the above example Angular's injector determines what to inject into
 `ChatWidget`'s constructor by using type information.  This is possible because
 these particular dependencies are typed, and are _not primitive_ types.
-In some cases Angular 2's DI needs more information than just types.
+In some cases Angular's DI needs more information than just types.
 
 [decorators]: http://blog.wolksoftware.com/decorators-reflection-javascript-typescript "ES Decorators Explained"

@@ -6,6 +6,6 @@ Angular CLI is currently only distributed through npm and requires Node version 
 
 ## Installation
 
-The Angular 2 CLI can be installed with the following command:
+The Angular CLI can be installed with the following command:
 
 `npm install -g angular-cli`

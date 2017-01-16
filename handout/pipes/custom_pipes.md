@@ -1,6 +1,6 @@
 # Custom Pipes #
 
-Angular 2 allows you to create your own custom pipes:
+Angular allows you to create your own custom pipes:
 
 ```typescript
 import { Pipe, PipeTransform } from '@angular/core';

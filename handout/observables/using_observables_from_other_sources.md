@@ -17,7 +17,7 @@ import 'rxjs/Rx';
 @Component({
 	selector: 'app',
 	template: `
-	  <b>Angular 2 HTTP requests using RxJs Observables!</b>
+	  <b>Angular HTTP requests using RxJs Observables!</b>
 	  <ul>
 	    <li *ngFor="let doctor of doctors">{{doctor.name}}</li>
 	  </ul>
@@ -45,7 +45,7 @@ This basic example outlines how the `Http` library's common routines like `get`,
 
 ## Observable Form Events
 
-Let's take a look at how `Observables` are used in Angular 2 forms. Each field in a form is treated as an `Observable` that we can subscribe to and listen for any changes made to the value of the input field.
+Let's take a look at how `Observables` are used in Angular forms. Each field in a form is treated as an `Observable` that we can subscribe to and listen for any changes made to the value of the input field.
 
 ```js
 import {Component} from '@angular/core';

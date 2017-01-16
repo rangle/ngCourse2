@@ -1,6 +1,6 @@
 # Dynamically Adding Route Components #
 
-Rather than define each route's component separately, use `RouterOutlet` which serves as a component placeholder; Angular 2 dynamically adds the component for the route being activated into the `<router-outlet></router-outlet>` element.
+Rather than define each route's component separately, use `RouterOutlet` which serves as a component placeholder; Angular dynamically adds the component for the route being activated into the `<router-outlet></router-outlet>` element.
 
 ```javascript
 import { Component } from '@angular/core';

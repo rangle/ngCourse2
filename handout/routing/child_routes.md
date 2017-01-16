@@ -122,7 +122,7 @@ export default class Overview {
 
 ## Links ##
 
-Routes can be prepended with `/`, or `../`; this tells Angular 2 where in the route tree to link to.
+Routes can be prepended with `/`, or `../`; this tells Angular where in the route tree to link to.
 
 | Prefix | Looks in
 |--------|---

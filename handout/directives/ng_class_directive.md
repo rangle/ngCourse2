@@ -67,7 +67,7 @@ Here, since we are binding to the `ngClass` directive by using an expression, we
 
 ## Binding an object
 
-Lastly, an object can be bound to the directive. Angular 2 applies each property name of that object to the component if that property is true.
+Lastly, an object can be bound to the directive. Angular applies each property name of that object to the component if that property is true.
 
 ```typescript
 @Component({

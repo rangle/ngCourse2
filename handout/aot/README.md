@@ -1,8 +1,8 @@
-# AoT in Angular 2
+# AoT in Angular
 
 Every Angular application requires a compilation process before they can run in the browser: the enriched components and templates provided by Angular cannot be understood by the browser directly. During the compilation, Angular's compiler also improves the app run-time performance by taking JavaScript VM's feature (like inline caching) into consideration.
 
-The initial compiler in Angular 1.x and Angular 2 is called JiT (Just-in-Time) compiler. As for AoT, it stands for the Ahead-of-Time compiler that was recently introduced in Angular 2. Compared to the JiT compilation performed by Angular 2 at run-time, AoT provides a smaller bundle with faster rendering in the browser. Using AoT, we can reduce the [angular2-starter](https://github.com/rangle/angular2-starter/pull/149) to 428.8 kb compared to the original 1.2 MB and reduce loading times by skipping compilation in the browser.
+The initial compiler in Angular 1.x and Angular >= 2 is called JiT (Just-in-Time) compiler. As for AoT, it stands for the Ahead-of-Time compiler that was recently introduced in Angular. Compared to the JiT compilation performed by Angular at run-time, AoT provides a smaller bundle with faster rendering in the browser. Using AoT, we can reduce the [angular2-starter](https://github.com/rangle/angular2-starter/pull/149) to 428.8 kb compared to the original 1.2 MB and reduce loading times by skipping compilation in the browser.
 
 | Characteristic        | JiT          | AoT               |
 | --------------------- | ------------ | ----------------- |
