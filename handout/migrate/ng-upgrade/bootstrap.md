@@ -14,7 +14,7 @@ adapter as a singleton.
 The following file creates an instance of `UpgradeAdapter` and exports it.
 
 ```js
-// Angular >= 2 Vendor Import
+// Angular 2 Vendor Import
 import {UpgradeAdapter} from '@angular/upgrade';
 import {NgModule, forwardRef} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
@@ -44,7 +44,7 @@ const APPNAME = 'angular-upgrade-example';
 // Register classic Angular 1 modules
 angular.module(APPNAME, []);
 
-// Bootstrap Angular >= 2 - *note* this is asynchronous
+// Bootstrap Angular 2 - *note* this is asynchronous
 upgradeAdapter.bootstrap(document.body, [APPNAME], {strictDi: true});
 ```
 
