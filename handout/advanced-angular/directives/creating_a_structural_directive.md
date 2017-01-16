@@ -18,14 +18,14 @@ export class DelayDirective {
 ```
 [View Example](https://plnkr.co/edit/80AGn8bR4CiyH0ceP8ws?p=preview)
 
-We use the same `@Directive` class decorator as attribute directives and define a selector in the same way. One big difference here is that due to the nature of structural directives being bound to a template, we have access to `TemplateRef`, an object representing the `template` tag the directive is attached to. We also add an input property in a similar way, but this time with a `set` handler so we can execute some code when Angular 2 performs the binding. We bind `delay` in exactly the same way as the Angular 2 built-in structural directives.
+We use the same `@Directive` class decorator as attribute directives and define a selector in the same way. One big difference here is that due to the nature of structural directives being bound to a template, we have access to `TemplateRef`, an object representing the `template` tag the directive is attached to. We also add an input property in a similar way, but this time with a `set` handler so we can execute some code when Angular 2 performs the binding. We bind `appDelay` in exactly the same way as the Angular 2 built-in structural directives.
 
 ```typescript
 @Component({
   selector: 'app-root',
   template: `
     <div *ngFor="let item of [1,2,3,4,5,6]">
-      <card *delay="500 * item">
+      <card *appDelay="500 * item">
         {{item}}
       </card>
     </div>
