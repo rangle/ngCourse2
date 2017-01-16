@@ -1,10 +1,10 @@
-# Angular 2's DI
+# Angular's DI
 
-The last example introduced a hypothetical `Injector` object.  Angular 2
-simplifies DI even further.  With Angular 2, programmers almost never have to get
+The last example introduced a hypothetical `Injector` object.  Angular
+simplifies DI even further.  With Angular, programmers almost never have to get
 bogged down with injection details.
 
-Angular 2's DI system is (mostly) controlled through `@NgModule`.  Specifically
+Angular's DI system is (mostly) controlled through `@NgModule`.  Specifically
 the `providers` and `declarations` array. (`declarations` is where we put components,
 pipes and directives; `providers` is where we put services)
 
@@ -29,17 +29,17 @@ export class AppModule {
 ```
 
 In the above example the `AppModule` is told about the `ChatWidget` class. Another way
-of saying this is that Angular 2 has been _provided_ a `ChatWidget`.
+of saying this is that Angular has been _provided_ a `ChatWidget`.
 
 That seems pretty straightforward, but astute readers will be wondering how
-Angular 2 knows how to build `ChatWidget`.  What if `ChatWidget` was a string, or
+Angular knows how to build `ChatWidget`.  What if `ChatWidget` was a string, or
 a plain function?
 
-Angular 2 _assumes_ that it's being given a class.
+Angular _assumes_ that it's being given a class.
 
 What about `AuthService`, `AuthWidget` and `ChatSocket`? How is `ChatWidget` getting those?
 
-It's not, at least not yet.  Angular 2 does not know about them yet.  That can
+It's not, at least not yet.  Angular does not know about them yet.  That can
 be changed easily enough:
 
 ```typescript

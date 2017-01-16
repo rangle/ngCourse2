@@ -26,7 +26,7 @@ export class MyForm {
 }
 ```
 
-Even if we fill both inputs and click the submit button, we get an empty object in the console. To understand what's happening we should review some core concepts about forms in Angular 2 before moving on with our code example.
+Even if we fill both inputs and click the submit button, we get an empty object in the console. To understand what's happening we should review some core concepts about forms in Angular before moving on with our code example.
 
 [View Example](https://plnkr.co/edit/fo4ZXG9IAcEqtYgT6dJs?p=preview)
 

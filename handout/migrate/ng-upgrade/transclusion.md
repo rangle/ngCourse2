@@ -1,8 +1,8 @@
-# Transcluding Angular 2 Components into Angular 1 Directives
+# Transcluding Angular >= 2 Components into Angular 1 Directives
 
-Angular 2 components can be transcluded into Angular 1.x directives.
+Angular >= 2 components can be transcluded into Angular 1.x directives.
 
-Here is a very simple Angular 2 component:
+Here is a very simple Angular >= 2 component:
 
 ```js
 import {Component} from '@angular/core';
@@ -13,7 +13,7 @@ import {Component} from '@angular/core';
 })
 export class A2Transclusion {
   message =
-    'I am an Angular 2 Component "transcluded" into Angular 1.x';
+    'I am an Angular >= 2 Component "transcluded" into Angular 1.x';
 }
 ```
 
@@ -63,7 +63,7 @@ angular
   .directive('a1Transclusion', a1TransclusionDirective);
 ```
 
-Finally, Angular 2 content can be transcluded into Angular 1.x like so:
+Finally, Angular >= 2 content can be transcluded into Angular 1.x like so:
 
 ```html
 <a1-transclude>

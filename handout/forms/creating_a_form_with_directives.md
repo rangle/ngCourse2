@@ -55,7 +55,7 @@ _app/my-form.component.html_
 
 [View Example](http://plnkr.co/edit/nxyN5i6AwclFatyQ3Q6E?p=preview)
 
-At this point, if we click the submit button nothing happens because we defined a standard HTML form, not an Angular 2 form. To fix that, we need to tell our component to upgrade our form using the `NgForm` directive which will give us access to new properties and event bindings on our form to interact with it.
+At this point, if we click the submit button nothing happens because we defined a standard HTML form, not an Angular form. To fix that, we need to tell our component to upgrade our form using the `NgForm` directive which will give us access to new properties and event bindings on our form to interact with it.
 
 _app/my-form.component.ts_
 ```javascript
@@ -71,7 +71,7 @@ export class MyForm {}
 
 Notice that we didn't include the `NgForm` directly, instead we included [FORM_DIRECTIVES](https://angular.io/docs/ts/latest/api/common/FORM_DIRECTIVES-let.html) which is an array of all the directives used in forms, including `NgForm`. To see all the directives included in this array, check the [source code](https://github.com/angular/angular/blob/2.0.0-beta.0/modules/angular2/src/common/forms/directives.ts#L52-L71).
 
-Because we now have an Angular 2 form, we can listen to the `ngSubmit` event which is triggered whenever the form is submitted.
+Because we now have an Angular form, we can listen to the `ngSubmit` event which is triggered whenever the form is submitted.
 
 _app/my-form.component.html_
 ```html

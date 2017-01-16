@@ -18,7 +18,7 @@ export class DelayDirective {
 ```
 [View Example](https://plnkr.co/edit/80AGn8bR4CiyH0ceP8ws?p=preview)
 
-We use the same `@Directive` class decorator as attribute directives and define a selector in the same way. One big difference here is that due to the nature of structural directives being bound to a template, we have access to `TemplateRef`, an object representing the `template` tag the directive is attached to. We also add an input property in a similar way, but this time with a `set` handler so we can execute some code when Angular 2 performs the binding. We bind `appDelay` in exactly the same way as the Angular 2 built-in structural directives.
+We use the same `@Directive` class decorator as attribute directives and define a selector in the same way. One big difference here is that due to the nature of structural directives being bound to a template, we have access to `TemplateRef`, an object representing the `template` tag the directive is attached to. We also add an input property in a similar way, but this time with a `set` handler so we can execute some code when Angular performs the binding. We bind `delay` in exactly the same way as the Angular built-in structural directives.
 
 ```typescript
 @Component({
@@ -37,4 +37,4 @@ export class AppComponent {
 ```
 [View Example](https://plnkr.co/edit/80AGn8bR4CiyH0ceP8ws?p=preview)
 
-Notice that no content is being rendered however. This is due to Angular 2 simulating the html `template` tag and not rendering any child elements by default. To be able to get this content to render, we'll have to attach the template given by `TemplateRef` as an *embedded view* to a *view container*.
+Notice that no content is being rendered however. This is due to Angular simulating the html `template` tag and not rendering any child elements by default. To be able to get this content to render, we'll have to attach the template given by `TemplateRef` as an *embedded view* to a *view container*.

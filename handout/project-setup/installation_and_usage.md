@@ -63,7 +63,7 @@ Let's look at the entry points we have defined in our sample app:
 }
 ```
 
-The entry point for `app`, `./src/index.ts`, is the base file of our Angular 2 application. If we've defined the dependencies of each module correctly, those references should connect all the parts of our application from here. The entry point for `vendor` is a list of modules that we need for our application code to work correctly. Even if these files are referenced by some module in our app bundle, we want to separate these resources in a bundle just for third party code.
+The entry point for `app`, `./src/index.ts`, is the base file of our Angular application. If we've defined the dependencies of each module correctly, those references should connect all the parts of our application from here. The entry point for `vendor` is a list of modules that we need for our application code to work correctly. Even if these files are referenced by some module in our app bundle, we want to separate these resources in a bundle just for third party code.
 
 
 ## Output Configuration

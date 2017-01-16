@@ -32,7 +32,7 @@ While it might be obvious to someone reading the HTML or using the application w
     <header>
       <nav>
         <ul>
-          <li><a [routerLink]="['']"><img src="https://angular.io/resources/images/logos/angular2/angular.svg" width="40" alt="Angular 2 logo"></a></li>
+          <li><a [routerLink]="['']"><img src="https://angular.io/resources/images/logos/angular2/angular.svg" width="40" alt="Angular logo"></a></li>
           <li><a [routerLink]="['services']">Services</a></li>
           <li><a [routerLink]="['process']">Process</a></li>
           <li><a [routerLink]="['work']">Work</a></li>
@@ -48,9 +48,9 @@ While it might be obvious to someone reading the HTML or using the application w
 ```
 [View Example](https://plnkr.co/edit/LHFNBsdcfbRPFnQg1DE8?p=preview)
 
-Here, we use the `header` element instead of a `div`, which lets the browser know that the elements within provide information about the site as a whole rather than about the specific page. 
+Here, we use the `header` element instead of a `div`, which lets the browser know that the elements within provide information about the site as a whole rather than about the specific page.
 
-We replace another `div` with the `nav` element, which lets the browser know the elements within are related to accessing different parts of the page or site. 
+We replace another `div` with the `nav` element, which lets the browser know the elements within are related to accessing different parts of the page or site.
 
 We also nest `router-outlet` within a `main` element, which tells the browser that the content loaded into the router outlet is the main content of the page.
 
@@ -111,11 +111,11 @@ This lets you create a component that has the same semantics as a `button` eleme
 
 ### ARIA attributes
 
-Some native HTML tags have attributes that providers extra context on what's being displayed on the browser. For example, the `img` tag's `alt` attribute  lets the reader know what is being shown using a short description. 
+Some native HTML tags have attributes that providers extra context on what's being displayed on the browser. For example, the `img` tag's `alt` attribute  lets the reader know what is being shown using a short description.
 
-However, native tags don't cover all cases. This is where ARIA fits in. ARIA attributes can provide context on what roles specific elements have in the application or on how elements within the document relate to each other. 
+However, native tags don't cover all cases. This is where ARIA fits in. ARIA attributes can provide context on what roles specific elements have in the application or on how elements within the document relate to each other.
 
-One example of this is modals. Native modals provided by different platforms such as web browsers often have limited customization options, which can make for a poor experience. This necessitates the creation of custom modals. 
+One example of this is modals. Native modals provided by different platforms such as web browsers often have limited customization options, which can make for a poor experience. This necessitates the creation of custom modals.
 
 A modal component can be given the `role` of [dialog](https://www.w3.org/TR/wai-aria/roles#dialog) or [alertdialog](https://www.w3.org/TR/wai-aria/roles#alertdialog) to let the browser know that that component is acting as a modal. The modal component template can use the ARIA attributes `aria-labelledby` and `aria-described` to describe to readers what the title and purpose of the modal is.
 
