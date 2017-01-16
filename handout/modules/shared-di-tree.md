@@ -39,24 +39,8 @@ import { SharedModule } from './shared/shared.module';
 export class AppModule {}
 ```
 
-In contrast, when import the same module in our `LazyModule` we will not call the `forRoot` method because we don't want to register the service again in a different level of the DI tree, so the declaration of the `LazyModule` doesn't change.
+Since we import the module with `forRoot` in our root application module, we **do not** need to import it in `LazyModule`. Reimporting core root modules defined with `forRoot` in lazily loaded modules can cause issues in your application.
 
-_app/lazy/lazy.module.ts_
-
-```js
-...
-import { SharedModule } from '../shared/shared.module';
-
-@NgModule({
-  imports: [
-    SharedModule,
-    ...
-  ],
-  ...
-})
-export class LazyModule {}
-```
-
-[View Example](https://plnkr.co/edit/4jHjiq1ZlwSsHaBxbeqA?p=preview)
+[View Example](https://plnkr.co/edit/dPpc40plyI8iu8ogrf3e?p=preview)
 
 This time, whenever we change the value of the `counter` property, this value is shared between the `EagerComponent` and the `LazyComponent` proving that we are using the same instance of the `CounterService`.
