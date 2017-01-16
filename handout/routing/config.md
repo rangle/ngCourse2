@@ -37,8 +37,7 @@ const routes: Routes = [
 
 ## RouterModule ##
 
-`RouterModule.forRoot` takes the `Routes` array as an argument and returns a _configured_ router module. The following sample shows how we import this module in an 
-`app.routes.ts` file. We then import our routing configuration in the root of our application.
+`RouterModule.forRoot` takes the `Routes` array as an argument and returns a _configured_ router module. The following sample shows how we import this module in an `app.routes.ts` file. We then import our routing configuration in the root of our application.
 
 _app/app.routes.ts_
 
