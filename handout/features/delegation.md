@@ -2,7 +2,7 @@
 
 In the inheritance section we looked at one way to extend a class functionality, there is second way using delegation to extend functionality. With delegation, one object will contain a reference to a different object that it will hand off a request to perform the functionality.
 
-The code below shows how to use delegation with the `Bird` class and `Penguin` class. The `Penguin` class has a reference to the `Bird` class and it delegrates call made to it's _walk_ method over to `Bird`'s _walk_ method.
+The code below shows how to use delegation with the `Bird` class and `Penguin` class. The `Penguin` class has a reference to the `Bird` class and it delegates the call made to it's _walk_ method over to `Bird`'s _walk_ method.
 
 ```js
 // ES6
