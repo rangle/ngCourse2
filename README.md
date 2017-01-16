@@ -1,13 +1,13 @@
-# Angular 2 Course From Rangle.io
+# Angular Course From Rangle.io
 
-This repository contains handout materials and code for Rangle.io's AngularJS training course, focusing on Angular 2.
+This repository contains handout materials and code for Rangle.io's AngularJS training course, focusing on Angular >= 2.
 
 This is meant to be used as a part of the course, which is normally offered as a 2-4 day event. See [rangle.io/javascript-training.html](http://rangle.io/javascript-training.html) for more information.
 
 
 ## The Book
 
- [Read our Angular 2 training book](http://angular-2-training-book.rangle.io/ "Rangle.io's Angular 2 Book") or [visit our GitBook page](https://www.gitbook.com/book/rangle-io/ngcourse2/details "Rangle.io's Angular 2 Book on GitBooks") to either view it in your browser or download a PDF, ePub or Mobi version.
+ [Read our Angular training book](http://angular-2-training-book.rangle.io/ "Rangle.io's Angular Book") or [visit our GitBook page](https://www.gitbook.com/book/rangle-io/ngcourse2/details "Rangle.io's Angular Book on GitBooks") to either view it in your browser or download a PDF, ePub or Mobi version.
 
 ## The Code
 
@@ -51,6 +51,4 @@ Thanks!
 
 ## Contributing
 
-Text that is being contributed to the book must follow the [style guide](https://docs.google.com/document/d/1Na6tKvNUowJqlQHgAd-oG2op_SoN4fP4XR7LzVIpatw "Rangle.io Angular 2, English Style Guide")
-
-
+Text that is being contributed to the book must follow the [style guide](https://docs.google.com/document/d/1Na6tKvNUowJqlQHgAd-oG2op_SoN4fP4XR7LzVIpatw "Rangle.io Angular, English Style Guide")
