@@ -1,17 +1,17 @@
 # Change Detector Classes
 
-At runtime, Angular 2 will create special classes that are called _change detectors_, one for every component that we have defined. In this case, Angular will create two classes: `MainComponent_ChangeDetector` and `MovieComponent_ChangeDetector`.
+At runtime, Angular will create special classes that are called _change detectors_, one for every component that we have defined. In this case, Angular will create two classes: `AppComponent` and `AppComponent_ChangeDetector`.
 
 The goal of the change detectors is to know which model properties used in the template of a component have changed since the last time the change detection process ran.
 
 In order to know that, Angular creates an instance of the appropriate change detector class and a link to the component that it's supposed to check.
 
-In our example, because we only have one instance of the `MainComponent` and the `MovieComponent`, we will have only one instance of the `MainComponent_ChangeDetector` and the `MovieComponent_ChangeDetector`.
+In our example, because we only have one instance of the `AppComponent` and the `MovieComponent`, we will have only one instance of the `AppComponent_ChangeDetector` and the `MovieComponent_ChangeDetector`.
 
-The code snippet below is a conceptual model of how the `MainComponent_ChangeDetector` class might look.
+The code snippet below is a conceptual model of how the `AppComponent_ChangeDetector` class might look.
 
 ```javascript
-class MainComponent_ChangeDetector {
+class AppComponent_ChangeDetector {
 
   constructor(
     public previousSlogan: string,
@@ -37,7 +37,7 @@ class MainComponent_ChangeDetector {
 }
 ```
 
-Because in the template of our `MainComponent` we reference three variables (`slogan`, `title` and `actor`), our change detector will have three properties to store the "old" values of these three properties, plus a reference to the `MainComponent` instance that it's supposed to "watch". When the change detection process wants to know if our `MainComponent` instance has changed, it will run the method `detectChanges` passing the current model values to compare with the old ones. If a change was detected, the component gets updated.
+Because in the template of our `AppComponent` we reference three variables (`slogan`, `title` and `actor`), our change detector will have three properties to store the "old" values of these three properties, plus a reference to the `AppComponent` instance that it's supposed to "watch". When the change detection process wants to know if our `AppComponent` instance has changed, it will run the method `detectChanges` passing the current model values to compare with the old ones. If a change was detected, the component gets updated.
 
 > Disclaimer: This is just a conceptual overview of how change detector classes work; the actual implementation may be different.
 
@@ -46,9 +46,8 @@ Because in the template of our `MainComponent` we reference three variables (`sl
 By default, Angular defines a certain change detection strategy for every component in our application. To make this definition explicit, we can use the property `changeDetection` of the `@Component` decorator.
 
 _app/movie.component.ts_
-```javascript
-// ...
-import {ChangeDetectionStrategy} from '@angular/core';
+```typescript
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   // ...
@@ -58,8 +57,7 @@ export class MovieComponent {
   // ...
 }
 ```
-
-[View Example](http://plnkr.co/edit/9sA7vXUSpElsVvEvG2of?p=preview)
+[View Example](http://plnkr.co/edit/yBekf1Do7UeB8F4EQzxU?p=preview)
 
 Let's see what happens when a user clicks the button "Change Actor Properties" when using the `Default` strategy.
 
@@ -73,7 +71,7 @@ In the first phase, the application (our code) is responsible for updating the m
 
 Now that our models are updated, Angular must update the templates using change detection.
 
-Change detection always starts at the root component, in this case the `MainComponent`, and checks if any of the model properties bound to its template have changed, comparing the old value of each property (before the event was triggered) to the new one (after the models were updated). The `MainComponent` template has a reference to three properties, `slogan`, `title` and `actor`, so the comparison made by its corresponding change detector will look like:
+Change detection always starts at the root component, in this case the `AppComponent`, and checks if any of the model properties bound to its template have changed, comparing the old value of each property (before the event was triggered) to the new one (after the models were updated). The `AppComponent` template has a reference to three properties, `slogan`, `title` and `actor`, so the comparison made by its corresponding change detector will look like:
 
 - Is `slogan !== previousSlogan`? No, it's the same.
 - Is `title !== previousTitle`? No, it's the same.
@@ -91,7 +89,7 @@ Finally, Angular has detected that some of the properties bound to the template 
 
 ## Performance Impact
 
-Traversing all the tree components to check for changes could be costly. Imagine that instead of just having one reference to `<movie>` inside our `MainComponent`'s template, we have multiple references?
+Traversing all the tree components to check for changes could be costly. Imagine that instead of just having one reference to `<app-movie>` inside our `AppComponent`'s template, we have multiple references?
 
 ```html
 <movie *ngFor="let movie of movies" [title]="movie.title" [actor]="movie.actor"></movie>`

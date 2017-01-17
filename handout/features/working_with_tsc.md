@@ -62,7 +62,7 @@ even on small projects.  Fortunately TypeScript has a means of simplifying this.
 want.  When `tsc` is run, it looks for `tsconfig.json` files and uses their
 rules to compile JavaScript.
 
-For Angular 2 projects there are a number of specific settings that need to be
+For Angular projects there are a number of specific settings that need to be
 configured in a project's `tsconfig.json`
 
 ```json
@@ -93,7 +93,7 @@ The target module resolution interface. We're integrating TypeScript through web
 
 #### Decorators
 
-Decorator support in TypeScript [hasn't been finalized yet](http://rbuckton.github.io/ReflectDecorators/typescript.html) but since Angular 2 uses decorators extensively, these need to be set to true.  Decorators have not been introduced yet, and will be covered later in this section.
+Decorator support in TypeScript [hasn't been finalized yet](http://rbuckton.github.io/ReflectDecorators/typescript.html) but since Angular uses decorators extensively, these need to be set to true.  Decorators have not been introduced yet, and will be covered later in this section.
 
 #### TypeScript with Webpack
 

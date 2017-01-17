@@ -3,11 +3,15 @@
     "image-captions",
     "highlight",
     "theme-rangle-io",
-    "ga"
+    "ga",
+    "versions"
   ],
   "styles": {
     "ebook": "styles/ebook.css",
-    "pdf": "styles/pdf.css"
+    "pdf": "styles/pdf.css",
+    "website": "styles/website.css",
+    "mobi": "styles/mobi.css",
+    "epub": "styles/epub.css"
   },
   "theme": "theme-rangle-io",
   "pluginsConfig": {
@@ -23,6 +27,9 @@
           "skip": true
         }
       }
+    },
+    "versions": {
+      "type": "branches"
     }
   },
   "structure": {

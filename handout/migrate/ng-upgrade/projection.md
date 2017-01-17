@@ -23,7 +23,7 @@ export class A2Projection { }
 
 ```
 
-Here's a very simple Angular 1.x directive that will be projected into the 
+Here's a very simple Angular 1.x directive that will be projected into the
 Angular 2 component:
 
 ```js

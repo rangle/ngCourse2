@@ -1,10 +1,10 @@
 # Further Reading and Reference
 
 ## Angular
-* [Angular.io API Reference](https://angular.io/docs/ts/latest/api/) - Angular 2 Reference Material with easy access to different Angular 2 items
-* [Angular Style Guide](https://angular.io/styleguide) - Opinions from the Angular 2 tea
+* [Angular.io API Reference](https://angular.io/docs/ts/latest/api/) - Angular Reference Material with easy access to different Angular items
+* [Angular Style Guide](https://angular.io/styleguide) - Opinions from the Angular team
 * [Angular Module Github](https://github.com/angular/angular/tree/master/modules) - Source code is written in readable TypeScript
-* [Angular Material Github](https://github.com/angular/material2) - Official repo for Angular 2 implementation in material design
+* [Angular Material Github](https://github.com/angular/material2) - Official repo for Angular implementation in material design
 
 
 ## TypeScript
@@ -39,11 +39,11 @@ Observables are known for having a steep learning curve due to the fact that it 
 
 
 ## Keeping up to date
-- [Angular 2 Weekly Notes](http://g.co/ng/weekly-notes)
+- [Angular Weekly Notes](http://g.co/ng/weekly-notes)
 - [Angular blog](http://angularjs.blogspot.ca/) - Includes blog posts for Angular 1.x
 - [Angular Air](https://angularair.com/) - Angular podcast
 - [Adventures in Angular](https://devchat.tv/adv-in-angular) - Angular podcast
-- [Angular 2 Changelog](https://github.com/angular/angular/blob/master/CHANGELOG.md) - Technical Changelog
+- [Angular Changelog](https://github.com/angular/angular/blob/master/CHANGELOG.md) - Technical Changelog
 
 ## Other
 - [Webpack 2 Official Docs](https://webpack.js.org/)

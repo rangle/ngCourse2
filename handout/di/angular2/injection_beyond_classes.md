@@ -1,15 +1,15 @@
 # Injection Beyond Classes
 
-So far the only types that injection has been used for have been classes, but  
-Angular 2 is not limited to injecting classes.  The concept of `providers` was
+So far the only types that injection has been used for have been classes, but
+Angular is not limited to injecting classes.  The concept of `providers` was
 also briefly touched upon.
 
-So far `providers` have been used with Angular 2's `@NgModule` meta in an
-array.  `providers` have also all been class identifiers.  Angular 2 lets
+So far `providers` have been used with Angular's `@NgModule` meta in an
+array.  `providers` have also all been class identifiers.  Angular lets
 programmers specify providers with a more verbose "recipe". This is done with
-by providing Angular 2 an Object literal (`{}`):
+by providing Angular an Object literal (`{}`):
 
-```js
+```typescript
 import { NgModule } from '@angular/core';
 import { App } from './containers/app'; // hypothetical app component
 import { ChatWidget } from './components/chat-widget';
@@ -18,17 +18,16 @@ import { ChatWidget } from './components/chat-widget';
   providers: [ { provide: ChatWidget, useClass: ChatWidget } ],
 })
 export class DiExample {};
-
 ```
 
 This example is yet another example that `provide`s a class, but it does so with
-Angular 2's longer format.
+Angular's longer format.
 
 This long format is really handy.  If the programmer wanted to switch out
 `ChatWidget` implementations, for example to allow for a `MockChatWidget`, they could
 do this easily:
 
-```js
+```typescript
 import { NgModule } from '@angular/core';
 import { App } from './containers/app'; // hypothetical app component
 import { ChatWidget } from './components/chat-widget';
@@ -38,7 +37,6 @@ import { MockChatWidget } from './components/mock-chat-widget';
   providers: [ { provide: ChatWidget, useClass: MockChatWidget } ],
 })
 export class DiExample {};
-
 ```
 
 The best part of this implementation swap is that the injection system knows
@@ -46,7 +44,7 @@ how to build `MockChatWidget`, and will sort all of that out.
 
 
 The injector can use more than classes though.  `useValue` and `useFactory` are
-two other examples of `provider` "recipes" that Angular 2 can use.  For example:
+two other examples of `provider` "recipes" that Angular can use.  For example:
 
 ```js
 import { NgModule } from '@angular/core';
@@ -67,11 +65,12 @@ In the hypothetical app component, 'Random' could be injected like:
 import { Component, Inject, provide } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `Random: {{ value }}`
 })
-export class App {
+export class AppCompoennt {
   value: number;
+
   constructor(@Inject('Random') r) {
     this.value = r;
   }
@@ -83,28 +82,27 @@ One important note is that 'Random' is in quotes, both in the `provide`
 function and in the consumer.  This is because as a factory we have no `Random`
 identifier anywhere to access.
 
-The above example uses Angular 2's `useFactory` recipe.  When Angular 2 is told
-to `provide` things using `useFactory`, Angular 2 expects the provided value to be
+The above example uses Angular's `useFactory` recipe.  When Angular is told
+to `provide` things using `useFactory`, Angular expects the provided value to be
 a function. Sometimes functions and classes are even more than what's needed.
-Angular 2 has a "recipe" called `useValue` for these cases that works almost
+Angular has a "recipe" called `useValue` for these cases that works almost
 exactly the same:
 
-```js
+```typescript
 import { NgModule } from '@angular/core';
-import { App } from './containers/app'; // hypothetical app component
+import { AppComponent } from './containers/app.component'; // hypothetical app component
 
 @NgModule({
   providers: [ { provide: 'Random', useValue: Math.random() } ],
 })
 export class DiExample {};
-
 ```
-
 [View Example][plunkRandom2]
 
 In this case, the product of `Math.random` is assigned to the `useValue`
-property passed to the `provider`.  
+property passed to the `provider`.
 
 
-[plunkRandom1]: http://plnkr.co/edit/Dkm0cJF80EdmPcWZx45W?p=preview "Random DI 1"
-[plunkRandom2]: http://plnkr.co/edit/63GsCDOElY7J8LNAbTjL?p=preview "Random DI 2"
+
+[plunkRandom1]: http://plnkr.co/edit/BKMZYlAviRhauCzxMnx6?p=preview "Random DI 1"
+[plunkRandom2]: http://plnkr.co/edit/xGMOsHn1v3tTbc9RkuDz?p=preview "Random DI 2"

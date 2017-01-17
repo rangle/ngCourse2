@@ -1,4 +1,4 @@
-Welcome to the Angular 2 Training Exercises Section.
+Welcome to the Angular Training Exercises Section.
 
 Under this folder, you will find a number of stand-alone exercises that will provide you with the opportunity to try out the concepts discussed in each section of the training course.
 
@@ -13,5 +13,3 @@ live-server .
 ```
 
 and open your browser at http://127.0.0.1:8080/
-
-

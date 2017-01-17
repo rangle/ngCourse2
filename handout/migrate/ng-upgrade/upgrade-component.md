@@ -4,8 +4,8 @@ The only Angular 1.x components that can be upgraded and used in Angular 2 code
 are those that _strictly_ follow the component pattern outlined at the top of
 this document. Wherever possible use Angular 1.5+'s `.component`.
 
-Here is an Angular 1.x directive that conforms to ng-upgrade's "component 
-directive" specification: 
+Here is an Angular 1.x directive that conforms to ng-upgrade's "component
+directive" specification:
 
 ```js
 angular.module('app').directive('a1Upgradable', function a1UpgradableDirective() {

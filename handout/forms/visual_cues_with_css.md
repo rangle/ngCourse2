@@ -1,6 +1,6 @@
 # Visual Cues with CSS
 
-Angular 2 also offers a way to define special CSS styles that add or remove classes to the form fields dependent on their state and validation following the rules shown in the table below:
+Angular also offers a way to define special CSS styles that add or remove classes to the form fields dependent on their state and validation following the rules shown in the table below:
 
 Class        | States
 ------------ | ---------------------------------------

@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreditCardService } from './credit-card.service';
 
 @Component({
-  selector: 'rio-credit-card',
+  selector: 'app-credit-card',
   template: `
     <p>Your credit card is: {{ creditCardNumber | creditCardMask }}</p>
   `
@@ -68,10 +68,10 @@ _app.component.ts_
 import { Component } from "@angular/core";
 
 @Component({
-  selector: 'rio-app',
+  selector: 'app-root',
   template: `
-    <h1>My Angular 2 App</h1>
-    <rio-credit-card></rio-credit-card>
+    <h1>My Angular App</h1>
+    <app-credit-card></app-credit-card>
   `
 })
 export class AppComponent {}
@@ -106,7 +106,7 @@ export class AppModule { }
 
 Notice that we have added the component `CreditCardComponent` and the pipe `CreditCardMaskPipe` to the `declarations` property, along with the root component of the module `AppComponent`. In the other hand, our custom service is configured with the dependency injection system with the `providers` property.
 
-[View Example](https://plnkr.co/edit/Jab7Wsijc9w0rbgdIBDO?p=preview)
+[View Example](https://plnkr.co/edit/jInvNWc5aQ4FZAprExts?p=preview)
 
 Be aware that this method of defining a service in the `providers` property **should only be used in the root module**. Doing this in a feature module is going to cause unintended consequences when working with lazy loaded modules.
 

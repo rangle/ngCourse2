@@ -7,13 +7,17 @@ View encapsulation defines whether the template and styles defined within the co
 component's `@Component` decorator are scoped to this component only.
 - `None` - styles from the component propagate back to the main HTML and therefore are visible to all components on the page. Be careful with apps that have `None` and `Native` components in the application. All components with `None` encapsulation will have their styles duplicated in all components with `Native` encapsulation.
 
- ```js
+ ```typescript
 @Component({
-  ...
+  // ...
   encapsulation: ViewEncapsulation.None,
-  styles: [ ... ]
+  styles: [
+    // ...
+  ]
 })
-export class Hello { ... }
+export class HelloComponent {
+  // ...
+}
  ```
 
-[View Example](http://plnkr.co/edit/hE4Yl8MraQ1vswhQbQmx?p=preview)
+[View Example](http://plnkr.co/edit/E5Hb6B5dRN0llz3JuO57?p=preview)

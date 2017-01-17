@@ -9,7 +9,7 @@ In order to use the various HTTP services we need to include `HttpModule` in the
 
 ```ts
 ...
-import { MyApp } from './app.component'
+import { AppComponent } from './app.component'
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -20,8 +20,8 @@ import { HttpModule } from '@angular/http';
     HttpModule
   ],
   providers: [SearchService],
-  declarations: [MyApp],
-  bootstrap: [MyApp]
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class MyAppModule {}
+export class AppModule {}
 ```

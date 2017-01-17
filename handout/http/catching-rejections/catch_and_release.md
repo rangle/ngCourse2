@@ -5,7 +5,6 @@ We also have the option of using the `.catch` operator. It allows us to catch er
 ```ts
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class SearchService {
@@ -24,7 +23,7 @@ export class SearchService {
 }
 ```
 
-[View Example](http://plnkr.co/edit/XOsH5V?p=preview)
+[View Example](http://plnkr.co/edit/3lCaeI?p=preview)
 
 It also allows us to inspect the error and decide which route to take. For example, if we encounter a server error then use a cached version of the request otherwise re-throw.
 
@@ -35,9 +34,9 @@ export class SearchService {
   ...
 
   search(term: string) {
-    return this.http.get('https://api.spotify.com/v1/dsds?q=' + term + '&type=artist')
-      .map((response) => response.json())
-      .catch((e) => {
+    return this.http.get(`https://api.spotify.com/v1/dsds?q=${term}&type=artist`)
+      .map(response => response.json())
+      .catch(e => {
         if (e.status >==  500) {
           return cachedVersion();
         } else {

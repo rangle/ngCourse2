@@ -22,10 +22,10 @@ export class SearchService {
   search(term: string) {
     let tryCount = 0;
     return this.http.get('https://api.spotify.com/v1/dsds?q=' + term + '&type=artist')
-      .map((response) => response.json())
+      .map(response => response.json())
       .retry(3);
   }
 }
 ```
 
-[View Example](http://plnkr.co/edit/B6UbNZ?p=preview)
+[View Example](http://plnkr.co/edit/zSAWwV?p=preview)

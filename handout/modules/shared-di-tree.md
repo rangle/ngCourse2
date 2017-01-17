@@ -57,6 +57,6 @@ import { SharedModule } from '../shared/shared.module';
 export class LazyModule {}
 ```
 
-[View Example](https://plnkr.co/edit/xz5wZvqQvzdD0uOZYXg4?p=preview)
+[View Example](https://plnkr.co/edit/4jHjiq1ZlwSsHaBxbeqA?p=preview)
 
 This time, whenever we change the value of the `counter` property, this value is shared between the `EagerComponent` and the `LazyComponent` proving that we are using the same instance of the `CounterService`.

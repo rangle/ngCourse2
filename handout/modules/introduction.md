@@ -1,8 +1,8 @@
-# What is an Angular 2 Module?
+# What is an Angular Module?
 
-In Angular 2, a module is a mechanism to group components, directives, pipes and services that are related, in such a way that can be combined with other modules to create an application. An Angular 2 application can be thought of as a puzzle where each piece (or each module) is needed to be able to see the full picture.
+In Angular, a module is a mechanism to group components, directives, pipes and services that are related, in such a way that can be combined with other modules to create an application. An Angular application can be thought of as a puzzle where each piece (or each module) is needed to be able to see the full picture.
 
-Another analogy to understand Angular 2 modules is classes. In a class, we can define public or private methods. The public methods are the API that other parts of our code can use to interact with it while the private methods are implementation details that are hidden. In the same way, a module can export or hide components, directives, pipes and services. The exported elements are meant to be used by other modules, while the ones that are not exported (hidden) are just used inside the module itself and cannot be directly accessed by other modules of our application.
+Another analogy to understand Angular modules is classes. In a class, we can define public or private methods. The public methods are the API that other parts of our code can use to interact with it while the private methods are implementation details that are hidden. In the same way, a module can export or hide components, directives, pipes and services. The exported elements are meant to be used by other modules, while the ones that are not exported (hidden) are just used inside the module itself and cannot be directly accessed by other modules of our application.
 
 ## A Basic Use of Modules
 
@@ -19,7 +19,7 @@ import { NgModule } from '@angular/core';
 export class AppModule { }
 ```
 
-In the example above, we have turned the class `AppModule` into an Angular 2 module just by using the `NgModule` decorator. The `NgModule` decorator requires at least three properties: `imports`, `declarations` and `bootstrap`.
+In the example above, we have turned the class `AppModule` into an Angular module just by using the `NgModule` decorator. The `NgModule` decorator requires at least three properties: `imports`, `declarations` and `bootstrap`.
 
 The property `imports` expects an array of modules. Here's where we define the pieces of our puzzle (our application). The property `declarations` expects an array of components, directives and pipes that are part of the module. The `bootstrap` property is where we define the root component of our module. Even though this property is also an array, 99% of the time we are going to define only one component.
 
@@ -33,8 +33,8 @@ _app/app.component.ts_
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'rio-app',
-  template: '<h1>My Angular 2 App</h1>'
+  selector: 'app-root',
+  template: '<h1>My Angular App</h1>'
 })
 export class AppComponent {}
 ```
@@ -57,7 +57,7 @@ export class AppModule { }
 
 The file _app.component.ts_ is just a "hello world" component, nothing interesting there. In the other hand, the file _app.module.ts_ is following the structure that we've seen before for defining a module but in this case, we are defining the modules and components that we are going to be using.
 
-The first thing that we notice is that our module is importing the `BrowserModule` as an explicit dependency. The `BrowserModule` is a built-in module that exports basic directives, pipes and services. Unlike previous versions of Angular 2, we have to explicitly import those dependencies to be able to use directives like `*ngFor` or `*ngIf` in our templates.
+The first thing that we notice is that our module is importing the `BrowserModule` as an explicit dependency. The `BrowserModule` is a built-in module that exports basic directives, pipes and services. Unlike previous versions of Angular, we have to explicitly import those dependencies to be able to use directives like `*ngFor` or `*ngIf` in our templates.
 
 Given that the root (and only) component of our module is the `AppComponent` we have to list it in the `bootstrap` array. Because in the `declarations` property we are supposed to define **all** the components or pipes that make up our application, we have to define the `AppComponent` again there too.
 
@@ -84,6 +84,6 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 > It is also possible to perform the compilation as a build step of our workflow. This method is called "Ahead of Time" (AOT) compilation and will require a slightly different bootstrap process that we are going to discuss in another section.
 
-[View Example](https://plnkr.co/edit/4u6UKQuVSjHFeQYS993g?p=preview)
+[View Example](https://plnkr.co/edit/f2TLtnGAtcZTSSuhWNQ9?p=preview)
 
 In the next section we are going to see how to create a module with multiple components, services and pipes.

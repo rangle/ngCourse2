@@ -14,8 +14,7 @@ input[type="text"]:invalid {
 
 Unfortunately, this system is rather unsophisticated and would require more manual effort in order to work with complex forms or user behavior.
 
-
-Rather than writing extra code, and creating and enforcing your own CSS classes, to manage these behaviors, Angular 2 provides you with several classes, already accessible on your inputs.
+Rather than writing extra code, and creating and enforcing your own CSS classes, to manage these behaviors, Angular provides you with several classes, already accessible on your inputs.
 
 
 ```css

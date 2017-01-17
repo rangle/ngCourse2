@@ -1,18 +1,18 @@
-# Why Angular 2?
+# Why Angular?
 
 There are many front-end JavaScript frameworks to choose from today, each with its own set of trade-offs.
 Many people were happy with the functionality that Angular 1.x afforded them.
 Angular 2 improved on that functionality and made it faster, more scalable and more modern.
 Organizations that found value in Angular 1.x will find more value in Angular 2.
 
-## Angular 2's Advantages
+## Angular's Advantages
 
 The first release of Angular provided programmers with the tools to develop and architect large scale JavaScript applications, but its age has revealed a number of flaws and sharp edges.
 Angular 2 was built on five years of community feedback.
 
 ### Angular 2 Is Easier
 
-The new Angular 2 codebase is more modern, more capable and easier for new programmers to learn than Angular 1.x, 
+The new Angular codebase is more modern, more capable and easier for new programmers to learn than Angular 1.x,
 while also being easier for project veterans to work with.
 
 With Angular 1, programmers had to understand the differences between Controllers, Services, Factories, Providers and other concepts that could be confusing, especially for new programmers.
@@ -34,7 +34,7 @@ Fortunately for traditional ES5 JavaScript programmers this does *not* mean that
 
 ### Familiarity
 
-Despite being a complete rewrite, Angular 2 has retained many of its core concepts and conventions with Angular 1.x, 
+Despite being a complete rewrite, Angular 2 has retained many of its core concepts and conventions with Angular 1.x,
 e.g. a streamlined, "native JS" implementation of dependency injection.
 This means that programmers who are already proficient with Angular will have an easier time migrating to Angular 2 than another library like React or framework like Ember.
 
@@ -51,12 +51,12 @@ Depending on application/site design this isomorphic rendering can make a user's
 
 The quest for performance does not end with pre-rendering.
 Angular 2 makes itself portable to native mobile by integrating with [NativeScript](https://www.nativescript.org/), an open source library that bridges JavaScript and mobile.
-Additionally, the Ionic team is working on an Angular 2 version of their product, providing *another* way to leverage native device features with Angular 2.
+Additionally, the Ionic team is working on an Angular 2 version of their product, providing *another* way to leverage native device features with Angular.
 
 ### Project Architecture and Maintenance
 
 The first iteration of Angular provided web programmers with a highly flexible framework for developing applications.
-This was a dramatic shift for many web programmers, and while that framework was helpful, 
+This was a dramatic shift for many web programmers, and while that framework was helpful,
 it became evident that it was often too flexible.
 Over time, best practices evolved, and a community-driven structure was endorsed.
 

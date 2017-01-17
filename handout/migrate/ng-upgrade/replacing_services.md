@@ -3,7 +3,7 @@
 Early Angular 1 applications predate the widespread use of module loaders.
 The strategy of this era was to concatenate source files and rely on Angular 1's
 dependency injection as a poor-man's module loader. Often services were used to
-house _libraries_ instead of _stateful services_. 
+house _libraries_ instead of _stateful services_.
 
 During conversion, we will introduce Webpack as a module loader. For services
 that lack state and don't heavily rely on other dependency injected services,
@@ -80,4 +80,3 @@ export class CalculatorService { ... }
 // elsewhere
 import {CalculatorService} from './calculator.service';
 ```
-

@@ -1,9 +1,9 @@
-import {Component, Input} from '@angular/core';
-import {ChangeDetectionStrategy} from '@angular/core';
-import {Actor} from './actor.model';
+import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
+import { Actor } from './actor.model';
 
 @Component({
-  selector: 'movie',
+  selector: 'app-movie',
   styles: ['div {border: 1px solid black}'],
   template: `
     <div>

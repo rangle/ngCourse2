@@ -3,6 +3,7 @@
 If you find yourself wrestling to fit nested trees of data inside of a flat form, Angular has you covered for both simple and complex cases.
 
 Let's assume you had a payment endpoint which required data, similar to the following:
+
 ```json
 {
   "contact": {
@@ -28,13 +29,12 @@ Let's assume you had a payment endpoint which required data, similar to the foll
 }
 ```
 
-While forms are flat and one-dimensional, the data built from them is not.
-This leads to complex transforms to convert the data you’ve been given into the shape you need.
+While forms are flat and one-dimensional, the data built from them is not. This leads to complex transforms to convert the data you’ve been given into the shape you need.
 
 Worse, in cases where it is possible to run into naming collisions in form inputs, you might find yourself using long and awkward names for semantic purposes.
 
 ```html
-<form >
+<form>
   <fieldset>
     <legend>Contact</legend>
 
@@ -56,11 +56,11 @@ Worse, in cases where it is possible to run into naming collisions in form input
 </form>
 ```
 
-A form handler would have to convert that data into a form that your API expects. Thankfully, this is something Angular 2 has a solution for.
+A form handler would have to convert that data into a form that your API expects. Thankfully, this is something Angular has a solution for.
 
 ### `ngModelGroup`
 
-When building a template-driven form in Angular 2, we can lean on the `ngModelGroup` directive to arrive at a cleaner implementation, while Angular does the heavy lifting of converting form-fields into nested data.
+When building a template-driven form in Angular, we can lean on the `ngModelGroup` directive to arrive at a cleaner implementation, while Angular does the heavy lifting of converting form-fields into nested data.
 
 ```html
 <form #paymentForm="ngForm" (ngSubmit)="purchase(paymentForm)">

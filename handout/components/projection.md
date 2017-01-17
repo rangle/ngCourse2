@@ -1,6 +1,6 @@
 # Projection
 
-Projection is a very important concept in Angular 2. It enables developers to build reusable components and make applications more scalable and flexible. To illustrate that, suppose we have a `ChildComponent` like:
+Projection is a very important concept in Angular. It enables developers to build reusable components and make applications more scalable and flexible. To illustrate that, suppose we have a `ChildComponent` like:
 
 ```ts
 @Component({
@@ -48,7 +48,7 @@ Then, when we use `ChildComponent` in the template:
   </rio-child>
 ...
 ```
-This is telling Angular, that for any markup that appears between the opening and closing tag of `<child>`, to place inside of `<ng-content></ng-content>`.
+This is telling Angular, that for any markup that appears between the opening and closing tag of `<rio-child>`, to place inside of `<ng-content></ng-content>`.
 
 When doing this, we can have other components, markup, etc projected here and the `ChildComponent` does not need to know about or care what is being provided.
 

@@ -1,6 +1,6 @@
 * [Introduction](./intro.md)
 * [License](handout/license.md)
-* [Why Angular 2?](handout/why_angular_2.md)
+* [Why Angular?](handout/why_angular_2.md)
 
 ---
 
@@ -44,13 +44,13 @@
 
 ---
 
-* [Bootstrapping an Angular 2 Application](handout/bootstrapping/README.md)
+* [Bootstrapping an Angular Application](handout/bootstrapping/README.md)
    * [Understanding the File Structure](handout/bootstrapping/file_structure.md)
    * [Bootstrapping Providers](handout/bootstrapping/bootstrapping_providers.md)
 
 ---
 
-* [Components in Angular 2](handout/components/README.md)
+* [Components in Angular](handout/components/README.md)
    * [Creating Components](handout/components/creating_components.md)
    * [Application Structure with Components](handout/components/app_structure_with_components.md)
        * [Passing Data into a Component](handout/components/app_structure/passing_data_into_components.md)
@@ -95,10 +95,10 @@
 
 ---
 
-* [Angular 2 Dependency Injection](handout/di/README.md)
+* [Angular Dependency Injection](handout/di/README.md)
    * [What is DI?](handout/di/what_is_di.md)
    * [DI Framework](handout/di/di_framework.md)
-   * [Angular 2's DI](handout/di/angular2/README.md)
+   * [Angular's DI](handout/di/angular2/README.md)
        * [`@Inject()` and `@Injectable`](handout/di/angular2/inject_and_injectable.md)
        * [Injection Beyond Classes](handout/di/angular2/injection_beyond_classes.md)
        * [Avoiding Injection Collisions: OpaqueToken](handout/di/angular2/avoiding_collisions_opaque_token.md)
@@ -112,7 +112,8 @@
        * [Catch and Release](handout/http/catching-rejections/catch_and_release.md)
        * [Cancel a Request](handout/http/catching-rejections/cancel_request.md)
        * [Retry](handout/http/catching-rejections/retry.md)
-   * [Search with flatmap](handout/http/search_with_flatmap.md)
+   * [Search with flatMap](handout/http/search_with_flatmap.md)
+   * [Enhancing Search with switchMap](handout/http/search_with_switchmap.md)
    * [Requests as Promises](handout/http/requests_as_promises.md)
 
 ---
@@ -176,16 +177,16 @@
     * [Nesting Form Data](handout/forms/template-driven/nested-form-data.md)
     * [Using Template Model Binding](handout/forms/template-driven/template-model-binding.md)
     * [Validating Template-Driven Forms](handout/forms/template-driven/validating_forms.md)
-  * [FormBuilder](handout/forms/form-builder/form-builder.md)
-    * [FormBuilder Basics](handout/forms/form-builder/form-builder_basics.md)
-    * [Validating FormBuilder Forms](handout/forms/form-builder/form-builder_validation.md)
-    * [FormBuilder Custom Validation](handout/forms/form-builder/form-builder_custom_validation.md)
+  * [Reactive/Model-Driven Forms](handout/forms/reactive-forms/reactive-forms.md)
+    * [FormBuilder Basics](handout/forms/reactive-forms/reactive-forms_basics.md)
+    * [Validating FormBuilder Forms](handout/forms/reactive-forms/reactive-forms_validation.md)
+    * [FormBuilder Custom Validation](handout/forms/reactive-forms/reactive-forms_custom_validation.md)
   * [Visual Cues for Users](handout/forms/ux/visual_cues_for_users.md)
 
 ---
 
 * [Modules](handout/modules/README.md)
-   * [What is an Angular 2 Module?](handout/modules/introduction.md)
+   * [What is an Angular Module?](handout/modules/introduction.md)
    * [Adding Components, Pipes and Services to a Module](handout/modules/multiple-elements.md)
    * [Creating a Feature Module](handout/modules/feature-modules.md)
    * [Directive Duplications](handout/modules/directive-duplications.md)
@@ -306,7 +307,7 @@
 
 ---
 
-* [Accessibility in Angular 2](handout/a11y/README.md)
+* [Accessibility in Angular](handout/a11y/README.md)
     * [Why Make my Application Accessible?](handout/a11y/why-a11y.md)
     * [Key Concerns of Accessible Web Applications](handout/a11y/key-concerns/README.md)
         * [Semantic Markup](handout/a11y/key-concerns/semantic-markup.md)
@@ -321,7 +322,7 @@
 
 ---
 
-* [Internationalization in Angular 2](handout/i18n/README.md)
+* [Internationalization in Angular](handout/i18n/README.md)
     * [What is the process like and how is involved?](handout/i18n/process-and-roles.md)
     * [Marking text in our templates](handout/i18n/marking-text-in-templates.md)
     * [Extracting translation text using the Angular CLI](handout/i18n/translation-text-extraction.md)

@@ -46,7 +46,7 @@ export class CreditCardModule {}
 
 Our feature `CreditCardModule` it's pretty similar to the root `AppModule` with a few important differences:
 
-- We are not importing the `BrowserModule` but the `CommonModule`. If we see the documentation of the `BrowserModule` [here](https://angular.io/docs/ts/latest/api/platform-browser/index/BrowserModule-class.html), we can see that it's re-exporting the `CommonModule` with a lot of other services that helps with rendering an Angular 2 application in the browser. These services are coupling our root module with a particular platform (the browser), but we want our feature modules to be platform independent. That's why we only import the `CommonModule` there, which only exports common directives and pipes.
+- We are not importing the `BrowserModule` but the `CommonModule`. If we see the documentation of the `BrowserModule` [here](https://angular.io/docs/ts/latest/api/platform-browser/index/BrowserModule-class.html), we can see that it's re-exporting the `CommonModule` with a lot of other services that helps with rendering an Angular application in the browser. These services are coupling our root module with a particular platform (the browser), but we want our feature modules to be platform independent. That's why we only import the `CommonModule` there, which only exports common directives and pipes.
 
 > When it comes to components, pipes and directives, every module should import its own dependencies disregarding if the same dependencies were imported in the root module or in any other feature module. In short, even when having multiple feature modules, each one of them needs to import the `CommonModule`.
 
@@ -60,7 +60,7 @@ _app/app.component.ts_
   ...
   template: `
     ...
-    <rio-credit-card></rio-credit-card>
+    <app-credit-card></app-credit-card>
   `
 })
 export class AppComponent {}
@@ -92,7 +92,7 @@ export class AppModule { }
 
 At this point we are done and our application behaves as expected.
 
-[View Example](https://plnkr.co/edit/0j1jS5PIHI8MAbZjECnK?p=preview)
+[View Example](https://plnkr.co/edit/TWUCyonAHYI5v57OuqEO?p=preview)
 
 ## Services and Lazy Loaded Modules
 
@@ -108,7 +108,7 @@ Think for example of a service that does the authentication. We want to have onl
 
 _credit-card/credit-card.module.ts_
 
-```js
+```typescript
 import { NgModule, ModuleWithProviders } from '@angular/core';
 /* ...other imports... */
 
@@ -136,7 +136,7 @@ With this new syntax, our root module is slightly different.
 
 _app/app.module.ts_
 
-```js
+```typescript
 /* ...imports... */
 
 @NgModule({
@@ -152,6 +152,6 @@ export class AppModule { }
 
 Can you spot the difference? We are not importing the `CreditCardModule` directly, instead what we are importing is the object returned from the `forRoot` method, which includes the `CreditCardService`. Although this syntax is a little more convoluted than the original, it will guarantee us that only one instance of the `CreditCardService` is added to the root module. When the `CreditCardModule` is loaded (even lazy loaded), no new instance of that service is going to be added to the child injector.
 
-[View Example](https://plnkr.co/edit/nnyE8L4ciKCL2uBruM12?p=preview)
+[View Example](https://plnkr.co/edit/YAObDCptFRdEBkFvDSJh?p=preview)
 
 As a rule of thumb, **always use the `forRoot` syntax when exporting services from feature modules**, unless you have a very special need that requires multiple instances at different levels of the dependency injection tree.

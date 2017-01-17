@@ -6,20 +6,20 @@ To cancel a request we call the `unsubscribe` function of its subscription.
 
 ```ts
 @Component({ /* ... */ })
-export class MyApp {
-	/* ... */
+export class AppComponent {
+  /* ... */
 
-    search() {
-        const request = this.searchService.search(this.searchField.value)
-          .subscribe(
-              (result) => { this.result = result.artists.items; },
-              (err) => { this.errorMessage = err.message; },
-              () => { console.log('Completed'); }
-          );
+  search() {
+    const request = this.searchService.search(this.searchField.value)
+      .subscribe(
+        result => { this.result = result.artists.items; },
+        err => { this.errorMessage = err.message; },
+        () => { console.log('Completed'); }
+      );
 
-        request.unsubscribe();
-    }
+    request.unsubscribe();
+  }
 }
 ```
 
-[View Example](http://plnkr.co/edit/9gRSaZ?p=preview)
+[View Example](http://plnkr.co/edit/XQL8v9?p=preview)

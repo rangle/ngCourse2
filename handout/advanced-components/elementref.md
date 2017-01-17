@@ -3,22 +3,21 @@
 Provides access to the underlying native element (DOM element).
 
 ```js
-import {AfterContentInit, Component, ElementRef} from '@angular/core';
+import { AfterContentInit, Component, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app',
-  template: `
-  <h1>My App</h1>
-  <pre style="background: #eee; padding: 1rem; border-radius: 3px; overflow: auto;">
-    <code>{{ node }}</code>
-  </pre>
-`
+	selector: 'app-root',
+	template: `
+    <h1>My App</h1>
+    <pre>
+      <code>{{ node }}</code>
+    </pre>
+  `
 })
-export class App implements AfterContentInit {
+export class AppComponent implements AfterContentInit {
   node: string;
 
-  constructor(private elementRef: ElementRef) {
-  }
+  constructor(private elementRef: ElementRef) { }
 
   ngAfterContentInit() {
     const tmp = document.createElement('div');
@@ -30,5 +29,4 @@ export class App implements AfterContentInit {
 
 }
 ```
-
-[View Example](https://plnkr.co/edit/j777G2HKVrT9d3n4yxUj?p=preview)
+[View Example](https://plnkr.co/edit/TY7SrMXs8XoV6AOYwn9k?p=preview)

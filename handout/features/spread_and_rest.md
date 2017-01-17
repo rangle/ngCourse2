@@ -1,14 +1,14 @@
-# Operators Spread and Rest
+# Spread Syntax (Spread Element) and Rest parameters
 
-A Spread operator allows in-place expansion of an expression for the following cases:
+A Spread syntax allows in-place expansion of an expression for the following cases:
 
 1. Array
 1. Function call
 1. Multiple variable destructuring
 
-The Rest operator works in the opposite direction of the spread operator, it collects an indefinite number of comma separated expressions into an array.
+Rest parameters works in the opposite direction of the spread syntax, it collects an indefinite number of comma separated expressions into an array.
 
-## Operator Spread
+## Spread Syntax
 
 Spread example:
 
@@ -33,10 +33,10 @@ let mapABC  = { a: 5, b: 6, c: 3};
 let mapABCD = { ...mapABC, d: 7};  // { a: 5, b: 6, c: 3, d: 7 }
 ```
 
-## Operator Rest
+## Rest parameter
 
-Rest arguments share the ellipsis like syntax of rest operators but are used
-for a different purpose. Rest arguments are used to access a variable number
+Rest parameters share the ellipsis like syntax of spread syntax but are used
+for a different purpose. Rest parameters are used to access indefinite number
 of arguments passed to a function. For example:
 
 ```js
@@ -61,9 +61,7 @@ Technically JavaScript already had an `arguments` variable set on each function
 (except for arrow functions), however `arguments` has a lot of issues, one of
 which is the fact that it is not technically an array.
 
-Rest arguments are in fact arrays. The other important difference is that
-rest arguments only include arguments not specifically named in a function
-like so:
+Rest parameters are in fact arrays which provides access to methods like `map, filter, reduce and more`. The other important difference is that rest parameters only include arguments not specifically named in a function like so:
 
 ```js
 function print(a, b, c, ...more) {
@@ -76,3 +74,5 @@ print(1, 2, 3, 4, 5);
 // 1
 
 ```
+
+_Note: Commonly spread syntax and rest parameters are referenced as Spread and Rest operators but they aren't operators according to ECMAScript specifications. Few references [MDN-Spread Syntax](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator), [MDN-Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), [ECMAScript Spec - Spread Syntax](http://www.ecma-international.org/ecma-262/6.0/#sec-array-initializer), [ECMAScript Spec - Rest Parameters](http://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions)_
