@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/rangle/ngCourse2.png?label=ready&title=Ready)](https://waffle.io/rangle/ngCourse2)
+[![Stories in Ready](https://badge.waffle.io/rangle/ngCourse2.png?label=ready&title=Ready)](https://waffle.io/rangle/ngCourse2)
 # Angular 2 Course From Rangle.io
 
 This repository contains handout materials and code for Rangle.io's AngularJS training course, focusing on Angular 2.
