@@ -1,7 +1,7 @@
-# Using ng-metadata (Angular 1.x Using 2 Style)
+# Using ng-metadata (Angular 1.x Using >= 2 Style)
 
 The ng-metadata approach is done with Angular 1.x dependencies and a few small
-helper libraries.  ng-metadata allows developers to use Angular 2 style 
+helper libraries.  ng-metadata allows developers to use Angular 2 style
 TypeScript (annotations/decorators) _without_ Angular 2.  Unfortunately
 templates are still mostly in Angular 1.x style.
 

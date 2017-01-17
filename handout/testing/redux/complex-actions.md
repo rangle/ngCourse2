@@ -118,4 +118,4 @@ testing components.
 The thing to remember is that if we follow the ActionCreatorService
 pattern, our actions are just functions on an Angular service. So we can mock
 out NgRedux (and any other dependencies) and just test it as we would any other
-Angular 2 service.
+Angular service.

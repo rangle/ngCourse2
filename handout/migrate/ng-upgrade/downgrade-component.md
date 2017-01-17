@@ -39,7 +39,7 @@ import {A2DowngradeComponent} from './components/a2-downgrade';
 // Register classic Angular 1 modules
 angular
   .module(APPNAME)
-  .directive('a2Downgrade', 
+  .directive('a2Downgrade',
     upgradeAdapter.downgradeNg2Component(A2DowngradeComponent));
-  
+
 ```

@@ -1,12 +1,12 @@
 # Components and Services
 
-ng-metadata lets us write code in an Angular 2 style. Components written
+ng-metadata lets us write code in an Angular style. Components written
 in this style are prime candidates for an eventual upgrade using ng-upgrade.
 
 ## Components
 
 Components use `@Component` from ng-metadata. Lifecycle hooks similar to those
-in Angular 2 should work with ng-metadata.
+in Angular should work with ng-metadata.
 
 ```js
 import { Component, Inject, Input, Output, EventEmitter, OnInit } from 'ng-metadata/core';
@@ -34,7 +34,7 @@ export class HeroComponent implements OnInit {
 
 ## Services
 
-Services use `@Injectable` from ng-metadata. This decorator is written preceding 
+Services use `@Injectable` from ng-metadata. This decorator is written preceding
 a TypeScript class. Angular 1 services can be added by using the `@Inject`
 decorator in the service constructor.
 

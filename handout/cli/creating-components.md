@@ -1,6 +1,6 @@
 # Creating Components
 
-The CLI can scaffold Angular 2 components through the `generate` command. To create a new component run:
+The CLI can scaffold Angular components through the `generate` command. To create a new component run:
 
 `ng generate component [component-name]`
 

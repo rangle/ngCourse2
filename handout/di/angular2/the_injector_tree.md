@@ -1,11 +1,11 @@
 # The Injector Tree
 
-Angular 2 injectors (generally) return singletons.  That is, in the previous example,
+Angular injectors (generally) return singletons.  That is, in the previous example,
 all components in the application will receive the same random
 number.  In Angular 1.x there was only one injector, and all services were
-singletons.  Angular 2 overcomes this limitation by using a tree of injectors.
+singletons.  Angular overcomes this limitation by using a tree of injectors.
 
-In Angular 2 there is not just one injector per application, there is _at least_ one injector per application.  Injectors are organized in a tree that parallels Angular 2's component tree.
+In Angular there is not just one injector per application, there is _at least_ one injector per application.  Injectors are organized in a tree that parallels Angular's component tree.
 
 Consider the following tree, which models a chat application consisting of two
 open chat windows, and a login/logout widget.

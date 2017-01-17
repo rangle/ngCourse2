@@ -1,6 +1,6 @@
 # Using Auxiliary Routes
 
-Angular 2 supports the concept of auxiliary routes, which allow you to set up and navigate multiple independent routes in a single app. Each component has one primary route and zero or more auxiliary outlets. Auxiliary outlets must have unique name within a component.
+Angular supports the concept of auxiliary routes, which allow you to set up and navigate multiple independent routes in a single app. Each component has one primary route and zero or more auxiliary outlets. Auxiliary outlets must have unique name within a component.
 
 To define the auxiliary route we must first add a named router outlet where contents for the auxiliary route are to be rendered.
 

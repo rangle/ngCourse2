@@ -56,11 +56,11 @@ Worse, in cases where it is possible to run into naming collisions in form input
 </form>
 ```
 
-A form handler would have to convert that data into a form that your API expects. Thankfully, this is something Angular 2 has a solution for.
+A form handler would have to convert that data into a form that your API expects. Thankfully, this is something Angular has a solution for.
 
 ### `ngModelGroup`
 
-When building a template-driven form in Angular 2, we can lean on the `ngModelGroup` directive to arrive at a cleaner implementation, while Angular does the heavy lifting of converting form-fields into nested data.
+When building a template-driven form in Angular, we can lean on the `ngModelGroup` directive to arrive at a cleaner implementation, while Angular does the heavy lifting of converting form-fields into nested data.
 
 ```html
 <form #paymentForm="ngForm" (ngSubmit)="purchase(paymentForm)">

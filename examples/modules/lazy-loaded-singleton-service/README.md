@@ -1,3 +1,3 @@
-### Angular 2 Documentation Example 
+### Angular Documentation Example 
 
 NgModule v.3

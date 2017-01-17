@@ -1,6 +1,6 @@
 # Testing HTTP Requests Using MockBackend
 
-To unit test our services, we don't want to make actual HTTP requests. To accomplish this, we need to mock out our HTTP services. Angular 2 provides us with a `MockBackend` class that can be configured to provide mock responses to our requests, without actually making a network request.
+To unit test our services, we don't want to make actual HTTP requests. To accomplish this, we need to mock out our HTTP services. Angular provides us with a `MockBackend` class that can be configured to provide mock responses to our requests, without actually making a network request.
 
 The configured `MockBackend` can then be injected into HTTP, so any calls to the service, such as `http.get` will return our expected data, allowing us to test our service in isolation from real network traffic.
 
@@ -106,7 +106,7 @@ Next, we `subscribe` to any incoming connections from our back-end. This gives u
 
 In our example, we want to verify that the `SearchWiki`'s search method makes a GET request to the correct URL. This is accomplished by looking at the request object we get when our `SearchWiki` service makes a connection to our mock back-end. Analyzing the `request.url` property we can see if its value is what we expect it to be. Here we are only checking the URL, but in other scenarios we can see if certain headers have been set, or if certain POST data has been sent.
 
-Now, using the `MockConnection` object we mock in some arbitrary data. We create a new `ResponseOptions` object where we can configure the properties of our response. This follows the format of a regular [Angular 2 Response class](https://angular.io/docs/js/latest/api/http/Response-class.html). Here we have simply set the `body` property to that of a basic search result set you might see from Wikipedia. We could have also set things like cookies, HTTP headers, etc., or set the `status` value to a non-200 state to test how our service responds to errors. Once we have our `ResponseOptions` configured we create a new instance of a `Respond` object and tell our back-end to start using this as a response by calling `.mockRespond`.
+Now, using the `MockConnection` object we mock in some arbitrary data. We create a new `ResponseOptions` object where we can configure the properties of our response. This follows the format of a regular [Angular Response class](https://angular.io/docs/js/latest/api/http/Response-class.html). Here we have simply set the `body` property to that of a basic search result set you might see from Wikipedia. We could have also set things like cookies, HTTP headers, etc., or set the `status` value to a non-200 state to test how our service responds to errors. Once we have our `ResponseOptions` configured we create a new instance of a `Respond` object and tell our back-end to start using this as a response by calling `.mockRespond`.
 
 It is possible to use multiple responses. Say your service had two possible GET requests - one for `/api/users`, and another `/api/users/1`. Each of these requests has a different corresponding set of mock data. When receiving a new connection through the `MockBackend` subscription, you can check to see what type of URL is being requested and respond with whatever set of mock data makes sense.
 

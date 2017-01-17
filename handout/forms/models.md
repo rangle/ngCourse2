@@ -98,7 +98,7 @@ Now the model is updated any time the form is changed.
 
 ## Alternative Syntax
 
-When dealing with a very long form, creating a variable for every field in the form can be tedious. Angular 2 provides an alternative syntax to creating a form using the `FormBuilder`.
+When dealing with a very long form, creating a variable for every field in the form can be tedious. Angular provides an alternative syntax to creating a form using the `FormBuilder`.
 
 _app/my-form.component.ts_
 ```javascript
@@ -174,5 +174,5 @@ We are using two methods of our form component: `find` and `hasError`.
 
 Let's get the instance of the `Control` we are using from the form and in this way we can do the same validations of state and errors as before.
 
-> In some docs you may find a `control` object used instead of the method `find`, like this: `group.controls['firstName']`. 
+> In some docs you may find a `control` object used instead of the method `find`, like this: `group.controls['firstName']`.
 We are avoiding this approach because it will only work when dealing with a `ControlGroup` where every control is stored in an object. If we were working with a `ControlArray`, this approach would not work because there's not a key to refer to each control. The method `find` is an abstraction that will take care of both situations and will get us the proper control back.

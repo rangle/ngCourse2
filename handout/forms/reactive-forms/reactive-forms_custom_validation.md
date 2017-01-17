@@ -1,7 +1,7 @@
 # Reactive Forms Custom Validation
 
 As useful as the built-in validators are, it is very useful to be able to include your own.
-Angular 2 allows you to do just that, with minimal effort.
+Angular allows you to do just that, with minimal effort.
 
 Let's assume we are using the same Login Form, but now we also want to test that our password has an exclamation mark somewhere in it.
 

@@ -1,6 +1,6 @@
 # Injecting Dependencies and DOM Changes
 
-In the previous example the class we were testing, `MessageComponent`, did not have any injected dependencies. In Angular 2, components will often rely on services and other classes (pipes/providers/etc.) to function, which will be injected into the constructor of the components class. When testing these components we have to inject the dependencies ourselves. Since this is an Angular-specific routine, there are no pure Jasmine functions used to accomplish this. Angular provides a multitude of functions in `@angular/core/testing` that allows us to to effectively test our components. Let's take a look at a basic component:
+In the previous example the class we were testing, `MessageComponent`, did not have any injected dependencies. In Angular, components will often rely on services and other classes (pipes/providers/etc.) to function, which will be injected into the constructor of the components class. When testing these components we have to inject the dependencies ourselves. Since this is an Angular-specific routine, there are no pure Jasmine functions used to accomplish this. Angular provides a multitude of functions in `@angular/core/testing` that allows us to to effectively test our components. Let's take a look at a basic component:
 
 *quote.component.ts*
 
@@ -94,7 +94,7 @@ describe('Testing Quote Component', () => {
 ```
 [View Example](http://plnkr.co/edit/7KZu1Yg6kBX7rksrpRHV?p=preview)
 
-Testing the `QuoteComponent` is a fairly straightforward process. We want to create a `QuoteComponent`, feed it a quote and see if it appears in the DOM. This process requires us to create the component, pass in any dependencies, trigger the component to perform an action and then look at the DOM to see if the action is what we expected. 
+Testing the `QuoteComponent` is a fairly straightforward process. We want to create a `QuoteComponent`, feed it a quote and see if it appears in the DOM. This process requires us to create the component, pass in any dependencies, trigger the component to perform an action and then look at the DOM to see if the action is what we expected.
 
 Let's take a look at how this is accomplished with the above unit test.
 
@@ -104,7 +104,7 @@ We use `TestBed.configureTestingModule` to feed in any dependencies that our com
 
 Next we use `TestBed.createComponent(QuoteComponent)` to create a *fixture* for us to use in our tests. This will then create a new instance of our component, fulfilling any Angular-specific routines like dependency injection. A fixture is a powerful tool that allows us to query the DOM rendered by a component, as well as change DOM elements and component properties. It is the main access point of testing components and we use it extensively.
 
-In the `Should get quote` test we have gotten access to our component through the `fixture.componentInstance` property. We then call `getQuote` to kickstart our only action in the `QuoteComponent` component. We run the test when the fixture is stable by using its `whenStable` method which will ensure the promise inside the `getQuote()` has resolved, giving the component a chance to set the quote value. We call `fixture.detectChanges` to keep an eye out for any changes taking place to the DOM, and use the `fixture.debugElement.nativeElement` property to get access to those underlying DOM elements. 
+In the `Should get quote` test we have gotten access to our component through the `fixture.componentInstance` property. We then call `getQuote` to kickstart our only action in the `QuoteComponent` component. We run the test when the fixture is stable by using its `whenStable` method which will ensure the promise inside the `getQuote()` has resolved, giving the component a chance to set the quote value. We call `fixture.detectChanges` to keep an eye out for any changes taking place to the DOM, and use the `fixture.debugElement.nativeElement` property to get access to those underlying DOM elements.
 
 Now we can check to see if the DOM rendered by our `QuoteComponent` contains the quote that we mocked in through the `QuoteService`. The final line attempts to assert that the DOM's div tag contains the mocked quote 'Test Quote' inside. If it does, then our component passes the test and works as expected; if it doesn't, that means our component is not outputting quotes correctly.
 

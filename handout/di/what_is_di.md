@@ -100,4 +100,4 @@ However there is still a problem.  How can the instantiation of `Bun`,
 `Patty` and `Toppings` best be managed?
 
 This is where dependency injection as a _framework_ can benefit programmers, and
-it is what Angular 2 provides with its dependency injection system.
+it is what Angular provides with its dependency injection system.
