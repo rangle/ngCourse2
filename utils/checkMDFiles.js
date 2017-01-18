@@ -49,3 +49,18 @@ if (orphans.size === 0) {
   console.log(`Cannot find links in SUMMARY.md for ${orphans.size} Markdown files:`);
   console.log(orphans);
 }
+
+// Delete orphaned files if script is run with --clean flag
+if (process.argv[2] === "--clean" && orphans.size > 0) {
+  console.log("\n");
+  console.log("--------------------------------");
+  console.log("Cleaning Orphaned Markdown Files");
+  console.log("--------------------------------");
+  console.log("Deleting orphaned Markdown files...\n");
+  const orphanArray = Array.from(orphans);
+  orphanArray.forEach(filePath => {
+    fs.unlink(filePath);
+    console.log(`  Deleted: ${filePath}`);
+  });
+  console.log(`\n${orphanArray.length} Markdown files deleted`);
+}

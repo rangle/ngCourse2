@@ -23,4 +23,9 @@ const getFilesIn = (dir, filelist = []) => {
 };
 
 module.exports = {
-  isMarkdownFile, notREADME, fileDNE, setDifference, getFilesIn };
+  isMarkdownFile,
+  notREADME,
+  fileDNE,
+  setDifference,
+  getFilesIn
+};
