@@ -2,7 +2,6 @@
 const fs = require("fs");
 const {
   isMarkdownFile,
-  notREADME,
   fileDNE,
   setDifference,
   getFilesIn
@@ -38,7 +37,7 @@ console.log("--------------------------------------------");
 
 const allMDFiles = getFilesIn("handout")
   .filter(isMarkdownFile)
-  .filter(notREADME);
+  .filter(path => path !== 'handout/README.md');
 const orphans = setDifference(allMDFiles, filePaths);
 
 // Report orphaned Markdown files
