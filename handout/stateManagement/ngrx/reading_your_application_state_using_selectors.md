@@ -52,13 +52,11 @@ import {AppState} from '../models';
 @Injectable()
 export class CounterService {
 
-  constructor(private store: Store<AppState>) {
-
-  }
+  constructor(private store: Store<AppState>) {}
 
   getCurrentValue(): Observable<number> {
     return this.store.select(appState => appState.counter.currentValue)
-      .filter(currentValue => Boolean(currentValue));
+      .filter(Boolean);
   }
 
 }
@@ -67,4 +65,5 @@ export class CounterService {
 Because `select()` returns an `Observable`, the `getCurrentValue()` method also 
 applies a `filter()` to ensure that subscribers do not receive any *falsy* 
 values. This greatly simplifies the code and templates in your components, since
-they don't have to repeatedly consider the falsy case everywhere the value is used.
+they don't have to repeatedly consider the falsy case everywhere the value is 
+used.

@@ -211,21 +211,22 @@
 
 ---
 
-* [Redux and @ngrx](handout/redux/README.md)
-   * [Adding @ngrx to your Project](handout/redux/adding_ngrx_to_your_project.md)
-   * [Defining your Main Application State](handout/redux/defining_your_main_application_state.md)
-   * [Example Application](handout/redux/example_application.md)
-   * [Reading your Application State using Selectors](handout/redux/reading_your_application_state_using_selectors.md)
-   * [Actions](handout/redux/actions.md)
-   * [Modifying your Application State by Dispatching Actions](handout/redux/modifying_your_application_state_by_dispatching_actions.md)
-   * [Reducers and Pure Functions](handout/redux/reducers_and_pure_functions.md)
-   * [Reducers as State Management](handout/redux/reducers_as_state_management.md)
-   * [Creating your Application's Root Reducer](handout/redux/creating_your_applications_root_reducer.md)
-   * [Configuring your Application](handout/redux/configuring_your_application.md)
-   * [Implementing Components](handout/redux/implementing_components.md)
-   * [Component Architecture](handout/redux/component_architecture.md)
-   * [Side Effects](handout/redux/side_effects.md)
-   * [Getting More From Redux and @ngrx](handout/redux/getting_more_from_redux_and_ngrx.md)
+* [State Management](handout/stateManagement/README.md)
+   * [Redux and @ngrx](handout/stateManagement/ngrx/README.md)
+      * [Adding @ngrx to your Project](handout/stateManagement/ngrx/adding_ngrx_to_your_project.md)
+      * [Defining your Main Application State](handout/stateManagement/ngrx/defining_your_main_application_state.md)
+      * [Example Application](handout/stateManagement/ngrx/example_application.md)
+      * [Reading your Application State using Selectors](handout/stateManagement/ngrx/reading_your_application_state_using_selectors.md)
+      * [Actions](handout/stateManagement/ngrx/actions.md)
+      * [Modifying your Application State by Dispatching Actions](handout/stateManagement/ngrx/modifying_your_application_state_by_dispatching_actions.md)
+      * [Reducers and Pure Functions](handout/stateManagement/ngrx/reducers_and_pure_functions.md)
+      * [Reducers as State Management](handout/stateManagement/ngrx/reducers_as_state_management.md)
+      * [Creating your Application's Root Reducer](handout/stateManagement/ngrx/creating_your_applications_root_reducer.md)
+      * [Configuring your Application](handout/stateManagement/ngrx/configuring_your_application.md)
+      * [Implementing Components](handout/stateManagement/ngrx/implementing_components.md)
+      * [Component Architecture](handout/stateManagement/ngrx/component_architecture.md)
+      * [Side Effects](handout/stateManagement/ngrx/side_effects.md)
+      * [Getting More From Redux and @ngrx](handout/stateManagement/ngrx/getting_more_from_redux_and_ngrx.md)
 
 ---
 
