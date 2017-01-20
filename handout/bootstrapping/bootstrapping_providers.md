@@ -21,4 +21,4 @@ import { GreeterService } from './greeter.service';
 })
 export class AppModule { }
 ```
-[View Example](https://plnkr.co/edit/bcpliM?p=preview)
+[View Example](https://embed.plnkr.co/W8CkQQ62pIjHFr7BqVjX/)
