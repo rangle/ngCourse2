@@ -108,6 +108,6 @@ For example, when the user navigates away you could have a dialog service ask th
 ```
 
 
-[View Example](http://plnkr.co/edit/w1NCkGs0Tv5TjivYMdvt?p=preview)
+[View Example](http://plnkr.co/edit/sRNxfXsbcWnPU818aZsu?p=preview)
 
 [See Official Documentation for Route Guards](https://angular.io/docs/ts/latest/guide/router.html#!#guards)

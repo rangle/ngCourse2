@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
   selector: 'app',
   template: `
     <nav>
-      <a [routerLink]="['/component-one']">Component One</a>
-      <a [routerLink]="['/component-two']">Component Two</a>
+      <a routerLink="/component-one">Component One</a>
+      <a routerLink="/component-two">Component Two</a>
     </nav>
 
     <router-outlet></router-outlet>
@@ -22,6 +22,6 @@ export class AppComponent {}
 
 In the above example, the component corresponding to the route specified will be placed after the `<router-outlet></router-outlet>` element when the link is clicked.
 
-[View Example](https://plnkr.co/edit/odsZq1pL43HtWcUr0taJ?p=preview)
+[View Example](https://plnkr.co/edit/OHfytJquXKm8jvSe2T9Y?p=preview)
 
 > View examples running in full screen mode to see route changes in the URL.
