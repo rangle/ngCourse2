@@ -5,7 +5,7 @@ Now that we've marked our text, let's download an Angular CLI tool called `ng-xi
 Once this is done in your templates,  you will need to install the CLI and it's platform-server peer dependency if you haven't already and then execute the `ng-x18n` command to generate a translation file:
 
 ```
-> npm install @angbular/compiler-cli @angular/platform-server --save
+> npm install @angular/compiler-cli @angular/platform-server --save
 > ./node_modules/.bin/ng-xi18n
 ```
 
