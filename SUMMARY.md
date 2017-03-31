@@ -4,6 +4,11 @@
 
 ---
 
+* [The Architect's Guide to Angular](handout/architect/README.md)
+  * [Creating Functional Forms](handout/architect/functional_forms.md)
+
+---
+
 * [EcmaScript 6 and TypeScript Features](handout/features/README.md)
   * [ES6](handout/features/es6.md)
        * [Classes](handout/features/classes.md)
