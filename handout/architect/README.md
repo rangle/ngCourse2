@@ -27,7 +27,7 @@ you are interested in contributing, please [get in
 touch][contact-address]: as always, we are smarter together than any
 one of us is alone.
 
-Be the first to know when we release the next chapter of the Architect’s Guide to Angular. [http://info.rangle.io/architect-guide-angular-sign-up]
+[Be the first to know when we release the next chapter of the Architect’s Guide to Angular.][sign-up-page]
 
 [angular-site]: https://angular.io/
 [book-arora]: https://www.amazon.com/Angular-2-Example-Chandermani-Arora/dp/178588719X/
@@ -37,3 +37,4 @@ Be the first to know when we release the next chapter of the Architect’s Guide
 [book-novak]: https://www.amazon.com/Unraveling-Angular-Ultimate-Beginners-Complete/dp/1539061477/
 [contact-address]: https://rangle.io/javascript-development-inquiry/
 [rangle-site]: http://rangle.io
+[sign-up-page]: http://info.rangle.io/architect-guide-angular-sign-up
