@@ -9,7 +9,9 @@
     - Leverage observable operators
     - Merge and transform data in streams rather than direct data mutation
     - Don’t prematurely subscribe
-    - Leverage `async` pipe where appropriate
+    - Leverage `async` pipe when data in the stream represents data to be consumed
+      - When data property access is required, map out into a separate stream
+      - When access to multiple properties is required, better to simply subscribe
 1. Using the raw `Http` service
     - Avoid using `Http` in components
         - Use services instead
@@ -21,39 +23,37 @@
     - DI may behave differently than expected
     - Lazy loaded module providers will not be available until the module has been loaded in
     - Lazy loaded module providers will not be globally available but rather scoped to the lazy module
-    - Prefer to provide at the root module level
+    - Prefer to provide services at the root module level
     - Leverage `forRoot` / `forChild` configuration
 1. Confusing the source of truth between router and application state
     - State transitions should be links or router navigation calls
     - Hydrate / mutate state based on router events
         - Dispatch actions to store accordingly
-1. Excessive encapsulation of child components
-    - Use content projection where possible
-        - Keep a flatter component hierarchy
-            - Especially with forms
-    - Make more generic wrapper components
-    - Avoid excessive `@Input`/`@Output` chaining
+1. Not using content projection
+    - Make generic wrapper components
+    - Use content projection when data encapsulation is not required
+        - Keeps a flatter component hierarchy
+        - Especially important for forms
+        - Avoids excessive `@Input`/`@Output` chaining
 1. Using model-driven forms straight away
     - Template-driven forms require less boilerplate, setup, and mental overhead
         - More composable and reusable assuming a flat form hierarchy
             - Reference previous point about content projection and flat form hierarchy
         - Primary concern is the data model itself
-    - Model-driven forms tie a component to a specific schema or config
-        - More useful when working with complex dynamically generated forms
-            - Form models necessarily tend to be more generic
-            - Primary concern is the schema or display model of the form rather than the data model
+    - Model-driven forms more appropriate for working with complex dynamically generated forms
+        - Forms are generated based on some sort of schema
+        - Primary concern is the display model of the form rather than the data model
         - Making composable model-driven form components requires more work
             - Passing `FormControl` references or implementing the `ControlValueAccessor` interface
 1. Using redux directly inside of components
     - Select state using selector services
     - Use action creator services to dispatch actions
-1. Direct DOM manipulation
-    - Prefer components or directives to achieve dynamic look and feel
-        - Prefer CSS for styling
-    - For dynamic templates, prefer structural directives
-    - Use `Renderer` if really necessary
-    - Only use `ElementRef` and DOM as a last resort
-        - Understand the caveats
+1. Direct DOM manipulation with `ElementRef`
+    - Using `nativeElement` tightly couples rendering to the DOM making web worker and server-side difficult or impossible
+      - Prefer data-binding, components, or directives to achieve dynamic look and feel
+      - CSS should be the first choice for dynamic styling/layout
+      - For dynamic templates, prefer structural directives
+      - Use `Renderer2` if lower-level DOM access is required
 1. Testing with `TestBed` prematurely
     - `TestBed` is the more advanced case
     - Prefer simple class instantiation w/ mocked dependencies
@@ -87,6 +87,10 @@
     - Import specific constructs and operators from their respective paths for better tree-shaking i.e.
         - `{ Observable } from rxjs/observable`
         - `rxjs/operators/add/map`
+1. Misunderstanding observables
+    - `Http` returns a cold observable. It will not initiate a request until something has subscribed to it.
+    - Because cold observables are idempotent, all observable operators will be evaluated for every subscription to a given stream
+      - Multiple subscriptions to an `Http` returned observable will initiate multiple requests
 1. Creating one monolithic module
     - Create small domain or feature specific modules
 1. Using the `public` keyword
