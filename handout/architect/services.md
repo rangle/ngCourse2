@@ -1,14 +1,18 @@
 # Services
 
-To understand the real value in services, it’s probably better to see some of the problems they solve, first.
-
-Let’s have a look at some code that might feel familiar.  
-For now, we’ll focus on a component that shows blog posts that the user is allowed to see. The first pass at “getting it done” might look like the following.
+The best way to to understand the value of services
+is to look at the problem they are meant to solve.
+We'll start with some code that might feel familiar:
+a component that shows the blog posts a user is allowed to see.
+The first pass might look like this:
 
 ```typescript
-@Component({ /* ... */}) class BlogPage implements OnInit {
+@Component({ /* ... */})
+class BlogPage implements OnInit {
   private blogs;
+
   constructor (private http: Http) {}
+
   ngOnInit () {
     this.http
       .get(`/api/blogs/`)
@@ -32,22 +36,41 @@ For now, we’ll focus on a component that shows blog posts that the user is all
     this.blogs = filteredBlogs;
   }
 
-  private sortBlogsByDate (direction) { this.blogs.sort(/* ... */); }
+  private sortBlogsByDate (direction) {
+    this.blogs.sort(/* ... */);
+  }
 }
 ```
 
-That block of code could certainly get you over the finish-line. It also looks like that HTML component is doing way too much, and knows too much about your system. What happens in a couple of months, when it needs to be fixed? What about extensions? Reuse? How do you test it? How many places in your app are going to need the URLs modified, or the data extraction modified, when the API changes?
+This block of code will certainly get us over the finish line,
+but that HTML component is doing too much,
+and knows too much about the overall system.
+What happens in a couple of months when it needs to be fixed?
+What about extensions?
+Reuse?
+How do you test it?
+How many places in the app will URLs need to be modified when the API changes?
+And what about the date extraction?
 
-In his book on refactoring, Martin Fowler suggested a technique called "Extract Method". His point was that moving chunks of code to their own descriptively named methods would help make the class easier to read and work with.
+In his book *Refactoring*,
+Martin Fowler described a technique called "Extract Method".
+It is based on the idea that
+moving chunks of code to their own descriptively-named methods
+helps make the class easier to read and work with.
+Let's apply that to our code:
 
 ```typescript
-@Component({ /* ... */ }) class BlogPage implements OnInit {
+@Component({ /* ... */ })
+class BlogPage implements OnInit {
   private user;
   private blogs;
+
   constructor (private http: Http) {}
+
   ngOnInit () {
     this.loadPage();
   }
+
   private loadPage () {
     this.getBlogs().subscribe(() => {
       if (this.blogs == null) { return; }
@@ -57,47 +80,97 @@ In his book on refactoring, Martin Fowler suggested a technique called "Extract 
       });
     });
   }
+
   private getBlogs () {
     return this.http.get('/api/blogs/')
       .map(response => response.json())
       .do(data => this.blogs = data.blogs);
   }
+
   private getUser () {
     return this.http.get('/api/users/me/')
       .map(response => response.json())
       .do(user => this.user = user);
   }
-  private filterBlogsByAccess (user) { /* this.blogs = ... */ }
-  private sortBlogsByDate (direction) { /* this.blogs =  ... */ }
+
+  private filterBlogsByAccess (user) {
+    /* this.blogs = ... */
+  }
+
+  private sortBlogsByDate (direction) {
+    /* this.blogs =  ... */
+  }
 }
 ```
 
-To my eye, this seems a little bit easier to follow. I’d like to imagine that Fowler would agree. I've got a `loadPage` method that worries itself about the concept of loading and filtering data, and it lets the other sections of the class worry about the details of what I want to do, so that `loadClass` can focus on the concepts, instead.
-With some of the noise cleared out of the way, it becomes easier to see that I can optimize away the second call for data, if `this.blogs` is null.
+This is a little easier to follow,
+and we'd like to imagine that Fowler would agree.
+The `loadPage` method is responsible for loading and filtering data,
+and lets the other sections of the class worry about
+the details of who's allowed to see what and the order in which items should be displayed,
+so that `loadClass` can focus on the concepts.
+With some of the noise cleared out of the way,
+it becomes easier to see that we can optimize away the second call for data
+if `this.blogs` is null.
 
-There are still some real problems with this code, though. While most of them have gotten better, some have actually gotten worse.
+There are still problems with this code,
+though,
+and while most of them have gotten better,
+some have actually gotten worse.
+The most important is the security concern.
+All of the code thus far has been mutating `this.blogs` in place,
+and waiting for the `user` to be retrieved
+so that the list of blogs could be filtered.
+Given that we keep referring to `this.blogs` as the place to store view-friendly data,
+though,
+this means that the unfiltered list of blogs is likely being shown while we're waiting.
+This problem is even harder to spot in the second version of the code than the first.
+More generally,
+the second version of the code is both easier and harder to maintain
+for exactly that reason.
 
-Have you spotted the likely security concern, yet? All of the code thusfar has been mutating `this.blogs` in place, and waiting for the `user` to be retrieved so that the list of blogs could be filtered. But that means the unfiltered list of blogs is likely being shown, while we’re waiting, given that we keep referring to `this.blogs` as the place to store view-friendly data. This is even harder to spot in the second example than the first. The code here is both easier and harder to maintain, for exactly that reason.
+Even without that security problem,
+the second version has other problems that should concern us.
+You may already be shaking your head at the violations of the **Single Responsibility Principle**.
+This holds that a component should have exactly one reason to change,
+or equivalently,
+that only the head of one department should be bugging you
+for any particular piece of code to be fixed or modified.
+Angular Components exist for the sole purpose of showing the data on the screen
+and reacting to users interacting with that view.
+Anything beyond that one purpose is almost always
+beyond what the class should be responsible for.
 
-Even without the security problem, there are other troubles this code has. If you are a fan of Robert ”Uncle Bob” Martin, you may already be shaking your head at the violations of the **Single Responsibility Principle**. A component should have exactly one reason to change; only the head of one department should be bugging you for that code to be fixed or modified. Angular Components exist for the sole purpose of showing the data on the screen and reacting to users interacting with that view. Anything beyond that one purpose is almost always beyond what the class should be responsible for.
+This code is still not easy to test, either.
+All of the methods are private
+in order to protect the data being changed by outside parties.
+That also means that they cannot be used for testing by outside libraries.
+As a result,
+the only way to test this class is
+to instantiate it with a real or fake HTTP service,
+insert it onto the page,
+and test that it produces the expected view.
+Whenever there are this many intermediate steps that should be separately testable,
+it is another sign that we are probably breaking the Single Responsibility Principle.
 
-This code is still not easily testable, either. All of the methods are private, to protect the data being changed by outside parties. That also means that they are protected from testing by outside libraries. The only way to test this class is to instantiate it with a real or fake HTTP service, insert it onto the page, and test that you see the expected data. If we feel like there are a lot of steps in between that should be separately testable, then that is another sign that we are likely breaking the aforementioned **SRP**.
-
-Let’s try one more refactoring. This time, we’ll apply Fowler’s technique on single functions, instead of methods.
+Let's try one more refactoring.
+This time, we'll apply "Extract Method" to single functions
+instead of entire methods:
 
 ```typescript
+// Get data from server.
 const fetchJSON = (http, url) =>
   http.get(url).map(response => response.json());
 
-// returns a new array filled with old values
+// Return a new array filled with old values.
 const filterByUserAccess = user => blogs =>
   blogs.filter(/* ... */);
 
-// returns new array filled with old values
+// Return new array filled with old values.
 const sortBlogsByDate = direction => blogs =>
   blogs.slice().sort(/* ... */);
 
-// load user first, instead, to prevent leaking data
+// Load user first to prevent data leakage.
 const fetchFilteredBlogs = http => {
   const userStream = fetchJSON(http, `/api/users/me/`);
   const blogStream = fetchJSON(http, `/api/blogs/`)
@@ -107,9 +180,12 @@ const fetchFilteredBlogs = http => {
   return filterStream;
 };
 
-@Component({ /* ... */ }) class BlogPage implements OnInit {
+@Component({ /* ... */ })
+class BlogPage implements OnInit {
   private blogs = [];
+
   constructor (private http: Http) {}
+
   ngOnInit () { this.loadPage(this.http); }
 
   private loadPage (http) {
@@ -120,24 +196,50 @@ const fetchFilteredBlogs = http => {
 }
 ```
 
-This time the component is absolutely tiny. It knows nothing about users or user access, or URLs. The function that is responsible for building the filtered stream of blogs knows nothing about views, so there is never any danger of showing unauthorized blogs on the page, while waiting. In fact, most of the stream building can be flattened, now that we aren’t mixing view code with data code, and we can see that it’s barely possible for us to have the same error we previously did.
+This time the component is almost tiny:
+it knows nothing about users, or user access, or URLs.
+The function that is responsible for building the filtered stream of blogs
+knows nothing about views,
+so there is never any danger of showing unauthorized blogs on the page
+while waiting for data to load.
+In fact,
+most of the stream building can be flattened now that we aren't mixing view code with data code,
+and we can see that it's barely possible for us to have the same error we previously did.
 
-The functions are all safe to be exported and tested, as they aren't tied to the functioning of any one class or any one class instance, so having access to them shouldn’t corrupt the behaviour of any running class instance. Each of these functions is built to take input and return output, without mutating the input or otherwise changing the outside world. Functional programmers call these “pure” functions. We can also see that there are a bunch of different purposes for these functions: some of them are very low-level, accessing and parsing JSON data; some of them operate at a business level, working with data that is important to the business and the product; some of them are focused on helping the view do its job.
+The functions we have created are all safe to be exported and tested:
+they aren't tied to the function of any one class or class instance,
+so having access to them shouldn't corrupt the behavior of any running class instance.
+What's more important is that these are _pure_ functions,
+i.e.,
+they don't mutate their input or otherwise change the outside world.
+With our code refactored in this way,
+we can see that these functions work at different conceptual levels.
+Some of them are very low-level, accessing and parsing JSON data,
+while others work at a business level with data that is important to the product,
+and others still exist to help the view do its job.
 
-There are really only a couple of problems left. The first is that I don’t want to have to write these helper functions on every page. If they’ve now been made safe for reuse, I want to take advantage of that. Once I do that, I don’t want to manually pass a lot of data back and forth, between a lot of functions and objects; I would like a system that makes that aspect easier than passing `http` all the way through.
+But there are still a couple of problems we should address.
+The first is that if these functions really are safe for re-use,
+we don't want to write them afresh for each page.
+The second is that once we do that,
+we don't want to pass a lot of data back and forth manually
+between all of the little functions we are composing to make our system.
+Instead,
+we want a system that takes care of those details---something
+that is easier than passing `http` all the way through.
 
 Both of these problems can be solved via **Services**.
-
-Let’s have a look.
+Here's an example:
 
 ```typescript
-// other dependenices ...
 import {Injectable} from '@angular/core';
 import User from './entities/user';
 
 @Injectable()
 export class UserService {
+
   constructor (private http: Http) {}
+
   getUser () {
     return this.http.get('/api/users/me/')
       .map(response => response.json())
@@ -146,17 +248,22 @@ export class UserService {
 }
 ```
 
-I’m using `@Injectable` to make a service of my own. The size of my service is miniscule. And this service is clearly about doing one thing: converting user data from the server into some formally typed data that the client is going to use.
+The `@Injectable` decorator tells Angular that we are making a service of our own.
+This particular service is intentionally minuscule,
+because it is clearly doing just one thing:
+converting user data from the server into some formally-typed data
+that the client is going to use.
 
+Let's create another:
 
 ```typescript
-// ... dependencies ...
 export const filterByUserAccess = user => blogs =>
   blogs.filter(/* ... */);
 
 
 @Injectable()
 export class AuthorizedBlogService {
+
   constructor (
     private blogService: BlogService,
     private userService: UserService,
@@ -172,20 +279,32 @@ export class AuthorizedBlogService {
 }
 ```
 
-My new `AuthorizedBlogService` can import lower level services, like the services that load blogs and users. Instead of worrying about low level concerns like HTTP, it can focus on business level concerns, like who is allowed to see which content. It should be crystal clear what each of these services is doing. Moreover, if the lower-level HTTP services want to implement caching, the higher-level services shouldn’t have to know about it, and should also be able to create their own, on top.
+This new `AuthorizedBlogService` can import lower level services,
+like the services that load blogs and users.
+Instead of worrying about low-level concerns like HTTP,
+it can then focus on business-level concerns
+like who is allowed to see which content.
 
+It should be clear to even a casual reader what each of these services is doing.
+Moreover,
+if the lower-level HTTP services want to implement caching, logging, or anything else,
+the higher-level services don't have to know about it,
+and can create their own independent improvements on top.
 
-When we come back to the component, we find that it's just as straightforward as we left it the last time.
+When we come back to the component,
+we find that it's just as straightforward as we left it:
 
 ```typescript
-// ... dependencies ...
-
 export const sortBlogsByDate = dir => blogs =>
   blogs.slice().sort(/* ... */);
 
-@Component({ /* ... */ }) class BlogPage implements OnInit {
+@Component({ /* ... */ })
+class BlogPage implements OnInit {
+
   private blogs = [];
+
   constructor (private blogService: AuthorizedBlogService) {}
+
   ngOnInit () { this.loadPage(); }
 
   private loadPage () {
@@ -196,13 +315,25 @@ export const sortBlogsByDate = dir => blogs =>
 }
 ```
 
-I could even go so far as to make a service for front-end functionality, and just use methods of that helper service for sorting or filtering end-user data.
+We could even go so far as to make a service for front-end functionality,
+and just use the methods of that helper service for sorting or filtering data.
+Whether we take that last step or now,
+the payoff is that the view-based component is browser testable,
+while nearly all of the other code can now be unit tested outside of the browser.
 
-The view-based component is browser testable; nearly all of the other code is simply unit testable, now.
+The real world may not be quite so cut and dry,
+but that is even more reason to keep code separated along these boundaries
+right from the start of the project.
+As programmers become more comfortable with service-based architectures,
+that could well become a common way to handle complexity.
 
-The real world may not be quite so cut and dry, but that is even more reason to consider keeping code separated along these boundaries early in the project.
-
-This pattern of automatically passing dependencies into objects that request them is called **Dependency Injection**. It's a powerful tool, and one that Angular is specifically built around. This comes with advantages and weaknesses, but for the purpose of this section, be sure to take advantage of Angular’s injector. There will be other chapters dedicated to removing some of the weaknesses of injector systems.
-
-With all of that said, you might wonder when *not* to use services, if they are so useful. When it comes to Angular, the answer is pretty straightforward: if you aren’t writing a Component, a Filter, a Module, or one of a few other specific types, you are likely writing something that could be a service (or could be extracted into one).
-
+This pattern of automatically passing dependencies into objects that request them
+is called **Dependency Injection**.
+It's a powerful tool,
+and one that Angular is specifically built around.
+It does have some pitfalls,
+which we will discuss in a later chapter,
+but as a general rule,
+if you aren't writing a Component, a Filter, a Module,
+or one of a few other specific types,
+what you are creating almost certainly can and probably should be turned into a service.
