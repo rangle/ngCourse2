@@ -119,7 +119,7 @@ and can easily be *memoized* to improve performance.
 Observables and data slicing can be adopted regardless of whether we use ngrx,
 angular-redux
 or bare services to manage state.
-When woking with Angular services,
+When working with Angular services,
 for example,
 we can replicate a Redux store-style API using `BehaviorSubject`.
 The example below shows how to do this for a `TodoStore` service
@@ -192,6 +192,14 @@ subscribing to the base observable is likely a better option.
 However,
 this is often also a sign that the code should be refactored
 so that each component is only coupled to a small slice of the application's state.
+And keep in mind that just as promises beget promises,
+observables beget observables:
+any operators or transformations that occurred in a base observable
+are passed on to any subsequent "child" or "branch" observables.
+
+FIXME: Is it worth providing an example of what attempting to use the
+async pipe with multiple properties could make your templates look
+like?
 
 ## 3. Using the Raw `Http` Service
 
@@ -251,6 +259,12 @@ but as a rule of thumb:
 
 ## 5. Confusing the Source of Truth Between Router and Application State
 
+It is common (or at least tempting) for code to try to manage state and router events
+as two separate things
+rather than treating state changes like "selecting an item"
+as a route transition to being with.
+This is an unnecessary complication,
+since
 Angular's router allows us to define a client-side routing structure
 and manages transitions between those routes,
 but it does not manage or mutate our application's state.
@@ -325,17 +339,21 @@ on the Rangle.io blog.
 
 ## 7. Using Model-Driven Forms Straight Away
 
-FIXME: Philip?
+Template-driven forms require less boiletplate, setup, and mental overhead than model-driven forms.
+When we rely on templates,
+wedon't need to configure a back-end model,
+but insteadcan simply compose the form in your template.
+Easy composition of these template-driven forms is facilitated by leveraging content projection
+so that form logic and state can be handled at the container level.
 
-- Template-driven forms require less boilerplate, setup, and mental overhead
-    - More composable and reusable assuming a flat form hierarchy
-        - Reference previous point about content projection and flat form hierarchy
-    - Primary concern is the data model itself
-- Model-driven forms more appropriate for working with complex dynamically generated forms
-    - Forms are generated based on some sort of schema
-    - Primary concern is the display model of the form rather than the data model
-    - Making composable model-driven form components requires more work
-        - Passing `FormControl` references or implementing the `ControlValueAccessor` interface
+That said,
+model-driven forms are more appropriate for working with complex dynamically generated forms.
+When `ngIf` and `ngFor` aren't enough,
+or become unreadable and unmaintainable,
+we have probably entered territory where model-driven forms are
+a more appropriate solution.
+
+I don't know if @smithad15 would have anything to add, but I think those are the main points
 
 ## 8. Using Redux Directly Inside Components
 
@@ -343,7 +361,7 @@ We can divide components into [Presentational and Container Components](https://
 Presentational components are responsible for how things look:
 they receive data through `@Input` and handle events by invoking callbacks
 or by dispatching events through `@Output`.
-Container components are responsible to defining how things work,
+Container components are responsible for defining how things work,
 i.e., for fetching data and updating state.
 
 When we are using Redux,
