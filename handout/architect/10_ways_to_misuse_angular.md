@@ -1,9 +1,23 @@
 # Ten Ways to Misuse Angular
 
-## 1. Ignoring a component’s host element
-When creating Angular components you should use the host element as a wrapper instead of creating your own wrapper elements.
+Any chainsaw that can cut down a tree can also take off a leg if used carelessly.
+Equally,
+any framework as powerful as Angular will inevitably contain traps for the unwary.
+In this chapter,
+we look at ways in which Angular is sometimes mis-used
+and what developers should do instead.
 
-The card component below renders a heading and a paragraph. In order to control their layout we need a wrapper element. You might be tempted to wrap them in a `<div>`, but that is not required. Angular will render this with a `<my-card>` wrapper element. This is called a host element.
+## 1. Ignoring a Component's Host Element
+
+When creating Angular components we should use the host element as a wrapper
+instead of creating our own wrapper elements.
+For example,
+the card component below creates a heading and a paragraph.
+We need a wrapper element in order to control their layout;
+it's tempting to wrap them in a `<div>`,
+but that is not required
+because Angular will render the combination with a `<my-card>` wrapper element.
+This is called a *host element*.
 
 ```ts
 import { Component } from '@angular/core';
@@ -17,10 +31,13 @@ import { Component } from '@angular/core';
   </p>
   `
 })
+
 export class CardComponent { title = 'Title of card'; }
 ```
 
-We can style the host element by targeting it with the `:host` selector in the component's CSS file. Alternatively you can attach CSS classes to it using [host metadata](https://angular.io/docs/ts/latest/cookbook/ts-to-js.html#!#host-metadata).
+We can style the host element by targeting it with the `:host` selector in the component's CSS file.
+Alternatively,
+we can attach CSS classes to it using [host metadata](https://angular.io/docs/ts/latest/cookbook/ts-to-js.html#!#host-metadata).
 
 ```ts
 @Component({
@@ -28,58 +45,88 @@ We can style the host element by targeting it with the `:host` selector in the c
   host: { class: 'db ma0 lh-title' },
   ...
 })
+
 export class CardComponent { title = 'Title of card'; }
 ```
 
-We can use host metadata to bind to all properties and events of the host element. Alternatively, you can use the `@HostBinding` and `@HostListener` decorators.
-
-### Metadata vs decorators
-Host metadata and `@Host*` decorators can generally be used interchangeably however, there are some subtle differences. Consider the following scenario:
+Host metadata allows us to bind to all properties and events of the host element.
+but so do the `@HostBinding` and `@HostListener` decorators.
+However,
+there are some subtle differences between the two.
+Consider the following scenario:
 
 ```ts
 @Component({
   selector: 'my-foo',
   host: { 'class': 'navy' },
 })
+
 export class FooComponent {}
 
 @Component({
   selector: 'my-bar',
 })
+
 export class BarComponent {
   @HostBinding('class') className = 'navy';
 }
 ```
 
-and somewhere later in our app you use them as:
+Somewhere later in our application, we use them like this:
 
 ```html
 <my-foo class="underline"></my-foo>
 <my-bar class="underline"></my-bar>
 ```
 
-`<my-foo>` will render with `class="underline navy"` however, `<my-bar>` will render with `class="navy"`. This is because `@HostBinding` only supports binding of values. Whereas, host metadata supports both binding and static values. In this case we are using a static value. Therefore, it merges what we have defined in the metadata with what is defined on the component. If we had bound class to a component property then they would behave the same:
+`<my-foo>` will render with `class="underline navy"`,
+but `<my-bar>` will render with `class="navy"` alone.
+This happens because `@HostBinding` only supports binding of values,
+while host metadata supports both binding and static values.
+Since we are using a static value in this case,
+Angular merges what we have defined in the metadata with what is defined on the component.
+If we had bound the class to a component property instead,
+the two examples would behave the same way:
 
 ```ts
 @Component({
   selector: 'my-foo',
   host: { '[class]': 'className' },
 })
+
 export class FooComponent {
   className = 'navy';
 }
 ```
 
+## 2. Avoiding Observables
 
+Angular exposes HTTP requests, form events, route params, and many other things as observables
+because they are a flexible, maintainable way to manage interactions between different pieces of code.
+When working with Angular,
+we should use observables as much as possible,
+both because of their intrinsic merits
+and because architectural consistency makes code easier to understand.
 
-## 2. Avoiding observables
-When working with Angular you should be using observables as much as possible. Angular exposes HTTP requests, form events, route params, etc. as observables. Therefore, by using observables we can build apps that have a consistent architectural pattern.
+We can leverage observable operators to compute data based on application state.
+This allows us to reduce the amount of state we need to maintain,
+and since they are pure functions,
+they make our software easier to test.
+In particular,
+these operators can be used to select slices out of state data,
+and can easily be *memoized* to improve performance.
 
-### Leverage Observable Operators
-We can leverage observable operators to compute data based on application state. This allows us to reduce the amount of state we need to maintain. Additionally these computations can expressed as pure functions which makes testing easier. These pure play a similar to role to [selectors](https://github.com/reactjs/reselect) and can be memoized.
-
-This pattern can be adopted regardless of whether you are using ngrx, angular-redux or even just services to manage state. When woking with Angular services you can replicate a _store_ style API using Behavior Subjects. In the example below we have a `TodoStore` service. It exposes the entire store as the `state$` observable. To display a list of filtered todos we can simply `map` onto the state$` observable instead of maintaining multiple lists.
-
+Observables and data slicing can be adopted regardless of whether we use ngrx,
+angular-redux
+or bare services to manage state.
+When woking with Angular services,
+for example,
+we can replicate a Redux store-style API using `BehaviorSubject`.
+The example below shows how to do this for a `TodoStore` service
+that exposes the entire data store as a single `state$` observables.
+To display a list of filtered items
+we simply `map` over the state$` observable
+instead of maintaining a separate list:
 
 ```ts
 enum Filter { ALL, ACTIVE, COMPLETED }
@@ -91,6 +138,7 @@ interface ITodoStore {
 
 @Injectable()
 export class TodoStore {
+
   private stateSubject$: BehaviorSubject<ITodoStore> = new BehaviorSubject({
     filter: Filter.ALL,
     todos: [],
@@ -128,66 +176,126 @@ export class TodoStore {
 }
 ```
 
-Observables also allow us to merge multiple streams to implement complex workflows such as a [debounced search which ignores stale requests](../http/search_with_flatmap.md) in a declarative manner.
+Observables also allow us to merge multiple streams to implement complex workflows
+such as a [debounced search which ignores stale requests](https://angular-2-training-book.rangle.io/handout/http/search_with_flatmap.html).
+Again,
+by making these operations purely functional instead of maintaining separate state,
+we can make our application much easier to test.
 
-
-### Subscribing to Data
-To access a data property use operators such as `map` or `pluck` to derive separate streams. This allows you to utilize the `async` pipe in the templates and removes the need for managing subscriptions in the component class.
-
-When accessing multiple properties subscribing to the base observable will likely be a better option.
-
-
-
+To access a data property,
+we should use operators such as `map` or `pluck` to derive separate streams.
+This allows us to utilize the `async` pipe in our templates
+to ensure that rendering happens once data is available,
+which in turn removes the need for managing subscriptions in component classes.
+If multiple properties need to be accesssed in order to render a component,
+subscribing to the base observable is likely a better option.
+However,
+this is often also a sign that the code should be refactored
+so that each component is only coupled to a small slice of the application's state.
 
 ## 3. Using the Raw `Http` Service
-It is highly recommended to create a wrapper service for the Angular `Http` service. This allows you to create a layered architecture for consuming RESTful APIs. The wrapper service, let's call it `ApiService`, will be the base. This is where you can map each request to handle `res.json()`. It provides a centralized location for error handling, logging and attaching auth tokens.
 
-The next layer up will be domain specific services such as `UserService`, `PostsService`, `CommentsService`, etc. These services use the `ApiService` for making HTTP requests. This makes testing easier since now we only have to mock out the `ApiService` and not rely on Mocking HTTP responses. These services are also the perfect place to implement data transformations. Your app should not necessarily consume data as it is returned from the API. You should consider normalizing and reshaping it into a format that is better suited to managing state. [normalizr](https://github.com/paularmstrong/normalizr) is a great option for this task.
+Angular provides an `Http` service,
+but we should always create a wrapper around it
+instead of consuming it directly in our applications
+so that we can create a layered architecture for consuming RESTful APIs.
+The wrapper service---let's call it `ApiService`---acts as the base for all other operations,
+and is where we can put common operations
+like mapping each request to call `res.json()`.
+It provides a centralized location for error handling,
+logging,
+attaching authentication tokens,
+and other middleware operations.
 
-You should avoid using using the `Http` service or `ApiService` directly in components.
+The next layer up is then domain-specific services,
+commonly having names like `UserService`, `PostsService`, or `CommentsService`.
+These services use `ApiService`,
+and *only* `ApiService`,
+to make HTTP requests.
+This makes testing easier,
+since it means we only have to mock out `ApiService`
+rather than mocking HTTP responses.
 
-
-
-
+These higher-level services are also the perfect place to implement data transformations.
+Our application will usually not directly consume the data returned by the API,
+but will instead normalize and reshape it into something better for managing state.
+[normalizr](https://github.com/paularmstrong/normalizr) is a useful tool for this task,
+but many others can be used.
 
 ## 4. Not Considering the Injector Tree when Lazy Loading Modules
-Lazy loaded modules create their own branch on the Dependency Injection tree. This leads to some non-obvious effects:
 
-- Lazy loaded module providers (services) will not be available until the module has been loaded in.
-- These providers will not be available globally, but rather scoped to the lazy loaded module.
+Angular has a hierarchical dependency injection (DI) system:
+its tree of injectors parallels the application's component tree,
+and when a component needs something,
+Angular walks up the tree to find the injectable that mostly closely fits the request.
 
-This means that it's possible to have services that belong to a lazy loaded module, that are not accessible by the root module or any other eagerly loaded module of your application.
+That's the good news.
+The not-so-good news is that lazy loaded modules create their own branch in the DI tree,
+which can have some unexpected effects:
 
-For more detailed examples see [Lazy Loading and the Dependency Injection Tree](../modules/lazy-load-di.md), [Creating a Feature Module](../modules/feature-modules.md) and [Sharing the Same Dependency Injection Tree](../modules/shared-di-tree.md) sections.
+- Lazy loaded module providers (services) are available until the module has been loaded.
 
-If you would like to provide a service as an application-level singleton use the `forRoot()` function. For providing services to feature modules you should always use `forChild()`.
+- These providers are not available globally, but instead are scoped to the lazy loaded module.
 
+Together,
+these consequences mean that it's possible to have services that belong to a lazy loaded module,
+but are not accessible to the root module or any other eagerly loaded module of our application.
 
+We discuss the details in [Lazy Loading and the Dependency Injection Tree](https://angular-2-training-book.rangle.io/handout/modules/lazy-load-di.md),
+[Creating a Feature Module](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.md),
+and [Sharing the Same Dependency Injection Tree](https://angular-2-training-book.rangle.io/handout/modules/shared-di-tree.md),
+but as a rule of thumb:
 
+1. If we want to provide a service as an application-level singleton, we should use the `forRoot()` function.
+2. If we want to provide a service to feature modules, we should always use `forChild()`.
 
 ## 5. Confusing the Source of Truth Between Router and Application State
-The angular router allows us to define a client side routing structure and manages transitions between those routes. It does not however, manage or mutate your application state. You are responsible for updating the application state in response to navigation events.
 
-Angular router exposes routing events as an observable – `Router.events`. To synchronize your application state or to hydrate state on first load (based on the url) you should subscribe to the router events observable and dispatch suitable actions. Since the router events are the only hooks available to us we should ensure that all route transitions are triggered through `routerLink` or programatically using `router.navigate()`
+Angular's router allows us to define a client-side routing structure
+and manages transitions between those routes,
+but it does not manage or mutate our application's state.
+This means that we are responsible for updating that state
+in response to navigation events.
 
+Luckily,
+the router exposes routing events as an observable called `Router.events`.
+To synchronize the application's state
+or to initialize state based on the URL when the application is first loaded,
+we should subscribe to router events and take appropriate actions.
+Crucially,
+since router events are the only hooks available to us,
+we should ensure that all route transitions are triggered using `routerLink`
+or programatically using `router.navigate()`.
+Doing an end-run around these facilities will almost certainly get us into trouble
+sooner rather than later.
 
+## 6. Not Using Content Projection
 
+Most programmers now prefer composition over inheritance when designing software systems.
+In the Angular world,
+the equivalent is to prefer content projection over templates with complex nested markup.
+When we do this,
+our application consists of a toolbox of small, single-responsibility components
+which are then composed into a "just-in-time architecture"
+to satisfy current business needs.
+This approach:
 
-## 6. Not using content projection
-For components prefer projection over templates with complex nested markup. This allows you apply the principles of function composition for views. Instead of having one massive component which accounts for various scenarios you create a toolbox of smaller single responsibility components. This approach has several benefits:
+- makes the component hierarchy flatter,
+- avoids excessive chaining of `@Input`/`@Output` to pass state down the component tree and events up,
+- makes it easier to test components, since we don't have to deal with logic in views, and
+- allows us to leverage existing components for implementing new features.
 
-- It makes the component hierarchy flatter.
-- Avoids excessive chaining of `@Input`/`@Output` to pass state down/events up the component tree.
-- Testing components becomes much easier since you don’t have to deal with view logic.
-- Allows you to leverage existing components for implementing new features.
+This pattern is especially important for form elements
+since it allows us to connect models and event handlers at the container level
+instead of having to pass them down through multiple levels.
 
-This pattern is especially important for form elements since it allows us to connect models and event handlers at the container level instead of having to pass them down through multiple levels.
+For example,
+by creating generic wrapper components
+we can use the same set of components to create:
 
-### Example
-By creating generic wrapper components we can use the same set of components to create:
-- An image card
-- A Card with title and caption
-- A card with title, caption and an icon
+- an image card
+- a card with a title and caption
+- a card with a title, caption, and icon
 - and many more combinations
 
 ```html
@@ -202,9 +310,7 @@ By creating generic wrapper components we can use the same set of components to 
 
     <Block>
       <Heading size="3" muted>21 hours ago</Heading>
-      <Button style="clear"
-        (handleClick)="addToCart($event)"
-      >
+      <Button style="clear" (handleClick)="addToCart($event)" >
         <Icon name="add-to-cart" />
       </Button>
     </Block>
@@ -213,12 +319,14 @@ By creating generic wrapper components we can use the same set of components to 
 </Card>
 ```
 
-For more on this subject see the [Flattening Deep Hierarchies of Components](http://blog.rangle.io/flattening-deep-hierarchies-of-components) post on the Rangle.io blog.
+For more on this subject see the post
+[Flattening Deep Hierarchies of Components](http://blog.rangle.io/flattening-deep-hierarchies-of-components)
+on the Rangle.io blog.
 
+## 7. Using Model-Driven Forms Straight Away
 
+FIXME: Philip?
 
-
-## 7. Using model-driven forms straight away
 - Template-driven forms require less boilerplate, setup, and mental overhead
     - More composable and reusable assuming a flat form hierarchy
         - Reference previous point about content projection and flat form hierarchy
@@ -229,21 +337,54 @@ For more on this subject see the [Flattening Deep Hierarchies of Components](htt
     - Making composable model-driven form components requires more work
         - Passing `FormControl` references or implementing the `ControlValueAccessor` interface
 
+## 8. Using Redux Directly Inside Components
 
+We can divide components into [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
+Presentational components are responsible for how things look:
+they receive data through `@Input` and handle events by invoking callbacks
+or by dispatching events through `@Output`.
+Container components are responsible to defining how things work,
+i.e., for fetching data and updating state.
 
+When we are using Redux,
+every component should be of exactly one kind.
+Presentational components should be completely unaware that Redux is being used:
+as far as they're concerned,
+"data happens" and their job is to render it.
+Container components,
+on the other hand,
+should subscribe to data,
+passing relevant parts down to their children
+and mapping events to dispatch calls.
 
-## 8. Using Redux Directly Inside of Components
-We can divide components into two types: [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0). Where Presentational components are responsible for how things look. They receive data through `@Input` and handle events by invoking callbacks or by dispatching events through `@Output`. Container components are responsible to defining how things work i.e., fetching data and updating state.
+But even container components should avoid directly interacting with Redux
+since this leads to components that are tightly coupled to state management.
+Instead,
+we should use selector services to access state
+and action creator services to dispatch actions.
+This pattern may feel unnecessarily convoluted in a small application,
+but quickly proves its worth as the application scales.
 
-From a redux perspective this means presentational components are completely unaware of redux. Whereas container components are the ones responsible for subscribing to data, passing it down to its children and mapping events to dispatch calls.
+The example below shows a common scenario
+in which components require authorization-related state such as `isAuthenticated`,
+`currentUser`,
+and `userProfile`.
+All of this information is available in the data store,
+so container components could access it directly.
+In order to achieve that,
+though,
+these components would need to be aware of the shape of the store.
+Additionally,
+this information will be used by multiple container components,
+which means the selector logic would be repeated in each one.
+Both factors would make our application brittle to future changes.
 
-Even in container components we should avoid directly interacting with redux since this leads to components that are tightly coupled to state management. Instead we should use selector services to access state and action creator services to dispatch actions.
-
-
-### Selector Service Example
-In the example below we have a common scenario where components require auth related state such as `isAuthenticated`, `currentUser`, `userProfile`, etc. All this information is available in the store so, technically the container components can access them directly. However, in order to achieve that these components would need to be aware of the shape of the store. Additionally, this information will be used by multiple container components. The selector logic would then be repeated in each one of those components.
-
-By creating selector services we avoid issues created by tight coupling of state to components. Refactoring the store or reducers would now only impact one service as opposed to multiple components. This also provides a good location to introduce memoization for selectors.
+We can avoid this tight coupling by using selector services,
+so that refactoring the store or the reducers will only impact one service
+as opposed to multiple components.
+This also provides a good location to introduce memoization
+to improve selector performance.
+For example:
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -256,6 +397,7 @@ import { AuthState, AuthProfile, AuthToken } from './types';
 
 @Injectable()
 export class AuthSelectors {
+
   constructor(private ngRedux: NgRedux<AppState>) {}
 
   currentUser$(): Observable<AuthState> {
@@ -278,11 +420,18 @@ export class AuthSelectors {
 }
 ```
 
-Note: `path` is a utility function from [ramda](http://ramdajs.com/docs/#path) which allows us to retrieve the value at a given path.
+Note that in the example above,
+`path` is a utility function from [Ramda](http://ramdajs.com/docs/#path)
+that allows us to retrieve the value at a given location (or path) in our data store.
 
-
-### Action Creator Service Example
-Action creator services allow us to group actions and actions types related to a specific domain. Again, avoiding tight coupling with redux and having to import action types into multiple components.
+As a second example,
+we can build an action creator service
+to handle actions and action types related to a specific domain.
+Again,
+this feels like over-engineering in a twenty-line example,
+but avoiding tight coupling with Redux
+and not having to import action types into multiple components
+pays off quickly.
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -293,6 +442,7 @@ import { LoginCredentials, AuthToken, AuthProfile } from './types';
 
 @Injectable()
 export class AuthActions {
+
   static readonly USER = {
     LOGIN: 'AUTH/USER/LOGIN',
     LOGGED_IN: 'AUTH/USER/LOGGED_IN',
@@ -342,22 +492,30 @@ export class AuthActions {
 }
 ```
 
+## 9. Direct DOM Manipulation With `ElementRef`
 
+One of Angular's strengths is that
+it allows us to decouple the application code from the renderer,
+which in turn allows us to write applications that can be executed in the browser,
+on the server,
+or even as native apps (using NativeScript) with a single codebase.
+In order to achieve this,
+though,
+we need to be mindful of how we interact with the DOM.
+In particular,
+mutating `ElementRef.nativeElement` directly
+makes the application aware of DOM rendering,
+which means we can no longer execute the application on the server or in a web worker.
 
-
-## Direct DOM Manipulation with `ElementRef`
-One of the major benefits of Angular is that it allows us to decouple the application code from the renderer. This allows us to write applications that can be executed in the browser, on the server or even as native apps (using NativeScript) with a single codebase. In order to achieve this we need to be mindful of how we interact with the DOM.
-
-Mutating the `ElementRef.nativeElement` directly makes the application aware of DOM rendering. Therefore, we can no longer execute the application on the server or in a web worker. To avoid this we can rely on a few strategies:
+We can use a few strategies to avoid this:
 
 - Use data-binding, components or directives to achieve a dynamic look and feel.
 - Prefer CSS for dynamic styling and layout.
-- For dynamic templates use structural directives.
-- For lower-level DOM access use [`Renderer2`](https://angular.io/docs/ts/latest/api/core/index/Renderer2-class.html)
+- Use structural directives for dynamic templates.
+- Use [`Renderer2`](https://angular.io/docs/ts/latest/api/core/index/Renderer2-class.html) for lower-level DOM access.
 
-### Example of using renderer
-
-From [angular/material2/src/lib/tabs/tab-group.ts](https://github.com/angular/material2/blob/e4789c7b88975b1811c97b9bed61b5278def0a7c/src/lib/tabs/tab-group.ts)
+As just one example,
+this component uses a renderer to handle tabs:
 
 ```ts
 @Component({
@@ -375,17 +533,25 @@ export class MdTabGroup {
 }
 ```
 
+FIXME: need to say something more here.
 
+## 10. Testing with `TestBed` Prematurely
 
-## 10. Testing with `TestBed` prematurely
+`TestBed` allows us to create a testing module
+that can then be configured using `configureTestingModule`
+and used to insatiate components or even a full dependency injection tree.
+It is a very powerful utility,
+but it does require a fair bit of setup and maintenance.
+In many cases,
+leaner testing strategies can achieve the same goals.
 
-`TestBed` allows us to create a testing module. This module can then be configured using `configureTestingModule` and it can be used to insatiate components or even a dependency injection tree.
-
-`TestBed` is an extremely powerful utility however, it requires a fair bit of setup and maintenance. This is because you are creating a sandboxed application to test a service/component in isolation. In most cases this is not required. You can adopt other leaner testing strategies to achieve the same goal.
-
-
-### Class Instantiation with Mocked Dependencies
-With services we aim to write business logic using pure functions. For components we aim to build mostly presentational components. This allows us to test these components and services by simply instantiating the TypeScript classes – making it easier to write and maintain unit tests.
+Let's take a look at class instantiation with mocked dependencies.
+When we use services,
+we aim to write business logic using pure functions,
+i.e.,
+to (mostly) build Presentational components without any internal state.
+This allows us to test these components and services by simply instantiating their classes.
+An example of such a class is:
 
 ```ts
 @Injectable()
@@ -401,12 +567,19 @@ export class QuoteService {
         this.todos = todos;
       });
   }
+}
 ```
 
-To test the `QuoteService` we need to provide a mock `ApiService`. Be sure to cast the mocks to the type of the service it is mocking. This same strategy can be used for testing services that inject `Http` instead of having to use `MockBackend`. See the [Alternative HTTP Mocking Strategy](../testing/services/alt-http-mocking.md) for a complete example.
+To test this `QuoteService`
+we need to provide a mock `ApiService`,
+which we must cast to the type of service being mocked.
+(As discussed in [Alternative HTTP Mocking Strategy](https://angular-2-training-book.rangle.io/handout/testing/services/alt-http-mocking.md),
+this same strategy can be used for testing services that inject `Http` instead of having to use `MockBackend`.)
+Here's what it looks like in practice:
 
 ```ts
 describe('Quote Service', () => {
+
   let mockApiService: ApiService;
   let quoteService: QuoteService;
   let mockResponse = [ ... ]; // mock todos response
@@ -430,10 +603,27 @@ describe('Quote Service', () => {
 });
 ```
 
-### Use `TestBed` In More Advanced Cases
-There will be some scenarios where in order to write an effective test you need will need to use `TestBed`. These include:
+While lightweight tests can be done using lightweight tools,
+there are some scenarios where `TestBed` does make it easier to write an effective test:
 
 - Testing template logic or structural directives.
 - Shallow rendering test for stateless components.
 - Integration tests where you want to test a feature as a whole.
 - Testing services or components that rely on router events.
+
+In these cases,
+`TestBed`'s learning curve is amply rewarded.
+
+## Conclusion
+
+Some application frameworks seem to be built entirely out of chainsaws.
+Angular isn't,
+but investing a little effort up front in learning what *not* to do
+with the tools it provides
+pays dividends for the life of the project.
+As it continues to evolve,
+we expect that some of these traps will be eliminated,
+or that developers will find and share patterns
+to guide their peers toward what is safest and most productive.
+If you have insights you would like to share,
+we would enjoy hearing from you.
