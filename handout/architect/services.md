@@ -52,7 +52,7 @@ How do you test it?
 How many places in the app will URLs need to be modified when the API changes?
 And what about the date extraction?
 
-In his book *Refactoring*,
+In his book *[Refactoring](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/)*,
 Martin Fowler described a technique called "Extract Method".
 It is based on the idea that
 moving chunks of code to their own descriptively-named methods
@@ -337,3 +337,61 @@ but as a general rule,
 if you aren't writing a Component, a Filter, a Module,
 or one of a few other specific types,
 what you are creating almost certainly can and probably should be turned into a service.
+
+While there is a lot to be said for the simplifying benefits of `@Injectable` services,
+there are some very important caveats.
+
+1.  **Where did all of my design patterns from AngularJS and other frameworks go?**
+
+    There are fewer cut and dry (or cut and paste) solutions to use as templates
+    in a service-based architecture.
+    This lets us pick a style for a project to best fit the task at hand,
+    and then pick a different style for the next project if it would be more suitable.
+    The downside is that doing this requires more discipline and dilligence,
+    good communication between developers,
+    and a good understanding of coding practices,
+    *especially* early in the project and as new members come on.
+
+2.  **Why do these two components leak data into one another when they use the same service?**
+
+    A service within a module is treated as a singleton.
+    This doesn't mean "a class with a private constructor which ensures only a single instance",
+    but rather:
+
+    ```javascript
+    // something like this
+    const singleInstance = {};
+    // or this
+    const onlyCalledOnce = getSomeObject();
+    ```
+
+    Any class passed as an injectible service will be instantiated one time,
+    and that cached object will be passed around to components that wish to use it.
+    If that object maintains state,
+    and the clients can see it,
+    data leakage is possible.
+    The solution is to design services as streams,
+    and to have client classes slice what they need out of those streams.
+
+3.  **Why don't these two components leak data into one another when they should be using the same service?**
+
+    When we said that services were instantiated exactly once, we were mostly telling the truth,
+    but only mostly..
+    The main reason that this isn't always the case is Modules.
+    Without going down the rabbit-holes of their what and why,
+    we can provide services downstream from where they are injected ("Provided),
+    but not upstream.
+    If a service is provided in the `Parent` module,
+    then the `Child` modules can receive the same instance.
+    The `Grandparent` module, however, will not get access to that instance.
+
+    The reasons are largely to do with lazy loading of content,
+    bundling,
+    and the like.
+    For lazy loading to work,
+    services can not be depended upon by systems where the service is only included after the fact,
+    This is especially true given that each module would be sharing the same instance,
+    and the newly loaded module could be starting with a service in a completely arbitrary and unexpected state.
+    For this reason,
+    services flow down through the dependency tree of modules/providers
+    as it's known at the time of generation.
