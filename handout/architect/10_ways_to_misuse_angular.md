@@ -197,10 +197,6 @@ observables beget observables:
 any operators or transformations that occurred in a base observable
 are passed on to any subsequent "child" or "branch" observables.
 
-FIXME: Is it worth providing an example of what attempting to use the
-async pipe with multiple properties could make your templates look
-like?
-
 ## 3. Using the Raw `Http` Service
 
 Angular provides an `Http` service,
@@ -532,7 +528,7 @@ We can use a few strategies to avoid this:
 - Use structural directives for dynamic templates.
 - Use [`Renderer2`](https://angular.io/docs/ts/latest/api/core/index/Renderer2-class.html) for lower-level DOM access.
 
-As just one example,
+As an example,
 this component uses a renderer to handle tabs:
 
 ```ts
@@ -551,7 +547,8 @@ export class MdTabGroup {
 }
 ```
 
-FIXME: need to say something more here.
+While it may seem clumsier or more complicated than direct DOM manipulation,
+an approach like this is better suited to server-side rendering and similar use cases.
 
 ## 10. Testing with `TestBed` Prematurely
 
@@ -636,8 +633,7 @@ In these cases,
 
 Some application frameworks seem to be built entirely out of chainsaws.
 Angular isn't,
-but investing a little effort up front in learning what *not* to do
-with the tools it provides
+but investing a little effort up front in learning how *not* to use it
 pays dividends for the life of the project.
 As it continues to evolve,
 we expect that some of these traps will be eliminated,
