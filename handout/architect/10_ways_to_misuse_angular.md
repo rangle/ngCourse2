@@ -49,7 +49,7 @@ we can attach CSS classes to it using [host metadata](https://angular.io/docs/ts
 export class CardComponent { title = 'Title of card'; }
 ```
 
-Host metadata allows us to bind to all properties and events of the host element.
+Host metadata allows us to bind to all properties and events of the host element,
 but so do the `@HostBinding` and `@HostListener` decorators.
 However,
 there are some subtle differences between the two.
@@ -237,7 +237,7 @@ That's the good news.
 The not-so-good news is that lazy loaded modules create their own branch in the DI tree,
 which can have some unexpected effects:
 
-- Lazy loaded module providers (services) are available until the module has been loaded.
+- Lazy loaded module providers (services) are not available until the module has been loaded.
 
 - These providers are not available globally, but instead are scoped to the lazy loaded module.
 
@@ -554,7 +554,7 @@ an approach like this is better suited to server-side rendering and similar use 
 
 `TestBed` allows us to create a testing module
 that can then be configured using `configureTestingModule`
-and used to insatiate components or even a full dependency injection tree.
+and used to instantiate components or even a full dependency injection tree.
 It is a very powerful utility,
 but it does require a fair bit of setup and maintenance.
 In many cases,
