@@ -24,7 +24,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CounterComponent {
   @Input() count = 0;
-  @Output() countChange = EventEmitter<number>();
+  @Output() countChange = new EventEmitter<number>();
 
   increment() {
     this.count++;
