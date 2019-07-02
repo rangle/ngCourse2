@@ -1,0 +1,62 @@
+# FormBuilder Basics
+
+To begin, we must first ensure we are working with the right directives and the right classes in order to take advantage of procedural forms. For this, we need to ensure that the `ReactiveFormsModule` was imported in the bootstrap phase of the application module.
+
+This will give us access to components, directives and providers like `FormBuilder`, `FormGroup`, and `FormControl`
+
+In our case, to build a login form, we're looking at something like the following:
+
+_app/login-form.component.ts_
+
+```typescript
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app/app.component.html'
+})
+export class AppComponent {
+  username = new FormControl('')
+  password = new FormControl('')
+
+  loginForm: FormGroup = this.builder.group({
+    username: this.username,
+    password: this.password
+  });
+
+  constructor(private builder: FormBuilder) { }
+
+  login() {
+    console.log(this.loginForm.value);
+    // Attempt Logging in...
+  }
+}
+```
+
+_app/login-form.component.html_
+
+```markup
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <label for="username">username</label>
+  <input type="text" name="username" id="username" [formControl]="username">
+  <br>
+
+  <label for="password">password</label>
+  <input type="password" name="password" id="password" [formControl]="password">
+  <br>
+
+  <button type="submit">log in</button>
+</form>
+```
+
+[View Example](https://plnkr.co/edit/fsSozv?p=preview)
+
+## `FormControl`
+
+Note that the `FormControl` class is assigned to similarly named fields, both on `this` and in the `FormBuilder#group({ })` method. This is mostly for ease of access. By saving references to the `FormControl` instances on `this`, you can access the inputs in the template without having to reference the form itself. The form fields can otherwise be reached in the template by using `loginForm.controls.username` and `loginForm.controls.password`. Likewise, any instance of `FormControl` in this situation can access its parent group by using its `.root` property \(e.g. `username.root.controls.password`\).
+
+> Make sure that `root` and `controls` exist before they're used.
+
+A `FormControl` requires two properties: an initial value and a list of validators. Right now, we have no validation. This will be added in the next steps.
+
