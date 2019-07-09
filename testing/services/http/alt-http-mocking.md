@@ -12,15 +12,10 @@ import {
   inject,
   TestBed
 } from '@angular/core/testing';
-import {
-  HttpModule,
-  Http,
-  ResponseOptions,
-  Response
-} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import {SearchWiki} from './wikisearch.service';
+import { SearchWiki } from './wikisearch.service';
 
 const mockResponse = {
   "batchcomplete": "",
@@ -44,7 +39,6 @@ const mockResponse = {
 };
 
 describe('Wikipedia search service', () => {
-  let mockHttp: Http;
 
   beforeEach(() => {
     mockHttp = { get: null } as Http;
@@ -54,7 +48,7 @@ describe('Wikipedia search service', () => {
     }));
 
     TestBed.configureTestingModule({
-      imports: [HttpModule],
+      imports: [HttpClientModule],
       providers: [
         {
           provide: Http,

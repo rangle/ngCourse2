@@ -1,3 +1,10 @@
+---
+description: >-
+  MockBackend is for versions of Angular from version 2 - 4. For Angular version
+  5+, MockBackend has been deprecated in favour of HttpTestingController (see
+  Alternate Mocking Strategy).
+---
+
 # Using MockBackend
 
 To unit test our services, we don't want to make actual HTTP requests. To accomplish this, we need to mock out our HTTP services. Angular provides us with a `MockBackend` class that can be configured to provide mock responses to our requests, without actually making a network request.
