@@ -1,8 +1,8 @@
 ---
 description: >-
   MockBackend is for versions of Angular from version 2 - 4. For Angular version
-  5+, MockBackend has been deprecated in favour of HttpTestingController (see
-  Alternate Mocking Strategy).
+  5+, MockBackend has been deprecated in favour of Using HttpTestingModule or an
+  Alternate Mocking Strategy.
 ---
 
 # Using MockBackend
