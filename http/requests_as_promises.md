@@ -5,7 +5,7 @@ The observable returned by Angular http client can be converted it into a promis
 > We recommend using observables over promises. By converting to a promise you will be lose the ability to cancel a request and the ability to chain RxJS operators.
 
 ```typescript
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/http/common';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class SearchService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   search(term: string) {
     return this.http
