@@ -8,7 +8,7 @@ Let's expand our example and do something a little more with our stream:
 export class MyApp {
   private doctors = [];
 
-  constructor(http: Http) {
+  constructor(http: HttpClient) {
     http.get('http://jsonplaceholder.typicode.com/users/')
         .flatMap((response) => response.json())
         .filter((person) => person.id > 5)
