@@ -3,13 +3,13 @@
 To catch rejections we use the subscriber's `error` and `complete` callbacks.
 
 ```typescript
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/http/common';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   login(username, password) {
     const payload = {
