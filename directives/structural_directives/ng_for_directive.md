@@ -1,6 +1,6 @@
 # NgFor Directive
 
-The `NgFor` directive is a way of repeating a template by using each item of an iterable as that template's context.
+The `ngFor` directive is a way of repeating a template by using each item of an iterable as that template's context.
 
 ```typescript
 @Component({
@@ -33,11 +33,11 @@ The `NgFor` directive has a different syntax from other directives we've seen. I
 @Component({
   selector: 'app',
   template: `
-    <template ngFor [ngForOf]="episodes" let-episode>
+    <ng-template ngFor [ngForOf]="episodes" let-episode>
       <app-for-example [episode]="episode">
         {{episode.title}}
       </app-for-example>
-    </template>
+    </ng-template>
   `
 })
 ```
@@ -71,11 +71,11 @@ Notice that there is an odd `let-episode` property on the template element. The 
 
     <h2>Desugared</h2>
 
-    <template ngFor [ngForOf]="episodes" let-episode let-i="index" let-isOdd="odd">
+    <ng-template ngFor [ngForOf]="episodes" let-episode let-i="index" let-isOdd="odd">
       <for-example [episode]="episode" [ngClass]="{ odd: isOdd }">
         {{i+1}}. {{episode.title}}
       </for-example>
-    </template>
+    </ng-template>
   `
 })
 ```
@@ -157,7 +157,7 @@ export class ForExampleComponent {
 
 When we view the example, as we click on `Add Episode`, we can see console output indicating that only one component was created - for the newly added item to the list.
 
-However, if we were to remove the `trackBy` from the `*ngFor` - every time we click the button, we would see the items in the component getting destroyed and recreated.
+However, if we were to remove the `trackBy` from the `*ngFor` - every time we click the button, we would see all the items in the component getting destroyed and recreated.
 
 [View Example Without trackBy](https://plnkr.co/edit/hC2cIK?p=preview)
 

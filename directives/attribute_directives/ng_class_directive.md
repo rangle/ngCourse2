@@ -67,7 +67,7 @@ Here, since we are binding to the `ngClass` directive by using an expression, we
 
 ## Binding an object
 
-Lastly, an object can be bound to the directive. Angular applies each property name of that object to the component if that property is true.
+Lastly, an object can be bound to the directive. Angular applies each property name of that object to the component if that property's value is *true*.
 
 ```typescript
 @Component({
@@ -106,5 +106,5 @@ export class ClassAsObjectComponent {
 
 [View Example](https://plnkr.co/edit/uUtjY1Qlkx5dOB8gsqCm?p=preview)
 
-Here we can see that since the object's `card` and `flat` properties are true, those classes are applied but since `dark` is false, it's not applied.
+Here we can see that since the object's `card` and `flat` properties are *true*, those classes are applied but since `dark` is *false*, it's not applied.
 
