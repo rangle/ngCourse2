@@ -1,16 +1,32 @@
 # Using Multiple Structural Directives
 
-Sometimes we'll want to combine multiple structural directives together, like iterating using `ngFor` but wanting to do an `ngIf` to make sure that the value matches some or multiple conditions. Combining structural directives can lead to unexpected results however, so Angular requires that a template can only be bound to one directive at a time. To apply multiple directives we'll have to expand the sugared syntax or nest template tags.
+Sometimes we'll want to combine multiple structural directives together, like iterating using `ngFor` but wanting to do an `ngIf` to make sure that the value matches some or multiple conditions. Combining structural directives can lead to unexpected results however, so Angular requires that an element can only be bound to one directive at a time. To apply multiple directives we'll have to either (a) expand the sugared syntax, (b) nest template tags or use the `<ng-content>` tag.
+
+It is important to note, that like the `ng-template` elemement, `ng-container` elements are not rendered to the DOM, but rather their child(ren) are/is. The added benefit of using the `ng-container` element is that it allows you to group sibling elements that should also have the same structural Directive without adding an additional unnecessary parent element that will get rendered to the DOM.
+
 
 ```typescript
 @Component({
   selector: 'app-root',
   template: `
-    <template ngFor [ngForOf]="[1,2,3,4,5,6]" let-item>
+    <ng-template ngFor [ngForOf]="[1,2,3,4,5,6]" let-item>
       <div *ngIf="item > 3">
         {{item}}
       </div>
-    </template>
+    </ng-template>
+    
+    
+    <div *ngFor="let item of [1,2,3,4,5,6]">
+      <div *ngIf="item > 3">
+        {{item}}
+      </div>
+    </div>
+    
+    <ng-container *ngFor="let item of [1,2,3,4,5,6]">
+      <div *ngIf="item > 3">
+        {{item}}
+      </div>
+    </ng-container>
   `
 })
 ```
@@ -36,11 +52,11 @@ import {Component} from '@angular/core';
     </div>
 
     <div [ngSwitch]="tabNumber">
-      <template ngFor [ngForOf]="tabs" let-tab let-i="index">
+      <ng-template ngFor [ngForOf]="tabs" let-tab let-i="index">
         <tab-content *ngSwitchCase="i">
           {{tab.content}}
         </tab-content>
-      </template>
+      </ng-template>
       <tab-content *ngSwitchDefault>Select a tab</tab-content>
     </div>
   `
@@ -59,7 +75,7 @@ export class AppComponent {
   }
 
   isSelected(num: number) {
-    return this.tabNumber === i;
+    return this.tabNumber === num;
   }
 }
 ```
