@@ -6,7 +6,7 @@ The core concept of any Angular application is the _component_. In effect, the w
 
 This is how the Angular team defines a component:
 
-> A component controls a patch of screen real estate that we could call a view, and declares reusable UI building blocks for an application.
+> A component controls a patch of screen called a view.
 
 Basically, a component is anything that is visible to the end user and which can be reused many times within an application.
 
@@ -35,4 +35,3 @@ angular.module('ngcourse')
     controller: MyComponentCtrl
   });
 ```
-
