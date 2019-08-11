@@ -59,17 +59,17 @@ export class CounterComponent {
 `app/app.component.ts`
 
 ```javascript
-import { Component, OnChange } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'rio-app',
   templateUrl: 'app/app.component.html'
 })
-export class AppComponent implements OnChange {
+export class AppComponent {
   num = 0;
   parentCount = 0;
 
-  ngOnChange(val: number) {
+  changeParentCount(val: number) {
     this.parentCount = val;
   }
 }
@@ -81,7 +81,7 @@ export class AppComponent implements OnChange {
 <div>
   Parent Num: {{ num }}<br>
   Parent Count: {{ parentCount }}
-  <rio-counter [count]="num" (result)="ngOnChange($event)">
+  <rio-counter [count]="num" (result)="changeParentCount($event)">
   </rio-counter>
 </div>
 ```
@@ -89,4 +89,3 @@ export class AppComponent implements OnChange {
 [View Example](http://plnkr.co/edit/5RYLZ0?p=preview)
 
 Together a set of input + output bindings define the public API of your component. In our templates we use the \[squareBrackets\] to pass inputs and the \(parenthesis\) to handle outputs.
-
