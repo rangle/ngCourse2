@@ -263,6 +263,7 @@
   * [How to import the completed translation files](i18n/import-translation-files/README.md)
     * [Using the AoT Compiler](i18n/import-translation-files/import-using-aot.md)
     * [Using the JiT Compiler](i18n/import-translation-files/import-using-jit.md)
+  * [Updating existing translations](i18n/updating-existing-translations.md)
 * [Glossary](glossary.md)
 * [Further Reading And Reference](further-reading.md)
 
