@@ -6,5 +6,5 @@ To help with this, [Rangle](http://rangle.io) has started to assemble a guide to
 
 The first chapter of this new guide, based on work by Daniel Figueiredo and Renee Vrantsidis, is now available. We would be grateful for feedback on its content and format, and for suggestions about other topics the community would like to see covered. And if you are interested in contributing, please [get in touch](https://rangle.io/javascript-development-inquiry/): as always, we are smarter together than any one of us is alone.
 
-[Be the first to know when we release the next chapter of the Architect’s Guide to Angular.](http://info.rangle.io/architect-guide-angular-sign-up)
+[Be the first to know when we release the next chapter of the Architect’s Guide to Angular.](https://rangle.io/newsletter-signup)
 
