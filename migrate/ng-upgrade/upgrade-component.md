@@ -19,7 +19,7 @@ angular
   });
 
 class Upgradable {
-  message = "I am an Angular 1 Directive";
+  message = "I am an AngularJS Directive";
 }
 ```
 
@@ -70,7 +70,7 @@ Finally, let AngularJS know about the directive:
 ```javascript
 import { a1UpgradableDirective } from "./components/a1-upgradable";
 
-// Angular 1 Vendor Import
+// AngularJS Vendor Import
 import * as angular from "angular";
 
 // Register classic AngularJS modules

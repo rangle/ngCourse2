@@ -11,7 +11,6 @@ Migrating a large AngularJS application to Angular can be a big undertaking. We 
   - If used, replace the `ng-app` directive with `angular.bootstrap`.
   - Create `UpgradeAdapter` singleton and replace "bootstrap".
 - Identify _components_ \(directives\) of the app most likely to benefit from Angular
-
   - These could be parts of the app where performance is a problem,
 
     parts where there will be more active development or

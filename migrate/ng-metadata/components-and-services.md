@@ -33,7 +33,7 @@ export class HeroComponent implements OnInit {
 
 ## Services
 
-Services use `@Injectable` from ng-metadata. This decorator is written preceding a TypeScript class. Angular 1 services can be added by using the `@Inject` decorator in the service constructor.
+Services use `@Injectable` from ng-metadata. This decorator is written preceding a TypeScript class. AngularJS services can be added by using the `@Inject` decorator in the service constructor.
 
 ```javascript
 import { Injectable, Inject } from 'ng-metadata/core';
