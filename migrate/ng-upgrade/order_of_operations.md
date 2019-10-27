@@ -9,7 +9,9 @@ Migrating a large AngularJS application to Angular can be a big undertaking. We 
   - Good candidates for this are stateless services
 - Enable ngUpgrade
   - If used, replace the `ng-app` directive with `angular.bootstrap`.
-  - Create `UpgradeAdapter` singleton and replace "bootstrap".
+  - Ensure App works
+  - Install `@angular/upgrade` package
+  - Create an Angular `AppModule` that inject the `UpgradeModule` and let it take over the bootstrapping.
 - Identify _components_ \(directives\) of the app most likely to benefit from Angular
   - These could be parts of the app where performance is a problem,
 
@@ -20,5 +22,5 @@ Migrating a large AngularJS application to Angular can be a big undertaking. We 
 - Convert all service dependencies from AngularJS to Angular
   - Move existing `.factory` Angular services to `.service`
   - Leverage TypeScript classes
-  - Use `upgradeAdapter.downgradeNg2Provider(ServiceName)` to expose Angular service to Angular 1
+  - Use `downgradeComponent(ServiceName)` to expose Angular service to Angular 1
 - Repeat this process until all components have been converted to Angular
