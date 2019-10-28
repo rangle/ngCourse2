@@ -1,20 +1,22 @@
 # Using Pipes
 
-Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below:
+Like a filter, a pipe also takes data as input and transforms it into the desired output. To use a pipe, you can use the pipe operator ( | ) followed by the name of the pipe function inside the interpolation expression. All pipes work this way. A basic example of using pipes is shown below:
 
 ```javascript
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'product-price',
-  template: `<p>Total price of product is {{ price | currency }}</p>`
+  template: `<p>Total price of product is {{ price | currency }}</p>`,
 })
 export class ProductPrice {
   price = 100.1234;
 }
 ```
 
-[View Example](http://plnkr.co/edit/JIdYGCz1U9ElEpCArg01?p=preview)
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-using-pipes)
+
+Angular comes with a few [pipes](https://angular.io/api?type=pipe) within the framework such as DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe etc. They are all available for use in any template.
 
 ## Passing Parameters
 
@@ -34,15 +36,15 @@ pipeName: parameter1: parameter2
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-root',
-    template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" }}</p>'
+  selector: 'app-root',
+  template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" }}</p>',
 })
 export class AppComponent {
   price = 100.123456;
 }
 ```
 
-[View Example](http://plnkr.co/edit/IjGPii3n7qpezcglp03O?p=preview)
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-using-pipes)
 
 ## Chaining Pipes
 
@@ -52,13 +54,12 @@ We can chain pipes together to make use of multiple pipes in one expression.
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-root',
-    template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" | lowercase }}</p>'
+  selector: 'app-root',
+  template: '<p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" | lowercase }}</p>',
 })
 export class ProductPrice {
   price = 100.123456;
 }
 ```
 
-[View Example](http://plnkr.co/edit/mnnujN8qPMfRzmNg4uo4?p=preview)
-
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-using-pipes)
