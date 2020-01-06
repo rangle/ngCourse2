@@ -6,7 +6,13 @@
   "directories": {
     "example": "examples"
   },
-  "dependencies": {},
+  "dependencies": {
+    "gitbook-plugin-ga": "^1.0.1",
+    "gitbook-plugin-highlight": "^2.0.3",
+    "gitbook-plugin-image-captions": "^3.1.0",
+    "gitbook-plugin-theme-rangle-io": "^1.0.9",
+    "gitbook-plugin-versions": "^2.1.4"
+  },
   "devDependencies": {
     "gitbook-cli": "^2.2.0",
     "live-server": "^1.0.0"

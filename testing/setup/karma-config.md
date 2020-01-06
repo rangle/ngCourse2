@@ -76,7 +76,11 @@ files: [
 In the angular2-redux-starter _karma.conf.js_ we have put the testing files we wish to include in a separate file - _src/tests.entry.ts_, which includes a `require` call using a regex pattern for importing files with the **.spec.ts** file extension. As a project grows larger and the number of files to include grows in complexity it is good practice to put file imports in a separate file - this keeps the _karma.conf.js_ file cleaner and more readable. Here is what our _src/tests.entry.ts_ looks like:
 
 ```typescript
-let testContext = (<{ context?: Function }>require).context('./', true, /\.test\.ts/);
+let testContext = (<{ context?: Function }>require).context(
+  "./",
+  true,
+  /\.test\.ts/
+);
 testContext.keys().forEach(testContext);
 ```
 
@@ -172,9 +176,8 @@ We can also manually capture output from a browser by navigating to `http://loca
 
 ## Completed Configuration
 
-The net result of customizing all of these proprties is the [_karma.conf.js_ file in angular-redux-starter](https://github.com/rangle/angular2-redux-example/blob/master/karma.conf.js).
+The net result of customizing all of these proprties is the [_karma.conf.js_ file in angular-redux-starter](https://github.com/rangle/angular2-redux-example).
 
 ## Additional Resources
 
 This is just a sample of the core properties in _karma.conf.js_ being used by angular2-redux-starter project. There are many more properties that can be used to extend and configure the functionality of Karma - [take a look at the official documentation for the full API breakdown](http://karma-runner.github.io/0.13/config/configuration-file.html).
-

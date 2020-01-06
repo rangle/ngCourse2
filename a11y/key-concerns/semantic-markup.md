@@ -58,15 +58,15 @@ We also nest `router-outlet` within a `main` element, which tells the browser th
 
 There are a couple of new attributes on different elements as well to give the browser even more information. The `alt` attribute has been added to the image to let the browser know that it's a logo image. There's also an `aria-live` attribute on the `main` element.
 
-This attribute is part of larger spec known as [Accessible Rich Internet Applications \(WAI-ARIA\)](https://www.w3.org/TR/wai-aria/) which we'll go over in detail. This is something that lets screen readers know that the content within the `main` tag will be updated on the client-side after the page has loaded and needs to be watched for updates.
+This attribute is part of larger spec known as [Accessible Rich Internet Applications \(WAI-ARIA\)](https://www.w3.org/WAI/PF/aria/) which we'll go over in detail. This is something that lets screen readers know that the content within the `main` tag will be updated on the client-side after the page has loaded and needs to be watched for updates.
 
 ## Roles and ARIA
 
 The ARIA spec was created as a way for content authors a way to provide additional context to the semantics of their application rather than just details on how to render the content. This allows assistive technology to understand what's going on inside an application and relay that information in a structured and streamlined format for users with disabilities.
 
-One of the main concepts in the ARIA spec is the _role_. A [role](https://www.w3.org/TR/wai-aria/roles) defines what the purpose of an html element is within the context of that document or application. Roles are defined by adding an attribute to an html element ie. `role="main"` or are defined by default depending on the html element.
+One of the main concepts in the ARIA spec is the _role_. A [role](https://www.w3.org/WAI/PF/aria/roles) defines what the purpose of an html element is within the context of that document or application. Roles are defined by adding an attribute to an html element ie. `role="main"` or are defined by default depending on the html element.
 
-Some examples of roles are [list](https://www.w3.org/TR/wai-aria/roles#list), [button](https://www.w3.org/TR/wai-aria/roles#button) or [navigation](https://www.w3.org/TR/wai-aria/roles#navigation) which are the default roles of `ul`, `button` and `nav` respectively. Sometimes however, you may not want or be able to use the standard html element to represent these objects in your application, for example, you may want to create your own button component with it's own distinct logic. In this case you can make use of the `role` attribute:
+Some examples of roles are [list](https://www.w3.org/WAI/PF/aria/roles#list), [button](https://www.w3.org/WAI/PF/aria/roles#button) or [navigation](https://www.w3.org/WAI/PF/aria/roles#navigation) which are the default roles of `ul`, `button` and `nav` respectively. Sometimes however, you may not want or be able to use the standard html element to represent these objects in your application, for example, you may want to create your own button component with it's own distinct logic. In this case you can make use of the `role` attribute:
 
 ```text
 @Component({
@@ -118,7 +118,7 @@ However, native tags don't cover all cases. This is where ARIA fits in. ARIA att
 
 One example of this is modals. Native modals provided by different platforms such as web browsers often have limited customization options, which can make for a poor experience. This necessitates the creation of custom modals.
 
-A modal component can be given the `role` of [dialog](https://www.w3.org/TR/wai-aria/roles#dialog) or [alertdialog](https://www.w3.org/TR/wai-aria/roles#alertdialog) to let the browser know that that component is acting as a modal. The modal component template can use the ARIA attributes `aria-labelledby` and `aria-described` to describe to readers what the title and purpose of the modal is.
+A modal component can be given the `role` of [dialog](https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html) or [alertdialog](https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/alertdialog.html) to let the browser know that that component is acting as a modal. The modal component template can use the ARIA attributes `aria-labelledby` and `aria-described` to describe to readers what the title and purpose of the modal is.
 
 _app.component.ts_
 
@@ -168,4 +168,3 @@ export class ModalComponent {
 [View Example](https://plnkr.co/edit/Vvu62nDZ18IkqiAop2A9?p=preview)
 
 ARIA tags can enhance the accessibility of an application, but should by no means be the only accessibility consideration. More information is available in the [WAI-ARIA specification](https://www.w3.org/TR/wai-aria/).
-

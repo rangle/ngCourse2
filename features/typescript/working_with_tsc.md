@@ -7,13 +7,13 @@ Imagine two ultra simple files/modules:
 a.ts
 
 ```typescript
-export const A = (a) => console.log(a);
+export const A = a => console.log(a);
 ```
 
 b.ts
 
 ```typescript
-export const B = (b) => console.log(b);
+export const B = b => console.log(b);
 ```
 
 Before TypeScript@1.8.2:
@@ -84,20 +84,19 @@ The target module resolution interface. We're integrating TypeScript through web
 
 ## Decorators
 
-Decorator support in TypeScript [hasn't been finalized yet](http://rbuckton.github.io/ReflectDecorators/typescript.html) but since Angular uses decorators extensively, these need to be set to true. Decorators have not been introduced yet, and will be covered later in this section.
+Decorator support in TypeScript [hasn't been finalized yet](https://www.typescriptlang.org/docs/handbook/decorators.html) but since Angular uses decorators extensively, these need to be set to true. Decorators have not been introduced yet, and will be covered later in this section.
 
 ## TypeScript with Webpack
 
 We won't be running `tsc` manually, however. Instead, webpack's `ts-loader` will do the transpilation during the build:
 
 ```javascript
-  // webpack.config.js
+// webpack.config.js
+//...
+rules: [
+  { test: /\.ts$/, loader: "ts", exclude: /node_modules/ }
   //...
-  rules: [
-    { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
-    //...
-  ]
+];
 ```
 
 This loader calls `tsc` for us, and it will use our `tsconfig.json`.
-

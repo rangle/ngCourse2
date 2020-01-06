@@ -34,5 +34,4 @@ penguin.walk(); //walk!
 penguin.swim(); //swim!
 ```
 
-A good discussion on 'behaviour delegation' can be found [here](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md).
-
+A good discussion on 'behaviour delegation' can be found [here](https://medium.com/@SigniorGratiano/behavior-delegation-notes-b75b8fa354bf).

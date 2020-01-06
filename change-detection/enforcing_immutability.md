@@ -1,18 +1,18 @@
 # Enforcing Immutability
 
-We cheated a little in the previous example. We told Angular that all of our inputs, including the `actor` object, were immutable objects, but we went ahead and updated its properties, violating the immutability principle. As a result we ended up with a sync problem between our models and our views. One way to enforce immutability is using the library [Immutable.js](https://facebook.github.io/immutable-js/).
+We cheated a little in the previous example. We told Angular that all of our inputs, including the `actor` object, were immutable objects, but we went ahead and updated its properties, violating the immutability principle. As a result we ended up with a sync problem between our models and our views. One way to enforce immutability is using the library [Immutable.js](https://immutable-js.github.io/immutable-js/docs/#/).
 
 Because in JavaScript primitive types like `string` and `number` are immutable by definition, we should only take care of the objects we are using. In this case, the `actor` object.
 
 Here's an example comparing a mutable type like an `array` to an immutable type like a `string`:
 
 ```javascript
-var b = ['C', 'a', 'r'];
-b[0] = 'B';
-console.log(b) // ['B', 'a', 'r'] => The first letter changed, arrays are mutable
+var b = ["C", "a", "r"];
+b[0] = "B";
+console.log(b); // ['B', 'a', 'r'] => The first letter changed, arrays are mutable
 
-var a = 'Car';
-a[0] = 'B';
+var a = "Car";
+a[0] = "B";
 console.log(a); // 'Car' => The first letter didn't change, strings are immutable
 ```
 
@@ -27,30 +27,31 @@ Then in our `AppComponent` we import the library and use it to create an actor o
 _app/app.component.ts_
 
 ```typescript
-import { Component } from '@angular/core';
-import { MovieComponent } from './movie.component';
-import * as Immutable from 'immutable';
+import { Component } from "@angular/core";
+import { MovieComponent } from "./movie.component";
+import * as Immutable from "immutable";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
     <h1>MovieApp</h1>
     <p>{{ slogan }}</p>
     <button type="button" (click)="changeActor()">
       Change Actor
     </button>
-    <app-movie [title]="title" [actor]="actor"></app-movie>`
+    <app-movie [title]="title" [actor]="actor"></app-movie>
+  `
 })
 export class AppComponent {
-  slogan = 'Just movie information';
-  title = 'Terminator 1';
+  slogan = "Just movie information";
+  title = "Terminator 1";
   actor = Immutable.Map({
-    firstName: 'Arnold',
-    lastName: 'Schwarzenegger'
-  })
+    firstName: "Arnold",
+    lastName: "Schwarzenegger"
+  });
 
   changeActor() {
-    this.actor = this.actor.merge({ firstName: 'Nicholas', lastName: 'Cage' });
+    this.actor = this.actor.merge({ firstName: "Nicholas", lastName: "Cage" });
   }
 }
 ```
@@ -64,20 +65,21 @@ Additional changes have to be made to the `MovieComponent` as well. First we nee
 _app/movie.component.ts_
 
 ```typescript
-import { Component, Input } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/core';
-import * as Immutable from 'immutable';
+import { Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy } from "@angular/core";
+import * as Immutable from "immutable";
 
 @Component({
-  selector: 'app-movie',
+  selector: "app-movie",
   template: `
     <div>
       <h3>{{ title }}</h3>
       <p>
         <label>Actor:</label>
-        <span>{{ actor.get('firstName') }} {{ actor.get('lastName') }}</span>
+        <span>{{ actor.get("firstName") }} {{ actor.get("lastName") }}</span>
       </p>
-    </div>`,
+    </div>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MovieComponent {
@@ -89,4 +91,3 @@ export class MovieComponent {
 [View Example](http://plnkr.co/edit/0Qp7ynAcZCqcv67OvsSD?p=preview)
 
 Using this pattern we are taking full advantage of the "OnPush" change detection strategy and thus reducing the amount of work done by Angular to propagate changes and to get models and views in sync. This improves the performance of the application.
-
