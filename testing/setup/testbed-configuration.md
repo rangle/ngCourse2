@@ -2,19 +2,19 @@
 
 As you will see in [Testing Components](https://github.com/rangle-io/ngcourse2/tree/09082598446e63f5895e524c7acce61e5f017531/handout/testing/intro-to-tdd/setup/handout/testing/components/README.md), real-world component testing often relies on the Angular2 testing utility `TestBed`, which requires some configuration. Most significantly, we need to use `TestBed.initTestEnvironment` to create a testing platform before we can use unit tests with `TestBed`. This testing environment would have to be created, destroyed and reset as appropriate before every unit test.
 
-In the angular2-redux-starter, this configuration is done in a [`tests.configure.ts`](https://github.com/rangle/angular2-redux-example/blob/master/src/tests.configure.ts) file and imported into every unit test for easy re-use.
+In the angular2-redux-starter, this configuration is done in a [`tests.configure.ts`](https://github.com/rangle/angular2-redux-example/blob/archive/src/tests.configure.ts) file and imported into every unit test for easy re-use.
 
 ```typescript
 import {
   getTestBed,
   ComponentFixtureAutoDetect,
-  TestBed,
-} from '@angular/core/testing';
+  TestBed
+} from "@angular/core/testing";
 
 import {
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting,
-} from '@angular/platform-browser-dynamic/testing';
+  platformBrowserDynamicTesting
+} from "@angular/platform-browser-dynamic/testing";
 
 export const configureTests = (configure: (testBed: TestBed) => void) => {
   const testBed = getTestBed();
@@ -22,14 +22,13 @@ export const configureTests = (configure: (testBed: TestBed) => void) => {
   if (testBed.platform == null) {
     testBed.initTestEnvironment(
       BrowserDynamicTestingModule,
-      platformBrowserDynamicTesting());
+      platformBrowserDynamicTesting()
+    );
   }
 
   testBed.configureCompiler({
-      providers: [
-        {provide: ComponentFixtureAutoDetect, useValue: true},
-      ]
-    });
+    providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }]
+  });
 
   configure(testBed);
 
@@ -64,4 +63,3 @@ describe('Component: Example', () => {
     });
   });
 ```
-
