@@ -5,11 +5,11 @@ There are two ways to pass data into a component, with 'property binding' and 'e
 The `@Input()` decorator defines a set of parameters that can be passed down from the component's parent. For example, we can modify the `HelloComponent` component so that `name` can be provided by the parent.
 
 ```javascript
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'rio-hello',
-  template: '<p>Hello, {{name}}!</p>',
+  selector: "rio-hello",
+  template: "<p>Hello, {{name}}!</p>",
 })
 export class HelloComponent {
   @Input() name: string;
@@ -29,5 +29,4 @@ We can now use our component like so:
 
 [View Example](http://plnkr.co/edit/LEtEN9?p=preview)
 
-> Unlike Angular 1.x, this is one-way binding.
-
+> Unlike AngularJS, this is one-way binding.

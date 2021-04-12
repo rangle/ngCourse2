@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  template: '<b>Bootstrapping an Angular 2 application!</b>'
+  selector: "app-root",
+  template: "<b>Bootstrapping an Angular application!</b>",
 })
-export class AppComponent {
-}
+export class AppComponent {}

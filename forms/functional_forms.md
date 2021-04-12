@@ -37,25 +37,21 @@ The system we will use to illustrate this idea is [Redux](http://redux.js.org/),
 As a very short example, suppose we want to implement a traffic light that switches state between red, amber, and green. The state is an object with a single field showing the current color of the light:
 
 ```javascript
-let state = {color: 'red'};
+let state = { color: "red" };
 ```
 
 and the reducer cycles between colors:
 
 ```javascript
 function changeColor(state, action) {
-  switch(action.type) {
+  switch (action.type) {
+    case "NEXT":
+      if (state.color == "red") return { color: "green" };
+      else if (state.color == "green") return { color: "amber" };
+      else if (state.color == "amber") return { color: "red" };
 
-  case 'NEXT':
-    if (state.color == 'red')
-      return {color: 'green'};
-    else if (state.color == 'green')
-      return {color: 'amber'};
-    else if (state.color == 'amber')
-      return {color: 'red'};
-
-  default:
-    return state;
+    default:
+      return state;
   }
 }
 ```
@@ -73,11 +69,11 @@ function changeColor(state = {color: 'red'}, action) {
 Once this reducer is defined, our application wraps it up to create an object store, and then sends actions to that store to tell it when to move to the next state:
 
 ```javascript
-import { createStore } from 'redux';
+import { createStore } from "redux";
 let store = createStore(changeColor);
 
-for (let i=0; i<10; i++) {
-  store.dispatch({type: 'NEXT'});
+for (let i = 0; i < 10; i++) {
+  store.dispatch({ type: "NEXT" });
   console.log(store.getState().color); // red, green, amber, red, ...
 }
 ```
@@ -104,7 +100,7 @@ This may seem like a lot of work to manage a single traffic light, but that work
 
 ```javascript
 let delay = until(tomorrow() + ONE_HOUR);
-setTimeout(() => changeColor(state, {type: 'EMERGENCY'}), delay);
+setTimeout(() => changeColor(state, { type: "EMERGENCY" }), delay);
 ```
 
 When the timeout callback is triggered, Redux will put the traffic light in the required state regardless of what else has gone on or is going on.
@@ -117,19 +113,19 @@ Our overall goals are to take advantage of Redux state management to automatical
 
 ```typescript
 export interface IForm {
-  character: ICharacter;        // our single top-level object (for now)
+  character: ICharacter; // our single top-level object (for now)
 }
 
 export interface ICharacter {
-  name?: string;                // optional name
-  bioSummary: IBioSummary;      // biographical information (see below)
-  skills: string[];             // list of skills
+  name?: string; // optional name
+  bioSummary: IBioSummary; // biographical information (see below)
+  skills: string[]; // list of skills
 }
 
 export interface IBioSummary {
-  age: number;                  // age in years
-  alignment: string;            // good or bad, lawful or chaotic
-  race: string;                 // character's species
+  age: number; // age in years
+  alignment: string; // good or bad, lawful or chaotic
+  race: string; // character's species
 }
 ```
 
@@ -139,8 +135,8 @@ The form contains a single object representing a character, rather than using th
 
 ```typescript
 export interface IForm {
-  character: ICharacter;        // character info
-  equipment: IEquipment;        // character's equipment
+  character: ICharacter; // character info
+  equipment: IEquipment; // character's equipment
 }
 ```
 
@@ -159,11 +155,11 @@ const characterInitialState: ICharacter = {
     alignment: undefined,
     race: undefined,
   },
-  skills: []
+  skills: [],
 };
 
 const initialState: IForm = {
-  character: characterInitialState
+  character: characterInitialState,
 };
 ```
 
@@ -176,40 +172,44 @@ Another early decision is that we will define functions to create actions, and t
 > The name `type` is a requirement: Redux mandates it by exporting an `Action` interface defined as:
 >
 > ```typescript
-> interface Action { type: string }
+> interface Action {
+>   type: string;
+> }
 > ```
 >
 > The name `payload` is not required, but is widely used and strongly encouraged, since in some cases we need to add extra info for our actions to be completed:
 >
 > ```typescript
-> interface PayloadAction extends Action { payload: any }
+> interface PayloadAction extends Action {
+>   payload: any;
+> }
 > ```
 
 As an example of an action creation function, here's one that saves a form's value:
 
 ```typescript
 const saveForm = (path, value) => ({
-  type: 'SAVE_FORM',
+  type: "SAVE_FORM",
   payload: {
     path: path,
-    value: value
-  }
+    value: value,
+  },
 });
 ```
 
 Now that we know the shapes of our store and our action, the first version of the reducer is easy to write. To keep it short, we rely on three helper functions from [Ramda](http://ramdajs.com/), a library of functional utilities for JavaScript:
 
-* `assocPath`: makes a shallow clone of an object,
+- `assocPath`: makes a shallow clone of an object,
 
   replacing the specified property with the specified value as it does so.
 
   \(Think of this as "make me a copy of X, but with Y set to Z".\)
 
-* `merge`: create a shallow copy of one object with properties merged in from a second object.
+- `merge`: create a shallow copy of one object with properties merged in from a second object.
 
   \(This is like `assocPath`, but using a second object to get multiple changes at once.\)
 
-* `path`: retrieve the value at a specified location in a structured object.
+- `path`: retrieve the value at a specified location in a structured object.
 
 \(We could write replacements for these to avoid depending on Ramda, but we prefer to leverage the work they've put into testing and performance optimization.\) With these helpers in hand, our `formReducer` looks like this:
 
@@ -238,12 +238,12 @@ If the action does have the right type, `formReducer` uses `path` to get the par
 
 ## Connecting the Dots
 
-It's now time to turn our attention to the interface that will trigger this state change and reflect any changes to the state triggered by other interface components. Since we're using Angular 2, we will define a class and use the `@Component` decorator to weld some metadata to it:
+It's now time to turn our attention to the interface that will trigger this state change and reflect any changes to the state triggered by other interface components. Since we're using Angular, we will define a class and use the `@Component` decorator to weld some metadata to it:
 
 ```typescript
 @Component({
-  selector: 'character-form',
-  template: require('./character-form.html')
+  selector: "character-form",
+  template: require("./character-form.html"),
 })
 export class CharacterForm {
   @ViewChild(NgForm) ngForm: NgForm;
@@ -262,13 +262,13 @@ Looking once more at the diagram, there is a potential circularity in the update
 
 Looking more closely at the code used to create all of this:
 
-* The `@Component` decorator in the code above tells Angular that
+- The `@Component` decorator in the code above tells Angular that
 
   this class is used to fill in `<character-form>` elements
 
   in the `character-form.html` template snippet.
 
-* Using the `@ViewChild` decorator on `ngForm`
+- Using the `@ViewChild` decorator on `ngForm`
 
   gives this class an instance variable that watches a form.
 
@@ -276,8 +276,8 @@ Looking more closely at the code used to create all of this:
 
   later on.
 
-* The `characterForm` instance variable is our working copy of the form's state.
-* Finally, `private ngRedux: NgRedux<IAppState>` triggers Angular's dependency injection
+- The `characterForm` instance variable is our working copy of the form's state.
+- Finally, `private ngRedux: NgRedux<IAppState>` triggers Angular's dependency injection
 
   and gives us access to the Redux store.
 
@@ -289,7 +289,7 @@ Looking more closely at the code used to create all of this:
 
   we can inject a mock object here to give us more insight.
 
-> The `formSubs` instance variable is the odd one out in this class. Its job is to store the observer/observable subscription connecting our state to our form so that we can unsubscribe cleanly when this component is destroyed. Angular 2 will automatically unsubscribe on our behalf, but it's always safer to put our own toys away when we're done playing with them…
+> The `formSubs` instance variable is the odd one out in this class. Its job is to store the observer/observable subscription connecting our state to our form so that we can unsubscribe cleanly when this component is destroyed. Angular will automatically unsubscribe on our behalf, but it's always safer to put our own toys away when we're done playing with them…
 
 Since `CharacterForm` is an Angular component, it needs a template to define how it will be rendered. In keeping with Angular best practices, we will use a template-driven form and bind its inputs to objects retrieved from the Redux state. The first part of that form looks like this:
 
@@ -361,27 +361,27 @@ The first step in adding support for multi-valued fields to our application is t
 
 ```typescript
 const addIntoArray = (path, value) => ({
-  type: 'ADD_INDEXED_FORM_VALUE',
-  payload: { path, value }
+  type: "ADD_INDEXED_FORM_VALUE",
+  payload: { path, value },
 });
 
 const putInArray = (path, value, index) => ({
-  type: 'UPDATE_INDEXED_FORM_VALUE',
-  payload: { path, value, index }
+  type: "UPDATE_INDEXED_FORM_VALUE",
+  payload: { path, value, index },
 });
 
 const removeFromArray = (index, path) => ({
-  type: 'REMOVE_INDEXED_FORM_VALUE',
-  payload: { index, path }
+  type: "REMOVE_INDEXED_FORM_VALUE",
+  payload: { index, path },
 });
 ```
 
 There's nothing exciting going on here: each function creates an action with a `type` \(again, required by Redux\) and a `payload` \(our own term\). To cut down on typing, we make use of the fact that `{a, b}` is a shorthand for `{a: a, b: b}`:
 
 ```javascript
-let a = 'A';
-let b = 'B';
-let both = {a, b};
+let a = "A";
+let b = "B";
+let both = { a, b };
 console.log(both);
 ```
 
@@ -474,7 +474,7 @@ isFormValid$: Observable<boolean>;
 Now, after selecting, we can use `isFormValid$` with an asynchronous pipe in our template:
 
 ```typescript
-<button 
+<button
   [disabled]="!(isFormValid$ | async)"
   type="submit">
   Save
@@ -492,16 +492,19 @@ const tieflingAgeValid = isBetweenNumber(35, 53);
 
 const bioSummarySelector = createSelector(
   characterFormSelector,
-  ({bioSummary}: ICharacter) => bioSummary
+  ({ bioSummary }: ICharacter) => bioSummary
 );
 
 const ageValidationSelector = createSelector(
   bioSummarySelector,
   (bioSummary: IBioSummary) => {
     switch (bioSummary.race) {
-      case 'Human': return humanAgeValid;
-      case 'Elf': return elfAgeValid;
-      case 'Tiefling': return tieflingAgeValid;
+      case "Human":
+        return humanAgeValid;
+      case "Elf":
+        return elfAgeValid;
+      case "Tiefling":
+        return tieflingAgeValid;
     }
   }
 );
@@ -509,7 +512,7 @@ const ageValidationSelector = createSelector(
 export const isAgeValidSelector = createSelector(
   bioSummarySelector,
   ageValidationSelector,
-  ({age}, isAgeValid) => isAgeValid(age)
+  ({ age }, isAgeValid) => isAgeValid(age)
 );
 ```
 
@@ -533,9 +536,9 @@ const minStringLengthValidation = (value: string, min: number) =>
   value.length > min;
 
 const isNameValidSelector = createSelector(
-  createFormFieldSelector(['character', 'name']),
-  (name: string) => maxStringLengthValidation(name, 50)
-    && minStringLengthValidation(name, 3)
+  createFormFieldSelector(["character", "name"]),
+  (name: string) =>
+    maxStringLengthValidation(name, 50) && minStringLengthValidation(name, 3)
 );
 ```
 
@@ -567,7 +570,6 @@ Since we have access to Angular's `FormControl` states, we can use them to show 
 
 One of the things that makes it hard to discuss software architecture is that the solutions to big problems inevitably look like overkill when applied to small ones. If all we ever wanted to do was manage the names, ages, and skill sets of wizards, and if the entire application was only ever going to be maintained by its original author, we wouldn't want or need all of the machinery introduced above. However, these assumptions all too easily become self-fulfilling prophecies. If we don't architect our software to accommodate both expansion of function and expansion of the development team, both will be so painful that we won't do them.
 
-Our experience is that combining Angular 2 forms with Redux for state management pays off sooner than you would think. Testing is a lot easier when all checks on changes to an application's state can be written as before-and-after rules. \(To see how much easier, compare the [Redux testing examples](http://redux.js.org/docs/recipes/WritingTests.html) to whatever you're doing now.\) Just as importantly, a single reducer can often be used for many forms, and generic actions can be re-used as well. For example, most of what we wrote above to handle character skills can be used to keep track of how many potions and scrolls they are carrying as well.
+Our experience is that combining Angular forms with Redux for state management pays off sooner than you would think. Testing is a lot easier when all checks on changes to an application's state can be written as before-and-after rules. \(To see how much easier, compare the [Redux testing examples](http://redux.js.org/docs/recipes/WritingTests.html) to whatever you're doing now.\) Just as importantly, a single reducer can often be used for many forms, and generic actions can be re-used as well. For example, most of what we wrote above to handle character skills can be used to keep track of how many potions and scrolls they are carrying as well.
 
 Of course, nothing is ever free. In large applications, it's important to design the structure of the Redux store so that new instances of it can be created quickly, and so that the next programmer to inherit the application can easily figure out which parts of the state to update when. We are also still learning how best to co-design reusable parts of forms and reusable parts of state so that reducers can be packaged and re-used as black boxes. Just as careful design of state makes the computer more efficient, careful co-design of components will, we hope, allow programmers to be more efficient. If you would like to share your experiences with this, we'd enjoy hearing from you.
-

@@ -8,20 +8,20 @@
 
 ### Component-Oriented Architecture
 
-* Presents your application as a tree of UI components.
-* Each 'component' can be thought of as a custom HTML 'primitive'
-  * ... that you build yourself using JavaScript and CSS
-* Not a new idea:
-  * <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components"
+- Presents your application as a tree of UI components.
+- Each 'component' can be thought of as a custom HTML 'primitive'
+  - ... that you build yourself using JavaScript and CSS
+- Not a new idea:
+  - <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components"
     target="\_blank">Web Components</a>
-  * <a href="https://www.polymer-project.org/1.0/"
+  - <a href="https://www.polymer-project.org/1.0/"
     target="\_blank">Google Polymer</a>
-* <a href="https://angularjs.org/"
-  target="\_blank">Angular 1.x</a>
+- <a href="https://angularjs.org/"
+  target="\_blank">AngularJS</a>
   supported it in a limited way
-* <a href="https://facebook.github.io/react/"
+- <a href="https://facebook.github.io/react/"
   target="\_blank">ReactJS</a> made it mainstream
-* It's the central concept of <a href="https://angular.io/"
+- It's the central concept of <a href="https://angular.io/"
   target="\_blank">Angular</a>
 
 ---
@@ -31,19 +31,17 @@
 Angular 1.3: Using a directive to implement a component:
 
 ```javascript
-angular.module('ngcourse')
-  .directive('ngcHelloComponent', () => ({
-      restrict: 'E',
-      replace: true,
-      scope: { name: '=' },
-      template: '<span>Hello, {{ ctrl.name }}.</span>',
-      controller: function MyComponentCtrl() {
-        // Component logic here.
-      },
-      controllerAs: 'ctrl',
-      bindToController: true
-    })
-  );
+angular.module("ngcourse").directive("ngcHelloComponent", () => ({
+  restrict: "E",
+  replace: true,
+  scope: { name: "=" },
+  template: "<span>Hello, {{ ctrl.name }}.</span>",
+  controller: function MyComponentCtrl() {
+    // Component logic here.
+  },
+  controllerAs: "ctrl",
+  bindToController: true,
+}));
 ```
 
 ---
@@ -67,19 +65,18 @@ You can start to imagine an web app as a composable set of custom 'HTML Primitiv
 
 ### The Evolution of Angular Components
 
-* This way of using directives got very popular
-* Angular 1.5 introduced first-class support for the pattern
-* The new `.component` function:
+- This way of using directives got very popular
+- Angular 1.5 introduced first-class support for the pattern
+- The new `.component` function:
 
 ```javascript
-angular.module('ngcourse')
-  .component('ngcHelloComponent', {
-    bindings: { name: '=' },
-    template: '<span>Hello, {{ ctrl.name }}.</span>',
-    controller: function MyComponentCtrl() {
-      // component logic here.
-    }
-  });
+angular.module("ngcourse").component("ngcHelloComponent", {
+  bindings: { name: "=" },
+  template: "<span>Hello, {{ ctrl.name }}.</span>",
+  controller: function MyComponentCtrl() {
+    // component logic here.
+  },
+});
 ```
 
 ---
@@ -89,25 +86,25 @@ angular.module('ngcourse')
 In Angular it's the main way to build UI:
 
 ```typescript
-import {Component} from 'angular2/core';
+import { Component } from "angular2/core";
 
 @Component({
-  selector: 'ngc-hello-component',
+  selector: "ngc-hello-component",
   template: '<p class="hello">Hello, {{name}}</p>',
-  styles: [ '.hello { color: purple; }' ]
+  styles: [".hello { color: purple; }"],
 })
 export class HelloComponent {
   name: string;
   constructor() {
-    this.name = 'World';
+    this.name = "World";
   }
 }
 ```
 
-* Structure as an HTML `template`
-* 'DOM name' using the `selector` property
-* Styling using the `styles` property
-* Behaviour using methods and properties on the `class`
+- Structure as an HTML `template`
+- 'DOM name' using the `selector` property
+- Styling using the `styles` property
+- Behaviour using methods and properties on the `class`
 
 .bottom-comment[<a target="\_blank" href="http://plnkr.co/edit/Z7KNUe8UcooxO6dfAayL?p=preview">See it live</a>]
 
@@ -115,21 +112,22 @@ export class HelloComponent {
 
 ### Architectural Considerations
 
-* Angular requires one top-level (bootstrap) component
-* Other components can be very granular
-* Most components are presentational
+- Angular requires one top-level (bootstrap) component
+- Other components can be very granular
+- Most components are presentational
 
-  * Very little logic
-  * Very little state
-  * Maybe even just markup and CSS
-  * Highly re-usable
+  - Very little logic
+  - Very little state
+  - Maybe even just markup and CSS
+  - Highly re-usable
 
-* Motivation: Atomic Design (http://bradfrost.com/blog/post/atomic-web-design/)
-  * Comes from the design World
-  * Intersection of UI development and graphic design/branding
-  * Encapsulation of presentation instead of behaviour or state
+- Motivation: Atomic Design (http://bradfrost.com/blog/post/atomic-web-design/)
 
-* We're all converging on components!
+  - Comes from the design World
+  - Intersection of UI development and graphic design/branding
+  - Encapsulation of presentation instead of behaviour or state
+
+- We're all converging on components!
 
 ---
 
@@ -139,9 +137,9 @@ export class HelloComponent {
 >
 > .attribution[—Stephen Hay]
 
-* We build up our UIs from very granular components or 'atoms'
-* They are highly re-usable
-* Incorporate design and branding at the lowest widget level:
+- We build up our UIs from very granular components or 'atoms'
+- They are highly re-usable
+- Incorporate design and branding at the lowest widget level:
 
 .center[![atoms](../img/atoms.png)]
 
@@ -149,29 +147,28 @@ export class HelloComponent {
 
 ### Atomic Design
 
-* These atoms form a 'living style guide'
-* Are combined into more useful 'molecules', 'organisms', and finally 'pages':
+- These atoms form a 'living style guide'
+- Are combined into more useful 'molecules', 'organisms', and finally 'pages':
 
 .center[![molecule](../img/molecule.png)]
 
-
 .flex.justify-between.bold.rangle-purple.caps[
-  .block[More Reusable]
-  .block[Less Reusable]]
+.block[More Reusable]
+.block[Less Reusable]]
 
 .img-max-width[![left-bar](../img/bar-max-left.svg)]
 
 .flex.justify-between.bold.rangle-purple.caps[
-  .block.border.rounded.p1[Atoms]
-  .block.border.rounded.p1[Molecules]
-  .block.border.rounded.p1[Organisms]
-  .block.border.rounded.p1[Pages]]
+.block.border.rounded.p1[Atoms]
+.block.border.rounded.p1[Molecules]
+.block.border.rounded.p1[Organisms]
+.block.border.rounded.p1[Pages]]
 
 .img-max-width[![right-bar](../img/bar-max-right.svg)]
 
 .flex.justify-between.bold.rangle-purple.caps[
-  .block[Less Complex]
-  .block[More Complex]]
+.block[Less Complex]
+.block[More Complex]]
 
 ---
 
@@ -179,17 +176,17 @@ export class HelloComponent {
 
 There are two kinds of components:
 
-* __Container Components:__ Usually at the top-level of a page
+- **Container Components:** Usually at the top-level of a page
 
-  * Wire together data and business logic
-  * Render a tree of presentational components
-  * Are difficult to reuse
+  - Wire together data and business logic
+  - Render a tree of presentational components
+  - Are difficult to reuse
 
-* __Presentational Components:__ 90% of your render tree
+- **Presentational Components:** 90% of your render tree
 
-  * Contain no state - pure functions of their attributes.
-  * Presentational only
-  * Highly re-usable.
+  - Contain no state - pure functions of their attributes.
+  - Presentational only
+  - Highly re-usable.
 
 ---
 
@@ -200,20 +197,22 @@ Let's build a re-usable version of one of our atoms from earlier.
 We'll need to pass data into the component.
 
 ```typescript
-import { Component, Input } from 'angular2/core';
+import { Component, Input } from "angular2/core";
 
 @Component({
-  selector: 'rangle-label',
+  selector: "rangle-label",
   template: '<label class="rangle-label">{{ name }}</label>',
-  styles: [ `
-    .rangle-label {
-      color: #422D3F;
-      display: block;
-      font-weight: bold;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-    }
-  `]
+  styles: [
+    `
+      .rangle-label {
+        color: #422d3f;
+        display: block;
+        font-weight: bold;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+    `,
+  ],
 })
 export class RangleLabel {
   @Input() private name: string;
@@ -224,26 +223,23 @@ export class RangleLabel {
 
 ### Passing Data into a Component
 
-* Use the `@Input` annotation to define a 'property' on our component.
-* It gets mapped to a property on the component's class
-* It can be displayed in our component's template using
-<a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#interpolation"
-  target="\_blank">interpolation</a> (`{{ }}`)
+- Use the `@Input` annotation to define a 'property' on our component.
+- It gets mapped to a property on the component's class
+- It can be displayed in our component's template using
+  <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#interpolation"
+    target="\_blank">interpolation</a> (`{{ }}`)
 
 A parent component can pass an arbitrary value for `name` using 'property
 binding' (`[foo]="bar"`):
 
 ```typescript
-import { Component } from 'angular2/core';
-import { RangleLabel }  from './rangle-label';
+import { Component } from "angular2/core";
+import { RangleLabel } from "./rangle-label";
 
 @Component({
-	selector: 'hello',
-	directives: [ RangleLabel ],
-	template: `
-	  <rangle-label [name]="labelText">
-	  </rangle-label>
-	`
+  selector: "hello",
+  directives: [RangleLabel],
+  template: ` <rangle-label [name]="labelText"> </rangle-label> `,
 })
 export class App {
   private labelText = "Search the site";
@@ -251,7 +247,7 @@ export class App {
 ```
 
 .bottom-comment[<a href="http://plnkr.co/edit/p6BqSrUkPM7pXEVVbGrW?p=preview"
-  target="\_blank">See it live</a>]
+target="\_blank">See it live</a>]
 
 ---
 
@@ -305,16 +301,16 @@ export class RangleButton {
 }
 ```
 
-* The button component binds to the browser's `click` event using 'event binding'
-(`(click)="someExpression"`).
-* The bound expression emits an event using the `EventEmitter` class.
-* These events are exposed on the component's interface using the `@Output`
-decorator.
-* Note that we've also defined another `@Input` to show an example of dynamic
-styling.
+- The button component binds to the browser's `click` event using 'event binding'
+  (`(click)="someExpression"`).
+- The bound expression emits an event using the `EventEmitter` class.
+- These events are exposed on the component's interface using the `@Output`
+  decorator.
+- Note that we've also defined another `@Input` to show an example of dynamic
+  styling.
 
 .bottom-comment[<a href="http://plnkr.co/edit/zmKECakOxW1eo4GKkQgt?p=preview"
-  target="\_blank">See it live</a>]
+target="\_blank">See it live</a>]
 
 ---
 
@@ -350,7 +346,7 @@ We can do something similar for our `RangleTextField` atom:
 
 ### Responding to Component Events
 
-```typescript
+````typescript
 export class RangleTextField {
   @Input() placeholder: string;
   @Input() value: String;
@@ -371,7 +367,7 @@ the parent component to use 'two-way binding' (`[(value)]`) for the `value` prop
   [(value)]="displayValue">
 </rangle-text-field>
 <p>Input value: {{ displayValue }}</p>
-```
+````
 
 ```typescript
 export class App {
@@ -380,7 +376,7 @@ export class App {
 ```
 
 .bottom-comment[<a href="http://plnkr.co/edit/366FJDDq9lCF6ZpBkIus?p=preview"
-  target="\_blank">See it live</a>]
+target="\_blank">See it live</a>]
 
 ---
 
@@ -391,16 +387,16 @@ Since things are getting a little bigger now we'll put our styles and HTML into
 their own files.
 
 ```typescript
-import { Component, Output, EventEmitter } from 'angular2/core';
-import { RangleButton } from './rangle-button';
-import { RangleLabel } from './rangle-label';
-import { RangleTextField } from './rangle-text-field';
+import { Component, Output, EventEmitter } from "angular2/core";
+import { RangleButton } from "./rangle-button";
+import { RangleLabel } from "./rangle-label";
+import { RangleTextField } from "./rangle-text-field";
 
 @Component({
-  selector: 'rangle-search-bar',
-  directives: [ RangleLabel, RangleButton, RangleTextField ],
-  templateUrl: 'app/rangle-search-bar.html',
-  styleUrls: [ 'app/rangle-search-bar.css' ]
+  selector: "rangle-search-bar",
+  directives: [RangleLabel, RangleButton, RangleTextField],
+  templateUrl: "app/rangle-search-bar.html",
+  styleUrls: ["app/rangle-search-bar.css"],
 })
 export class RangleSearchBar {
   private inputValue: string;
@@ -415,18 +411,18 @@ export class RangleSearchBar {
 
 ### Combine it All Into a Molecule
 
-Here's the molecule's  template:
+Here's the molecule's template:
 
 ```html
-<rangle-label name="Search the site">
-</rangle-label>
+<rangle-label name="Search the site"> </rangle-label>
 <div class="row">
-  <rangle-text-field placeholder="Enter Keyword"
-    [(value)]="inputValue">
+  <rangle-text-field placeholder="Enter Keyword" [(value)]="inputValue">
   </rangle-text-field>
-  <rangle-button name="Search"
+  <rangle-button
+    name="Search"
     [isPrimary]="true"
-    (click)="handleSearch(inputValue)">
+    (click)="handleSearch(inputValue)"
+  >
   </rangle-button>
 </div>
 ```
@@ -439,7 +435,7 @@ And here are the molecule's styles:
 
 ```css
 :host {
-  background: #F8F8F8;
+  background: #f8f8f8;
   border: solid #ccc 1px;
   display: block;
   margin: 1rem;
@@ -458,22 +454,22 @@ Also note that we can style our component DOM node (`<rangle-button>`) using
 the `:host` selector.
 
 .bottom-comment[<a href="http://plnkr.co/edit/X3ImJq3ZbUIamhqnUACT?p=preview"
-  target="\_blank">See it live</a>]
+target="\_blank">See it live</a>]
 
 ---
 
 ### Statelessness
 
 Note that all the things we've built are still presentational components.
-* Even the molecule
-* No state
-* Pure functions of their `@Input()`s  that generate `@Output()`s and DOM
-with no side-effects.
 
-> Statelessness is the __the first key to reusable components.__
+- Even the molecule
+- No state
+- Pure functions of their `@Input()`s that generate `@Output()`s and DOM
+  with no side-effects.
+
+> Statelessness is the **the first key to reusable components.**
 
 ---
-
 
 ### Nesting Components with Projection
 
@@ -483,8 +479,9 @@ with other contents?
 Let's use `projection`!
 
 Projection has two main benefits:
-* It makes your components more reusable
-* It can make your UI tree flatter and more manageable
+
+- It makes your components more reusable
+- It can make your UI tree flatter and more manageable
 
 Let's reimplement the search bar with a generic `RangleBar`:
 
@@ -495,8 +492,7 @@ Let's reimplement the search bar with a generic `RangleBar`:
 Our template:
 
 ```html
-<rangle-label [name]="name">
-</rangle-label>
+<rangle-label [name]="name"> </rangle-label>
 <div class="row">
   <ng-content></ng-content>
 </div>
@@ -506,10 +502,10 @@ Our TypeScript:
 
 ```typescript
 @Component({
-  selector: 'rangle-bar',
-  directives: [ RangleLabel ],
-  templateUrl: 'app/rangle-bar.html',
-  styleUrls: [ 'app/rangle-bar.css' ]
+  selector: "rangle-bar",
+  directives: [RangleLabel],
+  templateUrl: "app/rangle-bar.html",
+  styleUrls: ["app/rangle-bar.css"],
 })
 export class RangleBar {
   @Input() name: string;
@@ -524,7 +520,7 @@ And our CSS:
 
 ```css
 :host {
-  background: #F8F8F8;
+  background: #f8f8f8;
   border: solid #ccc 1px;
   display: block;
   padding: 1rem;
@@ -544,19 +540,18 @@ Now we have a general layout component that can be reused for multiple things:
 
 ```html
 <rangle-bar name="Search the site">
-  <rangle-text-field placeholder="Enter Keyword"
-    [(value)]="searchTerm">
+  <rangle-text-field placeholder="Enter Keyword" [(value)]="searchTerm">
   </rangle-text-field>
-  <rangle-button name="Search"
+  <rangle-button
+    name="Search"
     [isPrimary]="true"
-    (click)="handleSearch(searchTerm)">
+    (click)="handleSearch(searchTerm)"
+  >
   </rangle-button>
 </rangle-bar>
 
 <rangle-bar name="Other Stuff">
-  <rangle-button name="Button 1"
-    [isPrimary]="true">
-  </rangle-button>
+  <rangle-button name="Button 1" [isPrimary]="true"> </rangle-button>
   <rangle-button name="Button 2"></rangle-button>
   <rangle-button name="Button 3"></rangle-button>
 </rangle-bar>
@@ -566,19 +561,19 @@ There's actually quite a lot more you can do with projection.
 <a href="http://plnkr.co/edit/LgCjXI5QH7jZkXgwwnsF?p=preview"
  target="\_blank">Click here for an advanced demo</a>.
 
-> Good use of projection is __the second key to reusable components__.
+> Good use of projection is **the second key to reusable components**.
 
 .bottom-comment[<a href="http://plnkr.co/edit/r9t83IQdRkIrgPSfDWRY?p=preview"
-  target="\_blank">See it live</a>]
+target="\_blank">See it live</a>]
 
 ---
 
 ### Scoping Styles with `ViewEncapsulation`
 
-* The global nature of CSS definitions presents a challenge for component
-design.
-* How can we make sure that CSS classes in our components don't conflict
-with each other?
+- The global nature of CSS definitions presents a challenge for component
+  design.
+- How can we make sure that CSS classes in our components don't conflict
+  with each other?
 
 Consider this code:
 
@@ -587,7 +582,9 @@ Consider this code:
   <head>
     <!-- SystemJS/Angular stuff... --->
     <style type="text/css">
-      p { border: dashed blue 2px }
+      p {
+        border: dashed blue 2px;
+      }
     </style>
   </head>
   <body>
@@ -596,11 +593,12 @@ Consider this code:
   </body>
 </html>
 ```
+
 ```typescript
 @Component({
-  selector: 'app',
+  selector: "app",
   template: `<p>P inside a component</p>`,
-  styles: [ 'p { background: red }' ]
+  styles: ["p { background: red }"],
 })
 export class App {}
 ```
@@ -622,7 +620,7 @@ Instead, you see this:
 What's going on?
 
 .bottom-comment[<a href="http://plnkr.co/edit/0SrT48rfyQN8oULtJoFq?p=preview"
-  target="\_blank">See it live</a>]
+target="\_blank">See it live</a>]
 
 ---
 
@@ -633,11 +631,11 @@ It turns out that AngularJS is modifying the `<app>` component's styles:
 ```css
 /* This is the definition from the App component. */
 p[_ngcontent-qpw-1] {
-    background: #F00;
+  background: #f00;
 }
 /* This is the global definition from index.html */
 p {
-    border: dashed #00F 2px;
+  border: dashed #00f 2px;
 }
 ```
 
@@ -654,7 +652,7 @@ and used it to scope the CSS selectors defined in the `style` property of
 This is a great feature - you can now property encapsulate your component's
 CSS styles too.
 
-> view encapsulation is __the third key to reusable components__.
+> view encapsulation is **the third key to reusable components**.
 
 ---
 
@@ -674,12 +672,12 @@ import { ViewEncapsulation, Component } from 'angular2/core';
 
 There are three settings:
 
-* `ViewEncapsulation.Emulated` (the default): the component will respect styles
-from global stylesheets, but scope anything from `@Component`'s `styles` or
-`styleUrls` properties.
-* `ViewEncapsulation.None`: this component's styles are global.
-* `ViewEncapsulation.Native`: this component's styles are scoped, and the
-component ignored global styles from other places.
+- `ViewEncapsulation.Emulated` (the default): the component will respect styles
+  from global stylesheets, but scope anything from `@Component`'s `styles` or
+  `styleUrls` properties.
+- `ViewEncapsulation.None`: this component's styles are global.
+- `ViewEncapsulation.Native`: this component's styles are scoped, and the
+  component ignored global styles from other places.
 
 Let's <a href="http://plnkr.co/edit/0SrT48rfyQN8oULtJoFq?p=preview"
   target="\_blank">see that in action</a>.
@@ -707,21 +705,21 @@ Here is the complete lifecycle hook interface inventory:
   target="\_blank">Component Lifecycle</a>
 
 .bottom-comment[<a href="http://plnkr.co/edit/0fuHvJn8SFm8sE0C33F0?p=preview"
-  target="\_blank">See it live</a>]
+target="\_blank">See it live</a>]
 
 ---
 
 ### DOM Manipulation with ElementRef
 
-* Angular2 gives you the ability to access your element's root DOM node.
-* Do this by injecting the `ElementRef` service into your component.
+- Angular2 gives you the ability to access your element's root DOM node.
+- Do this by injecting the `ElementRef` service into your component.
 
 ```typescript
-import {Component, ElementRef} from 'angular2/core';
+import { Component, ElementRef } from "angular2/core";
 
 @Component({
-  selector: 'todo-app',
-  template: `...`
+  selector: "todo-app",
+  template: `...`,
 })
 export class TodoApp {
   constructor(private elementRef: ElementRef) {
@@ -730,34 +728,37 @@ export class TodoApp {
 }
 ```
 
-__Use this feature sparingly__ - directly manipulating the DOM breaks
+**Use this feature sparingly** - directly manipulating the DOM breaks
 sacrifices many of the benefits of Angular2's component architecture.
 
 .bottom-comment[<a href="http://plnkr.co/edit/QkNbKQh6ya1WX0YdUahX?p=preview"
-  target="\_blank">See it live</a>]
+target="\_blank">See it live</a>]
 
 ---
 
 ### Conclusion
 
-* Modern web development is converging on a 'component-oriented' architecture
-* Your app's view is a tree of simple, granular components.
-* Components encapsulate their own JavaScript, HTML, and CSS into one unit
-* No longer separating concerns by technology but instead by functionality.
-  * Presentation is an important part of that functionality.
+- Modern web development is converging on a 'component-oriented' architecture
+- Your app's view is a tree of simple, granular components.
+- Components encapsulate their own JavaScript, HTML, and CSS into one unit
+- No longer separating concerns by technology but instead by functionality.
 
-* Tips for reusable components:
-  * Use statelessness to keep them simple
-  * Use projection to keep them generic
-  * Use ViewEncapsulation to keep them isolated
-  * Keep them small and granular
+  - Presentation is an important part of that functionality.
 
-* Where needed, Angular provides advanced features to help you when the component
-model is insufficient:
-  * `ElementRef`
-  * Lifecycle hooks
+- Tips for reusable components:
 
-* Try to use these advanced features sparingly
+  - Use statelessness to keep them simple
+  - Use projection to keep them generic
+  - Use ViewEncapsulation to keep them isolated
+  - Keep them small and granular
+
+- Where needed, Angular provides advanced features to help you when the component
+  model is insufficient:
+
+  - `ElementRef`
+  - Lifecycle hooks
+
+- Try to use these advanced features sparingly
 
 ---
 
@@ -765,23 +766,24 @@ model is insufficient:
 
 Documentation:
 
-  * <a target="\_blank" href="https://angular.io">Google's Angular
+- <a target="\_blank" href="https://angular.io">Google's Angular
   Documentation</a>
-  * <a target="\_blank"
+- <a target="\_blank"
   href="https://www.gitbook.com/book/rangle-io/ngcourse2/details">Rangle.io's
   Angular GitBook</a>
 
 Rangle Starter Setups:
 
-  * <a target="\_blank"
-    href="https://github.com/rangle/angular2-starter">Angular2 with
-    TypeScript and Webpack</a>
-  * <a target="\_blank"
-    href="https://github.com/rangle/angular2-redux-starter">Angular2 with
-    TypeScript, Webpack, and Redux</a>
+- <a target="\_blank"
+  href="https://github.com/rangle/angular2-starter">Angular2 with
+  TypeScript and Webpack</a>
+- <a target="\_blank"
+  href="https://github.com/rangle/angular2-redux-starter">Angular2 with
+  TypeScript, Webpack, and Redux</a>
 
 Examples:
-* <a target="\_blank"
+
+- <a target="\_blank"
   href="https://github.com/rangle/ngCourse2/tree/master/examples/components">
   Locally runnable Plunkr Examples from this Webinar and from the gitbook</a>
 
