@@ -11,7 +11,7 @@ Angular provides `AsyncPipe`, which is stateful.
 
 AsyncPipe can receive a `Promise` or `Observable` as input and subscribe to the input automatically, eventually returning the emitted value\(s\). It is stateful because the pipe maintains a subscription to the input and its returned values depend on that subscription.
 
-[View Example](http://plnkr.co/edit/LI2RHBfX6NVTvBeNnphR?p=preview)
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-pure-impure-pipes)
 
 ## Implementing Stateful Pipes
 
@@ -46,5 +46,5 @@ export class AnimateNumberPipe implements PipeTransform {
 }
 ```
 
-[View Example](http://plnkr.co/edit/HGIyhJvTrZEPtGn98QIG?p=preview)
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-pure-impure-pipes)
 
