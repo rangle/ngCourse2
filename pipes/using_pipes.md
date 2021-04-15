@@ -1,6 +1,6 @@
 # Using Pipes
 
-Like a filter, a pipe also takes data as input and transforms it to the desired output. A basic example of using pipes is shown below:
+Pipes are like a transform, they take data as input and transforms it to the desired output. A basic example of using pipes is shown below:
 
 ```javascript
 import { Component } from '@angular/core';
@@ -14,11 +14,11 @@ export class ProductPrice {
 }
 ```
 
-[View Example](http://plnkr.co/edit/JIdYGCz1U9ElEpCArg01?p=preview)
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-using-pipes)
 
 ## Passing Parameters
 
-A pipe can accept optional parameters to modify the output. To pass parameters to a pipe, simply add a colon and the parameter value to the end of the pipe expression:
+A pipe can accept optional parameters to modify the output. To pass parameters to a pipe, simply add a `colon` and the `parameter` value to the end of the pipe expression:
 
 ```text
 pipeName: parameterValue
@@ -41,8 +41,9 @@ export class AppComponent {
   price = 100.123456;
 }
 ```
+In the above example, we are using `CurrencyPipe`, `DecimalPipe` and `LowerCasePipe` together to display product prices appropriately. The price value of `100.123456` is displayed as `ca$100.1235` using both pipes in conjunction. 
 
-[View Example](http://plnkr.co/edit/IjGPii3n7qpezcglp03O?p=preview)
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-using-pipes)
 
 ## Chaining Pipes
 
@@ -60,5 +61,5 @@ export class ProductPrice {
 }
 ```
 
-[View Example](http://plnkr.co/edit/mnnujN8qPMfRzmNg4uo4?p=preview)
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-using-pipes)
 
