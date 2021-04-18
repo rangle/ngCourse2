@@ -22,7 +22,5 @@ export class AppComponent {}
 
 In the above example, the component corresponding to the route specified will be placed after the `<router-outlet></router-outlet>` element when the link is clicked.
 
-[View Example](https://plnkr.co/edit/OHfytJquXKm8jvSe2T9Y?p=preview)
-
-> View examples running in full screen mode to see route changes in the URL.
+[View Example](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-basic-router)
 

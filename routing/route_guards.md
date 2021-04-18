@@ -42,7 +42,7 @@ Now `LoginRouteGuard` will be checked by the router when activating the `account
 Let's look at an example activate guard that checks whether the user is logged in:
 
 ```javascript
-import { CanActivate } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { LoginService } from './login-service';
 
@@ -51,7 +51,7 @@ export class LoginRouteGuard implements CanActivate {
 
   constructor(private loginService: LoginService) {}
 
-  canActivate() {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     return this.loginService.isLoggedIn();
   }
 }
@@ -67,12 +67,11 @@ When `canActivate` returns true, the user can activate the route. When `canActiv
 
 ## Implementing CanDeactivate
 
-`CanDeactivate` works in a similar way to `CanActivate` but there are some important differences. The `canDeactivate` function passes the component being deactivated as an argument to the function:
+`CanDeactivate` works in a similar way to `CanActivate`, but there are some important differences. The `canDeactivate` function passes the component being deactivated as an argument to the function:
 
 ```javascript
-export interface CanDeactivate<T> {
-  canDeactivate(component: T, route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
-      Observable<boolean>|Promise<boolean>|boolean;
+interface CanDeactivate<T> {
+  canDeactivate(component: T, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
 }
 ```
 
@@ -86,7 +85,7 @@ import { AccountPage } from './account-page';
 @Injectable()
 export class SaveFormsGuard implements CanDeactivate<AccountPage> {
 
-  canDeactivate(component: AccountPage) {
+  canDeactivate(component: AccountPage, currentRoute: ActivatedRouteSnapshot, currentState:       RouterStateSnapshot, nextState: RouterStateSnapshot) {
     return component.areFormsSaved();
   }
 
@@ -97,7 +96,7 @@ export class SaveFormsGuard implements CanDeactivate<AccountPage> {
 
 ## Async Route Guards
 
-The `canActivate` and `canDeactivate` functions can either return values of type `boolean`, or `Observable<boolean>` \(an Observable that resolves to `boolean`\). If you need to do an asynchronous request \(like a server request\) to determine whether the user can navigate to or away from the route, you can simply return an `Observable<boolean>`. The router will wait until it is resolved and use that value to determine access.
+The `canActivate` and `canDeactivate` functions can return values of type `boolean`, or `Observable<boolean>` \(an Observable that resolves to `boolean`\). If you need to do an asynchronous request \(like a server request\) to determine whether the user can navigate to or away from the route, you can simply return an `Observable<boolean>`. The router will wait until it is resolved and use that value to determine access.
 
 For example, when the user navigates away you could have a dialog service ask the user to confirm the navigation. The dialog service returns an `Observable<boolean>` which resolves to true if the user clicks 'OK', or false if user clicks 'Cancel'.
 
@@ -107,7 +106,19 @@ For example, when the user navigates away you could have a dialog service ask th
   }
 ```
 
+The `canActivate` and `canDeactivate` functions can also return values of type `UrlTree` or `Observable<UrlTree>` \(an Observable that resolves to `UrlTree`\).  A `UrlTree` is a data structure that represents a parsed URL.  If a route guard returns a `UrlTree`, the current navigation is cancelled and replaced with a new navigation to the Url specified in the `UrlTree`.
+
+```javascript
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.permissionService.canAccess(next)) {
+      return true;
+    } else {
+      return this.router.parseUrl('/notauthorized');
+    }
+  }
+```
+
 [View Example](http://plnkr.co/edit/sRNxfXsbcWnPU818aZsu?p=preview)
 
-[See Official Documentation for Route Guards](https://angular.io/docs/ts/latest/guide/router.html#!#guards)
+[See Official Documentation for Route Guards](https://angular.io/guide/router#preventing-unauthorized-access)
 
