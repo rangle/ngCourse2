@@ -1,5 +1,7 @@
 # Configuring Routes
 
+The scaffolding for Angular Routing can be generated automatically when creating a new application using the angular cli.  This section describes manually adding routing to an existing application.
+
 ## Base URL Tag
 
 The Base URL tag must be set within the `<head>` tag of index.html:

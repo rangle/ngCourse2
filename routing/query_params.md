@@ -43,7 +43,7 @@ export default class ProductList {
 
   ngOnInit() {
     this.sub = this.route
-      .queryParams
+      .paramMap
       .subscribe(params => {
         // Defaults to 0 if no query param provided.
         this.page = +params['page'] || 0;

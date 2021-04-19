@@ -85,11 +85,9 @@ export const routes: Routes = [
 
 Since the `Overview` child route of `product-details` has an empty path, it will be loaded by default. The `specs` child route remains the same.
 
-[View Example with child routes](https://plnkr.co/edit/MqNv6RyQvzsiZTp0Dkpf?p=preview)
+[View Example with child routes](https://stackblitz.com/github/rangle/angular-book-examples/tree/feat-child-routes)
 
 [View Example with route params & child routes](https://plnkr.co/edit/xFL7q0HeTGBPQT1ZiMnI?p=preview)
-
-> View examples running in full screen mode to see route changes in the URL.
 
 ## Accessing a Parent's Route Parameters
 
@@ -119,8 +117,6 @@ export default class Overview {
 
 [View Example child routes accessing parent's route parameters](https://plnkr.co/edit/7stoOP3oEl7dqwsgBgu9?p=preview)
 
-> View examples running in full screen mode to see route changes in the URL.
-
 ## Links
 
 Routes can be prepended with `/`, or `../`; this tells Angular where in the route tree to link to.
@@ -143,5 +139,4 @@ In the above example, the link for route one links to a child of the current rou
 
 [View Example with linking throughout route tree](https://plnkr.co/edit/gsJxf6ukOXd4kNjLLVR3?p=preview)
 
-> View examples running in full screen mode to see route changes in the URL.
 
