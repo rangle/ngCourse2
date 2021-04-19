@@ -1,13 +1,13 @@
-import {Component, Input} from 'angular2/core';
+import { Component, Input } from "angular2/core";
 
 @Component({
-  selector: 'a2-projection',
+  selector: "a2-projection",
   template: `
-  <p>
-  Angular 2 Outer Component (Top)
-  <ng-content></ng-content>
-  Angular 2 Outer Component (Bottom)
-  </p>
-  `
+    <p>
+      Angular Outer Component (Top)
+      <ng-content></ng-content>
+      Angular Outer Component (Bottom)
+    </p>
+  `,
 })
-export class A2Projection { }
+export class A2Projection {}

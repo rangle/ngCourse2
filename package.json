@@ -1,7 +1,7 @@
 {
   "name": "ng-course-2",
   "version": "1.0.0",
-  "description": "Git Book, and markdown resources for learning/teaching Angular 2",
+  "description": "Git Book, and markdown resources for learning/teaching Angular 2+",
   "main": "",
   "directories": {
     "example": "examples"

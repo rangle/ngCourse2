@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <title>Angular 2 QuickStart</title>
+    <title>Angular QuickStart</title>
     <!-- 1. Load libraries -->
     <script src="https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js"></script>
     <script src="https://code.angularjs.org/tools/system.js"></script>
@@ -12,15 +11,16 @@
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
-        transpiler: 'typescript',
+        transpiler: "typescript",
         typescriptOptions: { emitDecoratorMetadata: true },
-        packages: {'app': {defaultExtension: 'ts'}}
+        packages: { app: { defaultExtension: "ts" } },
       });
-      System.import('app/boot')
-            .then(null, console.error.bind(console));
+      System.import("app/boot").then(null, console.error.bind(console));
     </script>
     <style type="text/css">
-      p { border: dashed blue 2px; }
+      p {
+        border: dashed blue 2px;
+      }
     </style>
   </head>
 
@@ -29,5 +29,4 @@
     <app>Loading...</app>
     <p>P outside a component</p>
   </body>
-  
 </html>

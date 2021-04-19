@@ -1,77 +1,78 @@
 # Upgrading Components
 
-The only Angular 1.x components that can be upgraded and used in Angular 2 code are those that _strictly_ follow the component pattern outlined at the top of this document. Wherever possible use Angular 1.5+'s `.component`.
+The only AngularJS 1.x components that can be upgraded and used in Angular code are those that _strictly_ follow the component pattern outlined at the top of this document. Wherever possible use AngularJS 1.5+'s `.component`.
 
-Here is an Angular 1.x directive that conforms to ng-upgrade's "component directive" specification:
+Here is an AngularJS 1.x directive that conforms to ng-upgrade's "component directive" specification:
 
 ```javascript
-angular.module('app').directive('a1Upgradable', function a1UpgradableDirective() {
-  return {
-    restrict: 'E',
-    scope: {},
-    bindToController: {},
-    controller: Upgradable,
-    controllerAs: 'a1Upgradable',
-    template: `<span>{{ a1Upgradable.message }}</span>`
-  };
-});
+angular
+  .module("app")
+  .directive("a1Upgradable", function a1UpgradableDirective() {
+    return {
+      restrict: "E",
+      scope: {},
+      bindToController: {},
+      controller: Upgradable,
+      controllerAs: "a1Upgradable",
+      template: `<span>{{ a1Upgradable.message }}</span>`,
+    };
+  });
 
 class Upgradable {
-  message = 'I am an Angular 1 Directive';
+  message = "I am an Angular 1 Directive";
 }
 ```
 
-Equivalently this can be written using `.component` in Angular 1.5+:
+Equivalently this can be written using `.component` in AngularJS 1.5+:
 
 ```javascript
-angular.module('app').component('a1Upgradable', {
+angular.module("app").component("a1Upgradable", {
   controller: Upgradable,
-  template: `<span>{{ a1Upgradable.message }}</span>`
+  template: `<span>{{ a1Upgradable.message }}</span>`,
 });
 
 class Upgradable {
-  message = 'I am an Angular 1 Directive';
+  message = "I am an AngularJS Directive";
 }
 ```
 
-Below is an Angular 2 component that will use the upgraded Angular 1.x directive:
+Below is an Angular component that will use the upgraded AngularJS directive:
 
 ```javascript
-import {upgradeAdapter} from '../upgrade-adapter';
-import {A2UsingA1Component} from './a2-using-a1.component';
+import { upgradeAdapter } from "../upgrade-adapter";
+import { A2UsingA1Component } from "./a2-using-a1.component";
 
 @NgModule({
-  declarations: [upgradeAdapter.upgradeNg1Component('a1Upgradable'), A2UsingA1Component],
+  declarations: [
+    upgradeAdapter.upgradeNg1Component("a1Upgradable"),
+    A2UsingA1Component,
+  ],
   providers: [],
-  imports: [BrowserModule]
+  imports: [BrowserModule],
 })
-export class AppModule {
-}
+export class AppModule {}
 ```
 
 ```javascript
-import {Component} from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'a2-using-a1',
-  template: `<p>{{ message }}<a1-upgradable></a1-upgradable></p>`
+  selector: "a2-using-a1",
+  template: `<p>{{ message }}<a1-upgradable></a1-upgradable></p>`,
 })
 export class A2UsingA1Component {
-  message = 'Angular 2 Using Angular 1: ';
+  message = "Angular Using AngularJS: ";
 }
 ```
 
-Finally, let Angular 1.x know about the directive:
+Finally, let AngularJS know about the directive:
 
 ```javascript
-import {a1UpgradableDirective} from './components/a1-upgradable';
+import { a1UpgradableDirective } from "./components/a1-upgradable";
 
 // Angular 1 Vendor Import
-import * as angular from 'angular';
+import * as angular from "angular";
 
-// Register classic Angular 1 modules
-angular
-  .module(APPNAME)
-  .directive('a1Upgradable', a1UpgradableDirective)
+// Register classic AngularJS modules
+angular.module(APPNAME).directive("a1Upgradable", a1UpgradableDirective);
 ```
-

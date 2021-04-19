@@ -1,4 +1,3 @@
-# Using ng-upgrade \(Angular 1.x Coexisting With Angular 2\)
+# Using ng-upgrade \(AngularJS Coexisting With Angular\)
 
-The ng-upgrade is done by running Angular 2 and Angular 1 together in the same application. In this scenario Angular 1.x controls the page, and Angular 2 controls the change detection mechanisms. Once the two Angulars co-exist, upgrading can be done in strategic pieces.
-
+The ng-upgrade is done by running Angular and AngularJS together in the same application. In this scenario AngularJS controls the page, and Angular controls the change detection mechanisms. Once the two Angulars co-exist, upgrading can be done in strategic pieces.
