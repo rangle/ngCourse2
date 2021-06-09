@@ -7,4 +7,4 @@ There are common ways to upgrade from AngularJS to Angular:
 * Migrating route by route
 * ngUpgrade
 
-_The last three are not mutually exclusive._
+_TThe last three options are usually done in conjunction._
