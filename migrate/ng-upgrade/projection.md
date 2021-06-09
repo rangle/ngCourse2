@@ -45,7 +45,7 @@ Both the component and the directive must be registered with AngularJS:
 import { A2Projection } from "./components/a2-projection";
 import { a1ProjectionContentsDirective } from "./components/a1-projection-contents";
 
-// Angular 1 Vendor Import
+// AngularJS Vendor Import
 import * as angular from "angular";
 
 // Import the upgradeAdapter singleton
@@ -54,7 +54,7 @@ import { upgradeAdapter } from "./upgrade-adapter";
 // Name the application
 const APPNAME = "angular-upgrade-example";
 
-// Register classic Angular 1 modules
+// Register classic AngularJS modules
 angular
   .module(APPNAME)
   .directive("a2Projection", upgradeAdapter.downgradeNg2Component(A2Projection))
