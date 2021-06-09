@@ -16,8 +16,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Hello } from './app.component.ts';
 
-// Using SystemJs' text plugin
-import translations from './messages.fr.xlf!text';
+declare const require;
+const translations = require(`raw-loader!./messages.fr.xlf`);
+
 const localeId = 'fr';
 
 @NgModule({
@@ -41,7 +42,4 @@ platformBrowserDynamic().bootstrapModule(AppModule, {
 });
 ```
 
-[View Example](http://plnkr.co/edit/p1bK6TFnKupReH9HmCOt?p=preview)
-
-We're using SystemJS text plugin to import raw xlf files. We could alternately use webpack and `raw-loader` to achieve the same effect. Better yet, we could make an http call based on which language we're interested in, and asynchronously bootstrap the app once its loaded.
-
+We're using webpack and `raw-loader` to load the load the translations. We could alternatively make an http call based on which language we're interested in, and asynchronously bootstrap the app once its loaded.
