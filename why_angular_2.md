@@ -1,22 +1,22 @@
 # Why Angular?
 
-There are many front-end JavaScript frameworks to choose from today, each with its own set of trade-offs. Many people were happy with the functionality that AngularJS afforded them. Angular improved on that functionality and made it faster, more scalable and more modern. Organizations that found value in AngularJS will find more value in Angular.
+There are many front-end JavaScript frameworks to choose from today, each with its own set of trade-offs. Many people were happy with the functionality that AngularJS afforded them. Angular improved on that functionality and made it faster, more scalable and more modern. Organizations that found value in AngularJS will find more value in Angular. It is increasingly common to see a sentiment in the enterprise space that Angular provides the sort of 'out of box' functionality and opinionated tools that allow for large teams to work in a cohesive and consistent way.
 
 ## Angular's Advantages
 
 The first release of AngularJS provided programmers with the tools to develop and architect large scale JavaScript applications, but its age has revealed a number of flaws and sharp edges. Angular was built on five years of community feedback.
 
+Now, after the many years of Angular 2+ released, it has matured into a system focused on providing tools that scale, with a robust community and many common problems solved with tutorials, blog posts, and videos galore to help you tackle challenges of all shapes and sizes.
+
 ### Angular Is Easier
 
 The new Angular codebase is more modern, more capable and easier for new programmers to learn than AngularJS, while also being easier for project veterans to work with.
 
-With AngularJS, programmers had to understand the differences between Controllers, Services, Factories, Providers and other concepts that could be confusing, especially for new programmers.
-
-Angular is a more streamlined framework that allows programmers to focus on simply building JavaScript classes. Views and controllers are replaced with components, which can be described as a refined version of directives. Even experienced AngularJS programmers are not always aware of all the capabilities of AngularJS directives. Angular components are considerably easier to read, and their API features less jargon than AngularJS's directives. Additionally, to help ease the transition to Angular, the Angular team has added a `.component` method to AngularJS 1.5, which has been [back-ported by community member Todd Motto to v1.3](https://toddmotto.com/angular-component-method-back-ported-to-1.3/).
+Compared to other popular web frameworks, Angular is 
 
 ### TypeScript
 
-Angular 2+ was written in TypeScript, a superset of JavaScript that implements many new ES2016+ features.
+Angular 2+ was written in TypeScript, a superset of JavaScript that implements many new ES2016+ features, and was since its inception. 
 
 By focusing on making the framework easier for computers to process, Angular allows for a much richer development ecosystem. Programmers using sophisticated text editors \(or IDEs\) will notice dramatic improvements with auto-completion and type suggestions. These improvements help to reduce the cognitive burden of learning Angular. Fortunately for traditional ES5 JavaScript programmers this does _not_ mean that development must be done in TypeScript or ES2015: programmers can still write vanilla JavaScript that runs without transpilation.
 
