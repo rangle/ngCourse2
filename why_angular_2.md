@@ -42,18 +42,6 @@ AngularJS tried to work around various browser limitations related to JavaScript
 
 Angular 2+ makes use of the ES2015 module system, and modern packaging tools like webpack or SystemJS. Modules are far less coupled to the "Angular way", and it's easier to write more generic JavaScript and plug it into Angular. The removal of minification workarounds and the addition of rigid prescriptions make maintaining existing applications simpler. The new module system also makes it easier to develop effective tooling that can reason better about larger projects.
 
-### New Features
-
-Some of the other interesting features in Angular are:
-
-- Form Builder
-- Change Detection
-- Templating
-- Routing
-- Annotations
-- Observables
-- Shadow DOM
-
 ## Differences Between AngularJS & Angular 2+
 
 > Note that "Transitional Architecture" refers to a style of Angular 1 application written in a way that mimics Angular's component style, but with controllers and directives instead of TypeScript classes.
