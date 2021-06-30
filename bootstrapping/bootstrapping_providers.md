@@ -1,25 +1,28 @@
 # Bootstrapping Providers
 
-The bootstrap process also starts the dependency injection system in Angular. We won't go over Angular's dependency injection system here - that is covered later. Instead let's take a look at an example of how to bootstrap your application with application-wide providers.
+As of Angular 6, we have access to a great way to have our services globally available in our applications, while still being bundled and lazy loaded as efficiently as possible.
+`@Provider` decorators now take an additional argument, `providedIn`.
 
-For this, we will register a service called `GreeterService` with the `providers` property of the module we are using to bootstrap the application.
+In almost every case, you want to use `providedIn: 'root'` - telling your angular application that this service should be a singleton, available all throughout your application. You don't even need to inject it into a module!
+
 
 _app/app.module.ts_
 
 ```typescript
-import { BrowserModule }  from '@angular/platform-browser';
-import { NgModule } '@angular/core';
-import { AppComponent } from './app.component'
-import { GreeterService } from './greeter.service';
+import { Injectable } from "@angular/core";
 
-@NgModule({
-  imports: [BrowserModule],
-  providers: [GreeterService],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent]
+@Injectable({
+  providedIn: "root"
 })
-export class AppModule { }
+export class GreeterService {
+  private message: string =
+    "Registering Providers while Bootstrapping an Angular 2 application!";
+
+  getMessage() {
+    return this.message;
+  }
+}
 ```
 
-[View Example](https://embed.plnkr.co/W8CkQQ62pIjHFr7BqVjX/)
+[View Example](https://codesandbox.io/embed/bootstrapping-providers-f6g6g?fontsize=14&hidenavigation=1&theme=dark)
 
