@@ -16,12 +16,12 @@ class BlogPage implements OnInit {
   ngOnInit () {
     this.http
       .get(`/api/blogs/`)
-      .map(response => response.json())
+      .pipe(map(response => response.json()))
       .subscribe(data => {
         this.blogs = data.blogs;
         this.http
           .get(`/api/users/me/`)
-          .map(response => response.json())
+          .pipe(map(response => response.json()))
           .subscribe(user => {
             if (this.blogs == null) return;
             this.filterBlogsByAccess(user);
@@ -83,14 +83,18 @@ class BlogPage implements OnInit {
 
   private getBlogs () {
     return this.http.get('/api/blogs/')
-      .map(response => response.json())
-      .do(data => this.blogs = data.blogs);
+      .pipe(
+        map(response => response.json()), 
+        tap(this.blogs = data.blogs)
+      );
   }
 
   private getUser () {
     return this.http.get('/api/users/me/')
-      .map(response => response.json())
-      .do(user => this.user = user);
+      .pipe(
+        map(response => response.json()), 
+        tap(user => this.user = user)
+      );
   }
 
   private filterBlogsByAccess (user) {
@@ -160,7 +164,7 @@ instead of entire methods:
 ```typescript
 // Get data from server.
 const fetchJSON = (http, url) =>
-  http.get(url).map(response => response.json());
+  http.get(url).pipe(map(response => response.json()));
 
 // Return a new array filled with old values.
 const filterByUserAccess = user => blogs =>
@@ -174,9 +178,9 @@ const sortBlogsByDate = direction => blogs =>
 const fetchFilteredBlogs = http => {
   const userStream = fetchJSON(http, `/api/users/me/`);
   const blogStream = fetchJSON(http, `/api/blogs/`)
-    .map(({blogs}) => blogs);
-  const filterStream = userStream.mergeMap(user =>
-    blogStream.filter(filterByUserAccess(user)));
+    .pipe(map(({blogs}) => blogs));
+  const filterStream = userStream
+    .pipe(mergeMap(user => blogStream.filter(filterByUserAccess(user))));
   return filterStream;
 };
 
@@ -190,7 +194,7 @@ class BlogPage implements OnInit {
 
   private loadPage (http) {
     fetchFilteredBlogs(http)
-      .map(sortBlogsByDate(`desc`))
+      .pipe(map(sortBlogsByDate(`desc`)))
       .subscribe(blogs => this.blogs = blogs);
   }
 }
@@ -242,8 +246,10 @@ export class UserService {
 
   getUser () {
     return this.http.get('/api/users/me/')
-      .map(response => response.json())
-      .map(data => User.fromServer(data));
+      .pipe(
+        map(response => response.json()),
+        map(data => User.fromServer(data))
+      )
   }
 }
 ```
@@ -273,8 +279,7 @@ export class AuthorizedBlogService {
     const userStream = userService.getUser();
     const blogStream = blogService.getBlogs();
 
-    return userStream.mergeMap(user =>
-      blogStream.filter(filterByUserAccess(user)));
+    return userStream.pipe(mergeMap(user => blogStream.filter(filterByUserAccess(user))));
   }
 }
 ```
@@ -309,7 +314,7 @@ class BlogPage implements OnInit {
 
   private loadPage () {
     this.blogService.getBlogs()
-      .map(sortBlogsByDate(`desc`))
+      .pipe(map(sortBlogsByDate(`desc`)))
       .subscribe(blogs => this.blogs = blogs);
   }
 }

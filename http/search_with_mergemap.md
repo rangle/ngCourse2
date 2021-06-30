@@ -18,7 +18,7 @@ _app/services/search.service.ts_
 ```javascript
 import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
-import {map} from '@rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class SearchService {
@@ -46,7 +46,7 @@ import { FormControl,
     FormGroup,
     FormBuilder } from '@angular/forms';
 import { SearchService } from './services/search.service';
-import { map } from '@rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-root',

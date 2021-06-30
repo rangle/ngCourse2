@@ -170,8 +170,9 @@ export class TodoStore {
   }
 
   filteredTodos$() {
-    return this.state$.map(({ filter, todos }) =>
-      todos.filter(todo => this.filterTodoByType(todo, filter));
+    return this.state$.pipe(
+      map(({ filter, todos }) => todos.filter(todo => this.filterTodoByType(todo, filter)))
+    )
   }
 }
 ```
@@ -424,8 +425,11 @@ export class AuthSelectors {
 
   isAuthenticated$(): Observable<boolean> {
     return this.ngRedux.select<AuthToken>(path<AuthToken>(['user', 'token']))
-      .map<AuthToken, boolean>(Boolean)
-      .distinctUntilChanged();
+      pipe(
+        map<AuthToken, boolean>(Boolean), 
+        distinctUntilChanged()
+      );
+      
   }
 
   error$(): Observable<Error> {

@@ -11,7 +11,7 @@ A common operation in any web application is getting or posting data to a server
 ```javascript
 import {Component} from '@angular/core';
 import {Http} from '@angular/http';
-import {mergeMap} from '@rxjs/operators';
+import {mergeMap} from 'rxjs/operators';
 
 @Component({
     selector: 'app',
@@ -47,7 +47,7 @@ Let's take a look at how `Observables` are used in Angular forms. Each field in 
 ```javascript
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
-import { map } from '@rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app',

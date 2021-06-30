@@ -35,7 +35,7 @@ export class AnimateNumberPipe implements PipeTransform {
       const difference = this.targetNumber - this.currentNumber
 
       Observable.interval(100)
-        .take(difference)
+        .pipe(take(difference))
         .subscribe(() => {
           this.currentNumber++;
         })

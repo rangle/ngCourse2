@@ -68,7 +68,7 @@ export class CounterActions {
 
   incrementIfOdd() {
     this.store.select(appState => appState.counter.currentValue)
-      .take(1)
+      .pipe(take(1))
       .subscribe(currentValue => {
         if (currentValue % 2 !== 0) {
           this.store.dispatch(createAction(CounterActions.INCREMENT);

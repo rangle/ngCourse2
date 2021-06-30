@@ -11,7 +11,8 @@ Note that the error callback is not invoked during the retry phase. If the reque
 ```typescript
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
+import { map, retry } from 'rxjs/operators';
 
 @Injectable()
 export class SearchService {
@@ -21,8 +22,9 @@ export class SearchService {
   search(term: string) {
     let tryCount = 0;
     return this.http.get('https://api.spotify.com/v1/dsds?q=' + term + '&type=artist')
-      .map(response => response.json())
-      .retry(3);
+      .pipe(map(response => response.json()),
+       retry(3));
+    
   }
 }
 ```

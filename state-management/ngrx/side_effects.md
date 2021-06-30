@@ -33,9 +33,10 @@ export class CustomizationEffects {
   @Effect()
   login$ = this.actions$
     .ofType(SessionActions.LOGIN_SEND_SUCCESS)
-    .mergeMap<Action>(action => this.apiService.getCustomizations(action.payload.userId)
-      .map(result => createAction(CustomizationActions.CUSTOMIZATIONS_RETRIEVE_SUCCESS, result.json()))
-      .catch(error => Observable.of(createAction(CustomizationActions.CUSTOMIZATIONS_RETRIEVE_ERROR, error.json())))
+    .pipe(
+      mergeMap<Action>(action => this.apiService.getCustomizations(action.payload.userId)),
+      map(result => createAction(CustomizationActions.CUSTOMIZATIONS_RETRIEVE_SUCCESS, result.json())),
+      catchError(error => Observable.of(createAction(CustomizationActions.CUSTOMIZATIONS_RETRIEVE_ERROR, error.json())))
     );
 
 }

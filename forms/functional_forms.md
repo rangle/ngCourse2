@@ -327,7 +327,7 @@ ngOnInit() {
     });
 
   // Dispatch an action when the form is changed.
-  this.ngForm.valueChanges.debounceTime(0)
+  this.ngForm.valueChanges.pipe(debounceTime(0))
     .subscribe(change =>
       this.ngRedux.dispatch(
         saveForm(

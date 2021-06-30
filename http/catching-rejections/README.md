@@ -18,7 +18,7 @@ export class AuthService {
     };
 
     this.http.post(`${ BASE_URL }/auth/login`, payload)
-      .map(response => response.json())
+      .pipe(map(response => response.json()))
       .subscribe(
         authData => this.storeToken(authData.id_token),
         (err) => console.error(err),

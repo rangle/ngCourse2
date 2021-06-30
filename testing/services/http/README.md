@@ -22,8 +22,8 @@ export class SearchWiki {
     return this.http.get(
       'https://en.wikipedia.org/w/api.php?' +
       'action=query&list=search&srsearch=' + term
-    ).map((response) => response.json());
-  }
+    ).pipe(map(response => response.json()))
+}
 
   searchXML(term: string): Observable<any> {
     return this.http.get(

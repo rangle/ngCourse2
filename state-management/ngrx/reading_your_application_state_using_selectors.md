@@ -34,6 +34,7 @@ _app/services/counter.service.ts_
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
+import {filter} from 'rxjs/operators';
 
 import {AppState} from '../models';
 
@@ -44,7 +45,7 @@ export class CounterService {
 
   getCurrentValue(): Observable<number> {
     return this.store.select(appState => appState.counter.currentValue)
-      .filter(Boolean);
+      .pipe(filter(Boolean))
   }
 
 }

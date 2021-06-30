@@ -56,7 +56,7 @@ import { FormControl,
     FormGroup,
     FormBuilder } from '@angular/forms';
 import { SearchService } from './services/search.service';
-import { debounceTime, switchMap } from '@rxjs/operators';
+import { debounceTime, switchMap } from 'rxjs/operators';
  
 @Component({
     selector: 'app-root',

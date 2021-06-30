@@ -12,8 +12,6 @@ import {HttpClientModule} from '@angular/http';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 
-import 'rxjs/Rx';
-
 import {rootReducer} from './store/rootReducer';
 import {CounterActions} from './store/actions';
 import {CounterEffects} from './store/effects';

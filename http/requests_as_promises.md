@@ -7,8 +7,7 @@ The observable returned by Angular http client can be converted it into a promis
 ```typescript
 import { HttpClient } from '@angular/http/common';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class SearchService {
@@ -16,10 +15,10 @@ export class SearchService {
   constructor(private http: HttpClient) {}
 
   search(term: string) {
-    return this.http
-      .get(`https://api.spotify.com/v1/search?q=${term}&type=artist`)
-      .map((response) => response.json())
-      .toPromise();
+    return this.http.pipe(
+      get(`https://api.spotify.com/v1/search?q=${term}&type=artist`),
+      map((response) => response.json())
+    ).toPromise();
   }
 }
 ```

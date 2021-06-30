@@ -5,6 +5,7 @@ We also have the option of using the `.catch` operator. It allows us to catch er
 ```typescript
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class SearchService {
@@ -13,12 +14,12 @@ export class SearchService {
 
   search(term: string) {
     return this.http.get('https://api.spotify.com/v1/dsds?q=' + term + '&type=artist')
-      .map((response) => response.json())
-      .catch((e) => {
-        return Observable.throw(
-          new Error(`${ e.status } ${ e.statusText }`)
-        );
-      });
+      .pipe(
+        map(response => response.json()),
+        catchError((e) => {
+          return Observable.throw(new Error(`${ e.status } ${ e.statusText }`));
+        })
+      )
   }
 }
 ```
@@ -35,8 +36,9 @@ export class SearchService {
 
   search(term: string) {
     return this.http.get(`https://api.spotify.com/v1/dsds?q=${term}&type=artist`)
-      .map(response => response.json())
-      .catch(e => {
+      .pipe(
+        map(response => response.json()), 
+        catchError(e => {
         if (e.status >==  500) {
           return cachedVersion();
         } else {
@@ -44,7 +46,8 @@ export class SearchService {
             new Error(`${ e.status } ${ e.statusText }`)
           );
         }
-      });
+      }))
+      
   }
 }
 ```
