@@ -177,7 +177,7 @@ export class TodoStore {
 ```
 
 Observables also allow us to merge multiple streams to implement complex workflows
-such as a [debounced search which ignores stale requests](https://angular-2-training-book.rangle.io/handout/http/search_with_flatmap.html).
+such as a [debounced search which ignores stale requests](https://angular-2-training-book.rangle.io/handout/http/search_with_mergemap.html).
 Again,
 by making these operations purely functional instead of maintaining separate state,
 we can make our application much easier to test.

@@ -87,7 +87,7 @@
     - [Catch and Release](http/catching-rejections/catch_and_release.md)
     - [Cancel a Request](http/catching-rejections/cancel_request.md)
     - [Retry](http/catching-rejections/retry.md)
-  - [Search with flatMap](http/search_with_flatmap.md)
+  - [Search with mergeMap](http/search_with_mergemap.md)
   - [Enhancing Search with switchMap](http/search_with_switchmap.md)
   - [Requests as Promises](http/requests_as_promises.md)
 - [Change Detection](change-detection/README.md)

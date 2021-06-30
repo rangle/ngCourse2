@@ -17,7 +17,7 @@ Complete the implementation of _*app/artist-search.ts*_  and _*app/search-servic
   }]
   ```
 
-_Hint:_ Consider using `flatMap` to combine two observables.
+_Hint:_ Consider using `mergeMap` to combine two observables.
 
 ## Expected Results
 

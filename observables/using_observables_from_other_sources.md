@@ -11,7 +11,7 @@ A common operation in any web application is getting or posting data to a server
 ```javascript
 import {Component} from '@angular/core';
 import {Http} from '@angular/http';
-import 'rxjs/Rx';
+import {mergeMap} from '@rxjs/operators';
 
 @Component({
     selector: 'app',
@@ -29,16 +29,14 @@ export class MyApp {
 
   constructor(http: Http) {
     http.get('http://jsonplaceholder.typicode.com/users/')
-        .flatMap((data) => data.json())
-        .subscribe((data) => {
+      .pipe(
+        mergeMap((data) => data.json())
+      ).subscribe((data) => {
           this.doctors.push(data);
-
         });
   }
 }
 ```
-
-[View Example](http://plnkr.co/edit/AikZi1?p=preview)
 
 This basic example outlines how the `Http` library's common routines like `get`, `post`, `put` and `delete` all return `Observables` that allow us to asynchronously process any resulting data.
 
@@ -49,7 +47,7 @@ Let's take a look at how `Observables` are used in Angular forms. Each field in 
 ```javascript
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
-import 'rxjs/add/operator/map';
+import { map } from '@rxjs/operators';
 
 @Component({
     selector: 'app',
@@ -76,9 +74,9 @@ export class MyApp {
             email: this.email
         });
 
-        this.email.valueChanges
-        .map(n=>n.split('').reverse().join(''))
-        .subscribe(value => this.data = value);
+        this.email.valueChanges.pipe(
+          map(n=>n.split('').reverse().join(''))
+        ).subscribe(value => this.data = value);
     }
 }
 ```
