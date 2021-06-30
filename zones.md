@@ -1,6 +1,6 @@
 # Zone.js
 
-[Zone.js](https://github.com/angular/zone.js) provides a mechanism, called zones, for encapsulating and intercepting asynchronous activities in the browser \(e.g. `setTimeout`, , promises\).
+[Zone.js](https://github.com/angular/angular/tree/master/packages/zone.js/) provides a mechanism, called zones, for encapsulating and intercepting asynchronous activities in the browser \(e.g. `setTimeout`, , promises\).
 
 These zones are _execution contexts_ that allow Angular to track the start and completion of asynchronous activities and perform tasks as required \(e.g. change detection\). Zone.js provides a global zone that can be forked and extended to further encapsulate/isolate asynchronous behaviour, which Angular does so in its **NgZone** service, by creating a fork and extending it with its own behaviours.
 
