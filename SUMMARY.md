@@ -80,7 +80,6 @@
   - [Angular's DI](di/angular2/README.md)
     - [@Inject\(\) and @Injectable](di/angular2/inject_and_injectable.md)
     - [Injection Beyond Classes](di/angular2/injection_beyond_classes.md)
-    - [Avoiding Injection Collisions: OpaqueToken](di/angular2/avoiding_collisions_opaque_token.md)
     - [The Injector Tree](di/angular2/the_injector_tree.md)
 - [Http](http/README.md)
   - [Making Requests](http/making_requests.md)
