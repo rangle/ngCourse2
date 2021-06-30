@@ -56,24 +56,6 @@ In this [example](http://plnkr.co/edit/d3KGMh?p=preview) you will see in the log
 
 You will notice that in both cases clicking the button causes the Angular zone to become unstable due to Zone.js patching and watching **HTMLElement.prototype.onclick**, however the **setInterval** executing outside of Angular's zone does not affect its stability and does not trigger change detection.
 
-## Debugging
-
-Generally, exceptions thrown during a chain of asynchronous events will only include the current method in their stack trace.
-
-With Zone.js tracking all of our asynchronous calls it can provide us a longer, more detailed, stack trace of the events and calls that occurred leading up to our exception.
-
-To enable long stack traces in development, you should include the **long-stack-trace-zone** module in your code. It is a good idea not to include this in your production build but Angular will skip setting up longer stack traces when in production mode \(`enableProdMode` from `@angular/core`\).
-
-Angular will take care of forking and extending its own zone to display more meaningful stack traces.
-
-```javascript
-if (__PRODUCTION__) {
-  enableProdMode();
-} else {
-  require('zone.js/dist/long-stack-trace-zone');
-}
-```
-
 With the following code, we start by calling `startAsync` which triggers a chain of setTimeouts leading up to an uncaught error.
 
 ```javascript
