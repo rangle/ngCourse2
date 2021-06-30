@@ -46,7 +46,7 @@ Angular 2+ makes use of the ES2015 module system, and modern packaging tools lik
 
 > Note that "Transitional Architecture" refers to a style of Angular 1 application written in a way that mimics Angular's component style, but with controllers and directives instead of TypeScript classes.
 
-| Old School AngularJS                  | AngularJS Best Practices | **Transitional Architecture** | Angular                      |                      |
+|                                       | Old School AngularJS                  | AngularJS Best Practices | **Transitional Architecture** | Angular                      | 
 | :------------------------------------ | :----------------------- | :---------------------------- | :--------------------------- | :------------------- |
 | Nested scopes \("$scope", watches\)   | Used heavily             | Avoided                       | **Avoided**                  | Gone                 |
 | Directives vs controllers             | Use as alternatives      | Used together                 | **Directives as components** | Component directives |
