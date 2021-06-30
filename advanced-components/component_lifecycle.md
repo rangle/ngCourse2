@@ -13,7 +13,4 @@ Here is the complete lifecycle hook interface inventory:
 * `ngAfterViewChecked` - after every check of a component's view\(s\)
 * `ngOnDestroy` - just before the component is destroyed
 
-📄 from [Component Lifecycle](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html)
-
-[View Example](http://plnkr.co/edit/kBHV6AximaHAC26kYEOA?p=preview)
-
+📄 from [View Lifecycle Hooks in Action](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html)
