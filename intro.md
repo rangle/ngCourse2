@@ -1,6 +1,6 @@
 # Introduction
 
-Over the last six years, Angular has become the leading open source JavaScript application framework for hundreds of thousands of programmers around the world. The "1.x" version of Angular has been widely used and became extremely popular for complex applications. The new Angular 2.x has also announced its [final release version](http://angularjs.blogspot.ca/2016/09/angular2-final.html).
+Over the last six years, Angular '2' (Now just referred to as Angular) has become a powerhouse framework in the frontend web development world. It now has nearly 75k stars on GitHub, and is one of the most popular ways to develop large applications, some of which service millions of customers.
 
 ## About Rangle’s Angular Training Book
 
