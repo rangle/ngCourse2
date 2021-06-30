@@ -48,3 +48,5 @@ export class MyComponent {
 }
 ```
 When you utilize the `providers` field in the Component Decorator, any services you pass into that array, will be uniquely instantiated for that particular component!
+
+You can see another example of this in our [Injector Tree](angular2/the_injector_tree.md) write up
