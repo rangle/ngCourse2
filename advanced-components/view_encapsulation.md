@@ -21,6 +21,3 @@ View encapsulation defines whether the template and styles defined within the co
   // ...
   }
   ```
-
-[View Example](http://plnkr.co/edit/E5Hb6B5dRN0llz3JuO57?p=preview)
-
