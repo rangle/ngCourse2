@@ -6,7 +6,7 @@ As of Angular 6, we have access to a great way to have our services globally ava
 In almost every case, you want to use `providedIn: 'root'` - telling your angular application that this service should be a singleton, available all throughout your application. You don't even need to inject it into a module!
 
 
-_app/app.module.ts_
+_app/greeter.service.ts_
 
 ```typescript
 import { Injectable } from "@angular/core";
