@@ -62,7 +62,7 @@ import { EagerComponent } from './eager.component';
 const routes: Routes = [
   { path: '', redirectTo: 'eager', pathMatch: 'full' },
   { path: 'eager', component: EagerComponent },
-  { path: 'lazy', loadChildren: 'lazy/lazy.module#LazyModule' }
+  { path: 'lazy',  loadChildren: () => import('lazy/lazy.module').then(m => m.LazyModule) }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
@@ -84,14 +84,14 @@ export class EagerComponent {}
 But more importantly, we can see that whenever we try to go to the path `lazy`, we are going to lazy load a module conveniently called `LazyModule`. Look closely at the definition of that route:
 
 ```javascript
-{ path: 'lazy', loadChildren: 'lazy/lazy.module#LazyModule' }
+  { path: 'lazy', loadChildren: () => import('lazy/lazy.module').then(m => m.LazyModule) }
 ```
 
 There's a few important things to notice here:
 
 1. We use the property `loadChildren` instead of `component`.
-2. We pass a string instead of a symbol to avoid loading the module eagerly.
-3. We define not only the path to the module but the name of the class as well.
+2. We pass a function, that utilizes the `import` method that webpack utilizes to handle lazy loading, where we pass in the path to the module
+3. This import returns us a promise that has access to the exported values in that import path above, and we simply have to make sure that function returns the module in question
 
 There's nothing special about `LazyModule` other than it has its own `routing` and a component called `LazyComponent`.
 

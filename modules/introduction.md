@@ -73,6 +73,8 @@ By convention, the root module should always be named `AppModule`.
 
 To bootstrap our module based application, we need to inform Angular which one is our root module to perform the compilation in the browser. This compilation in the browser is also known as "Just in Time" \(JIT\) compilation.
 
+For the majority of our modules, we do not have to worry about this bootstrap property, as the intended purpose is mostly to inform Angular of where the root of our application tree begins.
+
 _main.ts_
 
 ```javascript
