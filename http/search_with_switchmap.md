@@ -50,20 +50,20 @@ Here is the revised component using `switchMap` instead of `mergeMap`.
 
 _app/app.component.ts_
 
-```javascript
+```typescript
 import { Component } from '@angular/core';
-import { FormControl,
-    FormGroup,
-    FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { SearchService } from './services/search.service';
 import { debounceTime, switchMap } from 'rxjs/operators';
+import { Artist } from './types/artist.type';
+
  
 @Component({
     selector: 'app-root',
     template: `
         <form [formGroup]="coolForm"><input formControlName="search" placeholder="Search Spotify artist"></form>
 
-        <div *ngFor="let artist of result">
+        <div *ngFor="let artist of artists$ | async">
           {{artist.name}}
         </div>
     `
@@ -72,22 +72,19 @@ import { debounceTime, switchMap } from 'rxjs/operators';
 export class AppComponent {
     searchField: FormControl;
     coolForm: FormGroup;
+    artists$: Observable<Artist[]>;
 
-    constructor(private searchService:SearchService, private fb:FormBuilder) {
+  constructor(private searchService:SearchService, private fb:FormBuilder) {
         this.searchField = new FormControl();
         this.coolForm = fb.group({search: this.searchField});
 
         this.searchField.valueChanges.pipe(
           debounceTime(400),
           switchMap(term => this.searchService.search(term))
-          ).subscribe((result) => {
-            this.result = result.artists.items;
-          });
+          );
     }
 }
 ```
-
-[View Example](http://plnkr.co/edit/FYLTcx?p=preview)
 
 This implementation of incremental search with `switchMap` is more robust than the one we saw on the previous page with `mergeMap`. The suggestions that the user sees will always eventually reflect the last thing the user typed. Thanks to this, we can guarantee a great user experience regardless of how the server responds.
 

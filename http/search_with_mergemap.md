@@ -40,20 +40,19 @@ OK, let's take a look at the component that will be using this service.
 
 _app/app.component.ts_
 
-```javascript
+```typescript
 import { Component } from '@angular/core';
-import { FormControl,
-    FormGroup,
-    FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { SearchService } from './services/search.service';
 import { map } from 'rxjs/operators';
+import { Artist } from './types/artist.type';
 
 @Component({
     selector: 'app-root',
     template: `
         <form [formGroup]="coolForm"><input formControlName="search" placeholder="Search Spotify artist"></form>
 
-        <div *ngFor="let artist of result">
+        <div *ngFor="let artist of artists$ | async">
           {{artist.name}}
         </div>
     `
@@ -62,22 +61,22 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
     searchField: FormControl;
     coolForm: FormGroup;
+    artists$: Observable<Artist[]>;
 
     constructor(private searchService:SearchService, private fb:FormBuilder) {
         this.searchField = new FormControl();
         this.coolForm = fb.group({search: this.searchField});
 
-        this.searchField.valueChanges.pipe(
+        this.artists$ = this.searchField.valueChanges.pipe(
           debounceTime(400),
-          mergeMap(term => this.searchService.search(term))
-         ).subscribe((result) => {
-                this.result = result.artists.items;
-            });
+          mergeMap(term => this.searchService.search(term)),
+          map(result => result.artist.items)
+         );
     }
 }
 ```
 
-Here we have set up a basic form with a single field, `search`, which we subscribe to for event changes. We've also set up a simple binding for any results coming from the `SearchService`. The real magic here is `mergeMap` which allows us to flatten our two separate subscribed `Observables` into a single cohesive stream we can use to control events coming from user input and from server responses.
+Here we have set up a basic form with a single field, `search`, which we access through an observable. We've also set up a simple binding for any artists coming from the `SearchService`. The real magic here is `mergeMap` which allows us to flatten our two separate subscribed `Observables` into a single cohesive stream we can use to control events coming from user input and from server responses.
 
 Note that mergeMap flattens a stream of `Observables` \(i.e `Observable` of `Observables`\) to a stream of emitted values \(a simple `Observable`\), by emitting on the "trunk" stream everything that will be emitted on "branch" streams.
 
