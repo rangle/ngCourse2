@@ -5,7 +5,7 @@ This is important to remember because we often intuitively (if incorrectly) assu
 
 Let's say we have a list of Products we are showing, using an ngFor, iterating over an array of productIds.
 
-```angular2html
+```html
 <my-product *ngFor="let productId in productIdList" [productId]="productId"></my-product>
 ```
 
@@ -90,7 +90,7 @@ ngOnInit() {
 ```
 If we went further, we would see that we have something like this in our template code:
 
-```angular2html
+```html
 <my-product-card [productData]="fullProduct" ></my-product-card>
 ```
 
@@ -121,7 +121,7 @@ ngOnInit() {
 
 Now we remove any reference to subscribe inside the component, and instead are working with the selectors returned value, which remains an observable. In our template:
 
-```angular2html
+```html
 <my-product-card [productData]="fullProduct$ | async"></my-product-card>
 ```
 
