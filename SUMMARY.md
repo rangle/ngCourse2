@@ -135,7 +135,6 @@
   - [Creating a Feature Module](modules/feature-modules.md)
   - [Directive Duplications](modules/directive-duplications.md)
   - [Lazy Loading a Module](modules/lazy-loading-module.md)
-  - [Lazy Loading and the Dependency Injection Tree](modules/lazy-load-di.md)
   - [Shared Modules and Dependency Injection](modules/shared-modules-di.md)
   - [Sharing the Same Dependency Injection Tree](modules/shared-di-tree.md)
   - [Module SCAM Pattern](modules/module-scam-pattern.md)
