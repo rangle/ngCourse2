@@ -4,8 +4,6 @@ Because we no longer define every component and directive directly in every comp
 
 Let's assume for a moment that by mistake, we have created two directives that target the same property:
 
-> This example is a variation of the code found in the [official documentation](https://angular.io/docs/ts/latest/guide/ngmodule.html#!#resolve-conflicts).
-
 _blue-highlight.directive.ts_
 
 ```javascript
@@ -73,8 +71,6 @@ export class AppComponent {}
 We can see that in the template of our component, we are using the directive `appHighlight` in our `h1` element but, which styles are going to end up being applied?
 
 The answer is: the text is going to be gray and the background yellow.
-
-[View Example](https://plnkr.co/edit/yY3RRPDxf6urDfsMVNik?p=preview)
 
 We are allowed to define multiple directives that target the same elements in the same module. What's going to happen is that Angular is going to do every transformation **in order**.
 
