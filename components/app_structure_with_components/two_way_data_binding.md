@@ -46,5 +46,3 @@ export class CounterComponent {
 </div>
 ```
 
-[View Example](http://plnkr.co/edit/nkww1Ov2AWZRMHFyjhjl?p=preview)
-

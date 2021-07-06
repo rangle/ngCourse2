@@ -3,14 +3,14 @@
 We also have the option of using the `.catch` operator. It allows us to catch errors on an existing stream, do something, and pass the exception onwards.
 
 ```typescript
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class SearchService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   search(term: string) {
     return this.http.get('https://api.spotify.com/v1/dsds?q=' + term + '&type=artist')

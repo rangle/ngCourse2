@@ -9,7 +9,7 @@ Use the RxJS `retry` operator. It accepts a `retryCount` argument. If not provid
 Note that the error callback is not invoked during the retry phase. If the request fails it will be retried and only after all the retry attempts fail the stream throws an error.
 
 ```typescript
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, retry } from 'rxjs/operators';
@@ -17,7 +17,7 @@ import { map, retry } from 'rxjs/operators';
 @Injectable()
 export class SearchService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   search(term: string) {
     let tryCount = 0;

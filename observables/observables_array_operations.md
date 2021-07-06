@@ -31,7 +31,7 @@ Now when our `subscribe` callback gets invoked, the data it receives will be a l
 
 Note the chaining function style, and the optional static typing that comes with TypeScript, that we used in this example. Most importantly functions like `filter` return an `Observable`, as in `Observables` beget other `Observables`, similarly to promises. In order to use `map` and `filter` in a chaining sequence we have flattened the results of our `Observable` using `mergeMap`. Since `filter` accepts an `Observable`, and not an array, we have to convert our array of JSON objects from `data.json()` to an `Observable` stream. This is done with `flatMap`.
 
-There are many other array operations you can employ in your `Observables`; look for them in the [RxJS API](https://github.com/Reactive-Extensions/RxJS).
+There are many other array operations you can employ in your `Observables`; look for them in the [RxJS API](https://rxjs.dev/api).
 
 [rxmarbles.com](http://rxmarbles.com) is a helpful resource to understand how the operations work.
 

@@ -11,7 +11,7 @@ The first pass might look like this:
 class BlogPage implements OnInit {
   private blogs;
 
-  constructor (private http: Http) {}
+  constructor (private http: HttpClient) {}
 
   ngOnInit () {
     this.http
@@ -65,7 +65,7 @@ class BlogPage implements OnInit {
   private user;
   private blogs;
 
-  constructor (private http: Http) {}
+  constructor (private http: HttpClient) {}
 
   ngOnInit () {
     this.loadPage();
@@ -188,7 +188,7 @@ const fetchFilteredBlogs = http => {
 class BlogPage implements OnInit {
   private blogs = [];
 
-  constructor (private http: Http) {}
+  constructor (private http: HttpClient) {}
 
   ngOnInit () { this.loadPage(this.http); }
 
@@ -242,7 +242,7 @@ import User from './entities/user';
 @Injectable()
 export class UserService {
 
-  constructor (private http: Http) {}
+  constructor (private http: HttpClient) {}
 
   getUser () {
     return this.http.get('/api/users/me/')

@@ -24,5 +24,3 @@ export class HelloComponent {
 ```
 
 We need to import the `Component` decarator from `@angular/core` before we can make use of it. To use this component we simply add `<rio-hello></rio-hello>` to the HTML file or another template, and Angular will insert an instance of the `HelloComponent` view between those tags.
-
-[View Example](http://plnkr.co/edit/bXrxWVkP2MWD8yNDYqVD?p=preview)

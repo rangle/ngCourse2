@@ -8,15 +8,15 @@ Let's take a look at some code:
 
 _wikisearch.ts_
 
-```javascript
-import {Http} from '@angular/http';
+```typescript
+import {HttpClient} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map'
 
 @Injectable()
 export class SearchWiki {
-  constructor (private http: Http) {}
+  constructor (private http: HttpClient) {}
 
   search(term: string): Observable<any> {
     return this.http.get(

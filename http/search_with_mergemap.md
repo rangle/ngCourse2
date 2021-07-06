@@ -16,14 +16,14 @@ By using `mergeMap` we can transform our event stream \(the keypress events on t
 _app/services/search.service.ts_
 
 ```javascript
-import {Http} from '@angular/http';
+import {HttpClient} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 
 @Injectable()
 export class SearchService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   search(term: string) {
     return this.http
