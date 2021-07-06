@@ -16,30 +16,11 @@ The code above uses the _Arrow_ function for `circumference`. Read more about ar
 
 ## Module Systems
 
-Using a module on the backend\(server side\) is relatively straightforward, you simply make use of the **import** keyword. However Web Browsers have no concept of modules or import, they just know how to load javascript code. We need a way to bring in a javascript module to start using it from other javascript code. This is where a module loader comes in.
-
+Using a module on the backend\(server side\) is relatively straightforward, you simply make use of the **import** keyword. Additionally, modern browsers are now compatible with ES6's module import syntax, so our overhead is much lower than it used to be - where we used to need to use a Module Loading Tool.
 We won't get into the various module systems out there, but it's worth understanding there are various module loaders available. The popular choices out there are:
 
 * RequireJS
 * SystemJS
 * Webpack
 
-## Loading a Module From a Browser
-
-Below we make use of SystemJS to load a module. The script first loads the code for the SystemJS library, then the function call **System.import** is use to import\(load\) the _app_ module.
-
-Loading ES6 modules is a little trickier. In an ES6-compliant browser you use the System keyword to load modules asynchronously. To make our code work with current browsers, however, we will use the SystemJS library as a polyfill:
-
-```markup
-  <script src="/node_module/systemjs/dist/system.js"></script>
-  <script>
-    var promise = System.import('app')
-      .then(function() {
-        console.log('Loaded!');
-      })
-      .then(null, function(error) {
-        console.error('Failed to load:', error);
-      });
-  </script>
-```
 
