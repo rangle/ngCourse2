@@ -70,7 +70,6 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.ts$/, loader: "tslint" },
       { test: /\.ts$/, loader: "ts", exclude: /node_modules/ },
       { test: /\.html$/, loader: "raw" },
       { test: /\.css$/, loader: "style!css?sourceMap" },

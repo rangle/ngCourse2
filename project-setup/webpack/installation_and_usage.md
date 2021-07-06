@@ -5,7 +5,7 @@
 The easiest way to include webpack and its plugins is through NPM and save it to your `devDependencies`:
 
 ```bash
-npm install -D webpack ts-loader html-webpack-plugin tslint-loader
+npm install -D webpack ts-loader html-webpack-plugin eslint-webpack-plugin
 ```
 
 ## Setup and Usage

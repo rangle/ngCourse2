@@ -4,7 +4,7 @@ One of the advantages of using the Angular CLI is that it automatically configur
 
 ## Linting
 
-`ng lint` lints the code in your project using [tslint](https://palantir.github.io/tslint/). You can customize the rules for your project by editing `tslint.json`.
+`ng lint` lints the code in your project using [eslint](https://github.com/typescript-eslint/typescript-eslint). As tslint has been deprecated, moving to eslint in your projects is highly recommended!
 
 > You can switch some of these to use your preferred tool by editing the scripts in `package.json`.
 

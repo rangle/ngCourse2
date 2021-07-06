@@ -16,7 +16,7 @@ The loader is specified by using the `!` character to separate the module refere
 const app = require('ts!tslint!./src/index.ts');
 ```
 
-> Although the packages are named `ts-loader`, `tslint-loader`, `style-loader`, we don't need to include the `-loader` part in our config.
+> Although the packages are named `ts-loader`, `style-loader`, etc, we don't need to include the `-loader` part in our config.
 
 Be careful when configuring loaders this way – it couples implementation details of different stages of your application together so it might not be the right choice in a lot of cases.
 
@@ -41,7 +41,6 @@ Tasks specified in this array are chained. If a file matches multiple conditions
   ...
   module: {
     rules: [
-      { test: /\.ts$/, loader: 'tslint' },
       { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' },
       { test: /\.css$/, loader: 'style!css?sourceMap' },
