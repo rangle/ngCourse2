@@ -28,7 +28,7 @@
 
 ### The Evolution of Angular Components
 
-Angular 1.3: Using a directive to implement a component:
+Angular.js 1.3: Using a directive to implement a component:
 
 ```javascript
 angular.module("ngcourse").directive("ngcHelloComponent", () => ({
@@ -66,7 +66,7 @@ You can start to imagine an web app as a composable set of custom 'HTML Primitiv
 ### The Evolution of Angular Components
 
 - This way of using directives got very popular
-- Angular 1.5 introduced first-class support for the pattern
+- Angular.js 1.5 introduced first-class support for the pattern
 - The new `.component` function:
 
 ```javascript

@@ -22,5 +22,5 @@ Migrating a large AngularJS application to Angular can be a big undertaking. We 
 - Convert all service dependencies from AngularJS to Angular
   - Move existing `.factory` Angular services to `.service`
   - Leverage TypeScript classes
-  - Use `downgradeComponent(ServiceName)` to expose Angular service to Angular 1
+  - Use `downgradeComponent(ServiceName)` to expose Angular service to Angular.js
 - Repeat this process until all components have been converted to Angular

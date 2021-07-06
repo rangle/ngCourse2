@@ -44,7 +44,7 @@ Angular 2+ makes use of the ES2015 module system, and modern packaging tools lik
 
 ## Differences Between AngularJS & Angular 2+
 
-> Note that "Transitional Architecture" refers to a style of Angular 1 application written in a way that mimics Angular's component style, but with controllers and directives instead of TypeScript classes.
+> Note that "Transitional Architecture" refers to a style of Angular.js application written in a way that mimics Angular's component style, but with controllers and directives instead of TypeScript classes.
 
 |                                       | Old School AngularJS                  | AngularJS Best Practices | **Transitional Architecture** | Angular                      | 
 | :------------------------------------ | :----------------------- | :---------------------------- | :--------------------------- | :------------------- |

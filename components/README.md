@@ -23,7 +23,7 @@ angular.module("ngcourse").directive("ngcHelloComponent", () => ({
 }));
 ```
 
-In fact, this concept became so popular that in Angular 1.5 the `.component` method was introduced as syntactic sugar.
+In fact, this concept became so popular that in Angular.js 1.5 the `.component` method was introduced as syntactic sugar.
 
 ```javascript
 angular.module("ngcourse").component("ngcHelloComponent", {
