@@ -1,6 +1,6 @@
 # Enforcing Immutability
 
-We cheated a little in the previous example. We told Angular that all of our inputs, including the `actor` object, were immutable objects, but we went ahead and updated its properties, violating the immutability principle. As a result we ended up with a sync problem between our models and our views. One way to enforce immutability is using the library [Immutable.js](https://immutable-js.github.io/immutable-js/docs/#/).
+We cheated a little in the previous example. We told Angular that all of our inputs, including the `actor` object, were immutable objects, but we went ahead and updated its properties, violating the immutability principle. As a result we ended up with a sync problem between our models and our views.
 
 Because in JavaScript primitive types like `string` and `number` are immutable by definition, we should only take care of the objects we are using. In this case, the `actor` object.
 
@@ -16,27 +16,30 @@ a[0] = "B";
 console.log(a); // 'Car' => The first letter didn't change, strings are immutable
 ```
 
-First we need to install the `immutable.js` library using the command:
+#### A modern example of immutability
 
-```text
-npm install --save immutable
-```
+In modern JavaScript/Typescript, enforcing immutability is easier than ever, we no longer need to rely on additional libraries to enforce immutability, cutting down on our overhead.
 
-Then in our `AppComponent` we import the library and use it to create an actor object as an immutable.
+Let's use this example below to illustrate
 
 _app/app.component.ts_
 
 ```typescript
 import { Component } from "@angular/core";
 import { MovieComponent } from "./movie.component";
-import * as Immutable from "immutable";
+
+type Actor = {
+  firstName: string;
+  lastName: string;
+  isActionHero: boolean;
+}
 
 @Component({
   selector: "app-root",
   template: `
     <h1>MovieApp</h1>
     <p>{{ slogan }}</p>
-    <button type="button" (click)="changeActor()">
+    <button type="button" (click)="changeActor(actor, {firstName: 'Nicholas', lastName: 'Cage'})">
       Change Actor
     </button>
     <app-movie [title]="title" [actor]="actor"></app-movie>
@@ -45,49 +48,22 @@ import * as Immutable from "immutable";
 export class AppComponent {
   slogan = "Just movie information";
   title = "Terminator 1";
-  actor = Immutable.Map({
+  actor = {
     firstName: "Arnold",
-    lastName: "Schwarzenegger"
-  });
+    lastName: "Schwarzenegger",
+    isActionHero: true
+  };
 
-  changeActor() {
-    this.actor = this.actor.merge({ firstName: "Nicholas", lastName: "Cage" });
+  // this is great use of the Partial type utility in typescript 
+  // https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
+  changeActor(originalActor: Actor, updatedFields: Partial<Actor>) {
+    this.actor = {...originalActor, ...updatedFields};
   }
 }
 ```
 
-Now, instead of creating an instance of an `Actor` class, we are defining an immutable object using `Immutable.Map`. Because `this.actor` is now an immutable object, we cannot change its internal properties \(`firstName` and `lastName`\) directly. What we can do however is create another object based on `actor` that has different values for both fields - that is exactly what the `merge` method does.
+Above, we are utilizing [Object Spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#syntax), which is a fantastic way to ensure object immutability in our projects. It's important to, as often as possible, avoid any direct object property manipulation - as doing so can cause many issues when it comes to any of Angular's internal comparison by reference checks. For a high quality reactive application, immutability is key.
 
 Because we are always getting a new object when we try to change the `actor`, there's no point in having two different methods in our component. We removed the methods `changeActorProperties` and `changeActorObject` and created a new one called `changeActor`.
-
-Additional changes have to be made to the `MovieComponent` as well. First we need to declare the `actor` object as an immutable type, and in the template, instead of trying to access the object properties directly using a syntax like `actor.firstName`, we need to use the `get` method of the immutable.
-
-_app/movie.component.ts_
-
-```typescript
-import { Component, Input } from "@angular/core";
-import { ChangeDetectionStrategy } from "@angular/core";
-import * as Immutable from "immutable";
-
-@Component({
-  selector: "app-movie",
-  template: `
-    <div>
-      <h3>{{ title }}</h3>
-      <p>
-        <label>Actor:</label>
-        <span>{{ actor.get("firstName") }} {{ actor.get("lastName") }}</span>
-      </p>
-    </div>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class MovieComponent {
-  @Input() title: string;
-  @Input() actor: Immutable.Map<string, string>;
-}
-```
-
-[View Example](http://plnkr.co/edit/0Qp7ynAcZCqcv67OvsSD?p=preview)
 
 Using this pattern we are taking full advantage of the "OnPush" change detection strategy and thus reducing the amount of work done by Angular to propagate changes and to get models and views in sync. This improves the performance of the application.
