@@ -3,12 +3,11 @@
 In your console, run the following command to add [@ngrx](https://github.com/ngrx) to your list of dependencies in `package.json`:
 
 ```text
-npm install @ngrx/core @ngrx/store --save
+npm install @ngrx/store --save
 ```
 
-If you plan on using the [@ngrx/effects](https://github.com/ngrx/effects) extensions to add side-effect capabilities, then also run the following command:
+Additionally, if you are using Angular CLI (6+), you can take advantage of angular schematics and use this command:
 
 ```text
-npm install @ngrx/effects --save
+ng add @ngrx/store@latest
 ```
-
