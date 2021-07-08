@@ -8,10 +8,10 @@ For example, here's how you would select the `counter` object:
 store.select('counter'); // Returns Observable<Counter>
 ```
 
-And to fetch the counter's `currentValue`, we can pass in a `string` array, where each string plucks a single property from the application state one at a time in the order specified:
+And to fetch the counter's `currentValue`, we can pass in a strings as parameters, where each string plucks a single property from the application state one at a time in the order specified:
 
 ```typescript
-store.select(['counter', 'currentValue']); // Returns Observable<number>
+store.select('counter', 'currentValue'); // Returns Observable<number>
 ```
 
 While `select()` allows for several variations of strings to be passed in, it has it's shortcomings - namely you won't actually know if the plucking is working properly until you execute your code.
