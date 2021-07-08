@@ -13,9 +13,8 @@ For larger Angular applications with a lot of asynchronous activity and where th
 
 As the application grows, how do we know that a state change in one module will consistently and accurately reflected in other modules? And what if these modifications result in even more state changes? Eventually, it becomes extremely difficult to reason about what's actually happening in your application, and be a large source of bugs.
 
-In Angular, there are 3 main ways to solve this problem.
+In Angular, there are 2 main ways to solve this problem.
 
 1. [Redux using @ngrx](ngrx/);
-2. Redux using ng2-redux; and
-3. Angular Services and RxJS.
+2. Angular Services and RxJS.
 
