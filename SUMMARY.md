@@ -91,7 +91,6 @@
   - [Enhancing Search with switchMap](http/search_with_switchmap.md)
   - [Requests as Promises](http/requests_as_promises.md)
 - [Change Detection](change-detection/README.md)
-  - [Change Detection Strategies in AngularJS vs Angular](change-detection/angular_1_vs_angular_2.md)
   - [How Change Detection Works](change-detection/how_change_detection_works.md)
   - [Change Detector Classes](change-detection/change_detector_classes.md)
   - [Change Detection Strategy: OnPush](change-detection/change_detection_strategy_onpush.md)
