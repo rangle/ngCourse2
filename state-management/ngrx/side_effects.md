@@ -1,6 +1,6 @@
 # Side Effects
 
-Often times, we need to perform some logic after an action has been dispatched and the store has been updated. Because reducers should be side-effect free, we need a way to handle these side-effects. Sometimes we can put this logic with our action creator services, and that works for simple cases, but often times the same block of logic needs to run in response to multiple action types.
+Often times, we need to perform some logic after an action has been dispatched, and the store has been updated. Because reducers should be side-effect free, we need a way to handle these side-effects. Sometimes we can put this logic with our action creator services, and that works for simple cases, but often times the same block of logic needs to run in response to multiple action types.
 
 [@ngrx](https://github.com/ngrx) offers a library called [@ngrx/effects](https://github.com/ngrx/effects) to solve these problems.
 

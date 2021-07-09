@@ -1,6 +1,6 @@
 # Configuring your Application
 
-Once you have your reducers created, it’s time to configure your Angular application. In your main application module, simple add the `StoreModule.provideStore()` call to your `@NgModule`'s imports:
+Once you have your reducers created, it’s time to configure your Angular application. In your main application module, simple add the `StoreModule.forRoot()` call to your `@NgModule`'s imports:
 
 _app/app.module.ts_
 
@@ -23,7 +23,7 @@ import {CounterService} from './services';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.provideStore(rootReducer)
+    StoreModule.forRoot(rootReducer)
   ],
   declarations: [
     AppComponent,

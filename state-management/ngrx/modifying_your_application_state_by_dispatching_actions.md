@@ -93,6 +93,7 @@ In the `incrementIfOdd()` action creator, we create a one-time subscription to t
 
 In the `incrementAsync()` action creator, we are delaying the actual call to `dispatch()`. We created a `Promise` that will resolve after the delay. Once the `Promise` resolves, we can then dispatch an action to increment the counter.
 
+In more complex instances, you may however find this to be cumbersome, this is where we recommend utilizing ngrx's `effect` pattern, which we talk more about [here](side_effects.md).
 ## Actions that Depend on Other Services
 
 The ActionCreatorService pattern becomes necessary in cases where your action creators must use other Angular services. Consider the following `SessionActions` service that handles a remote API call:

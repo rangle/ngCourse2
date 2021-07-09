@@ -44,9 +44,6 @@ module.exports = {
       "@angular/platform-browser-dynamic",
       "@angular/router",
       "es6-shim",
-      "redux",
-      "redux-thunk",
-      "redux-logger",
       "reflect-metadata",
       "ng2-redux",
       "zone.js"
