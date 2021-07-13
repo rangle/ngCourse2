@@ -183,7 +183,6 @@
   - [Testing Services](testing/services/README.md)
     - [Testing Strategies for Services](testing/services/strategies.md)
     - [Testing HTTP Requests](testing/services/http/README.md)
-      - [Using MockBackend](testing/services/http/mockbackend.md)
       - [Alternative Mocking Strategy](testing/services/http/alt-http-mocking.md)
       - [Using HttpTestingModule](testing/services/http/using-httptestingmodule.md)
       - [Testing JSONP and XHR Back-Ends](testing/services/http/json-xhr.md)
