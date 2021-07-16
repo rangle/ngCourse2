@@ -1,7 +1,5 @@
 # Creating Functional Forms
 
-**Daniel Figueiredo and Renee Vrantsidis**
-
 The architecture of a software system is a description of how to decompose it into pieces, how those pieces interact, and how that decomposition enables and constrains further development. In this chapter, we will begin our exploration of the architecture of JavaScript applications by looking at how to use ideas borrowed from pure functional programming to simplify one of the most common tasks in web development: form handling. At first glance these two topics have nothing to do with each other, but paradoxically, acting as if the state of our system cannot be changed actually makes its changes easier to manage.
 
 ## The Problem
@@ -10,7 +8,7 @@ You have probably built web applications that use forms. They are easy enough to
 
 Angular provides some good tools for building forms, but these are not enough by themselves in very large programs. In particular, `NgForm` leaves state management entirely in the developer's hands, which quickly results in unmanageable client-side complexity: a modern single-page application \(SPA\) may have to keep track of hundreds of pieces of information, any of which may need to be updated based on the user's actions _and_ kept in sync with permanent storage on the server.
 
-As if that wasn't complicated enough, many of these interactions have to be done asynchronously in order to keep the user's FQ \(frustration quotient\) down. If, for example, a web page locks up for half a second every time the user types a single character because it's fetching possible auto-completes from the server, the user will quickly take her business somewhere else.
+As if that wasn't complicated enough, many of these interactions have to be done asynchronously in order to keep the user's FQ \(frustration quotient\) down. If, for example, a web page locks up for half a second every time the user types a single character because it's fetching possible auto-completes from the server, the user will quickly take their business somewhere else.
 
 Our problem is therefore this:
 
@@ -18,9 +16,9 @@ Our problem is therefore this:
 
 Our solution is:
 
-> Use Redux to represent state as a sequence of snapshots, each of which is created in response to a single action.
+> Use NgRx Store to represent state as a sequence of snapshots, each of which is created in response to a single action.
 
-## Redux in a Hurry
+## NgRx in a Hurry
 
 Luckily for us, people who use pure functional programming languages have been thinking about these issues for more than 30 years, and have developed some design patterns that we can use in conventional languages like JavaScript. A _pure functional_ language is one in which data cannot be changed, or _mutated_, in place: once a value is defined, it is _immutable_. Rather than changing its state, a program written in a pure functional language creates an entirely new state on which to operate.
 
@@ -28,7 +26,7 @@ This may seem wasteful: after all, if I want to paint one wall of a room, I don'
 
 > As we will see below, we can often avoid the need to copy all of the state. If we divide it into logically-separate chunks, we can re-use the chunks that _don't_ change. In our experience, the amount of data that actually has to be duplicated will grow slowly with the size of the application so long as we think carefully about how to organize it.
 
-The system we will use to illustrate this idea is [Redux](http://redux.js.org/), which is built on three architectural principles:
+The system we will use to illustrate this idea is [NgRx](https://ngrx.io/) Store, which is built on three architectural principles:
 
 1. There is a **single source of truth**, which in practice means that the entire state of the application is stored in a single object tree. A good rule of thumb is that this object tree must hold everything needed to restore the state of the system after shutdown and restart. Storing all this information in one place makes debugging a lot easier, and as we shall see, also simplifies implementation of things like undo/redo.
 2. **State is read-only**, i.e., the object tree mentioned above is _never_ modified in place. Instead, the only way to change the state is to create an _action_ object that describes what change is desired. Button click handlers and I/O callbacks never update the state themselves, but rather create an action and queue it up to be handled sequentially. As a bonus, recording the state changes as objects makes replay, debugging, and testing a lot simpler.
@@ -36,74 +34,141 @@ The system we will use to illustrate this idea is [Redux](http://redux.js.org/),
 
 As a very short example, suppose we want to implement a traffic light that switches state between red, amber, and green. The state is an object with a single field showing the current color of the light:
 
-```javascript
-let state = { color: "red" };
+```typescript
+const initialState = "red";
+```
+
+then we define an action:
+
+```typescript
+import { createAction } from "@ngrx/store";
+
+export const next = createAction("[Traffic Light Component] Next");
 ```
 
 and the reducer cycles between colors:
 
-```javascript
-function changeColor(state, action) {
-  switch (action.type) {
-    case "NEXT":
-      if (state.color == "red") return { color: "green" };
-      else if (state.color == "green") return { color: "amber" };
-      else if (state.color == "amber") return { color: "red" };
+```typescript
+import { createReducer, on } from "@ngrx/store";
+import { next } from "./trafficLight.actions";
 
-    default:
-      return state;
+export const initialState = "red";
+
+const _trafficLightReducer = createReducer(
+  initialState,
+  on(next, (state) => {
+    if (state == "red") return "amber";
+    else if (state == "green") return "red";
+    else if (state == "amber") return "green";
+    else return state;
+  })
+);
+
+export function trafficLightReducer(state, action) {
+  return _trafficLightReducer(state, action);
+}
+```
+
+The exported function wrapper is necessary because for Angular AOT compiling the [documentation](https://angular.io/guide/aot-compiler#function-calls-are-not-supported) states:
+
+> Factory functions must be exported, named functions. The AOT compiler does not support lambda expressions \("arrow functions"\) for factory functions.
+
+And to simplify our program, we frequently fold the initialization of the state into the definition of the reducer by defining the initial state as the default value for the reducer's first parameter:
+
+```typescript
+const _trafficLightReducer = createReducer<string>(
+  (initialState = "red"),
+  on(next, (state) => {
+    // ... same as before ...
+  })
+);
+```
+
+Next import the `StoreModule` and the `trafficLight.reducer` file in your `app.module.ts`. Then Add the `StoreModule.forRoot` function in the imports array of your AppModule. The `StoreModule.forRoot()` method registers the global providers needed to access the Store throughout your application.
+
+```typescript
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+
+import { AppComponent } from "./app.component";
+
+import { StoreModule } from "@ngrx/store";
+import { trafficLightReducer } from "./trafficLight.reducer";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, StoreModule.forRoot({ color: trafficLightReducer })],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Once our reducer is defined and the store provided to the application, our components are ready to consume this store to send actions and update it's state.
+
+```typescript
+import { Component } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { next } from "../trafficLight.actions";
+
+@Component({
+  selector: "app-traffic-light",
+  templateUrl: "./traffic-light.component.html",
+})
+export class TrafficLightComponent {
+  color$: Observable<string>;
+
+  constructor(private store: Store<{ color: string }>) {
+    this.color$ = store.select("color");
+  }
+
+  next() {
+    this.store.dispatch(next());
   }
 }
 ```
 
-It's very important that `changeColor` returns the original state without modification when it doesn't recognize the type of the action it is being asked to perform, since this allows us to combine reducer functions without worrying that they will trip over one another. And to simplify our program, we frequently fold the initialization of the state into the definition of the reducer by defining the initial state as the default value for the reducer's first parameter:
+If we want to add new capabilities, we simply add a new action:
 
-```javascript
-function changeColor(state = {color: 'red'}, action) {
-  switch(action.type) {
-    ...as before...
-  }
-}
+```typescript
+import { createAction } from "@ngrx/store";
+
+export const next = createAction("[Traffic Light Component] Next");
+/* New Action */
+export const emergency = createAction("[Traffic Light Component] Emergency");
 ```
 
-Once this reducer is defined, our application wraps it up to create an object store, and then sends actions to that store to tell it when to move to the next state:
+and update our reducer:
 
-```javascript
-import { createStore } from "redux";
-let store = createStore(changeColor);
-
-for (let i = 0; i < 10; i++) {
-  store.dispatch({ type: "NEXT" });
-  console.log(store.getState().color); // red, green, amber, red, ...
-}
-```
-
-If we want to add new capabilities, we simply update our reducer:
-
-```javascript
-function changeColor(state, action) {
-  switch(action.type) {
-
-    case 'NEXT':
-      ...as before...
-
-    case 'EMERGENCY':
-      return {color: 'red'};
-
-    default:
-      return state;
-  }
-}
+```typescript
+const _trafficLightReducer = createReducer(
+  initialState,
+  on(next, (state) => {
+    if (state == "red") return "amber";
+    else if (state == "green") return "red";
+    else if (state == "amber") return "green";
+    else return state;
+  }),
+  /* New reducer option */
+  on(emergency, (state) => "red")
+);
 ```
 
 This may seem like a lot of work to manage a single traffic light, but that work pays off as soon as we have to worry about asynchronous updates. For example, if we want to do an emergency test of the light every night at 1:00 am, all we have to do is this:
 
-```javascript
+```typescript
+import { emergency } from "../trafficLight.actions";
+
+// ...
+
 let delay = until(tomorrow() + ONE_HOUR);
-setTimeout(() => changeColor(state, { type: "EMERGENCY" }), delay);
+setTimeout(() => this.store.dispatch(emergency()), delay);
 ```
 
-When the timeout callback is triggered, Redux will put the traffic light in the required state regardless of what else has gone on or is going on.
+When the timeout callback is triggered, NgRx will put the traffic light in the required state regardless of what else has gone on or is going on.
+
+[View Example](https://stackblitz.com/edit/dmor-r-traffic-light?file=src/app/app.component.ts)
 
 ## Setting Up Forms to Work with Redux
 
