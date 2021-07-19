@@ -27,5 +27,8 @@ There are other HTML5 attributes which can be learned and applied to various typ
 <input type="text" maxlength="5">
 ```
 
-You can use one or both of these methods when writing a template-driven form. Focus on the user experience: in some cases, it makes sense to prevent accidental entry, and in others it makes sense to allow unrestricted entry but provide something like a counter to show limitations.
+[View Example](https://stackblitz.com/edit/github-cou5z1?file=src/app/app.component.ts)
 
+In both cases the ngForm object can be valid or invalid based on the results of the HTML5 validators. If a validator returns false because the requirements were not met, then the associated ngModel on the field will have an invalid status. When an ngModel has a parent ngForm, the ngModel' status will be reflected in the ngForm. All ngModel's must have a valid status for the parent ngForm to be valid.
+
+You can use one or both of these methods when writing a template-driven form. Focus on the user experience: in some cases, it makes sense to prevent accidental entry, and in others it makes sense to allow unrestricted entry but provide something like a counter to show limitations.
