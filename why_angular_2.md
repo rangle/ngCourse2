@@ -1,55 +1,65 @@
 # Why Angular?
 
-There are many front-end JavaScript frameworks to choose from today, each with its own set of trade-offs. Many people were happy with the functionality that AngularJS afforded them. Angular improved on that functionality and made it faster, more scalable and more modern. Organizations that found value in AngularJS will find more value in Angular. It is increasingly common to see a sentiment in the enterprise space that Angular provides the sort of 'out of box' functionality and opinionated tools that allow for large teams to work in a cohesive and consistent way.
+With many front-end JavaScript frameworks to choose from, it's natural to wonder what makes Angular stand apart. Angular provides an excellent method for creating web applications, giving structure and types that help developers learn and build with the framework. Enterprise developers find that Angular provides out-of-the-box functionality and tools that allow large teams to organize their work to deliver great web experiences.
+
+With widespread praise for AngularJS, Angular builds upon that foundation to make the framework faster, more scalable, and modern. Organizations that found value in AngularJS will find more value in Angular.
 
 ## Angular's Advantages
 
-The first release of AngularJS provided programmers with the tools to develop and architect large scale JavaScript applications, but its age has revealed a number of flaws and sharp edges. Angular was built on five years of community feedback.
+AngularJS provided programmers with the tools to develop and architect large-scale JavaScript applications. As it approached later versions, age revealed some flaws and sharp edges. A rewrite brought five years of community feedback into the library and produced the Angular framework that we use today.
 
-Now, after the many years of Angular 2+ released, it has matured into a system focused on providing tools that scale, with a robust community and many common problems solved with tutorials, blog posts, and videos galore to help you tackle challenges of all shapes and sizes.
+Angular has matured to provide tools that scale and sports an active developer community. The community has provided tutorials, blog posts, and videos that solve many common problems.
 
-### Angular Is Easier
+### Easy to Learn
 
-The new Angular codebase is more modern, more capable and easier for new programmers to learn than AngularJS, while also being easier for project veterans to work with.
+One of Angular's most notable advantages is its structure that supports learning and understanding. New developers learn Angular by solving problems and understanding the small set of core framework features. When they're ready to learn more advanced features, they can quickly build upon that knowledge and gradually learn more of the framework.
 
-Compared to other popular web frameworks, Angular is 
+The [Angular Styleguide](https://angular.io/guide/styleguide) provides a structured and organized approach to building Angular apps that helps teams maintain this learning path. New developers are less likely to be confused when looking through a codebase. They will quickly learn how to contribute to complex features. The Styleguide is a crucial element to your team's documentation.
+
+Angular's code automation and generation simplify the bootstrapping work needed to create new features. Schematics in the Angular CLI also go a long way to help newcomers feel comfortable making new components, services, and features.
 
 ### TypeScript
 
-Angular 2+ was written in TypeScript, a superset of JavaScript that implements many new ES2016+ features, and was since its inception. 
+Angular was written in TypeScript, a typed superset of JavaScript that implements many modern EcmaScript features. Programmers using sophisticated text editors \(or IDEs\) will notice dramatic improvements with auto-completion and type suggestions. These improvements help to reduce the cognitive burden of learning Angular.
 
-By focusing on making the framework easier for computers to process, Angular allows for a much richer development ecosystem. Programmers using sophisticated text editors \(or IDEs\) will notice dramatic improvements with auto-completion and type suggestions. These improvements help to reduce the cognitive burden of learning Angular. Fortunately for traditional ES5 JavaScript programmers this does _not_ mean that development must be done in TypeScript or ES2015: programmers can still write vanilla JavaScript that runs without transpilation.
+> For traditional ES5 JavaScript programmers this does _not_ mean that development must be done in TypeScript or ES2015: programmers can still write vanilla JavaScript that runs without transpilation.
 
-### Familiarity
+### Structured Releases
 
-Despite being a complete rewrite, Angular has retained many of its core concepts and conventions with AngularJS, e.g. a streamlined, "native JS" implementation of dependency injection. This means that programmers who are already proficient with Angular will have an easier time migrating to Angular than another library like React or framework like Ember.
+While there have been some tricky Angular releases over the years, the Angular team prioritizes stability as a core tenant of the framework's development. Teams following the Angular Styleguide and staying up-to-date with the latest version will experience seamless releases that often result in performance improvements. Many tools and libraries also keep pace with the latest and greatest version of Angular, which adds to the benefits received from staying up-to-date.
 
-### Performance and Mobile
+Libraries like [Nx](https://nx.dev/) go a step further to develop tooling on top of the framework for monorepos, build-caching, and automation. Angular's structured releases help the community build impressive tooling that can be maintained and updated as the framework changes.
 
-Angular was designed for mobile from the ground up. Aside from limited processing power, mobile devices have other features and limitations that separate them from traditional computers. Touch interfaces, limited screen real estate and mobile hardware have all been considered in Angular.
+### Performance Across Platforms
+
+Angular was designed for mobile from the ground up. Aside from limited processing power, mobile devices have other features and limitations separate from traditional computers. Touch interfaces, little screen real estate, and mobile hardware have all been considered in Angular.
 
 Desktop computers will also see dramatic improvements in performance and responsiveness.
 
-Angular, like React and other modern frameworks, can leverage performance gains by rendering HTML on the server or even in a web worker. Depending on application/site design this isomorphic rendering can make a user's experience _feel_ even more instantaneous.
+Like React and other modern frameworks, Angular can leverage performance gains by rendering HTML on the server or even in a web worker. Depending on application/site design, this isomorphic rendering can make a user's experience _feel_ even more instantaneous.
 
-The quest for performance does not end with pre-rendering. Angular makes itself portable to native mobile by integrating with [NativeScript](https://www.nativescript.org/), an open source library that bridges JavaScript and mobile. Additionally, the Ionic team is working on an Angular version of their product, providing _another_ way to leverage native device features with Angular.
+The quest for performance does not end with pre-rendering. Angular makes itself portable to native mobile by integrating with [NativeScript](https://www.nativescript.org/), an open-source library that bridges JavaScript and mobile. The [Ionic](https://ionicframework.com/) team also provides _another_ way to leverage native device features with Angular.
+
+### Familiarity
+
+Despite being a complete rewrite, Angular has retained many of its core concepts and conventions with AngularJS, e.g. a streamlined, "native JS" implementation of dependency injection. Programmers who are already proficient with AngularJS will have an easier time migrating to Angular than another library like React or a framework like Svelte.
 
 ### Project Architecture and Maintenance
 
-The first iteration of AngularJS provided web programmers with a highly flexible framework for developing applications. This was a dramatic shift for many web programmers, and while that framework was helpful, it became evident that it was often too flexible. Over time, best practices evolved, and a community-driven structure was endorsed.
+The first iteration of AngularJS provided web programmers with a highly flexible framework for developing applications. While that framework was helpful, it became evident that it was often too relaxed. As best practices evolved, the community developed a structure that became overwhelmingly endorsed.
 
-AngularJS tried to work around various browser limitations related to JavaScript. This was done by introducing a module system that made use of dependency injection. This system was novel, but unfortunately had issues with tooling, notably minification and static analysis.
+AngularJS tried to work around various browser limitations related to JavaScript. The framework did this by introducing a module system that used dependency injection. This system was novel but unfortunately had issues with tooling, notably minification and static analysis.
 
-Angular 2+ makes use of the ES2015 module system, and modern packaging tools like webpack or SystemJS. Modules are far less coupled to the "Angular way", and it's easier to write more generic JavaScript and plug it into Angular. The removal of minification workarounds and the addition of rigid prescriptions make maintaining existing applications simpler. The new module system also makes it easier to develop effective tooling that can reason better about larger projects.
+Angular uses the ES2015 module system and modern packaging tools like WebPack or SystemJS. Modules aren't coupled to the "Angular way," and it's easier to write more generic JavaScript and plug it into Angular. The removal of workarounds and more rigid standards make maintaining existing applications simpler. The new module system also makes it easier to develop effective tooling to support larger projects.
 
 ## Differences Between AngularJS & Angular 2+
 
 > Note that "Transitional Architecture" refers to a style of Angular.js application written in a way that mimics Angular's component style, but with controllers and directives instead of TypeScript classes.
 
-|                                       | Old School AngularJS                  | AngularJS Best Practices | **Transitional Architecture** | Angular                      | 
-| :------------------------------------ | :----------------------- | :---------------------------- | :--------------------------- | :------------------- |
-| Nested scopes \("$scope", watches\)   | Used heavily             | Avoided                       | **Avoided**                  | Gone                 |
-| Directives vs controllers             | Use as alternatives      | Used together                 | **Directives as components** | Component directives |
-| Controller and service implementation | Functions                | Functions                     | **ES6 classes**              | ES6 classes          |
-| Module system                         | Angular's modules        | Angular's modules             | **ES6 modules**              | ES6 modules          |
-| Transpiler required                   | No                       | No                            | **TypeScript**               | TypeScript           |
+|                                       | Old School AngularJS | AngularJS Best Practices | **Transitional Architecture** | Angular              |
+| :------------------------------------ | :------------------- | :----------------------- | :---------------------------- | :------------------- |
+| Nested scopes \("$scope", watches\)   | Used heavily         | Avoided                  | **Avoided**                   | Gone                 |
+| Directives vs controllers             | Use as alternatives  | Used together            | **Directives as components**  | Component directives |
+| Controller and service implementation | Functions            | Functions                | **ES6 classes**               | ES6 classes          |
+| Module system                         | Angular's modules    | Angular's modules        | **ES6 modules**               | ES6 modules          |
+| Transpiler required                   | No                   | No                       | **TypeScript**                | TypeScript           |
