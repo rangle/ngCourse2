@@ -14,7 +14,7 @@
     "gitbook-plugin-versions": "^2.1.4"
   },
   "devDependencies": {
-    "gitbook-cli": "^2.2.0",
+    "gitbook-cli": "^2.3.2",
     "live-server": "^1.0.0"
   },
   "scripts": {
